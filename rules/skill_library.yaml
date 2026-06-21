@@ -1,0 +1,36 @@
+# PDAF v3.0 — SKILL_LIBRARY for Step 2 (Skill Classification).
+# A CPA sequence is matched to a skill_name by phase-sequence matching against these entries
+# (Jaccard score over phase sets + domain bonuses). Seeded with the 5 skills validated on
+# T1-T5 (Report 3 §3.1); extend as new skill patterns recur (Step 5 rule-update loop).
+# skill_id S001.. ; skill_file points at a future skills/ markdown card.
+
+skills:
+  - skill_id: S001
+    skill_name: search_and_summarize
+    skill_file: S1_search_and_summarize.md
+    characteristic_phases: [PLAN, RETRIEVE, INSPECT, EXTRACT, SYNTHESIZE, WRITE]
+    domain: web_research
+  - skill_id: S002
+    skill_name: compare_products
+    skill_file: S2_compare_products.md
+    characteristic_phases: [PLAN, RETRIEVE, INSPECT, EXTRACT, SYNTHESIZE, WRITE]
+    domain: shopping
+  - skill_id: S003
+    skill_name: fill_and_submit_form
+    skill_file: S3_fill_and_submit_form.md
+    characteristic_phases: [PLAN, RETRIEVE, INSPECT, EXTRACT, WRITE]   # FILL_FIELD + SUBMIT_FORM
+    domain: forms
+  - skill_id: S004
+    skill_name: search_and_retrieve
+    skill_file: S4_search_and_retrieve.md
+    characteristic_phases: [PLAN, RETRIEVE, INSPECT, EXTRACT, WRITE]
+    domain: web_research
+  - skill_id: S005
+    skill_name: verify_fact
+    skill_file: S5_verify_fact.md
+    characteristic_phases: [PLAN, RETRIEVE, INSPECT, EXTRACT, VERIFY, WRITE]
+    domain: fact_checking
+
+# If no library skill matches well, emit a new lowercase snake_case skill_name describing the
+# procedure and flag it (Step 5) as a candidate library addition.
+new_skill_policy: "propose a new snake_case skill_name; flag for human review / library addition"

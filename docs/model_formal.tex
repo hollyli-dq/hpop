@@ -1,0 +1,206 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,bm}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\sA}{\mathcal{A}}
+\newcommand{\sX}{\mathcal{X}}
+\newcommand{\sL}{\mathcal{L}}
+\newcommand{\ind}[1]{\mathbf{1}\!\left[#1\right]}
+\newcommand{\CRP}{\mathrm{CRP}}
+\newcommand{\GEM}{\mathrm{GEM}}
+\newcommand{\DP}{\mathrm{DP}}
+\newcommand{\Pois}{\mathrm{tPoisson}}
+\title{A Hierarchical Bayesian Skill-Library Partial-Order Model}
+\author{HPOP --- formal model specification}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent
+We formalize a hierarchical Bayesian model of agent traces:
+\[
+\textbf{Actions}\ \longrightarrow\ \textbf{Local partial orders (skills)}\ \longrightarrow\ \textbf{Global partial order},
+\]
+in which skills are reusable, are drawn from a shared \emph{library}, and \emph{creating a new skill is
+penalized}. The model is the hierarchical, nonparametric extension of BPOP: a Dirichlet-process mixture
+whose atoms are local partial orders, ordered at the top level by a global partial order. Both ordering
+likelihoods use the tractable robust frontier-softmax, avoiding \#P-hard linear-extension counting.
+
+\section{Notation}
+Let $\sA=\{1,\dots,M\}$ be the canonical action (CPA) alphabet. A corpus is a set of traces; trace $n$
+is an observed action sequence $y^{(n)}=(y^{(n)}_1,\dots,y^{(n)}_{T_n})$ with $y^{(n)}_t\in\sA$, obtained
+after physical normalization and CPA abstraction (PDAF Steps~1a--1b). Latent structure per trace: a
+segmentation of $y^{(n)}$ into contiguous \emph{skill instances}, a skill-\emph{type} label per instance,
+a local partial order per skill type, and a global partial order over the instances.
+
+\section{Partial orders and their latent representation}
+\begin{definition}[Strict partial order]
+A strict partial order (poset) on a finite set $\sX$ is a pair $h=(\sX,\succ_h)$ with $\succ_h$
+irreflexive and transitive. $a\parallel_h b$ (\emph{incomparable}) iff neither $a\succ_h b$ nor $b\succ_h a$.
+A \emph{linear extension} is a total order on $\sX$ consistent with $\succ_h$; $\sL(h)$ is the set of all
+linear extensions.
+\end{definition}
+
+\begin{definition}[Latent realizer / dimension representation]
+\label{def:U}
+For $\sX$ with $|\sX|=m$ and a latent matrix $U\in\R^{m\times K}$, define the poset $h(U)$ by
+\begin{equation}
+a\succ_{h(U)} b \iff U_{a,k} > U_{b,k}\quad\forall k\in\{1,\dots,K\}.
+\label{eq:dominance}
+\end{equation}
+Thus $h(U)$ is the intersection of $K$ total orders (\emph{realizers}); $\dim(h(U))\le K$
+(Dushnik--Miller). Incomparability arises when two rows fail to dominate across all $K$ coordinates,
+encoding concurrency.
+\end{definition}
+
+\noindent
+\textbf{Prior on a poset.} Following Nicholls et al., place
+\begin{equation}
+K\sim\Pois(\lambda),\qquad U_{\cdot,k}\stackrel{iid}{\sim}\mathcal{N}(\bm 0,\Sigma_\rho),\ k=1,\dots,K,
+\label{eq:Uprior}
+\end{equation}
+where $\Sigma_\rho$ has unit variance and correlation $\rho$; the dimension $K$ is itself inferred. Write
+$p_0(h)=\int \ind{h(U)=h}\,dU\,dK$ for the induced prior over posets.
+
+\section{The frontier-softmax likelihood}
+Given a poset $h$ on $\sX$, an agent emits its elements as a stochastic linear extension by repeatedly
+choosing from the \emph{frontier}.
+\begin{definition}[Frontier]
+For a prefix that has emitted the set $S\subseteq\sX$, the frontier is
+$F(S;h)=\{a\in\sX\setminus S:\ \nexists\,b\in\sX\setminus S,\ b\succ_h a\}$,
+the minimal not-yet-emitted elements. Elements of $F(S;h)$ are mutually unordered given $S$ (concurrent).
+\end{definition}
+\begin{definition}[Robust frontier-softmax]
+\label{def:fs}
+Let $w=(w_1,\dots,w_m)$ be an emitted order, $S_t=\{w_1,\dots,w_{t-1}\}$, $F_t=F(S_t;h)$,
+$R_t=\sX\setminus S_t$, and the successor utility $Q(a;h)=\log\!\big(1+|\{b:a\succ_h b\}|\big)$. With
+inverse temperature $\beta\ge0$ and noise $\epsilon\in[0,1)$,
+\begin{equation}
+p(w\mid h,\beta,\epsilon)=\prod_{t=1}^{m}\left[(1-\epsilon)\,
+\frac{\ind{w_t\in F_t}\,e^{\beta Q(w_t;h)}}{\sum_{a\in F_t}e^{\beta Q(a;h)}}
+\;+\;\epsilon\,\frac{1}{|R_t|}\right].
+\label{eq:fs}
+\end{equation}
+\end{definition}
+If $w_t\notin F_t$ (an order violation) the rational term vanishes and only the $\epsilon$ noise survives,
+so violating traces retain positive probability. Evaluating \eqref{eq:fs} costs $O(m\,|\sX|)$ via Kahn's
+algorithm, avoiding the \#P-complete enumeration of $\sL(h)$.
+
+\section{Skills, the library, and the base measure}
+A \emph{skill} is a local partial order together with its action support:
+$\theta=(\sA_\theta,\,U_\theta)$ with $\sA_\theta\subseteq\sA$ and local poset $P_\theta=h(U_\theta)$ on
+$\sA_\theta$. The base measure $G_0$ over skills draws a support and a poset via \eqref{eq:Uprior}.
+
+The shared library is nonparametric:
+\begin{equation}
+G=\sum_{r\ge1}\pi_r\,\delta_{\theta_r},\qquad
+\bm\pi\sim\GEM(\alpha),\quad \theta_r\stackrel{iid}{\sim}G_0,\qquad\text{i.e. } G\sim\DP(\alpha,G_0).
+\label{eq:DP}
+\end{equation}
+Each skill instance's type is an i.i.d.\ draw from $G$; integrating out $\bm\pi$ yields the Chinese
+restaurant process (CRP) predictive used below. (Corpus-level sharing with per-trace reuse is the
+hierarchical DP; we state the single shared-library CRP, which suffices for the penalty.)
+
+\section{Generative model}
+Let $z_{n,i}\in\{1,2,\dots\}$ index the skill type of instance $i$ in trace $n$, and let
+$(n,i)\mapsto g(n,i)$ enumerate all instances in exchangeable order with running type counts $n_r$.
+\begin{enumerate}
+\item \textbf{Library (lazy).} Maintain atoms $\theta_r=(\sA_r,U_r)$, drawing a fresh
+$\theta_{r^*}\sim G_0$ the first time a new type is opened.
+\item \textbf{Skill-type assignment (CRP).} For the $N{+}1$-st instance overall,
+\begin{equation}
+P(z=r\mid z_{1:N})=\frac{n_r}{N+\alpha},\qquad
+P(z=\text{new})=\frac{\alpha}{N+\alpha}.
+\label{eq:crp}
+\end{equation}
+\item \textbf{Global poset.} For trace $n$ with $T_n$ instances draw $V_n\in\R^{T_n\times K^g_n}$ via
+\eqref{eq:Uprior} (params $\lambda_g$), giving $Q_n=h(V_n)$.
+\item \textbf{Global linear extension.} Emit the instance order $\sigma_n\in\sL(Q_n)$ from the global
+frontier-softmax $p(\sigma_n\mid Q_n,\beta_g,\epsilon_g)$ \eqref{eq:fs}.
+\item \textbf{Local linear extensions.} For each instance $i$ of type $r=z_{n,i}$, emit its action block
+$y^{(n)}_{[i]}$ (an ordering of the nodes of $P_r$) from the local frontier-softmax
+$p(y^{(n)}_{[i]}\mid P_r,\beta_\ell,\epsilon_\ell)$ \eqref{eq:fs}.
+\end{enumerate}
+The observed trace $y^{(n)}$ is the concatenation of the blocks $\{y^{(n)}_{[i]}\}$ in the order
+$\sigma_n$: a \emph{nested} linear extension (a linear extension of the global poset whose elements are
+themselves linear extensions of local posets).
+
+\section{Joint density and the new-skill penalty}
+With $\Theta=\{\theta_r\}$ the realized library and $\Phi=(\alpha,\lambda,\lambda_g,\beta_\ell,\beta_g,\epsilon)$,
+\begin{align}
+p\big(\{y^{(n)},\sigma_n,V_n,z_{n,\cdot}\}_n,\Theta\mid\Phi\big)
+=\;&\underbrace{p(z_{\cdot}\mid\alpha)}_{\text{types}}\;
+\prod_{r}\underbrace{G_0(\theta_r)}_{\text{skill params}}
+\prod_{n}\Big[\,\underbrace{p_0(V_n)}_{\text{global prior}}\;
+\underbrace{p(\sigma_n\mid h(V_n),\beta_g,\epsilon_g)}_{\text{global LE}}\nonumber\\
+&\times\prod_{i=1}^{T_n}\underbrace{p\big(y^{(n)}_{[i]}\mid P_{z_{n,i}},\beta_\ell,\epsilon_\ell\big)}_{\text{local LE}}\Big].
+\label{eq:joint}
+\end{align}
+The first two factors are the cost of the \emph{library}; the bracket is the cost of \emph{ordering}
+skills and actions. We now isolate the penalty.
+
+\begin{proposition}[New-skill penalty via the EPPF]
+\label{prop:penalty}
+Let $z_{1:N}$ have $K$ distinct types with sizes $n_1,\dots,n_K$. Under the CRP \eqref{eq:crp}, the type
+prior is the Ewens exchangeable partition probability function
+\begin{equation}
+p(z_{1:N}\mid\alpha)=\alpha^{K}\,\frac{\Gamma(\alpha)}{\Gamma(N+\alpha)}\prod_{r=1}^{K}\Gamma(n_r),
+\qquad
+\log p(z_{1:N}\mid\alpha)= K\log\alpha+\sum_{r}\log\Gamma(n_r)+\log\tfrac{\Gamma(\alpha)}{\Gamma(N+\alpha)} .
+\label{eq:eppf}
+\end{equation}
+Hence the number of distinct skills $K$ enters the log-joint linearly with coefficient $\log\alpha$:
+\emph{each new skill incurs a fixed prior penalty of $-\log\alpha$} (for $\alpha<1$, a positive cost),
+while reusing a type of size $n_r$ contributes the cheaper $\log\Gamma(n_r{+}1)-\log\Gamma(n_r)=\log n_r$.
+Opening a new type additionally pays the marginal (Bayesian-Occam) cost
+\begin{equation}
+-\log\!\int p\big(y_{[i]}\mid h(U)\big)\,dG_0(U)
+\label{eq:occam}
+\end{equation}
+in place of reusing an existing $P_r$, so a new skill is favored only when it explains its block
+substantially better than any library skill.
+\end{proposition}
+
+\noindent
+\textbf{Pitman--Yor generalization.} Replacing the CRP by a Pitman--Yor process $\mathrm{PY}(\alpha,d)$,
+$d\in[0,1)$, gives
+\begin{equation}
+P(z=\text{new})=\frac{\alpha+dK}{N+\alpha},\qquad P(z=r)=\frac{n_r-d}{N+\alpha},
+\label{eq:py}
+\end{equation}
+a per-new-skill penalty $-\log(\alpha+dK)$ that grows with $K$, yielding power-law library sizes when a
+heavier tail of rare skills is expected. The single knob $\alpha$ (with optional $d$) controls the
+reuse--novelty trade-off: smaller $\alpha\Rightarrow$ stronger reuse and fewer skills.
+
+\section{Posterior and inference}
+The posterior over $\big(\text{segmentation},z,\{U_r\},\{V_n\},\Phi\big)$ given $\{y^{(n)}\}$ is
+proportional to \eqref{eq:joint}. We target it with MCMC:
+\begin{itemize}\setlength\itemsep{1pt}
+\item \emph{Type reassignment} (collapsed Gibbs, DP-mixture form): for instance $(n,i)$,
+$P(z_{n,i}=r\mid\cdots)\propto \big(n_r^{-(n,i)}\ \text{or}\ \alpha\big)\cdot
+p\big(y^{(n)}_{[i]}\mid P_r,\beta_\ell,\epsilon_\ell\big)$, with the global-LE factor enforcing
+consistency with $\sigma_n$; the $\alpha$ branch is Proposition~\ref{prop:penalty}.
+\item \emph{Skill split/merge} (library moves), \emph{semi-Markov} resegmentation of $y^{(n)}$.
+\item \emph{Dimension} $K_r,K^g_n$ by reversible-jump MCMC (birth/death of realizer columns).
+\item \emph{Continuous} updates of $U_r,V_n,\beta_\ell,\beta_g,\epsilon$ and a hyperprior on $\alpha$ by MH.
+\end{itemize}
+The recovered structure compiles into a frontier executor: incomparable elements run concurrently and
+reused skills are not re-planned, giving the inference-time speed-up.
+
+\section{Informative priors from PDAF annotation}
+PDAF supplies weak supervision that sharpens the priors:
+\begin{itemize}\setlength\itemsep{1pt}
+\item \texttt{local\_orders} (typed CPA edges with confidence) define a per-pair prior
+$\pi_{ab}\in\{\succ,\prec,\parallel\}$ for each skill, replacing the uniform $1/3$ prior over the three
+relations; entered as a prior factor / pseudo-observations on $U_r$. \texttt{INCOMPARABLE} contributes
+direct $\parallel$ evidence, the relation hardest to recover from linear extensions alone.
+\item \texttt{global\_orders} (skill-level edges) prior on $Q_n$ via $V_n$.
+\item \texttt{skill\_name} and the library seed the atoms $\{\theta_r\}$ and bias the CRP labels $z$;
+the annotator's \texttt{skill\_is\_new} flag is the empirical counterpart of the CRP ``new table'' event
+\eqref{eq:crp} and is used as a proposal bias for opening new skills.
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,52 @@
+# PDAF v3.0 — the 8 dependency labels (Report 3 §2.3.1).
+# Step 3 (Dependency Labeling) applies these in STRICT PRIORITY ORDER to each pair of
+# consecutive CPA instances; the FIRST matching rule wins. Nodes are CPA instances
+# (cpa_instance_id) — not phrases, not phases. These edges become HPOP's local poset H_r.
+# INCOMPARABLE = order is free (the source of parallelism). ADJACENT_ONLY is the residual
+# fallback and should be rare (<15%; v3 achieves 6%).
+
+labels:                       # priority order = list order; first match wins
+  - rank: 1
+    id: REPAIR_OF
+    definition: "B exists because A failed or produced unusable output."
+    reference: "Norman & Shallice (1986) SAS"
+  - rank: 2
+    id: VERIFY_OF
+    definition: "B's primary function is to test whether A's output is correct."
+    reference: "Nelson & Narens (1990); Wason (1960)"
+  - rank: 3
+    id: DATA_FLOW
+    definition: "A's artifact flows directly into B (RAW data dependency)."
+    reference: "Kildall (1973) program dependence"
+  - rank: 4
+    id: STATE_CHANGE
+    definition: "A modifies shared state (viewport, form, working memory) that B reads."
+    reference: "Program dependence analysis; WebLINX patches R1-R3"
+  - rank: 5
+    id: PRECONDITION
+    definition: "A must complete before B; no artifact flows (control dependence)."
+    reference: "Kildall (1973) control dependence"
+  - rank: 6
+    id: ELABORATES
+    definition: "B executes a subgoal stated or implied by A."
+    reference: "Mann & Thompson (1988) RST; Hobbs (1979)"
+  - rank: 7
+    id: INCOMPARABLE
+    definition: "A and B serve the same parent goal; order is arbitrary (order-free / parallel)."
+    reference: "Workflow-specific partial-order label"
+  - rank: 8
+    id: ADJACENT_ONLY
+    definition: "No structural relation (residual fallback — should be rare)."
+    reference: "Workflow-specific fallback"
+
+# B3 WebLINX patch rules — three STATE_CHANGE rules added in v3 (cut ADJACENT_ONLY 18% -> 6%):
+weblinx_state_change_patches:
+  - id: R1
+    rule: "SEARCH_SOURCE -> READ_SOURCE: search loads a results page, changing viewport state; reading depends on it."
+  - id: R2
+    rule: "READ_SOURCE -> OPEN_DOCUMENT: reading results reveals which links exist; opening depends on link-visibility state."
+  - id: R3
+    rule: "READ_SOURCE -> FILL_FIELD: reading the page reveals form structure; field filling depends on page state."
+
+distribution_monitor:
+  adjacent_only_warn_threshold: 0.15   # Step 4: warn if >15% of edges are ADJACENT_ONLY

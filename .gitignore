@@ -1,0 +1,28 @@
+# --- environments / caches ---
+.venv/
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+.ipynb_checkpoints/
+.claude/
+
+# --- archived previous prototype (not published) ---
+archive/
+
+# --- large external raw data (re-download via the ingest scripts) ---
+data/raw/
+*.json.gz
+
+# --- working scratch: extracted full text of papers / coauthor report (sensitive) ---
+docs/_bpop.txt
+docs/_hpop_paper.txt
+docs/_report3_extracted.txt
+
+# --- latex build artifacts ---
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.synctex.gz

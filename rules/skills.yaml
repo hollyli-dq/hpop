@@ -1,0 +1,18 @@
+# Skill types — machine-actionable inventory of reusable skill patterns.
+# Each skill type carries a phase tag and a local partial-order template over its tokens.
+# Human-readable definitions live in docs/taxonomy.md.
+#
+# Owner: linguistics PhD. Open question (DESIGN.md §7): closed taxonomy vs. induced vs. hybrid.
+# Empty for now — populated as the inventory is defined.
+
+skills: []
+
+# Template for each entry:
+#   - id: <skill_type_id>
+#     name: <human name>
+#     phase: <phase id from phases.yaml>
+#     definition: <the reusable procedure this captures>
+#     tokens: [<typical canonical action tokens>]
+#     local_order:                 # local partial-order template (must-precede edges)
+#       - [<token_a>, <token_b>]   # token_a must precede token_b
+#     completion_rule: <when an instance ends, success or failure>

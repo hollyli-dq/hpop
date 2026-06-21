@@ -1,0 +1,69 @@
+# CPA PILOT LIBRARY v0 — induced from the WebLINX domain (Report 3 §2.1.3).
+#
+# IMPORTANT: this is NOT a fixed/universal action vocabulary. CPAs are an OUTPUT of an LLM-assisted
+# inductive-coding study, not an input (see docs/cpa_induction.md). These 13 are a pilot library
+# induced from WebLINX — illustrative seed examples for a *closed-library* classification pass on
+# that domain. For a new domain (e.g. SWE-agent traces) the CPA library is re-induced from scratch
+# via open coding (PROPOSE_NEW / ABSTAIN allowed), then consolidated and frozen.
+#
+# CPA = the canonical action token (L1): the minimal procedurally-meaningful action unit, grounded
+# in Activity Theory's "Action" tier (Leontiev 1978). A CPA instance spans 1+ raw events.
+# Each entry: phase tag, the physical trigger it maps from, and the disambiguating signal.
+
+cpas:
+  - id: FORMULATE_GOAL
+    phase: PLAN
+    maps_from: "plan / load(homepage)"
+    signal: "position == 0 (start of trace)"
+  - id: SEARCH_SOURCE
+    phase: RETRIEVE
+    maps_from: "type(*) + click(*) — 5 variants incl. click(box)+type+press(enter), click(search_btn)"
+    signal: "keyword entered or Enter pressed"
+  - id: OPEN_DOCUMENT
+    phase: RETRIEVE
+    maps_from: "click(*) + load(*)"
+    signal: "a URL artifact is produced"
+  - id: NAVIGATE_PAGE
+    phase: RETRIEVE
+    maps_from: "tabcreate / tabswitch"
+    signal: "new tab context"
+  - id: READ_SOURCE
+    phase: INSPECT
+    maps_from: "scroll + read / scroll alone"
+    signal: "no proposition tested"
+  - id: SCAN_RESULTS
+    phase: INSPECT
+    maps_from: "scroll(results_keywords)"
+    signal: "result / listing / item keywords present"
+  - id: EXTRACT_EVIDENCE
+    phase: EXTRACT
+    maps_from: "copy(*)"
+    signal: "specific content captured"
+  - id: FILL_FIELD
+    phase: EXTRACT
+    maps_from: "fill_field x 1+"
+    signal: "a form field is filled (STATE_CHANGE dependency)"
+  - id: VERIFY_CLAIM
+    phase: VERIFY
+    maps_from: "compare(proposition_keywords)"
+    signal: "PROPOSITION_KEYWORDS present"
+  - id: WRITE_RESPONSE
+    phase: WRITE
+    maps_from: "write(*)"
+    signal: "a new text artifact is produced"
+  - id: SUBMIT_FORM
+    phase: WRITE
+    maps_from: "click(submit_keywords)"
+    signal: "one of 13 submit keywords; PRECONDITION satisfied"
+  - id: SYNTHESIZE_FINDINGS
+    phase: SYNTHESIZE
+    maps_from: "compare + write (no proposition)"
+    signal: "no PROPOSITION_KEYWORDS (integration, not verification)"
+  - id: REPAIR_SOURCE
+    phase: REPAIR
+    maps_from: "go_back()"
+    signal: "a failure signal precedes it"
+
+# Note: CHECK_SOURCE (a 14th candidate) was removed after stress-testing — WebLINX has no
+# corresponding action_type, so the rule never fired. 12 rule fixes were applied across 4
+# stress-test rounds (final: 64% HIGH / 36% MEDIUM / 0% ABSTAIN on 23 traces).

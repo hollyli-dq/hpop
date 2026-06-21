@@ -50,13 +50,21 @@ from structlog_sentry import SentryProcessor
   <div style="color:#9aa7b4;font-size:11px">each box = one OpenHands tool call coloured by family · red underline = follows a failed observation · hover for command→observation</div>
 </div></section>
 
-<section><h2>Expected open-coding output (per docs/cpa_induction.md)</h2><div class="panel">
-<pre>cpa_instances.jsonl: { "trajectory_id", "cpa_instance_id":"CPA-007", "source_event_ids":[18,19,20],
-  "proposed_cpa":"inspect failing test output", "canonical_cpa":null, "status":"PROPOSE_NEW",
-  "input_artifact":"pytest output", "output_artifact":"candidate failure cause", "confidence":0.88, "human_review":true }
-dependencies.jsonl: { "source_cpa_id":"CPA-006", "target_cpa_id":"CPA-007",
-  "proposed_relation":"DATA_FLOW", "evidence":"reads the failure output produced by CPA-006", "confidence":0.91 }</pre>
-  <div style="color:#9aa7b4;font-size:12px">Then <code>consolidate.py</code> applies Accept(c)=1[N≥m]·1[R≥r]·1[A≥τ] → candidate CPA library + human-review queue.</div>
+<section><h2>Example output — one induced CPA occurrence (finalized schema, per docs/cpa_induction.md)</h2><div class="panel">
+<pre>{
+  "occurrence_id": "tianocore__edk2-pytool-library-372::CPA_0003",
+  "source_event_ids": ["e0005","e0006"], "start_event_id":"e0005", "end_event_id":"e0006",
+  "decision": "PROPOSE_NEW", "canonical_label": null, "candidate_label": "RUN_TEST_SUITE",
+  "definition": "Execute the project test suite to observe pass/fail status.",
+  "procedural_function": "run pytest and read the failing-test summary",
+  "input_artifacts":  [{"artifact":"test paths",          "evidence_event_ids":["e0005"]}],
+  "output_artifacts": [{"artifact":"failing test report", "evidence_event_ids":["e0006"]}],
+  "state_before": "test status unknown", "state_after": "target test failing",
+  "outcome": "FAILURE", "boundary_confidence": 0.93, "label_confidence": 0.90,
+  "evidence": ["pytest invoked, then the session reports a FAILED test"],
+  "ambiguity": null, "review_required": false
+}</pre>
+  <div style="color:#9aa7b4;font-size:12px">Data-prep only — one object per trajectory holds <code>cpa_instances[]</code> + <code>excluded_events</code>, <code>candidate_library_updates</code>, <code>review_queue</code>, <code>quality_checks</code> (no skill/partial-order inference). Then <code>consolidate.py</code> applies Accept(c)=1[N≥m]·1[R≥r]·1[A≥τ] → candidate CPA library + review queue. (Illustrative occurrence in the real schema; values come from the API batch.)</div>
 </div></section>
 
 <section><h2>All 100 trajectories</h2><div class="panel"><div class="tablewrap">

@@ -58,6 +58,39 @@
     <div style="color:var(--mut);font-size:12px;margin-top:12px">Annotation is <b>data-prep only</b> — it does NOT infer skills/partial orders/phases; the model learns those. Two annotator configs run independently, then consolidate → frozen library.</div>
   </div></section>
 
+  <section><h2>Examples (real data · trace <code>tianocore__edk2-pytool-library-372</code>)</h2><div class="panel">
+    <div style="color:var(--mut);font-size:12px;margin-bottom:6px">Worked through one stage at a time. ① is verbatim from the pilot; ②–④ are an illustrative occurrence/rollup in the <b>exact finalized schema</b> (authored in-session — real values come from the API batch).</div>
+
+    <h3 style="font-size:13px;margin:14px 0 5px;color:var(--ink)">① Raw events (after ingest)</h3>
+    <pre style="background:#0b0e13;border:1px solid var(--line);border-radius:8px;padding:10px 13px;overflow:auto;font-size:11.5px;line-height:1.5;color:#cdd6df">{"event_id":"e0005","tool":"execute_bash","command":"… &amp;&amp; python -m pytest tests.unit/…","observation":"usage: __main__.py [options] …","follows_failed_observation":false}
+{"event_id":"e0006","tool":"execute_bash","command":"… &amp;&amp; python -m pytest tests.unit/…","observation":"==== test session starts ==== … FAILED","follows_failed_observation":true}</pre>
+
+    <h3 style="font-size:13px;margin:16px 0 5px;color:var(--ink)">② Induced CPA occurrence (annotator output)</h3>
+    <pre style="background:#0b0e13;border:1px solid var(--line);border-radius:8px;padding:10px 13px;overflow:auto;font-size:11.5px;line-height:1.5;color:#cdd6df">{
+  "occurrence_id": "tianocore__edk2-pytool-library-372::CPA_0003",
+  "source_event_ids": ["e0005","e0006"], "start_event_id":"e0005", "end_event_id":"e0006",
+  "decision": "PROPOSE_NEW", "canonical_label": null, "candidate_label": "RUN_TEST_SUITE",
+  "definition": "Execute the project test suite to observe pass/fail status.",
+  "procedural_function": "run pytest and read the failing-test summary",
+  "input_artifacts":  [{"artifact":"test paths",          "evidence_event_ids":["e0005"]}],
+  "output_artifacts": [{"artifact":"failing test report", "evidence_event_ids":["e0006"]}],
+  "state_before": "test status unknown", "state_after": "target test failing",
+  "outcome": "FAILURE", "boundary_confidence": 0.93, "label_confidence": 0.90,
+  "evidence": ["pytest invoked, then the session reports a FAILED test"],
+  "ambiguity": null, "review_required": false
+}</pre>
+    <div style="color:var(--mut);font-size:11.5px">A later edit span <code>["e0021","e0022"]</code> (view source → str_replace) → <code>EDIT_SOURCE_TO_FIX</code>; the next <code>RUN_TEST_SUITE</code> occurrence reuses the same <b>candidate_label</b> (repeats preserved as separate occurrences).</div>
+
+    <h3 style="font-size:13px;margin:16px 0 5px;color:var(--ink)">③ Per-trajectory rollup</h3>
+    <pre style="background:#0b0e13;border:1px solid var(--line);border-radius:8px;padding:10px 13px;overflow:auto;font-size:11.5px;line-height:1.5;color:#cdd6df">"candidate_library_updates":[{"candidate_label":"RUN_TEST_SUITE","definition":"…","occurrence_ids":["…CPA_0003"],"reason_new":"no existing CPA covers running the full suite","nearest_existing_labels":[]}],
+"review_queue":[{"occurrence_id":"…CPA_0006","reason":"LOW_CONFIDENCE","priority":"MEDIUM"}],
+"quality_checks":{"action_event_coverage_complete":true,"spans_sorted":true,"spans_non_overlapping":true,"repeated_occurrences_preserved":true,"skill_labels_inferred":false,"unassigned_action_event_ids":[]}</pre>
+
+    <h3 style="font-size:13px;margin:16px 0 5px;color:var(--ink)">④ Consolidated CPA library entry (after the Accept gate, across annotators)</h3>
+    <pre style="background:#0b0e13;border:1px solid var(--line);border-radius:8px;padding:10px 13px;overflow:auto;font-size:11.5px;line-height:1.5;color:#cdd6df">{"id":"CPA001","name":"RUN_TEST_SUITE","definition":"Execute the project test suite to observe pass/fail status.",
+ "N":42, "R":29, "A":1.0, "mean_confidence":0.90}   // Accept(c)=1[N≥3]·1[R≥2]·1[A≥0.5] → ACCEPTED</pre>
+  </div></section>
+
   <section><h2>The model — hierarchical Bayesian skill library</h2><div class="panel">
     <ul>
       <li><b>Skill = a local partial order</b> over CPA instances (BPOP latent <code>U∈ℝ^{m×K}</code>; poset = intersection of K realizers; K via RJMCMC).</li>

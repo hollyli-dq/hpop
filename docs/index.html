@@ -137,7 +137,8 @@
       <tr><td>ingest + 100-traj pilot</td><td><code>src/hpop/ingest/swe_rebench.py</code></td><td><span class="pill done">ran</span></td></tr>
       <tr><td>CPA annotator (INDUCE/APPLY)</td><td><code>src/hpop/annotate/opencode.py</code></td><td><span class="pill todo">needs key</span></td></tr>
       <tr><td>consolidation gate</td><td><code>src/hpop/annotate/consolidate.py</code></td><td><span class="pill now">ready</span></td></tr>
-      <tr><td>extract / inference / library</td><td><code>src/hpop/{extract,inference,library}/</code></td><td><span class="pill todo">next</span></td></tr>
+      <tr><td>BPOP likelihood + CRP penalty</td><td><code>src/hpop/inference/{poset,likelihood,library}.py</code></td><td><span class="pill done">core built · 13 tests pass</span></td></tr>
+      <tr><td>extract · MCMC learning loop</td><td><code>src/hpop/{extract,inference}/</code></td><td><span class="pill todo">next</span></td></tr>
     </table>
     <div style="color:var(--mut);font-size:12px;margin-top:10px">Run the real pilot: <code>export ANTHROPIC_API_KEY=… ; PYTHONPATH=src .venv/bin/python -m hpop.annotate.opencode --input data/interim/swe_rebench/pilot100.jsonl --output data/annotated/swe_rebench/cpa_A --mode INDUCE</code></div>
   </div></section>

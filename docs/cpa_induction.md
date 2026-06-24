@@ -49,8 +49,13 @@ review / <0.50 ABSTAIN), `evidence` (short statements, no chain-of-thought), `am
 `review_required`. Plus per trajectory: `excluded_events`, `candidate_library_updates`,
 `review_queue`, and `quality_checks` (incl. `skill_labels_inferred: false`).
 
-`C^(0) = ∅` (or a tiny illustrated set) — not a closed label set. **Dependencies / partial orders are
-NOT annotated here** (earlier drafts emitted them; the finalized spec leaves them to BPOP/HPOP).
+`C^(0)` may be empty (pure bottom-up) OR a **curated seed library** — `rules/cpa_library_seed.json`
+(16 SWE CPAs, grounded in real OpenHands/SWE trajectory semantics). A seed makes annotations
+**consistent by construction** (everyone labels against shared definitions) without becoming a frozen
+ontology: run **APPLY(seed) with PROPOSE_NEW open** → consolidate → human-curate → freeze v1. This is
+the lever for "good CPA annotation" (preferred over measuring drift after the fact). The seed is a
+DRAFT for coauthor review, revisable from data. **Dependencies / partial orders are NOT annotated
+here** (earlier drafts emitted them; the finalized spec leaves them to BPOP/HPOP).
 
 ## Consolidation (human-in-the-loop)
 `C^(t+1) = MergeSplitReview( C^(t) ∪ { ĉ_i : decision_i = PROPOSE_NEW } )`.

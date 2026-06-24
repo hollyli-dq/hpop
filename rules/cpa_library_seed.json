@@ -1,0 +1,98 @@
+[
+  {
+    "id": "CPA01", "name": "EXPLORE_REPOSITORY",
+    "definition": "Survey repository structure/files to orient before acting.",
+    "typical_triggers": ["str_replace_editor view(dir)", "ls", "tree"],
+    "input_artifacts": ["task/issue"], "output_artifacts": ["repo layout"]
+  },
+  {
+    "id": "CPA02", "name": "LOCATE_CODE",
+    "definition": "Search the codebase for the file/symbol/definition relevant to the task.",
+    "typical_triggers": ["grep", "find_file", "search_dir", "rg"],
+    "input_artifacts": ["failing test / symbol name"], "output_artifacts": ["file paths / line locations"]
+  },
+  {
+    "id": "CPA03", "name": "READ_SOURCE",
+    "definition": "Open and read a source, test, or doc file to understand its implementation/behavior.",
+    "typical_triggers": ["str_replace_editor view(file)", "cat", "goto", "scroll"],
+    "input_artifacts": ["file path"], "output_artifacts": ["code understanding"]
+  },
+  {
+    "id": "CPA04", "name": "RUN_TEST_SUITE",
+    "definition": "Execute the project test suite (or a test file) to observe pass/fail status.",
+    "typical_triggers": ["pytest", "tox", "python -m pytest", "unittest"],
+    "input_artifacts": ["test paths"], "output_artifacts": ["test report (pass/fail)"]
+  },
+  {
+    "id": "CPA05", "name": "REPRODUCE_ISSUE",
+    "definition": "Run a command/script to trigger and observe the reported bug.",
+    "typical_triggers": ["execute_bash <repro cmd>", "python <repro>.py"],
+    "input_artifacts": ["issue description / repro recipe"], "output_artifacts": ["observed failure"]
+  },
+  {
+    "id": "CPA06", "name": "WRITE_REPRODUCTION_SCRIPT",
+    "definition": "Create a script/file that reproduces the bug for repeatable checking.",
+    "typical_triggers": ["str_replace_editor create(repro.py)"],
+    "input_artifacts": ["root-cause hypothesis"], "output_artifacts": ["reproduction script"]
+  },
+  {
+    "id": "CPA07", "name": "DIAGNOSE_FAILURE",
+    "definition": "Inspect failing output (traceback, diff, assertion) to identify the cause; follows a failure.",
+    "typical_triggers": ["view of traceback", "read after a failed run"],
+    "input_artifacts": ["failure output"], "output_artifacts": ["root-cause hypothesis"]
+  },
+  {
+    "id": "CPA08", "name": "ADD_DEBUG_INSTRUMENTATION",
+    "definition": "Insert temporary prints/logging/asserts to investigate behavior (not the fix itself).",
+    "typical_triggers": ["edit inserting print/log statements"],
+    "input_artifacts": ["hypothesis"], "output_artifacts": ["debug trace"]
+  },
+  {
+    "id": "CPA09", "name": "EDIT_SOURCE",
+    "definition": "Modify source code to change behavior toward fixing the issue.",
+    "typical_triggers": ["str_replace_editor str_replace/insert on a source file"],
+    "input_artifacts": ["root cause"], "output_artifacts": ["patched source"]
+  },
+  {
+    "id": "CPA10", "name": "WRITE_TEST",
+    "definition": "Add a new or regression test that guards the intended behavior.",
+    "typical_triggers": ["str_replace_editor create(test_*.py)"],
+    "input_artifacts": ["intended behavior"], "output_artifacts": ["new test"]
+  },
+  {
+    "id": "CPA11", "name": "INSTALL_DEPENDENCY",
+    "definition": "Install or configure packages / environment needed to run the code or tests.",
+    "typical_triggers": ["pip install", "conda install", "poetry add", "apt-get"],
+    "input_artifacts": ["missing-dependency error"], "output_artifacts": ["prepared environment"]
+  },
+  {
+    "id": "CPA12", "name": "REFACTOR_CODE",
+    "definition": "Restructure code without changing externally observable behavior.",
+    "typical_triggers": ["edits that rename/move/reorganize without altering outputs"],
+    "input_artifacts": ["working code"], "output_artifacts": ["restructured code"]
+  },
+  {
+    "id": "CPA13", "name": "REVERT_CHANGE",
+    "definition": "Undo a previous edit that did not work or caused a regression.",
+    "typical_triggers": ["undo_edit", "git checkout --", "str_replace restoring prior content"],
+    "input_artifacts": ["failed change"], "output_artifacts": ["restored prior state"]
+  },
+  {
+    "id": "CPA14", "name": "CLEANUP_ARTIFACTS",
+    "definition": "Remove temporary/scratch files (repro scripts, debug output) before finalizing.",
+    "typical_triggers": ["rm <temp>", "delete scratch files"],
+    "input_artifacts": ["temp files"], "output_artifacts": ["clean working tree"]
+  },
+  {
+    "id": "CPA15", "name": "VERIFY_FIX",
+    "definition": "Re-run the reproduction or relevant tests to confirm the change resolves the issue.",
+    "typical_triggers": ["re-run repro / pytest after an edit, observing success"],
+    "input_artifacts": ["patched source + test/repro"], "output_artifacts": ["pass confirmation"]
+  },
+  {
+    "id": "CPA16", "name": "SUBMIT_SOLUTION",
+    "definition": "Finalize and submit the patch as the solution.",
+    "typical_triggers": ["finish", "submit"],
+    "input_artifacts": ["verified fix"], "output_artifacts": ["submitted patch"]
+  }
+]

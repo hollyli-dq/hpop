@@ -26,4 +26,8 @@ docs/_report3_extracted.txt
 *.bbl
 *.blg
 *.synctex.gz
+
+# --- generated / superseded (kept locally, reproducible) ---
 data/modelling/
+data/annotated/swe_rebench/cpa_rule.*
+legacy/

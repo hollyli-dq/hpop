@@ -1,0 +1,57 @@
+[
+  {
+    "cpa": "RUN_TEST_SUITE",
+    "occurrences": 3,
+    "trajectories": 1
+  },
+  {
+    "cpa": "RUN_REPRODUCTION",
+    "occurrences": 2,
+    "trajectories": 1
+  },
+  {
+    "cpa": "EXPLORE_REPOSITORY",
+    "occurrences": 1,
+    "trajectories": 1
+  },
+  {
+    "cpa": "LOCATE_TESTS",
+    "occurrences": 1,
+    "trajectories": 1
+  },
+  {
+    "cpa": "SEARCH_CODE_SYMBOL",
+    "occurrences": 1,
+    "trajectories": 1
+  },
+  {
+    "cpa": "INSPECT_SOURCE",
+    "occurrences": 1,
+    "trajectories": 1
+  },
+  {
+    "cpa": "WRITE_REPRODUCTION_SCRIPT",
+    "occurrences": 1,
+    "trajectories": 1
+  },
+  {
+    "cpa": "EDIT_SOURCE_TO_FIX",
+    "occurrences": 1,
+    "trajectories": 1
+  },
+  {
+    "cpa": "WRITE_REGRESSION_TEST",
+    "occurrences": 1,
+    "trajectories": 1
+  },
+  {
+    "cpa": "CLEANUP_ARTIFACTS",
+    "occurrences": 1,
+    "trajectories": 1
+  },
+  {
+    "cpa": "SUBMIT_SOLUTION",
+    "occurrences": 1,
+    "trajectories": 1
+  }
+]

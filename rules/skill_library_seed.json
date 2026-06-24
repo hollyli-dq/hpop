@@ -1,0 +1,33 @@
+[
+  {
+    "id": "SK01", "name": "explore_and_orient",
+    "definition": "Build situational understanding of the repo/issue before acting.",
+    "characteristic_cpas": ["EXPLORE_REPOSITORY", "LOCATE_CODE", "READ_SOURCE"]
+  },
+  {
+    "id": "SK02", "name": "reproduce_failure",
+    "definition": "Trigger and characterize the reported bug to establish a checkable failure.",
+    "characteristic_cpas": ["RUN_TEST_SUITE", "REPRODUCE_ISSUE", "WRITE_REPRODUCTION_SCRIPT", "DIAGNOSE_FAILURE"]
+  },
+  {
+    "id": "SK03", "name": "localize_and_fix",
+    "definition": "Find the root cause and edit source until the reproduction passes (edit↔verify loop).",
+    "characteristic_cpas": ["LOCATE_CODE", "READ_SOURCE", "EDIT_SOURCE", "ADD_DEBUG_INSTRUMENTATION",
+                            "REFACTOR_CODE", "REVERT_CHANGE", "DIAGNOSE_FAILURE", "VERIFY_FIX"]
+  },
+  {
+    "id": "SK04", "name": "add_regression_test",
+    "definition": "Write and run a test that guards the fixed behavior.",
+    "characteristic_cpas": ["WRITE_TEST", "RUN_TEST_SUITE", "VERIFY_FIX"]
+  },
+  {
+    "id": "SK05", "name": "setup_environment",
+    "definition": "Install/configure dependencies needed to run the code or tests.",
+    "characteristic_cpas": ["INSTALL_DEPENDENCY"]
+  },
+  {
+    "id": "SK06", "name": "verify_and_submit",
+    "definition": "Run the full suite, clean up scratch, and submit the patch.",
+    "characteristic_cpas": ["CLEANUP_ARTIFACTS", "RUN_TEST_SUITE", "VERIFY_FIX", "SUBMIT_SOLUTION"]
+  }
+]

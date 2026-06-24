@@ -1,7 +1,7 @@
 [
   {
     "cpa": "VERIFY_FIX",
-    "occurrences": 900,
+    "occurrences": 899,
     "trajectories": 100
   },
   {
@@ -21,8 +21,8 @@
   },
   {
     "cpa": "REPRODUCE_ISSUE",
-    "occurrences": 419,
-    "trajectories": 98
+    "occurrences": 385,
+    "trajectories": 97
   },
   {
     "cpa": "WRITE_TEST",
@@ -60,6 +60,11 @@
     "trajectories": 53
   },
   {
+    "cpa": "INSPECT_CHANGES",
+    "occurrences": 46,
+    "trajectories": 33
+  },
+  {
     "cpa": "INSTALL_DEPENDENCY",
     "occurrences": 40,
     "trajectories": 28
@@ -68,5 +73,10 @@
     "cpa": "REVERT_CHANGE",
     "occurrences": 18,
     "trajectories": 7
+  },
+  {
+    "cpa": "BUILD_PROJECT",
+    "occurrences": 9,
+    "trajectories": 6
   }
 ]

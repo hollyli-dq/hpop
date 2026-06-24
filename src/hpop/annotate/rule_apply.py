@@ -72,6 +72,10 @@ def classify(ev, edited_since_run):
             return "CLEANUP_ARTIFACTS", "SUCCESS"
         if re.search(r"git checkout|git restore|git stash|undo_edit|git reset", cmd):
             return "REVERT_CHANGE", "SUCCESS"
+        if re.search(r"git diff|git status|git show", cmd):
+            return "INSPECT_CHANGES", "SUCCESS"
+        if re.search(r"\bmake\b|cmake|cargo build|go build|\bmvn\b|gradle|setup\.py build|python setup\.py", cmd):
+            return "BUILD_PROJECT", ("FAILURE" if fail else "SUCCESS")
         is_test = bool(re.search(r"\bpytest\b|tox|unittest|nosetests|python -m pytest", cmd))
         outcome = "FAILURE" if fail else "SUCCESS"
         if is_test:

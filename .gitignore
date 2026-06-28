@@ -29,3 +29,7 @@ docs/_report3_extracted.txt
 
 # --- superseded (kept locally, off-repo) ---
 legacy/
+
+# --- intermediate corpus concatenations (derivable: cat pilot100*.jsonl); pilot500 is the working set ---
+data/interim/swe_rebench/pilot200.jsonl
+data/interim/swe_rebench/pilot300.jsonl

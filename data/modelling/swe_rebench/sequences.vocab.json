@@ -1,0 +1,142 @@
+[
+  {
+    "cpa": "VERIFY_FIX",
+    "occurrences": 4247,
+    "trajectories": 500
+  },
+  {
+    "cpa": "READ_SOURCE",
+    "occurrences": 4026,
+    "trajectories": 500
+  },
+  {
+    "cpa": "LOCATE_CODE",
+    "occurrences": 3272,
+    "trajectories": 500
+  },
+  {
+    "cpa": "WRITE_TEST",
+    "occurrences": 1988,
+    "trajectories": 491
+  },
+  {
+    "cpa": "RUN_TEST_SUITE",
+    "occurrences": 1947,
+    "trajectories": 488
+  },
+  {
+    "cpa": "DIAGNOSE_FAILURE",
+    "occurrences": 1726,
+    "trajectories": 458
+  },
+  {
+    "cpa": "REPRODUCE_ISSUE",
+    "occurrences": 1698,
+    "trajectories": 461
+  },
+  {
+    "cpa": "EDIT_SOURCE",
+    "occurrences": 1497,
+    "trajectories": 484
+  },
+  {
+    "cpa": "EXPLORE_REPOSITORY",
+    "occurrences": 1036,
+    "trajectories": 491
+  },
+  {
+    "cpa": "WRITE_REPRODUCTION_SCRIPT",
+    "occurrences": 868,
+    "trajectories": 396
+  },
+  {
+    "cpa": "SUBMIT_SOLUTION",
+    "occurrences": 454,
+    "trajectories": 454
+  },
+  {
+    "cpa": "ADD_DEBUG_INSTRUMENTATION",
+    "occurrences": 418,
+    "trajectories": 190
+  },
+  {
+    "cpa": "CLEANUP_ARTIFACTS",
+    "occurrences": 368,
+    "trajectories": 284
+  },
+  {
+    "cpa": "INSPECT_CHANGES",
+    "occurrences": 224,
+    "trajectories": 194
+  },
+  {
+    "cpa": "INSTALL_DEPENDENCY",
+    "occurrences": 168,
+    "trajectories": 123
+  },
+  {
+    "cpa": "INSPECT_HISTORY",
+    "occurrences": 139,
+    "trajectories": 104
+  },
+  {
+    "cpa": "REVERT_CHANGE",
+    "occurrences": 102,
+    "trajectories": 37
+  },
+  {
+    "cpa": "BUILD_PROJECT",
+    "occurrences": 42,
+    "trajectories": 31
+  },
+  {
+    "cpa": "RUN_LINTER",
+    "occurrences": 35,
+    "trajectories": 6
+  },
+  {
+    "cpa": "MANAGE_FILESYSTEM",
+    "occurrences": 34,
+    "trajectories": 16
+  },
+  {
+    "cpa": "FORMAT_CODE",
+    "occurrences": 30,
+    "trajectories": 4
+  },
+  {
+    "cpa": "INSPECT_ENVIRONMENT",
+    "occurrences": 18,
+    "trajectories": 17
+  },
+  {
+    "cpa": "INTERACTIVE_DEBUG",
+    "occurrences": 14,
+    "trajectories": 1
+  },
+  {
+    "cpa": "COMPARE_OUTPUT",
+    "occurrences": 8,
+    "trajectories": 7
+  },
+  {
+    "cpa": "CONFIGURE_ENVIRONMENT",
+    "occurrences": 7,
+    "trajectories": 4
+  },
+  {
+    "cpa": "COMMIT_CHANGES",
+    "occurrences": 5,
+    "trajectories": 3
+  },
+  {
+    "cpa": "MEASURE_PERFORMANCE",
+    "occurrences": 4,
+    "trajectories": 1
+  },
+  {
+    "cpa": "CHECK_TYPES",
+    "occurrences": 3,
+    "trajectories": 2
+  }
+]

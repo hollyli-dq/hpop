@@ -1,0 +1,83 @@
+[
+  {
+    "id": "CPA21",
+    "name": "COMPARE_OUTPUT",
+    "phase": "reproduce_diagnose",
+    "definition": "Compare two outputs/files to find differences (diff, cmp, difflib).",
+    "distinguish": "comparing two artifacts (here) vs reviewing one's own git diff (INSPECT_CHANGES)",
+    "input_artifacts": [],
+    "output_artifacts": []
+  },
+  {
+    "id": "CPA22",
+    "name": "RUN_LINTER",
+    "phase": "reproduce_diagnose",
+    "definition": "Run a style/lint checker (flake8, pylint, ruff, pycodestyle, eslint) to surface style/lint violations.",
+    "distinguish": "style/lint scan (here) vs static type checking (CHECK_TYPES) vs running tests (RUN_TEST_SUITE)",
+    "input_artifacts": [],
+    "output_artifacts": []
+  },
+  {
+    "id": "CPA23",
+    "name": "MANAGE_FILESYSTEM",
+    "phase": "modify",
+    "definition": "Manipulate files/dirs in the workspace (mkdir, mv, cp, touch, chmod, symlink) \u2014 not a source edit.",
+    "distinguish": "filesystem op (here) vs editing file contents (EDIT_SOURCE) vs deleting scratch (CLEANUP_ARTIFACTS)",
+    "input_artifacts": [],
+    "output_artifacts": []
+  },
+  {
+    "id": "CPA24",
+    "name": "INSPECT_ENVIRONMENT",
+    "phase": "orient",
+    "definition": "Inspect the environment / installed packages / interpreter version (pip list/freeze, python --version, uname).",
+    "distinguish": "checking what's installed/configured (here) vs reading repo source (READ_SOURCE)",
+    "input_artifacts": [],
+    "output_artifacts": []
+  },
+  {
+    "id": "CPA25",
+    "name": "FORMAT_CODE",
+    "phase": "modify",
+    "definition": "Run an auto-formatter (black, isort, autopep8, prettier, gofmt) to reformat code mechanically.",
+    "distinguish": "mechanical reformat (here) vs a behavioural fix (EDIT_SOURCE) vs restructuring (REFACTOR_CODE)",
+    "input_artifacts": [],
+    "output_artifacts": []
+  },
+  {
+    "id": "CPA26",
+    "name": "MEASURE_PERFORMANCE",
+    "phase": "reproduce_diagnose",
+    "definition": "Profile or benchmark code to measure timing/performance.",
+    "distinguish": "measuring speed (here) vs checking correctness via tests (RUN_TEST_SUITE)",
+    "input_artifacts": [],
+    "output_artifacts": []
+  },
+  {
+    "id": "CPA27",
+    "name": "CONFIGURE_ENVIRONMENT",
+    "phase": "modify",
+    "definition": "Set environment variables / activate or create a virtualenv/conda env to make code or tests runnable.",
+    "distinguish": "preparing the runtime env (here) vs installing packages (INSTALL_DEPENDENCY) vs building (BUILD_PROJECT)",
+    "input_artifacts": [],
+    "output_artifacts": []
+  },
+  {
+    "id": "CPA28",
+    "name": "COMMIT_CHANGES",
+    "phase": "verify_finalize",
+    "definition": "Record changes in version control (git add/commit/branch/tag).",
+    "distinguish": "committing/branching (here) vs undoing (REVERT_CHANGE) vs viewing the diff (INSPECT_CHANGES)",
+    "input_artifacts": [],
+    "output_artifacts": []
+  },
+  {
+    "id": "CPA29",
+    "name": "INTERACTIVE_DEBUG",
+    "phase": "reproduce_diagnose",
+    "definition": "Drop into an interactive debugger/REPL (pdb, ipython, python -i) to inspect runtime state.",
+    "distinguish": "interactive runtime inspection (here) vs adding print/log statements (ADD_DEBUG_INSTRUMENTATION)",
+    "input_artifacts": [],
+    "output_artifacts": []
+  }
+]

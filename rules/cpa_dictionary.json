@@ -1,74 +1,343 @@
 [
-  {"id": "CPA01", "name": "EXPLORE_REPOSITORY", "phase": "orient",
-   "definition": "Survey repository structure to build a mental map before acting.",
-   "distinguish": "viewing a directory (here) vs viewing a file (READ_SOURCE)",
-   "input_artifacts": ["task/issue"], "output_artifacts": ["repo layout"]},
-  {"id": "CPA02", "name": "LOCATE_CODE", "phase": "orient",
-   "definition": "Search the codebase for the file/symbol/definition relevant to the task.",
-   "distinguish": "searching for something (here) vs reading a known file (READ_SOURCE)",
-   "input_artifacts": ["symbol/error"], "output_artifacts": ["file paths / line numbers"]},
-  {"id": "CPA03", "name": "READ_SOURCE", "phase": "orient",
-   "definition": "Open and read a source, test, or doc file to understand its implementation/behaviour.",
-   "distinguish": "reading to understand (here) vs reading a failure to find a cause (DIAGNOSE_FAILURE)",
-   "input_artifacts": ["file path"], "output_artifacts": ["code understanding"]},
-  {"id": "CPA04", "name": "RUN_TEST_SUITE", "phase": "reproduce_diagnose",
-   "definition": "Execute the project's tests (suite or a test file) to observe pass/fail status.",
-   "distinguish": "first/observational run (here) vs re-run after an edit to confirm (VERIFY_FIX); vs running a repro script (REPRODUCE_ISSUE)",
-   "input_artifacts": ["test paths"], "output_artifacts": ["test report"]},
-  {"id": "CPA05", "name": "REPRODUCE_ISSUE", "phase": "reproduce_diagnose",
-   "definition": "Run a command/script to trigger and observe the reported bug.",
-   "distinguish": "runs a repro/program (here) vs the test suite (RUN_TEST_SUITE); pre-fix vs post-fix (VERIFY_FIX)",
-   "input_artifacts": ["issue recipe"], "output_artifacts": ["observed failure"]},
-  {"id": "CPA06", "name": "WRITE_REPRODUCTION_SCRIPT", "phase": "reproduce_diagnose",
-   "definition": "Create a script/file that reproduces the bug for repeatable checking.",
-   "distinguish": "a repro/scratch script (here) vs a kept regression test (WRITE_TEST)",
-   "input_artifacts": ["hypothesis"], "output_artifacts": ["reproduction script"]},
-  {"id": "CPA07", "name": "DIAGNOSE_FAILURE", "phase": "reproduce_diagnose",
-   "definition": "Inspect failing output (traceback, diff, assertion) to identify the cause; follows a failure.",
-   "distinguish": "reading because something failed (here) vs ordinary READ_SOURCE",
-   "input_artifacts": ["failure output"], "output_artifacts": ["root-cause hypothesis"]},
-  {"id": "CPA08", "name": "INSPECT_CHANGES", "phase": "reproduce_diagnose",
-   "definition": "Review the agent's own modifications so far (git diff/status/show).",
-   "distinguish": "viewing your edits/diff (here) vs reading project source (READ_SOURCE)",
-   "input_artifacts": ["working tree"], "output_artifacts": ["change summary"]},
-  {"id": "CPA09", "name": "EDIT_SOURCE", "phase": "modify",
-   "definition": "Modify source code to change behaviour toward fixing the issue.",
-   "distinguish": "a real fix (here) vs temporary prints (ADD_DEBUG_INSTRUMENTATION) vs behaviour-preserving restructuring (REFACTOR_CODE) vs editing a test (WRITE_TEST)",
-   "input_artifacts": ["root cause"], "output_artifacts": ["patched source"]},
-  {"id": "CPA10", "name": "WRITE_TEST", "phase": "modify",
-   "definition": "Add or modify a test that guards the intended behaviour.",
-   "distinguish": "a kept regression test (here) vs a throwaway repro (WRITE_REPRODUCTION_SCRIPT)",
-   "input_artifacts": ["intended behaviour"], "output_artifacts": ["new test"]},
-  {"id": "CPA11", "name": "ADD_DEBUG_INSTRUMENTATION", "phase": "modify",
-   "definition": "Insert temporary prints/logging/asserts to investigate behaviour (not the fix itself).",
-   "distinguish": "temporary diagnostic edits (here) vs the actual fix (EDIT_SOURCE)",
-   "input_artifacts": ["hypothesis"], "output_artifacts": ["debug trace"]},
-  {"id": "CPA12", "name": "REFACTOR_CODE", "phase": "modify",
-   "definition": "Restructure code without changing externally observable behaviour.",
-   "distinguish": "no behaviour change (here) vs a fixing change (EDIT_SOURCE)",
-   "input_artifacts": ["working code"], "output_artifacts": ["restructured code"]},
-  {"id": "CPA13", "name": "REVERT_CHANGE", "phase": "modify",
-   "definition": "Undo a previous edit that failed or caused a regression.",
-   "distinguish": "undo/restore prior state (here) vs making a new change (EDIT_SOURCE)",
-   "input_artifacts": ["failed change"], "output_artifacts": ["restored prior state"]},
-  {"id": "CPA14", "name": "INSTALL_DEPENDENCY", "phase": "modify",
-   "definition": "Install or configure packages needed to run the code or tests.",
-   "distinguish": "installing deps (here) vs building the project (BUILD_PROJECT)",
-   "input_artifacts": ["missing-dependency error"], "output_artifacts": ["prepared environment"]},
-  {"id": "CPA15", "name": "BUILD_PROJECT", "phase": "modify",
-   "definition": "Compile/build the project so it can run (make, setup.py build, cargo/go build, mvn/gradle).",
-   "distinguish": "building (here) vs installing dependencies (INSTALL_DEPENDENCY)",
-   "input_artifacts": ["sources"], "output_artifacts": ["build artifacts"]},
-  {"id": "CPA16", "name": "VERIFY_FIX", "phase": "verify_finalize",
-   "definition": "Re-run the reproduction or relevant tests after a change to confirm it resolves the issue.",
-   "distinguish": "post-edit confirmation (here) vs an initial RUN_TEST_SUITE / REPRODUCE_ISSUE",
-   "input_artifacts": ["patched source + test/repro"], "output_artifacts": ["pass confirmation"]},
-  {"id": "CPA17", "name": "CLEANUP_ARTIFACTS", "phase": "verify_finalize",
-   "definition": "Remove temporary/scratch files (repro scripts, debug output) before finalizing.",
-   "distinguish": "removing scratch (here) vs reverting a source edit (REVERT_CHANGE)",
-   "input_artifacts": ["temp files"], "output_artifacts": ["clean working tree"]},
-  {"id": "CPA18", "name": "SUBMIT_SOLUTION", "phase": "verify_finalize",
-   "definition": "Finalize and submit the patch as the solution.",
-   "distinguish": "terminal submission (here)",
-   "input_artifacts": ["verified fix"], "output_artifacts": ["submitted patch"]}
+ {
+  "id": "CPA01",
+  "name": "EXPLORE_REPOSITORY",
+  "phase": "orient",
+  "definition": "Survey repository structure to build a mental map before acting.",
+  "distinguish": "viewing a directory (here) vs viewing a file (READ_SOURCE)",
+  "input_artifacts": [
+   "task/issue"
+  ],
+  "output_artifacts": [
+   "repo layout"
+  ]
+ },
+ {
+  "id": "CPA02",
+  "name": "LOCATE_CODE",
+  "phase": "orient",
+  "definition": "Search the codebase for the file/symbol/definition relevant to the task.",
+  "distinguish": "searching for something (here) vs reading a known file (READ_SOURCE)",
+  "input_artifacts": [
+   "symbol/error"
+  ],
+  "output_artifacts": [
+   "file paths / line numbers"
+  ]
+ },
+ {
+  "id": "CPA03",
+  "name": "READ_SOURCE",
+  "phase": "orient",
+  "definition": "Open and read a source, test, or doc file to understand its implementation/behaviour.",
+  "distinguish": "reading to understand (here) vs reading a failure to find a cause (DIAGNOSE_FAILURE)",
+  "input_artifacts": [
+   "file path"
+  ],
+  "output_artifacts": [
+   "code understanding"
+  ]
+ },
+ {
+  "id": "CPA04",
+  "name": "RUN_TEST_SUITE",
+  "phase": "reproduce_diagnose",
+  "definition": "Execute the project's tests (suite or a test file) to observe pass/fail status.",
+  "distinguish": "first/observational run (here) vs re-run after an edit to confirm (VERIFY_FIX); vs running a repro script (REPRODUCE_ISSUE)",
+  "input_artifacts": [
+   "test paths"
+  ],
+  "output_artifacts": [
+   "test report"
+  ]
+ },
+ {
+  "id": "CPA05",
+  "name": "REPRODUCE_ISSUE",
+  "phase": "reproduce_diagnose",
+  "definition": "Run a command/script to trigger and observe the reported bug.",
+  "distinguish": "runs a repro/program (here) vs the test suite (RUN_TEST_SUITE); pre-fix vs post-fix (VERIFY_FIX)",
+  "input_artifacts": [
+   "issue recipe"
+  ],
+  "output_artifacts": [
+   "observed failure"
+  ]
+ },
+ {
+  "id": "CPA06",
+  "name": "WRITE_REPRODUCTION_SCRIPT",
+  "phase": "reproduce_diagnose",
+  "definition": "Create a script/file that reproduces the bug for repeatable checking.",
+  "distinguish": "a repro/scratch script (here) vs a kept regression test (WRITE_TEST)",
+  "input_artifacts": [
+   "hypothesis"
+  ],
+  "output_artifacts": [
+   "reproduction script"
+  ]
+ },
+ {
+  "id": "CPA07",
+  "name": "DIAGNOSE_FAILURE",
+  "phase": "reproduce_diagnose",
+  "definition": "Inspect failing output (traceback, diff, assertion) to identify the cause; follows a failure.",
+  "distinguish": "reading because something failed (here) vs ordinary READ_SOURCE",
+  "input_artifacts": [
+   "failure output"
+  ],
+  "output_artifacts": [
+   "root-cause hypothesis"
+  ]
+ },
+ {
+  "id": "CPA08",
+  "name": "INSPECT_CHANGES",
+  "phase": "reproduce_diagnose",
+  "definition": "Review the agent's own modifications so far (git diff/status/show).",
+  "distinguish": "viewing your edits/diff (here) vs reading project source (READ_SOURCE); vs examining past commit history (INSPECT_HISTORY)",
+  "input_artifacts": [
+   "working tree"
+  ],
+  "output_artifacts": [
+   "change summary"
+  ]
+ },
+ {
+  "id": "CPA19",
+  "name": "INSPECT_HISTORY",
+  "phase": "orient",
+  "definition": "Examine the repository's commit history (git log, git blame, git show <sha>, git diff <sha>) to understand how/why the code reached its current state.",
+  "distinguish": "reading past history/blame (here) vs reviewing your OWN uncommitted edits (INSPECT_CHANGES) vs reading current source (READ_SOURCE)",
+  "input_artifacts": [
+   "symbol/regression"
+  ],
+  "output_artifacts": [
+   "origin of code/regression"
+  ]
+ },
+ {
+  "id": "CPA20",
+  "name": "CHECK_TYPES",
+  "phase": "reproduce_diagnose",
+  "definition": "Run a static type checker or static analyzer (mypy, pyright, pyre, tsc) to surface type/static errors without executing the program.",
+  "distinguish": "static analysis (here) vs running dynamic tests (RUN_TEST_SUITE) vs executing a repro (REPRODUCE_ISSUE)",
+  "input_artifacts": [
+   "sources"
+  ],
+  "output_artifacts": [
+   "type/static error report"
+  ]
+ },
+ {
+  "id": "CPA09",
+  "name": "EDIT_SOURCE",
+  "phase": "modify",
+  "definition": "Modify source code to change behaviour toward fixing the issue.",
+  "distinguish": "a real fix (here) vs temporary prints (ADD_DEBUG_INSTRUMENTATION) vs behaviour-preserving restructuring (REFACTOR_CODE) vs editing a test (WRITE_TEST)",
+  "input_artifacts": [
+   "root cause"
+  ],
+  "output_artifacts": [
+   "patched source"
+  ]
+ },
+ {
+  "id": "CPA10",
+  "name": "WRITE_TEST",
+  "phase": "modify",
+  "definition": "Add or modify a test that guards the intended behaviour.",
+  "distinguish": "a kept regression test (here) vs a throwaway repro (WRITE_REPRODUCTION_SCRIPT)",
+  "input_artifacts": [
+   "intended behaviour"
+  ],
+  "output_artifacts": [
+   "new test"
+  ]
+ },
+ {
+  "id": "CPA11",
+  "name": "ADD_DEBUG_INSTRUMENTATION",
+  "phase": "modify",
+  "definition": "Insert temporary prints/logging/asserts to investigate behaviour (not the fix itself).",
+  "distinguish": "temporary diagnostic edits (here) vs the actual fix (EDIT_SOURCE)",
+  "input_artifacts": [
+   "hypothesis"
+  ],
+  "output_artifacts": [
+   "debug trace"
+  ]
+ },
+ {
+  "id": "CPA12",
+  "name": "REFACTOR_CODE",
+  "phase": "modify",
+  "definition": "Restructure code without changing externally observable behaviour.",
+  "distinguish": "no behaviour change (here) vs a fixing change (EDIT_SOURCE)",
+  "input_artifacts": [
+   "working code"
+  ],
+  "output_artifacts": [
+   "restructured code"
+  ]
+ },
+ {
+  "id": "CPA13",
+  "name": "REVERT_CHANGE",
+  "phase": "modify",
+  "definition": "Undo a previous edit that failed or caused a regression.",
+  "distinguish": "undo/restore prior state (here) vs making a new change (EDIT_SOURCE)",
+  "input_artifacts": [
+   "failed change"
+  ],
+  "output_artifacts": [
+   "restored prior state"
+  ]
+ },
+ {
+  "id": "CPA14",
+  "name": "INSTALL_DEPENDENCY",
+  "phase": "modify",
+  "definition": "Install or configure packages needed to run the code or tests.",
+  "distinguish": "installing deps (here) vs building the project (BUILD_PROJECT)",
+  "input_artifacts": [
+   "missing-dependency error"
+  ],
+  "output_artifacts": [
+   "prepared environment"
+  ]
+ },
+ {
+  "id": "CPA15",
+  "name": "BUILD_PROJECT",
+  "phase": "modify",
+  "definition": "Compile/build the project so it can run (make, setup.py build, cargo/go build, mvn/gradle).",
+  "distinguish": "building (here) vs installing dependencies (INSTALL_DEPENDENCY)",
+  "input_artifacts": [
+   "sources"
+  ],
+  "output_artifacts": [
+   "build artifacts"
+  ]
+ },
+ {
+  "id": "CPA16",
+  "name": "VERIFY_FIX",
+  "phase": "verify_finalize",
+  "definition": "Re-run the reproduction or relevant tests after a change to confirm it resolves the issue.",
+  "distinguish": "post-edit confirmation (here) vs an initial RUN_TEST_SUITE / REPRODUCE_ISSUE",
+  "input_artifacts": [
+   "patched source + test/repro"
+  ],
+  "output_artifacts": [
+   "pass confirmation"
+  ]
+ },
+ {
+  "id": "CPA17",
+  "name": "CLEANUP_ARTIFACTS",
+  "phase": "verify_finalize",
+  "definition": "Remove temporary/scratch files (repro scripts, debug output) before finalizing.",
+  "distinguish": "removing scratch (here) vs reverting a source edit (REVERT_CHANGE)",
+  "input_artifacts": [
+   "temp files"
+  ],
+  "output_artifacts": [
+   "clean working tree"
+  ]
+ },
+ {
+  "id": "CPA18",
+  "name": "SUBMIT_SOLUTION",
+  "phase": "verify_finalize",
+  "definition": "Finalize and submit the patch as the solution.",
+  "distinguish": "terminal submission (here)",
+  "input_artifacts": [
+   "verified fix"
+  ],
+  "output_artifacts": [
+   "submitted patch"
+  ]
+ },
+ {
+  "id": "CPA21",
+  "name": "COMPARE_OUTPUT",
+  "phase": "reproduce_diagnose",
+  "definition": "Compare two outputs/files to find differences (diff, cmp, difflib).",
+  "distinguish": "comparing two artifacts (here) vs reviewing one's own git diff (INSPECT_CHANGES)",
+  "input_artifacts": [],
+  "output_artifacts": []
+ },
+ {
+  "id": "CPA22",
+  "name": "RUN_LINTER",
+  "phase": "reproduce_diagnose",
+  "definition": "Run a style/lint checker (flake8, pylint, ruff, pycodestyle, eslint) to surface style/lint violations.",
+  "distinguish": "style/lint scan (here) vs static type checking (CHECK_TYPES) vs running tests (RUN_TEST_SUITE)",
+  "input_artifacts": [],
+  "output_artifacts": []
+ },
+ {
+  "id": "CPA23",
+  "name": "MANAGE_FILESYSTEM",
+  "phase": "modify",
+  "definition": "Manipulate files/dirs in the workspace (mkdir, mv, cp, touch, chmod, symlink) \u2014 not a source edit.",
+  "distinguish": "filesystem op (here) vs editing file contents (EDIT_SOURCE) vs deleting scratch (CLEANUP_ARTIFACTS)",
+  "input_artifacts": [],
+  "output_artifacts": []
+ },
+ {
+  "id": "CPA24",
+  "name": "INSPECT_ENVIRONMENT",
+  "phase": "orient",
+  "definition": "Inspect the environment / installed packages / interpreter version (pip list/freeze, python --version, uname).",
+  "distinguish": "checking what's installed/configured (here) vs reading repo source (READ_SOURCE)",
+  "input_artifacts": [],
+  "output_artifacts": []
+ },
+ {
+  "id": "CPA25",
+  "name": "FORMAT_CODE",
+  "phase": "modify",
+  "definition": "Run an auto-formatter (black, isort, autopep8, prettier, gofmt) to reformat code mechanically.",
+  "distinguish": "mechanical reformat (here) vs a behavioural fix (EDIT_SOURCE) vs restructuring (REFACTOR_CODE)",
+  "input_artifacts": [],
+  "output_artifacts": []
+ },
+ {
+  "id": "CPA26",
+  "name": "MEASURE_PERFORMANCE",
+  "phase": "reproduce_diagnose",
+  "definition": "Profile or benchmark code to measure timing/performance.",
+  "distinguish": "measuring speed (here) vs checking correctness via tests (RUN_TEST_SUITE)",
+  "input_artifacts": [],
+  "output_artifacts": []
+ },
+ {
+  "id": "CPA27",
+  "name": "CONFIGURE_ENVIRONMENT",
+  "phase": "modify",
+  "definition": "Set environment variables / activate or create a virtualenv/conda env to make code or tests runnable.",
+  "distinguish": "preparing the runtime env (here) vs installing packages (INSTALL_DEPENDENCY) vs building (BUILD_PROJECT)",
+  "input_artifacts": [],
+  "output_artifacts": []
+ },
+ {
+  "id": "CPA28",
+  "name": "COMMIT_CHANGES",
+  "phase": "verify_finalize",
+  "definition": "Record changes in version control (git add/commit/branch/tag).",
+  "distinguish": "committing/branching (here) vs undoing (REVERT_CHANGE) vs viewing the diff (INSPECT_CHANGES)",
+  "input_artifacts": [],
+  "output_artifacts": []
+ },
+ {
+  "id": "CPA29",
+  "name": "INTERACTIVE_DEBUG",
+  "phase": "reproduce_diagnose",
+  "definition": "Drop into an interactive debugger/REPL (pdb, ipython, python -i) to inspect runtime state.",
+  "distinguish": "interactive runtime inspection (here) vs adding print/log statements (ADD_DEBUG_INSTRUMENTATION)",
+  "input_artifacts": [],
+  "output_artifacts": []
+ }
 ]

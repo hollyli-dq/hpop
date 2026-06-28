@@ -31,10 +31,14 @@ def _has_ext(path):
     return any(path.endswith(e) for e in _CODE_EXT)
 
 
+_DEBUG_RE = re.compile(r"print\(|logging\.|logger\.|console\.log|\bpdb\b|traceback\.print|sys\.stderr|warnings\.warn", re.I)
+
+
 def classify(ev, edited_since_run):
     """Return (cpa_name or None, outcome). None => excluded non-action."""
     tn = ev.get("tool_name", ""); fam = ev.get("tool_family", "")
-    cmd = (ev.get("command") or "").lower()
+    args = ev.get("args") or {}
+    cmd = ((args.get("command") or ev.get("command") or "")).lower()   # full bash command if present
     obs = (ev.get("observation") or "")
     fail = bool(ev.get("after_fail"))
     if tn in THINK or fam == "think":
@@ -56,7 +60,10 @@ def classify(ev, edited_since_run):
             if re.search(r"repro|reproduce|debug|bug", path):
                 return "WRITE_REPRODUCTION_SCRIPT", "SUCCESS"
             return "EDIT_SOURCE", "SUCCESS"
-        # str_replace / insert / edit
+        # str_replace / insert / edit — use the edit content to disambiguate
+        new = str(args.get("new_str") or args.get("insert_str") or args.get("file_text") or "")
+        if _DEBUG_RE.search(new) and not re.search(r"test", path):
+            return "ADD_DEBUG_INSTRUMENTATION", "SUCCESS"
         if re.search(r"test", path):
             return "WRITE_TEST", "SUCCESS"
         return "EDIT_SOURCE", "SUCCESS"
@@ -64,6 +71,27 @@ def classify(ev, edited_since_run):
     if fam in ("execute", "test", "search", "install") or tn == "execute_bash":
         if re.search(r"\bpip install|conda install|poetry add|apt-get|apt install|npm install|pip3 install", cmd):
             return "INSTALL_DEPENDENCY", ("FAILURE" if fail else "SUCCESS")
+        # --- induced CPAs (appearance-threshold open coding; iter_induct.py) ---
+        if re.search(r"pip\s+(list|freeze|show)|conda\s+(list|info)|python\s+--version|python\s+-v\b|printenv|\buname\b", cmd):
+            return "INSPECT_ENVIRONMENT", "SUCCESS"
+        if re.search(r"\bflake8\b|\bpylint\b|\bruff\b(?!\s+format)|\bpycodestyle\b|\bpyflakes\b|\beslint\b", cmd):
+            return "RUN_LINTER", ("FAILURE" if fail else "SUCCESS")
+        if re.search(r"\bblack\b|\bisort\b|\bautopep8\b|\byapf\b|\bprettier\b|ruff\s+format|\bgofmt\b|\brustfmt\b", cmd):
+            return "FORMAT_CODE", "SUCCESS"
+        if re.search(r"\btimeit\b|cprofile|\bpstats\b|--durations|\bhotshot\b|perf_counter", cmd):
+            return "MEASURE_PERFORMANCE", "SUCCESS"
+        if re.search(r"\bpdb\b|breakpoint\(\)|\bipython\b|python\s+-i\b|import\s+pdb", cmd):
+            return "INTERACTIVE_DEBUG", "SUCCESS"
+        if re.search(r"\bdiff\s+\S+\s+\S+|\bcmp\s+\S+\s+\S|difflib|deepdiff", cmd) and not re.search(r"git\s+diff", cmd):
+            return "COMPARE_OUTPUT", "SUCCESS"
+        if re.search(r"git\s+(add|commit|branch|tag)\b", cmd):
+            return "COMMIT_CHANGES", "SUCCESS"
+        if re.search(r"\bmkdir\b|\btouch\b|\bmv\s+\S|\bcp\s+\S|\bchmod\b|\bln\s+-s", cmd):
+            return "MANAGE_FILESYSTEM", "SUCCESS"
+        if re.search(r"\bexport\s+\w+=|source\s+\S*activate|conda\s+activate|virtualenv\b|python\s+-m\s+venv|\bpyenv\b|pythonpath=", cmd) \
+                and not re.search(r"pytest|python\s+\S*\.py|python\s+-c|python\s+-m\s+(?!venv)", cmd):
+            return "CONFIGURE_ENVIRONMENT", "SUCCESS"
+        # --- end induced ---
         if re.search(r"\bgrep\b|\bfind\b|\brg\b|\bls\b|find_file|search_dir", cmd):
             return "LOCATE_CODE", "SUCCESS"
         if re.search(r"\bcat\b|\bhead\b|\btail\b|\bless\b", cmd):
@@ -72,8 +100,12 @@ def classify(ev, edited_since_run):
             return "CLEANUP_ARTIFACTS", "SUCCESS"
         if re.search(r"git checkout|git restore|git stash|undo_edit|git reset", cmd):
             return "REVERT_CHANGE", "SUCCESS"
+        if re.search(r"\bgit log\b|\bgit blame\b|git show\s+[0-9a-f]{6,}|git diff\s+[0-9a-f]{6,}|git diff\s+head[~^]", cmd):
+            return "INSPECT_HISTORY", "SUCCESS"
         if re.search(r"git diff|git status|git show", cmd):
             return "INSPECT_CHANGES", "SUCCESS"
+        if re.search(r"\bmypy\b|\bpyright\b|\bpyre\s+check\b|\btsc\b", cmd):
+            return "CHECK_TYPES", ("FAILURE" if fail else "SUCCESS")
         if re.search(r"\bmake\b|cmake|cargo build|go build|\bmvn\b|gradle|setup\.py build|python setup\.py", cmd):
             return "BUILD_PROJECT", ("FAILURE" if fail else "SUCCESS")
         is_test = bool(re.search(r"\bpytest\b|tox|unittest|nosetests|python -m pytest", cmd))

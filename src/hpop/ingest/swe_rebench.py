@@ -130,12 +130,12 @@ def _get(url, tries=5):
     return None
 
 
-def sample(n_res, n_unres, page=2, max_pages=400):
+def sample(n_res, n_unres, page=2, max_pages=400, start_offset=0, exclude=None):
     import time
     enc = urllib.parse.quote(DATASET, safe="")
     base = "https://datasets-server.huggingface.co/rows"
-    res, unres, seen = [], [], set()
-    offset = 0
+    res, unres, seen = [], [], set(exclude or ())
+    offset = start_offset
     for _ in range(max_pages):
         if len(res) >= n_res and len(unres) >= n_unres:
             break
@@ -172,10 +172,20 @@ def main(argv=None):
     ap.add_argument("--resolved", type=int, default=50)
     ap.add_argument("--unresolved", type=int, default=50)
     ap.add_argument("--output", required=True)
+    ap.add_argument("--start-offset", type=int, default=0)
+    ap.add_argument("--exclude", default=None, help="jsonl of already-sampled traces (skip their trace_ids)")
     args = ap.parse_args(argv)
 
-    print("sampling {} resolved + {} unresolved from {} ...".format(args.resolved, args.unresolved, DATASET))
-    traces = sample(args.resolved, args.unresolved)
+    exclude = set()
+    if args.exclude and os.path.exists(args.exclude):
+        for l in open(args.exclude):
+            if l.strip():
+                exclude.add(json.loads(l).get("trace_id"))
+        print("excluding {} already-sampled instances".format(len(exclude)))
+
+    print("sampling {} resolved + {} unresolved from {} (start offset {}) ...".format(
+        args.resolved, args.unresolved, DATASET, args.start_offset))
+    traces = sample(args.resolved, args.unresolved, start_offset=args.start_offset, exclude=exclude)
     os.makedirs(os.path.dirname(os.path.abspath(args.output)) or ".", exist_ok=True)
     with open(args.output, "w", encoding="utf-8") as f:
         for t in traces:

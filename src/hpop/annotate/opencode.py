@@ -103,15 +103,26 @@ def build_user_message(trace, mode, library, library_version):
     eid = lambda i: "e{:04d}".format(i)
     events = []
     for t in trace.get("action_tokens", []):
-        events.append({
+        a = t.get("args") or {}
+        tool = t.get("tool_name") or t.get("action_type")
+        cmd = t.get("command") or t.get("cmd") or t.get("artifact_id")
+        ev = {
             "event_id": eid(t["i"]),
             "role": "assistant_tool_call",
-            "tool": t.get("tool_name") or t.get("action_type"),
+            "tool": tool,
             "tool_family_hint": t.get("tool_family"),
-            "command": t.get("command") or t.get("cmd") or t.get("artifact_id"),
+            "command": (a.get("command")[:400] if a.get("command") else cmd),  # full bash command
             "observation": t.get("observation"),
             "follows_failed_observation": bool(t.get("after_fail")),
-        })
+        }
+        # expose edit content so the annotator can tell a real fix from a debug print / a test
+        if tool == "str_replace_editor":
+            if a.get("file_text"):
+                ev["created_content"] = a["file_text"][:350]
+            elif a.get("new_str") is not None:
+                ev["edit_old"] = (a.get("old_str") or "")[:160]
+                ev["edit_new"] = (a.get("new_str") or "")[:300]
+        events.append(ev)
     payload = {
         "trajectory_id": trace.get("trajectory_id") or trace.get("trace_id"),
         "instance_id": trace.get("trace_id"),

@@ -28,6 +28,13 @@ vs viewing a **file** (`READ_SOURCE`). *In→Out:* task/issue → repo layout.
 *understand* (here) vs reading a **failure/traceback to find a cause** (`DIAGNOSE_FAILURE`). *In→Out:*
 file path → code understanding.
 
+**INSPECT_HISTORY** — Examine the repository's **commit history** (`git log`, `git blame`,
+`git show <sha>`, `git diff <sha>`) to understand how/why the code reached its current state.
+*Distinguish:* reading **past history/blame** (here) vs reviewing your **own uncommitted edits**
+(`INSPECT_CHANGES`) vs reading **current source** (`READ_SOURCE`). *In→Out:* symbol/regression → origin
+of code/regression. *(NEW — induced from batch B; 34 repos across both pilots were forcing this into
+`REPRODUCE_ISSUE`.)*
+
 ## B. Reproduce & diagnose  *(pytest 683 · python-run 933 · git diff 65)*
 
 **RUN_TEST_SUITE** — Execute the project's tests (suite or a test file) to observe pass/fail status.
@@ -49,8 +56,13 @@ follows a failure. *Includes:* reading a traceback / a `view` after a failed run
 *because something failed* (here) vs ordinary `READ_SOURCE`. *In→Out:* failure output → root-cause hypothesis.
 
 **INSPECT_CHANGES** — Review the agent's own modifications so far. *Includes:* `git diff`, `git status`,
-`git show`. *Distinguish:* viewing **your edits/diff** (here) vs reading project source (`READ_SOURCE`).
-*In→Out:* working tree → change summary. *(new — 65 occurrences were previously unlabeled.)*
+`git show`. *Distinguish:* viewing **your edits/diff** (here) vs reading project source (`READ_SOURCE`);
+vs examining **past commit history** (`INSPECT_HISTORY`). *In→Out:* working tree → change summary.
+
+**CHECK_TYPES** — Run a static type checker / static analyzer (`mypy`, `pyright`, `pyre`, `tsc`) to
+surface type/static errors **without executing** the program. *Distinguish:* static analysis (here) vs
+running **dynamic tests** (`RUN_TEST_SUITE`) vs executing a **repro** (`REPRODUCE_ISSUE`). *In→Out:*
+sources → type/static error report. *(NEW — induced; recurs in both pilots, distinct from test runs.)*
 
 ## C. Modify  *(str_replace 533 · create 566 · install 42 · build 10)*
 
@@ -97,5 +109,42 @@ issue. *Distinguish:* a post-edit confirmation (here) vs an initial `RUN_TEST_SU
 - **Not too broad** — never `EXECUTE_COMMAND`/`USE_TOOL`; the procedural function is the unit.
 - **Not too narrow** — never `READ_PARSER_PY_LINE_84`; CPAs are portable across repos/languages.
 - **Excluded as non-action:** pure planning/`think` messages (no observable procedural effect).
-- **18 CPAs** in 4 phases (orient / reproduce-diagnose / modify / verify-finalize). The phase grouping
-  is a reading aid, not a label the model uses.
+- **29 CPAs** in 4 phases (orient / reproduce-diagnose / modify / verify-finalize). The phase grouping
+  is a reading aid, not a label the model uses. The 9 phase-2 induced CPAs are listed below.
+
+### Phase-2 induced CPAs (appearance threshold)
+- **RUN_LINTER** *(reproduce_diagnose)* — style/lint scan (flake8, pylint, ruff, pycodestyle, eslint); ≠ CHECK_TYPES, ≠ RUN_TEST_SUITE.
+- **FORMAT_CODE** *(modify)* — auto-formatter (black, isort, autopep8, prettier, gofmt); mechanical, ≠ EDIT_SOURCE/REFACTOR_CODE.
+- **CONFIGURE_ENVIRONMENT** *(modify)* — set env vars / activate-create venv/conda (export, PYTHONPATH, source activate); ≠ INSTALL_DEPENDENCY/BUILD_PROJECT.
+- **MANAGE_FILESYSTEM** *(modify)* — mkdir/mv/cp/touch/chmod/symlink; not a source edit, not scratch cleanup.
+- **COMMIT_CHANGES** *(verify_finalize)* — record in VCS (git add/commit/branch/tag); ≠ REVERT_CHANGE/INSPECT_CHANGES. (rare — agents seldom commit.)
+- **MEASURE_PERFORMANCE** *(reproduce_diagnose)* — profile/benchmark (timeit, cProfile, --durations).
+- **COMPARE_OUTPUT** *(reproduce_diagnose)* — diff two outputs/files (diff a b, cmp, difflib); ≠ INSPECT_CHANGES (own git diff).
+- **INTERACTIVE_DEBUG** *(reproduce_diagnose)* — interactive debugger/REPL (pdb, ipython, python -i); ≠ ADD_DEBUG_INSTRUMENTATION (print/log edits).
+- **INSPECT_ENVIRONMENT** *(orient)* — inspect installed packages / interpreter (pip list/freeze, python --version, uname).
+
+### Induction log (how the set grew)
+**Induction policy (coauthor, 2026-06-25): appearance threshold.** A distinct procedural function becomes
+a CPA as soon as it **appears** in the data (≥1 occurrence) — no repo-count gate — provided it still obeys
+the label rules (portable verb+object, not a one-off entity). The dictionary grows **monotonically** as we
+iterate over batches of 100. Method: `scripts/iter_induct.py` (offline stand-in for the LLM INDUCE pass).
+
+**Phase 1 (gap analysis, ≥4-repo gate) added 2:** `INSPECT_HISTORY` (git log/blame; was REPRODUCE_ISSUE)
+and `CHECK_TYPES` (mypy/pyright; ≠ dynamic tests) → 20 CPAs.
+
+**Phase 2 (appearance threshold) — iterative growth over 5 pilots (500 traj, 334 repos):**
+
+| after batch | corpus | dictionary | newly induced |
+|---|---|---|---|
+| 1 (A) | 100 | 27 | RUN_LINTER, FORMAT_CODE, CONFIGURE_ENVIRONMENT, MANAGE_FILESYSTEM, INSPECT_ENVIRONMENT, MEASURE_PERFORMANCE, COMPARE_OUTPUT |
+| 2 (B) | 200 | 27 | — |
+| 3 (C) | 300 | 28 | COMMIT_CHANGES |
+| 4 (D) | 400 | 29 | INTERACTIVE_DEBUG |
+| 5 (E) | 500 | 29 | — |
+
+The curve **flattens**: batches 2 and 5 add nothing, and two probed functions (`READ_DOCUMENTATION`,
+`APPLY_PATCH`) never appeared, so they were not added — faithful to "as long as it appears." **29 CPAs**
+total. Confounds are kept but flagged: `RUN_LINTER`/`FORMAT_CODE` fire partly on repos where the
+linter/formatter *is* the system under test; `COMMIT_CHANGES` is rare (agents seldom commit — the patch is
+the deliverable). The per-occurrence rule counts for induced CPAs are conservative (primary-function
+gating) and lower than their raw appearance counts; the LLM APPLY pass will label more precisely.

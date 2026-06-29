@@ -1,0 +1,182 @@
+# CPA Rule v2 — PHASE-DERIVED (top-down)
+# =======================================
+# Same CPA NAMES as the induced v1 dictionary, but each CPA is now CREATED by the cognitive rule: it is
+# declared as a realization of exactly ONE of the 9 phases (rules/phases.yaml), and is individuated
+# WITHIN that phase by its proximate goal (Leontiev Action tier). This is the coauthor's generative
+# method — phases first, CPAs derived — replacing the bottom-up "mine commands, then bucket" of v1.
+#
+# Reading: phase -> cognitive_state (why this family exists) -> the CPAs whose proximate goals differ.
+# `trigger` = the observable signal the rule fires on (carried over from rule_apply, unchanged).
+#
+# COUNT DELTA vs v1 (29 observed CPAs): +3 DECLARED CPAs the top-down lens adds —
+#   • PLAN_APPROACH       — genuine theory gap: planning is latent (think tokens, excluded by v1)
+#   • READ_DOCUMENTATION  — cognitively valid INSPECT action; probed but 0 occurrences in the 500-traj sample
+#   • APPLY_PATCH         — cognitively valid WRITE action; probed but 0 occurrences in the 500-traj sample
+# SYNTHESIZE / HANDOFF are theory slots with no coding CPA yet (declared empty). Net: 32 CPAs across 9
+# phases. No v1 CPA removed. This is the bottom-up/top-down difference made concrete: top-down DECLARES
+# cognitively-valid actions even when the sample didn't surface them (status: declared_unseen).
+
+meta:
+  version: 2
+  method: top_down_phase_derived
+  vocabulary_source: rules/phases.yaml      # the 9 cognitive phases that generate these CPAs
+  invariant: "every CPA realizes exactly one phase; CPAs within a phase differ only by proximate goal"
+
+# ---------------- L1 goal-setting ----------------
+PLAN:                      # cognitive_state: goal decomposition (Miller & Cohen 2001)
+  - name: PLAN_APPROACH    # NEW (declared by the phase; v1 missed it — planning is latent)
+    proximate_goal: "decompose the task into an ordered set of sub-goals before acting"
+    trigger: "explicit plan/TODO/numbered-steps written by the agent (mostly latent in `think`)"
+    distinguish: "setting the goal hierarchy (here) vs pursuing a sub-goal (any L2 phase)"
+    status: declared_rare       # observable instances rare in single-agent SWE traces
+
+# ---------------- L2 execution ----------------
+RETRIEVE:                  # cognitive_state: directed externally-directed acquisition (Botvinick 2009)
+  - name: EXPLORE_REPOSITORY
+    proximate_goal: "build a map of repo structure"
+    trigger: "view(<dir>), ls, tree"
+    distinguish: "going to a directory (here) vs opening a known file to read (INSPECT/READ_SOURCE)"
+  - name: LOCATE_CODE
+    proximate_goal: "find where a symbol/file/definition lives"
+    trigger: "grep, rg, find, find_file, search_dir"
+    distinguish: "searching to acquire a target (here) vs reading the target once found (INSPECT)"
+
+INSPECT:                   # cognitive_state: passive monitoring, NO proposition tested (Nelson&Narens 1990)
+  - name: READ_SOURCE
+    proximate_goal: "understand an implementation by reading it"
+    trigger: "view(<file>), cat, head, tail, goto, scroll"
+    distinguish: "reading to understand, no truth test (here) vs reading to pull a specific value (EXTRACT) vs to test a proposition (VERIFY)"
+  - name: READ_DOCUMENTATION
+    proximate_goal: "understand intended behaviour from docs"
+    trigger: "view README/CHANGELOG/docs/*.md/.rst"
+    distinguish: "reading docs (here) vs reading code (READ_SOURCE)"
+    status: declared_unseen   # 0 occurrences in 500-traj sample; declared by the INSPECT phase
+  - name: INSPECT_CHANGES
+    proximate_goal: "see one's own uncommitted edits"
+    trigger: "git diff / git status / git show (working tree)"
+    distinguish: "scanning your own diff (here) vs project source (READ_SOURCE) vs history (INSPECT_HISTORY)"
+  - name: INSPECT_HISTORY
+    proximate_goal: "understand how code reached its current state"
+    trigger: "git log / git blame / git show <sha>"
+    distinguish: "scanning past history (here) vs your own diff (INSPECT_CHANGES)"
+  - name: INSPECT_ENVIRONMENT
+    proximate_goal: "see what is installed / the interpreter state"
+    trigger: "pip list/freeze/show, python --version, uname, printenv"
+    distinguish: "scanning env state (here) vs reading repo source (READ_SOURCE)"
+
+EXTRACT:                   # cognitive_state: central executive LOCKS ON a target value (Baddeley 2000)
+  - name: DIAGNOSE_FAILURE
+    proximate_goal: "lock onto a failure and pull out its root-cause value (the offending line/assertion)"
+    trigger: "reading a traceback / a view right after a failed run"
+    distinguish: "extracting THE cause from a failure (here) vs general reading-to-understand (INSPECT). [coauthor: EXTRACT vs INSPECT — confirm]"
+
+VERIFY:                    # cognitive_state: explicit proposition; output is a TRUTH VALUE (Wason 1960)
+  - name: RUN_TEST_SUITE
+    proximate_goal: "is the behaviour correct? (first/observational test run)"
+    trigger: "pytest, tox, unittest, python -m pytest"
+    distinguish: "proposition = tests pass? Initial run (here) vs post-edit confirmation (VERIFY_FIX)"
+  - name: REPRODUCE_ISSUE
+    proximate_goal: "does the reported bug actually occur?"
+    trigger: "run a repro script / program (pre-fix)"
+    distinguish: "proposition = bug reproduces? (here) vs the test suite (RUN_TEST_SUITE)"
+  - name: VERIFY_FIX
+    proximate_goal: "did my change resolve it?"
+    trigger: "re-run tests/repro after an edit"
+    distinguish: "post-edit confirmation (here) vs an initial run (RUN_TEST_SUITE/REPRODUCE_ISSUE)"
+  - name: CHECK_TYPES
+    proximate_goal: "are the types/static constraints sound?"
+    trigger: "mypy, pyright, pyre, tsc"
+    distinguish: "static-analysis proposition (here) vs dynamic tests (RUN_TEST_SUITE)"
+  - name: RUN_LINTER
+    proximate_goal: "is the style/lint clean?"
+    trigger: "flake8, pylint, ruff, pycodestyle, eslint"
+    distinguish: "style proposition (here) vs type soundness (CHECK_TYPES)"
+  - name: COMPARE_OUTPUT
+    proximate_goal: "do these two outputs/files match?"
+    trigger: "diff a b, cmp, difflib"
+    distinguish: "equality proposition over two artifacts (here) vs reviewing one's own git diff (INSPECT_CHANGES)"
+  - name: MEASURE_PERFORMANCE
+    proximate_goal: "is it fast/efficient enough?"
+    trigger: "timeit, cProfile, --durations"
+    distinguish: "performance proposition (here) vs correctness (RUN_TEST_SUITE)"
+
+WRITE:                     # cognitive_state: generative externalization (Flower & Hayes 1981)
+  - name: EDIT_SOURCE
+    proximate_goal: "change behaviour toward the fix"
+    trigger: "str_replace/insert on a source file"
+    distinguish: "behavioural fix (here) vs temp prints (ADD_DEBUG_INSTRUMENTATION) vs no-op restructure (REFACTOR_CODE) vs test file (WRITE_TEST)"
+  - name: WRITE_TEST
+    proximate_goal: "externalize a kept regression test"
+    trigger: "create(test_*.py), edits to test files"
+    distinguish: "kept test (here) vs throwaway repro (WRITE_REPRODUCTION_SCRIPT)"
+  - name: WRITE_REPRODUCTION_SCRIPT
+    proximate_goal: "externalize a scratch script that triggers the bug"
+    trigger: "create(repro.py / debug_*.py)"
+    distinguish: "scratch repro (here) vs kept test (WRITE_TEST)"
+  - name: ADD_DEBUG_INSTRUMENTATION
+    proximate_goal: "externalize temporary prints/logging to investigate"
+    trigger: "str_replace inserting print/logging/pdb"
+    distinguish: "temp diagnostics (here) vs the actual fix (EDIT_SOURCE). NB: when motivated by a failure the CONTROL STATE is REPAIR, the realized CPA is this WRITE"
+  - name: FORMAT_CODE
+    proximate_goal: "mechanically reformat code"
+    trigger: "black, isort, autopep8, prettier, gofmt"
+    distinguish: "mechanical reformat (here) vs behavioural change (EDIT_SOURCE)"
+  - name: REFACTOR_CODE
+    proximate_goal: "restructure without changing behaviour"
+    trigger: "edits preserving observable behaviour"
+    distinguish: "no behaviour change (here) vs a fix (EDIT_SOURCE)"
+  - name: CONFIGURE_ENVIRONMENT
+    proximate_goal: "make the code/tests runnable (env vars, venv)"
+    trigger: "export VAR=, source activate, venv, conda activate"
+    distinguish: "preparing the runtime (here) vs installing packages (INSTALL_DEPENDENCY)"
+  - name: MANAGE_FILESYSTEM
+    proximate_goal: "arrange files/dirs in the workspace"
+    trigger: "mkdir, mv, cp, touch, chmod, ln -s"
+    distinguish: "filesystem op (here) vs editing contents (EDIT_SOURCE) vs deleting scratch (CLEANUP_ARTIFACTS)"
+  - name: INSTALL_DEPENDENCY
+    proximate_goal: "provide packages needed to run"
+    trigger: "pip/conda/poetry install, apt-get"
+    distinguish: "installing deps (here) vs building (BUILD_PROJECT)"
+  - name: BUILD_PROJECT
+    proximate_goal: "compile/build so it can run"
+    trigger: "make, cmake, setup.py build, cargo/go build, mvn/gradle"
+    distinguish: "building (here) vs installing deps (INSTALL_DEPENDENCY)"
+  - name: APPLY_PATCH
+    proximate_goal: "externalize a prepared patch onto the tree"
+    trigger: "git apply, patch -p, git am"
+    distinguish: "applying a patch (here) vs hand-editing (EDIT_SOURCE)"
+    status: declared_unseen   # 0 occurrences in 500-traj sample; declared by the WRITE phase
+  - name: CLEANUP_ARTIFACTS
+    proximate_goal: "remove scratch before finalizing"
+    trigger: "rm <temp/scratch>"
+    distinguish: "removing scratch (here) vs reverting a source edit (REVERT_CHANGE)"
+  - name: COMMIT_CHANGES
+    proximate_goal: "record changes in version control"
+    trigger: "git add/commit/branch/tag"
+    distinguish: "committing (here) vs undoing (REVERT_CHANGE)"
+    status: declared_rare
+  - name: SUBMIT_SOLUTION
+    proximate_goal: "externalize the final patch as the solution"
+    trigger: "finish / submit"
+    distinguish: "terminal submission (here) vs intermediate write (EDIT_SOURCE)"
+
+# ---------------- L3 integration ----------------
+SYNTHESIZE:                # cognitive_state: assemble a representation no single unit had (Hutchins 1995)
+  # theory slot — declared, no coding CPA yet. Candidate INTEGRATE_FINDINGS = a fix that coordinates
+  # edits across multiple files/sources into one coherent change. Not rule-detectable; defer to LLM pass.
+  []
+
+# ---------------- L4 interrupt ----------------
+REPAIR:                    # cognitive_state: SAS override after a failure signal (Norman & Shallice 1986)
+  - name: REVERT_CHANGE
+    proximate_goal: "undo an edit that failed or regressed"
+    trigger: "git checkout --, git restore, git stash, undo_edit, git reset"
+    distinguish: "restoring prior state (here) vs a new change (EDIT_SOURCE)"
+  - name: INTERACTIVE_DEBUG
+    proximate_goal: "drop into a debugger/REPL to inspect runtime state after a failure"
+    trigger: "pdb, breakpoint(), ipython, python -i"
+    distinguish: "interactive runtime override (here) vs adding print statements (ADD_DEBUG_INSTRUMENTATION, a WRITE)"
+
+HANDOFF:                   # cognitive_state: load transfer on agent_id change (Hutchins 1995; Monsell 2003)
+  # theory slot — fires ONLY on an agent_id change (Layer B field). No CPA in single-agent SWE traces.
+  []

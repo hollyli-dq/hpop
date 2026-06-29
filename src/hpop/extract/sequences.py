@@ -48,7 +48,8 @@ def to_sequence(ann):
     occ = [c for c in ann.get("cpa_instances", []) if c.get("decision") != "ABSTAIN" and _label(c)]
     occ.sort(key=_start)
     seq = [_label(c) for c in occ]
-    occs = [{"label": _label(c), "decision": c.get("decision"),
+    phase_seq = [c.get("phase") for c in occ]
+    occs = [{"label": _label(c), "phase": c.get("phase"), "decision": c.get("decision"),
              "confidence": c.get("label_confidence", c.get("confidence")),
              "outcome": c.get("outcome"), "span": c.get("source_event_ids", [])} for c in occ]
     return {
@@ -57,6 +58,7 @@ def to_sequence(ann):
         "repo": ann.get("_repo"),
         "resolved": ann.get("_resolved"),
         "cpa_sequence": seq,
+        "phase_sequence": phase_seq,
         "occurrences": occs,
     }
 

@@ -5,14 +5,14 @@
     "trajectories": 500
   },
   {
-    "cpa": "READ_SOURCE",
-    "occurrences": 4026,
+    "cpa": "LOCATE_CODE",
+    "occurrences": 3271,
     "trajectories": 500
   },
   {
-    "cpa": "LOCATE_CODE",
-    "occurrences": 3272,
-    "trajectories": 500
+    "cpa": "READ_SOURCE",
+    "occurrences": 3207,
+    "trajectories": 494
   },
   {
     "cpa": "WRITE_TEST",
@@ -21,27 +21,27 @@
   },
   {
     "cpa": "RUN_TEST_SUITE",
-    "occurrences": 1947,
+    "occurrences": 1946,
     "trajectories": 488
   },
   {
-    "cpa": "DIAGNOSE_FAILURE",
-    "occurrences": 1726,
-    "trajectories": 458
-  },
-  {
     "cpa": "REPRODUCE_ISSUE",
-    "occurrences": 1698,
+    "occurrences": 1689,
     "trajectories": 461
   },
   {
+    "cpa": "DIAGNOSE_FAILURE",
+    "occurrences": 1681,
+    "trajectories": 458
+  },
+  {
     "cpa": "EDIT_SOURCE",
-    "occurrences": 1497,
-    "trajectories": 484
+    "occurrences": 1478,
+    "trajectories": 482
   },
   {
     "cpa": "EXPLORE_REPOSITORY",
-    "occurrences": 1036,
+    "occurrences": 1027,
     "trajectories": 491
   },
   {
@@ -50,14 +50,19 @@
     "trajectories": 396
   },
   {
+    "cpa": "READ_DOCUMENTATION",
+    "occurrences": 491,
+    "trajectories": 437
+  },
+  {
     "cpa": "SUBMIT_SOLUTION",
     "occurrences": 454,
     "trajectories": 454
   },
   {
     "cpa": "ADD_DEBUG_INSTRUMENTATION",
-    "occurrences": 418,
-    "trajectories": 190
+    "occurrences": 384,
+    "trajectories": 181
   },
   {
     "cpa": "CLEANUP_ARTIFACTS",
@@ -86,8 +91,8 @@
   },
   {
     "cpa": "BUILD_PROJECT",
-    "occurrences": 42,
-    "trajectories": 31
+    "occurrences": 40,
+    "trajectories": 29
   },
   {
     "cpa": "RUN_LINTER",
@@ -116,8 +121,8 @@
   },
   {
     "cpa": "COMPARE_OUTPUT",
-    "occurrences": 8,
-    "trajectories": 7
+    "occurrences": 7,
+    "trajectories": 6
   },
   {
     "cpa": "CONFIGURE_ENVIRONMENT",

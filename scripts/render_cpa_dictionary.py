@@ -16,10 +16,13 @@ import html
 import json
 from collections import Counter
 
-PHASES = [("orient", "A · Orient", "#7c9cff"),
-          ("reproduce_diagnose", "B · Reproduce & diagnose", "#e3b341"),
-          ("modify", "C · Modify", "#3fb950"),
-          ("verify_finalize", "D · Verify & finalize", "#f778ba")]
+import sys as _sys
+_sys.path.insert(0, "src")
+from hpop.annotate.cpa_v2 import PHASE_ORDER, PHASE_LEVEL, PHASE_LEVEL_NAME
+
+_LEVEL_COLOR = {"L1": "#d29922", "L2": "#7c9cff", "L3": "#3fb950", "L4": "#f778ba"}
+PHASES = [(p, "{} · {} ({})".format(PHASE_LEVEL[p], p, PHASE_LEVEL_NAME[PHASE_LEVEL[p]]),
+           _LEVEL_COLOR[PHASE_LEVEL[p]]) for p in PHASE_ORDER]
 
 
 def esc(s):

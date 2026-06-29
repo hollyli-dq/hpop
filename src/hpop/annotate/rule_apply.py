@@ -31,7 +31,14 @@ def _has_ext(path):
     return any(path.endswith(e) for e in _CODE_EXT)
 
 
+from hpop.annotate.cpa_v2 import CPA_PHASE
+
 _DEBUG_RE = re.compile(r"print\(|logging\.|logger\.|console\.log|\bpdb\b|traceback\.print|sys\.stderr|warnings\.warn", re.I)
+_DOC_RE = re.compile(r"readme|changelog|contributing|license|/docs?/|\.md\b|\.rst\b", re.I)
+
+
+def _is_doc(path):
+    return bool(_DOC_RE.search(path or ""))
 
 
 def classify(ev, edited_since_run):
@@ -53,7 +60,9 @@ def classify(ev, edited_since_run):
         if sub == "view":
             if fail:
                 return "DIAGNOSE_FAILURE", "UNKNOWN"
-            return ("READ_SOURCE", "SUCCESS") if _has_ext(path) else ("EXPLORE_REPOSITORY", "SUCCESS")
+            if not _has_ext(path):
+                return "EXPLORE_REPOSITORY", "SUCCESS"
+            return ("READ_DOCUMENTATION", "SUCCESS") if _is_doc(path) else ("READ_SOURCE", "SUCCESS")
         if sub == "create":
             if re.search(r"test", path):
                 return "WRITE_TEST", "SUCCESS"
@@ -84,6 +93,8 @@ def classify(ev, edited_since_run):
             return "INTERACTIVE_DEBUG", "SUCCESS"
         if re.search(r"\bdiff\s+\S+\s+\S+|\bcmp\s+\S+\s+\S|difflib|deepdiff", cmd) and not re.search(r"git\s+diff", cmd):
             return "COMPARE_OUTPUT", "SUCCESS"
+        if re.search(r"git\s+apply\b|\bpatch\s+-p|\bgit\s+am\b", cmd):
+            return "APPLY_PATCH", ("FAILURE" if fail else "SUCCESS")
         if re.search(r"git\s+(add|commit|branch|tag)\b", cmd):
             return "COMMIT_CHANGES", "SUCCESS"
         if re.search(r"\bmkdir\b|\btouch\b|\bmv\s+\S|\bcp\s+\S|\bchmod\b|\bln\s+-s", cmd):
@@ -95,7 +106,9 @@ def classify(ev, edited_since_run):
         if re.search(r"\bgrep\b|\bfind\b|\brg\b|\bls\b|find_file|search_dir", cmd):
             return "LOCATE_CODE", "SUCCESS"
         if re.search(r"\bcat\b|\bhead\b|\btail\b|\bless\b", cmd):
-            return ("DIAGNOSE_FAILURE", "UNKNOWN") if fail else ("READ_SOURCE", "SUCCESS")
+            if fail:
+                return "DIAGNOSE_FAILURE", "UNKNOWN"
+            return ("READ_DOCUMENTATION", "SUCCESS") if _is_doc(cmd) else ("READ_SOURCE", "SUCCESS")
         if re.search(r"\brm\b|rm -|del ", cmd):
             return "CLEANUP_ARTIFACTS", "SUCCESS"
         if re.search(r"git checkout|git restore|git stash|undo_edit|git reset", cmd):
@@ -124,7 +137,7 @@ def annotate(trace, libdefs):
     for ev in trace.get("action_tokens", []):
         cpa, outcome = classify(ev, edited_since_run)
         raw.append((ev, cpa, outcome))
-        if cpa in ("EDIT_SOURCE", "WRITE_TEST", "WRITE_REPRODUCTION_SCRIPT", "ADD_DEBUG_INSTRUMENTATION"):
+        if cpa in ("EDIT_SOURCE", "WRITE_TEST", "WRITE_REPRODUCTION_SCRIPT", "ADD_DEBUG_INSTRUMENTATION", "APPLY_PATCH"):
             edited_since_run = True
         elif cpa in ("RUN_TEST_SUITE", "VERIFY_FIX", "REPRODUCE_ISSUE"):
             edited_since_run = False
@@ -146,12 +159,13 @@ def annotate(trace, libdefs):
             if raw[j][2] == "FAILURE":
                 outc = "FAILURE"
             j += 1
-        in_lib = cpa in libdefs
+        in_lib = cpa in CPA_PHASE
         occ.append({
             "occurrence_id": "{}::CPA_{:04d}".format(trace["trace_id"], len(occ) + 1),
             "source_event_ids": [eid(k) for k in ids], "start_event_id": eid(ids[0]), "end_event_id": eid(ids[-1]),
             "decision": "MATCH_EXISTING" if in_lib else "PROPOSE_NEW",
             "canonical_label": cpa if in_lib else None, "candidate_label": cpa,
+            "phase": CPA_PHASE.get(cpa),
             "definition": libdefs.get(cpa, ""), "procedural_function": libdefs.get(cpa, cpa.lower()),
             "input_artifacts": [], "output_artifacts": [],
             "state_before": None, "state_after": None, "outcome": outc,

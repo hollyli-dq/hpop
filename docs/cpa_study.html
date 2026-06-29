@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>CPA Study — Canonical Procedural Actions for Coding-Agent Traces</title>
+<style>
+  :root{--bg:#0b0e13;--card:#11161d;--bd:#2b333d;--fg:#d7dde5;--mut:#8b949e;--accent:#7c9cff}
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--fg);font:15px/1.65 -apple-system,Segoe UI,Roboto,sans-serif;max-width:980px;margin:0 auto;padding:32px 22px 80px}
+  h1{font-size:27px;margin:0 0 4px}
+  h2{font-size:20px;margin:38px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--bd);color:#e6edf3}
+  h3{font-size:16px;margin:22px 0 6px;color:#cdd6e0}
+  .sub{color:var(--mut);font-size:13px;margin-bottom:20px}
+  a{color:var(--accent)}
+  code{background:#0d1117;border:1px solid var(--bd);border-radius:4px;padding:1px 5px;font-size:12.5px}
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13.5px}
+  th,td{border:1px solid var(--bd);padding:6px 9px;text-align:left}
+  th{background:#0d1117;color:#cdd6e0}
+  td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+  .win{color:#3fb950;font-weight:600}.bad{color:#f85149}.warn{color:#d29922}
+  .card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:14px 18px;margin:14px 0}
+  .tldr{background:#0e1a14;border:1px solid #2ea043}
+  .key{background:#161228;border:1px solid #6e5acd}
+  ul{margin:8px 0;padding-left:22px}li{margin:3px 0}
+  .bar{display:inline-block;height:10px;background:var(--accent);border-radius:2px;vertical-align:middle}
+  .muted{color:var(--mut)}
+  .pill{display:inline-block;background:#0d1117;border:1px solid var(--bd);border-radius:20px;padding:2px 10px;font-size:12px;margin:2px 3px}
+  .lvl1{color:#d29922}.lvl2{color:#7c9cff}.lvl3{color:#3fb950}.lvl4{color:#f778ba}
+</style></head><body>
+
+<h1>CPA Study — Canonical Procedural Actions for Coding-Agent Traces</h1>
+<div class="sub">HPOP · weak-supervision layer for partial-order skill induction · 500 SWE-rebench/OpenHands trajectories (334 repos) · generated from the analysis scripts in <code>scripts/</code></div>
+
+<div class="card tldr">
+<b>Executive summary</b>
+<ul>
+<li><b>What a CPA is:</b> a <i>canonical procedural action</i> — the procedural <i>function</i> of a trace span (e.g. <code>RUN_TEST_SUITE</code>), more abstract than a tool call, portable across repos. CPAs are the action vocabulary that gives the HPOP model structured weak supervision.</li>
+<li><b>Two ways to build them:</b> <b>v1</b> = bottom-up induction from data (29 CPAs); <b>v2</b> = top-down derivation from a 9-phase cognitive taxonomy (Miller&nbsp;&amp;&nbsp;Cohen 2001), 32 CPAs. v2 also adds a per-occurrence <b>cognitive phase</b> label.</li>
+<li><b>Are the labels meaningful?</b> Against a <b>no-instruction floor</b> (label by raw command, no taxonomy → 0.58 bits of structure), the guided schemes reach <b>0.94–0.98 bits</b> — and far more efficiently per symbol. The annotation is real, not an artifact of vocabulary size (each scheme is null-calibrated against its own shuffle).</li>
+<li><b>v1 vs v2:</b> a near-tie on structure; v2 is <span class="win">slightly better</span> (0.979 vs 0.940 excess bits, highest per-symbol efficiency 0.201) and adds the cognitive phase layer that the head-to-head shows is more self-predictable than the raw physical layer.</li>
+<li><b>Does the guidance matter?</b> Honestly: only <i>modestly</i> for raw structure (a smart no-instruction "act+object" labeling reaches 0.918 vs guided 0.979). The instruction's <b>decisive</b> win is <b>vocabulary control</b>: it splits the over-loaded <code>python</code> (33% of all events) by intent and merges repo-specific synonyms into reusable types.</li>
+</ul>
+</div>
+
+<h2>1 · Corpus &amp; pipeline</h2>
+<p>Benchmark: <code>nebius/SWE-rebench-openhands-trajectories</code>. We sampled <b>500 trajectories across 334 repositories</b> (five pilots of 100; 50 resolved + 50 unresolved each), deliberately diverse in length and outcome.</p>
+<p>The pipeline follows the linguistics coauthor's layered framework (PDAF v3):</p>
+<table>
+<tr><th>Step</th><th>Layer</th><th>What it does</th><th>Grounding</th></tr>
+<tr><td><b>1 · normalize</b></td><td>B · 1a</td><td>each event → <b>action token</b> <code>(action_type, tool_family, agent_id, artifact_id)</code>; collapse adjacent identical actions; normalize tool names</td><td>ISO 24612:2012 LAF · Bird &amp; Liberman 1999</td></tr>
+<tr><td><b>2 · phase tag</b></td><td>A</td><td><b>each span → one of 9 cognitive phases</b> (the control state) — assigned <i>first</i>, the primary label</td><td>Miller &amp; Cohen 2001</td></tr>
+<tr><td><b>3 · CPA</b></td><td>B · 1b</td><td>within each phase, refine to the specific CPA (the procedural action realizing that control state)</td><td>Leontiev 1978 (Activity Theory)</td></tr>
+</table>
+<p><b>Phase-first (coarse → fine).</b> Consistent with the top-down method — phases <i>generate</i> CPAs — the annotation assigns the cognitive control state first (9 robust categories), then refines to the specific CPA within that phase. The phase is the primary, more robust label; the CPA is its within-phase specialization.</p>
+<p>Step 1 result: <b>32,664 raw events → 30,548 action tokens</b> (2,116 repeated actions merged), 72% carrying an <code>artifact_id</code>. Steps 2–3 produced <b>23,929 labeled occurrences</b> (phase + CPA).</p>
+
+<h2>2 · The two CPA schemes</h2>
+<table>
+<tr><th></th><th>v1 — induced (bottom-up)</th><th>v2 — cognitive (top-down)</th></tr>
+<tr><td>method</td><td>mine commands → label → group into phases <i>afterward</i></td><td><b>9 phases first</b> → derive CPAs that realize each phase</td></tr>
+<tr><td>phases are…</td><td>descriptive afterthought (4 ad-hoc)</td><td>generative scaffold (9, cognitive)</td></tr>
+<tr><td>CPAs</td><td class="n">29</td><td class="n">32 declared / 29 realized</td></tr>
+<tr><td>each CPA justified by…</td><td>a command keyword</td><td><b>(phase → proximate goal)</b>; maps to exactly one phase</td></tr>
+</table>
+<p class="muted">v2 declares 3 CPAs that bottom-up missed but never fire in this sample (<code>PLAN_APPROACH</code>, <code>APPLY_PATCH</code>, <code>REFACTOR_CODE</code> = 0 occ) — top-down <i>declares the cognitive grammar</i> even where the data is silent.</p>
+
+<h3>The 9-phase cognitive taxonomy (Miller &amp; Cohen 2001)</h3>
+<table>
+<tr><th>L</th><th>Phase</th><th>Cognitive control state</th><th class="n">occ.</th><th>realizing coding CPAs</th></tr>
+<tr><td class="lvl1">L1 goal-setting</td><td class="lvl1"><b>PLAN</b></td><td>goal decomposition</td><td class="n">0</td><td class="muted">latent (in excluded <code>think</code>)</td></tr>
+<tr><td class="lvl2">L2 execution</td><td class="lvl2"><b>RETRIEVE</b></td><td>directed acquisition</td><td class="n">4298</td><td>EXPLORE_REPOSITORY, LOCATE_CODE</td></tr>
+<tr><td class="lvl2">L2 execution</td><td class="lvl2"><b>INSPECT</b></td><td>passive monitoring (no proposition)</td><td class="n">4079</td><td>READ_SOURCE, READ_DOCUMENTATION, INSPECT_CHANGES/HISTORY/ENVIRONMENT</td></tr>
+<tr><td class="lvl2">L2 execution</td><td class="lvl2"><b>EXTRACT</b></td><td>lock onto a target value</td><td class="n">1681</td><td>DIAGNOSE_FAILURE</td></tr>
+<tr><td class="lvl2">L2 execution</td><td class="lvl2"><b>VERIFY</b></td><td>explicit proposition → truth value</td><td class="n">7931</td><td>RUN_TEST_SUITE, VERIFY_FIX, REPRODUCE_ISSUE, CHECK_TYPES, RUN_LINTER, COMPARE_OUTPUT, MEASURE_PERFORMANCE</td></tr>
+<tr><td class="lvl2">L2 execution</td><td class="lvl2"><b>WRITE</b></td><td>generative externalization</td><td class="n">5824</td><td>EDIT_SOURCE, WRITE_TEST, WRITE_REPRODUCTION_SCRIPT, ADD_DEBUG_INSTRUMENTATION, FORMAT_CODE, INSTALL_DEPENDENCY, CONFIGURE_ENVIRONMENT, MANAGE_FILESYSTEM, BUILD_PROJECT, CLEANUP_ARTIFACTS, COMMIT_CHANGES, SUBMIT_SOLUTION</td></tr>
+<tr><td class="lvl3">L3 integration</td><td class="lvl3"><b>SYNTHESIZE</b></td><td>multi-source integration</td><td class="n">0</td><td class="muted">absent in single-agent coding</td></tr>
+<tr><td class="lvl4">L4 interrupt</td><td class="lvl4"><b>REPAIR</b></td><td>error-driven override</td><td class="n">116</td><td>REVERT_CHANGE, INTERACTIVE_DEBUG</td></tr>
+<tr><td class="lvl4">L4 interrupt</td><td class="lvl4"><b>HANDOFF</b></td><td>load transfer (agent change)</td><td class="n">0</td><td class="muted">none — single agent</td></tr>
+</table>
+<p class="muted">Empty phases are a <i>finding</i>, not a gap: single-agent coding traces do not plan overtly, integrate across sources, or hand off — a bottom-up method could never have told us that.</p>
+
+<h2>3 · Evaluation methodology</h2>
+<p>"Is this a good annotation?" is operationalized as: <b>how much sequential structure does the label sequence carry beyond chance?</b> A good vocabulary makes the trace predictable — the current label tells you about the next.</p>
+<div class="card">
+<b>Transition mutual information</b> over all adjacent label pairs:
+<div style="text-align:center;margin:8px 0">I(L<sub>t</sub>;L<sub>t+1</sub>) = Σ p(x,y) · log<sub>2</sub>[ p(x,y) / (p(x)·p(y)) ]&nbsp;&nbsp;bits</div>
+<b>Shuffle null:</b> shuffle each trajectory's labels in place (keeps length + composition, destroys order), recompute, average → <code>I_rand</code>. <b>excess = I_real − I_rand</b> removes finite-sample noise, crediting only genuine ordering structure.
+</div>
+<p>The shuffle-null is itself the calibration: every scheme is scored against <i>its own</i> shuffled labels, so <code>excess</code> credits only real sequential structure, independent of vocabulary size or sequence length. The honest floor is the <b>no-instruction</b> labeling (what an annotator produces with no taxonomy), not artificial noise.</p>
+
+<h2>4 · Results — the structure ladder</h2>
+<p>Same 500-trajectory segmentation, only the <i>label</i> differs. The no-instruction baselines are <b>constructed and saved</b> as first-class annotation files (<code>data/modelling/swe_rebench/baseline_{cmdword,actobj}.sequences.jsonl</code>; numbers from <code>ladder.json</code>). Higher excess = less random; <b>eff</b> = excess per bit of vocabulary (efficiency, controls for |V|).</p>
+<table>
+<tr><th>scheme</th><th class="n">|V|</th><th class="n">I_real</th><th class="n">excess</th><th class="n">×chance</th><th class="n">eff</th><th>what it is</th></tr>
+<tr><td>cmdword (no instruction)</td><td class="n">62</td><td class="n">0.623</td><td class="n">0.582</td><td class="n">15×</td><td class="n bad">0.098</td><td>literal command word, no taxonomy — the floor</td></tr>
+<tr><td>actobj &nbsp;(no instruction)</td><td class="n">24</td><td class="n">0.941</td><td class="n">0.918</td><td class="n">41×</td><td class="n">0.200</td><td>act + object, no taxonomy</td></tr>
+<tr><td>v1 CPA &nbsp;(induced)</td><td class="n">28</td><td class="n">0.968</td><td class="n">0.940</td><td class="n">35×</td><td class="n">0.196</td><td>rule guidance</td></tr>
+<tr><td><b>v2 CPA &nbsp;(cognitive)</b></td><td class="n">29</td><td class="n">1.009</td><td class="n win">0.979</td><td class="n">34×</td><td class="n win">0.201</td><td>phase-derived guidance</td></tr>
+</table>
+<p>Reading the ladder: <span class="warn">no-instruction cmdword 0.58</span> → actobj 0.92 → guided CPA 0.98. Each rung of theory adds measurable structure. <span class="muted">(The 9-phase layer is a coarser aggregation of the CPA, not an alternative occurrence labeling, so it is compared separately below — not in this ladder.)</span></p>
+<p><b>Efficiency (eff) is the cleanest separator.</b> The naive command-word baseline is <span class="bad">half as efficient</span> (0.098) — its 62-label sprawl buys little structure per symbol. <b>v2 CPA is the most efficient labeling (0.201)</b>, edging the act+object baseline (0.200) and v1 (0.196): the cognitive guidance packs the most non-random structure into the fewest, most reusable symbols.</p>
+
+<h3>Complementary head-to-head (occurrence level)</h3>
+<table>
+<tr><th>layer</th><th class="n">|V|</th><th class="n">predictability NP</th><th class="n">info on next action</th><th class="n">coverage</th></tr>
+<tr><td>physical (action_type)</td><td class="n">5</td><td class="n">0.097</td><td class="n">0.159 b</td><td class="n">100%</td></tr>
+<tr><td>action (CPA)</td><td class="n">29</td><td class="n">0.281</td><td class="n">0.355 b</td><td class="n">100%</td></tr>
+<tr><td>cognitive (phase)</td><td class="n">6</td><td class="n">0.186</td><td class="n">0.253 b</td><td class="n">100%</td></tr>
+</table>
+<p>At nearly equal vocabulary (5 vs 6), the cognitive phase layer is <b>~2× more self-predictable</b> than the raw physical layer, and a current phase reveals <b>more about the next physical action</b> (0.253 b) than the current physical action does (0.159 b) — the abstraction explains the surface, not vice-versa.</p>
+<p class="muted">Honest caveat: predicting task success (<code>resolved</code>) from label profiles gives AUC ≈ 0.60–0.66 for <i>all</i> layers — task success is only loosely tied to procedural labeling, so it is <b>not</b> a good utility metric and we do not rely on it.</p>
+
+<h2>5 · Why "no instruction" fails — the command-word evidence</h2>
+<p>Labeling each event by its literal leading command (no taxonomy) sprawls to <b>62 labels</b> that fail in two opposite ways:</p>
+<div class="card key">
+<b>Over-collapsed</b> — generic words swallow distinct functions:
+<div style="margin:6px 0"><span class="bar" style="width:330px"></span> <code>python</code> &nbsp;<b>7877</b> &nbsp;<span class="muted">(33% of all events — hides repro vs test vs typecheck vs <code>-c</code>)</span></div>
+<div><span class="bar" style="width:252px"></span> <code>edit:view</code> 6027 &nbsp; <span class="bar" style="width:116px"></span> <code>edit:create</code> 2780 &nbsp; <span class="bar" style="width:100px"></span> <code>grep</code> 2407</div>
+<div style="margin-top:10px"><b>Over-fragmented</b> — a long tail of repo-specific junk that aren't categories:</div>
+<div class="muted" style="font-size:12.5px">sqlfluff · zpretty · showyourwork · streamlink · hpxml2hescore · sqllineage · fitsinfo · charmcraft_developer · datalad_credential_mike_token · database_url · django_settings_module · tox4 · node · docker … (each 1–3 occ)</div>
+</div>
+<p>The instruction is exactly what repairs both: it <b>splits</b> <code>python</code> by context into REPRODUCE_ISSUE / RUN_TEST_SUITE / CHECK_TYPES, and <b>merges</b> the synonym tail (<code>pytest, tox, nosetests, py.test</code>) into one reusable <code>RUN_TEST_SUITE</code>. Transition-MI barely sees this; HPOP — which learns reusable skills from a controlled, consistent CPA vocabulary — depends on it entirely. <span class="muted">(Phases are an optional coarse descriptor for interpretability, not the model's skill types; HPOP consumes CPA occurrence sequences and learns local partial-order skills that may span phases.)</span></p>
+
+<h3>Side-by-side: the same trajectory under each scheme</h3>
+<p class="muted">First 10 occurrences of one trajectory, as actually stored in the constructed baseline files. Watch rows 4–5: identical <code>python</code> under no-instruction, correctly disambiguated by the guided schemes.</p>
+<table>
+<tr><th class="n">#</th><th>cmdword (no instr.)</th><th>actobj (no instr.)</th><th>v2 CPA (guided)</th><th>v2 phase</th></tr>
+<tr><td class="n">0</td><td>edit:view</td><td>view:none</td><td>EXPLORE_REPOSITORY</td><td class="lvl2">RETRIEVE</td></tr>
+<tr><td class="n">1</td><td>pwd</td><td>run:none</td><td>REPRODUCE_ISSUE</td><td class="lvl2">VERIFY</td></tr>
+<tr><td class="n">2</td><td>edit:view</td><td>view:doc</td><td>READ_DOCUMENTATION</td><td class="lvl2">INSPECT</td></tr>
+<tr><td class="n">3</td><td>find</td><td>run:none</td><td>LOCATE_CODE</td><td class="lvl2">RETRIEVE</td></tr>
+<tr style="background:#1a1410"><td class="n">4</td><td class="warn">python</td><td>run:none</td><td>READ_SOURCE</td><td class="lvl2">INSPECT</td></tr>
+<tr style="background:#1a1410"><td class="n">5</td><td class="warn">python</td><td>run:none</td><td>DIAGNOSE_FAILURE</td><td class="lvl2">EXTRACT</td></tr>
+<tr><td class="n">6</td><td>find</td><td>run:symbol</td><td>LOCATE_CODE</td><td class="lvl2">RETRIEVE</td></tr>
+<tr><td class="n">7</td><td>edit:view</td><td>view:source</td><td>EXPLORE_REPOSITORY</td><td class="lvl2">RETRIEVE</td></tr>
+<tr><td class="n">8</td><td>edit:view</td><td>view:source</td><td>DIAGNOSE_FAILURE</td><td class="lvl4">EXTRACT</td></tr>
+<tr><td class="n">9</td><td>grep</td><td>run:symbol</td><td>LOCATE_CODE</td><td class="lvl2">RETRIEVE</td></tr>
+</table>
+
+<h2>6 · Conclusions</h2>
+<div class="card tldr">
+<ol>
+<li><b>The annotation is real.</b> Against the no-instruction floor (0.58), the guided schemes reach 0.94–0.98 bits of null-calibrated structure. Neither is accidentally structured.</li>
+<li><b>v2 (cognitive) ≥ v1 (induced).</b> Slightly more structure (0.979 vs 0.940 excess bits) and the highest per-symbol efficiency (0.201), plus the phase layer.</li>
+<li><b>Theory beats surface, but modestly on structure.</b> A smart no-instruction "act+object" labeling reaches 0.918 — within 6% of guided. Don't over-claim a structure advantage.</li>
+<li><b>The decisive value of instruction is vocabulary control.</b> It de-conflates the 33%-dominant <code>python</code> and consolidates a 62-label surface sprawl into a reusable, consistent set — the property HPOP actually requires.</li>
+<li><b>Empty cognitive phases are informative.</b> PLAN / SYNTHESIZE / HANDOFF = 0 quantifies that single-agent coding traces don't plan overtly, integrate across sources, or hand off.</li>
+</ol>
+</div>
+
+<h2>Artifacts</h2>
+<ul class="muted" style="font-size:13px">
+<li><span class="pill">rules/cpas_v2.yaml</span> phase-derived CPA rule (single source) · <span class="pill">rules/phases.yaml</span> 9-phase taxonomy</li>
+<li><span class="pill">src/hpop/annotate/normalize.py</span> Layer B Step 1a · <span class="pill">rule_apply.py</span> Step 1b · <span class="pill">cpa_v2.py</span> phase map</li>
+<li><span class="pill">scripts/eval_dictionary.py</span> · <span class="pill">scripts/compare_annotations.py</span> · <span class="pill">scripts/baseline_compare.py</span> · <span class="pill">scripts/iter_induct.py</span></li>
+<li>Related views: <a href="cpa_dictionary.html">CPA dictionary (9-phase)</a> · <a href="cpa_view.html">per-trajectory CPA timelines</a> · <a href="phase_taxonomy.md">phase taxonomy doc</a></li>
+</ul>
+
+</body></html>

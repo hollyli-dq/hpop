@@ -1,0 +1,123 @@
+# Layer A — Phase Taxonomy (optional coarse procedural descriptor)
+# =================================================================
+# NINE phase categories grounded in cognitive neuroscience (Miller & Cohen, 2001), organised across
+# FOUR abstraction levels (L1 goal-setting / L2 execution / L3 integration / L4 interrupt).
+#
+# Recreated from the linguistics coauthor's PDAF v3 framework (Report 3, §2.2). The phase label is an
+# OPTIONAL, COARSE PROCEDURAL DESCRIPTOR used for interpretability and diagnostic analysis — it is NOT a
+# fixed skill type. HPOP does not take phases as skill labels: it receives the CPA occurrence sequences
+# and learns a reusable library of local partial-order skills; a learned skill may contain CPAs from one
+# phase or several. A phase is the cognitive CONTROL STATE of a span.
+#
+# `cpas_web`  = the coauthor's original WebLINX-domain realizing CPAs (her v1 vocabulary).
+# `cpas_code` = PROPOSED mapping of our 29 SWE-rebench coding CPAs onto each phase (bridge for the
+#               annotation rewrite; ambiguous ones flagged in `notes`, pending coauthor sign-off).
+#
+# domain-general; theory citations preserved verbatim from the source table.
+
+meta:
+  layer: A
+  name: phase_taxonomy
+  role: optional_coarse_procedural_descriptor   # interpretability/diagnostics — NOT the model's skill types
+  n_phases: 9
+  n_levels: 4
+  primary_reference: "Miller & Cohen (2001), An integrative theory of prefrontal cortex function"
+  source: "PDAF v3 (coauthor Report 3, §2.2)"
+
+levels:
+  L1: {name: goal-setting, gloss: "set the goal hierarchy that biases all downstream processing"}
+  L2: {name: execution,    gloss: "directed pursuit of subgoals under the active goal representation"}
+  L3: {name: integration,  gloss: "assemble a representation no single execution unit possessed"}
+  L4: {name: interrupt,    gloss: "override the current control state on a failure or agent-change signal"}
+
+phases:
+  - id: PLAN
+    level: L1
+    cognitive_state: "Goal decomposition — PFC sets the goal hierarchy"
+    reference: "Miller & Cohen (2001); intentional discourse segment (Grosz & Sidner, 1986)"
+    output: "a goal / sub-goal hierarchy"
+    cpas_web: [FORMULATE_GOAL]
+    cpas_code: []      # our pipeline excludes `think`; no overt PLAN CPA yet
+    notes: "Opens an episode. In single-agent coding traces planning is usually latent (think tokens, excluded). A future FORMULATE_GOAL / PLAN_APPROACH CPA would live here."
+
+  - id: RETRIEVE
+    level: L2
+    cognitive_state: "Directed subgoal pursuit — externally-directed acquisition"
+    reference: "Botvinick et al. (2009)"
+    output: "located / opened target resource"
+    cpas_web: [SEARCH, OPEN, NAVIGATE]
+    cpas_code: [EXPLORE_REPOSITORY, LOCATE_CODE]
+    notes: "Going to get something: grep/find (LOCATE_CODE), ls/view-dir (EXPLORE_REPOSITORY)."
+
+  - id: INSPECT
+    level: L2
+    cognitive_state: "Metacognitive monitoring — passive scanning, no proposition tested"
+    reference: "Nelson & Narens (1990)"
+    output: "understanding (no truth value)"
+    cpas_web: [READ, SCAN]
+    cpas_code: [READ_SOURCE, INSPECT_CHANGES, INSPECT_HISTORY, INSPECT_ENVIRONMENT, READ_DOCUMENTATION]
+    notes: "Reading to understand, NO proposition under test (contrast VERIFY)."
+
+  - id: EXTRACT
+    level: L2
+    cognitive_state: "Focused subgoal pursuit — central executive locks on target"
+    reference: "Baddeley (2000)"
+    output: "a specific value / evidence pulled from a source"
+    cpas_web: [EXTRACT_EVIDENCE, FILL]
+    cpas_code: [DIAGNOSE_FAILURE]
+    notes: "AMBIGUOUS for coding — mapped DIAGNOSE_FAILURE here (locks onto the failing line/cause to extract the root-cause value). Could alternatively be INSPECT. Coauthor to confirm; web FILL has no clean coding analog."
+
+  - id: VERIFY
+    level: L2
+    cognitive_state: "Metacognitive control — explicit proposition; output is a truth value"
+    reference: "Nelson & Narens (1990); Wason (1960)"
+    output: "truth value (pass/fail, matches/differs)"
+    cpas_web: [VERIFY_CLAIM]
+    cpas_code: [RUN_TEST_SUITE, VERIFY_FIX, REPRODUCE_ISSUE, CHECK_TYPES, RUN_LINTER, COMPARE_OUTPUT, MEASURE_PERFORMANCE]
+    notes: "Any action whose output is an explicit pass/fail/diff proposition about the code."
+
+  - id: WRITE
+    level: L2
+    cognitive_state: "Generative production — externalization mode"
+    reference: "Flower & Hayes (1981)"
+    output: "an externalised artifact (code, file, env change, submission)"
+    cpas_web: [WRITE, SUBMIT]
+    cpas_code: [EDIT_SOURCE, WRITE_TEST, WRITE_REPRODUCTION_SCRIPT, ADD_DEBUG_INSTRUMENTATION, FORMAT_CODE,
+                REFACTOR_CODE, CONFIGURE_ENVIRONMENT, MANAGE_FILESYSTEM, INSTALL_DEPENDENCY, BUILD_PROJECT,
+                APPLY_PATCH, CLEANUP_ARTIFACTS, SUBMIT_SOLUTION]
+    notes: "All generative/externalizing actions. SUBMIT_SOLUTION mirrors her SUBMIT."
+
+  - id: SYNTHESIZE
+    level: L3
+    cognitive_state: "Multi-source integration — assembles a representation no single unit possessed"
+    reference: "Hutchins (1995)"
+    output: "an integrated artifact spanning multiple sources"
+    cpas_web: [SYNTHESIZE_FINDINGS]
+    cpas_code: []
+    notes: "AMBIGUOUS/RARE for coding — a cross-file integrating edit could qualify, but our rule layer cannot detect 'multi-source integration' reliably. Left empty pending the LLM pass / coauthor input."
+
+  - id: REPAIR
+    level: L4
+    cognitive_state: "Error monitoring — SAS override after a failure signal"
+    reference: "Norman & Shallice (1986)"
+    output: "restored / corrected state after a detected failure"
+    cpas_web: [REPAIR_SOURCE]
+    cpas_code: [REVERT_CHANGE, INTERACTIVE_DEBUG]
+    notes: "Interrupt state triggered by a failure signal. REVERT_CHANGE (undo a regression) and INTERACTIVE_DEBUG (drop into pdb after a failure) are the override responses. Note: ADD_DEBUG_INSTRUMENTATION is a WRITE action even when motivated by failure — the CONTROL STATE here is REPAIR, the realizing CPA may be a WRITE."
+
+  - id: HANDOFF
+    level: L4
+    cognitive_state: "Distributed cognitive load transfer (agent identity change)"
+    reference: "Hutchins (1995); Monsell (2003)"
+    output: "control passed to another agent"
+    cpas_web: []          # triggered purely by agent_id change, not a CPA
+    cpas_code: []
+    notes: "Fires ONLY on an agent_id change (Layer B field). Single-agent SWE-rebench traces have no HANDOFF; kept for multi-agent generality."
+
+# Phase grammar (precedence / recurrence) — the 'phase boundary constrains phrase span' constraint.
+phase_grammar:
+  opens_episode: [PLAN]
+  freely_recurring: [RETRIEVE, INSPECT, EXTRACT, VERIFY, WRITE]   # L2 states interleave and repeat
+  follows_acquisition: [SYNTHESIZE]                               # L3 after multiple L2 units
+  interrupt_anytime: [REPAIR, HANDOFF]                            # L4 may fire at any point, then return
+  note: "Phases are a recurrence vocabulary, NOT a fixed linear order. HPOP infers the global poset over phases itself; we only supply the per-instance phase label."

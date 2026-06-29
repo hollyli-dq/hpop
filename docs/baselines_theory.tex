@@ -73,6 +73,55 @@ automatised \emph{Operations} (raw clicks/commands) at which reusable structure 
 The annotation is thus coarse-to-fine: phase first, \cpa\ within it, each \cpa\ realising
 exactly one phase.
 
+\subsection{Coarse-to-fine generative model}
+\label{sec:generative}
+We model annotation generatively as \emph{phase first, \cpa\ second}. Each phase
+$h\in\mathcal P$ owns a phase-specific dictionary $\mathcal A_h=\{c_{h1},\dots,c_{hK_h}\}$, and the
+full action vocabulary is $\mathcal A=\bigcup_{h\in\mathcal P}\mathcal A_h$. For an event span $x_i$
+with local context $\xi_i$ (preceding spans, edit/run history, artifact state),
+\begin{align}
+h_i &\sim p(h_i\mid \xi_i), & &\text{(phase)}\\
+c_i &\sim p(c_i\mid h_i,\mathcal A_{h_i}), & &\text{(\cpa\ within phase)}\\
+x_i &\sim p(x_i\mid c_i,h_i), & &\text{(realisation)}
+\end{align}
+so that, over a trajectory,
+\begin{equation}
+p(H,C,X)=\prod_i p(h_i\mid \xi_i)\,p(c_i\mid h_i)\,p(x_i\mid c_i,h_i),
+\label{eq:gen}
+\end{equation}
+with annotation posterior
+$p(h_i,c_i\mid x_i)\propto p(x_i\mid c_i,h_i)\,p(c_i\mid h_i)\,p(h_i\mid \xi_i)$. The \emph{generative}
+direction is $p(c_i\mid h_i)$ --- the phase \emph{guides} \cpa\ construction --- not the diagnostic
+posterior $p(h_i\mid c_i)$; both are well defined but answer different questions.
+
+\paragraph{Phase-specific dictionary complexity.}
+Let $K_h=|\mathcal A_h|$. We regularise the induced dictionary with a per-phase complexity penalty
+$-\lambda_{\mathrm{CPA}}\sum_{h\in\mathcal P}K_h$, admitting a candidate \cpa\ into phase $h$ only when
+it explains spans existing CPAs in that phase cannot,
+\begin{equation}
+\Delta\log p(x_i\mid c_{\mathrm{new}},h)\;>\;\lambda_{\mathrm{CPA}}+\Delta\mathrm{Complexity},
+\end{equation}
+which prevents synonym explosion within a phase.
+
+\paragraph{Three distinct latent objects.}
+We keep separate symbols so that annotation priors are not conflated with learned structure:
+$h_i\in\mathcal P$ is the \emph{phase} (a coarse annotation prior, fixed in preprocessing);
+$c_i\in\mathcal A_{h_i}$ is the \emph{\cpa} (the observed procedural-action label);
+$z_\ell\in\{1,\dots,K\}$ is the HPOP \emph{skill} (a local partial order over \cpa\ occurrences,
+learned downstream). In general $h_i\neq z_\ell$: a learned skill may span several phases. The pipeline
+is
+\[
+\text{raw trace}\rightarrow\text{phase-guided \cpa\ annotation}\rightarrow
+\text{\cpa\ occurrence sequence}\rightarrow\text{HPOP skill discovery}.
+\]
+
+\paragraph{Why phase-first helps.}
+The same physical command takes different procedural meaning by phase. The command
+\texttt{pytest tests/test\_parser.py} is $(\textsc{inspect},\,\textsc{reproduce\_failure})$ before any
+edit, $(\textsc{verify},\,\textsc{run\_test\_to\_validate\_patch})$ after an edit, and
+$(\textsc{repair},\,\textsc{check\_repair\_signal})$ following a failure. Conditioning \cpa\ selection on
+the phase resolves an ambiguity a phase-free labelling cannot.
+
 \section{Evaluating the annotation against no-instruction baselines}
 \label{sec:eval}
 

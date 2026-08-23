@@ -1,0 +1,167 @@
+{
+  "gates": {
+    "beta_rhat": {
+      "value": 1.558891261262948,
+      "threshold": 1.01,
+      "pass": false,
+      "note": null
+    },
+    "omega_rhat": {
+      "value": 1.036483335246707,
+      "threshold": 1.01,
+      "pass": false,
+      "note": null
+    },
+    "lambda_rep_rhat": {
+      "value": 1.720688777187185,
+      "threshold": 1.01,
+      "pass": false,
+      "note": null
+    },
+    "lambda_back_rhat": {
+      "value": 1.140614692333124,
+      "threshold": 1.01,
+      "pass": false,
+      "note": null
+    },
+    "rho_rhat": {
+      "value": 1.0101543176086278,
+      "threshold": 1.01,
+      "pass": false,
+      "note": null
+    },
+    "log_target_rhat": {
+      "value": 2.4842511649501495,
+      "threshold": 1.01,
+      "pass": false,
+      "note": null
+    },
+    "segment_count_rhat": {
+      "value": 1.079194043954607,
+      "threshold": 1.01,
+      "pass": false,
+      "note": null
+    },
+    "boundary_indicator_rhat": {
+      "value": 1.5510170209552823,
+      "threshold": 1.01,
+      "pass": false,
+      "note": null
+    },
+    "relation_count_rhat": {
+      "value": 4.289428495282682,
+      "threshold": 1.01,
+      "pass": false,
+      "note": null
+    },
+    "relation_indicator_rhat": {
+      "value": 6124797779770170.0,
+      "threshold": 1.01,
+      "pass": false,
+      "note": null
+    },
+    "transition_count_spectrum_rhat": {
+      "value": 1.5856067816931558,
+      "threshold": 1.01,
+      "pass": false,
+      "note": null
+    },
+    "co_clustering_rhat": {
+      "value": 2.2474373473268248,
+      "threshold": 1.01,
+      "pass": false,
+      "note": null
+    },
+    "pi[0]_rhat": {
+      "value": 1.9335957581669736,
+      "threshold": 1.01,
+      "pass": false,
+      "note": null
+    },
+    "pi[1]_rhat": {
+      "value": 2.1674216592699413,
+      "threshold": 1.01,
+      "pass": false,
+      "note": null
+    },
+    "pi[2]_rhat": {
+      "value": 1.88659595970665,
+      "threshold": 1.01,
+      "pass": false,
+      "note": null
+    },
+    "P[0,1]_rhat": {
+      "value": 1.9365465298069193,
+      "threshold": 1.01,
+      "pass": false,
+      "note": null
+    },
+    "P[0,2]_rhat": {
+      "value": 1.9365810693277201,
+      "threshold": 1.01,
+      "pass": false,
+      "note": null
+    },
+    "P[1,0]_rhat": {
+      "value": 2.1837892992207486,
+      "threshold": 1.01,
+      "pass": false,
+      "note": null
+    },
+    "P[1,2]_rhat": {
+      "value": 2.183734991262718,
+      "threshold": 1.01,
+      "pass": false,
+      "note": null
+    },
+    "P[2,0]_rhat": {
+      "value": 1.7939115611879013,
+      "threshold": 1.01,
+      "pass": false,
+      "note": null
+    },
+    "P[2,1]_rhat": {
+      "value": 1.7939227472068844,
+      "threshold": 1.01,
+      "pass": false,
+      "note": null
+    },
+    "min_scalar_bulk_ess": {
+      "value": 6.080199254044499,
+      "threshold": 400,
+      "pass": false,
+      "comparison": ">="
+    },
+    "max_mcse_over_sd": {
+      "value": 0.40554690758023454,
+      "threshold": 0.05,
+      "pass": false
+    },
+    "acceptance_band": {
+      "value": {
+        "U": 0.33962733333333334,
+        "rho": 0.84934,
+        "beta": 0.10593000000000001,
+        "omega": 0.5212100000000001,
+        "lambda_rep": 0.36218,
+        "lambda_back": 0.19561999999999996
+      },
+      "threshold": [
+        0.1,
+        0.7
+      ],
+      "pass": false
+    }
+  },
+  "all_pass": false,
+  "source_commit": "ad69d927f3b2c54887fe5df80d6a3faa2f93b451",
+  "registered_thresholds": {
+    "rhat": 1.01,
+    "min_bulk_ess": 400,
+    "max_mcse_over_sd": 0.05,
+    "acceptance_band": [
+      0.1,
+      0.7
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+# Pinned to the versions the optimized/reference parity gate was verified under.
+# The gate tolerance is 1e-10 and the observed discrepancy is ~1e-13; a different
+# BLAS or NumPy build can move that, so verify before trusting any run.
+numpy==2.4.6
+scipy==1.18.0
+matplotlib==3.11.0
+pytest==8.*
+# Python 3.13.2 was used for every measurement in the source study.

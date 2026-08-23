@@ -1,0 +1,143 @@
+% ---------------------------------------------------------------------------
+% paper/drafts/results_taskbench.tex
+% External validation of the STATIC partial-order component only.
+% Draft fragment. NOT included in the main paper.
+%
+% Evidence provenance:
+%   benchmark construction : commit e6afb17,
+%                            benchmark SHA-256 4b4c23b454ada1be...,
+%                            upstream microsoft/JARVIS @ 7624cf388b47334f
+%   static-poset fit       : commit 10d4bf4
+% Every number below is traceable in paper/evidence/result_ledger.csv.
+% Rounding convention: three decimals.
+% ---------------------------------------------------------------------------
+
+\subsection{External validation of the partial-order component}
+\label{sec:taskbench}
+
+The experiment in this section tests one part of HPOP on external data, and it
+is important to be precise about which part. TaskBench supplies gold task graphs
+over a fixed tool vocabulary; it does not supply latent skill-instance
+boundaries, it does not supply reusable instance labels, and it contains no
+recurrent repair trajectories. It therefore evaluates only the \emph{static
+partial-order component} that HPOP uses internally --- whether a Bayesian
+product-order representation, fitted to a handful of observed linearizations,
+generalises to legal orderings it has never seen. It does not evaluate
+segmentation, hierarchy, skill reuse, or full HPOP inference, and we draw no
+such conclusion from it. A second scope limit follows from how the data are
+built: the training and test linearizations are enumerated from the official
+gold DAGs, so they are \emph{derived} orderings, not observed agent
+trajectories.
+
+\paragraph{Benchmark construction.}
+We pin the Multimedia Tools subtree of \texttt{microsoft/JARVIS} at commit
+\texttt{7624cf38} and take the official DAG subset. Of $5{,}555$ released
+Multimedia records, $550$ are marked as DAGs and $529$ parse to independently
+verified acyclic graphs; $388$ pass eligibility, and $48$ meet the registered
+primary criteria (at most seven nodes, at least two edges, at least four legal
+linearizations, at least one incomparable pair, no repeated tool identity).
+Those $48$ are the entire eligible primary pool, well short of the registered
+target of $300$; the criteria were not loosened to close the gap, and we report
+the shortfall rather than relax the protocol. Graphs are split $11$ development
+/ $37$ test, with structural deduplication applied before splitting so that
+identical structures cannot leak across the split. Each graph is fitted under
+three conditions --- \textsc{one}, \textsc{two} and \textsc{four} observed legal
+training orderings --- giving $132$ graph-condition fitting problems. Evaluation
+uses $588$ held-out legal orderings and $588$ illegal orderings ($318$ with a
+single closure violation, $270$ with several). Gold relations are the transitive
+\emph{closure} throughout; predicted closures are never compared against a gold
+reduction. All eighteen construction gates pass, including byte-identical
+rebuild under the same seed and a seed-sensitivity check confirming that the
+gold graph set is seed-invariant while the sampled ordering selection is not.
+Because \textsc{four} requires four distinct legal orderings, the test set has
+$37$ graphs at \textsc{one} and \textsc{two} and $26$ at \textsc{four}, and the
+paired condition curves below use the $26$ graphs present in all three.
+
+\paragraph{Model and protocol.}
+The fitted model is the static product-order frontier likelihood over
+$H = h(U)$ with $U \in \mathbb{R}^{m \times 3}$; $\rho = 0.5$, $\beta = 0$,
+$\epsilon = 0.02$, $d = 3$ and $\sigma_U = 1.0$ are all fixed rather than
+fitted, and $\sigma_U$ was selected on development graphs by an efficiency-only
+pilot before the protocol was frozen. The model sees node identities and the
+observed training linearizations only; a source-level test forbids gold tokens
+in the fitting path. Each problem is fitted with four chains from dispersed
+prior starts, burn-in $5{,}000$, thin $5$, and convergence declared on two
+consecutive checkpoint passes with $\widehat{R} \leq 1.01$ and the registered
+ESS floors. All $132$ fits converged ($100\%$), in $1{,}584$~s of wall time on
+eight workers.
+
+\paragraph{More observations, better structure.}
+Table~\ref{tab:taskbench-main} gives the full test table; the paired trend is
+the headline. On the $26$ graphs present in every condition, the Bayesian
+model's closure $F_1$ rises $0.452 \to 0.677 \to 0.902$ from \textsc{one} to
+\textsc{two} to \textsc{four} (\textsc{four}$-$\textsc{one}
+$= +0.450$, CI $[0.356, 0.552]$), incomparable-pair $F_1$ rises
+$0.566 \to 0.647 \to 0.892$ ($+0.327$, CI $[0.256, 0.400]$), relation Brier
+falls $0.130 \to 0.088 \to 0.041$ ($-0.088$, CI $[-0.101, -0.075]$), held-out
+legal NLL per node falls $0.758 \to 0.704 \to 0.642$ ($-0.116$, CI
+$[-0.165, -0.063]$), and AUROC rises $0.836 \to 0.907 \to 0.975$ ($+0.140$,
+CI $[0.092, 0.188]$). Every step is in the expected direction and every
+\textsc{four}$-$\textsc{one} interval excludes zero. Qualitatively, the model
+starts by over-committing to the spurious ordering implied by a single observed
+linearization and progressively releases those relations into incomparability as
+further orderings arrive. Both degenerate baselines are beaten decisively in
+every condition: a first-observed total order cannot represent incomparability
+at all ($F_1 = 0.000$), and an antichain cannot represent order at all
+($F_1 = 0.000$) and discriminates legal from illegal orderings at chance
+(AUROC $0.500$).
+
+\paragraph{The intersection baseline is the real competitor, and it wins on
+point structure at low sample size.}
+The honest comparison is against deterministic intersection of the observed
+orders, and it does not favour the Bayesian model on point recovery. Paired over
+test graphs, intersection is ahead on closure $F_1$ at \textsc{one}
+($\Delta = -0.175$, CI $[-0.246, -0.104]$; $25$ losses, $9$ ties, $3$ wins) and
+at \textsc{two} ($-0.112$, CI $[-0.182, -0.055]$), and the two are statistically
+tied at \textsc{four} ($-0.004$, CI $[-0.010, 0.000]$, with $24$ of $26$ graphs
+exactly tied). The single structural place where the Bayesian model is far ahead
+is incomparable-pair $F_1$ at \textsc{one} ($+0.533$, CI $[0.472, 0.593]$,
+$37/37$ wins), for the mechanical reason that one observed order forces the
+intersection to a total order with no incomparable pairs at all.
+
+Where the Bayesian model does win is uncertainty and prediction. Relation Brier
+is better at \textsc{one} ($-0.122$, CI $[-0.144, -0.098]$, $36/37$ wins) and at
+\textsc{two} ($-0.024$, CI $[-0.044, -0.005]$), and tied at \textsc{four}
+($-0.004$, CI $[-0.011, 0.003]$). Held-out legal NLL per node is better in
+\emph{every} condition with intervals excluding zero: $-0.933$
+(CI $[-1.056, -0.810]$, $37/37$), $-0.335$ (CI $[-0.458, -0.218]$, $29/37$) and
+$-0.126$ (CI $[-0.208, -0.050]$). Discrimination is a wash and we do not claim
+otherwise: the Bayes-minus-intersection AUROC difference is $+0.008$, $-0.036$
+and $-0.010$ at \textsc{one}, \textsc{two} and \textsc{four}, and every interval
+covers zero. Intersection assigns illegal orderings lower probability than the
+Bayesian model does --- its hard structure is simply more restrictive --- but
+discrimination still ties, because the Bayesian model scores unseen \emph{legal}
+orderings correspondingly higher.
+
+\paragraph{Distance to the oracle.}
+Scoring with the gold graph bounds what any fitted model could achieve here.
+The oracle reaches legal NLL per node of $0.423$, $0.418$ and $0.476$ across the
+three conditions and AUROC $1.000$; the Bayesian fits reach $0.738$, $0.685$ and
+$0.642$ and AUROC $0.843$, $0.874$ and $0.975$. At \textsc{four} the structural
+gap is nearly closed (closure $F_1$ $0.902$ against $1.000$) while a clear
+predictive gap remains.
+
+\paragraph{Verdict and scope.}
+The registered classification is \textsc{external partial-order generalization
+supported; bayesian advantage is uncertainty and prediction}. The static
+product-order component recovers meaningful ordered and incomparable relations
+from one to four observed linearizations on data it was not designed against, it
+improves monotonically with more observations, and it ranks unseen legal
+executions above illegal ones. Its advantage over the strongest deterministic
+baseline is calibration and held-out predictive likelihood, not point structure
+recovery, and it is a small benchmark: $48$ graphs of at most seven nodes, only
+$21$ of them connected. None of this is evidence about segmentation, about
+reusable skill instances, about recurrent repair, or about full HPOP.
+
+% ---------------------------------------------------------------------------
+% NOTE TO AUTHOR (delete before submission):
+%  - Never describe this section as full HPOP, recurrent HPOP, real-trajectory
+%    skill discovery, or hierarchical segmentation evidence.
+%  - The AUROC row must not be bolded for the Bayesian model at TWO or FOUR:
+%    intersection has the higher mean and the paired CI covers 0.
+%  - Test graph counts differ by condition (37/37/26). Keep them in the caption.
+% ---------------------------------------------------------------------------

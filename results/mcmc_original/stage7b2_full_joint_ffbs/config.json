@@ -1,0 +1,259 @@
+{
+  "stage": "7B2",
+  "status": "PREPARED \u2014 BLOCKED ON THE STAGE 6E2 BASELINE FREEZE",
+  "source_commit": "77093cb5845a9a2dc3472203657fa62fc6222164",
+  "stage6e_config_hash": "d98897a181b6809a17dd572ca175da7846a6924b8429b9c7337a939686a6da44",
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "baseline_freeze_audit": {
+    "frozen": false,
+    "reasons": [
+      "the registered continuation ladder is at 50,000 of 150,000 sweeps; the decision point has not been reached",
+      "a stage6e2_formal_chains.py process is running right now",
+      "baseline artifacts written within the last 1800s: ['chains.npz', 'mode_diagnostics_50k.json']"
+    ],
+    "directory": "/Users/dongqing/Desktop/hpop-stage6e/results/mcmc_original/stage6e2_unknown_boundary_full_seed0",
+    "registered_ladder": [
+      50000,
+      75000,
+      100000,
+      125000,
+      150000
+    ],
+    "ladder_reached": 50000,
+    "continuation_blocks": [
+      {
+        "block": 1,
+        "sweeps_to": 50000,
+        "burn_in": 15000,
+        "thin": 5,
+        "resumed": true,
+        "kind": "crash recovery (same registered sweep count)",
+        "wall_seconds": 34566.951150000095,
+        "retained_pooled": 28000,
+        "scales": {
+          "U": 0.5,
+          "rho": 0.5,
+          "beta": 0.40872,
+          "omega": 1.45704,
+          "lambda_rep": 0.6648,
+          "lambda_back": 1.51552
+        },
+        "n_proposals_per_trace": 32,
+        "why": "crash recovery: the chains were interrupted and resumed from their last checkpoint to the SAME registered sweep count, with each chain's own RNG state restored. Not a continuation and not an extension."
+      }
+    ],
+    "a_stage6e2_process_is_running": true,
+    "artifacts_modified_within_quiet_window": {
+      "chains.npz": 1519,
+      "mode_diagnostics_50k.json": 1533
+    },
+    "quiet_window_seconds": 1800,
+    "freeze_manifest_present": false,
+    "interpretation_rule": {
+      "registered_before_any_continuation_result_was_examined": true,
+      "source_commit": "1ac8bef1e02284485c504f533a6833681556c0e2",
+      "purpose": "Decide IN ADVANCE how a continued-but-still-failing run is to be described, so the choice between 'needs longer chains' and 'structurally multimodal' is not made after seeing which is more convenient.",
+      "registered_section_14_ladder": [
+        50000,
+        75000,
+        100000,
+        125000,
+        150000
+      ],
+      "structural_locking_criteria": {
+        "A_frozen_structure": "per-skill and total relation counts have ~zero WITHIN-chain variance in two or more chains (threshold: within-chain sd < 0.01 over the retained draws)",
+        "B_disagreeing_structure": "the chains' mean total relation counts differ by more than 1.0",
+        "C_log_posterior_gap": "the spread of mean invariant log posterior across chains exceeds 20 nats",
+        "conjunction": "A and B and C together"
+      },
+      "verdict_if_criteria_hold_at_150000": {
+        "stage_6e2_convergence": "FAIL",
+        "stage_6e2_identifiability": "MULTIMODAL",
+        "diagnosis": "(S, z)--U structural locking: the segmentation is stuck given U and U is stuck given the segmentation, so the pair occupies a joint absorbing mode. This is a property of the LOCAL move kernel on this posterior, not a sampler-correctness defect -- correctness was established exactly in Stage 6E1A (log Z to 8.9e-16) and Stage 6E1B (18/18 gates).",
+        "explicitly_not": "'the chains merely need to be longer'. Once A, B and C hold at the registered maximum, describing the result as insufficient run length would be a claim the evidence contradicts: a coordinate with zero within-chain variance over 100,000+ sweeps is not drifting slowly, it is not moving."
+      },
+      "what_this_licenses": "a motivation for Step 7, stated as a hypothesis to be tested rather than a guarantee: replacing the local (S, z) moves with an exact blocked semi-Markov FFBS draw, (S, z)^new ~ p(S, z | U, Theta, X), can jump between segmentation basins in one step. Whether that INDIRECTLY frees U -- which FFBS does not update -- is the open question Step 7 must answer, and must not be assumed.",
+      "what_this_does_not_license": [
+        "reinterpreting Stage 6E sampler correctness, which is established independently",
+        "retuning proposals, changing the target, or altering a recovery gate",
+        "importing FFBS into Stage 6E2, whose registered algorithm is the local move kernel",
+        "interpreting the Stage 6E2 recovery numbers, which stay uninterpreted while the chains have not converged"
+      ],
+      "recovery_status": "Boundary F1 0.268, skill ARI 0.270, lambda_rep truth outside its interval and all other recovery quantities are COMPUTED BUT NOT INTERPRETED. They characterise the modes the chains happen to occupy, not the posterior. In particular they are NOT evidence that the model recovers structure poorly, because the pooled posterior approximation is not trustworthy."
+    }
+  },
+  "corpus": {
+    "baseline_corpus_hash": "02be246edf9bd4f4148efa3a3e269afa10b21df53173c7273b5a4deb9e30c941",
+    "rebuilt_corpus_hash": "02be246edf9bd4f4148efa3a3e269afa10b21df53173c7273b5a4deb9e30c941",
+    "match": true,
+    "n_train_traces": 100,
+    "n_heldout_traces": 45,
+    "baseline_n_train": 100,
+    "baseline_n_heldout": 45,
+    "trace_length": {
+      "mean": 31.99,
+      "min": 16,
+      "max": 52
+    },
+    "regenerated_not_copied": true,
+    "hidden_truth_use": "evaluation only, exactly as the baseline records",
+    "pass": true
+  },
+  "starting_states": {
+    "construction": "the Stage 6E2 dispersed-start constructor, reused",
+    "start_seeds": [
+      6053301,
+      6053302,
+      6053303,
+      6053304
+    ],
+    "n_chains": 4,
+    "hashes": [
+      "2af82dbf8bfc0faf172410e9ca33f9b5be742447913acfd985b127fad19182c1",
+      "bb3e512ff69aceb9e598f380fdb0f907a37553110f55c4eafb565584a39e42d3",
+      "9b2c3ad5d5dc713076a6d780818b618fb8fbeba6a97043889f8c4873fd81fe32",
+      "7bc9c2344d6a445caeaf0f04eb55e98b75516d70754bb76db81abf14f77f6fc1"
+    ],
+    "summaries": [
+      {
+        "chain": 0,
+        "rho": 0.1,
+        "beta": 0.6,
+        "omega": -1.0,
+        "lambda_rep": 0.3,
+        "lambda_back": 0.8,
+        "segment_counts": [
+          16,
+          12,
+          12,
+          11,
+          16
+        ],
+        "total_segments": 1036
+      },
+      {
+        "chain": 1,
+        "rho": 0.35,
+        "beta": 1.1,
+        "omega": 0.6,
+        "lambda_rep": 0.9,
+        "lambda_back": 0.2,
+        "segment_counts": [
+          4,
+          4,
+          3,
+          3,
+          4
+        ],
+        "total_segments": 314
+      },
+      {
+        "chain": 2,
+        "rho": 0.6,
+        "beta": 2.2,
+        "omega": 2.4,
+        "lambda_rep": 1.6,
+        "lambda_back": 1.2,
+        "segment_counts": [
+          7,
+          6,
+          5,
+          6,
+          8
+        ],
+        "total_segments": 491
+      },
+      {
+        "chain": 3,
+        "rho": 0.85,
+        "beta": 3.0,
+        "omega": 3.8,
+        "lambda_rep": 2.4,
+        "lambda_back": 0.06,
+        "segment_counts": [
+          7,
+          6,
+          6,
+          6,
+          7
+        ],
+        "total_segments": 494
+      }
+    ],
+    "baseline_chain_seeds": [
+      6053201,
+      6053202,
+      6053203,
+      6053204
+    ],
+    "step7b2_chain_seeds": [
+      7063201,
+      7063202,
+      7063203,
+      7063204
+    ],
+    "seeds_are_new": true,
+    "not_initialised_from_a_baseline_endpoint": true
+  },
+  "kernels": {
+    "proposal_scales": {
+      "U": 0.5,
+      "rho": 0.5,
+      "beta": 0.40872,
+      "omega": 1.45704,
+      "lambda_rep": 0.6648,
+      "lambda_back": 1.51552
+    },
+    "proposal_scales_match_baseline": true,
+    "retuned": false,
+    "retune_note": "the primary comparison uses the baseline's scales unchanged; if global acceptance becomes pathological under FFBS that is a finding to report, not a reason to retune before the comparison",
+    "baseline_proposals_per_trace": 32,
+    "ffbs_proposals_per_trace": "one exact Gibbs draw",
+    "only_change": "the (S, z) transition kernel",
+    "shared_kernels": [
+      "pi/P conjugate update",
+      "U row proposal",
+      "rho logit walk",
+      "beta",
+      "omega",
+      "lambda_rep",
+      "lambda_back"
+    ],
+    "sweep_order": [
+      "(S,z)",
+      "(pi,P)",
+      "U",
+      "rho",
+      "beta",
+      "omega",
+      "lambda_rep",
+      "lambda_back"
+    ]
+  },
+  "chain_seeds": [
+    7063201,
+    7063202,
+    7063203,
+    7063204
+  ],
+  "cost_projection": {
+    "measured_sweeps": 3,
+    "n_traces": 100,
+    "seconds_per_sweep": 2.4168806249896684,
+    "candidate_table_seconds": 0.28732158394996077,
+    "chart_seconds_all_traces": 1.802007499965839,
+    "backward_draw_seconds_all_traces": 0.03581220796331763,
+    "parameter_phase_seconds": 0.2917393331105509,
+    "n_candidate_blocks": 76470,
+    "peak_rss_bytes": 155238400,
+    "projected_50k_sweep_hours_per_chain": 33.567786458189836,
+    "projected_4_chain_wall_hours_if_parallel": 33.567786458189836,
+    "baseline_block1_wall_seconds": 34566.951150000095,
+    "baseline_block1_sweeps": 50000,
+    "baseline_seconds_per_sweep": 0.6913390230000019,
+    "measured_under_contention": true,
+    "note": "measured while the Stage 6E2 baseline was running on the same machine, so both this and the baseline's own per-sweep cost are pessimistic"
+  },
+  "hypothesis": "global (S, z) refresh MAY indirectly improve U/H mode switching, because the next U update is conditioned on a substantially refreshed segmentation. FFBS does not update U and no improvement is predicted."
+}

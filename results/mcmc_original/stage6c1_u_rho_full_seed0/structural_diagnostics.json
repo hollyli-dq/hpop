@@ -1,0 +1,113 @@
+{
+  "full_u_total_variation": 1.2244881679067542e-118,
+  "full_u_detail": {
+    "total_variation": 1.2244881679067542e-118,
+    "worst_state": 4109,
+    "worst_state_mcmc": 0.0,
+    "worst_state_reference": 2.4489763358135083e-118,
+    "n_states_visited": 1,
+    "n_states_in_reference_support": 1
+  },
+  "max_relation_marginal_error": 2.4489763358135083e-118,
+  "mean_relation_marginal_error": 9.795905343254034e-120,
+  "max_reduction_marginal_error": 2.4489763358135083e-118,
+  "relation_marginal": [
+    0.0,
+    0.0,
+    1.0,
+    1.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "reduction_marginal": [
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "relation_count_distribution": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "relation_count_convergence": {
+    "degenerate": true,
+    "constant_value": 6.0,
+    "note": "relation count is constant across all draws and chains; R-hat and ESS are undefined, not passing",
+    "rhat": null,
+    "bulk_ess": null,
+    "tail_ess": null,
+    "mcse": null
+  },
+  "per_chain": [
+    {
+      "chain": 0,
+      "max_relation_marginal_error": 2.4489763358135083e-118,
+      "total_variation": 1.2244881679067542e-118
+    },
+    {
+      "chain": 1,
+      "max_relation_marginal_error": 2.4489763358135083e-118,
+      "total_variation": 1.2244881679067542e-118
+    },
+    {
+      "chain": 2,
+      "max_relation_marginal_error": 2.4489763358135083e-118,
+      "total_variation": 1.2244881679067542e-118
+    },
+    {
+      "chain": 3,
+      "max_relation_marginal_error": 2.4489763358135083e-118,
+      "total_variation": 1.2244881679067542e-118
+    }
+  ],
+  "worst_chain_relation_error": 2.4489763358135083e-118
+}

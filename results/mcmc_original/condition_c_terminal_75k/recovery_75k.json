@@ -1,0 +1,911 @@
+{
+  "NON_CONVERGED_WARNING": "Recovery summaries are descriptive diagnostics conditional on non-converged chains and are not interpreted as posterior estimates.",
+  "SEALING": "recovery was opened only after Condition C terminated",
+  "draws_used": "first 13000 retained draws per chain = sweeps through 75000",
+  "per_arm": {
+    "cond": {
+      "chains_recovering_the_true_library": 1,
+      "chains_whose_modal_tuple_equals_truth": 1,
+      "per_chain_heldout_nll": [
+        3.1047282265705993,
+        3.682060945856356,
+        1.0772457251104508,
+        3.7994790646348244
+      ],
+      "per_chain_mean_closure_f1": [
+        0.24848484848484845,
+        0.42424242424242425,
+        1.0,
+        0.28787878787878785
+      ]
+    },
+    "marg": {
+      "chains_recovering_the_true_library": 4,
+      "chains_whose_modal_tuple_equals_truth": 1,
+      "per_chain_heldout_nll": [
+        3.700340165082308,
+        3.700340165082308,
+        1.0772457251104508,
+        3.700340165082308
+      ],
+      "per_chain_mean_closure_f1": [
+        0.4545454545454546,
+        0.4545454545454546,
+        1.0,
+        0.4545454545454546
+      ]
+    }
+  },
+  "per_chain": {
+    "cond0": {
+      "anchored_tuple": [
+        "9b988e6b3353de06",
+        "22153042d7130612",
+        "19904293250fd25b"
+      ],
+      "heldout_oracle_path_nll_per_occ": {
+        "mean": 3.1047282265705993,
+        "sd": 0.08731989160953797
+      },
+      "mean_closure_f1": 0.24848484848484845,
+      "modal_anchored_tuple_equals_truth": false,
+      "per_skill": [
+        {
+          "closure": {
+            "exact": false,
+            "f1": 0.3636363636363636,
+            "hamming": 7,
+            "n_true_pairs": 6,
+            "precision": 0.4,
+            "recall": 0.3333333333333333
+          },
+          "incomparable": {
+            "f1": 0.4444444444444445,
+            "n_true_incomparable": 4,
+            "precision": 0.4,
+            "recall": 0.5
+          },
+          "reduction": {
+            "exact": false,
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0
+          },
+          "skill": 0
+        },
+        {
+          "closure": {
+            "exact": false,
+            "f1": 0.2,
+            "hamming": 8,
+            "n_true_pairs": 6,
+            "precision": 0.25,
+            "recall": 0.16666666666666666
+          },
+          "incomparable": {
+            "f1": 0.4,
+            "n_true_incomparable": 4,
+            "precision": 0.3333333333333333,
+            "recall": 0.5
+          },
+          "reduction": {
+            "exact": false,
+            "f1": 0.28571428571428575,
+            "precision": 0.25,
+            "recall": 0.3333333333333333
+          },
+          "skill": 1
+        },
+        {
+          "closure": {
+            "exact": false,
+            "f1": 0.1818181818181818,
+            "hamming": 9,
+            "n_true_pairs": 5,
+            "precision": 0.16666666666666666,
+            "recall": 0.2
+          },
+          "incomparable": {
+            "f1": 0.6666666666666665,
+            "n_true_incomparable": 5,
+            "precision": 0.75,
+            "recall": 0.6
+          },
+          "reduction": {
+            "exact": false,
+            "f1": 0.28571428571428575,
+            "precision": 0.3333333333333333,
+            "recall": 0.25
+          },
+          "skill": 2
+        }
+      ],
+      "true_anchored_tuple_posterior": 0.0,
+      "true_library_posterior": 0.0
+    },
+    "cond1": {
+      "anchored_tuple": [
+        "2959d0db1011ccc1",
+        "0340aaa796edc90b",
+        "19904293250fd25b"
+      ],
+      "heldout_oracle_path_nll_per_occ": {
+        "mean": 3.682060945856356,
+        "sd": 0.054122809167233825
+      },
+      "mean_closure_f1": 0.42424242424242425,
+      "modal_anchored_tuple_equals_truth": false,
+      "per_skill": [
+        {
+          "closure": {
+            "exact": false,
+            "f1": 0.1818181818181818,
+            "hamming": 9,
+            "n_true_pairs": 6,
+            "precision": 0.2,
+            "recall": 0.16666666666666666
+          },
+          "incomparable": {
+            "f1": 0.6666666666666665,
+            "n_true_incomparable": 4,
+            "precision": 0.6,
+            "recall": 0.75
+          },
+          "reduction": {
+            "exact": false,
+            "f1": 0.28571428571428575,
+            "precision": 0.25,
+            "recall": 0.3333333333333333
+          },
+          "skill": 0
+        },
+        {
+          "closure": {
+            "exact": false,
+            "f1": 0.9090909090909091,
+            "hamming": 1,
+            "n_true_pairs": 6,
+            "precision": 1.0,
+            "recall": 0.8333333333333334
+          },
+          "incomparable": {
+            "f1": 0.888888888888889,
+            "n_true_incomparable": 4,
+            "precision": 0.8,
+            "recall": 1.0
+          },
+          "reduction": {
+            "exact": false,
+            "f1": 0.6666666666666666,
+            "precision": 0.6666666666666666,
+            "recall": 0.6666666666666666
+          },
+          "skill": 1
+        },
+        {
+          "closure": {
+            "exact": false,
+            "f1": 0.1818181818181818,
+            "hamming": 9,
+            "n_true_pairs": 5,
+            "precision": 0.16666666666666666,
+            "recall": 0.2
+          },
+          "incomparable": {
+            "f1": 0.6666666666666665,
+            "n_true_incomparable": 5,
+            "precision": 0.75,
+            "recall": 0.6
+          },
+          "reduction": {
+            "exact": false,
+            "f1": 0.28571428571428575,
+            "precision": 0.3333333333333333,
+            "recall": 0.25
+          },
+          "skill": 2
+        }
+      ],
+      "true_anchored_tuple_posterior": 0.0,
+      "true_library_posterior": 0.36646153846153845
+    },
+    "cond2": {
+      "anchored_tuple": [
+        "19904293250fd25b",
+        "0340aaa796edc90b",
+        "2959d0db1011ccc1"
+      ],
+      "heldout_oracle_path_nll_per_occ": {
+        "mean": 1.0772457251104508,
+        "sd": 4.441062911897559e-16
+      },
+      "mean_closure_f1": 1.0,
+      "modal_anchored_tuple_equals_truth": true,
+      "per_skill": [
+        {
+          "closure": {
+            "exact": true,
+            "f1": 1.0,
+            "hamming": 0,
+            "n_true_pairs": 6,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "incomparable": {
+            "f1": 1.0,
+            "n_true_incomparable": 4,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "reduction": {
+            "exact": true,
+            "f1": 1.0,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "skill": 0
+        },
+        {
+          "closure": {
+            "exact": true,
+            "f1": 1.0,
+            "hamming": 0,
+            "n_true_pairs": 6,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "incomparable": {
+            "f1": 1.0,
+            "n_true_incomparable": 4,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "reduction": {
+            "exact": true,
+            "f1": 1.0,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "skill": 1
+        },
+        {
+          "closure": {
+            "exact": true,
+            "f1": 1.0,
+            "hamming": 0,
+            "n_true_pairs": 5,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "incomparable": {
+            "f1": 1.0,
+            "n_true_incomparable": 5,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "reduction": {
+            "exact": true,
+            "f1": 1.0,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "skill": 2
+        }
+      ],
+      "true_anchored_tuple_posterior": 1.0,
+      "true_library_posterior": 1.0
+    },
+    "cond3": {
+      "anchored_tuple": [
+        "2959d0db1011ccc1",
+        "4c4174b7ca3af480",
+        "19904293250fd25b"
+      ],
+      "heldout_oracle_path_nll_per_occ": {
+        "mean": 3.7994790646348244,
+        "sd": 4.441062911897559e-16
+      },
+      "mean_closure_f1": 0.28787878787878785,
+      "modal_anchored_tuple_equals_truth": false,
+      "per_skill": [
+        {
+          "closure": {
+            "exact": false,
+            "f1": 0.1818181818181818,
+            "hamming": 9,
+            "n_true_pairs": 6,
+            "precision": 0.2,
+            "recall": 0.16666666666666666
+          },
+          "incomparable": {
+            "f1": 0.6666666666666665,
+            "n_true_incomparable": 4,
+            "precision": 0.6,
+            "recall": 0.75
+          },
+          "reduction": {
+            "exact": false,
+            "f1": 0.28571428571428575,
+            "precision": 0.25,
+            "recall": 0.3333333333333333
+          },
+          "skill": 0
+        },
+        {
+          "closure": {
+            "exact": false,
+            "f1": 0.5,
+            "hamming": 4,
+            "n_true_pairs": 6,
+            "precision": 1.0,
+            "recall": 0.3333333333333333
+          },
+          "incomparable": {
+            "f1": 0.6666666666666666,
+            "n_true_incomparable": 4,
+            "precision": 0.5,
+            "recall": 1.0
+          },
+          "reduction": {
+            "exact": false,
+            "f1": 0.4,
+            "precision": 0.5,
+            "recall": 0.3333333333333333
+          },
+          "skill": 1
+        },
+        {
+          "closure": {
+            "exact": false,
+            "f1": 0.1818181818181818,
+            "hamming": 9,
+            "n_true_pairs": 5,
+            "precision": 0.16666666666666666,
+            "recall": 0.2
+          },
+          "incomparable": {
+            "f1": 0.6666666666666665,
+            "n_true_incomparable": 5,
+            "precision": 0.75,
+            "recall": 0.6
+          },
+          "reduction": {
+            "exact": false,
+            "f1": 0.28571428571428575,
+            "precision": 0.3333333333333333,
+            "recall": 0.25
+          },
+          "skill": 2
+        }
+      ],
+      "true_anchored_tuple_posterior": 0.0,
+      "true_library_posterior": 0.0
+    },
+    "marg0": {
+      "anchored_tuple": [
+        "2959d0db1011ccc1",
+        "0340aaa796edc90b",
+        "19904293250fd25b"
+      ],
+      "heldout_oracle_path_nll_per_occ": {
+        "mean": 3.700340165082308,
+        "sd": 4.441062911897559e-16
+      },
+      "mean_closure_f1": 0.4545454545454546,
+      "modal_anchored_tuple_equals_truth": false,
+      "per_skill": [
+        {
+          "closure": {
+            "exact": false,
+            "f1": 0.1818181818181818,
+            "hamming": 9,
+            "n_true_pairs": 6,
+            "precision": 0.2,
+            "recall": 0.16666666666666666
+          },
+          "incomparable": {
+            "f1": 0.6666666666666665,
+            "n_true_incomparable": 4,
+            "precision": 0.6,
+            "recall": 0.75
+          },
+          "reduction": {
+            "exact": false,
+            "f1": 0.28571428571428575,
+            "precision": 0.25,
+            "recall": 0.3333333333333333
+          },
+          "skill": 0
+        },
+        {
+          "closure": {
+            "exact": true,
+            "f1": 1.0,
+            "hamming": 0,
+            "n_true_pairs": 6,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "incomparable": {
+            "f1": 1.0,
+            "n_true_incomparable": 4,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "reduction": {
+            "exact": true,
+            "f1": 1.0,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "skill": 1
+        },
+        {
+          "closure": {
+            "exact": false,
+            "f1": 0.1818181818181818,
+            "hamming": 9,
+            "n_true_pairs": 5,
+            "precision": 0.16666666666666666,
+            "recall": 0.2
+          },
+          "incomparable": {
+            "f1": 0.6666666666666665,
+            "n_true_incomparable": 5,
+            "precision": 0.75,
+            "recall": 0.6
+          },
+          "reduction": {
+            "exact": false,
+            "f1": 0.28571428571428575,
+            "precision": 0.3333333333333333,
+            "recall": 0.25
+          },
+          "skill": 2
+        }
+      ],
+      "true_anchored_tuple_posterior": 0.0,
+      "true_library_posterior": 1.0
+    },
+    "marg1": {
+      "anchored_tuple": [
+        "2959d0db1011ccc1",
+        "0340aaa796edc90b",
+        "19904293250fd25b"
+      ],
+      "heldout_oracle_path_nll_per_occ": {
+        "mean": 3.700340165082308,
+        "sd": 4.441062911897559e-16
+      },
+      "mean_closure_f1": 0.4545454545454546,
+      "modal_anchored_tuple_equals_truth": false,
+      "per_skill": [
+        {
+          "closure": {
+            "exact": false,
+            "f1": 0.1818181818181818,
+            "hamming": 9,
+            "n_true_pairs": 6,
+            "precision": 0.2,
+            "recall": 0.16666666666666666
+          },
+          "incomparable": {
+            "f1": 0.6666666666666665,
+            "n_true_incomparable": 4,
+            "precision": 0.6,
+            "recall": 0.75
+          },
+          "reduction": {
+            "exact": false,
+            "f1": 0.28571428571428575,
+            "precision": 0.25,
+            "recall": 0.3333333333333333
+          },
+          "skill": 0
+        },
+        {
+          "closure": {
+            "exact": true,
+            "f1": 1.0,
+            "hamming": 0,
+            "n_true_pairs": 6,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "incomparable": {
+            "f1": 1.0,
+            "n_true_incomparable": 4,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "reduction": {
+            "exact": true,
+            "f1": 1.0,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "skill": 1
+        },
+        {
+          "closure": {
+            "exact": false,
+            "f1": 0.1818181818181818,
+            "hamming": 9,
+            "n_true_pairs": 5,
+            "precision": 0.16666666666666666,
+            "recall": 0.2
+          },
+          "incomparable": {
+            "f1": 0.6666666666666665,
+            "n_true_incomparable": 5,
+            "precision": 0.75,
+            "recall": 0.6
+          },
+          "reduction": {
+            "exact": false,
+            "f1": 0.28571428571428575,
+            "precision": 0.3333333333333333,
+            "recall": 0.25
+          },
+          "skill": 2
+        }
+      ],
+      "true_anchored_tuple_posterior": 0.0,
+      "true_library_posterior": 1.0
+    },
+    "marg2": {
+      "anchored_tuple": [
+        "19904293250fd25b",
+        "0340aaa796edc90b",
+        "2959d0db1011ccc1"
+      ],
+      "heldout_oracle_path_nll_per_occ": {
+        "mean": 1.0772457251104508,
+        "sd": 4.441062911897559e-16
+      },
+      "mean_closure_f1": 1.0,
+      "modal_anchored_tuple_equals_truth": true,
+      "per_skill": [
+        {
+          "closure": {
+            "exact": true,
+            "f1": 1.0,
+            "hamming": 0,
+            "n_true_pairs": 6,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "incomparable": {
+            "f1": 1.0,
+            "n_true_incomparable": 4,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "reduction": {
+            "exact": true,
+            "f1": 1.0,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "skill": 0
+        },
+        {
+          "closure": {
+            "exact": true,
+            "f1": 1.0,
+            "hamming": 0,
+            "n_true_pairs": 6,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "incomparable": {
+            "f1": 1.0,
+            "n_true_incomparable": 4,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "reduction": {
+            "exact": true,
+            "f1": 1.0,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "skill": 1
+        },
+        {
+          "closure": {
+            "exact": true,
+            "f1": 1.0,
+            "hamming": 0,
+            "n_true_pairs": 5,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "incomparable": {
+            "f1": 1.0,
+            "n_true_incomparable": 5,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "reduction": {
+            "exact": true,
+            "f1": 1.0,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "skill": 2
+        }
+      ],
+      "true_anchored_tuple_posterior": 1.0,
+      "true_library_posterior": 1.0
+    },
+    "marg3": {
+      "anchored_tuple": [
+        "2959d0db1011ccc1",
+        "0340aaa796edc90b",
+        "19904293250fd25b"
+      ],
+      "heldout_oracle_path_nll_per_occ": {
+        "mean": 3.700340165082308,
+        "sd": 4.441062911897559e-16
+      },
+      "mean_closure_f1": 0.4545454545454546,
+      "modal_anchored_tuple_equals_truth": false,
+      "per_skill": [
+        {
+          "closure": {
+            "exact": false,
+            "f1": 0.1818181818181818,
+            "hamming": 9,
+            "n_true_pairs": 6,
+            "precision": 0.2,
+            "recall": 0.16666666666666666
+          },
+          "incomparable": {
+            "f1": 0.6666666666666665,
+            "n_true_incomparable": 4,
+            "precision": 0.6,
+            "recall": 0.75
+          },
+          "reduction": {
+            "exact": false,
+            "f1": 0.28571428571428575,
+            "precision": 0.25,
+            "recall": 0.3333333333333333
+          },
+          "skill": 0
+        },
+        {
+          "closure": {
+            "exact": true,
+            "f1": 1.0,
+            "hamming": 0,
+            "n_true_pairs": 6,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "incomparable": {
+            "f1": 1.0,
+            "n_true_incomparable": 4,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "reduction": {
+            "exact": true,
+            "f1": 1.0,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "skill": 1
+        },
+        {
+          "closure": {
+            "exact": false,
+            "f1": 0.1818181818181818,
+            "hamming": 9,
+            "n_true_pairs": 5,
+            "precision": 0.16666666666666666,
+            "recall": 0.2
+          },
+          "incomparable": {
+            "f1": 0.6666666666666665,
+            "n_true_incomparable": 5,
+            "precision": 0.75,
+            "recall": 0.6
+          },
+          "reduction": {
+            "exact": false,
+            "f1": 0.28571428571428575,
+            "precision": 0.3333333333333333,
+            "recall": 0.25
+          },
+          "skill": 2
+        }
+      ],
+      "true_anchored_tuple_posterior": 0.0,
+      "true_library_posterior": 1.0
+    }
+  },
+  "pooled_per_arm": {
+    "cond": {
+      "WARNING": "pooled across NON-CONVERGED chains; not a posterior estimate",
+      "mean_closure_f1": 0.4383838383838384,
+      "modal_anchored_tuple_equals_truth": true,
+      "per_skill": [
+        {
+          "closure": {
+            "exact": false,
+            "f1": 0.3333333333333333,
+            "hamming": 8,
+            "n_true_pairs": 6,
+            "precision": 0.3333333333333333,
+            "recall": 0.3333333333333333
+          },
+          "incomparable": {
+            "f1": 0.6666666666666665,
+            "n_true_incomparable": 4,
+            "precision": 0.6,
+            "recall": 0.75
+          },
+          "reduction": {
+            "exact": false,
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0
+          },
+          "skill": 0
+        },
+        {
+          "closure": {
+            "exact": false,
+            "f1": 0.8,
+            "hamming": 2,
+            "n_true_pairs": 6,
+            "precision": 1.0,
+            "recall": 0.6666666666666666
+          },
+          "incomparable": {
+            "f1": 0.8,
+            "n_true_incomparable": 4,
+            "precision": 0.6666666666666666,
+            "recall": 1.0
+          },
+          "reduction": {
+            "exact": false,
+            "f1": 0.6666666666666666,
+            "precision": 0.6666666666666666,
+            "recall": 0.6666666666666666
+          },
+          "skill": 1
+        },
+        {
+          "closure": {
+            "exact": false,
+            "f1": 0.1818181818181818,
+            "hamming": 9,
+            "n_true_pairs": 5,
+            "precision": 0.16666666666666666,
+            "recall": 0.2
+          },
+          "incomparable": {
+            "f1": 0.6666666666666665,
+            "n_true_incomparable": 5,
+            "precision": 0.75,
+            "recall": 0.6
+          },
+          "reduction": {
+            "exact": false,
+            "f1": 0.28571428571428575,
+            "precision": 0.3333333333333333,
+            "recall": 0.25
+          },
+          "skill": 2
+        }
+      ],
+      "true_anchored_tuple_posterior": 0.25,
+      "true_library_posterior": 0.3416153846153846
+    },
+    "marg": {
+      "WARNING": "pooled across NON-CONVERGED chains; not a posterior estimate",
+      "mean_closure_f1": 0.4545454545454546,
+      "modal_anchored_tuple_equals_truth": false,
+      "per_skill": [
+        {
+          "closure": {
+            "exact": false,
+            "f1": 0.1818181818181818,
+            "hamming": 9,
+            "n_true_pairs": 6,
+            "precision": 0.2,
+            "recall": 0.16666666666666666
+          },
+          "incomparable": {
+            "f1": 0.6666666666666665,
+            "n_true_incomparable": 4,
+            "precision": 0.6,
+            "recall": 0.75
+          },
+          "reduction": {
+            "exact": false,
+            "f1": 0.28571428571428575,
+            "precision": 0.25,
+            "recall": 0.3333333333333333
+          },
+          "skill": 0
+        },
+        {
+          "closure": {
+            "exact": true,
+            "f1": 1.0,
+            "hamming": 0,
+            "n_true_pairs": 6,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "incomparable": {
+            "f1": 1.0,
+            "n_true_incomparable": 4,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "reduction": {
+            "exact": true,
+            "f1": 1.0,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "skill": 1
+        },
+        {
+          "closure": {
+            "exact": false,
+            "f1": 0.1818181818181818,
+            "hamming": 9,
+            "n_true_pairs": 5,
+            "precision": 0.16666666666666666,
+            "recall": 0.2
+          },
+          "incomparable": {
+            "f1": 0.6666666666666665,
+            "n_true_incomparable": 5,
+            "precision": 0.75,
+            "recall": 0.6
+          },
+          "reduction": {
+            "exact": false,
+            "f1": 0.28571428571428575,
+            "precision": 0.3333333333333333,
+            "recall": 0.25
+          },
+          "skill": 2
+        }
+      ],
+      "true_anchored_tuple_posterior": 0.25,
+      "true_library_posterior": 1.0
+    }
+  },
+  "reference_levels": {
+    "antichain_baseline_nll_per_occ": 1.752798804531374,
+    "generating_truth_heldout_nll_per_occ": 1.0772457251104504
+  },
+  "supplementary_path_marginal": {
+    "cond": {
+      "STATUS": "SUPPLEMENTARY \u2014 computed over each chain's full retained set because the accumulators cannot be truncated to 75,000; see quarantine_manifest.json",
+      "boundary_f1_at_0.5": 0.5927007299270073,
+      "boundary_precision": 0.8319672131147541,
+      "boundary_recall": 0.4603174603174603,
+      "occurrence_ari_mean": 0.63282210166248,
+      "occurrence_modal_accuracy": 0.30614583333333334,
+      "occurrence_nmi_mean": 0.6557384358115053
+    },
+    "marg": {
+      "STATUS": "SUPPLEMENTARY \u2014 computed over each chain's full retained set because the accumulators cannot be truncated to 75,000; see quarantine_manifest.json",
+      "boundary_f1_at_0.5": 0.6464379947229552,
+      "boundary_precision": 0.7728706624605678,
+      "boundary_recall": 0.5555555555555556,
+      "occurrence_ari_mean": 0.6865660906237119,
+      "occurrence_modal_accuracy": 0.3200625,
+      "occurrence_nmi_mean": 0.702594408789134
+    }
+  }
+}

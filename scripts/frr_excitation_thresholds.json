@@ -1,0 +1,8 @@
+{
+  "A_progress_variation_frac": 0.70,
+  "B_repetition_frac": 0.45,
+  "C_backward_disruption_frac": 0.14,
+  "D_partial_invalidation_count": 500,
+  "E_min_instances_per_skill": 90,
+  "E_min_occurrences_per_skill": 600
+}

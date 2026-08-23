@@ -1,0 +1,17 @@
+{
+  "baseline_corpus_hash": "02be246edf9bd4f4148efa3a3e269afa10b21df53173c7273b5a4deb9e30c941",
+  "rebuilt_corpus_hash": "02be246edf9bd4f4148efa3a3e269afa10b21df53173c7273b5a4deb9e30c941",
+  "match": true,
+  "n_train_traces": 100,
+  "n_heldout_traces": 45,
+  "baseline_n_train": 100,
+  "baseline_n_heldout": 45,
+  "trace_length": {
+    "mean": 31.99,
+    "min": 16,
+    "max": 52
+  },
+  "regenerated_not_copied": true,
+  "hidden_truth_use": "evaluation only, exactly as the baseline records",
+  "pass": true
+}

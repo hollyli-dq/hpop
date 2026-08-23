@@ -1,0 +1,16 @@
+{
+  "arm": "FULL-COND",
+  "index": 1,
+  "production_library_constant": false,
+  "production_library_counts": {
+    "11b093903cc9a810": 16579,
+    "850c30270037a113": 215,
+    "8c8ffb799748b341": 284,
+    "ef9500a6b59cfc8a": 2602,
+    "f744a64d78c792c3": 320
+  },
+  "seed": 6306202,
+  "start_library": "cac23ebc0ec02c86",
+  "warmup_h_accepts": 21,
+  "warmup_h_accepts_at_least_one": true
+}

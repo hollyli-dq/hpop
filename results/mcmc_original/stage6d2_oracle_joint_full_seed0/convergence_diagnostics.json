@@ -1,0 +1,131 @@
+{
+  "per_coordinate": {
+    "rho": {
+      "posterior_mean": 0.318647416197147,
+      "posterior_sd": 0.21768535597723343,
+      "q025": 0.013941706770581307,
+      "q975": 0.7830185279259578,
+      "rhat": 1.0009071120612851,
+      "rhat_bulk": 1.000721538013695,
+      "rhat_tail": 1.0009071120612851,
+      "bulk_ess": 4873.97669265298,
+      "tail_ess": 5527.095015758811,
+      "mcse": 0.0031180816997092866,
+      "mcse_over_sd": 0.014323800908479073,
+      "degenerate": false,
+      "acceptance_total": 0.32655,
+      "acceptance_post_burn_in": 0.3276125
+    },
+    "beta": {
+      "posterior_mean": 1.4833688592998402,
+      "posterior_sd": 0.03925870080162809,
+      "q025": 1.4068773356577615,
+      "q975": 1.5610756270867314,
+      "rhat": 1.0006856379944682,
+      "rhat_bulk": 1.0006856379944682,
+      "rhat_tail": 1.0002697214309273,
+      "bulk_ess": 8343.61665736263,
+      "tail_ess": 11123.88054677285,
+      "mcse": 0.00042979242022264636,
+      "mcse_over_sd": 0.010947698508780569,
+      "degenerate": false,
+      "acceptance_total": 0.44506666666666667,
+      "acceptance_post_burn_in": 0.4441
+    },
+    "omega": {
+      "posterior_mean": 1.8850963799245715,
+      "posterior_sd": 0.1292415538389828,
+      "q025": 1.6390406614672977,
+      "q975": 2.1441964872296624,
+      "rhat": 1.000238335775771,
+      "rhat_bulk": 1.000238335775771,
+      "rhat_tail": 1.0001603059771367,
+      "bulk_ess": 11821.723236983882,
+      "tail_ess": 12718.557803527845,
+      "mcse": 0.0011886712999486832,
+      "mcse_over_sd": 0.009197284191039703,
+      "degenerate": false,
+      "acceptance_total": 0.38438333333333335,
+      "acceptance_post_burn_in": 0.3856875
+    },
+    "lambda_rep": {
+      "posterior_mean": 0.8074669600424426,
+      "posterior_sd": 0.028451151501742034,
+      "q025": 0.7520063109927094,
+      "q975": 0.8624236024313767,
+      "rhat": 1.0008968613478244,
+      "rhat_bulk": 1.0008968613478244,
+      "rhat_tail": 1.0003260861221128,
+      "bulk_ess": 8364.78581335529,
+      "tail_ess": 10939.670198767502,
+      "mcse": 0.000311080247460826,
+      "mcse_over_sd": 0.010933836805929591,
+      "degenerate": false,
+      "acceptance_total": 0.39027500000000004,
+      "acceptance_post_burn_in": 0.3892625
+    },
+    "lambda_back": {
+      "posterior_mean": 0.21906393146156064,
+      "posterior_sd": 0.023980415255990508,
+      "q025": 0.172573964448035,
+      "q975": 0.26623165970408974,
+      "rhat": 1.0002317907370495,
+      "rhat_bulk": 0.9998639564238686,
+      "rhat_tail": 1.0002317907370495,
+      "bulk_ess": 10121.941839378715,
+      "tail_ess": 11232.878440138238,
+      "mcse": 0.0002383552820485611,
+      "mcse_over_sd": 0.009939581091658451,
+      "degenerate": false,
+      "acceptance_total": 0.5185666666666666,
+      "acceptance_post_burn_in": 0.5188999999999999
+    }
+  },
+  "log_target": {
+    "posterior_mean": -12459.095448129574,
+    "rhat_bulk": 1.0028952035187062,
+    "rhat_tail": 1.0009696479470351,
+    "rhat": 1.0028952035187062,
+    "degenerate": false,
+    "bulk_ess": 2021.5533464395342,
+    "tail_ess": 3790.2122419968314,
+    "mcse": 0.061162036897863085,
+    "n_draws": 16000,
+    "n_chains": 4
+  },
+  "acceptance": {
+    "total": {
+      "U": 0.31608833333333336,
+      "rho": 0.32655,
+      "beta": 0.44506666666666667,
+      "omega": 0.38438333333333335,
+      "lambda_rep": 0.39027500000000004,
+      "lambda_back": 0.5185666666666666
+    },
+    "post_burn_in": {
+      "U": 0.31816,
+      "rho": 0.3276125,
+      "beta": 0.4441,
+      "omega": 0.3856875,
+      "lambda_rep": 0.3892625,
+      "lambda_back": 0.5188999999999999
+    },
+    "invalid_rho": 8095
+  },
+  "relation_count": {
+    "degenerate": true,
+    "constant_value": 6.0,
+    "note": "relation count is constant across all draws and chains; R-hat and ESS are undefined, not passing",
+    "rhat": null,
+    "bulk_ess": null,
+    "tail_ess": null,
+    "mcse": null
+  },
+  "uncertain_relations": {
+    "n": 0,
+    "max_rhat": null,
+    "min_bulk_ess": null,
+    "note": "a relation that never varies has no R-hat; averaging one in would flatter the report, so only the varying relations are scored"
+  },
+  "n_h_states_visited": 1
+}

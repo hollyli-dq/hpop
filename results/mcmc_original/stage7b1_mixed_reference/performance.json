@@ -1,0 +1,157 @@
+{
+  "wall_seconds": 17146.533041207935,
+  "per_chain_seconds": [
+    17027.365730166086,
+    17144.07936324994,
+    17009.325945749995,
+    17085.770626083016
+  ],
+  "sweeps": 600000,
+  "retained_per_chain": [
+    48000,
+    48000,
+    48000,
+    48000
+  ],
+  "seconds_per_sweep": [
+    0.028378942883610144,
+    0.028573465605416567,
+    0.02834887657624999,
+    0.028476284376805026
+  ],
+  "table_builds_per_chain": [
+    600000,
+    600000,
+    600000,
+    600000
+  ],
+  "table_build_seconds_per_chain": [
+    4279.494043728104,
+    4297.41459020949,
+    4254.753439949476,
+    4280.991483927821
+  ],
+  "table_build_fraction": [
+    0.25133036498690164,
+    0.25066464632807467,
+    0.2501423897407635,
+    0.2505588760153721
+  ],
+  "builds_equal_sweeps": true,
+  "movement_per_chain": [
+    {
+      "boundary_hamming": 768628,
+      "label_changes": 3198798,
+      "states_changed": 733430
+    },
+    {
+      "boundary_hamming": 772470,
+      "label_changes": 3207707,
+      "states_changed": 735985
+    },
+    {
+      "boundary_hamming": 773629,
+      "label_changes": 3215615,
+      "states_changed": 736627
+    },
+    {
+      "boundary_hamming": 771461,
+      "label_changes": 3220726,
+      "states_changed": 736766
+    }
+  ],
+  "acceptance_per_chain": [
+    {
+      "relabel": null,
+      "split": null,
+      "merge": null,
+      "shift": null,
+      "U": 0.6067155092592592,
+      "rho": 0.8093166666666667,
+      "pi_P": null,
+      "S_z_ffbs": 1.0,
+      "beta": 0.96160625,
+      "omega": 0.9677645833333334,
+      "lambda_rep": 0.9785916666666666,
+      "lambda_back": 0.9577520833333333
+    },
+    {
+      "relabel": null,
+      "split": null,
+      "merge": null,
+      "shift": null,
+      "U": 0.6081527777777778,
+      "rho": 0.8094895833333333,
+      "pi_P": null,
+      "S_z_ffbs": 1.0,
+      "beta": 0.9617416666666667,
+      "omega": 0.9679958333333334,
+      "lambda_rep": 0.9793416666666667,
+      "lambda_back": 0.9583645833333333
+    },
+    {
+      "relabel": null,
+      "split": null,
+      "merge": null,
+      "shift": null,
+      "U": 0.607169212962963,
+      "rho": 0.8076375,
+      "pi_P": null,
+      "S_z_ffbs": 1.0,
+      "beta": 0.9609854166666667,
+      "omega": 0.9680083333333334,
+      "lambda_rep": 0.979475,
+      "lambda_back": 0.95875
+    },
+    {
+      "relabel": null,
+      "split": null,
+      "merge": null,
+      "shift": null,
+      "U": 0.6074268518518519,
+      "rho": 0.8087958333333334,
+      "pi_P": null,
+      "S_z_ffbs": 1.0,
+      "beta": 0.9625458333333333,
+      "omega": 0.9690104166666667,
+      "lambda_rep": 0.97936875,
+      "lambda_back": 0.9586666666666667
+    }
+  ],
+  "cost_breakdown": {
+    "n_sweeps": 100,
+    "table_source": "batched",
+    "total_seconds": 1.9755424589384347,
+    "seconds_per_sweep": 0.019755424589384347,
+    "block_table_seconds_per_sweep": 0.004991221555167496,
+    "chart_seconds_per_sweep": 0.004248082987032831,
+    "backward_draw_seconds_per_sweep": 9.81474993750453e-05,
+    "table_builds": 101,
+    "n_traces": 2,
+    "log_normalizer_total": -16.289898429910394
+  },
+  "baseline_runtime_seconds": [
+    6466.729054666008,
+    6448.0784004159505,
+    6423.75042549998,
+    6467.178972917027
+  ],
+  "baseline_movement": [
+    {
+      "boundary_hamming": 780733,
+      "label_changes": 5053011
+    },
+    {
+      "boundary_hamming": 787885,
+      "label_changes": 5109119
+    },
+    {
+      "boundary_hamming": 783496,
+      "label_changes": 5114515
+    },
+    {
+      "boundary_hamming": 787601,
+      "label_changes": 5113456
+    }
+  ]
+}

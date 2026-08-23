@@ -1,0 +1,235 @@
+{
+  "arms": {
+    "cond": {
+      "accepted_H_changes_per_chain": [
+        12,
+        12,
+        20,
+        22
+      ],
+      "canonical_unordered_library": {
+        "all_chains_same_library": false,
+        "consensus": null,
+        "per_chain": [
+          {
+            "chain": 0,
+            "current": "ea3c2619",
+            "distinct_libraries_visited": 1,
+            "last_transition_sweep": null,
+            "transitions_after_burn_in": 0
+          },
+          {
+            "chain": 1,
+            "current": "475b84a2",
+            "distinct_libraries_visited": 3,
+            "last_transition_sweep": 11270,
+            "transitions_after_burn_in": 2
+          },
+          {
+            "chain": 2,
+            "current": "ee323379",
+            "distinct_libraries_visited": 4,
+            "last_transition_sweep": 14900,
+            "transitions_after_burn_in": 3
+          },
+          {
+            "chain": 3,
+            "current": "bd386c35",
+            "distinct_libraries_visited": 6,
+            "last_transition_sweep": 24560,
+            "transitions_after_burn_in": 5
+          }
+        ]
+      },
+      "failed_criteria": [
+        "all_diagnostics_finite",
+        "max_rhat<=1.01",
+        "log_target_bulk_ess>=1000",
+        "log_target_tail_ess>=500",
+        "total_relations_bulk_ess>=1000",
+        "min_remaining_invariant_bulk_ess>=500"
+      ],
+      "log_target_bulk_ess": 4.725989172112356,
+      "log_target_tail_ess": 20.51093170063867,
+      "max_rhat": null,
+      "max_rhat_is_infinite": true,
+      "max_rhat_variable": "sorted_relation_counts[1]",
+      "min_remaining_invariant_bulk_ess": 0.0,
+      "n_summaries_total": 183,
+      "n_summaries_violating": 126,
+      "total_relations_bulk_ess": 5.3331746768139645,
+      "verdict": "FAIL"
+    },
+    "marg": {
+      "accepted_H_changes_per_chain": [
+        29,
+        33,
+        28,
+        36
+      ],
+      "canonical_unordered_library": {
+        "all_chains_same_library": true,
+        "consensus": {
+          "fraction_of_window": 0.87575,
+          "unbroken_since_draw": 497,
+          "unbroken_since_sweep": 12490
+        },
+        "per_chain": [
+          {
+            "chain": 0,
+            "current": "2d0f2bd5",
+            "distinct_libraries_visited": 1,
+            "last_transition_sweep": null,
+            "transitions_after_burn_in": 0
+          },
+          {
+            "chain": 1,
+            "current": "2d0f2bd5",
+            "distinct_libraries_visited": 1,
+            "last_transition_sweep": null,
+            "transitions_after_burn_in": 0
+          },
+          {
+            "chain": 2,
+            "current": "2d0f2bd5",
+            "distinct_libraries_visited": 1,
+            "last_transition_sweep": null,
+            "transitions_after_burn_in": 0
+          },
+          {
+            "chain": 3,
+            "current": "2d0f2bd5",
+            "distinct_libraries_visited": 4,
+            "last_transition_sweep": 12490,
+            "transitions_after_burn_in": 3
+          }
+        ]
+      },
+      "counterfactual_note": "Frozen extension is an EXPLICIT ASSUMPTION (each chain holds its current value), not observed data. It is applied only to discrete structural invariants that have in fact been constant and equal across all four chains since the consensus sweep.",
+      "failed_criteria": [
+        "max_rhat<=1.01",
+        "log_target_bulk_ess>=1000",
+        "log_target_tail_ess>=500",
+        "total_relations_bulk_ess>=1000",
+        "min_remaining_invariant_bulk_ess>=500"
+      ],
+      "log_target_bulk_ess": 66.71240761698833,
+      "log_target_tail_ess": 28.313123891860265,
+      "max_rhat": 1.1532591440608424,
+      "max_rhat_is_infinite": false,
+      "max_rhat_variable": "sorted_relation_counts[1]",
+      "min_remaining_invariant_bulk_ess": 17.788878876927146,
+      "n_summaries_total": 183,
+      "n_summaries_violating": 14,
+      "post_transient_and_counterfactual": {
+        "log_target": {
+          "bulk_ess_full_window": 66.71240761698833,
+          "bulk_ess_post_transient": 305.8841119858171,
+          "counterfactual_frozen_extension": {
+            "100000": {
+              "bulk_ess": 7.579621738957101,
+              "rhat": 1.4703864713160493
+            },
+            "30000": {
+              "bulk_ess": 66.71240761698833,
+              "rhat": 1.0373376265335825
+            },
+            "50000": {
+              "bulk_ess": 9.681223702042802,
+              "rhat": 1.3136661241954337
+            },
+            "75000": {
+              "bulk_ess": 8.733968353348585,
+              "rhat": 1.366797941639442
+            }
+          },
+          "rhat_full_window": 1.0373376265335825,
+          "rhat_post_transient": 1.013013333495305
+        },
+        "sorted_relation_counts[1]": {
+          "bulk_ess_full_window": 17.788878876927146,
+          "bulk_ess_post_transient": 14012.0,
+          "counterfactual_frozen_extension": {
+            "100000": {
+              "bulk_ess": 74.51783012660123,
+              "rhat": 1.0287528144734648
+            },
+            "30000": {
+              "bulk_ess": 17.788878876927146,
+              "rhat": 1.1532591440608424
+            },
+            "50000": {
+              "bulk_ess": 34.1089490022931,
+              "rhat": 1.0684535181064183
+            },
+            "75000": {
+              "bulk_ess": 54.33151521973801,
+              "rhat": 1.0404928418733461
+            }
+          },
+          "rhat_full_window": 1.1532591440608424,
+          "rhat_post_transient": 1.0
+        },
+        "sorted_relation_counts[2]": {
+          "bulk_ess_full_window": 22.807357566861434,
+          "bulk_ess_post_transient": 14012.0,
+          "counterfactual_frozen_extension": {
+            "100000": {
+              "bulk_ess": 96.68754471394163,
+              "rhat": 1.021806557707333
+            },
+            "30000": {
+              "bulk_ess": 22.807357566861434,
+              "rhat": 1.1111763071943925
+            },
+            "50000": {
+              "bulk_ess": 43.99350335401843,
+              "rhat": 1.051190459239964
+            },
+            "75000": {
+              "bulk_ess": 70.35342860436107,
+              "rhat": 1.0305831604467943
+            }
+          },
+          "rhat_full_window": 1.1111763071943925,
+          "rhat_post_transient": 1.0
+        },
+        "total_relations": {
+          "bulk_ess_full_window": 17.86334398439416,
+          "bulk_ess_post_transient": 14012.0,
+          "counterfactual_frozen_extension": {
+            "100000": {
+              "bulk_ess": 74.7919204340285,
+              "rhat": 1.028622844609621
+            },
+            "30000": {
+              "bulk_ess": 17.86334398439416,
+              "rhat": 1.1515763453084154
+            },
+            "50000": {
+              "bulk_ess": 34.25743304246244,
+              "rhat": 1.067984806785076
+            },
+            "75000": {
+              "bulk_ess": 54.54787497576895,
+              "rhat": 1.0402793094266585
+            }
+          },
+          "rhat_full_window": 1.1515763453084154,
+          "rhat_post_transient": 1.0
+        }
+      },
+      "total_relations_bulk_ess": 17.86334398439416,
+      "verdict": "FAIL"
+    }
+  },
+  "burn_in": 10000,
+  "ess_floors": {
+    "log_target_bulk": 1000.0,
+    "log_target_tail": 500.0,
+    "remaining_invariant_bulk": 500.0,
+    "total_relations_bulk": 1000.0
+  },
+  "rhat_gate": 1.01,
+  "thin": 5
+}

@@ -1,0 +1,18 @@
+{
+  "target_is_column_exchangeable": true,
+  "per_chain_signed_column_contrast": [
+    0.2081152976611629,
+    0.17185976211953674,
+    -0.12270089472457767,
+    -0.0918184471426066
+  ],
+  "per_chain_absolute_column_contrast": [
+    1.0485578245026992,
+    0.8990427589414176,
+    0.7948090387508273,
+    1.0452337227405515
+  ],
+  "chains_in_opposite_labellings": true,
+  "signed_contrast_rhat": 1.106929851376221,
+  "note": "a large signed-contrast R-hat with a small invariant-summary R-hat is label switching, not non-convergence; H and relation probabilities are the reported quantities and are invariant"
+}

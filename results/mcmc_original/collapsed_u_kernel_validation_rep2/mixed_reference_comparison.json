@@ -1,0 +1,121 @@
+{
+  "all_pass": false,
+  "worst_rhat": 1.0098167606365054,
+  "gates": {
+    "segmentation_total_variation": {
+      "value": 0.00610020747840659,
+      "threshold": 0.01,
+      "pass": true,
+      "per_trace": [
+        0.00610020747840659,
+        0.0035924843488449347
+      ]
+    },
+    "segmentation_total_variation_vs_sampled_estimator": {
+      "value": 0.006652383710379642,
+      "threshold": 0.01,
+      "pass": true,
+      "per_trace": [
+        0.006652383710379642,
+        0.0037674942052863454
+      ],
+      "note": "section 9's literal sampled reference estimator; the conditional estimator above is primary"
+    },
+    "max_boundary_marginal_error": {
+      "value": 0.0020648322320637458,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "max_occurrence_label_marginal_error": {
+      "value": 0.00540449089982209,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "induced_h_total_variation": {
+      "value": 0.005770562526010411,
+      "threshold": 0.01,
+      "pass": true,
+      "per_skill": [
+        0.005770562526010411,
+        0.004800285819501226,
+        0.004401920509787263
+      ]
+    },
+    "max_relation_marginal_error": {
+      "value": 0.004739650710817833,
+      "threshold": 0.01,
+      "pass": true,
+      "per_skill": [
+        0.004739650710817833,
+        0.002245222831945337,
+        0.0023883211091201006
+      ]
+    },
+    "segment_count_total_variation": {
+      "value": 0.002001265486278242,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "mixed_multivariate_reference_statistic": {
+      "value": 0.006777466426885148,
+      "threshold": 0.004522256615497353,
+      "pass": false,
+      "z_score": 5.759871639422952
+    },
+    "log_posterior_rhat": {
+      "value": 1.000257585842114,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "n_segments_rhat": {
+      "value": 1.0000556177921591,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "relation_count_rhat": {
+      "value": 1.0002782123805811,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "selected_boundary_indicator_rhat": {
+      "value": 1.0000759520018705,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "selected_relation_indicator_rhat": {
+      "value": 1.0000728841980147,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "rho_rhat": {
+      "value": 1.0003653873883602,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "beta_rhat": {
+      "value": 1.006442588237702,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "omega_rhat": {
+      "value": 1.0019775237931128,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "lambda_rep_rhat": {
+      "value": 1.0098167606365054,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "lambda_back_rhat": {
+      "value": 1.0008838607431894,
+      "threshold": 1.01,
+      "pass": true
+    }
+  },
+  "baseline_7b1": {
+    "all_pass": true,
+    "worst_rhat": 1.003246067209239
+  },
+  "registered_length_used": true
+}

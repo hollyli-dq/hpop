@@ -1,0 +1,620 @@
+{
+  "config": {
+    "date": "2026-08-11",
+    "git_branch": "mcmc-original-latent-poset",
+    "git_commit": "f5497308c31bd7ab25f2a457322527e3244dc2b5",
+    "python": "3.13.2",
+    "numpy": "2.4.6",
+    "scipy": "1.18.0",
+    "mode": "smoke",
+    "generator_seed": 0,
+    "mcmc_seed": 20250811,
+    "reference": "/Users/dongqing/Desktop/hpop/results/mcmc_original/stage6b_full_seed0/reference_posteriors.json",
+    "epsilon": 0.02,
+    "truth": {
+      "beta": 1.5,
+      "omega": 1.7346010553881064,
+      "lambda_rep": 0.8,
+      "lambda_back": 0.25
+    },
+    "u_true": [
+      [
+        4.0,
+        4.0
+      ],
+      [
+        0.0,
+        5.0
+      ],
+      [
+        3.0,
+        3.0
+      ],
+      [
+        2.0,
+        2.0
+      ],
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "settings": {
+      "beta": [
+        0.5,
+        2.5
+      ],
+      "omega": [
+        -0.5,
+        3.5
+      ],
+      "lambda_rep": [
+        0.15,
+        1.5
+      ],
+      "lambda_back": [
+        0.05,
+        0.7
+      ]
+    },
+    "stage_5c": "DEFERRED",
+    "u_inference": false,
+    "rho_inference": false,
+    "latent_dimension_moves": false,
+    "note": "one scalar at a time; the other three held at their true values"
+  },
+  "results": {
+    "beta": {
+      "parameter": "beta",
+      "proposal_kind": "log",
+      "prior": {
+        "family": "gamma",
+        "shape": 2.0,
+        "rate": 2.0,
+        "support": "(0, inf)"
+      },
+      "settings": {
+        "chains": 2,
+        "iterations": 6000,
+        "burn_in": 1000,
+        "thin": 2
+      },
+      "start_values": [
+        0.5,
+        2.5
+      ],
+      "tuning": {
+        "initial_scale": 0.05108711270336023,
+        "pilot_acceptance_rate": 0.449,
+        "adjusted": false,
+        "final_scale": 0.05108711270336023,
+        "pilot_iterations": 2000,
+        "pilot_seed": 21150811,
+        "pilot_start": 0.5,
+        "skipped": false,
+        "curvature": {
+          "centre": 1.5,
+          "delta": 0.03,
+          "observed_curvature": 980.883092619883,
+          "implied_sd": 0.021286296959733428,
+          "scale": 0.05108711270336023
+        }
+      },
+      "proposal_scale": 0.05108711270336023,
+      "chains": [
+        {
+          "chain": 0,
+          "initial_value": 0.5,
+          "seed": 20250811,
+          "acceptance_rate": 0.4565,
+          "post_burn_in_acceptance_rate": 0.452,
+          "n_kept": 2500,
+          "runtime_seconds": 4.72547616600059,
+          "mean": 1.4950891051491115,
+          "sd": 0.03135678388432642
+        },
+        {
+          "chain": 1,
+          "initial_value": 2.5,
+          "seed": 20250812,
+          "acceptance_rate": 0.443,
+          "post_burn_in_acceptance_rate": 0.443,
+          "n_kept": 2500,
+          "runtime_seconds": 4.660446666064672,
+          "mean": 1.4960750883289746,
+          "sd": 0.03157769096173037
+        }
+      ],
+      "comparison": {
+        "n_draws": 5000,
+        "n_chains": 2,
+        "mcmc": {
+          "mean": 1.4955820967390432,
+          "median": 1.4956047018754473,
+          "sd": 0.031468146448193644,
+          "q025": 1.434301884471967,
+          "q975": 1.5576826315663421
+        },
+        "grid": {
+          "mean": 1.4960736908285768,
+          "median": 1.4959677347654434,
+          "sd": 0.03188430684429372,
+          "q025": 1.4338163493620733,
+          "q975": 1.5589792102263738
+        },
+        "standardized_mean_error": 0.015418057915898103,
+        "standardized_median_error": 0.011385942676095674,
+        "standardized_q025_error": 0.015228027765034919,
+        "standardized_q975_error": 0.040665104195723785,
+        "sd_ratio": 0.9869477985476559,
+        "ks_distance": 0.011789107162742396,
+        "bulk_ess": 2257.7124671220963,
+        "tail_ess": 2103.181141195519,
+        "mcse_mean": 0.0006622726908457664,
+        "true_value": 1.5,
+        "truth_in_mcmc_interval": true,
+        "rhat_bulk": 0.9998255768871173,
+        "rhat_tail": 1.0020636879965723,
+        "rhat": 1.0020636879965723
+      },
+      "gates": {
+        "mode": "smoke",
+        "checks": {
+          "standardized_mean_error": {
+            "observed": 0.015418057915898103,
+            "threshold": 0.35,
+            "sense": "<=",
+            "pass": true
+          },
+          "rhat": {
+            "observed": 1.0020636879965723,
+            "threshold": 1.05,
+            "sense": "<",
+            "pass": true
+          }
+        },
+        "pass": true
+      },
+      "likelihood_evaluations": 12002,
+      "wall_seconds": 9.388278792030178,
+      "evaluation_path": "cached state features",
+      "held_out": {
+        "n_blocks": 200,
+        "n_steps": 4000,
+        "nll_at_posterior_mean": 1.2431473231643257,
+        "nll_at_posterior_median": 1.2431473873733503,
+        "nll_at_true_value": 1.2431608051298682,
+        "posterior_predictive_log_score_per_step": -1.243158970346522,
+        "predictive_draws_used": 200,
+        "note": "diagnostic only; not used to tune proposals or priors"
+      }
+    },
+    "omega": {
+      "parameter": "omega",
+      "proposal_kind": "identity",
+      "prior": {
+        "family": "normal",
+        "mean": 0.0,
+        "sd": 2.0,
+        "support": "(-inf, inf)"
+      },
+      "settings": {
+        "chains": 2,
+        "iterations": 6000,
+        "burn_in": 1000,
+        "thin": 2
+      },
+      "start_values": [
+        -0.5,
+        3.5
+      ],
+      "tuning": {
+        "initial_scale": 0.2789086584720013,
+        "pilot_acceptance_rate": 0.471,
+        "adjusted": false,
+        "final_scale": 0.2789086584720013,
+        "pilot_iterations": 2000,
+        "pilot_seed": 21151811,
+        "pilot_start": -0.5,
+        "skipped": false,
+        "curvature": {
+          "centre": 1.7346010553881064,
+          "delta": 0.03469202110776213,
+          "observed_curvature": 74.04546927835774,
+          "implied_sd": 0.11621194103000054,
+          "scale": 0.2789086584720013
+        }
+      },
+      "proposal_scale": 0.2789086584720013,
+      "chains": [
+        {
+          "chain": 0,
+          "initial_value": -0.5,
+          "seed": 20251811,
+          "acceptance_rate": 0.45416666666666666,
+          "post_burn_in_acceptance_rate": 0.4536,
+          "n_kept": 2500,
+          "runtime_seconds": 18.866806875099428,
+          "mean": 1.844502824535488,
+          "sd": 0.12207591850347957
+        },
+        {
+          "chain": 1,
+          "initial_value": 3.5,
+          "seed": 20251812,
+          "acceptance_rate": 0.4691666666666667,
+          "post_burn_in_acceptance_rate": 0.4698,
+          "n_kept": 2500,
+          "runtime_seconds": 18.98445166705642,
+          "mean": 1.8516395019031764,
+          "sd": 0.12599105495572605
+        }
+      ],
+      "comparison": {
+        "n_draws": 5000,
+        "n_chains": 2,
+        "mcmc": {
+          "mean": 1.8480711632193325,
+          "median": 1.8446781844963607,
+          "sd": 0.12408785294505396,
+          "q025": 1.6136019303982627,
+          "q975": 2.103651546952856
+        },
+        "grid": {
+          "mean": 1.850559779301549,
+          "median": 1.8474450183289814,
+          "sd": 0.1245074049458236,
+          "q025": 1.6153029578013656,
+          "q975": 2.1035793586806797
+        },
+        "standardized_mean_error": 0.01998769537682727,
+        "standardized_median_error": 0.022222243197701337,
+        "standardized_q025_error": 0.01366205812291254,
+        "standardized_q975_error": 0.0005797909948229711,
+        "sd_ratio": 0.996630304832454,
+        "ks_distance": 0.017814193172651205,
+        "bulk_ess": 2095.1390209285164,
+        "tail_ess": 2097.277542436794,
+        "mcse_mean": 0.0027109583632167903,
+        "true_value": 1.7346010553881064,
+        "truth_in_mcmc_interval": true,
+        "rhat_bulk": 1.0003657608802217,
+        "rhat_tail": 1.000969227104695,
+        "rhat": 1.000969227104695
+      },
+      "gates": {
+        "mode": "smoke",
+        "checks": {
+          "standardized_mean_error": {
+            "observed": 0.01998769537682727,
+            "threshold": 0.35,
+            "sense": "<=",
+            "pass": true
+          },
+          "rhat": {
+            "observed": 1.000969227104695,
+            "threshold": 1.05,
+            "sense": "<",
+            "pass": true
+          }
+        },
+        "pass": true
+      },
+      "likelihood_evaluations": 12002,
+      "wall_seconds": 37.8640950829722,
+      "evaluation_path": "full replay",
+      "kappa": {
+        "comparison": {
+          "n_draws": 5000,
+          "n_chains": 2,
+          "mcmc": {
+            "mean": 0.8632450153154365,
+            "median": 0.8635010492004547,
+            "sd": 0.014525356725790327,
+            "q025": 0.8339108660429322,
+            "q975": 0.8912575835339178
+          },
+          "grid": {
+            "mean": 0.863532939676315,
+            "median": 0.8638265723502092,
+            "sd": 0.01457636928921144,
+            "q025": 0.8341462654560515,
+            "q975": 0.8912503941534479
+          },
+          "standardized_mean_error": 0.019752817396821696,
+          "standardized_median_error": 0.02233225183142617,
+          "standardized_q025_error": 0.016149385930663143,
+          "standardized_q975_error": 0.0004932216196850219,
+          "sd_ratio": 0.9965003244354635,
+          "ks_distance": 0.017808868121619192,
+          "bulk_ess": 2095.1390209285164,
+          "tail_ess": 2097.277542436794,
+          "mcse_mean": 0.0003173367606894201,
+          "true_value": 0.85,
+          "truth_in_mcmc_interval": true,
+          "rhat_bulk": 1.0003657608802217,
+          "rhat_tail": 1.000846001129497,
+          "rhat": 1.000846001129497
+        },
+        "gates": {
+          "mode": "smoke",
+          "checks": {
+            "standardized_mean_error": {
+              "observed": 0.019752817396821696,
+              "threshold": 0.35,
+              "sense": "<=",
+              "pass": true
+            },
+            "rhat": {
+              "observed": 1.000846001129497,
+              "threshold": 1.05,
+              "sense": "<",
+              "pass": true
+            }
+          },
+          "pass": true
+        }
+      },
+      "held_out": {
+        "n_blocks": 200,
+        "n_steps": 4000,
+        "nll_at_posterior_mean": 1.243060792156414,
+        "nll_at_posterior_median": 1.2430625615173172,
+        "nll_at_true_value": 1.2431608051298682,
+        "posterior_predictive_log_score_per_step": -1.2430634574024535,
+        "predictive_draws_used": 200,
+        "note": "diagnostic only; not used to tune proposals or priors"
+      }
+    },
+    "lambda_rep": {
+      "parameter": "lambda_rep",
+      "proposal_kind": "log",
+      "prior": {
+        "family": "gamma",
+        "shape": 2.0,
+        "rate": 2.0,
+        "support": "(0, inf)"
+      },
+      "settings": {
+        "chains": 2,
+        "iterations": 6000,
+        "burn_in": 1000,
+        "thin": 2
+      },
+      "start_values": [
+        0.15,
+        1.5
+      ],
+      "tuning": {
+        "initial_scale": 0.07086171875245144,
+        "pilot_acceptance_rate": 0.424,
+        "adjusted": false,
+        "final_scale": 0.07086171875245144,
+        "pilot_iterations": 2000,
+        "pilot_seed": 21152811,
+        "pilot_start": 0.15,
+        "skipped": false,
+        "curvature": {
+          "centre": 0.8,
+          "delta": 0.02,
+          "observed_curvature": 1792.3348346903367,
+          "implied_sd": 0.029525716146854765,
+          "scale": 0.07086171875245144
+        }
+      },
+      "proposal_scale": 0.07086171875245144,
+      "chains": [
+        {
+          "chain": 0,
+          "initial_value": 0.15,
+          "seed": 20252811,
+          "acceptance_rate": 0.44766666666666666,
+          "post_burn_in_acceptance_rate": 0.4488,
+          "n_kept": 2500,
+          "runtime_seconds": 4.781718667014502,
+          "mean": 0.8031967104191575,
+          "sd": 0.022884511998502558
+        },
+        {
+          "chain": 1,
+          "initial_value": 1.5,
+          "seed": 20252812,
+          "acceptance_rate": 0.4455,
+          "post_burn_in_acceptance_rate": 0.4388,
+          "n_kept": 2500,
+          "runtime_seconds": 4.620404124958441,
+          "mean": 0.8025870560685651,
+          "sd": 0.023662299852532657
+        }
+      ],
+      "comparison": {
+        "n_draws": 5000,
+        "n_chains": 2,
+        "mcmc": {
+          "mean": 0.8028918832438613,
+          "median": 0.8031328316052933,
+          "sd": 0.02327632311697901,
+          "q025": 0.7585698464192613,
+          "q975": 0.8489917249053209
+        },
+        "grid": {
+          "mean": 0.8032340438602275,
+          "median": 0.8032432386804873,
+          "sd": 0.023607583622143578,
+          "q025": 0.75690040799765,
+          "q975": 0.8494970472746489
+        },
+        "standardized_mean_error": 0.014493673805955253,
+        "standardized_median_error": 0.004676763067376874,
+        "standardized_q025_error": 0.07071619223431912,
+        "standardized_q975_error": 0.021405086493223396,
+        "sd_ratio": 0.9859680469434471,
+        "ks_distance": 0.019391309652143862,
+        "bulk_ess": 2116.881956078598,
+        "tail_ess": 2401.8169228500565,
+        "mcse_mean": 0.0005059016045013639,
+        "true_value": 0.8,
+        "truth_in_mcmc_interval": true,
+        "rhat_bulk": 0.9997391549391759,
+        "rhat_tail": 0.9998470348741668,
+        "rhat": 0.9998470348741668
+      },
+      "gates": {
+        "mode": "smoke",
+        "checks": {
+          "standardized_mean_error": {
+            "observed": 0.014493673805955253,
+            "threshold": 0.35,
+            "sense": "<=",
+            "pass": true
+          },
+          "rhat": {
+            "observed": 0.9998470348741668,
+            "threshold": 1.05,
+            "sense": "<",
+            "pass": true
+          }
+        },
+        "pass": true
+      },
+      "likelihood_evaluations": 12002,
+      "wall_seconds": 9.404284083051607,
+      "evaluation_path": "cached state features",
+      "held_out": {
+        "n_blocks": 200,
+        "n_steps": 4000,
+        "nll_at_posterior_mean": 1.2431439343532917,
+        "nll_at_posterior_median": 1.2431425950773085,
+        "nll_at_true_value": 1.2431608051298682,
+        "posterior_predictive_log_score_per_step": -1.2431489632109054,
+        "predictive_draws_used": 200,
+        "note": "diagnostic only; not used to tune proposals or priors"
+      }
+    },
+    "lambda_back": {
+      "parameter": "lambda_back",
+      "proposal_kind": "log",
+      "prior": {
+        "family": "gamma",
+        "shape": 2.0,
+        "rate": 2.0,
+        "support": "(0, inf)"
+      },
+      "settings": {
+        "chains": 2,
+        "iterations": 6000,
+        "burn_in": 1000,
+        "thin": 2
+      },
+      "start_values": [
+        0.05,
+        0.7
+      ],
+      "tuning": {
+        "initial_scale": 0.2173398309065075,
+        "pilot_acceptance_rate": 0.482,
+        "adjusted": false,
+        "final_scale": 0.2173398309065075,
+        "pilot_iterations": 2000,
+        "pilot_seed": 21153811,
+        "pilot_start": 0.05,
+        "skipped": false,
+        "curvature": {
+          "centre": 0.25,
+          "delta": 0.02,
+          "observed_curvature": 1951.029411638956,
+          "implied_sd": 0.09055826287771146,
+          "scale": 0.2173398309065075
+        }
+      },
+      "proposal_scale": 0.2173398309065075,
+      "chains": [
+        {
+          "chain": 0,
+          "initial_value": 0.05,
+          "seed": 20253811,
+          "acceptance_rate": 0.459,
+          "post_burn_in_acceptance_rate": 0.4576,
+          "n_kept": 2500,
+          "runtime_seconds": 4.720396333024837,
+          "mean": 0.22850213515213494,
+          "sd": 0.021968167751026287
+        },
+        {
+          "chain": 1,
+          "initial_value": 0.7,
+          "seed": 20253812,
+          "acceptance_rate": 0.4785,
+          "post_burn_in_acceptance_rate": 0.474,
+          "n_kept": 2500,
+          "runtime_seconds": 4.612384250038303,
+          "mean": 0.22835315295277714,
+          "sd": 0.021682781744631882
+        }
+      ],
+      "comparison": {
+        "n_draws": 5000,
+        "n_chains": 2,
+        "mcmc": {
+          "mean": 0.22842764405245608,
+          "median": 0.2287400761599562,
+          "sd": 0.02182388521539399,
+          "q025": 0.18657567291494803,
+          "q975": 0.2717644697211633
+        },
+        "grid": {
+          "mean": 0.22881492094897768,
+          "median": 0.2287574486480616,
+          "sd": 0.022383570170706673,
+          "q025": 0.1850960529205312,
+          "q975": 0.27285901947401986
+        },
+        "standardized_mean_error": 0.017301837623223633,
+        "standardized_median_error": 0.0007761267739201078,
+        "standardized_q025_error": 0.06610294886528947,
+        "standardized_q975_error": 0.04889969493289278,
+        "sd_ratio": 0.9749957244959455,
+        "ks_distance": 0.01627182296941332,
+        "bulk_ess": 2443.333420704202,
+        "tail_ess": 2446.2589595887366,
+        "mcse_mean": 0.00044151015905000233,
+        "true_value": 0.25,
+        "truth_in_mcmc_interval": true,
+        "rhat_bulk": 1.0004486533230894,
+        "rhat_tail": 1.0002301400656437,
+        "rhat": 1.0004486533230894
+      },
+      "gates": {
+        "mode": "smoke",
+        "checks": {
+          "standardized_mean_error": {
+            "observed": 0.017301837623223633,
+            "threshold": 0.35,
+            "sense": "<=",
+            "pass": true
+          },
+          "rhat": {
+            "observed": 1.0004486533230894,
+            "threshold": 1.05,
+            "sense": "<",
+            "pass": true
+          }
+        },
+        "pass": true
+      },
+      "likelihood_evaluations": 12002,
+      "wall_seconds": 9.334706791909412,
+      "evaluation_path": "cached state features",
+      "held_out": {
+        "n_blocks": 200,
+        "n_steps": 4000,
+        "nll_at_posterior_mean": 1.2434184336782477,
+        "nll_at_posterior_median": 1.2434140091664176,
+        "nll_at_true_value": 1.2431608051298682,
+        "posterior_predictive_log_score_per_step": -1.2434391445363018,
+        "predictive_draws_used": 200,
+        "note": "diagnostic only; not used to tune proposals or priors"
+      }
+    }
+  }
+}

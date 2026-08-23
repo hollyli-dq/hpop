@@ -1,0 +1,62 @@
+{
+  "continuation_fidelity": "chains resume from stored RNG bit-state; draw-identical to uninterrupted execution",
+  "history_preservation": "already-evaluated rungs are skipped so no registered gate is recomputed",
+  "interruptions": [
+    {
+      "chain_sweeps_at_resume": {
+        "C-COND-SWAP_0": 42000,
+        "C-COND-SWAP_1": 42000,
+        "C-COND-SWAP_2": 42000,
+        "C-COND-SWAP_3": 42000,
+        "C-MARG-SWAP_0": 40000,
+        "C-MARG-SWAP_1": 40000,
+        "C-MARG-SWAP_2": 40000,
+        "C-MARG-SWAP_3": 40000
+      },
+      "compute_lost": "at most 2,000 sweeps per chain since the last within-segment checkpoint",
+      "gates_already_evaluated": [
+        30000
+      ],
+      "n": 1,
+      "observed_cause": "orchestrator and workers died overnight with no Python traceback while the machine (on battery) cycled maintenance sleeps; chains checkpointed cleanly mid-segment, no partial writes",
+      "protocol_elements_changed": "none",
+      "reconstructed_consecutive_pass_counters": {
+        "C-COND-SWAP": 0,
+        "C-MARG-SWAP": 0
+      },
+      "remaining_rungs": [
+        50000,
+        75000,
+        100000
+      ]
+    },
+    {
+      "chain_sweeps_at_resume": {
+        "C-COND-SWAP_0": 42000,
+        "C-COND-SWAP_1": 42000,
+        "C-COND-SWAP_2": 42000,
+        "C-COND-SWAP_3": 42000,
+        "C-MARG-SWAP_0": 40000,
+        "C-MARG-SWAP_1": 40000,
+        "C-MARG-SWAP_2": 40000,
+        "C-MARG-SWAP_3": 40000
+      },
+      "compute_lost": "at most 2,000 sweeps per chain since the last within-segment checkpoint",
+      "gates_already_evaluated": [
+        30000
+      ],
+      "n": 2,
+      "observed_cause": "orchestrator and workers died overnight with no Python traceback while the machine (on battery) cycled maintenance sleeps; chains checkpointed cleanly mid-segment, no partial writes",
+      "protocol_elements_changed": "none",
+      "reconstructed_consecutive_pass_counters": {
+        "C-COND-SWAP": 0,
+        "C-MARG-SWAP": 0
+      },
+      "remaining_rungs": [
+        50000,
+        75000,
+        100000
+      ]
+    }
+  ]
+}

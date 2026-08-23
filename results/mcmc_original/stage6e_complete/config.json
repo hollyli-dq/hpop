@@ -1,0 +1,200 @@
+{
+  "stage": "6E",
+  "frozen_config": {
+    "stage": "6E",
+    "model_id": "recurrent-rfs-unknown-boundary-joint-v1",
+    "stage6d_model_id": "recurrent-rfs-oracle-joint-latent-v1",
+    "stage6d_config_hash": "ebd5effd5b32e68aeb61df044bfbdcbef998c01955673ae1c077531be3d2ac73",
+    "target": "p(S, z, U, rho, beta, omega, lambda_rep, lambda_back, pi, P | x) proportional to prod_n w(S_n, z_n) p(U|rho) p(rho) p(beta) p(omega) p(lambda_rep) p(lambda_back) p(pi) p(P)",
+    "segmentation_weight": "log pi[z_1] + sum_l log p_RFS(x[a_l:b_l] | U_{z_l}, scalars, epsilon) + (J-L) log(1-delta_B) + (L-1) log delta_B + sum_{l>=2} log P[z_{l-1}, z_l]",
+    "inherits_from_stage6d": {
+      "likelihood_branch": {
+        "name": "utility-weighted frontier",
+        "feasibility": "F(x) = prod_{z precedes x} q(z), empty product 1",
+        "utility": "Q(x) = log(1 + S(x)),  S(x) = sum_z 1[x precedes z] (1 - q(z))",
+        "back_cost": "C_back(x) = sigmoid(omega) * sum_{z != x} 1[x precedes z] q(z)",
+        "weights": "W(x) = F(x) * exp(beta*Q(x) - lambda_rep*q(x) - lambda_back*C_back(x))",
+        "emission": "p(x) = (1 - epsilon) * W(x)/sum(W) + epsilon/m",
+        "state_update": "q(y)=1; q(x) *= (1 - sigmoid(omega)) for x downstream of y",
+        "not": "uniform-frontier (beta would not multiply a utility term)"
+      },
+      "epsilon": 0.02,
+      "numerics": {
+        "exponent_stabilisation": "row-wise max subtraction before exp; cancels in the normalisation",
+        "mixture_floor": "p = (1 - epsilon) * structural + epsilon / m",
+        "initial_state": "q_0 = zeros(m)",
+        "feasibility_empty_product": 1.0,
+        "dtype": "float64"
+      },
+      "rho_prior": {
+        "family": "beta",
+        "a": 1.0,
+        "b": 1.0,
+        "truncated_at": 0.995,
+        "tol": 0.005,
+        "support": "(0.0, 0.995)",
+        "renormalised": true,
+        "source": "vendored StatisticalUtils.dRprior with stage5.RHO_PRIOR"
+      },
+      "rho_transform": {
+        "name": "logit",
+        "jacobian": "log(rho (1 - rho))"
+      },
+      "u_proposal": {
+        "kernel": "sampler_u.propose_row (Stage 2A), reused unchanged",
+        "form": "U'[j,:] = U[j,:] + sigma_U * Normal(0, I_d)",
+        "sigma_u": 0.5,
+        "symmetric": true,
+        "log_hastings": 0.0
+      },
+      "scalar_priors": {
+        "beta": {
+          "family": "gamma",
+          "shape": 2.0,
+          "rate": 2.0,
+          "support": "(0, inf)"
+        },
+        "omega": {
+          "family": "normal",
+          "mean": 0.0,
+          "sd": 2.0,
+          "support": "(-inf, inf)"
+        },
+        "lambda_rep": {
+          "family": "gamma",
+          "shape": 2.0,
+          "rate": 2.0,
+          "support": "(0, inf)"
+        },
+        "lambda_back": {
+          "family": "gamma",
+          "shape": 2.0,
+          "rate": 2.0,
+          "support": "(0, inf)"
+        }
+      }
+    },
+    "dimensions": {
+      "m_roles": 5,
+      "d_latent_columns": 2,
+      "K_skills": 3,
+      "note": "Stage 6D had K = 1 skill and oracle labels; Stage 6E has K = 3 reusable skills whose labels are latent"
+    },
+    "newly_latent_in_stage_6e": [
+      "segmentation S_{1:N}",
+      "skill labels z_{1:N}"
+    ],
+    "still_inferred": [
+      "U",
+      "rho",
+      "beta",
+      "omega",
+      "lambda_rep",
+      "lambda_back"
+    ],
+    "sweep_order": [
+      "S_z",
+      "pi_P",
+      "U",
+      "rho",
+      "beta",
+      "omega",
+      "lambda_rep",
+      "lambda_back"
+    ],
+    "fixed_in_stage_6e": {
+      "epsilon": 0.02,
+      "n_skills": 3,
+      "delta_B": 0.15,
+      "min_block_width": 3,
+      "max_block_width": 12,
+      "q_0": "zeros(m), reset at the start of EVERY candidate block",
+      "tau": "does not exist in this model (inherited from Stage 6D)"
+    },
+    "pi_P": {
+      "inferred": true,
+      "why": "they belong to the registered final target: targets.log_target_segmentation takes log_pi and log_transition, and transitions.py carries the conjugate updates Stage 3 validated. They were absent from Stage 6D only because K = 1 left no path prior to infer.",
+      "update": "frozen Stage 3 conjugate Dirichlet updates (transitions.dirichlet_posterior_params / sample_transition_matrix)",
+      "eta_transition": 1.0,
+      "eta_initial": 1.0,
+      "self_transitions_allowed": false,
+      "self_transition_note": "transitions.allowed_next(h, K) excludes h and the sampled diagonal is exactly 0, so adjacent segments must carry different skills and a segmentation that repeats a label across a boundary has log target -inf. Registered in the parent, not chosen here.",
+      "terminal_transition": false
+    },
+    "segmentation_kernel": {
+      "reused": "proposals.LocalMoveKernel \u2014 proposal_distribution, proposal_prob, sample_proposal and mh_local_step are used unchanged",
+      "move_types": [
+        "relabel",
+        "split",
+        "merge",
+        "shift"
+      ],
+      "what_changed": "the legality predicate only",
+      "why_it_had_to_change": "proposals.compatible_skills requires the block's CPA multiset to equal the skill's role multiset, so a legal Stage 5 block is a permutation of its skill's roles visiting each exactly once. The recurrent model is defined by repeats \u2014 lambda_rep and lambda_back exist because roles recur \u2014 so under that predicate NO recurrent block is compatible with any skill and every neighbourhood would be empty.",
+      "hastings_ratio": "unchanged: log q(S'->S) - log q(S->S') from the Stage 5 neighbourhood counting, never assumed symmetric"
+    },
+    "structural_model": {
+      "latent": "U in R^{m x d} continuous latent utility matrix",
+      "induced_order": "h(U): i > j iff U[i,r] > U[j,r] for every r; the intersection of the d column orderings",
+      "h_depends_on": "U only -- not on beta",
+      "legality": "every real U induces a legal strict partial order; no acyclicity check exists or is needed",
+      "representation": "precedence_from_u returns the TRANSITIVE CLOSURE",
+      "mcmc_state": "U itself (continuous); the poset is a derived label",
+      "prior": "rows iid Normal(0, Sigma_rho), Sigma_rho = (1-rho) I_d + rho 11^T",
+      "rho_is": "correlation between the d latent COLUMNS within a row; rows are iid. Not a row covariance -- that would need a matrix-normal prior",
+      "prior_normalised": true,
+      "rho_dependent_normaliser": "-(m/2) log|Sigma_rho|, present in log_u_prior; cancels in a U update at fixed rho, does NOT cancel in a rho update at fixed U",
+      "combinatorial_normaliser_needed": false,
+      "combinatorial_normaliser_reason": "the prior is a density on R^{m x d}, not a score over a set of partial orders, so no sum over legal posets arises",
+      "rho_enters_likelihood": false,
+      "tau_in_model": false
+    },
+    "h_is_derived_not_state": true,
+    "second_prior_on_H": false,
+    "scalar_priors": {
+      "beta": {
+        "family": "gamma",
+        "shape": 2.0,
+        "rate": 2.0,
+        "support": "(0, inf)"
+      },
+      "omega": {
+        "family": "normal",
+        "mean": 0.0,
+        "sd": 2.0,
+        "support": "(-inf, inf)"
+      },
+      "lambda_rep": {
+        "family": "gamma",
+        "shape": 2.0,
+        "rate": 2.0,
+        "support": "(0, inf)"
+      },
+      "lambda_back": {
+        "family": "gamma",
+        "shape": 2.0,
+        "rate": 2.0,
+        "support": "(0, inf)"
+      }
+    },
+    "scalar_truth": {
+      "beta": 1.5,
+      "omega": 1.7346010553881064,
+      "lambda_rep": 0.8,
+      "lambda_back": 0.25
+    },
+    "starting_proposal_scales": {
+      "U": 0.5,
+      "rho": 0.5,
+      "beta": 0.05109,
+      "omega": 0.18213,
+      "lambda_rep": 0.04155,
+      "lambda_back": 0.09472
+    },
+    "starting_scales_note": "the frozen Stage 6D2 scales, used ONLY as the pilot's centre. A target with latent (S, z) is a different target and carries no efficiency guarantee."
+  },
+  "stage6e_config_hash": "d98897a181b6809a17dd572ca175da7846a6924b8429b9c7337a939686a6da44",
+  "source_commit": "ad69d927f3b2c54887fe5df80d6a3faa2f93b451",
+  "n_skills": 3,
+  "n_roles": 5
+}

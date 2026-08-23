@@ -1,0 +1,377 @@
+{
+  "n_exact_paths": 21,
+  "log_z_enumerated": -7.939698706439894,
+  "log_z_ffbs": -7.939698706439893,
+  "log_z_absolute_error": 8.881784197001252e-16,
+  "dynamic_programming_marginals": {
+    "max_boundary_error_vs_enumeration": 4.85722573273506e-17,
+    "max_occurrence_label_error_vs_enumeration": 5.551115123125783e-16,
+    "max_labelled_segment_error_vs_enumeration": 4.440892098500626e-16,
+    "log_z_from_backward_pass_error": 0.0,
+    "boundary_marginals": [
+      0.0,
+      0.0,
+      0.023465722571144335,
+      0.03556281733036135,
+      0.01820106922581904,
+      0.0,
+      0.0
+    ],
+    "exact_boundary_marginals": [
+      0.0,
+      0.0,
+      0.02346572257114434,
+      0.0355628173303614,
+      0.018201069225819058,
+      0.0,
+      0.0
+    ]
+  },
+  "top_states": [
+    {
+      "key": [
+        [
+          8,
+          2
+        ]
+      ],
+      "exact": 0.47475758455150635,
+      "ffbs": 0.47237,
+      "local_move_kernel": 0.4754,
+      "ffbs_absolute_error": 0.0023875845515063387,
+      "local_absolute_error": 0.0006424154484936384
+    },
+    {
+      "key": [
+        [
+          8,
+          0
+        ]
+      ],
+      "exact": 0.42064027082617605,
+      "ffbs": 0.42094,
+      "local_move_kernel": 0.41964736842105266,
+      "ffbs_absolute_error": 0.00029972917382392605,
+      "local_absolute_error": 0.000992902405123397
+    },
+    {
+      "key": [
+        [
+          8,
+          1
+        ]
+      ],
+      "exact": 0.02737253549499305,
+      "ffbs": 0.02801,
+      "local_move_kernel": 0.02765526315789474,
+      "ffbs_absolute_error": 0.0006374645050069502,
+      "local_absolute_error": 0.0002827276629016884
+    },
+    {
+      "key": [
+        [
+          4,
+          2
+        ],
+        [
+          8,
+          1
+        ]
+      ],
+      "exact": 0.022162309398394614,
+      "ffbs": 0.02228,
+      "local_move_kernel": 0.021757894736842105,
+      "ffbs_absolute_error": 0.00011769060160538719,
+      "local_absolute_error": 0.00040441466155250946
+    },
+    {
+      "key": [
+        [
+          3,
+          0
+        ],
+        [
+          8,
+          1
+        ]
+      ],
+      "exact": 0.013737011701272088,
+      "ffbs": 0.01388,
+      "local_move_kernel": 0.0138,
+      "ffbs_absolute_error": 0.00014298829872791234,
+      "local_absolute_error": 6.298829872791213e-05
+    },
+    {
+      "key": [
+        [
+          4,
+          0
+        ],
+        [
+          8,
+          1
+        ]
+      ],
+      "exact": 0.013400498338116948,
+      "ffbs": 0.01375,
+      "local_move_kernel": 0.013521052631578948,
+      "ffbs_absolute_error": 0.00034950166188305216,
+      "local_absolute_error": 0.00012055429346199964
+    },
+    {
+      "key": [
+        [
+          5,
+          2
+        ],
+        [
+          8,
+          1
+        ]
+      ],
+      "exact": 0.010106893626267873,
+      "ffbs": 0.01052,
+      "local_move_kernel": 0.010394736842105264,
+      "ffbs_absolute_error": 0.00041310637373212673,
+      "local_absolute_error": 0.0002878432158373908
+    },
+    {
+      "key": [
+        [
+          3,
+          2
+        ],
+        [
+          8,
+          1
+        ]
+      ],
+      "exact": 0.009728710693997744,
+      "ffbs": 0.00993,
+      "local_move_kernel": 0.009802631578947368,
+      "ffbs_absolute_error": 0.00020128930600225511,
+      "local_absolute_error": 7.392088494962389e-05
+    },
+    {
+      "key": [
+        [
+          5,
+          0
+        ],
+        [
+          8,
+          1
+        ]
+      ],
+      "exact": 0.008093671563604353,
+      "ffbs": 0.00832,
+      "local_move_kernel": 0.008021052631578948,
+      "ffbs_absolute_error": 0.00022632843639564665,
+      "local_absolute_error": 7.261893202540476e-05
+    },
+    {
+      "key": [
+        [
+          5,
+          2
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      "exact": 2.5843544427369225e-07,
+      "ffbs": 0.0,
+      "local_move_kernel": 0.0,
+      "ffbs_absolute_error": 2.5843544427369225e-07,
+      "local_absolute_error": 2.5843544427369225e-07
+    },
+    {
+      "key": [
+        [
+          5,
+          0
+        ],
+        [
+          8,
+          2
+        ]
+      ],
+      "exact": 2.0695692303608684e-07,
+      "ffbs": 0.0,
+      "local_move_kernel": 0.0,
+      "ffbs_absolute_error": 2.0695692303608684e-07,
+      "local_absolute_error": 2.0695692303608684e-07
+    },
+    {
+      "key": [
+        [
+          5,
+          1
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      "exact": 1.9321789761171667e-08,
+      "ffbs": 0.0,
+      "local_move_kernel": 0.0,
+      "ffbs_absolute_error": 1.9321789761171667e-08,
+      "local_absolute_error": 1.9321789761171667e-08
+    },
+    {
+      "key": [
+        [
+          5,
+          1
+        ],
+        [
+          8,
+          2
+        ]
+      ],
+      "exact": 1.9321789761171667e-08,
+      "ffbs": 0.0,
+      "local_move_kernel": 0.0,
+      "ffbs_absolute_error": 1.9321789761171667e-08,
+      "local_absolute_error": 1.9321789761171667e-08
+    },
+    {
+      "key": [
+        [
+          4,
+          2
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      "exact": 5.671690060715147e-09,
+      "ffbs": 0.0,
+      "local_move_kernel": 0.0,
+      "ffbs_absolute_error": 5.671690060715147e-09,
+      "local_absolute_error": 5.671690060715147e-09
+    },
+    {
+      "key": [
+        [
+          4,
+          0
+        ],
+        [
+          8,
+          2
+        ]
+      ],
+      "exact": 3.429402228200691e-09,
+      "ffbs": 0.0,
+      "local_move_kernel": 0.0,
+      "ffbs_absolute_error": 3.429402228200691e-09,
+      "local_absolute_error": 3.429402228200691e-09
+    },
+    {
+      "key": [
+        [
+          4,
+          1
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      "exact": 2.463787775401514e-10,
+      "ffbs": 0.0,
+      "local_move_kernel": 0.0,
+      "ffbs_absolute_error": 2.463787775401514e-10,
+      "local_absolute_error": 2.463787775401514e-10
+    },
+    {
+      "key": [
+        [
+          4,
+          1
+        ],
+        [
+          8,
+          2
+        ]
+      ],
+      "exact": 2.463787775401514e-10,
+      "ffbs": 0.0,
+      "local_move_kernel": 0.0,
+      "ffbs_absolute_error": 2.463787775401514e-10,
+      "local_absolute_error": 2.463787775401514e-10
+    },
+    {
+      "key": [
+        [
+          3,
+          0
+        ],
+        [
+          8,
+          2
+        ]
+      ],
+      "exact": 9.823062575921605e-11,
+      "ffbs": 0.0,
+      "local_move_kernel": 0.0,
+      "ffbs_absolute_error": 9.823062575921605e-11,
+      "local_absolute_error": 9.823062575921605e-11
+    },
+    {
+      "key": [
+        [
+          3,
+          2
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      "exact": 6.956806619108293e-11,
+      "ffbs": 0.0,
+      "local_move_kernel": 0.0,
+      "ffbs_absolute_error": 6.956806619108293e-11,
+      "local_absolute_error": 6.956806619108293e-11
+    },
+    {
+      "key": [
+        [
+          3,
+          1
+        ],
+        [
+          8,
+          2
+        ]
+      ],
+      "exact": 4.037908233885589e-12,
+      "ffbs": 0.0,
+      "local_move_kernel": 0.0,
+      "ffbs_absolute_error": 4.037908233885589e-12,
+      "local_absolute_error": 4.037908233885589e-12
+    },
+    {
+      "key": [
+        [
+          3,
+          1
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      "exact": 4.037908233885589e-12,
+      "ffbs": 0.0,
+      "local_move_kernel": 0.0,
+      "ffbs_absolute_error": 4.037908233885589e-12,
+      "local_absolute_error": 4.037908233885589e-12
+    }
+  ]
+}

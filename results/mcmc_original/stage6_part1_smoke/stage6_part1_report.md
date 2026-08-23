@@ -1,0 +1,132 @@
+# Stage 6.0 / 6A — recurrent likelihood correctness (smoke, seed 0)
+
+Date 2026-08-10 · branch `mcmc-original-latent-poset` · commit `08e2cb6d`
+Python 3.13.2 · NumPy 2.4.6
+
+**Stage 5C (full joint S+U+P) remains DEFERRED** — not required here, since this task
+holds the boundaries and the latent poset fixed. **No recurrent-parameter MCMC has been
+implemented**: this validates the likelihood and the generator only.
+
+## PASS / FAIL
+
+| check | result |
+|---|---|
+| Stage 6.0 deterministic recurrent equations | **PASS** |
+| Stage 6.0 fixed-length normalization | **PASS** |
+| Stage 6A generator-likelihood parity | **PASS** |
+| Stage 6.0 empirical frequency check | **PASS** |
+
+## Model and seeds
+
+- `U_TRUE` closure: [[0, 2], [0, 3], [0, 4], [2, 3], [2, 4], [3, 4]]
+- role 1 incomparable with all others; `U_ANTICHAIN` induces no ordered pairs
+- fixed `T = 12` — **the likelihood conditions on T**; there is no
+  `p(T | skill)`, no duration and no stopping model
+- beta 1.5, epsilon 0.02, kappa 0.85,
+  lambda_rep 0.8, lambda_back 0.25
+- seeds: train 0, held-out 10000
+
+## Deterministic recurrent equations
+
+- `F(q0)` = [1.0, 1.0, 0.0, 0.0, 0.0] (expected [1,1,0,0,0])
+- `S(q0)` = [3, 0, 2, 1, 0] (expected [3,0,2,1,0])
+- first-step parity with static BPOP: max diff **0.000e+00**
+
+## Fixed-length normalization (the gate)
+
+| m | T | sequences | beta | eps | kappa | l_rep | l_back | \|sum-1\| |
+|---|---|---|---|---|---|---|---|---|
+| 2 | 4 | 16 | 1.5 | 0.02 | 0.85 | 0.8 | 0.25 | 2.22e-16 |
+| 2 | 4 | 16 | 0.0 | 0.0 | 0.5 | 0.0 | 0.0 | 2.22e-16 |
+| 2 | 4 | 16 | 3.0 | 0.1 | 0.99 | 2.0 | 1.5 | 2.22e-16 |
+| 2 | 4 | 16 | 1.0 | 0.05 | 0.01 | 0.0 | 1.0 | 0.00e+00 |
+| 2 | 4 | 16 | 0.0 | 0.2 | 0.999 | 0.0 | 0.0 | 2.22e-16 |
+| 3 | 3 | 27 | 1.5 | 0.02 | 0.85 | 0.8 | 0.25 | 1.11e-16 |
+| 3 | 3 | 27 | 0.0 | 0.0 | 0.5 | 0.0 | 0.0 | 2.22e-16 |
+| 3 | 3 | 27 | 3.0 | 0.1 | 0.99 | 2.0 | 1.5 | 1.11e-16 |
+| 3 | 3 | 27 | 1.0 | 0.05 | 0.01 | 0.0 | 1.0 | 0.00e+00 |
+| 3 | 3 | 27 | 0.0 | 0.2 | 0.999 | 0.0 | 0.0 | 0.00e+00 |
+| 3 | 4 | 81 | 1.5 | 0.02 | 0.85 | 0.8 | 0.25 | 1.11e-16 |
+| 3 | 4 | 81 | 0.0 | 0.0 | 0.5 | 0.0 | 0.0 | 0.00e+00 |
+| 3 | 4 | 81 | 3.0 | 0.1 | 0.99 | 2.0 | 1.5 | 2.22e-16 |
+| 3 | 4 | 81 | 1.0 | 0.05 | 0.01 | 0.0 | 1.0 | 1.11e-16 |
+| 3 | 4 | 81 | 0.0 | 0.2 | 0.999 | 0.0 | 0.0 | 2.22e-16 |
+
+**worst |sum − 1| = 2.220e-16** (criterion < 1e-10)
+
+## Generator–likelihood parity
+
+- blocks replayed: 50
+- max \|log-likelihood difference\|: **3.553e-15**
+- max \|q difference\|: **0.000e+00**
+- max \|step log-p difference\|: **0.000e+00**
+
+## Empirical vs analytic frequencies (m=2, T=4)
+
+- 100,000 samples; **TV = 0.00360**, max abs error 0.00188
+
+## Exposure audit (training blocks)
+
+- steps 600 over 50 blocks
+- valid-role repeats 385; **leaf repeats 198**; **upstream repeats 187**; **recomputations 96**
+
+Gate exposure `E_zx` for the true ordered pairs:
+
+| pair | count |
+|---|---|
+| 0->2 | 89 |
+| 0->3 | 50 |
+| 0->4 | 14 |
+| 2->3 | 78 |
+| 2->4 | 23 |
+| 3->4 | 23 |
+## Identifiability — observed block-likelihood curvature
+
+**These are local curvature diagnostics on observed data, not recovery results.**
+The quantity below is a sample average of the observed information over the
+generated blocks, not an exact expectation under the generative law.
+
+It is computed at **block** level, not per step: `kappa = sigmoid(omega)` enters the
+validity-state recursion, so perturbing `omega` changes every later `q` and hence
+every later action probability. Each block is therefore re-scored from `q_0 = 0`
+for each candidate value; a curvature at fixed `q` measures only the direct
+one-step channel and understates `omega` substantially.
+
+| parameter | true | curvature / block | implied sd (50 blocks) | true/sd |
+|---|---|---|---|---|
+| beta | 1.500 | 1.2813 | 0.1249 | 12.0 |
+| lambda_rep | 0.800 | 2.1501 | 0.0964 | 8.3 |
+| lambda_back | 0.250 | 2.3147 | 0.0930 | 2.7 |
+| omega | 1.735 | 0.0905 | 0.4702 | 3.7 |
+
+Curvature is **not invariant under reparameterisation**, so these columns must not
+be compared across parameters as if they were a ranking. For the gate, uncertainty
+is reported on both scales:
+
+- `omega` = 1.735 +/- 0.4702 (unconstrained scale)
+- `kappa` = sigmoid(omega) = 0.8500, implied 95% [0.6928, 0.9344]
+- `dkappa/domega` at the truth = kappa(1-kappa) = 0.1275
+
+### How to read the small `lambda_back` ablation gap
+
+Setting `lambda_back` from 0.25 to 0 raises held-out NLL by only +0.0092. That is
+**not** evidence of weak identifiability. A zero-ablation gap depends on both the
+curvature and the distance from the true value to zero, and here the true value is
+itself small. Under a quadratic approximation the predicted gap is
+`0.5 * I_step * delta^2 ~ 0.5 * 0.201 * 0.25^2 ~ 0.0063`, the same order as the
+0.0092 observed. The two are consistent.
+
+The defensible conclusion is the negative one: **there is no present evidence that**
+**`lambda_back` or `omega` is intrinsically unidentifiable.** Whether all four
+parameters are recoverable is a Stage-6B question, to be settled by exact
+one-dimensional posterior profiles, then one-parameter MCMC, then MCMC-vs-grid
+agreement — not by these diagnostics.
+
+## Deviations and notes
+
+- `lambda_rep` is a **relative penalty on currently valid candidates**, not a monotone
+  sequence-level repeat cost; no monotonicity is asserted anywhere.
+- The latent graph stays **acyclic**; repetition is carried by the validity state.
+- Repeated sequences are never passed to the static optimized likelihood.
+- No U / rho / beta / omega / lambda inference was performed.
+

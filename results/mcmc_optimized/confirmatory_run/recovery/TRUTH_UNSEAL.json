@@ -1,0 +1,20 @@
+{
+  "authorised_by": "frozen protocol PREREG section 3: unsealing is permitted once, after the terminal verdict is recorded",
+  "registered_verdicts_at_unseal": {
+    "FULL-COND": "FAIL",
+    "FULL-MARG": "FAIL"
+  },
+  "terminal_draw_set_sha256": {
+    "full_cond_0": "37f80aaac2d333366b5714dd2bc3fc34e88f0de309cd079adeb75b7eb0a3d7e1",
+    "full_cond_1": "1ea6fd1ab0f7716aed6cdeb3e23b3c3e1773585bd09ebd18b47d22c765260d6d",
+    "full_cond_2": "de02db0814246f77ab60329bad9f2dafdfaadeeac888891bbe422cce990e47ef",
+    "full_cond_3": "fb2c053acd7005b3e66e92fa981c4154eb3d2529c967da25222d3a728db40b81",
+    "full_marg_0": "d4985f528bc0290413cee4478292513b439596d32d70dc8fb929745324e67c5b",
+    "full_marg_1": "1d433b92fb88dbb9a059f7a687b05393a005c73d81c999e62fde502e19679cf8",
+    "full_marg_2": "a6a828ae59869b22ba96a9774b3e70bfb12ad76289a2f07e28e3952f22f4c24c",
+    "full_marg_3": "fea656040b39e9b8aba96e6023675cc20aefadf68a207f48d8e8654667787872"
+  },
+  "truth_free_verdict_commit": "f9799f9f9f89508b09e6fd6a1ca45610bd2d9068",
+  "truth_sha256": "effccc91114d9647f87859aaa7ee219e3bc664bb41d2c6389844ea64346a5e8e",
+  "unsealed_at_utc": "2026-08-23T10:41:29Z"
+}

@@ -1,0 +1,106 @@
+% ---------------------------------------------------------------------------
+% paper/tables/table_taskbench_main.tex
+% COMPACT main-text version. The complete version with all seven metrics and
+% confidence intervals is paper/tables/table_taskbench_appendix.tex.
+% Requires: booktabs. Draft fragment. NOT included in the main paper.
+%
+% Sources: results/external/taskbench_static_poset/main_table.json (commit
+% 10d4bf4), benchmark SHA-256 4b4c23b454ada1be... (commit e6afb17).
+% Rounding: three decimals. Unrounded values: paper/evidence/result_ledger.csv.
+%
+% BOLDING POLICY (applied mechanically, stated in the caption):
+%   bold = best FITTED method (gold oracle excluded) on that metric AND
+%          condition, ONLY where the frozen paired bootstrap CI against the
+%          runner-up excludes zero. Ties and unsupported gaps are NOT bolded.
+%   Consequence: AUROC is never bolded (every Bayes-vs-intersection AUROC CI
+%   covers zero) and nothing is bolded at FOUR except legal NLL.
+% ---------------------------------------------------------------------------
+
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{5pt}
+\caption{%
+External partial-order generalization on the TaskBench Multimedia benchmark
+(construction commit \texttt{e6afb17}, benchmark SHA-256 \texttt{4b4c23b4},
+upstream \texttt{microsoft/JARVIS}@\texttt{7624cf38}). Graph-level means on the
+frozen test split under \textsc{one}, \textsc{two} and \textsc{four} observed
+training linearizations; $n = 37$, $37$ and $26$ test graphs respectively
+(\textsc{four} requires four distinct legal orderings, so fewer graphs qualify).
+Gold relations are the transitive closure. \emph{This evaluates the static
+partial-order component only; it is not a full-HPOP experiment, and the
+linearizations are enumerated from gold graphs rather than observed agent
+trajectories.}
+\textbf{Bold} marks the best fitted method only where the frozen paired
+bootstrap interval against the runner-up excludes zero; ties and unsupported
+gaps are left unbolded. The gold-graph oracle is a reference bound, not a
+fitted model, and is never bolded.%
+}
+\label{tab:taskbench-main}
+\begin{tabular}{@{}l ccc ccc ccc@{}}
+\toprule
+& \multicolumn{3}{c}{Closure $F_1$ $\uparrow$}
+& \multicolumn{3}{c}{Relation Brier $\downarrow$}
+& \multicolumn{3}{c}{Legal NLL/node $\downarrow$} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+Method
+& \textsc{one} & \textsc{two} & \textsc{four}
+& \textsc{one} & \textsc{two} & \textsc{four}
+& \textsc{one} & \textsc{two} & \textsc{four} \\
+\midrule
+First observed total order
+  & $0.653$ & $0.653$ & $0.602$
+  & $0.250$ & $0.250$ & $0.279$
+  & $1.670$ & $1.628$ & $1.953$ \\
+Antichain
+  & $0.000$ & $0.000$ & $0.000$
+  & $0.250$ & $0.250$ & $0.221$
+  & $0.886$ & $0.886$ & $0.876$ \\
+Intersection of observed orders
+  & $\mathbf{0.653}$ & $\mathbf{0.818}$ & $0.906$
+  & $0.250$ & $0.110$ & $0.045$
+  & $1.670$ & $1.020$ & $0.769$ \\
+Bayesian product-order model
+  & $0.477$ & $0.706$ & $0.902$
+  & $\mathbf{0.129}$ & $\mathbf{0.086}$ & $0.041$
+  & $\mathbf{0.738}$ & $\mathbf{0.685}$ & $\mathbf{0.642}$ \\
+\midrule
+\textit{Gold graph oracle}
+  & \textit{1.000} & \textit{1.000} & \textit{1.000}
+  & \textit{0.000} & \textit{0.000} & \textit{0.000}
+  & \textit{0.423} & \textit{0.418} & \textit{0.476} \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\begin{minipage}{\linewidth}
+\footnotesize
+\textbf{Not shown here.} Incomparable-pair $F_1$, AUROC, pairwise ranking
+accuracy and illegal-order NLL appear in
+Table~\ref{tab:taskbench-appendix}. Two of them matter for reading this table
+correctly. Incomparable-pair $F_1$ at \textsc{one} is $0.533$ for the Bayesian
+model against $0.000$ for both the intersection and the total-order baseline
+($\Delta = +0.533$, CI $[0.472, 0.593]$, $37/37$ graphs), because a single
+observed ordering forces the intersection to a total order with no incomparable
+pairs at all: the intersection's closure-$F_1$ lead at \textsc{one} is bought
+by asserting every relation. AUROC differences between the Bayesian model and
+the intersection are $+0.008$, $-0.036$ and $-0.010$ at \textsc{one},
+\textsc{two} and \textsc{four}, and every interval covers zero, so no
+discrimination advantage is claimed in either direction.
+
+\textbf{Why so little bolding at \textsc{four}.} Intersection and the Bayesian
+model are statistically tied there on closure $F_1$ ($\Delta = -0.004$, CI
+$[-0.010, 0.000]$, $24/26$ graphs exactly tied), on incomparable $F_1$ and on
+Brier. Held-out legal NLL is the one metric where the Bayesian advantage
+survives at \textsc{four} ($\Delta = -0.126$, CI $[-0.208, -0.050]$).
+
+\textbf{Construction note.} At \textsc{one} the intersection of the observed
+orders \emph{is} the first observed total order, so those two rows coincide by
+construction in every column.
+
+\textbf{Convergence.} $132/132$ graph-condition fits converged
+($\widehat{R} \leq 1.01$, all ESS floors met); $1{,}584$~s wall on eight
+workers. $\rho = 0.5$, $\beta = 0$, $\epsilon = 0.02$, $d = 3$ and
+$\sigma_U = 1.0$ are fixed, not fitted.
+\end{minipage}
+\end{table*}

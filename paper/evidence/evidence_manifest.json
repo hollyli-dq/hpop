@@ -1,0 +1,1146 @@
+{
+  "manifest_version": "1.0.0",
+  "generated_for": "HPOP ICLR submission evidence pack",
+  "extraction_date": "2026-08-17",
+  "repository": "/Users/dongqing/Desktop/hpop",
+  "head_at_extraction": {
+    "branch": "condition-c-integration",
+    "commit": "50eee50829114c6e41c7ab0aa1948ef74b30d868",
+    "note": "HEAD commit recorded for provenance only; no experiment was launched, stopped, resumed or inspected by this task."
+  },
+  "provenance_rules_applied": [
+    "Only committed, frozen artifacts were used as numerical sources.",
+    "Terminal summaries, conversation memory, live checkpoints and uncommitted directories were NOT used.",
+    "Historical FAIL verdicts are preserved as FAIL and are never restated as PASS.",
+    "results/mcmc_original/matched_condition_c/formal_chains/ and formal_registration.json are UNTRACKED (a live run) and were never opened.",
+    "results/external/tau3_retail_hpop_pilot/test_trajectories.jsonl was never opened.",
+    "No file under the running tau3 smoke-fit worktree (/Users/dongqing/Desktop/hpop-smoke) was read except the git file list."
+  ],
+  "worktrees": {
+    "hpop": {
+      "path": "/Users/dongqing/Desktop/hpop",
+      "branch": "condition-c-integration",
+      "commit": "50eee50829114c6e41c7ab0aa1948ef74b30d868"
+    },
+    "hpop-taskbench": {
+      "path": "/Users/dongqing/Desktop/hpop-taskbench",
+      "branch": "taskbench-static-poset-fit",
+      "commit": "10d4bf40700ca6f3a6706187c4c3ec5239ff5610"
+    },
+    "hpop-tau3": {
+      "path": "/Users/dongqing/Desktop/hpop-tau3",
+      "branch": "tau3-retail-hpop-pilot-data",
+      "commit": "8100fc23399af6b39b2c5af0daa43cfd1aaf2c18"
+    }
+  },
+  "corpus_and_benchmark_hashes": {
+    "matched_synthetic_formal_corpus": {
+      "corpus_sha256": "dd280a4a09896154e167f388edd401a9119ba398167c09404aba5f7743e58ec2",
+      "truth_sha256": "fc41538fd44d170df8d0a6401f0c6e6b49d52418c487e22f9e4f45ee047f903e",
+      "train_npz_sha256": "717b77a4cff740c7811c9becb6e43af68d286dcc1c6c6ba6feb475208fef6541",
+      "heldout_npz_sha256": "4d586fc5e26ec356cdb00d496a64be9d1071ee8ef9d112ab89d1246c46bee23f",
+      "manifest": "results/mcmc_original/matched_synthetic_formal_corpus/corpus_hash.json",
+      "generation_seed": 6200001,
+      "generator_commit": "8ca828153e8e263bf4ea4823e45a53fa454037ad",
+      "additional_manifests": [
+        "results/mcmc_original/matched_condition_a/corpus_manifest.json",
+        "results/mcmc_original/matched_condition_b/corpus_manifest.json"
+      ]
+    },
+    "matched_generator_smoke_corpus": {
+      "corpus_sha256": "81d6393e45870ff7e2ec1e65d272eacab61c7075a6e3fbe9b4dd07818885a3b3",
+      "manifest": "results/mcmc_original/matched_generator_smoke_corpus/corpus_hash.json",
+      "generation_seed": 6100001
+    },
+    "taskbench_multimedia_poset_benchmark_v1": {
+      "benchmark_sha256": "4b4c23b454ada1bedcc7e906854c1959b2990e0338242701374d4c5bd04fd91a",
+      "manifest": "results/external/taskbench_multimedia_poset_benchmark/benchmark_hash.json",
+      "master_seed": 20260817,
+      "upstream_repository": "https://github.com/microsoft/JARVIS",
+      "upstream_commit": "7624cf388b47334ff8a0868e7d862dde18cfda86",
+      "upstream_subtree": "taskbench/data_multimedia",
+      "additional_manifests": [
+        "results/external/taskbench_multimedia_audit/source_manifest.json"
+      ]
+    },
+    "tau3_retail_hpop_pilot": {
+      "corpus_sha256": "bf5ac594027a738ad368a96908e2553a461f4dea54141cfd14b2bd93935a1b38",
+      "vocabulary_sha256": "7f70b285217d44e12986e729cbc08a8f2be8dd7ba79363343561d997b67c5073",
+      "manifest": "results/external/tau3_retail_hpop_pilot/corpus_hash.json",
+      "master_seed": 20260820,
+      "official_benchmark_repository": "https://github.com/sierra-research/tau2-bench",
+      "official_benchmark_commit": "3b005ddbdb4127c60cf2100e894807b6f6786a7a",
+      "trajectory_release_dataset": "debdootmiitd/tau3-bench-qwen3.6-35b-a3b-v0",
+      "trajectory_release_revision": "157415de88947ca2efec6ab16c6a6820fb6dc962",
+      "trajectory_release_file_sha256": "bae42518b107d90a9f5ebea5c0090c6a90ae9d1f42eaf5cb09610e29b64c0f8e",
+      "additional_manifests": [
+        "results/external/tau3_retail_hpop_pilot/tool_vocabulary.json",
+        "results/external/tau3_retail_hpop_pilot/preregistration.json",
+        "results/external/tau3_retail_audit/source_manifest.json",
+        "results/external/tau3_retail_audit/raw_file_hashes.json"
+      ]
+    },
+    "stage6e2_trace_corpus": {
+      "corpus_sha256_prefix": "02be246edf9bd4f4148efa3a3e269afa",
+      "note": "NOT REPORTED IN FROZEN ARTIFACT at full length in results/mcmc_original/stage6e2_unknown_boundary_full_seed0/report.md; the full hash is in that run's corpus_manifest.json and was not required by any claim in this pack."
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "C1",
+      "short_claim": "FFBS exactly samples the labelled path conditional posterior p(S, z | x, everything else).",
+      "scope": "inference kernel",
+      "supporting_experiment": "Condition A exactness gates (exact semi-Markov forward-backward + FFBS); collapsed-U kernel tiny exact reference",
+      "metrics": [
+        {
+          "name": "tiny log Z: DP vs brute-force enumeration, worst abs error",
+          "value": 1.7763568394002505e-15,
+          "gate": 1e-10
+        },
+        {
+          "name": "tiny exact path-probability, worst abs error",
+          "value": 2.3314683517128287e-15,
+          "gate": 1e-10
+        },
+        {
+          "name": "tiny boundary-marginal, worst abs error",
+          "value": 1.6653345369377348e-15,
+          "gate": 1e-10
+        },
+        {
+          "name": "tiny occurrence-label marginal, worst abs error",
+          "value": 2.55351295663786e-15,
+          "gate": 1e-10
+        },
+        {
+          "name": "FFBS empirical path TV vs exact enumeration (200000 draws/trace), worst",
+          "value": 0.002159842111454096,
+          "gate": 0.01
+        },
+        {
+          "name": "FFBS illegal draws over 725000 corpus draws",
+          "value": 0,
+          "gate": 0
+        },
+        {
+          "name": "sum of boundary marginals equals E[L]-1, max error",
+          "value": 2.3447910280083306e-13
+        }
+      ],
+      "artifact_sources": [
+        "results/mcmc_original/matched_condition_a/correctness.json :: tiny_gates.*",
+        "results/mcmc_original/matched_condition_a/correctness.json :: marginal_consistency.*"
+      ],
+      "commit": "b199374baaf3f795ce5ee6dca16b7478bd07a3b9",
+      "corpus_hash": "dd280a4a09896154e167f388edd401a9119ba398167c09404aba5f7743e58ec2",
+      "suitable_for": [
+        "main text",
+        "appendix"
+      ],
+      "caveats": [
+        "Exactness is verified on a tiny enumerable corpus (J in {6,7,10}, seed 6200777) plus corpus-wide marginal-consistency identities; it is not a proof, it is a numerical certificate.",
+        "The 0.00216 path-TV figure is a Monte-Carlo agreement bound at 200000 draws/trace, not a machine-precision identity."
+      ],
+      "status": "supported"
+    },
+    {
+      "claim_id": "C2",
+      "short_claim": "A path-marginal (collapsed-U) MH move followed by an immediate exact FFBS refresh preserves the joint target; interposing any stale-path update breaks it.",
+      "scope": "inference kernel",
+      "supporting_experiment": "Collapsed-U tiny exact finite-state stationarity reference and stale-path negative control",
+      "metrics": [
+        {
+          "name": "correct ordering, L-infinity stationarity deviation",
+          "value": 2.220446049250313e-16,
+          "gate": 1e-12
+        },
+        {
+          "name": "stale-path ordering, L-infinity stationarity deviation (negative control)",
+          "value": 0.002914536053672201,
+          "floor": 0.0001
+        },
+        {
+          "name": "finite state space (U grid x enumerated paths)",
+          "value": 16
+        },
+        {
+          "name": "collapsed likelihood vs validated audit scorer, max abs",
+          "value": 0.0
+        },
+        {
+          "name": "forward recursion vs enumeration, max abs",
+          "value": 0.0
+        },
+        {
+          "name": "incremental vs full cache rebuild, max abs",
+          "value": 0.0
+        },
+        {
+          "name": "same-H collapsed delta",
+          "value": 0.0
+        },
+        {
+          "name": "Hastings quadratic-form asymmetry",
+          "value": 0.0
+        }
+      ],
+      "artifact_sources": [
+        "results/mcmc_original/collapsed_u_kernel_validation/tiny_exact_reference.json",
+        "results/mcmc_original/collapsed_u_kernel_validation/correctness.json"
+      ],
+      "commit": "58f005e5ef3a545d4749f01e81832ff6c47621cb",
+      "corpus_hash": "n/a (finite enumerable state space, trace [0,1,2,0,1,2])",
+      "suitable_for": [
+        "main text",
+        "appendix"
+      ],
+      "caveats": [
+        "The exact stationarity certificate is on a 16-state enumerable space, not on the production corpus.",
+        "The negative control establishes that the immediate-refresh ordering is load-bearing; it does not bound bias for any other ordering."
+      ],
+      "status": "supported"
+    },
+    {
+      "claim_id": "C3",
+      "short_claim": "The collapsed-U kernel is validated against exact and mixed references under a preregistered sequential-stopping protocol.",
+      "scope": "inference kernel",
+      "supporting_experiment": "collapsed_u_efficient_final_validation (sequential, 4 chains, seeds 8158001-8158004, burn-in 100000, thin 10, cadence 10, stopped at 500000 sweeps on two consecutive full-PASS checkpoints)",
+      "metrics": [
+        {
+          "name": "final verdict",
+          "value": "COLLAPSED-U KERNEL VALIDATED"
+        },
+        {
+          "name": "segmentation TV (500k)",
+          "value": 0.006816568171176516,
+          "gate": 0.01
+        },
+        {
+          "name": "segmentation TV vs sampled estimator (500k)",
+          "value": 0.006960503238811221,
+          "gate": 0.01
+        },
+        {
+          "name": "max boundary marginal error (500k)",
+          "value": 0.001725010916062697,
+          "gate": 0.01
+        },
+        {
+          "name": "max occurrence-label marginal error (500k)",
+          "value": 0.004987616760370128,
+          "gate": 0.01
+        },
+        {
+          "name": "induced-H TV (500k)",
+          "value": 0.00731683133182089,
+          "gate": 0.01
+        },
+        {
+          "name": "max relation marginal error (500k)",
+          "value": 0.005312068834721351,
+          "gate": 0.01
+        },
+        {
+          "name": "segment-count TV (500k)",
+          "value": 0.0021313477191181596,
+          "gate": 0.01
+        },
+        {
+          "name": "primary dependence-aware balanced energy gate, z at block length 2",
+          "value": 0.9112001745731595,
+          "gate": 2.33
+        },
+        {
+          "name": "primary dependence-aware balanced energy gate, z at block length 4",
+          "value": 0.8294357456251388,
+          "gate": 2.33
+        },
+        {
+          "name": "worst R-hat over all registered scalars (500k)",
+          "value": 1.0050750065777194,
+          "gate": 1.01
+        },
+        {
+          "name": "lambda_rep bulk ESS (500k)",
+          "value": 1075.8889213843468,
+          "gate": 600
+        },
+        {
+          "name": "beta bulk ESS (500k)",
+          "value": 1833.8467511929264,
+          "gate": 1000
+        },
+        {
+          "name": "relation-count bulk ESS (500k)",
+          "value": 24711.82943749084,
+          "gate": 1000
+        },
+        {
+          "name": "co-clustering bulk ESS (500k)",
+          "value": 96885.60864914584,
+          "gate": 1000
+        },
+        {
+          "name": "cross-H fraction of collapsed proposals, chain 0",
+          "value": 0.34535
+        },
+        {
+          "name": "accepted cross-H moves, chain 0",
+          "value": 7011
+        },
+        {
+          "name": "distinct induced-H states visited, chain 0",
+          "value": 3605
+        },
+        {
+          "name": "total wall seconds",
+          "value": 9071.290779667004
+        }
+      ],
+      "artifact_sources": [
+        "results/mcmc_original/collapsed_u_efficient_final_validation/final_verdict.json",
+        "results/mcmc_original/collapsed_u_efficient_final_validation/checkpoint_500k.json",
+        "results/mcmc_original/collapsed_u_efficient_final_validation/preregistration.json"
+      ],
+      "commit": "58f005e5ef3a545d4749f01e81832ff6c47621cb",
+      "corpus_hash": "stage6e_config_hash d98897a181b6809a17dd572ca175da7846a6924b8429b9c7337a939686a6da44",
+      "suitable_for": [
+        "main text",
+        "appendix"
+      ],
+      "caveats": [
+        "HISTORY MUST BE REPORTED: run 1 FAILED the historical mixed multivariate energy gate (0.005139 vs envelope 0.004522, z = +2.86, 17/18 gates PASS) and the independent-seed rep2 FAILED the same gate (0.006777 vs 0.004522). Those verdicts stand.",
+        "The gate was not re-rolled: a separate dependence calibration established that the historical envelope's IID null is miscalibrated for autocorrelated prefix-pooled draws, and the final protocol replaced it with a chain-balanced, dependence-aware statistic at a frozen z <= 2.33 cutoff. The historical statistic is still computed and is DESCRIPTIVE ONLY (0.003653 vs 0.004522 at 500k).",
+        "The lambda_rep ESS floor was lowered from 1000/500 to 600/300 by explicit user decision BEFORE launch, because the 1000 floor, 500k cap and two-consecutive-pass rule are arithmetically unsatisfiable together; R-hat still gates lambda_rep.",
+        "burnin_verification.json records pass = false (one throwaway diagnostic chain's lambda_rep block means left the 7B1 band inside [25k, 50k]); the registered burn-in was nevertheless 100000, i.e. 4x beyond the diagnostic window, and the diagnostic chains are never pooled. The report.md phrase 'burn-in 100,000 (verified)' should not be quoted without this qualification."
+      ],
+      "status": "supported"
+    },
+    {
+      "claim_id": "C4",
+      "short_claim": "The matched synthetic generator implements exactly the same segmentation prior, recurrent execution and transition model that the inference target assumes.",
+      "scope": "matched synthetic",
+      "supporting_experiment": "matched_generator_validation (15 registered gates, all PASS)",
+      "metrics": [
+        {
+          "name": "registered gates passed",
+          "value": "15/15"
+        },
+        {
+          "name": "DP normalizer vs enumeration and closed-form reference, max abs log error",
+          "value": 8.881784197001252e-16,
+          "gate": 1e-12
+        },
+        {
+          "name": "exact segment-count two-route max error",
+          "value": 7.216e-16,
+          "gate": 1e-12
+        },
+        {
+          "name": "exact boundary-marginal two-route max error",
+          "value": 3.886e-16,
+          "gate": 1e-12
+        },
+        {
+          "name": "empirical p(L|J) TV, worst over J in {24,32,40,48}",
+          "value": 0.005357286870642232,
+          "gate": 0.01
+        },
+        {
+          "name": "empirical p(L|J) TV, J=24",
+          "value": 0.0022743311945959636,
+          "gate": 0.01
+        },
+        {
+          "name": "empirical p(L|J) TV, J=32",
+          "value": 0.001822677795406983,
+          "gate": 0.01
+        },
+        {
+          "name": "empirical p(L|J) TV, J=40",
+          "value": 0.005357286870642232,
+          "gate": 0.01
+        },
+        {
+          "name": "empirical p(L|J) TV, J=48",
+          "value": 0.0018801835468371252,
+          "gate": 0.01
+        },
+        {
+          "name": "empirical boundary-marginal max abs error, worst over J",
+          "value": 0.0034856329216697846,
+          "gate": 0.01
+        },
+        {
+          "name": "illegal segmentations sampled",
+          "value": 0,
+          "gate": 0
+        },
+        {
+          "name": "tiny full-state TV",
+          "value": 0.002034,
+          "gate": 0.01
+        },
+        {
+          "name": "pi empirical max error",
+          "value": 0.0011,
+          "gate": 0.01
+        },
+        {
+          "name": "transition-row empirical max error",
+          "value": 0.001175,
+          "gate": 0.01
+        },
+        {
+          "name": "self-transitions sampled",
+          "value": 0,
+          "gate": 0
+        },
+        {
+          "name": "recurrent q0-reset and block-independence max error",
+          "value": 3.552713678800501e-15,
+          "gate": 1e-10
+        },
+        {
+          "name": "generator/scorer complete-data log-probability parity, max abs",
+          "value": 1.421e-14,
+          "gate": 1e-10
+        },
+        {
+          "name": "tiny log Z parity",
+          "value": 1.776e-15,
+          "gate": 1e-10
+        },
+        {
+          "name": "negative controls detected",
+          "value": "4/4 (old block-count mechanism TV 0.2038; recurrent state leakage max abs log discrepancy 21.186; terminal-block delta factor abs error 1.897; self-transitions refused)"
+        },
+        {
+          "name": "reproducibility byte-identical and hashes match",
+          "value": true
+        }
+      ],
+      "artifact_sources": [
+        "results/mcmc_original/matched_generator_validation/report.md",
+        "results/mcmc_original/matched_generator_validation/segment_count_parity.json",
+        "results/mcmc_original/matched_generator_validation/boundary_marginal_parity.json",
+        "results/mcmc_original/matched_generator_validation/exact_normalizers.json",
+        "results/mcmc_original/matched_generator_validation/negative_controls.json"
+      ],
+      "commit": "8ca828153e8e263bf4ea4823e45a53fa454037ad",
+      "corpus_hash": "smoke 81d6393e45870ff7e2ec1e65d272eacab61c7075a6e3fbe9b4dd07818885a3b3; formal dd280a4a09896154e167f388edd401a9119ba398167c09404aba5f7743e58ec2",
+      "suitable_for": [
+        "appendix"
+      ],
+      "caveats": [
+        "The generator runs in SUPPLIED-TRUTH mode: U*, pi*, P*, scalars, epsilon, delta_B and width bounds are the Stage 6E2 registered configuration, and rho* is recorded as null. It is not a prior-draw calibration study.",
+        "PROVENANCE NOTE: matched_generator_validation/report.md records 'Source commit 6eb43b35...' (the tree state when validation ran); the artifacts were COMMITTED at 8ca8281, which is also the generator_commit recorded in every downstream corpus manifest. Cite 8ca8281.",
+        "The smoke corpus (20 train / 10 held-out) is for serialization and parity only; no inference was run on it."
+      ],
+      "status": "supported"
+    },
+    {
+      "claim_id": "C5",
+      "short_claim": "Skill-instance paths (S, z) are strongly identifiable when the reusable structures H and all global parameters are oracle-known.",
+      "scope": "matched synthetic",
+      "supporting_experiment": "Condition A - exact per-trace semi-Markov posterior over (S, z); no MCMC",
+      "metrics": [
+        {
+          "name": "final classification",
+          "value": "PATH STRONGLY IDENTIFIABLE"
+        },
+        {
+          "name": "boundary Brier (all)",
+          "value": 0.051592689377131226
+        },
+        {
+          "name": "boundary NLL (all)",
+          "value": 0.16624502759677987
+        },
+        {
+          "name": "boundary AUROC (all)",
+          "value": 0.9560829047026905
+        },
+        {
+          "name": "boundary AUROC (held-out)",
+          "value": 0.9659293535124301
+        },
+        {
+          "name": "boundary AUPRC (all)",
+          "value": 0.7928530797371494
+        },
+        {
+          "name": "boundary ECE (all)",
+          "value": 0.008365688996015938
+        },
+        {
+          "name": "occurrence modal accuracy (all)",
+          "value": 0.8984254992319508
+        },
+        {
+          "name": "mean per-trace ARI (all)",
+          "value": 0.7470713137246066
+        },
+        {
+          "name": "mean per-trace NMI (all)",
+          "value": 0.7659762136725261
+        },
+        {
+          "name": "MAP segment-count accuracy (all)",
+          "value": 0.7034482758620689
+        },
+        {
+          "name": "MAP exact labelled-path recovery rate (all)",
+          "value": 0.20689655172413793
+        },
+        {
+          "name": "median true-path posterior (all)",
+          "value": 0.04791247353270877
+        },
+        {
+          "name": "mean path entropy reduction vs prior, nats",
+          "value": 10.538095182822582
+        }
+      ],
+      "artifact_sources": [
+        "results/mcmc_original/matched_condition_a/final_verdict.json",
+        "results/mcmc_original/matched_condition_a/boundary_metrics.json",
+        "results/mcmc_original/matched_condition_a/label_metrics.json",
+        "results/mcmc_original/matched_condition_a/joint_path_metrics.json",
+        "results/mcmc_original/matched_condition_a/prior_vs_posterior.json",
+        "results/mcmc_original/matched_condition_a/segment_count_posteriors_summary.json"
+      ],
+      "commit": "b199374baaf3f795ce5ee6dca16b7478bd07a3b9",
+      "corpus_hash": "dd280a4a09896154e167f388edd401a9119ba398167c09404aba5f7743e58ec2",
+      "suitable_for": [
+        "main text",
+        "appendix"
+      ],
+      "caveats": [
+        "H, pi, P, rho, beta, omega, lambda_rep, lambda_back, delta_B and epsilon are all fixed to generating truth. This is a conditional identifiability result, not a joint recovery result.",
+        "MAP exact whole-path recovery is only 20.7% and the median true-path posterior is 0.048; the strong verdict rests on marginal accuracy and calibration, and the preregistered path-evidence disjunct was satisfied by the median-posterior branch (>= 0.02), not the MAP branch (>= 0.25).",
+        "MAP exact recovery degrades with trace length: 0.324 (J=24), 0.250 (J=32), 0.083 (J=48). Report the stratification, not only the pooled number.",
+        "No label alignment was performed and none exists (the three induced orders are pairwise distinct and pi/P are asymmetric)."
+      ],
+      "status": "supported"
+    },
+    {
+      "claim_id": "C6",
+      "short_claim": "Reusable partial-order structures H are strongly identifiable when the skill-instance paths (S, z) are oracle-known.",
+      "scope": "matched synthetic",
+      "supporting_experiment": "Condition B - row-MH over U on the oracle-block likelihood, 4 chains x 50000 sweeps from 4 distinct wrong starts",
+      "metrics": [
+        {
+          "name": "final classification",
+          "value": "STRUCTURE STRONGLY IDENTIFIABLE UNDER ORACLE PATHS"
+        },
+        {
+          "name": "per-skill closure F1",
+          "value": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "per-skill incomparable-pair F1",
+          "value": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "per-skill transitive-reduction F1",
+          "value": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "per-skill closure Hamming distance to truth",
+          "value": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "posterior probability of true H per skill",
+          "value": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "rank of true H per skill",
+          "value": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "joint true-tuple posterior",
+          "value": 1.0
+        },
+        {
+          "name": "min true-relation marginal",
+          "value": 1.0
+        },
+        {
+          "name": "max false-relation marginal",
+          "value": 0.0
+        },
+        {
+          "name": "max R-hat",
+          "value": 1.0008652603065602,
+          "gate": 1.01
+        },
+        {
+          "name": "log-posterior bulk ESS",
+          "value": 3674.75168838125,
+          "gate": 1000
+        },
+        {
+          "name": "log-posterior tail ESS",
+          "value": 7634.523637355105,
+          "gate": 500
+        },
+        {
+          "name": "held-out oracle-path NLL/occurrence, posterior mean",
+          "value": 1.0772457251104506
+        },
+        {
+          "name": "held-out oracle-path NLL/occurrence, generating truth",
+          "value": 1.0772457251104504
+        },
+        {
+          "name": "held-out oracle-path NLL/occurrence, antichain baseline",
+          "value": 1.752798804531374
+        },
+        {
+          "name": "held-out oracle-path NLL/occurrence, total-order baseline",
+          "value": 4.039845037465676
+        },
+        {
+          "name": "accepted H changes per chain (all pre-retention)",
+          "value": [
+            25,
+            30,
+            31,
+            24
+          ]
+        },
+        {
+          "name": "retained H changes per chain",
+          "value": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "sweep of first H change per chain",
+          "value": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "selected sigma_u",
+          "value": 0.5
+        },
+        {
+          "name": "acceptance at selected scale",
+          "value": 0.3141666666666667
+        },
+        {
+          "name": "wall seconds total",
+          "value": 203.31245254099485
+        }
+      ],
+      "artifact_sources": [
+        "results/mcmc_original/matched_condition_b/final_verdict.json",
+        "results/mcmc_original/matched_condition_b/structure_recovery.json",
+        "results/mcmc_original/matched_condition_b/convergence.json",
+        "results/mcmc_original/matched_condition_b/heldout_oracle_path_nll.json",
+        "results/mcmc_original/matched_condition_b/structural_movement.json",
+        "results/mcmc_original/matched_condition_b/selected_scales.json",
+        "results/mcmc_original/matched_condition_b/start_manifest.json",
+        "results/mcmc_original/matched_condition_b/runtime.json"
+      ],
+      "commit": "34873d8c1aa157978d4292f01b45642976b61ff3",
+      "corpus_hash": "dd280a4a09896154e167f388edd401a9119ba398167c09404aba5f7743e58ec2",
+      "suitable_for": [
+        "main text",
+        "appendix"
+      ],
+      "caveats": [
+        "MUST STATE: rho was FIXED at rho_0 = 0.5 by registered correction (the supplied-truth corpus records rho* = null). rho was not a recovery target and no rho claim is made.",
+        "MUST STATE: raw entrywise U recovery was NOT evaluated. The latent product-order coordinates are exchangeable and the likelihood reads U only through H = h(U).",
+        "MUST STATE: retained H being constant is posterior CONCENTRATION, not a frozen chain. All four chains started from distinct H tuples, none equal to truth (start_manifest.json: none_equals_truth = true, distinct = true), every chain made its first accepted H change at sweep 1, and every chain had left its start and reached the same true H cell before the 10000-sweep burn-in ended.",
+        "The held-out NLL is an ORACLE-PATH conditional quantity (scored with held-out S*, z*); it is NOT comparable with a marginal held-out NLL.",
+        "Perfect (1.000) recovery on a 3-skill, 5-role problem should be presented as an existence result on a small matched instance, not as a scaling claim."
+      ],
+      "status": "supported"
+    },
+    {
+      "claim_id": "C7",
+      "short_claim": "Path and structure are jointly recoverable when both are latent.",
+      "scope": "pending",
+      "supporting_experiment": "Condition C (C-COND and C-MARG arms) - RUNNING at extraction time, no frozen result exists",
+      "metrics": [],
+      "artifact_sources": [
+        "results/mcmc_original/matched_condition_c/prelaunch_registration.json (design only)",
+        "results/mcmc_original/matched_condition_c/prelaunch_report.md (design only)",
+        "results/mcmc_original/matched_condition_c/small_reference_equality.json (design-time equality test only)"
+      ],
+      "commit": "50eee50829114c6e41c7ab0aa1948ef74b30d868 (infrastructure only; NO result commit exists)",
+      "corpus_hash": "dd280a4a09896154e167f388edd401a9119ba398167c09404aba5f7743e58ec2 (planned)",
+      "suitable_for": [
+        "limitations only"
+      ],
+      "caveats": [
+        "The formal Condition-C chains are a LIVE run. results/mcmc_original/matched_condition_c/formal_chains/ and formal_registration.json are untracked and were not opened.",
+        "Design facts that ARE frozen and citable: both arms target the same posterior (small-reference equality PASS; relation-marginal max |diff| 0.0583 with 0/60 exceeding their MCSE gates; boundary max |diff| 0.0303 vs gate 0.05; occurrence max |diff| 0.0323 vs gate 0.05; mean log-target diff 0.154 vs gate 1.581), conditional U row scale 0.5 (acceptance 0.334), scheduled collapsed scale 1.0 (acceptance 0.233), cadence c = 10 fixed by amendment.",
+        "Do NOT infer the outcome from the fact that the run is still going."
+      ],
+      "status": "pending"
+    },
+    {
+      "claim_id": "C8",
+      "short_claim": "Path marginalization improves, and appears necessary for, practical joint mixing over reusable structure.",
+      "scope": "inference kernel",
+      "supporting_experiment": "Stage 6E2 terminal FAIL, Step 7B2 FFBS-only chains, collapsed-U C0/C1 proposal audits, collapsed-U final validation structural movement",
+      "metrics": [
+        {
+          "name": "Step 7B2 (exact global FFBS of (S,z), no collapsed move): accepted H changes over 34000 retained sweeps, per chain",
+          "value": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "Step 7B2: distinct induced-H states per chain",
+          "value": [
+            1,
+            1,
+            1,
+            2
+          ]
+        },
+        {
+          "name": "Step 7B2: chains structurally frozen by the 6E2 criterion",
+          "value": "4 of 4"
+        },
+        {
+          "name": "Step 7B2: segmentation IS moving (boundary Hamming per sweep, chain 0)",
+          "value": 546.7048235294118
+        },
+        {
+          "name": "C1 expanded audit, pooled median cross-H delta log-likelihood, conditional U",
+          "value": -225.75222015611564
+        },
+        {
+          "name": "C1 expanded audit, pooled median cross-H delta log-likelihood, collapsed U",
+          "value": -69.30124255553966
+        },
+        {
+          "name": "C1 expanded audit, pooled median barrier reduction (nats)",
+          "value": 131.74510192860413
+        },
+        {
+          "name": "C1 expanded audit, pooled mean collapsed acceptance on cross-H proposals",
+          "value": 0.07228743270661536
+        },
+        {
+          "name": "C0 fast audit, mean cross-H acceptance, conditional U",
+          "value": 2.05e-14
+        },
+        {
+          "name": "C0 fast audit, mean cross-H acceptance, collapsed U",
+          "value": 0.0496
+        },
+        {
+          "name": "Collapsed-U final validation, accepted cross-H moves per chain over 40000 attempts",
+          "value": [
+            7011,
+            6833,
+            6993,
+            6692
+          ]
+        },
+        {
+          "name": "Collapsed-U final validation, distinct induced-H states per chain",
+          "value": [
+            3605,
+            3558,
+            3569,
+            3545
+          ]
+        },
+        {
+          "name": "Collapsed-U cadence-10 cost overhead on the reference problem",
+          "value": 0.037
+        },
+        {
+          "name": "Collapsed-U cadence-10 estimated cost overhead on the full corpus",
+          "value": 0.13
+        }
+      ],
+      "artifact_sources": [
+        "results/mcmc_original/stage7b2_full_joint_ffbs/structural_movement.json",
+        "results/mcmc_original/stage7b2_full_joint_ffbs/report.md",
+        "results/mcmc_original/collapsed_u_expanded_audit/pooled_summary.json",
+        "results/mcmc_original/collapsed_u_expanded_audit/report.md",
+        "results/mcmc_original/collapsed_u_fast_audit/report.md",
+        "results/mcmc_original/collapsed_u_efficient_final_validation/checkpoint_500k.json :: structural_movement",
+        "results/mcmc_original/collapsed_u_kernel_validation/runtime.json"
+      ],
+      "commit": "6eb43b3 (Stage 6E2 terminal FAIL), 061e1f6 (Step 7B2 formal run complete), 19e869f (U-proposal audit: target geometry, not kernel locality), 37e1d89 (Step 7 final: FFBS-only does not resolve the locking), 58f005e (collapsed-U audits, kernel and final validation)",
+      "corpus_hash": "02be246edf9bd4f4148efa3a3e269afa... (Stage 6E2 trace corpus, prefix as recorded in the run report)",
+      "suitable_for": [
+        "main text",
+        "appendix"
+      ],
+      "caveats": [
+        "PARTIALLY SUPPORTED, not fully supported. What is frozen and established is (i) that exact FFBS over (S,z) alone does NOT unlock structural movement, (ii) that the collapsed move reduces the cross-H log-likelihood barrier by a median of ~132 nats and raises cross-H acceptance from ~1e-14 to ~5e-2 to ~7e-2, and (iii) that the validated collapsed kernel does in fact traverse thousands of distinct H states where the FFBS-only kernel traverses one.",
+        "What is NOT yet established is that this translates into correct joint POSTERIOR recovery of (S, z, H) simultaneously. That is exactly what Condition C tests and Condition C is pending.",
+        "Stage 6E2's terminal verdict was FAIL / MULTIMODAL at the registered 150k maximum ('(S,z)-U structural locking'). That FAIL stands and must be reported as a FAIL.",
+        "The 6E2/7B2 evidence is on the Stage 6E2 trace corpus, not on the matched formal corpus."
+      ],
+      "status": "partially supported"
+    },
+    {
+      "claim_id": "C9",
+      "short_claim": "The static partial-order component generalizes to unseen legal linearizations on an external benchmark (TaskBench Multimedia).",
+      "scope": "static partial-order component",
+      "supporting_experiment": "TaskBench static partial-order experiment, 132 graph-condition fits, 37 test graphs (ONE/TWO) and 26 (FOUR)",
+      "metrics": [
+        {
+          "name": "final classification",
+          "value": "EXTERNAL PARTIAL-ORDER GENERALIZATION SUPPORTED; BAYESIAN ADVANTAGE IS UNCERTAINTY AND PREDICTION"
+        },
+        {
+          "name": "convergence rate",
+          "value": 1.0
+        },
+        {
+          "name": "Bayesian closure F1, paired ONE -> TWO -> FOUR",
+          "value": [
+            0.45221199112601823,
+            0.6766003784398433,
+            0.9024725274725275
+          ]
+        },
+        {
+          "name": "Bayesian closure F1, FOUR minus ONE, mean and 95% CI",
+          "value": [
+            0.45026053634650925,
+            0.35574907589896276,
+            0.5524819059773811
+          ]
+        },
+        {
+          "name": "Bayesian incomparable F1, paired ONE -> TWO -> FOUR",
+          "value": [
+            0.565582682777253,
+            0.6470021206863313,
+            0.8924908424908425
+          ]
+        },
+        {
+          "name": "Bayesian relation Brier, paired ONE -> TWO -> FOUR",
+          "value": [
+            0.1295667045692155,
+            0.08841671670518636,
+            0.04145883570037295
+          ]
+        },
+        {
+          "name": "Bayesian legal NLL/node, paired ONE -> TWO -> FOUR",
+          "value": [
+            0.7584798719779678,
+            0.7042000767901565,
+            0.6424067402051075
+          ]
+        },
+        {
+          "name": "Bayesian AUROC, paired ONE -> TWO -> FOUR",
+          "value": [
+            0.8357216593418941,
+            0.9072961182336183,
+            0.9754774305555555
+          ]
+        },
+        {
+          "name": "Bayes minus intersection, closure F1, ONE / TWO / FOUR",
+          "value": [
+            -0.17525759692942353,
+            -0.11168753658935988,
+            -0.003996003996003989
+          ]
+        },
+        {
+          "name": "Bayes minus intersection, legal NLL/node, ONE / TWO / FOUR",
+          "value": [
+            -0.9325473694881875,
+            -0.33495064746792264,
+            -0.12639079175359663
+          ]
+        },
+        {
+          "name": "Bayes minus intersection, Brier, ONE / TWO / FOUR",
+          "value": [
+            -0.12167963839777278,
+            -0.024346300660864947,
+            -0.0037792595377222926
+          ]
+        },
+        {
+          "name": "Bayes minus intersection, AUROC CI covers 0 in every condition",
+          "value": true
+        },
+        {
+          "name": "wall seconds",
+          "value": 1583.5684173339978
+        }
+      ],
+      "artifact_sources": [
+        "results/external/taskbench_static_poset/final_verdict.json",
+        "results/external/taskbench_static_poset/main_table.json",
+        "results/external/taskbench_static_poset/test/paired_bootstrap.json",
+        "results/external/taskbench_static_poset/test/condition_curves.json",
+        "results/external/taskbench_static_poset/convergence_summary.json",
+        "results/external/taskbench_static_poset/runtime.json",
+        "results/external/taskbench_multimedia_poset_benchmark/report.md"
+      ],
+      "commit": "10d4bf40700ca6f3a6706187c4c3ec5239ff5610 (fit); e6afb1708c1ecbd583f2d11c600f1af8f43d98fa (benchmark)",
+      "corpus_hash": "4b4c23b454ada1bedcc7e906854c1959b2990e0338242701374d4c5bd04fd91a",
+      "suitable_for": [
+        "main text",
+        "appendix"
+      ],
+      "caveats": [
+        "MUST STATE: this evaluates the STATIC partial-order component only. It is NOT a full-HPOP external experiment.",
+        "MUST STATE: TaskBench-derived linearizations are enumerated from official gold DAGs; they are NOT observed real agent trajectories.",
+        "TaskBench provides no latent skill-instance boundaries, no reusable instance labels and no recurrent repair trajectories, so it evaluates neither segmentation nor hierarchy.",
+        "The order-intersection baseline is AHEAD on point closure F1 at ONE and TWO and is statistically tied at FOUR; do not present the Bayesian model as the point-recovery winner.",
+        "AUROC and pairwise-accuracy differences vs intersection NEVER exclude 0 in any condition; do not claim a discrimination advantage.",
+        "beta = 0, rho = 0.5, epsilon = 0.02, d = 3 and sigma_u = 1.0 are all FIXED, not fitted.",
+        "n = 48 selected graphs of at most 7 nodes; 21 of 48 are connected. This is a small, structurally simple external benchmark."
+      ],
+      "status": "supported"
+    },
+    {
+      "claim_id": "C10",
+      "short_claim": "Full HPOP produces predictive gains on tau^3-Retail.",
+      "scope": "pending",
+      "supporting_experiment": "tau^3-Retail development smoke fit - RUNNING at extraction time, no frozen result exists",
+      "metrics": [],
+      "artifact_sources": [
+        "results/external/tau3_retail_hpop_pilot/* (DATASET ONLY; no fit result exists)"
+      ],
+      "commit": "8100fc23399af6b39b2c5af0daa43cfd1aaf2c18 (dataset only)",
+      "corpus_hash": "bf5ac594027a738ad368a96908e2553a461f4dea54141cfd14b2bd93935a1b38",
+      "suitable_for": [
+        "limitations only"
+      ],
+      "caveats": [
+        "Only the DATASET is frozen and validated (claim C11 below). No HPOP fit result exists in any commit.",
+        "The smoke fit is a LIVE run on branch tau3-retail-hpop-smoke-fit; no smoke-fit artifact is committed and none was read.",
+        "The specific inference target for the smoke fit is NOT preregistered in any committed artifact. tool_vocabulary.json states 'K is not chosen here; the model-fitting task will preregister K before inference'. Do NOT state 'infer S, z, U, pi, P with fixed recurrent scalars' as a preregistered target until that registration is committed.",
+        "The sealed test split (5 tasks / 20 trajectories) must not be touched before the development result is frozen."
+      ],
+      "status": "pending"
+    },
+    {
+      "claim_id": "C11",
+      "short_claim": "A frozen, task-disjoint, externally sourced tau^3-Retail corpus suitable for a full-HPOP pilot exists and passes every registered construction gate.",
+      "scope": "external data setup",
+      "supporting_experiment": "tau^3-Retail pilot dataset construction and validation (24 gates, all PASS)",
+      "metrics": [
+        {
+          "name": "full extraction pool trajectories",
+          "value": 456
+        },
+        {
+          "name": "full extraction pool tool occurrences",
+          "value": 3444
+        },
+        {
+          "name": "official task IDs joined",
+          "value": 114
+        },
+        {
+          "name": "selected task IDs",
+          "value": 30
+        },
+        {
+          "name": "selected trajectories",
+          "value": 119
+        },
+        {
+          "name": "train / development / test trajectories",
+          "value": [
+            79,
+            20,
+            20
+          ]
+        },
+        {
+          "name": "train / development / test task IDs",
+          "value": [
+            20,
+            5,
+            5
+          ]
+        },
+        {
+          "name": "frozen CPA vocabulary size",
+          "value": 8
+        },
+        {
+          "name": "median trace length",
+          "value": 7
+        },
+        {
+          "name": "repeated-CPA fraction",
+          "value": 0.9244
+        },
+        {
+          "name": "successful / failed trajectories",
+          "value": [
+            103,
+            16
+          ]
+        },
+        {
+          "name": "excluded rows",
+          "value": 337
+        },
+        {
+          "name": "version alignment",
+          "value": "VERSION MATCH VERIFIED (114 = 114 task IDs, commit match, no semantic evaluation-action mismatches)"
+        }
+      ],
+      "artifact_sources": [
+        "results/external/tau3_retail_hpop_pilot/corpus_summary.json",
+        "results/external/tau3_retail_hpop_pilot/split_manifest.json",
+        "results/external/tau3_retail_hpop_pilot/tool_vocabulary.json",
+        "results/external/tau3_retail_hpop_pilot/validation.json",
+        "results/external/tau3_retail_audit/extraction_summary.json",
+        "results/external/tau3_retail_audit/source_manifest.json",
+        "results/external/tau3_retail_audit/version_alignment.json"
+      ],
+      "commit": "8100fc23399af6b39b2c5af0daa43cfd1aaf2c18",
+      "corpus_hash": "bf5ac594027a738ad368a96908e2553a461f4dea54141cfd14b2bd93935a1b38",
+      "suitable_for": [
+        "main text",
+        "appendix"
+      ],
+      "caveats": [
+        "The trajectories come from a THIRD-PARTY public leaderboard-submission release (debdootmiitd/tau3-bench-qwen3.6-35b-a3b-v0, Apache-2.0), NOT an official tau^3-bench maintainer release. The official benchmark repository is pinned separately and version alignment was verified.",
+        "The agent that produced the trajectories is Qwen/Qwen3.6-35B-A3B in thinking mode with a gpt-4.1-2025-04-14 user simulator; results are conditioned on that agent's behaviour.",
+        "tau^3-Retail has NO gold HPOP segmentation and NO gold reusable partial order. Official expected actions are never gold S, z or H.",
+        "This is a SETUP claim only. It licenses no predictive claim whatsoever."
+      ],
+      "status": "supported"
+    },
+    {
+      "claim_id": "C12",
+      "short_claim": "The TaskBench external partial-order benchmark is constructed reproducibly from a pinned upstream release under a frozen protocol.",
+      "scope": "external data setup",
+      "supporting_experiment": "TaskBench Multimedia poset benchmark construction (18 validation gates, all PASS)",
+      "metrics": [
+        {
+          "name": "total Multimedia records at the pinned commit",
+          "value": 5555
+        },
+        {
+          "name": "records marked DAG by TaskBench",
+          "value": 550
+        },
+        {
+          "name": "independently verified acyclic DAG samples parsed",
+          "value": 529
+        },
+        {
+          "name": "eligible pool",
+          "value": 388
+        },
+        {
+          "name": "primary selected graphs",
+          "value": 48
+        },
+        {
+          "name": "development / test graph split",
+          "value": [
+            11,
+            37
+          ]
+        },
+        {
+          "name": "condition graph counts ONE / TWO / FOUR (selection level)",
+          "value": [
+            48,
+            48,
+            36
+          ]
+        },
+        {
+          "name": "test graphs per condition ONE / TWO / FOUR",
+          "value": [
+            37,
+            37,
+            26
+          ]
+        },
+        {
+          "name": "total training rows",
+          "value": 132
+        },
+        {
+          "name": "total test legal orders",
+          "value": 588
+        },
+        {
+          "name": "total illegal orders",
+          "value": 588
+        },
+        {
+          "name": "rejected raw records",
+          "value": 35
+        }
+      ],
+      "artifact_sources": [
+        "results/external/taskbench_multimedia_poset_benchmark/report.md",
+        "results/external/taskbench_multimedia_poset_benchmark/graph_statistics.json",
+        "results/external/taskbench_multimedia_poset_benchmark/validation.json",
+        "results/external/taskbench_multimedia_poset_benchmark/benchmark_hash.json",
+        "results/external/taskbench_multimedia_audit/source_manifest.json",
+        "results/external/taskbench_multimedia_audit/parsing_summary.json"
+      ],
+      "commit": "e6afb1708c1ecbd583f2d11c600f1af8f43d98fa",
+      "corpus_hash": "4b4c23b454ada1bedcc7e906854c1959b2990e0338242701374d4c5bd04fd91a",
+      "suitable_for": [
+        "appendix"
+      ],
+      "caveats": [
+        "The 48-graph primary set is the ENTIRE eligible primary pool, well below the registered target of 300; the criteria were NOT loosened to reach the target. Say so.",
+        "No per-sample human-verification flag exists in the released files; this is the official Multimedia DAG subset, NOT a 'human verified' subset.",
+        "The TaskBench README reports 565 DAG samples; the released data.json at the pinned commit holds 550. Filters were not altered to force agreement. Cite 550/529, not 565.",
+        "Scope limitation recorded in the benchmark's own preregistration: it evaluates partial-order recovery, unseen legal-linearization generalization and legal-vs-illegal discrimination over a fixed role set, and does NOT evaluate segmentation, repeated skill instances, recurrent repair, environment execution or full HPOP library learning."
+      ],
+      "status": "supported"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "sweeps": 400,
+  "runtime_seconds": 188.5538305840455,
+  "checks": {
+    "all_targets_finite": true,
+    "every_segmentation_legal": true,
+    "block_table_matches_registered_scorer": true,
+    "grouped_and_per_block_evaluators_agree": true,
+    "boundaries_moved": true,
+    "every_trace_visited_more_than_one_segmentation": true,
+    "every_move_type_proposed": true,
+    "every_move_type_accepted": true
+  },
+  "failed_checks": [],
+  "all_passed": true,
+  "acceptance": {
+    "merge": 0.08871899974381245,
+    "relabel": 0.05782254567687878,
+    "shift": 0.16438970256307367,
+    "split": 0.08859325202972877,
+    "pi_P": 1.0,
+    "U": 0.3328333333333333,
+    "rho": 0.85,
+    "beta": 0.1375,
+    "omega": 0.4925,
+    "lambda_rep": 0.725,
+    "lambda_back": 0.21
+  },
+  "boundary_hamming_total": 101665,
+  "mean_distinct_segmentations_per_trace": 270.68,
+  "min_distinct_segmentations_over_traces": 32,
+  "log_target_range": [
+    -7807.17758990756,
+    -6073.9826156839135
+  ],
+  "block_table_parity": {
+    "blocks_checked": 2001,
+    "n_blocks_total": 76470,
+    "max_absolute_difference": 1.0658141036401503e-14,
+    "tolerance": 1e-09,
+    "pass": true
+  },
+  "evaluator_parity": {
+    "per_block_sum": -4643.106787018664,
+    "per_skill_sum": -4643.106787018663,
+    "absolute_difference": 9.094947017729282e-13,
+    "tolerance": 1e-09,
+    "pass": true
+  },
+  "draws_discarded": true
+}

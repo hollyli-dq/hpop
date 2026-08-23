@@ -1,0 +1,87 @@
+{
+  "sweeps": 3000,
+  "seconds": 56.039836457930505,
+  "retained": 240,
+  "table_builds": 3000,
+  "one_build_per_sweep": true,
+  "segmentation_states_changed": 3799,
+  "boundary_hamming_total": 3940,
+  "label_changes_total": 16700,
+  "distinct_segmentation_keys_visited": 21,
+  "distinct_induced_h_visited": 19,
+  "scalar_movement_sd": {
+    "beta": 0.8153744005630863,
+    "omega": 1.1859272009428945,
+    "lambda_rep": 0.34043238890582567,
+    "lambda_back": 0.7832144672679372,
+    "rho": 0.28797862188984735
+  },
+  "u_movement_sd": 0.9898843765258789,
+  "acceptance": {
+    "relabel": null,
+    "split": null,
+    "merge": null,
+    "shift": null,
+    "U": 0.5971759259259259,
+    "rho": 0.7983333333333333,
+    "pi_P": null,
+    "S_z_ffbs": 1.0,
+    "beta": 0.9620833333333333,
+    "omega": 0.9704166666666667,
+    "lambda_rep": 0.9825,
+    "lambda_back": 0.955
+  },
+  "ffbs_acceptance_is_one_by_construction": true,
+  "no_nans": true,
+  "deterministic_given_the_seed": true,
+  "resume_is_bit_identical": true,
+  "state_round_trip": true,
+  "pi_P_freshness": {
+    "labels_changed": true,
+    "transition_counts_before": [
+      [
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "transition_counts_after": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "counts_differ": true,
+    "initial_counts_after": [
+      0.0,
+      2.0,
+      0.0
+    ],
+    "initial_counts_sum_equals_n_traces": true,
+    "P_diagonal_is_zero": true,
+    "no_terminal_transition": true,
+    "transition_counts_only_between_adjacent_segments": true
+  },
+  "pass": true
+}

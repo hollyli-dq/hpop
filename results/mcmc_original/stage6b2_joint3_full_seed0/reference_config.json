@@ -1,0 +1,180 @@
+{
+  "stage": "b2",
+  "active": [
+    "beta",
+    "omega",
+    "lambda_rep"
+  ],
+  "fixed": {
+    "lambda_back": 0.25
+  },
+  "date": "2026-08-11",
+  "git_branch": "mcmc-original-latent-poset",
+  "git_commit": "8c6e0dc9ecceca3fd6c970580603ca39c6f09abf",
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "frozen_config_hash": "9ad850f22065d85f6cfd855443395d06b8a566e8c8dcdd4f9d85b1f031e911cc",
+  "frozen_config": {
+    "model_id": "recurrent-rfs-utility-weighted-frontier-v1",
+    "likelihood_branch": {
+      "name": "utility-weighted frontier",
+      "feasibility": "F(x) = prod_{z precedes x} q(z), empty product 1",
+      "utility": "Q(x) = log(1 + S(x)),  S(x) = sum_z 1[x precedes z] (1 - q(z))",
+      "back_cost": "C_back(x) = sigmoid(omega) * sum_{z != x} 1[x precedes z] q(z)",
+      "weights": "W(x) = F(x) * exp(beta*Q(x) - lambda_rep*q(x) - lambda_back*C_back(x))",
+      "emission": "p(x) = (1 - epsilon) * W(x)/sum(W) + epsilon/m",
+      "state_update": "q(y)=1; q(x) *= (1 - sigmoid(omega)) for x downstream of y",
+      "not": "uniform-frontier (beta would not multiply a utility term)"
+    },
+    "dataset": {
+      "mode": "full",
+      "generator_seed": 0,
+      "n_train": 500,
+      "n_heldout": 200,
+      "T": 20
+    },
+    "u_true": [
+      [
+        4.0,
+        4.0
+      ],
+      [
+        0.0,
+        5.0
+      ],
+      [
+        3.0,
+        3.0
+      ],
+      [
+        2.0,
+        2.0
+      ],
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "n_roles": 5,
+    "latent_dimension": 2,
+    "epsilon": 0.02,
+    "truth": {
+      "beta": 1.5,
+      "lambda_back": 0.25,
+      "lambda_rep": 0.8,
+      "omega": 1.7346010553881064
+    },
+    "priors": {
+      "beta": {
+        "family": "gamma",
+        "shape": 2.0,
+        "rate": 2.0,
+        "support": "(0, inf)"
+      },
+      "lambda_back": {
+        "family": "gamma",
+        "shape": 2.0,
+        "rate": 2.0,
+        "support": "(0, inf)"
+      },
+      "lambda_rep": {
+        "family": "gamma",
+        "shape": 2.0,
+        "rate": 2.0,
+        "support": "(0, inf)"
+      },
+      "omega": {
+        "family": "normal",
+        "mean": 0.0,
+        "sd": 2.0,
+        "support": "(-inf, inf)"
+      }
+    },
+    "parameter_order": [
+      "beta",
+      "omega",
+      "lambda_rep",
+      "lambda_back"
+    ],
+    "sweep_order": [
+      "beta",
+      "omega",
+      "lambda_rep",
+      "lambda_back"
+    ],
+    "transform": {
+      "beta": "log",
+      "lambda_back": "log",
+      "lambda_rep": "log",
+      "omega": "identity"
+    },
+    "boundaries": {
+      "segmentation": "none \u2014 boundaries are known and fixed",
+      "blocks": "every block is one independent trace of fixed length T",
+      "skills_per_block": 1,
+      "q_reset": "q_0 = 0 at the start of every block; q never crosses a block boundary",
+      "conditions_on_T": true,
+      "duration_model": null
+    },
+    "numerics": {
+      "exponent_stabilisation": "row-wise max subtraction before exp; cancels in the normalisation",
+      "mixture_floor": "p = (1 - epsilon) * structural + epsilon / m",
+      "initial_state": "q_0 = zeros(m)",
+      "feasibility_empty_product": 1.0,
+      "dtype": "float64"
+    },
+    "seeds": {
+      "generator_seed_train": 0,
+      "generator_seed_heldout": 10000,
+      "stage6b1_mcmc_seed": 20250811,
+      "stage6b1_parameter_offset": 1000,
+      "stage6b1_pilot_offset": 900000,
+      "stage6b2_mcmc_seed": 20250812,
+      "stage6b3_mcmc_seed": 20250813,
+      "rule": "one independent numpy Generator per chain; no global RNG state is read"
+    },
+    "inferred_in_stage_6b": [
+      "beta",
+      "omega",
+      "lambda_rep",
+      "lambda_back"
+    ],
+    "never_inferred_in_stage_6b": [
+      "U",
+      "rho",
+      "P",
+      "segmentation_boundaries",
+      "skill_labels",
+      "epsilon"
+    ]
+  },
+  "grid": {
+    "method": "deterministic tensor grid on transformed coordinates",
+    "transform": {
+      "beta": "log",
+      "omega": "identity",
+      "lambda_rep": "log"
+    },
+    "jacobian": "log|d value / d z| included per coordinate",
+    "map": {
+      "beta": 1.4933971732726214,
+      "omega": 1.844780830099491,
+      "lambda_rep": 0.8014380825721871
+    },
+    "map_log_posterior": -12442.120490749618,
+    "map_optimiser": "Nelder-Mead (deterministic)",
+    "curvature_sd_z": [
+      0.025771122129079824,
+      0.1251184792110817,
+      0.035110640577574695
+    ],
+    "n_points": 61,
+    "radius_in_curvature_sd": 6.0,
+    "n_expansions": 0,
+    "grid_points": 226981,
+    "uses_mcmc": false
+  },
+  "refine_n_points": 41,
+  "build_seconds": 23.685029832995497,
+  "provenance": "direct quadrature on the recurrent log posterior; no MCMC kernel, acceptance ratio, or draw is used at any point"
+}

@@ -1,0 +1,375 @@
+{
+  "environment": {
+    "git": {
+      "branch": "mcmc-original-latent-poset",
+      "commit": "08e2cb6deeec1634d6c91667368b736a5427f2e0",
+      "dirty": true
+    },
+    "python": "3.13.2",
+    "numpy": "2.4.6"
+  },
+  "trace": [
+    0,
+    1,
+    2,
+    3,
+    0,
+    1,
+    2,
+    3
+  ],
+  "n_states": 11,
+  "states": [
+    "(0, 1)_A + (2, 3)_F + (0, 1)_A + (2, 3)_F",
+    "(0, 1)_A + (2, 3)_F + (0, 1)_D + (2, 3)_F",
+    "(0, 1)_A + (2, 3)_F + (0, 1, 2, 3)_E",
+    "(0, 1)_A + (2, 3, 0, 1)_E + (2, 3)_F",
+    "(0, 1)_D + (2, 3)_F + (0, 1)_A + (2, 3)_F",
+    "(0, 1)_D + (2, 3)_F + (0, 1)_D + (2, 3)_F",
+    "(0, 1)_D + (2, 3)_F + (0, 1, 2, 3)_E",
+    "(0, 1)_D + (2, 3, 0, 1)_E + (2, 3)_F",
+    "(0, 1, 2, 3)_E + (0, 1)_A + (2, 3)_F",
+    "(0, 1, 2, 3)_E + (0, 1)_D + (2, 3)_F",
+    "(0, 1, 2, 3)_E + (0, 1, 2, 3)_E"
+  ],
+  "exact_posterior": [
+    0.201094471012905,
+    0.10312536975020774,
+    0.10650379365223711,
+    0.10650379365223711,
+    0.10312536975020774,
+    0.052884805000106554,
+    0.05461733007807044,
+    0.05461733007807034,
+    0.10650379365223711,
+    0.05461733007807034,
+    0.05640661329565046
+  ],
+  "notes": [
+    "The Stage 0-3 toy cannot exercise this kernel: every block there matches at most one skill (Relabel dead) and L is pinned by the trace (Split/Merge dead). Stage 4 uses a purpose-built toy with overlapping supports.",
+    "The kernel toy trace was selected for a genuinely asymmetric proposal. (0,1,2,3,0,1) is accidentally symmetric and (0,1,2,3,2,3,0,1) offers no legal Shift; on either, a missing Hastings correction would go undetected.",
+    "With role counts of 2 and 4, a one-position Shift is never legal on this trace; shift_moves therefore defaults to allowing any boundary inside the combined span, which is what keeps the kernel irreducible. max_shift=1 is implemented and tested, but yields no legal moves here.",
+    "This stage validates the kernel on a single fixed trace with U held fixed. It says nothing about joint S+U sampling with local moves, or about mixing on long real traces \u2014 those belong to Milestone B and later."
+  ],
+  "moves": {
+    "availability_total": {
+      "relabel": 14,
+      "split": 16,
+      "merge": 16,
+      "shift": 12
+    },
+    "availability_by_state": [
+      {
+        "relabel": 2,
+        "split": 0,
+        "merge": 3,
+        "shift": 0
+      },
+      {
+        "relabel": 2,
+        "split": 0,
+        "merge": 3,
+        "shift": 0
+      },
+      {
+        "relabel": 1,
+        "split": 2,
+        "merge": 1,
+        "shift": 1
+      },
+      {
+        "relabel": 1,
+        "split": 2,
+        "merge": 0,
+        "shift": 3
+      },
+      {
+        "relabel": 2,
+        "split": 0,
+        "merge": 3,
+        "shift": 0
+      },
+      {
+        "relabel": 2,
+        "split": 0,
+        "merge": 3,
+        "shift": 0
+      },
+      {
+        "relabel": 1,
+        "split": 2,
+        "merge": 1,
+        "shift": 1
+      },
+      {
+        "relabel": 1,
+        "split": 2,
+        "merge": 0,
+        "shift": 3
+      },
+      {
+        "relabel": 1,
+        "split": 2,
+        "merge": 1,
+        "shift": 2
+      },
+      {
+        "relabel": 1,
+        "split": 2,
+        "merge": 1,
+        "shift": 2
+      },
+      {
+        "relabel": 0,
+        "split": 4,
+        "merge": 0,
+        "shift": 0
+      }
+    ]
+  },
+  "proposal": {
+    "max_sampling_mismatch": 0.004699999999999996,
+    "max_proposal_asymmetry": 0.1875
+  },
+  "balance": {
+    "detailed_balance_error": 1.734723475976807e-18,
+    "stationarity_error": 1.3877787807814457e-17,
+    "eigenvector_tv": 2.5673907444456745e-16,
+    "irreducible": true,
+    "transition_matrix": [
+      [
+        0.673187110883206,
+        0.06410256410256412,
+        0.06620258697055523,
+        0.06620258697055523,
+        0.06410256410256412,
+        0.0,
+        0.0,
+        0.0,
+        0.06620258697055523,
+        0.0,
+        0.0
+      ],
+      [
+        0.125,
+        0.578028182260214,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.0,
+        0.06410256410256412,
+        0.0,
+        0.0,
+        0.0,
+        0.06620258697055523,
+        0.0
+      ],
+      [
+        0.125,
+        0.0806899033153529,
+        0.5496703416609076,
+        0.08333333333333333,
+        0.0,
+        0.0,
+        0.1282051282051285,
+        0.0,
+        0.0,
+        0.0,
+        0.03310129348527766
+      ],
+      [
+        0.125,
+        0.0806899033153529,
+        0.08333333333333333,
+        0.4353357377102881,
+        0.0,
+        0.0,
+        0.0,
+        0.12820512820512825,
+        0.08333333333333333,
+        0.06410256410256414,
+        0.0
+      ],
+      [
+        0.125,
+        0.0,
+        0.0,
+        0.0,
+        0.5951589286229919,
+        0.06410256410256412,
+        0.06620258697055535,
+        0.06620258697055523,
+        0.08333333333333333,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.125,
+        0.0,
+        0.0,
+        0.125,
+        0.5,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.0,
+        0.08333333333333333,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.25,
+        0.0,
+        0.125,
+        0.08068990331535277,
+        0.39642924105502275,
+        0.08333333333333318,
+        0.0,
+        0.0,
+        0.06454752229629132
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.25,
+        0.125,
+        0.0806899033153529,
+        0.08333333333333333,
+        0.294310096684647,
+        0.08333333333333333,
+        0.08333333333333333,
+        0.0
+      ],
+      [
+        0.125,
+        0.0,
+        0.0,
+        0.08333333333333331,
+        0.0806899033153529,
+        0.0,
+        0.0,
+        0.04273504273504274,
+        0.5069352989258651,
+        0.12820512820512825,
+        0.03310129348527766
+      ],
+      [
+        0.0,
+        0.125,
+        0.0,
+        0.125,
+        0.0,
+        0.0806899033153529,
+        0.0,
+        0.08333333333333331,
+        0.25,
+        0.2714292410550223,
+        0.06454752229629143
+      ],
+      [
+        0.0,
+        0.0,
+        0.0625,
+        0.0,
+        0.0,
+        0.0,
+        0.0625,
+        0.0,
+        0.0625,
+        0.0625,
+        0.75
+      ]
+    ],
+    "naive_detailed_balance_error": 0.017750632275372852,
+    "naive_stationary": [
+      0.22150855681954928,
+      0.11438002942554763,
+      0.058404095073877074,
+      0.10428447612083545,
+      0.11275332795686097,
+      0.058254340928357594,
+      0.03025605277058594,
+      0.05354837521328434,
+      0.07199736678863874,
+      0.03655214092339525,
+      0.13806123797906775
+    ],
+    "naive_tv": 0.12832086430030568
+  },
+  "long_run": {
+    "iterations": 200000,
+    "burn_in": 10000,
+    "seed": 20260808,
+    "total_variation": 0.004157229072993391,
+    "empirical": [
+      0.20048947368421052,
+      0.10405263157894737,
+      0.10502631578947369,
+      0.1061578947368421,
+      0.10223684210526315,
+      0.05271578947368421,
+      0.05416842105263158,
+      0.0547,
+      0.10852105263157895,
+      0.05574736842105263,
+      0.05618421052631579
+    ],
+    "exact": [
+      0.201094471012905,
+      0.10312536975020774,
+      0.10650379365223711,
+      0.10650379365223711,
+      0.10312536975020774,
+      0.052884805000106554,
+      0.05461733007807044,
+      0.05461733007807034,
+      0.10650379365223711,
+      0.05461733007807034,
+      0.05640661329565046
+    ],
+    "max_abs_error": 0.0020172589793418377,
+    "acceptance_rate": 0.674497937926871,
+    "proposed_by_move": {
+      "relabel": 46766,
+      "split": 27191,
+      "merge": 39206,
+      "shift": 24320
+    },
+    "accepted_by_move": {
+      "relabel": 31704,
+      "split": 22865,
+      "merge": 22866,
+      "shift": 15297
+    },
+    "acceptance_by_move": {
+      "relabel": 0.6779284095282898,
+      "split": 0.8409032400426611,
+      "merge": 0.5832270570830995,
+      "shift": 0.6289884868421053
+    },
+    "n_kept": 190000
+  },
+  "decisions": [
+    {
+      "stage": "Stage 4A move-level correctness",
+      "status": "PASS",
+      "headline": "split/merge inverse, shift/relabel self-inverse, all moves legal"
+    },
+    {
+      "stage": "Stage 4B proposal law q(S->S')",
+      "status": "PASS",
+      "headline": "sampled matches computed (max gap 0.00470), asymmetry 0.1875"
+    },
+    {
+      "stage": "Stage 4C detailed balance + stationarity",
+      "status": "PASS",
+      "headline": "balance 1.7e-18, naive-kernel control TV 0.1283"
+    },
+    {
+      "stage": "Stage 4D posterior recovery (200k steps)",
+      "status": "PASS",
+      "headline": "TV = 0.00416"
+    }
+  ]
+}

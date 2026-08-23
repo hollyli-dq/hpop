@@ -1,0 +1,112 @@
+{
+  "q0_reset_audits": [
+    {
+      "block_a": [
+        0,
+        3,
+        0
+      ],
+      "block_b": [
+        3,
+        8,
+        1
+      ],
+      "score_a_first": -1.6151016701839123,
+      "score_b": -6.578746076151442,
+      "score_a_again": -1.6151016701839123,
+      "difference": 0.0,
+      "bit_identical": true,
+      "pass": true
+    },
+    {
+      "block_a": [
+        0,
+        4,
+        2
+      ],
+      "block_b": [
+        4,
+        8,
+        0
+      ],
+      "score_a_first": -3.7883785932215517,
+      "score_b": -6.686310646417691,
+      "score_a_again": -3.7883785932215517,
+      "difference": 0.0,
+      "bit_identical": true,
+      "pass": true
+    },
+    {
+      "block_a": [
+        0,
+        8,
+        1
+      ],
+      "block_b": [
+        0,
+        3,
+        2
+      ],
+      "score_a_first": -12.391388283888794,
+      "score_b": -3.6678136347523305,
+      "score_a_again": -12.391388283888794,
+      "difference": 0.0,
+      "bit_identical": true,
+      "pass": true
+    }
+  ],
+  "q0_reset_pass": true,
+  "evaluation_order_invariance": {
+    "orders": [
+      "by_start",
+      "by_width",
+      "reverse_by_start"
+    ],
+    "max_absolute_difference": 0.0,
+    "identical": true,
+    "pass": true,
+    "n_finite_entries": 63
+  },
+  "eager_vs_batched_tables": {
+    "max_absolute_difference": 1.7763568394002505e-15,
+    "same_support": true,
+    "tolerance": 1e-09,
+    "n_traces": 2,
+    "pass": true
+  },
+  "table_builds": 26,
+  "segmentation_sweeps": 25,
+  "builds_equal_sweeps": true,
+  "builds_note": "one build per segmentation sweep, plus the one taken here to test the fingerprint guard",
+  "stale_read_raises": true,
+  "fingerprint_mismatch_raises": true,
+  "scalar_proposals_per_sweep": 4,
+  "rebuilds_per_scalar_proposal": 0.0,
+  "pass": true,
+  "sweep_cost": {
+    "batched": {
+      "n_sweeps": 200,
+      "table_source": "batched",
+      "total_seconds": 3.954236917081289,
+      "seconds_per_sweep": 0.019771184585406446,
+      "block_table_seconds_per_sweep": 0.0051107792605400385,
+      "chart_seconds_per_sweep": 0.005629417020827532,
+      "backward_draw_seconds_per_sweep": 0.0001450754189863801,
+      "table_builds": 201,
+      "n_traces": 2,
+      "log_normalizer_total": -18.93856196725393
+    },
+    "adapter": {
+      "n_sweeps": 200,
+      "table_source": "adapter",
+      "total_seconds": 8.319402041030116,
+      "seconds_per_sweep": 0.04159701020515058,
+      "block_table_seconds_per_sweep": 0.025776312786122014,
+      "chart_seconds_per_sweep": 0.003848500084131956,
+      "backward_draw_seconds_per_sweep": 8.392333984375e-05,
+      "table_builds": 201,
+      "n_traces": 2,
+      "log_normalizer_total": -18.93856196725393
+    }
+  }
+}

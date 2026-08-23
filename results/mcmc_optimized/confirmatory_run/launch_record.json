@@ -1,0 +1,59 @@
+{
+  "backend_commit": "564995efd056d7d33984f0ca1532386e6140ea0c",
+  "corpus_hash_sha256": "3e3aa6533bd7951f9b2ed1dfa050e9d07f1b2e96b0e3914e044010130e9acdfa",
+  "heldout_hash_sha256": "2698bce19236ca9ebc4590cc0a9852eb7c61aa97487b4dddd08672601d28f0c7",
+  "initialisation": "dispersed truth-free prior starts; NO old checkpoint and NO truth-informed state",
+  "kernel": {
+    "structural_cadence": 10,
+    "structural_scale": 0.5,
+    "table_source": "batched"
+  },
+  "launched_at_utc": "2026-08-22T22:57:50Z",
+  "orchestrator_pid": 24737,
+  "prereg_sha256": "89b41293f8946d355c9085f3d99a3d72225dd2e0148fd1dba5f9284b235d07d1",
+  "probes_manifest_sha256": "d40bf396ec5c00248e859d70dff0978da3f15d628e22743650b673854f241d7a",
+  "schedule": {
+    "checkpoint_every": 2000,
+    "production": 100000,
+    "thin": 5,
+    "total": 150000,
+    "warmup_discarded": 50000
+  },
+  "seeds": {
+    "cond": [
+      6306201,
+      6306202,
+      6306203,
+      6306204
+    ],
+    "marg": [
+      6306211,
+      6306212,
+      6306213,
+      6306214
+    ],
+    "pi_p": [
+      6306101,
+      6306102,
+      6306103,
+      6306104
+    ],
+    "scales": [
+      0.5,
+      1.0,
+      2.0,
+      3.0
+    ],
+    "u": [
+      6304101,
+      6304102,
+      6304103,
+      6304104
+    ]
+  },
+  "starts_manifest_sha256": "dbe3ebcf89d86a785d2372b9b771e5a02c62f4dd39f3e548711adb87f4106ec1",
+  "train_hash_sha256": "e05a46013b398072614d11c40a8891e9afedb780b76db2e07e6200cdf69ad04e",
+  "truth_file_opened_by_runner": false,
+  "truth_hash_sha256": "effccc91114d9647f87859aaa7ee219e3bc664bb41d2c6389844ea64346a5e8e",
+  "truth_sealed": true
+}

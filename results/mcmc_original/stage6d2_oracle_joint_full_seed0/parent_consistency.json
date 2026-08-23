@@ -1,0 +1,80 @@
+{
+  "vs_stage6b3": {
+    "beta": {
+      "stage6d2_mean": 1.4833688592998402,
+      "stage6d2_sd": 0.03925870080162809,
+      "stage6b3_mean": 1.4809712045457613,
+      "stage6b3_sd": 0.03913136531881718,
+      "difference": 0.0023976547540789372,
+      "difference_in_parent_sd": 0.061271942201463946,
+      "sd_ratio": 1.0032540516226167
+    },
+    "omega": {
+      "stage6d2_mean": 1.8850963799245715,
+      "stage6d2_sd": 0.1292415538389828,
+      "stage6b3_mean": 1.887305380323663,
+      "stage6b3_sd": 0.12951477881662946,
+      "difference": -0.002209000399091554,
+      "difference_in_parent_sd": -0.017055971675781625,
+      "sd_ratio": 0.9978903953653545
+    },
+    "lambda_rep": {
+      "stage6d2_mean": 0.8074669600424426,
+      "stage6d2_sd": 0.028451151501742034,
+      "stage6b3_mean": 0.8058678554319068,
+      "stage6b3_sd": 0.02847042110946445,
+      "difference": 0.0015991046105358064,
+      "difference_in_parent_sd": 0.05616722718597986,
+      "sd_ratio": 0.9993231709623006
+    },
+    "lambda_back": {
+      "stage6d2_mean": 0.21906393146156064,
+      "stage6d2_sd": 0.023980415255990508,
+      "stage6b3_mean": 0.21881288362370088,
+      "stage6b3_sd": 0.024023270577332653,
+      "difference": 0.00025104783785975804,
+      "difference_in_parent_sd": 0.010450193992180074,
+      "sd_ratio": 0.9982160913017988
+    }
+  },
+  "vs_stage6c2": {
+    "rho": {
+      "stage6d2_mean": 0.318647416197147,
+      "stage6d2_sd": 0.21768535597723343,
+      "stage6c2_mean": 0.3230775352708466,
+      "stage6c2_sd": 0.22159214820600198,
+      "difference": -0.004430119073699612,
+      "difference_in_parent_sd": -0.01999222043545142,
+      "sd_ratio": 0.9823694464790484,
+      "is_a_gate": true,
+      "note": null
+    },
+    "beta": {
+      "stage6d2_mean": 1.4833688592998402,
+      "stage6d2_sd": 0.03925870080162809,
+      "stage6c2_mean": 1.4964836876886418,
+      "stage6c2_sd": 0.03170435295574903,
+      "difference": -0.013114828388801625,
+      "difference_in_parent_sd": -0.41366018120939074,
+      "sd_ratio": 1.2382747837946086,
+      "is_a_gate": false,
+      "note": "reported contrast, not a gate: Stage 6C2 fixes omega, lambda_rep and lambda_back while Stage 6D2 marginalises over them, so the two beta marginals are not supposed to be equal. The Stage 6B3 row above is the like-for-like comparison."
+    }
+  },
+  "structure_vs_stage6c2": {
+    "stage6c2_map_poset_index": 4002,
+    "stage6d2_probability_of_that_order": 1.0,
+    "stage6c2_probability_of_that_order": 1.0,
+    "stage6d2_unique_states_visited": 1,
+    "stage6c2_unique_states_visited": 1
+  },
+  "parents_disagree_with_each_other": {
+    "beta_stage6b3_vs_stage6c2_in_stage6b3_sd": 0.3964206977317257,
+    "reading": "the gap between the two parents is itself the size of the effect of conditioning on omega and the lambdas rather than marginalising over them; it is not a defect in either."
+  },
+  "interpretation": {
+    "U_beta": "beta agreeing with Stage 6B3, which pinned U at the truth while marginalising over the same three other scalars, means marginalising over U does not move beta: no U-beta confounding.",
+    "H_omega": "the induced order agreeing with Stage 6C2's, where omega was fixed, means freeing omega does not move the structure: no H-omega confounding.",
+    "rho_U": "rho agreeing with Stage 6C2's means the extra three free scalars do not reach rho, which is expected because rho enters only p(U | rho) and the order posterior is unchanged."
+  }
+}

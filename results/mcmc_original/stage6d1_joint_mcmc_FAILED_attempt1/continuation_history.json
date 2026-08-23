@@ -1,0 +1,135 @@
+{
+  "protocol": "Section 11 requires continuing the SAME chains deterministically rather than restarting and selecting a favourable result. The RNG stream is a pure function of the seed, so re-running the same seeds and starts for more sweeps yields the identical chain extended; the first 50,000 sweeps are bit-identical, which the deterministic-resume test pins.",
+  "ceiling": "100,000 sweeps, adopting the section 14 ceiling. The run at the ceiling is reported regardless of outcome; no further extension was made after seeing which gates passed.",
+  "blocks": [
+    {
+      "sweeps": 50000,
+      "retained_pooled": 40000,
+      "gates": {
+        "induced_h_total_variation": {
+          "value": 0.007995246791906881,
+          "pass": true
+        },
+        "max_relation_marginal_error": {
+          "value": 0.0064504729335082,
+          "pass": true
+        },
+        "mixed_reference_envelope": {
+          "value": 0.010224819635017646,
+          "pass": true
+        },
+        "rho_rhat": {
+          "value": 1.0006761282125847,
+          "pass": true
+        },
+        "beta_rhat": {
+          "value": 1.0118396271517207,
+          "pass": false
+        },
+        "omega_rhat": {
+          "value": 1.0085849583729425,
+          "pass": true
+        },
+        "lambda_rep_rhat": {
+          "value": 1.0145745930920098,
+          "pass": false
+        },
+        "lambda_back_rhat": {
+          "value": 1.0042363257043188,
+          "pass": true
+        },
+        "log_posterior_rhat": {
+          "value": 1.001455731479996,
+          "pass": true
+        },
+        "relation_count_rhat": {
+          "value": 1.000159669408137,
+          "pass": true
+        },
+        "uncertain_relation_rhat": {
+          "value": 1.0006432756090227,
+          "pass": true
+        }
+      },
+      "outcome": "FAILED beta_rhat 1.01184 and lambda_rep_rhat 1.01457"
+    },
+    {
+      "sweeps": 100000,
+      "retained_pooled": 90000,
+      "gates": {
+        "induced_h_total_variation": {
+          "value": 0.006654316078648934,
+          "pass": true
+        },
+        "max_relation_marginal_error": {
+          "value": 0.006283806266841552,
+          "pass": true
+        },
+        "mixed_reference_envelope": {
+          "value": 0.0069879838245734405,
+          "pass": true
+        },
+        "rho_rhat": {
+          "value": 1.0007827008631154,
+          "pass": true
+        },
+        "beta_rhat": {
+          "value": 1.0020702395191214,
+          "pass": true
+        },
+        "omega_rhat": {
+          "value": 1.0120509765969885,
+          "pass": false
+        },
+        "lambda_rep_rhat": {
+          "value": 1.0033683403680937,
+          "pass": true
+        },
+        "lambda_back_rhat": {
+          "value": 1.0044299547217026,
+          "pass": true
+        },
+        "log_posterior_rhat": {
+          "value": 1.000972436008155,
+          "pass": true
+        },
+        "relation_count_rhat": {
+          "value": 1.0001922435385788,
+          "pass": true
+        },
+        "uncertain_relation_rhat": {
+          "value": 1.0003101297188555,
+          "pass": true
+        }
+      },
+      "outcome": "beta and lambda_rep now pass; every structural gate improved; omega_rhat crossed the other way, 1.00858 -> 1.01205"
+    }
+  ],
+  "omega_diagnosis": {
+    "rhat": 1.0120509765969885,
+    "threshold": 1.01,
+    "bulk_ess": 649.5,
+    "tail_ess": 1513.1,
+    "mcse": 0.0776,
+    "posterior_mean": -0.3581,
+    "reference_mean": -0.3473,
+    "mean_error_in_mcse": 0.14,
+    "posterior_sd": 1.977,
+    "prior_sd": 2.0,
+    "per_chain_means": [
+      -0.1692,
+      -0.4542,
+      -0.1525,
+      -0.6565
+    ],
+    "scalar_acceptance": {
+      "beta": 0.975,
+      "omega": 0.969,
+      "lambda_rep": 0.972,
+      "lambda_back": 0.959
+    },
+    "reading": "This is a proposal-scale mismatch, not a wrong target. The 6D1 corpus is 3 blocks of T=5, deliberately small so prior-QMC importance sampling stays efficient, and it barely identifies omega: the posterior sd (1.977) is essentially the prior sd (2.0). The registered scales come from Stage 6B, tuned on the 500-block corpus where the posterior is far tighter, so on this model every scalar accepts at 0.96-0.98 and mixes slowly. The omega MARGINAL is nonetheless correct: it sits 0.14 MCSE from the frozen reference.",
+    "remedy_not_yet_applied": "Section 11 permits a discarded pilot to set proposal scales, provided no frozen-reference probabilities are used, the pilot draws are discarded and the formal chains restart with the scales frozen. That pilot has NOT been run; the scales were left at their registered Stage 6B values."
+  },
+  "status": "Stage 6D1 sampler correctness: structural gates PASS; one scalar convergence gate (omega R-hat) MARGINALLY FAILS at 1.01205 against 1.01. Not reported as PASS."
+}

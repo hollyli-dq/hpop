@@ -1,0 +1,36 @@
+{
+  "marginal_consistency": {
+    "boundary_sum_equals_E_L_minus_1_max_error": 2.3447910280083306e-13,
+    "ffbs_illegal_draws": 0,
+    "occurrence_rows_sum_to_one_max_error": 2.7533531010703882e-14,
+    "segment_count_sums_to_one_max_error": 3.907985046680551e-14
+  },
+  "pass": true,
+  "tiny_gates": {
+    "boundary_marginal_max_error": {
+      "gate": 1e-10,
+      "pass": true,
+      "worst": 1.6653345369377348e-15
+    },
+    "ffbs_path_tv": {
+      "gate": 0.01,
+      "pass": true,
+      "worst": 0.002159842111454096
+    },
+    "log_z_dp_vs_enum": {
+      "gate": 1e-10,
+      "pass": true,
+      "worst": 1.7763568394002505e-15
+    },
+    "occurrence_label_max_error": {
+      "gate": 1e-10,
+      "pass": true,
+      "worst": 2.55351295663786e-15
+    },
+    "path_probability_max_error": {
+      "gate": 1e-10,
+      "pass": true,
+      "worst": 2.3314683517128287e-15
+    }
+  }
+}

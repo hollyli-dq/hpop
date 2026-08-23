@@ -1,0 +1,136 @@
+{
+  "STATUS": "VERIFIED \u2014 all displayed values reproduce the stored artifacts exactly",
+  "arms": {
+    "FULL-COND": {
+      "bootstrap_over_traces": {
+        "ci_hi": 62.70463052411761,
+        "ci_lo": 53.71455445481562,
+        "mean": 58.193131426371565,
+        "total": 2618.6909141867204,
+        "total_ci_hi": 2821.7083735852925,
+        "total_ci_lo": 2417.1549504667028
+      },
+      "engine": "frozen hpop.mcmc_original.collapsed_u_likelihood (Section 10 names the frozen semi-Markov forward recursion)",
+      "log_z_mean_over_draws_and_traces": -59.24795279270021,
+      "n_draws_used": 4000,
+      "nll_per_cpa_occurrence": 1.6285391257380102,
+      "optimized_backend_cross_check": {
+        "PASS": true,
+        "draws_cross_checked": 100,
+        "tolerance": 1e-10,
+        "worst_abs_difference": 4.263256414560601e-14
+      },
+      "per_trace_mean_nll": 58.193131426371565,
+      "total_nll": 2618.6909141867204
+    },
+    "FULL-MARG": {
+      "bootstrap_over_traces": {
+        "ci_hi": 59.55753594693149,
+        "ci_lo": 50.779041666317305,
+        "mean": 55.146942256773954,
+        "total": 2481.612401554828,
+        "total_ci_hi": 2680.089117611917,
+        "total_ci_lo": 2285.0568749842787
+      },
+      "engine": "frozen hpop.mcmc_original.collapsed_u_likelihood (Section 10 names the frozen semi-Markov forward recursion)",
+      "log_z_mean_over_draws_and_traces": -55.16894068511814,
+      "n_draws_used": 4000,
+      "nll_per_cpa_occurrence": 1.5432912944992712,
+      "optimized_backend_cross_check": {
+        "PASS": true,
+        "draws_cross_checked": 100,
+        "tolerance": 1e-10,
+        "worst_abs_difference": 4.263256414560601e-14
+      },
+      "per_trace_mean_nll": 55.146942256773954,
+      "total_nll": 2481.612401554828
+    }
+  },
+  "bootstrap": {
+    "over": "the 45 held-out traces",
+    "resamples": 10000,
+    "seed": 6300010
+  },
+  "contrast_FULL_COND_minus_FULL_MARG": {
+    "NOTE": "the contrast implied by computing both arms; the preregistration fixes the estimator and both arms, and does not separately register this difference. Lower NLL is better, so a positive difference favours FULL-MARG.",
+    "ci_hi": 3.572646483640629,
+    "ci_lo": 2.475109394490288,
+    "mean_difference_per_trace": 3.046189169597613,
+    "n_traces": 45,
+    "n_traces_favouring_second": 41,
+    "total_difference": 137.07851263189258
+  },
+  "estimator": "NLL_n = -log( (1/M) sum_m Z_n(U^(m), pi^(m), P^(m)) ), computed in the log domain as -(logsumexp_m log Z_n^(m) - log M)",
+  "hashes": {
+    "backend_commit": "564995efd056d7d33984f0ca1532386e6140ea0c",
+    "chain_sha256": {
+      "full_cond_0": "37f80aaac2d333366b5714dd2bc3fc34e88f0de309cd079adeb75b7eb0a3d7e1",
+      "full_cond_1": "1ea6fd1ab0f7716aed6cdeb3e23b3c3e1773585bd09ebd18b47d22c765260d6d",
+      "full_cond_2": "de02db0814246f77ab60329bad9f2dafdfaadeeac888891bbe422cce990e47ef",
+      "full_cond_3": "fb2c053acd7005b3e66e92fa981c4154eb3d2529c967da25222d3a728db40b81",
+      "full_marg_0": "d4985f528bc0290413cee4478292513b439596d32d70dc8fb929745324e67c5b",
+      "full_marg_1": "1d433b92fb88dbb9a059f7a687b05393a005c73d81c999e62fde502e19679cf8",
+      "full_marg_2": "a6a828ae59869b22ba96a9774b3e70bfb12ad76289a2f07e28e3952f22f4c24c",
+      "full_marg_3": "fea656040b39e9b8aba96e6023675cc20aefadf68a207f48d8e8654667787872"
+    },
+    "corpus_hash_sha256": "3e3aa6533bd7951f9b2ed1dfa050e9d07f1b2e96b0e3914e044010130e9acdfa",
+    "heldout_nll_csv_sha256": "f39669c9ee709241bbff774d83ede68ef5da7d061c4b02976aec4cb909d48e81",
+    "heldout_nll_json_sha256": "b31e1b922daebb704de952c22be7a419950317b51855f5a20a7343480c5b2a72",
+    "heldout_npz_sha256": "2698bce19236ca9ebc4590cc0a9852eb7c61aa97487b4dddd08672601d28f0c7",
+    "prereg_commit": "8f99dd582e172b5dd253cae1bd74d65c96972f93",
+    "recovery_commit": "365313d",
+    "script_sha256": "b9ed000ee12ef0680dae4bbf0d3691307e080cf8046f776cc63aed0b1847d7aa",
+    "terminal_verdict_commit": "f9799f9f9f89508b09e6fd6a1ca45610bd2d9068",
+    "truth_hash_sha256": "effccc91114d9647f87859aaa7ee219e3bc664bb41d2c6389844ea64346a5e8e"
+  },
+  "held_out": {
+    "cpa_occurrences": 1608,
+    "n_traces": 45,
+    "never_used_for_inference": true
+  },
+  "predictive_does_not_alter_verdicts": true,
+  "preregistration": "results/mcmc_optimized/confirmatory_prereg/PREREG_CONFIRMATORY.md, Section 10",
+  "recompute_reason": "not required; every validation check passed",
+  "recomputed": false,
+  "registered_verdicts_unchanged": {
+    "FULL-COND": "FAIL",
+    "FULL-MARG": "FAIL"
+  },
+  "subsample": {
+    "chains_per_arm": 4,
+    "draws_per_arm": 4000,
+    "draws_per_chain": 1000,
+    "production_sweeps": 100000,
+    "spacing": "systematic, stride 20 through the 20,000 retained production draws, offset 0",
+    "thin": 5,
+    "warm_up_discarded": 50000
+  },
+  "supplementary_truth_parameter_reference": {
+    "STATUS": "SUPPLEMENTARY, NOT PREREGISTERED, DESCRIPTIVE ONLY",
+    "nll_per_cpa_occurrence": 1.5397841279583706,
+    "per_trace_mean_nll": 55.021619505712444,
+    "total_nll": 2475.97287775706,
+    "what": "the same held-out marginal likelihood evaluated at the unsealed truth parameters -- a single point, not a posterior average, so it is a reference scale and not a competitor to either arm"
+  },
+  "verification": {
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 6300010,
+    "cross_check_pass": true,
+    "cross_check_tolerance": 1e-10,
+    "cross_check_worst_abs_difference": 4.263256414560601e-14,
+    "csv_totals_match_json": true,
+    "draw_selection_rule": "systematic, stride 20 through the 20,000 retained production draws, offset 0",
+    "draws_per_arm": 4000,
+    "held_out_trace_ids": "0..44, 45 unique",
+    "log_mean_exp": "computed in the log domain as -(logsumexp_m log Z_n - log M)",
+    "paired_bootstrap": "resamples the 45 traces, carrying both arms' per-trace NLL together so shared trace difficulty cancels",
+    "total_cpa_occurrences": 1608,
+    "trace_length_distribution": {
+      "24": 12,
+      "32": 11,
+      "40": 11,
+      "48": 11
+    }
+  },
+  "verified_at_utc": "2026-08-23T11:59:17Z"
+}

@@ -1,0 +1,158 @@
+{
+  "bench_seed": 20260822,
+  "deadline_epoch": 1787467800.0,
+  "decisions": [],
+  "plan_digest": "620be78c4f493af3b25922879eae7340b5693ae666ad2f9a98d40ddb9cf453df",
+  "runs": 0,
+  "started_at_epoch": 1787454409.266238,
+  "started_at_utc": "2026-08-23T03:06:49Z",
+  "tasks": {
+    "optional_A_full_50_seed2::build": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_A_full_50_seed2::cond": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_A_full_50_seed2::marg": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_A_full_50_seed2::primitives": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_A_sparse_50_seed2::build": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_A_sparse_50_seed2::cond": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_A_sparse_50_seed2::marg": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_A_sparse_50_seed2::primitives": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_D_48_seed2::build": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_D_48_seed2::cond": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_D_48_seed2::marg": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_D_48_seed2::primitives": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_J_384_seed2::build": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_J_384_seed2::cond": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_J_384_seed2::marg": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_J_384_seed2::primitives": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_K_40_seed2::build": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_K_40_seed2::cond": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_K_40_seed2::marg": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_K_40_seed2::primitives": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_N_128_seed2::build": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_N_128_seed2::cond": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_N_128_seed2::marg": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_N_128_seed2::primitives": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_baseline_quiet::build": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_baseline_quiet::cond": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_baseline_quiet::marg": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_baseline_quiet::primitives": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_target_full_support_retry::build": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_target_full_support_retry::cond": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_target_full_support_retry::marg": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_target_seed2::build": {
+      "attempts": 1,
+      "loadavg_before": [
+        1.73193359375,
+        1.4521484375,
+        1.5615234375
+      ],
+      "status": "running"
+    },
+    "optional_target_seed2::cond": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_target_seed2::marg": {
+      "attempts": 0,
+      "status": "pending"
+    },
+    "optional_target_seed2::primitives": {
+      "attempts": 0,
+      "status": "pending"
+    }
+  },
+  "updated_at_utc": "2026-08-23T03:06:50Z",
+  "worker": "/Users/dongqing/Desktop/hpop-scalability/scripts/scalability/bench_worker.py"
+}

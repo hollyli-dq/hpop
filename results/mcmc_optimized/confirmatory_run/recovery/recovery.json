@@ -1,0 +1,305 @@
+{
+  "arms": {
+    "FULL-COND": {
+      "P": {
+        "frobenius": 0.7627402002506318,
+        "off_diagonal_rmse": 0.31138738282038503
+      },
+      "alignment": {
+        "all_six": [
+          {
+            "perm": [
+              0,
+              1,
+              2
+            ],
+            "score": -22.49845657608515
+          },
+          {
+            "perm": [
+              0,
+              2,
+              1
+            ],
+            "score": -23.80201374012499
+          },
+          {
+            "perm": [
+              1,
+              0,
+              2
+            ],
+            "score": -18.93771564177785
+          },
+          {
+            "perm": [
+              1,
+              2,
+              0
+            ],
+            "score": -27.67438874012499
+          },
+          {
+            "perm": [
+              2,
+              0,
+              1
+            ],
+            "score": -14.965438080455492
+          },
+          {
+            "perm": [
+              2,
+              1,
+              0
+            ],
+            "score": -22.39855401476279
+          }
+        ],
+        "chosen_permutation": [
+          2,
+          0,
+          1
+        ],
+        "criterion": "closure agreement + pi agreement; one permutation applied jointly to H, z, pi and P"
+      },
+      "boundary_brier": 0.0985213157541518,
+      "closure": {
+        "f1": 0.6451612903225806,
+        "hamming": 11,
+        "mean_posterior_prob_of_true_relations": 0.40453618421052634
+      },
+      "coskill_brier": 0.19948705284240723,
+      "library_recovery": {
+        "posterior_probability_exact_true_library": 0.0,
+        "truth_library": "d72975bc6f6cbaf5"
+      },
+      "n_draws": 80000,
+      "pi": {
+        "mcse_components": [
+          0.0009312989479442014,
+          0.000683067731288479,
+          0.001019957683524684
+        ],
+        "rmse": 0.08555418171629729,
+        "tv": 0.11210654022774558
+      },
+      "supplementary_per_draw_alignment": {
+        "best_permutation_counts": [
+          0,
+          0,
+          20000,
+          0,
+          60000,
+          0
+        ],
+        "between_chain_label_switching": true,
+        "dominant_permutation_share": 0.75,
+        "mean_closure_hamming_per_draw": 12.741225,
+        "note": "NOT the registered metric. Aligns each draw separately, which removes within-chain label switching that one global permutation cannot undo.",
+        "per_chain_permutation": [
+          {
+            "chain": 0,
+            "constant_within_chain": true,
+            "permutations_used": [
+              [
+                2,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "chain": 1,
+            "constant_within_chain": true,
+            "permutations_used": [
+              [
+                2,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "chain": 2,
+            "constant_within_chain": true,
+            "permutations_used": [
+              [
+                2,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "chain": 3,
+            "constant_within_chain": true,
+            "permutations_used": [
+              [
+                1,
+                0,
+                2
+              ]
+            ]
+          }
+        ],
+        "posterior_probability_exact_labelled_closure": 0.0,
+        "within_chain_label_switching": false
+      }
+    },
+    "FULL-MARG": {
+      "P": {
+        "frobenius": 0.5449426268246232,
+        "off_diagonal_rmse": 0.22247189580203927
+      },
+      "alignment": {
+        "all_six": [
+          {
+            "perm": [
+              0,
+              1,
+              2
+            ],
+            "score": -23.306250246541435
+          },
+          {
+            "perm": [
+              0,
+              2,
+              1
+            ],
+            "score": -19.306250246541435
+          },
+          {
+            "perm": [
+              1,
+              0,
+              2
+            ],
+            "score": -10.328992022640078
+          },
+          {
+            "perm": [
+              1,
+              2,
+              0
+            ],
+            "score": -23.502058791443503
+          },
+          {
+            "perm": [
+              2,
+              0,
+              1
+            ],
+            "score": -11.092010865097139
+          },
+          {
+            "perm": [
+              2,
+              1,
+              0
+            ],
+            "score": -28.265077633900564
+          }
+        ],
+        "chosen_permutation": [
+          1,
+          0,
+          2
+        ],
+        "criterion": "closure agreement + pi agreement; one permutation applied jointly to H, z, pi and P"
+      },
+      "boundary_brier": 0.06402786907044643,
+      "closure": {
+        "f1": 0.8837209302325582,
+        "hamming": 5,
+        "mean_posterior_prob_of_true_relations": 0.7368421052631579
+      },
+      "coskill_brier": 0.10473936604125977,
+      "library_recovery": {
+        "posterior_probability_exact_true_library": 1.0,
+        "truth_library": "d72975bc6f6cbaf5"
+      },
+      "n_draws": 80000,
+      "pi": {
+        "mcse_components": [
+          0.0005802800422102159,
+          0.000817171780941473,
+          0.0006832450119053121
+        ],
+        "rmse": 0.12674480520741144,
+        "tv": 0.1644960113200387
+      },
+      "supplementary_per_draw_alignment": {
+        "best_permutation_counts": [
+          0,
+          20000,
+          40000,
+          0,
+          20000,
+          0
+        ],
+        "between_chain_label_switching": true,
+        "dominant_permutation_share": 0.5,
+        "mean_closure_hamming_per_draw": 0.0,
+        "note": "NOT the registered metric. Aligns each draw separately, which removes within-chain label switching that one global permutation cannot undo.",
+        "per_chain_permutation": [
+          {
+            "chain": 0,
+            "constant_within_chain": true,
+            "permutations_used": [
+              [
+                1,
+                0,
+                2
+              ]
+            ]
+          },
+          {
+            "chain": 1,
+            "constant_within_chain": true,
+            "permutations_used": [
+              [
+                2,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "chain": 2,
+            "constant_within_chain": true,
+            "permutations_used": [
+              [
+                0,
+                2,
+                1
+              ]
+            ]
+          },
+          {
+            "chain": 3,
+            "constant_within_chain": true,
+            "permutations_used": [
+              [
+                1,
+                0,
+                2
+              ]
+            ]
+          }
+        ],
+        "posterior_probability_exact_labelled_closure": 1.0,
+        "within_chain_label_switching": false
+      }
+    }
+  },
+  "note": "descriptive; cannot revise the registered verdicts",
+  "registered_verdicts": {
+    "FULL-COND": "FAIL",
+    "FULL-MARG": "FAIL"
+  },
+  "truth_hash_sha256": "effccc91114d9647f87859aaa7ee219e3bc664bb41d2c6389844ea64346a5e8e",
+  "truth_library": "d72975bc6f6cbaf5"
+}

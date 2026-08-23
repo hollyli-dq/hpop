@@ -1,0 +1,672 @@
+Yes. There are **two different things** you could mean by a “second run”:
+
+1. **A replication run:** keep the method and data representation unchanged, but use new repository splits and model initializations.
+2. **A scientifically stronger Run 2:** replace the rule-based CPA labels, correct the model issues exposed by Run 1, and test which change caused the result to move.
+
+For the paper, you should do both. Simply rerunning the same command once with another random seed is not enough.
+
+Your current real-data result is based on one repository-disjoint split, split seed 0, with only 100 trajectories. More importantly, the CPA labels are produced by a deterministic rule system rather than the LLM-plus-review pipeline described in the paper. The report itself identifies rerunning on LLM-annotated CPAs as the most important follow-up. 
+
+# A. Immediate second run: replicate the current experiment
+
+Do this first because it is cheap and tells you whether the observed bigram advantage is stable.
+
+## Keep fixed
+
+Keep exactly the same:
+
+* 100 trajectories;
+* rule-based CPA labels;
+* 16-CPA vocabulary;
+* model equations and implementation;
+* (K_{\max}=10);
+* (D_{\max}=12);
+* 18 EM iterations;
+* all other hyperparameters;
+* evaluation metrics.
+
+Do **not** retune the hyperparameters after seeing the new test result.
+
+## Change two random seeds separately
+
+You need two independent seeds:
+
+[
+s_{\mathrm{split}}
+==================
+
+\text{repository train/test split seed},
+]
+
+and
+
+[
+s_{\mathrm{init}}
+=================
+
+\text{model initialization seed}.
+]
+
+These answer different questions:
+
+* changing `split_seed` tests sensitivity to which repositories are held out;
+* changing `model_seed` tests sensitivity to EM initialization and local optima.
+
+For the literal second run, use:
+
+[
+s_{\mathrm{split}}=1,
+\qquad
+s_{\mathrm{init}}=1.
+]
+
+But for a paper-quality replication, run:
+
+[
+s_{\mathrm{split}}\in{0,1,2,3,4},
+]
+
+and, within each split:
+
+[
+s_{\mathrm{init}}\in{0,1,2}.
+]
+
+That gives:
+
+[
+5\times3=15
+]
+
+real-data fits per model.
+
+Report the mean and a confidence interval across **repository splits**, not only across model initializations.
+
+## Add a development partition
+
+The present real-data experiment uses train/test only. Run 2 should use:
+
+[
+\text{train}/\text{development}/\text{test}
+]
+
+with repository-disjoint partitions.
+
+For example:
+
+[
+60%/20%/20%
+]
+
+or:
+
+[
+70%/15%/15%.
+]
+
+Use development repositories to choose:
+
+* (K);
+* (D_{\max});
+* edge threshold;
+* duration hyperparameters;
+* other regularization settings.
+
+Use the test repositories exactly once after these decisions are frozen.
+
+## What this replication tells you
+
+There are three useful possible outcomes.
+
+### Outcome 1: the bigram wins on all splits
+
+Then the (0.35)-nat gap is probably not an accidental split effect.
+
+### Outcome 2: the gap varies substantially
+
+Then the first result was underpowered, and the paper must report split-level uncertainty.
+
+### Outcome 3: HPOP wins on some splits
+
+Then you should investigate repository composition, task type, repair frequency, and trace length rather than quoting one overall number.
+
+The current report has only one real split and therefore cannot distinguish these possibilities. 
+
+# B. The actual scientific Run 2
+
+The most informative second experiment is a **paired factorial experiment**. Do not change the CPA annotation and the HPOP model simultaneously without retaining the old conditions; otherwise, you will not know which change caused the result.
+
+Use the same raw trajectories under four conditions:
+
+| Condition | CPA representation    | HPOP version    | What it isolates                  |
+| --------- | --------------------- | --------------- | --------------------------------- |
+| A         | Rule-based silver CPA | Original model  | Replication of Run 1              |
+| B         | LLM-reviewed CPA      | Original model  | Effect of better CPA construction |
+| C         | Rule-based silver CPA | Corrected model | Effect of the model corrections   |
+| D         | LLM-reviewed CPA      | Corrected model | Final proposed system             |
+
+This (2\times2) design is much stronger than comparing only Run 1 against one completely changed Run 2.
+
+# C. Improve the CPA layer in Run 2
+
+The current CPA layer has several artificial properties:
+
+* every event receives `MATCH_EXISTING`;
+* every label has confidence (0.75);
+* there are no `PROPOSE_NEW` cases;
+* there are no `ABSTAIN` cases;
+* labels are deterministic functions of tools, commands, failure context, and a small state feature;
+* every occurrence is used as its own seed.
+
+That can make immediate transitions unusually easy for a bigram to memorize. 
+
+## Recommended CPA procedure
+
+For the same set of raw trajectories:
+
+1. Run two independent LLM annotation passes using the same frozen CPA dictionary.
+2. Do not show the second annotator the first annotation.
+3. Adjudicate:
+
+   * boundary disagreements;
+   * CPA-label disagreements;
+   * all `PROPOSE_NEW`;
+   * all `ABSTAIN`;
+   * low-confidence cases;
+   * a random sample of agreements.
+4. Freeze the resulting CPA dictionary before HPOP training.
+5. Store:
+
+   * boundary confidence;
+   * CPA-label confidence;
+   * source-event provenance;
+   * annotator identifier;
+   * adjudication status.
+
+This matches the intended annotation design already described in your paper draft. 
+
+## Human audit size
+
+A realistic first audited Run 2 could use:
+
+* 200–300 trajectories for modelling;
+* 40–50 trajectories with full human boundary review;
+* approximately 10% random review of high-confidence agreements;
+* complete review of disagreements and uncertain cases.
+
+The same raw trajectories should have both:
+
+[
+\text{rule-based CPA labels}
+]
+
+and
+
+[
+\text{LLM-reviewed CPA labels}.
+]
+
+That gives you a paired comparison rather than comparing different datasets.
+
+# D. Use real LLM seed segments
+
+Run 1 uses:
+
+[
+1\text{ CPA occurrence}=1\text{ seed}.
+]
+
+This makes merge-only inference unrestricted at CPA boundaries, but it does not test the actual method described in the paper: LLM oversegmentation followed by semi-Markov merging.
+
+In Run 2, ask the LLM to create short, conservative seeds using:
+
+* CPA type;
+* tool arguments;
+* observations;
+* success or failure state;
+* task context;
+* artifact changes.
+
+Then measure seed-boundary recall against the human-reviewed subset.
+
+Your synthetic audit suggests that performance remains strong around seed-boundary recall (0.9), while degradation becomes substantial as recall falls. Therefore, use approximately:
+
+[
+\text{seed boundary recall}\geq0.90
+]
+
+as a practical requirement before trusting the merge-only real-data experiment. This threshold is a finding from the current experiment report, not a general theoretical guarantee. 
+
+Also compare:
+
+1. one CPA per seed;
+2. LLM seeds;
+3. human-reviewed seeds on the audit subset.
+
+This separates segmentation-model performance from seed-construction performance.
+
+# E. Correct the model before calling it the final HPOP run
+
+The current implementation exercise revealed several mathematical and modelling problems. These should be addressed before the final Run 2.
+
+## 1. Remove the free per-segment penalty
+
+Run 1 uses:
+
+[
+\lambda_{\mathrm{seg}}>0.
+]
+
+For the generative semi-Markov model, replace this with:
+
+* normalized duration distributions;
+* normalized transition probabilities;
+* start and terminal transitions;
+* fixed-length normalization.
+
+Do not use an unnormalized factor:
+
+[
+\exp(-\lambda_{\mathrm{seg}})
+]
+
+when comparing marginal likelihood across (K).
+
+Your report already notes that the manuscript’s unnormalized segmentation prior invalidates raw likelihood comparison and that the implementation had to compute the corrected conditional likelihood. 
+
+## 2. Add a composition emission
+
+At present, the recurrent score mostly captures order. But skill identity also depends on **which CPA types normally belong to the skill**.
+
+Use a segment likelihood such as:
+
+[
+\log e_{n,k}(a,b)
+=================
+
+\lambda_{\mathrm{comp}}
+\log p_{\mathrm{comp}}
+\left(
+x^{(n)}*{a:b}\mid k
+\right)
++
+\lambda*{\mathrm{po}}
+\log p_{\mathrm{RFS}}
+\left(
+x^{(n)}_{a:b}\mid H_k
+\right).
+]
+
+This gives:
+
+* the composition term: “does this block contain the right kinds of actions?”;
+* the partial-order term: “are their dependencies and repetitions plausible?”.
+
+The HSMM already reaches approximately (0.80) synthetic ARI using composition alone, which shows that composition is doing important identification work. 
+
+## 3. Restore an observation-noise floor
+
+A precedence violation should not automatically receive probability zero.
+
+Use a trembling-hand mixture such as:
+
+[
+p_{\mathrm{step}}(c_t)
+======================
+
+(1-\epsilon)
+p_{\mathrm{RFS}}(c_t)
++
+\epsilon p_{\mathrm{bg}}(c_t),
+\qquad
+\epsilon>0.
+]
+
+This gives finite held-out likelihood under occasional violations or annotation errors.
+
+## 4. Correct the repair-trigger mechanism
+
+The most important structural defect is that current invalidation only flows forward along the inferred precedence relation.
+
+That means:
+
+[
+\textsc{failed test}
+]
+
+cannot invalidate the earlier:
+
+[
+\textsc{edit}
+]
+
+that needs to be revised. The model can explain recomputation after returning to the edit, but it does not explain what caused the return.
+
+In Run 2, condition repair activation on observable outcomes. For example:
+
+[
+J_{\mathrm{repair}}
+\left(
+\textsc{Run-Test},
+\textsc{Edit};
+o_t
+\right)
+]
+
+can be positive when:
+
+[
+o_t=\textsc{failure}.
+]
+
+A simple first implementation can make the repeat/back-jump cost outcome-dependent:
+
+[
+\lambda_{\mathrm{rep}}(x,o_t)
+]
+
+so revisiting an edit after a failing test is less penalized than repeating an already-valid action without a failure signal.
+
+## 5. Use exact semi-Markov E-steps
+
+The report correctly observes that the amortized inference network is unnecessary when the generative model and posterior use the same semi-Markov lattice.
+
+Use:
+
+[
+q(S_n)
+======
+
+p_\Theta
+\left(
+S_n\mid \mathbf c^{(n)},\widetilde B_n
+\right)
+]
+
+computed directly by forward–backward.
+
+This removes:
+
+* inference-network hyperparameters;
+* amortization error;
+* a mismatch between generative and inference scores.
+
+## 6. Treat the sequential component as a separate model
+
+The real-data bigram advantage indicates that partial-order structure and local sequential prediction capture different information.
+
+Add this as a separate model:
+
+[
+\text{HPOP+Seq}.
+]
+
+For example:
+
+[
+W_t(x)
+======
+
+F_t^{\mathrm{RFS}}(x)
+\exp
+\left{
+\beta Q_t(x)
++
+\eta\log P_k(x\mid y_{t-1})
+\right}.
+]
+
+The sequential term is evaluated only among frontier-feasible or nearly feasible roles.
+
+Compare:
+
+* HSMM;
+* HPOP;
+* HPOP+Seq;
+* standalone bigram.
+
+Do not silently add the sequential term to HPOP and remove the original ablation. You need to show whether it closes the predictive gap while retaining partial-order behavior.
+
+# F. Exact Run 2 matrix
+
+I recommend this experimental matrix:
+
+| Model                              | Rule CPA | LLM CPA |
+| ---------------------------------- | -------: | ------: |
+| Bigram                             |        ✓ |       ✓ |
+| HSMM composition only              |        ✓ |       ✓ |
+| Original HPOP                      |        ✓ |       ✓ |
+| Corrected HPOP                     |        ✓ |       ✓ |
+| Corrected HPOP without recurrence  |        ✓ |       ✓ |
+| Corrected HPOP without composition |        ✓ |       ✓ |
+| HPOP+Seq                           |        ✓ |       ✓ |
+
+Across:
+
+[
+5\text{ repository splits}
+\times
+3\text{ initialization seeds}.
+]
+
+For expensive models, you can first screen configurations on three split seeds, then run all five only for the frozen final methods.
+
+# G. Primary metrics for Run 2
+
+Do not make overall next-action NLL the sole headline.
+
+## Primary real-data metrics
+
+1. **Repository-held-out conditional NLL**
+   [
+   \mathrm{NLL/occ}.
+   ]
+
+2. **Repair-specific NLL**
+   Evaluate only windows containing:
+   [
+   \textsc{Edit}
+   \rightarrow
+   \textsc{Run-Test}
+   \rightarrow
+   \textsc{Failure}
+   \rightarrow
+   \textsc{Edit}.
+   ]
+
+3. **Invalid-order discrimination**
+   Compare likelihood change under:
+
+   * swaps of human-supported incomparable actions;
+   * swaps that violate human-supported dependencies.
+
+4. **Boundary stability**
+   Variation of information or boundary agreement across splits and initializations.
+
+5. **Skill-library stability**
+   Match skills across runs and report:
+
+   * role overlap;
+   * edge overlap;
+   * usage correlation;
+   * number of active skills.
+
+6. **Human structural validity**
+   Review sampled inferred edges as:
+
+   * valid prerequisite;
+   * likely but uncertain;
+   * unsupported;
+   * incorrect.
+
+7. **Compression**
+   Report the cost of:
+   [
+   \text{library}+\text{held-out traces given library}.
+   ]
+
+## Secondary metrics
+
+* task success association;
+* repair-cycle detection;
+* frontier recall;
+* next-action accuracy;
+* average number of inferred instances;
+* background/leak usage.
+
+# H. What counts as success?
+
+Predefine the interpretation before running.
+
+## Strong positive outcome
+
+The final HPOP system:
+
+* remains close to or better than the bigram on held-out NLL;
+* beats the bigram on dependency-violation discrimination;
+* produces stable and human-valid skill structures;
+* improves repair-specific modelling;
+* transfers across unseen repositories.
+
+## Mixed but publishable outcome
+
+The bigram remains better at next-action NLL, but HPOP:
+
+* substantially improves structural recovery;
+* is more stable under legal reorderings;
+* detects invalid dependencies;
+* yields reusable, interpretable skill libraries;
+* supports downstream skill planning.
+
+Then the paper should be framed as **structure induction**, not sequence prediction.
+
+## Negative outcome
+
+Even with reviewed CPA labels and the corrected model:
+
+* the library is unstable;
+* edges are not human-valid;
+* repair-specific performance does not improve;
+* downstream planning gets no benefit.
+
+Then the current model needs further revision before the full paper claim.
+
+# I. Practical execution order
+
+Run the work in this order:
+
+### Run 2.1 — cheap replication
+
+[
+\text{same silver labels}
++
+\text{five repository splits}
++
+\text{three initializations}.
+]
+
+Purpose: estimate variance of the existing result.
+
+### Run 2.2 — annotation comparison
+
+[
+\text{same trajectories}
++
+\text{rule CPA versus LLM-reviewed CPA}
++
+\text{original model}.
+]
+
+Purpose: isolate the annotation effect.
+
+### Run 2.3 — corrected model ablation
+
+[
+\text{same LLM-reviewed CPA data}
++
+\text{corrected HPOP}
+]
+
+with individual ablations for:
+
+* composition;
+* recurrence;
+* failure-conditioned invalidation;
+* sequential component.
+
+Purpose: identify which model component matters.
+
+### Run 2.4 — frozen final evaluation
+
+Freeze:
+
+* CPA dictionary;
+* prompts;
+* model equations;
+* hyperparameters;
+* development procedure;
+* evaluation code.
+
+Then evaluate once on held-out repositories.
+
+# J. Literal command structure
+
+The current report only documents this command:
+
+```bash
+PYTHONPATH=src .venv/bin/python scripts/exp_real_pilot.py \
+  --lam-seg 3.0 --iters 18 --K-max 10 --D-max 12
+```
+
+It does not establish that the script currently exposes separate split and initialization seed arguments. 
+
+The next version should support something conceptually like:
+
+```bash
+PYTHONPATH=src .venv/bin/python scripts/exp_real_pilot_v2.py \
+  --annotation llm_reviewed_v1 \
+  --split-seed 1 \
+  --model-seed 1 \
+  --K-max 10 \
+  --D-max 12 \
+  --iters 18 \
+  --use-composition \
+  --use-recurrence \
+  --failure-conditioned-invalidation \
+  --normalized-duration \
+  --output data/experiments/run2_split1_init1.json
+```
+
+That is a **recommended interface**, not a claim that these flags already exist.
+
+## My strongest recommendation
+
+The best second run is not merely:
+
+[
+\text{seed }0\rightarrow\text{seed }1.
+]
+
+It is:
+
+[
+\boxed{
+\begin{aligned}
+&\text{same raw traces annotated both ways}\
+&\times\
+\text{original versus corrected HPOP}\
+&\times
+\text{multiple repository splits}\
+&\times
+\text{multiple model initializations}.
+\end{aligned}
+}
+]
+
+That design tells you whether the first negative real-data result came from:
+
+* the rule-derived CPA representation;
+* the particular repository split;
+* model initialization;
+* the recurrent-likelihood defects;
+* or a genuine representational advantage of the bigram.

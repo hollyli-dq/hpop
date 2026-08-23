@@ -1,0 +1,8 @@
+{
+  "batch_vs_scalar": "generation is scalar-only; the vectorized batch path (fast_segmentation_kernel via RecurrentBlockScorer) is compared against the scalar generator accumulation in log_probability_parity.json",
+  "block_regenerated_alone_equals_recorded_forward_and_reverse": true,
+  "corpus_seed": 730003,
+  "n_traces": 14,
+  "q0_reset_replay_max_abs_error": 3.552713678800501e-15,
+  "state_leak_detector": "every block regenerated in isolation (its own SeedSequence stream, q_0 = 0 inside the production sampler) is byte-identical to the block generated inside the full trace, in forward AND reverse order; a leaked q or shared stream would break this equality"
+}

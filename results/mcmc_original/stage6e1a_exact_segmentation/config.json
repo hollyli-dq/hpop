@@ -1,0 +1,261 @@
+{
+  "stage": "6E1A",
+  "source_commit": "1f5e8a093124dbded1a75013297498ad34094a49",
+  "stage6e_config_hash": "d98897a181b6809a17dd572ca175da7846a6924b8429b9c7337a939686a6da44",
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "problem": {
+    "trace_length_J": 8,
+    "n_skills": 3,
+    "m_roles": 3,
+    "d_latent": 2,
+    "epsilon": 0.02,
+    "delta_B": 0.15,
+    "min_width": 3,
+    "max_width": 12,
+    "rho_fixed": 0.3,
+    "scalars_fixed": {
+      "beta": 1.5,
+      "omega": 1.7346,
+      "lambda_rep": 0.8,
+      "lambda_back": 0.25
+    },
+    "U_by_skill": [
+      [
+        [
+          2.0,
+          2.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      [
+        [
+          0.0,
+          3.0
+        ],
+        [
+          1.0,
+          2.0
+        ],
+        [
+          2.0,
+          1.0
+        ]
+      ],
+      [
+        [
+          3.0,
+          3.0
+        ],
+        [
+          2.0,
+          2.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ]
+    ],
+    "induced_orders": [
+      [
+        [
+          false,
+          true,
+          true
+        ],
+        [
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false
+        ]
+      ],
+      [
+        [
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false
+        ]
+      ],
+      [
+        [
+          false,
+          true,
+          true
+        ],
+        [
+          false,
+          false,
+          true
+        ],
+        [
+          false,
+          false,
+          false
+        ]
+      ]
+    ],
+    "pi": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.3333333333333333
+    ],
+    "P": [
+      [
+        0.0,
+        0.5,
+        0.5
+      ],
+      [
+        0.5,
+        0.0,
+        0.5
+      ],
+      [
+        0.5,
+        0.5,
+        0.0
+      ]
+    ],
+    "observed_trace": [
+      0,
+      0,
+      0,
+      1,
+      2,
+      1,
+      1,
+      1
+    ],
+    "generating_segmentation": [
+      [
+        4,
+        2
+      ],
+      [
+        8,
+        1
+      ]
+    ],
+    "generating_segmentation_note": "recorded only; never used in any comparison"
+  },
+  "selection_rule": {
+    "candidate_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "criteria": {
+      "max_probability_below": 0.9,
+      "min_states_above_0.01": 3
+    },
+    "rule": "first seed in ascending order meeting both criteria; registered before any MCMC draw",
+    "selected_seed": 0,
+    "scan": [
+      {
+        "seed": 0,
+        "max_probability": 0.47475758455150635,
+        "n_states_above_0.01": 7
+      }
+    ]
+  },
+  "chains": {
+    "n_chains": 4,
+    "sweeps": 400000,
+    "burn_in": 20000,
+    "thin": 4,
+    "seeds": [
+      6051001,
+      6051002,
+      6051003,
+      6051004
+    ],
+    "proposals_per_sweep": 1,
+    "kernel": "FastSegmentationKernel (proven equal to Stage6EMoveKernel at every enumerated state, see gates)"
+  },
+  "latent": [
+    "S",
+    "z"
+  ],
+  "fixed": [
+    "U",
+    "rho",
+    "beta",
+    "omega",
+    "lambda_rep",
+    "lambda_back",
+    "pi",
+    "P",
+    "delta_B",
+    "epsilon"
+  ]
+}

@@ -1,0 +1,552 @@
+{
+  "per_skill": [
+    {
+      "skill_index_unaligned": 0,
+      "n_distinct_induced_orders": 5,
+      "top_orders": [
+        {
+          "probability": 0.25,
+          "per_chain_probability": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "closure": [
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              true,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              true,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          ]
+        },
+        {
+          "probability": 0.25,
+          "per_chain_probability": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "closure": [
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              true,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              true,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          ]
+        },
+        {
+          "probability": 0.25,
+          "per_chain_probability": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "closure": [
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              true,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              true,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              true,
+              false,
+              false,
+              false,
+              false
+            ]
+          ]
+        }
+      ],
+      "max_per_chain_occupancy_gap": 1.0,
+      "relation_count_convergence": {
+        "rhat_bulk": 5.107224180714488,
+        "rhat_tail": 2.3271661963340073,
+        "rhat": 5.107224180714488,
+        "degenerate": false,
+        "bulk_ess": 4.181133660907487,
+        "tail_ess": 4.001185536455246,
+        "mcse": 0.37530573783861004,
+        "n_draws": 108000,
+        "n_chains": 4
+      }
+    },
+    {
+      "skill_index_unaligned": 1,
+      "n_distinct_induced_orders": 5,
+      "top_orders": [
+        {
+          "probability": 0.25,
+          "per_chain_probability": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "closure": [
+            [
+              false,
+              false,
+              false,
+              false,
+              true
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              true
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              true
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          ]
+        },
+        {
+          "probability": 0.25,
+          "per_chain_probability": [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "closure": [
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              true
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              true
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          ]
+        },
+        {
+          "probability": 0.25,
+          "per_chain_probability": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "closure": [
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              true,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              true,
+              true,
+              false,
+              true,
+              false
+            ]
+          ]
+        }
+      ],
+      "max_per_chain_occupancy_gap": 1.0,
+      "relation_count_convergence": {
+        "rhat_bulk": 252.11127753602568,
+        "rhat_tail": 124.21582663785279,
+        "rhat": 252.11127753602568,
+        "degenerate": false,
+        "bulk_ess": 4.001248494157706,
+        "tail_ess": 4.001185536455246,
+        "mcse": 0.5589240806490892,
+        "n_draws": 108000,
+        "n_chains": 4
+      }
+    },
+    {
+      "skill_index_unaligned": 2,
+      "n_distinct_induced_orders": 4,
+      "top_orders": [
+        {
+          "probability": 0.5,
+          "per_chain_probability": [
+            0.0,
+            1.0,
+            1.0,
+            0.0
+          ],
+          "closure": [
+            [
+              false,
+              false,
+              false,
+              true,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              true,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          ]
+        },
+        {
+          "probability": 0.25,
+          "per_chain_probability": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "closure": [
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              true,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              true,
+              false,
+              false,
+              true,
+              false
+            ]
+          ]
+        },
+        {
+          "probability": 0.2135277777777778,
+          "per_chain_probability": [
+            0.0,
+            0.0,
+            0.0,
+            0.8541111111111112
+          ],
+          "closure": [
+            [
+              false,
+              false,
+              true,
+              true,
+              true
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              true,
+              true
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              true
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          ]
+        }
+      ],
+      "max_per_chain_occupancy_gap": 1.0,
+      "relation_count_convergence": {
+        "rhat_bulk": 10.09163538097753,
+        "rhat_tail": 8.46231136254717,
+        "rhat": 10.09163538097753,
+        "degenerate": false,
+        "bulk_ess": 4.042566410502508,
+        "tail_ess": 4.001185536455246,
+        "mcse": 0.7898594627646193,
+        "n_draws": 108000,
+        "n_chains": 4
+      }
+    }
+  ],
+  "total_relation_count_convergence": {
+    "rhat_bulk": 3.7984172745582074,
+    "rhat_tail": 4.289428495282682,
+    "rhat": 4.289428495282682,
+    "degenerate": false,
+    "bulk_ess": 4.334476469558134,
+    "tail_ess": 9.017086446081072,
+    "mcse": 0.9929517935913971,
+    "n_draws": 108000,
+    "n_chains": 4
+  },
+  "selected_relation_indicators": [
+    {
+      "skill_index_unaligned": 0,
+      "relation": [
+        2,
+        0
+      ],
+      "posterior_probability": 0.5,
+      "rhat_bulk": 4107486840428778.0,
+      "rhat_tail": 0.9999629622770665,
+      "rhat": 4107486840428778.0,
+      "degenerate": false,
+      "bulk_ess": 4.001185536455246,
+      "tail_ess": 4.001185536455246,
+      "mcse": 0.2499641174630355,
+      "n_draws": 108000,
+      "n_chains": 4
+    },
+    {
+      "skill_index_unaligned": 1,
+      "relation": [
+        1,
+        4
+      ],
+      "posterior_probability": 0.5,
+      "rhat_bulk": 4107486840428778.0,
+      "rhat_tail": 0.9999629622770665,
+      "rhat": 4107486840428778.0,
+      "degenerate": false,
+      "bulk_ess": 4.001185536455246,
+      "tail_ess": 4.001185536455246,
+      "mcse": 0.2499641174630355,
+      "n_draws": 108000,
+      "n_chains": 4
+    },
+    {
+      "skill_index_unaligned": 2,
+      "relation": [
+        0,
+        3
+      ],
+      "posterior_probability": 0.75,
+      "rhat_bulk": 6124754914662929.0,
+      "rhat_tail": 6124797779770170.0,
+      "rhat": 6124797779770170.0,
+      "degenerate": false,
+      "bulk_ess": 4.001185536455246,
+      "tail_ess": 4.001185536455246,
+      "mcse": 0.21647527575754624,
+      "n_draws": 108000,
+      "n_chains": 4
+    }
+  ],
+  "max_relation_indicator_rhat": 6124797779770170.0,
+  "min_relation_indicator_bulk_ess": 4.001185536455246,
+  "n_degenerate_relation_indicators": 0,
+  "latent_column_symmetry": {
+    "per_skill_min_gap_over_column_permutations": [
+      1.2420334815979004,
+      2.1912806034088135,
+      1.6612019538879395
+    ],
+    "note": "h(U) is invariant to permuting the d latent columns, so a per-chain U mean is compared under both column orders; the minimum gap is the meaningful one"
+  },
+  "true_relation_counts": [
+    6,
+    6,
+    5
+  ]
+}

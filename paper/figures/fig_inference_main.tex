@@ -1,0 +1,10 @@
+% Standalone wrapper: compiles fig_inference_inline.tex to a self-contained PDF.
+%   pdflatex fig_inference_main.tex  ->  fig_inference_main.pdf
+% The drawing lives in fig_inference_inline.tex -- one source of truth.
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage{mathptmx}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{arrows.meta}
+\begin{document}
+\input{fig_inference_inline}
+\end{document}

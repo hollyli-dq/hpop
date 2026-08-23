@@ -1,0 +1,54 @@
+{
+  "cond_chain_seeds": [
+    6306201,
+    6306202,
+    6306203,
+    6306204
+  ],
+  "marg_chain_seeds": [
+    6306211,
+    6306212,
+    6306213,
+    6306214
+  ],
+  "note": "Truth-free: make_u_start and draw_initial_pi_p never open truth. The same four paired starts are used by both arms, so the arms differ only in the U acceptance score.",
+  "paired_starts": [
+    {
+      "P_sha256": "86edbbe42a603e9c8b507bfb5b941c51d1a5c4121a97adde474f06ad45e12b0d",
+      "U_sha256": "881223525ed4541e081dc41c4b03da59c2712f055793aa1fad8803a6e1cde49a",
+      "index": 0,
+      "pi_sha256": "22a49bd6c038e7cbb10d5a19f4a320644e5b92f68acdea79fafa7a4590e369d6",
+      "pip_seed": 6306101,
+      "u_scale": 0.5,
+      "u_seed": 6304101
+    },
+    {
+      "P_sha256": "410adaa18063a74503023e81bc4f34839fd87484e699572b6d8840e857316d9b",
+      "U_sha256": "0ef14686b77e821b6e14c3bc0e87cd2dcb5f7f35bf31f0b68054e3742044cacf",
+      "index": 1,
+      "pi_sha256": "f87d2c0b9808728b8e64ae1d0ec1c18facc224395533aaf35454bc66b453580e",
+      "pip_seed": 6306102,
+      "u_scale": 1.0,
+      "u_seed": 6304102
+    },
+    {
+      "P_sha256": "6e1e97cc8c64dd6533c7e5a2195a240088e2336b6ac13e7d7514b7bbb4d5b11a",
+      "U_sha256": "3204f89b770c6446787f85148d52e78b4d7f6db96929233ace9a42dfde6109b4",
+      "index": 2,
+      "pi_sha256": "7afbf898cc946f860b292c88c54c73eaca6936c4406e32204ed531d9f844f182",
+      "pip_seed": 6306103,
+      "u_scale": 2.0,
+      "u_seed": 6304103
+    },
+    {
+      "P_sha256": "71da5a5260836942ed4e259de74a1d6c53ebf41e8a1ff8537c19732a71aa77ae",
+      "U_sha256": "2738ec68d267b9e05c47c11fbcb1ff662f3aa6d257521d22f58ad652d3a8f3dd",
+      "index": 3,
+      "pi_sha256": "86586a438fe04544a015362e1000139f9483474b7b19045979cfa39586474742",
+      "pip_seed": 6306104,
+      "u_scale": 3.0,
+      "u_seed": 6304104
+    }
+  ],
+  "shared_across_arms": true
+}

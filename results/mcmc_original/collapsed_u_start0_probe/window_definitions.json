@@ -1,0 +1,20 @@
+{
+  "windows_by_retained_index": {
+    "early": [
+      0,
+      16000
+    ],
+    "middle": [
+      16000,
+      32000
+    ],
+    "late": [
+      32000,
+      48000
+    ]
+  },
+  "per_chain_stride": 8,
+  "balanced_stride": 16,
+  "offsets": 0,
+  "registered_before_any_draw": true
+}

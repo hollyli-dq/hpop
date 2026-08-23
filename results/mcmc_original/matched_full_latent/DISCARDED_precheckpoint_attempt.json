@@ -1,0 +1,19 @@
+{
+  "condition": "FULL-LATENT",
+  "event": "controlled_precheckpoint_abort",
+  "attempt": 1,
+  "started_after_utc": "2026-08-21T22:19:05Z",
+  "stopped_before_utc": "2026-08-21T22:25:44Z",
+  "command": "PYTHONPATH=src .venv/bin/python scripts/run_matched_full_latent_formal.py --launch-formal --workers 8",
+  "process_group": 45183,
+  "checkpoint_files_written": 0,
+  "formal_gate_files_written": 0,
+  "terminal_files_written": 0,
+  "retained_formal_draws": 0,
+  "reason": [
+    "A checkpoint/gate resume audit found that a rerun could recompute an existing gate and count it twice toward the two-consecutive-PASS stopping rule.",
+    "A subsequent import audit found that the historical frozen-model import chain loaded legacy generator truth into the process at module import time, violating the claimed procedural truth seal."
+  ],
+  "truth_recovery_opened": false,
+  "disposition": "This prefix is discarded and contributes no formal draw, gate, convergence result, or recovery result. The next attempt must use the same registered starts only after the resume and import-seal corrections have been tested and freshly frozen."
+}

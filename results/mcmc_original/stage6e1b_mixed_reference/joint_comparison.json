@@ -1,0 +1,307 @@
+{
+  "gates": {
+    "segmentation_total_variation": {
+      "value": 0.004605349601873157,
+      "threshold": 0.01,
+      "pass": true,
+      "per_trace": [
+        0.004605349601873157,
+        0.0039009540008763375
+      ]
+    },
+    "segmentation_total_variation_vs_sampled_estimator": {
+      "value": 0.005416390249832974,
+      "threshold": 0.01,
+      "pass": true,
+      "per_trace": [
+        0.005416390249832974,
+        0.003475194235310628
+      ],
+      "note": "section 9's literal sampled reference estimator; the conditional estimator above is primary"
+    },
+    "max_boundary_marginal_error": {
+      "value": 0.0015163057229615196,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "max_occurrence_label_marginal_error": {
+      "value": 0.0023641047354658884,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "induced_h_total_variation": {
+      "value": 0.005310317658387368,
+      "threshold": 0.01,
+      "pass": true,
+      "per_skill": [
+        0.004083944814139193,
+        0.005310317658387368,
+        0.003908663323514857
+      ]
+    },
+    "max_relation_marginal_error": {
+      "value": 0.003879532975184785,
+      "threshold": 0.01,
+      "pass": true,
+      "per_skill": [
+        0.002050558020539328,
+        0.003879532975184785,
+        0.002122611637392413
+      ]
+    },
+    "segment_count_total_variation": {
+      "value": 0.0009101928470551246,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "mixed_multivariate_reference_statistic": {
+      "value": 0.003988790714935853,
+      "threshold": 0.004522256615497353,
+      "pass": true,
+      "z_score": 0.8143799502500213
+    },
+    "log_posterior_rhat": {
+      "value": 1.0001201050351363,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "n_segments_rhat": {
+      "value": 1.0000367746372358,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "relation_count_rhat": {
+      "value": 1.0001446644793635,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "selected_boundary_indicator_rhat": {
+      "value": 1.0000671808752921,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "selected_relation_indicator_rhat": {
+      "value": 1.0000169150268408,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "rho_rhat": {
+      "value": 1.000234457879457,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "beta_rhat": {
+      "value": 1.0025561250421307,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "omega_rhat": {
+      "value": 1.0013511147909597,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "lambda_rep_rhat": {
+      "value": 1.0023670549425818,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "lambda_back_rhat": {
+      "value": 1.000631323622403,
+      "threshold": 1.01,
+      "pass": true
+    }
+  },
+  "all_pass": true,
+  "mixed_multivariate": {
+    "statistic": "energy distance on [closure indicators, segment counts, standardised scalars]",
+    "observed": 0.003988790714935853,
+    "envelope": 0.004522256615497353,
+    "envelope_quantile": 0.99,
+    "null_mean": 0.0035295761958754612,
+    "null_sd": 0.0005638823977916067,
+    "n_reference": 4000,
+    "n_mcmc": 4000,
+    "n_coordinates": 25,
+    "dropped_constant_coordinates": 9,
+    "z_score": 0.8143799502500213,
+    "pass": true
+  },
+  "convergence": {
+    "log_posterior": {
+      "rhat_bulk": 1.0000759388057978,
+      "rhat_tail": 1.0001201050351363,
+      "rhat": 1.0001201050351363,
+      "degenerate": false,
+      "bulk_ess": 24910.07265646176,
+      "tail_ess": 28594.784645020853,
+      "mcse": 0.030678617268198753,
+      "n_draws": 192000,
+      "n_chains": 4
+    },
+    "n_segments": {
+      "rhat_bulk": 1.0000262318314626,
+      "rhat_tail": 1.0000367746372358,
+      "rhat": 1.0000367746372358,
+      "degenerate": false,
+      "bulk_ess": 99665.51980270205,
+      "tail_ess": 86030.70523248633,
+      "mcse": 0.0021296139495003245,
+      "n_draws": 192000,
+      "n_chains": 4
+    },
+    "relation_count": {
+      "rhat_bulk": 1.0001446644793635,
+      "rhat_tail": 1.0000563619445493,
+      "rhat": 1.0001446644793635,
+      "degenerate": false,
+      "bulk_ess": 30026.28140752394,
+      "tail_ess": 62739.70959475564,
+      "mcse": 0.009477948787165074,
+      "n_draws": 192000,
+      "n_chains": 4
+    },
+    "selected_boundary_indicator": {
+      "rhat_bulk": 1.0000671808752921,
+      "rhat_tail": 1.0000671808752921,
+      "rhat": 1.0000671808752921,
+      "degenerate": false,
+      "bulk_ess": 57741.324502460666,
+      "tail_ess": 57741.32450246038,
+      "mcse": 0.0019939823073270566,
+      "n_draws": 192000,
+      "n_chains": 4
+    },
+    "selected_relation_indicator": {
+      "rhat_bulk": 1.0000169150268408,
+      "rhat_tail": 1.0000169150268408,
+      "rhat": 1.0000169150268408,
+      "degenerate": false,
+      "bulk_ess": 47408.10988523158,
+      "tail_ess": 47408.10988523162,
+      "mcse": 0.0021112568881647216,
+      "n_draws": 192000,
+      "n_chains": 4
+    },
+    "rho": {
+      "rhat": 1.000234457879457,
+      "degenerate": false,
+      "bulk_ess": 18658.538814915246,
+      "tail_ess": 26951.145258318018,
+      "mcse": 0.002041304241951932
+    },
+    "beta": {
+      "rhat": 1.0025561250421307,
+      "degenerate": false,
+      "bulk_ess": 1902.096173061357,
+      "tail_ess": 2055.2804280294995,
+      "mcse": 0.02116358212777036
+    },
+    "omega": {
+      "rhat": 1.0013511147909597,
+      "degenerate": false,
+      "bulk_ess": 3879.1021455113073,
+      "tail_ess": 7834.043020926957,
+      "mcse": 0.031960886233524666
+    },
+    "lambda_rep": {
+      "rhat": 1.0023670549425818,
+      "degenerate": false,
+      "bulk_ess": 1217.1012885076593,
+      "tail_ess": 1324.5654778064122,
+      "mcse": 0.010583593249715731
+    },
+    "lambda_back": {
+      "rhat": 1.000631323622403,
+      "degenerate": false,
+      "bulk_ess": 6047.993024616146,
+      "tail_ess": 6621.194164530666,
+      "mcse": 0.008347586469363575
+    }
+  },
+  "acceptance_by_chain": [
+    {
+      "relabel": 0.17448257875906356,
+      "split": 0.09295357478287096,
+      "merge": 0.09296844228729335,
+      "shift": 0.06934278815001865,
+      "U": 0.6080481481481481,
+      "rho": 0.8108541666666667,
+      "pi_P": null,
+      "beta": 0.9608020833333333,
+      "omega": 0.96788125,
+      "lambda_rep": 0.97904375,
+      "lambda_back": 0.9581541666666666
+    },
+    {
+      "relabel": 0.176105719194984,
+      "split": 0.0944555588800402,
+      "merge": 0.09441997468669708,
+      "shift": 0.06982199057395329,
+      "U": 0.6093238425925926,
+      "rho": 0.8095520833333333,
+      "pi_P": null,
+      "beta": 0.9623291666666667,
+      "omega": 0.9692041666666666,
+      "lambda_rep": 0.97938125,
+      "lambda_back": 0.9576291666666666
+    },
+    {
+      "relabel": 0.17618094867305278,
+      "split": 0.09426887163301285,
+      "merge": 0.09436175768232927,
+      "shift": 0.06874322690896965,
+      "U": 0.6049094907407407,
+      "rho": 0.8067458333333334,
+      "pi_P": null,
+      "beta": 0.9609708333333333,
+      "omega": 0.96873125,
+      "lambda_rep": 0.97921875,
+      "lambda_back": 0.958125
+    },
+    {
+      "relabel": 0.17633199793443496,
+      "split": 0.09455083871122358,
+      "merge": 0.09452148899834326,
+      "shift": 0.0696811797152821,
+      "U": 0.6067263888888889,
+      "rho": 0.8085145833333334,
+      "pi_P": null,
+      "beta": 0.96156875,
+      "omega": 0.9679916666666667,
+      "lambda_rep": 0.9779416666666667,
+      "lambda_back": 0.9584354166666667
+    }
+  ],
+  "movement": [
+    {
+      "boundary_hamming": 780733,
+      "label_changes": 5053011
+    },
+    {
+      "boundary_hamming": 787885,
+      "label_changes": 5109119
+    },
+    {
+      "boundary_hamming": 783496,
+      "label_changes": 5114515
+    },
+    {
+      "boundary_hamming": 787601,
+      "label_changes": 5113456
+    }
+  ],
+  "retained_per_chain": [
+    48000,
+    48000,
+    48000,
+    48000
+  ],
+  "retained_pooled": 192000,
+  "runtime_seconds": [
+    6466.729054666008,
+    6448.0784004159505,
+    6423.75042549998,
+    6467.178972917027
+  ],
+  "worst_rhat": 1.0025561250421307
+}

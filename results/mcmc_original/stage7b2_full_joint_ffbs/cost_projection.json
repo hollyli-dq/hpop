@@ -1,0 +1,18 @@
+{
+  "measured_sweeps": 3,
+  "n_traces": 100,
+  "seconds_per_sweep": 2.4168806249896684,
+  "candidate_table_seconds": 0.28732158394996077,
+  "chart_seconds_all_traces": 1.802007499965839,
+  "backward_draw_seconds_all_traces": 0.03581220796331763,
+  "parameter_phase_seconds": 0.2917393331105509,
+  "n_candidate_blocks": 76470,
+  "peak_rss_bytes": 155238400,
+  "projected_50k_sweep_hours_per_chain": 33.567786458189836,
+  "projected_4_chain_wall_hours_if_parallel": 33.567786458189836,
+  "baseline_block1_wall_seconds": 34566.951150000095,
+  "baseline_block1_sweeps": 50000,
+  "baseline_seconds_per_sweep": 0.6913390230000019,
+  "measured_under_contention": true,
+  "note": "measured while the Stage 6E2 baseline was running on the same machine, so both this and the baseline's own per-sweep cost are pessimistic"
+}

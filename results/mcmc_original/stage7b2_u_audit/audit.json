@@ -1,0 +1,573 @@
+{
+  "corpus_hash": "02be246edf9bd4f4148efa3a3e269afa10b21df53173c7273b5a4deb9e30c941",
+  "u_scale": 0.5,
+  "audit_seed": 8150000,
+  "n_requested_per_chain": 10000,
+  "kernel": "sampler_u.propose_row + the sweep_once step-3 acceptance, state never updated",
+  "experiments": {
+    "7b2_ffbs": {
+      "0": {
+        "n_proposals": 10005,
+        "n_invalid": 0,
+        "seconds": 47.98756145800144,
+        "current_relations_per_skill": [
+          1,
+          3,
+          5
+        ],
+        "current_total_relations": 9,
+        "r_propose": 0.5303348325837082,
+        "r_accept_given_crossing": 8.902580435472699e-18,
+        "escape_probability_per_proposal": 4.72134850480941e-18,
+        "table_expected": {
+          "A_accepted_same_h": 3413.4460782326937,
+          "B_rejected_same_h": 1285.5539217673063,
+          "C_accepted_changed_h": 4.723709179061814e-14,
+          "D_rejected_changed_h": 5306.0
+        },
+        "table_bernoulli": {
+          "A_accepted_same_h": 3407,
+          "B_rejected_same_h": 1292,
+          "C_accepted_changed_h": 0,
+          "D_rejected_changed_h": 5306
+        },
+        "acceptance_same_h": 0.7264196804070427,
+        "crossing_decomposition": {
+          "d_log_lik": {
+            "min": -1810.5512453962158,
+            "q25": -635.0754829824596,
+            "median": -393.9076751814496,
+            "q75": -161.22886744046446,
+            "max": -29.932553174459827
+          },
+          "d_log_prior": {
+            "min": -5.234664981914072,
+            "q25": -0.5836885572682604,
+            "median": -0.14922091892438338,
+            "q75": 0.21715912393210424,
+            "max": 3.2560894880621394
+          },
+          "log_alpha": {
+            "min": -1813.089140529965,
+            "q25": -634.6400518156316,
+            "median": -393.8823939639108,
+            "q75": -161.47602912661594,
+            "max": -30.683597044740402
+          },
+          "share_killed_by_likelihood": 1.0
+        },
+        "r_propose_by_skill_row": {
+          "k0_r0": 0.6011994002998501,
+          "k0_r1": 0.4002998500749625,
+          "k0_r2": 0.8380809595202399,
+          "k0_r3": 0.9115442278860569,
+          "k0_r4": 0.6341829085457271,
+          "k1_r0": 0.3868065967016492,
+          "k1_r1": 0.7316341829085458,
+          "k1_r2": 0.7061469265367316,
+          "k1_r3": 0.19790104947526238,
+          "k1_r4": 0.15442278860569716,
+          "k2_r0": 0.30884557721139433,
+          "k2_r1": 0.49325337331334335,
+          "k2_r2": 0.7571214392803598,
+          "k2_r3": 0.7991004497751124,
+          "k2_r4": 0.034482758620689655
+        },
+        "negative_control_max_same_h_dloglik": 0.0,
+        "checkpoint_sweep": 42000
+      },
+      "1": {
+        "n_proposals": 10005,
+        "n_invalid": 0,
+        "seconds": 50.39212179199967,
+        "current_relations_per_skill": [
+          5,
+          5,
+          2
+        ],
+        "current_total_relations": 12,
+        "r_propose": 0.5444277861069465,
+        "r_accept_given_crossing": 1.4945096022958894e-20,
+        "escape_probability_per_proposal": 8.136525540935242e-21,
+        "table_expected": {
+          "A_accepted_same_h": 3408.260056212852,
+          "B_rejected_same_h": 1149.7399437871481,
+          "C_accepted_changed_h": 8.14059380370571e-17,
+          "D_rejected_changed_h": 5447.0
+        },
+        "table_bernoulli": {
+          "A_accepted_same_h": 3399,
+          "B_rejected_same_h": 1159,
+          "C_accepted_changed_h": 0,
+          "D_rejected_changed_h": 5447
+        },
+        "acceptance_same_h": 0.7477534129470934,
+        "crossing_decomposition": {
+          "d_log_lik": {
+            "min": -2866.407712743039,
+            "q25": -306.7086031177412,
+            "median": -179.3963792905813,
+            "q75": -120.2434152922981,
+            "max": -34.30943411697035
+          },
+          "d_log_prior": {
+            "min": -5.629188536624449,
+            "q25": -0.5047854648158658,
+            "median": -0.154497447218354,
+            "q75": 0.0804077635836613,
+            "max": 3.0316552138801534
+          },
+          "log_alpha": {
+            "min": -2867.760059712103,
+            "q25": -306.7457786957508,
+            "median": -179.34809819049363,
+            "q75": -119.93025595734204,
+            "max": -37.04773019925834
+          },
+          "share_killed_by_likelihood": 1.0
+        },
+        "r_propose_by_skill_row": {
+          "k0_r0": 0.4707646176911544,
+          "k0_r1": 0.9265367316341829,
+          "k0_r2": 0.8575712143928036,
+          "k0_r3": 0.5082458770614693,
+          "k0_r4": 0.8380809595202399,
+          "k1_r0": 0.7901049475262368,
+          "k1_r1": 0.5802098950524738,
+          "k1_r2": 0.856071964017991,
+          "k1_r3": 0.46926536731634183,
+          "k1_r4": 0.3448275862068966,
+          "k2_r0": 0.545727136431784,
+          "k2_r1": 0.043478260869565216,
+          "k2_r2": 0.4122938530734633,
+          "k2_r3": 0.4752623688155922,
+          "k2_r4": 0.047976011994003
+        },
+        "negative_control_max_same_h_dloglik": 0.0,
+        "checkpoint_sweep": 42000
+      },
+      "2": {
+        "n_proposals": 10005,
+        "n_invalid": 0,
+        "seconds": 47.52209666699491,
+        "current_relations_per_skill": [
+          3,
+          3,
+          3
+        ],
+        "current_total_relations": 9,
+        "r_propose": 0.5725137431284358,
+        "r_accept_given_crossing": 1.1070762441400265e-11,
+        "escape_probability_per_proposal": 6.338163644611766e-12,
+        "table_expected": {
+          "A_accepted_same_h": 3261.3119939582675,
+          "B_rejected_same_h": 1015.6880060417328,
+          "C_accepted_changed_h": 6.341332726434071e-08,
+          "D_rejected_changed_h": 5727.999999936586
+        },
+        "table_bernoulli": {
+          "A_accepted_same_h": 3263,
+          "B_rejected_same_h": 1014,
+          "C_accepted_changed_h": 0,
+          "D_rejected_changed_h": 5728
+        },
+        "acceptance_same_h": 0.7625232625574626,
+        "crossing_decomposition": {
+          "d_log_lik": {
+            "min": -3314.58017950018,
+            "q25": -324.84630344325046,
+            "median": -221.73622256094882,
+            "q75": -106.1542968898741,
+            "max": -21.558446041104617
+          },
+          "d_log_prior": {
+            "min": -6.630154154868496,
+            "q25": -0.5431502358335822,
+            "median": -0.1472357455654354,
+            "q75": 0.13824695297620648,
+            "max": 1.6768400297973116
+          },
+          "log_alpha": {
+            "min": -3315.9533564428216,
+            "q25": -325.12794176212276,
+            "median": -221.91320448164595,
+            "q75": -106.9814485226797,
+            "max": -21.44116525472394
+          },
+          "share_killed_by_likelihood": 1.0
+        },
+        "r_propose_by_skill_row": {
+          "k0_r0": 0.6596701649175413,
+          "k0_r1": 0.4362818590704648,
+          "k0_r2": 0.7391304347826086,
+          "k0_r3": 0.7016491754122939,
+          "k0_r4": 0.5157421289355323,
+          "k1_r0": 0.7151424287856072,
+          "k1_r1": 0.45577211394302847,
+          "k1_r2": 0.5142428785607196,
+          "k1_r3": 0.46776611694152925,
+          "k1_r4": 0.3523238380809595,
+          "k2_r0": 0.3328335832083958,
+          "k2_r1": 0.5262368815592204,
+          "k2_r2": 0.7646176911544228,
+          "k2_r3": 0.8110944527736131,
+          "k2_r4": 0.5952023988005997
+        },
+        "negative_control_max_same_h_dloglik": 0.0,
+        "checkpoint_sweep": 42000
+      },
+      "3": {
+        "n_proposals": 10005,
+        "n_invalid": 0,
+        "seconds": 45.74902066600043,
+        "current_relations_per_skill": [
+          3,
+          5,
+          7
+        ],
+        "current_total_relations": 15,
+        "r_propose": 0.4461769115442279,
+        "r_accept_given_crossing": 1.103936799541973e-20,
+        "escape_probability_per_proposal": 4.9255111175965694e-21,
+        "table_expected": {
+          "A_accepted_same_h": 4044.505976926787,
+          "B_rejected_same_h": 1496.494023073213,
+          "C_accepted_changed_h": 4.927973873155368e-17,
+          "D_rejected_changed_h": 4464.0
+        },
+        "table_bernoulli": {
+          "A_accepted_same_h": 4073,
+          "B_rejected_same_h": 1468,
+          "C_accepted_changed_h": 0,
+          "D_rejected_changed_h": 4464
+        },
+        "acceptance_same_h": 0.7299234753522446,
+        "crossing_decomposition": {
+          "d_log_lik": {
+            "min": -3050.0661558303245,
+            "q25": -500.7948692619866,
+            "median": -201.41414259247927,
+            "q75": -73.93290982947985,
+            "max": -40.97043613358039
+          },
+          "d_log_prior": {
+            "min": -6.642015686389035,
+            "q25": -0.5974464966669575,
+            "median": -0.125492228211054,
+            "q75": 0.22790092063154566,
+            "max": 3.01134859793261
+          },
+          "log_alpha": {
+            "min": -3052.044494997695,
+            "q25": -500.8147373643136,
+            "median": -202.2121603653169,
+            "q75": -75.67602739584417,
+            "max": -40.60650903306811
+          },
+          "share_killed_by_likelihood": 1.0
+        },
+        "r_propose_by_skill_row": {
+          "k0_r0": 0.5022488755622189,
+          "k0_r1": 0.2353823088455772,
+          "k0_r2": 0.17841079460269865,
+          "k0_r3": 0.36731634182908546,
+          "k0_r4": 0.2518740629685157,
+          "k1_r0": 0.6686656671664168,
+          "k1_r1": 0.6101949025487257,
+          "k1_r2": 0.3988005997001499,
+          "k1_r3": 0.424287856071964,
+          "k1_r4": 0.24287856071964017,
+          "k2_r0": 0.28335832083958024,
+          "k2_r1": 0.46326836581709147,
+          "k2_r2": 0.8185907046476761,
+          "k2_r3": 0.9685157421289355,
+          "k2_r4": 0.27886056971514245
+        },
+        "negative_control_max_same_h_dloglik": 0.0,
+        "checkpoint_sweep": 42000
+      }
+    },
+    "6e2_local": {
+      "0": {
+        "n_proposals": 10005,
+        "n_invalid": 0,
+        "seconds": 48.64349733299605,
+        "current_relations_per_skill": [
+          2,
+          3,
+          3
+        ],
+        "current_total_relations": 8,
+        "r_propose": 0.5887056471764118,
+        "r_accept_given_crossing": 1.4844060244430883e-13,
+        "escape_probability_per_proposal": 8.738782092923328e-14,
+        "table_expected": {
+          "A_accepted_same_h": 3049.635722510823,
+          "B_rejected_same_h": 1065.364277489177,
+          "C_accepted_changed_h": 8.74315148396979e-10,
+          "D_rejected_changed_h": 5889.999999999125
+        },
+        "table_bernoulli": {
+          "A_accepted_same_h": 3066,
+          "B_rejected_same_h": 1049,
+          "C_accepted_changed_h": 0,
+          "D_rejected_changed_h": 5890
+        },
+        "acceptance_same_h": 0.7411022411933956,
+        "crossing_decomposition": {
+          "d_log_lik": {
+            "min": -3646.8606691853984,
+            "q25": -502.2031511240432,
+            "median": -193.19274209458672,
+            "q75": -100.89806846695387,
+            "max": -26.430950469638674
+          },
+          "d_log_prior": {
+            "min": -4.9047006636956,
+            "q25": -0.5466782207397607,
+            "median": -0.11400909169499762,
+            "q75": 0.21569033131615534,
+            "max": 2.4006097407299354
+          },
+          "log_alpha": {
+            "min": -3647.469264714865,
+            "q25": -502.56118340837304,
+            "median": -192.74532958590356,
+            "q75": -101.08659191715692,
+            "max": -25.52274461574281
+          },
+          "share_killed_by_likelihood": 1.0
+        },
+        "r_propose_by_skill_row": {
+          "k0_r0": 0.8215892053973014,
+          "k0_r1": 0.5697151424287856,
+          "k0_r2": 0.47226386806596704,
+          "k0_r3": 0.3853073463268366,
+          "k0_r4": 0.46776611694152925,
+          "k1_r0": 0.7166416791604198,
+          "k1_r1": 0.5937031484257871,
+          "k1_r2": 0.3058470764617691,
+          "k1_r3": 0.39430284857571213,
+          "k1_r4": 0.6116941529235382,
+          "k2_r0": 0.7271364317841079,
+          "k2_r1": 0.4617691154422789,
+          "k2_r2": 0.8530734632683659,
+          "k2_r3": 0.8740629685157422,
+          "k2_r4": 0.5757121439280359
+        },
+        "negative_control_max_same_h_dloglik": 0.0,
+        "checkpoint_sweep": 135000
+      },
+      "1": {
+        "n_proposals": 10005,
+        "n_invalid": 0,
+        "seconds": 45.06496587499714,
+        "current_relations_per_skill": [
+          2,
+          5,
+          2
+        ],
+        "current_total_relations": 9,
+        "r_propose": 0.4549725137431284,
+        "r_accept_given_crossing": 3.3177237405111223e-12,
+        "escape_probability_per_proposal": 1.5094731101256e-12,
+        "table_expected": {
+          "A_accepted_same_h": 3975.748068547694,
+          "B_rejected_same_h": 1477.2519314523065,
+          "C_accepted_changed_h": 1.5102278466806628e-08,
+          "D_rejected_changed_h": 4551.999999984898
+        },
+        "table_bernoulli": {
+          "A_accepted_same_h": 3991,
+          "B_rejected_same_h": 1462,
+          "C_accepted_changed_h": 0,
+          "D_rejected_changed_h": 4552
+        },
+        "acceptance_same_h": 0.7290937224551062,
+        "crossing_decomposition": {
+          "d_log_lik": {
+            "min": -3659.7418736689715,
+            "q25": -483.99866326307983,
+            "median": -216.78782426500993,
+            "q75": -114.10242820633312,
+            "max": -21.866865665667433
+          },
+          "d_log_prior": {
+            "min": -7.194111652275758,
+            "q25": -0.6616179020038668,
+            "median": -0.09059869338782445,
+            "q75": 0.31929081104107215,
+            "max": 3.5001791015401036
+          },
+          "log_alpha": {
+            "min": -3659.530526141875,
+            "q25": -483.8637617911211,
+            "median": -216.71593474962026,
+            "q75": -114.48878883943192,
+            "max": -20.720097637775325
+          },
+          "share_killed_by_likelihood": 1.0
+        },
+        "r_propose_by_skill_row": {
+          "k0_r0": 0.2128935532233883,
+          "k0_r1": 0.6011994002998501,
+          "k0_r2": 0.7061469265367316,
+          "k0_r3": 0.13943028485757122,
+          "k0_r4": 0.48425787106446777,
+          "k1_r0": 0.23238380809595202,
+          "k1_r1": 0.2143928035982009,
+          "k1_r2": 0.5892053973013494,
+          "k1_r3": 0.631184407796102,
+          "k1_r4": 0.08995502248875563,
+          "k2_r0": 0.8215892053973014,
+          "k2_r1": 0.2818590704647676,
+          "k2_r2": 0.6281859070464768,
+          "k2_r3": 0.4962518740629685,
+          "k2_r4": 0.6956521739130435
+        },
+        "negative_control_max_same_h_dloglik": 0.0,
+        "checkpoint_sweep": 135000
+      },
+      "2": {
+        "n_proposals": 10005,
+        "n_invalid": 0,
+        "seconds": 47.197778250003466,
+        "current_relations_per_skill": [
+          4,
+          2,
+          2
+        ],
+        "current_total_relations": 8,
+        "r_propose": 0.5383308345827087,
+        "r_accept_given_crossing": 1.740065845696263e-17,
+        "escape_probability_per_proposal": 9.36731098942536e-18,
+        "table_expected": {
+          "A_accepted_same_h": 3482.5352944176657,
+          "B_rejected_same_h": 1136.4647055823345,
+          "C_accepted_changed_h": 9.371994644920073e-14,
+          "D_rejected_changed_h": 5386.0
+        },
+        "table_bernoulli": {
+          "A_accepted_same_h": 3504,
+          "B_rejected_same_h": 1115,
+          "C_accepted_changed_h": 0,
+          "D_rejected_changed_h": 5386
+        },
+        "acceptance_same_h": 0.7539587127988019,
+        "crossing_decomposition": {
+          "d_log_lik": {
+            "min": -3162.882704054803,
+            "q25": -578.0518941289247,
+            "median": -284.80029396586656,
+            "q75": -156.7723361549597,
+            "max": -32.219160047932974
+          },
+          "d_log_prior": {
+            "min": -4.827686368622931,
+            "q25": -0.5586630980908085,
+            "median": -0.16883142001064133,
+            "q75": 0.16732037697706836,
+            "max": 2.014976426477322
+          },
+          "log_alpha": {
+            "min": -3163.753591467844,
+            "q25": -578.0204100508139,
+            "median": -285.0118289863201,
+            "q75": -156.709977338986,
+            "max": -32.81450961614578
+          },
+          "share_killed_by_likelihood": 1.0
+        },
+        "r_propose_by_skill_row": {
+          "k0_r0": 0.8260869565217391,
+          "k0_r1": 0.8875562218890555,
+          "k0_r2": 0.5757121439280359,
+          "k0_r3": 0.48875562218890556,
+          "k0_r4": 0.44227886056971516,
+          "k1_r0": 0.4407796101949025,
+          "k1_r1": 0.5982008995502249,
+          "k1_r2": 0.6011994002998501,
+          "k1_r3": 0.19490254872563717,
+          "k1_r4": 0.44227886056971516,
+          "k2_r0": 0.5967016491754122,
+          "k2_r1": 0.3523238380809595,
+          "k2_r2": 0.6191904047976012,
+          "k2_r3": 0.7646176911544228,
+          "k2_r4": 0.24437781109445278
+        },
+        "negative_control_max_same_h_dloglik": 0.0,
+        "checkpoint_sweep": 135000
+      },
+      "3": {
+        "n_proposals": 10005,
+        "n_invalid": 0,
+        "seconds": 44.83184999999503,
+        "current_relations_per_skill": [
+          3,
+          4,
+          6
+        ],
+        "current_total_relations": 13,
+        "r_propose": 0.4881559220389805,
+        "r_accept_given_crossing": 2.1219751379525783e-20,
+        "escape_probability_per_proposal": 1.0358547300110336e-20,
+        "table_expected": {
+          "A_accepted_same_h": 3795.88369706712,
+          "B_rejected_same_h": 1325.1163029328795,
+          "C_accepted_changed_h": 1.0363726573760392e-16,
+          "D_rejected_changed_h": 4884.0
+        },
+        "table_bernoulli": {
+          "A_accepted_same_h": 3797,
+          "B_rejected_same_h": 1324,
+          "C_accepted_changed_h": 0,
+          "D_rejected_changed_h": 4884
+        },
+        "acceptance_same_h": 0.7412387613878383,
+        "crossing_decomposition": {
+          "d_log_lik": {
+            "min": -3259.3899026388717,
+            "q25": -335.64201341582657,
+            "median": -151.7131984929033,
+            "q75": -122.61697791298798,
+            "max": -39.25305310847523
+          },
+          "d_log_prior": {
+            "min": -6.118072864021851,
+            "q25": -0.8167873350246193,
+            "median": -0.092257695314796,
+            "q75": 0.4844218584590032,
+            "max": 3.2534844755521313
+          },
+          "log_alpha": {
+            "min": -3261.1668636322092,
+            "q25": -335.0735984666356,
+            "median": -151.4644414004913,
+            "q75": -123.15502019100612,
+            "max": -39.11456509832368
+          },
+          "share_killed_by_likelihood": 1.0
+        },
+        "r_propose_by_skill_row": {
+          "k0_r0": 0.7301349325337332,
+          "k0_r1": 0.39580209895052476,
+          "k0_r2": 0.8875562218890555,
+          "k0_r3": 0.42128935532233885,
+          "k0_r4": 0.5877061469265368,
+          "k1_r0": 0.5142428785607196,
+          "k1_r1": 0.545727136431784,
+          "k1_r2": 0.25337331334332835,
+          "k1_r3": 0.25487256371814093,
+          "k1_r4": 0.1874062968515742,
+          "k2_r0": 0.5652173913043478,
+          "k2_r1": 0.21739130434782608,
+          "k2_r2": 0.775112443778111,
+          "k2_r3": 0.6251874062968515,
+          "k2_r4": 0.3613193403298351
+        },
+        "negative_control_max_same_h_dloglik": 0.0,
+        "checkpoint_sweep": 135000
+      }
+    }
+  }
+}

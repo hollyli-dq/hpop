@@ -1,0 +1,397 @@
+{
+  "label": "optimised",
+  "table_source": "fast",
+  "source_commit": "cacc1634b14ef0f4cbc54d22824cd43e76f6c4ac",
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "corpus_hash": "02be246edf9bd4f4148efa3a3e269afa10b21df53173c7273b5a4deb9e30c941",
+  "measured_under_contention": true,
+  "contention_note": "the Stage 6E2 LocalMoveKernel baseline was running on the same machine; every wall clock here is pessimistic and the before/after comparison is made under the same conditions",
+  "phases": {
+    "table_source": "fast",
+    "n_traces": 100,
+    "trace_length": {
+      "mean": 31.99,
+      "min": 16,
+      "max": 52
+    },
+    "n_candidate_blocks": 76470,
+    "phase_1_block_score_construction": {
+      "wall_seconds": 0.04342541703954339,
+      "cpu_seconds": 0.05599199999999982,
+      "repeats": 3
+    },
+    "phase_2_and_3_allocation_and_layout": {
+      "wall_seconds": 0.0028601670637726784,
+      "cpu_seconds": 0.0027770000000000294,
+      "repeats": 3
+    },
+    "phase_4_forward_chart_FROZEN_ENGINE": {
+      "wall_seconds": 1.1952503329375759,
+      "cpu_seconds": 1.1823559999999995,
+      "repeats": 3
+    },
+    "phase_5_backward_draw_FROZEN_ENGINE": {
+      "wall_seconds": 0.01975450001191348,
+      "cpu_seconds": 0.019705000000000084,
+      "repeats": 3
+    },
+    "phase_6_pi_P_update": {
+      "wall_seconds": 7.920799544081092e-05,
+      "cpu_seconds": 7.950000000001012e-05,
+      "repeats": 20
+    },
+    "phase_7_parameter_phase": {
+      "wall_seconds": 0.042803665972314775,
+      "cpu_seconds": 0.04208299999999987,
+      "repeats": 3
+    },
+    "phase_7a_zero_proposal_segmentation_target_evaluations": {
+      "wall_seconds": 0.0012541250325739384,
+      "cpu_seconds": 0.0012259999999999494,
+      "repeats": 3,
+      "uncached_block_replays": 1036,
+      "note": "the Stage 6E segmentation phase evaluates each trace's target once even at zero proposals; Step 7B does not need that value"
+    },
+    "phase_8_total_sweep": {
+      "wall_seconds": 1.3545507499948144,
+      "cpu_seconds": 1.3421880000000002,
+      "repeats": 3
+    },
+    "attribution_fraction_of_sweep": {
+      "block_scores": 0.03205890738291617,
+      "forward_chart": 0.8823961250194219,
+      "backward_draw": 0.014583802055396673,
+      "parameter_phase": 0.0315998983223616
+    },
+    "scorer_calls": {
+      "full_replays": 1036,
+      "cached": 2072
+    },
+    "peak_rss_bytes": 150142976
+  },
+  "scaling": [
+    {
+      "J": 8,
+      "K": 1,
+      "n_candidate_blocks": 21,
+      "block_table": {
+        "wall_seconds": 0.0004125830018892884,
+        "cpu_seconds": 0.00041199999999896875,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.0007299999706447124,
+        "cpu_seconds": 0.0007310000000000372,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 3.3374468330293894e-05,
+        "cpu_seconds": 3.399999999942338e-05,
+        "repeats": 20
+      },
+      "log_normalizer": -24.620456282607844
+    },
+    {
+      "J": 8,
+      "K": 2,
+      "n_candidate_blocks": 42,
+      "block_table": {
+        "wall_seconds": 0.0009402079740539193,
+        "cpu_seconds": 0.0009410000000009688,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.0020702079636976123,
+        "cpu_seconds": 0.002071000000000822,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 5.8291538152843714e-05,
+        "cpu_seconds": 5.799999999922534e-05,
+        "repeats": 20
+      },
+      "log_normalizer": -12.429630963325936
+    },
+    {
+      "J": 24,
+      "K": 2,
+      "n_candidate_blocks": 350,
+      "block_table": {
+        "wall_seconds": 0.0013872920535504818,
+        "cpu_seconds": 0.0013870000000011373,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.005200334009714425,
+        "cpu_seconds": 0.005171000000000703,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 0.0001506044645793736,
+        "cpu_seconds": 0.00015100000000067837,
+        "repeats": 20
+      },
+      "log_normalizer": -42.38418683824783
+    },
+    {
+      "J": 48,
+      "K": 2,
+      "n_candidate_blocks": 830,
+      "block_table": {
+        "wall_seconds": 0.0017129589105024934,
+        "cpu_seconds": 0.001682999999999879,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.012067666044458747,
+        "cpu_seconds": 0.012060999999999211,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 0.00020122947171330452,
+        "cpu_seconds": 0.00020099999999967366,
+        "repeats": 20
+      },
+      "log_normalizer": -88.01013145906846
+    },
+    {
+      "J": 96,
+      "K": 2,
+      "n_candidate_blocks": 1790,
+      "block_table": {
+        "wall_seconds": 0.0019539999775588512,
+        "cpu_seconds": 0.001953999999999567,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.026345457998104393,
+        "cpu_seconds": 0.02617400000000103,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 0.0006348334718495607,
+        "cpu_seconds": 0.0006215000000002746,
+        "repeats": 20
+      },
+      "log_normalizer": -172.99662845176422
+    },
+    {
+      "J": 8,
+      "K": 3,
+      "n_candidate_blocks": 63,
+      "block_table": {
+        "wall_seconds": 0.0035857500042766333,
+        "cpu_seconds": 0.0027870000000014272,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.0030278750928118825,
+        "cpu_seconds": 0.0029479999999999507,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 6.199994822964072e-05,
+        "cpu_seconds": 6.199999999978445e-05,
+        "repeats": 20
+      },
+      "log_normalizer": -17.19298383222134
+    },
+    {
+      "J": 24,
+      "K": 3,
+      "n_candidate_blocks": 525,
+      "block_table": {
+        "wall_seconds": 0.00239762500859797,
+        "cpu_seconds": 0.002359000000000222,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.009092041989788413,
+        "cpu_seconds": 0.00900800000000146,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 0.00011885457206517458,
+        "cpu_seconds": 0.00011999999999989797,
+        "repeats": 20
+      },
+      "log_normalizer": -47.856918527834786
+    },
+    {
+      "J": 48,
+      "K": 3,
+      "n_candidate_blocks": 1245,
+      "block_table": {
+        "wall_seconds": 0.0027981660095974803,
+        "cpu_seconds": 0.002753999999999479,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.01858858298510313,
+        "cpu_seconds": 0.018387000000000597,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 0.00024787505390122533,
+        "cpu_seconds": 0.000248000000000026,
+        "repeats": 20
+      },
+      "log_normalizer": -88.66747563011162
+    },
+    {
+      "J": 96,
+      "K": 3,
+      "n_candidate_blocks": 2685,
+      "block_table": {
+        "wall_seconds": 0.004201292060315609,
+        "cpu_seconds": 0.0041569999999993,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.0404329999582842,
+        "cpu_seconds": 0.04027000000000136,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 0.0006155834998935461,
+        "cpu_seconds": 0.0006160000000008381,
+        "repeats": 20
+      },
+      "log_normalizer": -178.39397432493624
+    },
+    {
+      "skipped_combinations": [
+        {
+          "J": 24,
+          "K": 1,
+          "reason": "no legal path: K = 1 forbids self-transitions so only a single block is legal, and J > max_width = 12"
+        },
+        {
+          "J": 48,
+          "K": 1,
+          "reason": "no legal path: K = 1 forbids self-transitions so only a single block is legal, and J > max_width = 12"
+        },
+        {
+          "J": 96,
+          "K": 1,
+          "reason": "no legal path: K = 1 forbids self-transitions so only a single block is legal, and J > max_width = 12"
+        }
+      ]
+    }
+  ],
+  "hot_functions": {
+    "n_sweeps": 2,
+    "top": [
+      {
+        "function": "recurrent_joint_ffbs_mcmc.py:313(ffbs_sweep_once)",
+        "calls_per_sweep": 1.0,
+        "total_seconds": 0.00030366400000000004,
+        "cumulative_seconds": 5.346467208
+      },
+      {
+        "function": "recurrent_joint_ffbs_mcmc.py:257(ffbs_segmentation_draw)",
+        "calls_per_sweep": 1.0,
+        "total_seconds": 0.004412851000000001,
+        "cumulative_seconds": 5.019581791
+      },
+      {
+        "function": "semi_markov_ffbs.py:188(forward)",
+        "calls_per_sweep": 100.0,
+        "total_seconds": 0.123807233,
+        "cumulative_seconds": 4.907697956000001
+      },
+      {
+        "function": "_logsumexp.py:15(logsumexp)",
+        "calls_per_sweep": 9097.0,
+        "total_seconds": 0.396464217,
+        "cumulative_seconds": 3.69245685
+      },
+      {
+        "function": "_logsumexp.py:201(_logsumexp)",
+        "calls_per_sweep": 9097.0,
+        "total_seconds": 0.6653303930000001,
+        "cumulative_seconds": 2.350962548
+      },
+      {
+        "function": "semi_markov_ffbs.py:139(predecessor_terms)",
+        "calls_per_sweep": 10064.0,
+        "total_seconds": 0.830205572,
+        "cumulative_seconds": 1.129176247
+      },
+      {
+        "function": "_at.py:362(set)",
+        "calls_per_sweep": 18200.0,
+        "total_seconds": 0.025090074,
+        "cumulative_seconds": 0.6100651850000001
+      },
+      {
+        "function": "_at.py:224(_op)",
+        "calls_per_sweep": 18200.0,
+        "total_seconds": 0.22372487400000002,
+        "cumulative_seconds": 0.584975111
+      },
+      {
+        "function": "_array_api.py:544(xp_promote)",
+        "calls_per_sweep": 9097.0,
+        "total_seconds": 0.137413265,
+        "cumulative_seconds": 0.44090627400000004
+      },
+      {
+        "function": "fromnumeric.py:66(_wrapreduction)",
+        "calls_per_sweep": 38300.5,
+        "total_seconds": 0.144402854,
+        "cumulative_seconds": 0.40395553900000003
+      },
+      {
+        "function": "fromnumeric.py:2304(sum)",
+        "calls_per_sweep": 27291.0,
+        "total_seconds": 0.076155584,
+        "cumulative_seconds": 0.372557595
+      },
+      {
+        "function": "numerictypes.py:385(isdtype)",
+        "calls_per_sweep": 36388.0,
+        "total_seconds": 0.116426948,
+        "cumulative_seconds": 0.33168730100000005
+      },
+      {
+        "function": "_internal.py:33(wrapped_f)",
+        "calls_per_sweep": 18197.0,
+        "total_seconds": 0.034136205,
+        "cumulative_seconds": 0.30445531200000003
+      },
+      {
+        "function": "_logsumexp.py:169(_elements_and_indices_with_max_real)",
+        "calls_per_sweep": 9097.0,
+        "total_seconds": 0.070649393,
+        "cumulative_seconds": 0.282756204
+      },
+      {
+        "function": "~:0(<method 'reduce' of 'numpy.ufunc' objects>)",
+        "calls_per_sweep": 41738.5,
+        "total_seconds": 0.27576074700000003,
+        "cumulative_seconds": 0.27576074700000003
+      },
+      {
+        "function": "_aliases.py:631(sign)",
+        "calls_per_sweep": 18194.0,
+        "total_seconds": 0.093928036,
+        "cumulative_seconds": 0.270283443
+      },
+      {
+        "function": "stage6e_sampler.py:358(sweep_once)",
+        "calls_per_sweep": 1.0,
+        "total_seconds": 0.001599139,
+        "cumulative_seconds": 0.226422374
+      },
+      {
+        "function": "~:0(<method 'append' of 'list' objects>)",
+        "calls_per_sweep": 465952.5,
+        "total_seconds": 0.189597435,
+        "cumulative_seconds": 0.189597435
+      }
+    ],
+    "text": "         4706019 function calls (4705995 primitive calls) in 5.343 seconds\n\n   Ordered by: cumulative time\n   List reduced from 333 to 18 due to restriction <18>\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        2    0.000    0.000    5.346    2.673 /Users/dongqing/Desktop/hpop-step7/src/hpop/mcmc_original/recurrent_joint_ffbs_mcmc.py:313(ffbs_sweep_once)\n        2    0.004    0.002    5.020    2.510 /Users/dongqing/Desktop/hpop-step7/src/hpop/mcmc_original/recurrent_joint_ffbs_mcmc.py:257(ffbs_segmentation_draw)\n      200    0.124    0.001    4.908    0.025 /Users/dongqing/Desktop/hpop-step7/src/hpop/mcmc_original/semi_markov_ffbs.py:188(forward)\n    18194    0.396    0.000    3.692    0.000 /Users/dongqing/Desktop/hpop/.venv/lib/python3.13/site-packages/scipy/special/_logsumexp.py:15(logsumexp)\n    18194    0.665    0.000    2.351    0.000 /Users/dongqing/Desktop/hpop/.venv/lib/python3.13/site-packages/scipy/special/_logsumexp.py:201(_logsumexp)\n    20128    0.830    0.000    1.129    0.000 /Users/dongqing/Desktop/hpop-step7/src/hpop/mcmc_original/semi_markov_ffbs.py:139(predecessor_terms)\n    36400    0.025    0.000    0.610    0.000 /Users/dongqing/Desktop/hpop/.venv/lib/python3.13/site-packages/scipy/_external/array_api_extra/_lib/_at.py:362(set)\n    36400    0.224    0.000    0.585    0.000 /Users/dongqing/Desktop/hpop/.venv/lib/python3.13/site-packages/scipy/_external/array_api_extra/_lib/_at.py:224(_op)\n    18194    0.137    0.000    0.441    0.000 /Users/dongqing/Desktop/hpop/.venv/lib/python3.13/site-packages/scipy/_lib/_array_api.py:544(xp_promote)\n    76601    0.144    0.000    0.404    0.000 /Users/dongqing/Desktop/hpop/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py:66(_wrapreduction)\n    54582    0.076    0.000    0.373    0.000 /Users/dongqing/Desktop/hpop/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py:2304(sum)\n    72776    0.116    0.000    0.332    0.000 /Users/dongqing/Desktop/hpop/.venv/lib/python3.13/site-packages/numpy/_core/numerictypes.py:385(isdtype)\n    36394    0.034    0.000    0.304    0.000 /Users/dongqing/Desktop/hpop/.venv/lib/python3.13/site-packages/scipy/_external/array_api_compat/_internal.py:33(wrapped_f)\n    18194    0.071    0.000    0.283    0.000 /Users/dongqing/Desktop/hpop/.venv/lib/python3.13/site-packages/scipy/special/_logsumexp.py:169(_elements_and_indices_with_max_real)\n    83477    0.276    0.000    0.276    0.000 {method 'reduce' of 'numpy.ufunc' objects}\n    36388    0.094    0.000    0.270    0.000 /Users/dongqing/Desktop/hpop/.venv/lib/python3.13/site-packages/scipy/_external/array_api_compat/common/_aliases.py:631(sign)\n        2    0.002    0.001    0.226    0.113 /Users/dongqing/Desktop/hpop-step7/src/hpop/mcmc_original/stage6e_sampler.py:358(sweep_once)\n   931905    0.190    0.000    0.190    0.000 {method 'append' of 'list' objects}\n\n\n"
+  }
+}

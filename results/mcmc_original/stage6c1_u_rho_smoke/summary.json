@@ -1,0 +1,25 @@
+{
+  "checks": {
+    "legal_u_proposals": true,
+    "accepted_u_proposals": true,
+    "rejected_u_proposals": true,
+    "rho_moved": true,
+    "all_targets_finite": true,
+    "q_zero_reset": true,
+    "rejection_safe": true,
+    "cache_parity": true,
+    "deterministic_resume": true,
+    "diagnostics_ran": true
+  },
+  "failed_checks": [],
+  "all_passed": true,
+  "stage": "6c1",
+  "n_sweeps": 300,
+  "u_acceptance": 0.346,
+  "rho_acceptance": 0.8366666666666667,
+  "rho_range": [
+    0.0017496327480061237,
+    0.8360587415761401
+  ],
+  "final_relation_count": 6
+}

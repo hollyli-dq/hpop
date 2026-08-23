@@ -1,0 +1,287 @@
+{
+  "LABEL": "POST-HOC DIAGNOSTIC SENSITIVITY \u2014 NOT THE FORMAL VERDICT",
+  "alternative_rule": "For a Bernoulli probe whose 5% and 95% quantile indicators are both constant, tail ESS is undefined; treat it as not applicable and require R-hat <= 1.01, bulk ESS >= 400, and MCSE of the posterior probability <= 0.01.",
+  "arms": {
+    "FULL-COND": {
+      "canonical_library_under_alternative": {
+        "note": "rhat 3.1140 > 1.01; bulk ESS 4.5 < 400; tail ESS 5.0 < 400",
+        "pass": false
+      },
+      "n_reclassified": 0,
+      "n_still_failing": 129,
+      "reclassified_as_not_applicable": [],
+      "registered_failures": 130,
+      "registered_verdict": "FAIL",
+      "still_failing": [
+        [
+          "P_frobenius",
+          "rhat 1.2606 > 1.01; bulk ESS 11.2 < 400; tail ESS 36.2 < 400"
+        ],
+        [
+          "P_trace2",
+          "rhat 1.6926 > 1.01; bulk ESS 6.2 < 400; tail ESS 34.6 < 400"
+        ],
+        [
+          "P_trace3",
+          "rhat 1.6926 > 1.01; bulk ESS 6.2 < 400; tail ESS 34.6 < 400"
+        ],
+        [
+          "boundary_probes[0]",
+          "rhat 1.0395 > 1.01; bulk ESS 59.9 < 400; tail ESS 59.9 < 400"
+        ],
+        [
+          "boundary_probes[10]",
+          "rhat 1.0238 > 1.01; bulk ESS 106.5 < 400; tail ESS 106.5 < 400"
+        ],
+        [
+          "boundary_probes[11]",
+          "rhat 1.1297 > 1.01; bulk ESS 19.2 < 400; tail ESS 19.2 < 400"
+        ],
+        [
+          "boundary_probes[12]",
+          "rhat 1.0648 > 1.01; bulk ESS 35.9 < 400; tail ESS 35.9 < 400"
+        ],
+        [
+          "boundary_probes[13]",
+          "rhat 1.2841 > 1.01; bulk ESS 10.3 < 400; tail ESS 10.3 < 400"
+        ],
+        [
+          "boundary_probes[15]",
+          "rhat 1.3979 > 1.01; bulk ESS 8.3 < 400; tail ESS 8.3 < 400"
+        ],
+        [
+          "boundary_probes[16]",
+          "rhat 1.0119 > 1.01; bulk ESS 301.3 < 400; tail ESS 301.3 < 400"
+        ],
+        [
+          "boundary_probes[17]",
+          "rhat 1.4392 > 1.01; bulk ESS 7.8 < 400; tail ESS 7.8 < 400"
+        ],
+        [
+          "boundary_probes[18]",
+          "rhat 1.0396 > 1.01; bulk ESS 60.6 < 400; tail ESS 60.6 < 400"
+        ],
+        [
+          "boundary_probes[19]",
+          "rhat 1.0132 > 1.01; bulk ESS 206.6 < 400; tail ESS 206.6 < 400"
+        ],
+        [
+          "boundary_probes[1]",
+          "rhat 1.0913 > 1.01; bulk ESS 26.2 < 400; tail ESS 26.2 < 400"
+        ],
+        [
+          "boundary_probes[20]",
+          "rhat 1.0587 > 1.01; bulk ESS 40.6 < 400; tail ESS 40.6 < 400"
+        ],
+        [
+          "boundary_probes[21]",
+          "rhat 1.0115 > 1.01; bulk ESS 361.7 < 400; tail ESS 361.7 < 400"
+        ],
+        [
+          "boundary_probes[22]",
+          "rhat 1.1950 > 1.01; bulk ESS 13.6 < 400; tail ESS 13.6 < 400"
+        ],
+        [
+          "boundary_probes[24]",
+          "rhat 1.0260 > 1.01; bulk ESS 95.0 < 400; tail ESS 95.0 < 400"
+        ],
+        [
+          "boundary_probes[25]",
+          "rhat 1.0758 > 1.01; bulk ESS 31.0 < 400; tail ESS 31.0 < 400"
+        ],
+        [
+          "boundary_probes[26]",
+          "rhat 1.0542 > 1.01; bulk ESS 43.8 < 400; tail ESS 43.8 < 400"
+        ],
+        [
+          "boundary_probes[28]",
+          "rhat 1.0464 > 1.01; bulk ESS 49.9 < 400; tail ESS 49.9 < 400"
+        ],
+        [
+          "boundary_probes[29]",
+          "rhat 1.0265 > 1.01; bulk ESS 92.5 < 400; tail ESS 92.5 < 400"
+        ],
+        [
+          "boundary_probes[2]",
+          "rhat 1.2321 > 1.01; bulk ESS 11.9 < 400; tail ESS 11.9 < 400"
+        ],
+        [
+          "boundary_probes[30]",
+          "rhat 1.0529 > 1.01; bulk ESS 46.7 < 400; tail ESS 46.7 < 400"
+        ],
+        [
+          "boundary_probes[31]",
+          "rhat 1.0703 > 1.01; bulk ESS 34.2 < 400; tail ESS 34.2 < 400"
+        ],
+        [
+          "boundary_probes[3]",
+          "rhat 1.0495 > 1.01; bulk ESS 48.4 < 400; tail ESS 48.4 < 400"
+        ],
+        [
+          "boundary_probes[4]",
+          "rhat 1.0179 > 1.01; bulk ESS 151.5 < 400; tail ESS 151.5 < 400"
+        ],
+        [
+          "boundary_probes[5]",
+          "rhat 1.0469 > 1.01; bulk ESS 50.6 < 400; tail ESS 50.6 < 400"
+        ],
+        [
+          "boundary_probes[9]",
+          "rhat 1.0751 > 1.01; bulk ESS 31.7 < 400; tail ESS 31.7 < 400"
+        ],
+        [
+          "coskill_probes[0]",
+          "rhat 1.0920 > 1.01; bulk ESS 26.0 < 400; tail ESS 26.0 < 400"
+        ],
+        [
+          "coskill_probes[10]",
+          "rhat 1.5886 > 1.01; bulk ESS 6.7 < 400; tail ESS 6.7 < 400"
+        ],
+        [
+          "coskill_probes[11]",
+          "rhat 1.4640 > 1.01; bulk ESS 7.6 < 400; tail ESS 7.6 < 400"
+        ],
+        [
+          "coskill_probes[12]",
+          "rhat 1.1822 > 1.01; bulk ESS 14.3 < 400; tail ESS 14.3 < 400"
+        ],
+        [
+          "coskill_probes[13]",
+          "rhat 1.0324 > 1.01; bulk ESS 71.8 < 400; tail ESS 71.8 < 400"
+        ],
+        [
+          "coskill_probes[14]",
+          "rhat 1.1099 > 1.01; bulk ESS 22.0 < 400; tail ESS 22.0 < 400"
+        ],
+        [
+          "coskill_probes[15]",
+          "rhat 1.0793 > 1.01; bulk ESS 29.3 < 400; tail ESS 29.3 < 400"
+        ],
+        [
+          "coskill_probes[16]",
+          "rhat 1.1465 > 1.01; bulk ESS 17.1 < 400; tail ESS 17.1 < 400"
+        ],
+        [
+          "coskill_probes[17]",
+          "rhat 1.1018 > 1.01; bulk ESS 23.5 < 400; tail ESS 23.5 < 400"
+        ],
+        [
+          "coskill_probes[18]",
+          "rhat 1.0908 > 1.01; bulk ESS 26.5 < 400; tail ESS 26.5 < 400"
+        ],
+        [
+          "coskill_probes[19]",
+          "rhat 1.1147 > 1.01; bulk ESS 21.1 < 400; tail ESS 21.1 < 400"
+        ]
+      ],
+      "verdict_under_alternative_rule": "FAIL"
+    },
+    "FULL-MARG": {
+      "canonical_library_under_alternative": {
+        "note": "branch (a); precondition 4 recomputed under the alternative rule: satisfied",
+        "pass": true
+      },
+      "n_reclassified": 11,
+      "n_still_failing": 0,
+      "reclassified_as_not_applicable": [
+        {
+          "bulk_ess": 80047.23194900519,
+          "mcse_probability": 5.1518138135710556e-05,
+          "posterior_probability": 0.9997875,
+          "rhat": 1.0000201843791934,
+          "summary": "coskill_probes[11]",
+          "would_pass_under_alternative": true
+        },
+        {
+          "bulk_ess": 79398.9629295334,
+          "mcse_probability": 0.00034290747001338,
+          "posterior_probability": 0.990575,
+          "rhat": 0.9999972424753135,
+          "summary": "coskill_probes[17]",
+          "would_pass_under_alternative": true
+        },
+        {
+          "bulk_ess": 80376.23789051553,
+          "mcse_probability": 0.00016712379540132557,
+          "posterior_probability": 0.99775,
+          "rhat": 1.00000918094473,
+          "summary": "coskill_probes[2]",
+          "would_pass_under_alternative": true
+        },
+        {
+          "bulk_ess": 79818.86330099952,
+          "mcse_probability": 0.0007429181410543219,
+          "posterior_probability": 0.9538125,
+          "rhat": 0.9999855857922472,
+          "summary": "coskill_probes[37]",
+          "would_pass_under_alternative": true
+        },
+        {
+          "bulk_ess": 80095.5916542755,
+          "mcse_probability": 7.898999648404557e-05,
+          "posterior_probability": 0.9995,
+          "rhat": 0.9999642911513426,
+          "summary": "coskill_probes[3]",
+          "would_pass_under_alternative": true
+        },
+        {
+          "bulk_ess": 80278.28067365476,
+          "mcse_probability": 0.0006443744747930899,
+          "posterior_probability": 0.965475,
+          "rhat": 0.9999685448530201,
+          "summary": "coskill_probes[40]",
+          "would_pass_under_alternative": true
+        },
+        {
+          "bulk_ess": 78965.53481366213,
+          "mcse_probability": 0.0004158891455414252,
+          "posterior_probability": 0.98615,
+          "rhat": 1.000005330346575,
+          "summary": "coskill_probes[47]",
+          "would_pass_under_alternative": true
+        },
+        {
+          "bulk_ess": 80047.23194900519,
+          "mcse_probability": 5.1518138135710556e-05,
+          "posterior_probability": 0.9997875,
+          "rhat": 1.0000201843791934,
+          "summary": "same_segment_probes[11]",
+          "would_pass_under_alternative": true
+        },
+        {
+          "bulk_ess": 79398.9629295334,
+          "mcse_probability": 0.00034290747001338,
+          "posterior_probability": 0.990575,
+          "rhat": 0.9999972424753135,
+          "summary": "same_segment_probes[17]",
+          "would_pass_under_alternative": true
+        },
+        {
+          "bulk_ess": 80041.83741505106,
+          "mcse_probability": 0.00021242561864575816,
+          "posterior_probability": 0.996375,
+          "rhat": 1.0000155586887238,
+          "summary": "same_segment_probes[2]",
+          "would_pass_under_alternative": true
+        },
+        {
+          "bulk_ess": 80095.5916542755,
+          "mcse_probability": 7.898999648404557e-05,
+          "posterior_probability": 0.9995,
+          "rhat": 0.9999642911513426,
+          "summary": "same_segment_probes[3]",
+          "would_pass_under_alternative": true
+        }
+      ],
+      "registered_failures": 12,
+      "registered_verdict": "FAIL",
+      "still_failing": [],
+      "verdict_under_alternative_rule": "PASS"
+    }
+  },
+  "chosen_after_seeing_results": true,
+  "registered_verdicts_unchanged": {
+    "FULL-COND": "FAIL",
+    "FULL-MARG": "FAIL"
+  }
+}

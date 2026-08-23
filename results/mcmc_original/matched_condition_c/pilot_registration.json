@@ -1,0 +1,54 @@
+{
+  "acceptance_band": [
+    0.2,
+    0.6
+  ],
+  "may_inspect": [
+    "acceptance",
+    "ESJD",
+    "H-change counts",
+    "runtime",
+    "numerical health"
+  ],
+  "must_not_inspect": [
+    "truth recovery",
+    "relation F1",
+    "Hamming to H*",
+    "posterior truth coverage",
+    "held-out likelihood",
+    "formal R-hat"
+  ],
+  "stage1": {
+    "central": 0.5,
+    "every": 0,
+    "seeds": [
+      6203201,
+      6203202,
+      6203203
+    ],
+    "sweeps": 300,
+    "u_scale_grid": [
+      0.25,
+      0.5,
+      1.0
+    ]
+  },
+  "stage1_rule": "acceptance in band -> max per-proposal ESJD; else closest to band, band never widened",
+  "stage2": {
+    "collapsed_scale_grid": [
+      0.25,
+      0.5,
+      1.0
+    ],
+    "every": 10,
+    "seeds": [
+      6203204,
+      6203205,
+      6203206
+    ],
+    "sweeps": 600
+  },
+  "stage2_rule": "collapsed acceptance in band -> LARGEST admissible scale (monotone ESJD proxy for a symmetric row walk); else closest to band, band never widened",
+  "start_scale": 1.5,
+  "start_seed": 6203211
+}

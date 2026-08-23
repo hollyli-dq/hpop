@@ -1,0 +1,78 @@
+{
+  "attempt_log": [
+    {
+      "accepted": false,
+      "attempt": 1,
+      "reason": {
+        "excitation_below_threshold": {
+          "E_min_instances_per_skill": [
+            85,
+            90
+          ],
+          "E_min_occurrences_per_skill": [
+            597,
+            600
+          ]
+        }
+      }
+    },
+    {
+      "accepted": true,
+      "attempt": 2,
+      "reason": null
+    }
+  ],
+  "attempts_used": 2,
+  "excitation_of_accepted_truth_SEALED": {
+    "A_progress_variation_count": 3178,
+    "A_progress_variation_frac": 0.8827777777777778,
+    "B_repetition_count": 1910,
+    "B_repetition_frac": 0.5305555555555556,
+    "C_backward_disruption_count": 944,
+    "C_backward_disruption_frac": 0.26222222222222225,
+    "D_partial_invalidation_count": 913,
+    "E_min_instances_per_skill": 157,
+    "E_min_occurrences_per_skill": 1020,
+    "total_steps": 3600
+  },
+  "frozen_excitation_thresholds": {
+    "A_progress_variation_frac": 0.7,
+    "B_repetition_frac": 0.45,
+    "C_backward_disruption_frac": 0.14,
+    "D_partial_invalidation_count": 500,
+    "E_min_instances_per_skill": 90,
+    "E_min_occurrences_per_skill": 600
+  },
+  "rejections": [
+    {
+      "accepted": false,
+      "attempt": 1,
+      "reason": {
+        "excitation_below_threshold": {
+          "E_min_instances_per_skill": [
+            85,
+            90
+          ],
+          "E_min_occurrences_per_skill": [
+            597,
+            600
+          ]
+        }
+      }
+    }
+  ],
+  "seal_rule": "opened only after the truth-free full-joint terminal report is committed",
+  "sealed": true,
+  "truth_seed_base": 6310002,
+  "truth_sha256": "0853e2fdd0ddd4aa1b91b786ec71a9b1bdb9c2c0b1f0057be4d9aa556a73ddc9",
+  "validation": {
+    "parity": 1.4210854715202004e-14,
+    "q0": 3.552713678800501e-15,
+    "section4": {
+      "cover_mismatch": 0,
+      "illegal_width": 0,
+      "nonfinite_block_ll": 0,
+      "self_transition": 0
+    }
+  }
+}

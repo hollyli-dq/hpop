@@ -1,0 +1,17 @@
+{
+  "verdict": "ESTIMATOR ARTIFACT / SERIAL DEPENDENCE SUPPORTED",
+  "over_2p33_by_length": {
+    "2": 0,
+    "5": 0,
+    "10": 0
+  },
+  "controls_pass": true,
+  "control_a_pass": true,
+  "control_b_pass": true,
+  "recommended_next": {
+    "if_artifact": "ONE final dispersed-start formal validation with a prospectively frozen chain-balanced, dependence-aware, full-window gate (all four dispersed starts, kernel and cadence unchanged); matched synthetic only after it passes",
+    "if_interaction": "D0-D_full reduced-target decomposition, each level judged against its own independent reference (never truth-hit)",
+    "if_inconclusive": "review the dependent-sample two-sample test with Geoff (spectral/HAC variance, batch means, dependent wild bootstrap, block-bootstrap energy test) before any further compute"
+  },
+  "runtime_seconds": 283.47997349999787
+}

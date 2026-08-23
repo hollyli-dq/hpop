@@ -1,0 +1,2006 @@
+{
+  "ALL_PASS": true,
+  "created_at_utc": "2026-08-23T06:10:39Z",
+  "grid": {
+    "A": [
+      5,
+      10
+    ],
+    "D_max": [
+      6,
+      12
+    ],
+    "J": [
+      24,
+      48
+    ],
+    "K": [
+      3,
+      5
+    ],
+    "regimes": [
+      "full",
+      "sparse"
+    ]
+  },
+  "n_passed": 32,
+  "n_points": 32,
+  "points": [
+    {
+      "A": 5,
+      "D_max": 6,
+      "D_min": 3,
+      "J": 24,
+      "K": 3,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 1476,
+      "legal_blocks_optimized": 1476,
+      "legal_blocks_reference": 1476,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 2.1316282072803006e-14,
+      "max_abs_logZ_error": 7.105427357601002e-15,
+      "no_nan": true,
+      "regime": "full",
+      "role_graph": {
+        "max_predecessors_per_role": 3,
+        "mean_predecessors_per_role": 0.7333333333333334,
+        "mean_relation_density": 0.18333333333333335,
+        "n_roles": 5,
+        "n_skills": 3,
+        "relation_density_per_skill": [
+          0.15,
+          0.25,
+          0.15
+        ],
+        "relations_per_skill": [
+          3,
+          5,
+          3
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 5,
+      "D_max": 6,
+      "D_min": 3,
+      "J": 24,
+      "K": 3,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 1476,
+      "legal_blocks_optimized": 1476,
+      "legal_blocks_reference": 1476,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 1.4210854715202004e-14,
+      "max_abs_logZ_error": 1.4210854715202004e-14,
+      "no_nan": true,
+      "regime": "sparse",
+      "role_graph": {
+        "max_predecessors_per_role": 3,
+        "mean_predecessors_per_role": 0.7333333333333334,
+        "mean_relation_density": 0.18333333333333335,
+        "n_roles": 5,
+        "n_skills": 3,
+        "relation_density_per_skill": [
+          0.15,
+          0.25,
+          0.15
+        ],
+        "relations_per_skill": [
+          3,
+          5,
+          3
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 5,
+      "D_max": 12,
+      "D_min": 3,
+      "J": 24,
+      "K": 3,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 3150,
+      "legal_blocks_optimized": 3150,
+      "legal_blocks_reference": 3150,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 1.4210854715202004e-14,
+      "max_abs_logZ_error": 7.105427357601002e-15,
+      "no_nan": true,
+      "regime": "full",
+      "role_graph": {
+        "max_predecessors_per_role": 3,
+        "mean_predecessors_per_role": 0.7333333333333334,
+        "mean_relation_density": 0.18333333333333335,
+        "n_roles": 5,
+        "n_skills": 3,
+        "relation_density_per_skill": [
+          0.15,
+          0.25,
+          0.15
+        ],
+        "relations_per_skill": [
+          3,
+          5,
+          3
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 5,
+      "D_max": 12,
+      "D_min": 3,
+      "J": 24,
+      "K": 3,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 3150,
+      "legal_blocks_optimized": 3150,
+      "legal_blocks_reference": 3150,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 2.1316282072803006e-14,
+      "max_abs_logZ_error": 7.105427357601002e-15,
+      "no_nan": true,
+      "regime": "sparse",
+      "role_graph": {
+        "max_predecessors_per_role": 3,
+        "mean_predecessors_per_role": 0.7333333333333334,
+        "mean_relation_density": 0.18333333333333335,
+        "n_roles": 5,
+        "n_skills": 3,
+        "relation_density_per_skill": [
+          0.15,
+          0.25,
+          0.15
+        ],
+        "relations_per_skill": [
+          3,
+          5,
+          3
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 10,
+      "D_max": 6,
+      "D_min": 3,
+      "J": 24,
+      "K": 3,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 1476,
+      "legal_blocks_optimized": 1476,
+      "legal_blocks_reference": 1476,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 5.684341886080802e-14,
+      "max_abs_logZ_error": 1.4210854715202004e-14,
+      "no_nan": true,
+      "regime": "full",
+      "role_graph": {
+        "max_predecessors_per_role": 7,
+        "mean_predecessors_per_role": 1.8666666666666665,
+        "mean_relation_density": 0.2074074074074074,
+        "n_roles": 10,
+        "n_skills": 3,
+        "relation_density_per_skill": [
+          0.17777777777777778,
+          0.25555555555555554,
+          0.18888888888888888
+        ],
+        "relations_per_skill": [
+          16,
+          23,
+          17
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 10,
+      "D_max": 6,
+      "D_min": 3,
+      "J": 24,
+      "K": 3,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 1476,
+      "legal_blocks_optimized": 1476,
+      "legal_blocks_reference": 1476,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 5.684341886080802e-14,
+      "max_abs_logZ_error": 2.842170943040401e-14,
+      "no_nan": true,
+      "regime": "sparse",
+      "role_graph": {
+        "max_predecessors_per_role": 7,
+        "mean_predecessors_per_role": 1.8666666666666665,
+        "mean_relation_density": 0.2074074074074074,
+        "n_roles": 10,
+        "n_skills": 3,
+        "relation_density_per_skill": [
+          0.17777777777777778,
+          0.25555555555555554,
+          0.18888888888888888
+        ],
+        "relations_per_skill": [
+          16,
+          23,
+          17
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 10,
+      "D_max": 12,
+      "D_min": 3,
+      "J": 24,
+      "K": 3,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 3150,
+      "legal_blocks_optimized": 3150,
+      "legal_blocks_reference": 3150,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 4.263256414560601e-14,
+      "max_abs_logZ_error": 2.842170943040401e-14,
+      "no_nan": true,
+      "regime": "full",
+      "role_graph": {
+        "max_predecessors_per_role": 7,
+        "mean_predecessors_per_role": 1.8666666666666665,
+        "mean_relation_density": 0.2074074074074074,
+        "n_roles": 10,
+        "n_skills": 3,
+        "relation_density_per_skill": [
+          0.17777777777777778,
+          0.25555555555555554,
+          0.18888888888888888
+        ],
+        "relations_per_skill": [
+          16,
+          23,
+          17
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 10,
+      "D_max": 12,
+      "D_min": 3,
+      "J": 24,
+      "K": 3,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 3150,
+      "legal_blocks_optimized": 3150,
+      "legal_blocks_reference": 3150,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 4.263256414560601e-14,
+      "max_abs_logZ_error": 1.4210854715202004e-14,
+      "no_nan": true,
+      "regime": "sparse",
+      "role_graph": {
+        "max_predecessors_per_role": 7,
+        "mean_predecessors_per_role": 1.8666666666666665,
+        "mean_relation_density": 0.2074074074074074,
+        "n_roles": 10,
+        "n_skills": 3,
+        "relation_density_per_skill": [
+          0.17777777777777778,
+          0.25555555555555554,
+          0.18888888888888888
+        ],
+        "relations_per_skill": [
+          16,
+          23,
+          17
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 5,
+      "D_max": 6,
+      "D_min": 3,
+      "J": 24,
+      "K": 5,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 2460,
+      "legal_blocks_optimized": 2460,
+      "legal_blocks_reference": 2460,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 1.4210854715202004e-14,
+      "max_abs_logZ_error": 7.105427357601002e-15,
+      "no_nan": true,
+      "regime": "full",
+      "role_graph": {
+        "max_predecessors_per_role": 3,
+        "mean_predecessors_per_role": 0.8,
+        "mean_relation_density": 0.2,
+        "n_roles": 5,
+        "n_skills": 5,
+        "relation_density_per_skill": [
+          0.15,
+          0.25,
+          0.15,
+          0.15,
+          0.3
+        ],
+        "relations_per_skill": [
+          3,
+          5,
+          3,
+          3,
+          6
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 5,
+      "D_max": 6,
+      "D_min": 3,
+      "J": 24,
+      "K": 5,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 2460,
+      "legal_blocks_optimized": 2460,
+      "legal_blocks_reference": 2460,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 2.1316282072803006e-14,
+      "max_abs_logZ_error": 7.105427357601002e-15,
+      "no_nan": true,
+      "regime": "sparse",
+      "role_graph": {
+        "max_predecessors_per_role": 3,
+        "mean_predecessors_per_role": 0.8,
+        "mean_relation_density": 0.2,
+        "n_roles": 5,
+        "n_skills": 5,
+        "relation_density_per_skill": [
+          0.15,
+          0.25,
+          0.15,
+          0.15,
+          0.3
+        ],
+        "relations_per_skill": [
+          3,
+          5,
+          3,
+          3,
+          6
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 5,
+      "D_max": 12,
+      "D_min": 3,
+      "J": 24,
+      "K": 5,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 5250,
+      "legal_blocks_optimized": 5250,
+      "legal_blocks_reference": 5250,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 1.4210854715202004e-14,
+      "max_abs_logZ_error": 7.105427357601002e-15,
+      "no_nan": true,
+      "regime": "full",
+      "role_graph": {
+        "max_predecessors_per_role": 3,
+        "mean_predecessors_per_role": 0.8,
+        "mean_relation_density": 0.2,
+        "n_roles": 5,
+        "n_skills": 5,
+        "relation_density_per_skill": [
+          0.15,
+          0.25,
+          0.15,
+          0.15,
+          0.3
+        ],
+        "relations_per_skill": [
+          3,
+          5,
+          3,
+          3,
+          6
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 5,
+      "D_max": 12,
+      "D_min": 3,
+      "J": 24,
+      "K": 5,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 5250,
+      "legal_blocks_optimized": 5250,
+      "legal_blocks_reference": 5250,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 1.4210854715202004e-14,
+      "max_abs_logZ_error": 7.105427357601002e-15,
+      "no_nan": true,
+      "regime": "sparse",
+      "role_graph": {
+        "max_predecessors_per_role": 3,
+        "mean_predecessors_per_role": 0.8,
+        "mean_relation_density": 0.2,
+        "n_roles": 5,
+        "n_skills": 5,
+        "relation_density_per_skill": [
+          0.15,
+          0.25,
+          0.15,
+          0.15,
+          0.3
+        ],
+        "relations_per_skill": [
+          3,
+          5,
+          3,
+          3,
+          6
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 10,
+      "D_max": 6,
+      "D_min": 3,
+      "J": 24,
+      "K": 5,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 2460,
+      "legal_blocks_optimized": 2460,
+      "legal_blocks_reference": 2460,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 5.684341886080802e-14,
+      "max_abs_logZ_error": 2.842170943040401e-14,
+      "no_nan": true,
+      "regime": "full",
+      "role_graph": {
+        "max_predecessors_per_role": 7,
+        "mean_predecessors_per_role": 1.94,
+        "mean_relation_density": 0.21555555555555558,
+        "n_roles": 10,
+        "n_skills": 5,
+        "relation_density_per_skill": [
+          0.17777777777777778,
+          0.25555555555555554,
+          0.18888888888888888,
+          0.17777777777777778,
+          0.2777777777777778
+        ],
+        "relations_per_skill": [
+          16,
+          23,
+          17,
+          16,
+          25
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 10,
+      "D_max": 6,
+      "D_min": 3,
+      "J": 24,
+      "K": 5,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 2460,
+      "legal_blocks_optimized": 2460,
+      "legal_blocks_reference": 2460,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 4.263256414560601e-14,
+      "max_abs_logZ_error": 2.842170943040401e-14,
+      "no_nan": true,
+      "regime": "sparse",
+      "role_graph": {
+        "max_predecessors_per_role": 7,
+        "mean_predecessors_per_role": 1.94,
+        "mean_relation_density": 0.21555555555555558,
+        "n_roles": 10,
+        "n_skills": 5,
+        "relation_density_per_skill": [
+          0.17777777777777778,
+          0.25555555555555554,
+          0.18888888888888888,
+          0.17777777777777778,
+          0.2777777777777778
+        ],
+        "relations_per_skill": [
+          16,
+          23,
+          17,
+          16,
+          25
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 10,
+      "D_max": 12,
+      "D_min": 3,
+      "J": 24,
+      "K": 5,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 5250,
+      "legal_blocks_optimized": 5250,
+      "legal_blocks_reference": 5250,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 4.263256414560601e-14,
+      "max_abs_logZ_error": 4.263256414560601e-14,
+      "no_nan": true,
+      "regime": "full",
+      "role_graph": {
+        "max_predecessors_per_role": 7,
+        "mean_predecessors_per_role": 1.94,
+        "mean_relation_density": 0.21555555555555558,
+        "n_roles": 10,
+        "n_skills": 5,
+        "relation_density_per_skill": [
+          0.17777777777777778,
+          0.25555555555555554,
+          0.18888888888888888,
+          0.17777777777777778,
+          0.2777777777777778
+        ],
+        "relations_per_skill": [
+          16,
+          23,
+          17,
+          16,
+          25
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 10,
+      "D_max": 12,
+      "D_min": 3,
+      "J": 24,
+      "K": 5,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 5250,
+      "legal_blocks_optimized": 5250,
+      "legal_blocks_reference": 5250,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 2.842170943040401e-14,
+      "max_abs_logZ_error": 1.4210854715202004e-14,
+      "no_nan": true,
+      "regime": "sparse",
+      "role_graph": {
+        "max_predecessors_per_role": 7,
+        "mean_predecessors_per_role": 1.94,
+        "mean_relation_density": 0.21555555555555558,
+        "n_roles": 10,
+        "n_skills": 5,
+        "relation_density_per_skill": [
+          0.17777777777777778,
+          0.25555555555555554,
+          0.18888888888888888,
+          0.17777777777777778,
+          0.2777777777777778
+        ],
+        "relations_per_skill": [
+          16,
+          23,
+          17,
+          16,
+          25
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 5,
+      "D_max": 6,
+      "D_min": 3,
+      "J": 48,
+      "K": 3,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 3204,
+      "legal_blocks_optimized": 3204,
+      "legal_blocks_reference": 3204,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 5.684341886080802e-14,
+      "max_abs_logZ_error": 5.684341886080802e-14,
+      "no_nan": true,
+      "regime": "full",
+      "role_graph": {
+        "max_predecessors_per_role": 3,
+        "mean_predecessors_per_role": 0.7333333333333334,
+        "mean_relation_density": 0.18333333333333335,
+        "n_roles": 5,
+        "n_skills": 3,
+        "relation_density_per_skill": [
+          0.15,
+          0.25,
+          0.15
+        ],
+        "relations_per_skill": [
+          3,
+          5,
+          3
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 5,
+      "D_max": 6,
+      "D_min": 3,
+      "J": 48,
+      "K": 3,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 3204,
+      "legal_blocks_optimized": 3204,
+      "legal_blocks_reference": 3204,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 7.105427357601002e-14,
+      "max_abs_logZ_error": 5.684341886080802e-14,
+      "no_nan": true,
+      "regime": "sparse",
+      "role_graph": {
+        "max_predecessors_per_role": 3,
+        "mean_predecessors_per_role": 0.7333333333333334,
+        "mean_relation_density": 0.18333333333333335,
+        "n_roles": 5,
+        "n_skills": 3,
+        "relation_density_per_skill": [
+          0.15,
+          0.25,
+          0.15
+        ],
+        "relations_per_skill": [
+          3,
+          5,
+          3
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 5,
+      "D_max": 12,
+      "D_min": 3,
+      "J": 48,
+      "K": 3,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 7470,
+      "legal_blocks_optimized": 7470,
+      "legal_blocks_reference": 7470,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 4.263256414560601e-14,
+      "max_abs_logZ_error": 4.263256414560601e-14,
+      "no_nan": true,
+      "regime": "full",
+      "role_graph": {
+        "max_predecessors_per_role": 3,
+        "mean_predecessors_per_role": 0.7333333333333334,
+        "mean_relation_density": 0.18333333333333335,
+        "n_roles": 5,
+        "n_skills": 3,
+        "relation_density_per_skill": [
+          0.15,
+          0.25,
+          0.15
+        ],
+        "relations_per_skill": [
+          3,
+          5,
+          3
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 5,
+      "D_max": 12,
+      "D_min": 3,
+      "J": 48,
+      "K": 3,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 7470,
+      "legal_blocks_optimized": 7470,
+      "legal_blocks_reference": 7470,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 4.263256414560601e-14,
+      "max_abs_logZ_error": 1.4210854715202004e-14,
+      "no_nan": true,
+      "regime": "sparse",
+      "role_graph": {
+        "max_predecessors_per_role": 3,
+        "mean_predecessors_per_role": 0.7333333333333334,
+        "mean_relation_density": 0.18333333333333335,
+        "n_roles": 5,
+        "n_skills": 3,
+        "relation_density_per_skill": [
+          0.15,
+          0.25,
+          0.15
+        ],
+        "relations_per_skill": [
+          3,
+          5,
+          3
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 10,
+      "D_max": 6,
+      "D_min": 3,
+      "J": 48,
+      "K": 3,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 3204,
+      "legal_blocks_optimized": 3204,
+      "legal_blocks_reference": 3204,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 8.526512829121202e-14,
+      "max_abs_logZ_error": 8.526512829121202e-14,
+      "no_nan": true,
+      "regime": "full",
+      "role_graph": {
+        "max_predecessors_per_role": 7,
+        "mean_predecessors_per_role": 1.8666666666666665,
+        "mean_relation_density": 0.2074074074074074,
+        "n_roles": 10,
+        "n_skills": 3,
+        "relation_density_per_skill": [
+          0.17777777777777778,
+          0.25555555555555554,
+          0.18888888888888888
+        ],
+        "relations_per_skill": [
+          16,
+          23,
+          17
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 10,
+      "D_max": 6,
+      "D_min": 3,
+      "J": 48,
+      "K": 3,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 3204,
+      "legal_blocks_optimized": 3204,
+      "legal_blocks_reference": 3204,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 1.1368683772161603e-13,
+      "max_abs_logZ_error": 1.1368683772161603e-13,
+      "no_nan": true,
+      "regime": "sparse",
+      "role_graph": {
+        "max_predecessors_per_role": 7,
+        "mean_predecessors_per_role": 1.8666666666666665,
+        "mean_relation_density": 0.2074074074074074,
+        "n_roles": 10,
+        "n_skills": 3,
+        "relation_density_per_skill": [
+          0.17777777777777778,
+          0.25555555555555554,
+          0.18888888888888888
+        ],
+        "relations_per_skill": [
+          16,
+          23,
+          17
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 10,
+      "D_max": 12,
+      "D_min": 3,
+      "J": 48,
+      "K": 3,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 7470,
+      "legal_blocks_optimized": 7470,
+      "legal_blocks_reference": 7470,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 8.526512829121202e-14,
+      "max_abs_logZ_error": 5.684341886080802e-14,
+      "no_nan": true,
+      "regime": "full",
+      "role_graph": {
+        "max_predecessors_per_role": 7,
+        "mean_predecessors_per_role": 1.8666666666666665,
+        "mean_relation_density": 0.2074074074074074,
+        "n_roles": 10,
+        "n_skills": 3,
+        "relation_density_per_skill": [
+          0.17777777777777778,
+          0.25555555555555554,
+          0.18888888888888888
+        ],
+        "relations_per_skill": [
+          16,
+          23,
+          17
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 10,
+      "D_max": 12,
+      "D_min": 3,
+      "J": 48,
+      "K": 3,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 7470,
+      "legal_blocks_optimized": 7470,
+      "legal_blocks_reference": 7470,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 8.526512829121202e-14,
+      "max_abs_logZ_error": 8.526512829121202e-14,
+      "no_nan": true,
+      "regime": "sparse",
+      "role_graph": {
+        "max_predecessors_per_role": 7,
+        "mean_predecessors_per_role": 1.8666666666666665,
+        "mean_relation_density": 0.2074074074074074,
+        "n_roles": 10,
+        "n_skills": 3,
+        "relation_density_per_skill": [
+          0.17777777777777778,
+          0.25555555555555554,
+          0.18888888888888888
+        ],
+        "relations_per_skill": [
+          16,
+          23,
+          17
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 5,
+      "D_max": 6,
+      "D_min": 3,
+      "J": 48,
+      "K": 5,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 5340,
+      "legal_blocks_optimized": 5340,
+      "legal_blocks_reference": 5340,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 5.684341886080802e-14,
+      "max_abs_logZ_error": 2.842170943040401e-14,
+      "no_nan": true,
+      "regime": "full",
+      "role_graph": {
+        "max_predecessors_per_role": 3,
+        "mean_predecessors_per_role": 0.8,
+        "mean_relation_density": 0.2,
+        "n_roles": 5,
+        "n_skills": 5,
+        "relation_density_per_skill": [
+          0.15,
+          0.25,
+          0.15,
+          0.15,
+          0.3
+        ],
+        "relations_per_skill": [
+          3,
+          5,
+          3,
+          3,
+          6
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 5,
+      "D_max": 6,
+      "D_min": 3,
+      "J": 48,
+      "K": 5,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 5340,
+      "legal_blocks_optimized": 5340,
+      "legal_blocks_reference": 5340,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 7.105427357601002e-14,
+      "max_abs_logZ_error": 4.263256414560601e-14,
+      "no_nan": true,
+      "regime": "sparse",
+      "role_graph": {
+        "max_predecessors_per_role": 3,
+        "mean_predecessors_per_role": 0.8,
+        "mean_relation_density": 0.2,
+        "n_roles": 5,
+        "n_skills": 5,
+        "relation_density_per_skill": [
+          0.15,
+          0.25,
+          0.15,
+          0.15,
+          0.3
+        ],
+        "relations_per_skill": [
+          3,
+          5,
+          3,
+          3,
+          6
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 5,
+      "D_max": 12,
+      "D_min": 3,
+      "J": 48,
+      "K": 5,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 12450,
+      "legal_blocks_optimized": 12450,
+      "legal_blocks_reference": 12450,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 4.263256414560601e-14,
+      "max_abs_logZ_error": 1.4210854715202004e-14,
+      "no_nan": true,
+      "regime": "full",
+      "role_graph": {
+        "max_predecessors_per_role": 3,
+        "mean_predecessors_per_role": 0.8,
+        "mean_relation_density": 0.2,
+        "n_roles": 5,
+        "n_skills": 5,
+        "relation_density_per_skill": [
+          0.15,
+          0.25,
+          0.15,
+          0.15,
+          0.3
+        ],
+        "relations_per_skill": [
+          3,
+          5,
+          3,
+          3,
+          6
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 5,
+      "D_max": 12,
+      "D_min": 3,
+      "J": 48,
+      "K": 5,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 12450,
+      "legal_blocks_optimized": 12450,
+      "legal_blocks_reference": 12450,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 4.263256414560601e-14,
+      "max_abs_logZ_error": 1.4210854715202004e-14,
+      "no_nan": true,
+      "regime": "sparse",
+      "role_graph": {
+        "max_predecessors_per_role": 3,
+        "mean_predecessors_per_role": 0.8,
+        "mean_relation_density": 0.2,
+        "n_roles": 5,
+        "n_skills": 5,
+        "relation_density_per_skill": [
+          0.15,
+          0.25,
+          0.15,
+          0.15,
+          0.3
+        ],
+        "relations_per_skill": [
+          3,
+          5,
+          3,
+          3,
+          6
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 10,
+      "D_max": 6,
+      "D_min": 3,
+      "J": 48,
+      "K": 5,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 5340,
+      "legal_blocks_optimized": 5340,
+      "legal_blocks_reference": 5340,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 1.1368683772161603e-13,
+      "max_abs_logZ_error": 8.526512829121202e-14,
+      "no_nan": true,
+      "regime": "full",
+      "role_graph": {
+        "max_predecessors_per_role": 7,
+        "mean_predecessors_per_role": 1.94,
+        "mean_relation_density": 0.21555555555555558,
+        "n_roles": 10,
+        "n_skills": 5,
+        "relation_density_per_skill": [
+          0.17777777777777778,
+          0.25555555555555554,
+          0.18888888888888888,
+          0.17777777777777778,
+          0.2777777777777778
+        ],
+        "relations_per_skill": [
+          16,
+          23,
+          17,
+          16,
+          25
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 10,
+      "D_max": 6,
+      "D_min": 3,
+      "J": 48,
+      "K": 5,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 5340,
+      "legal_blocks_optimized": 5340,
+      "legal_blocks_reference": 5340,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 8.526512829121202e-14,
+      "max_abs_logZ_error": 5.684341886080802e-14,
+      "no_nan": true,
+      "regime": "sparse",
+      "role_graph": {
+        "max_predecessors_per_role": 7,
+        "mean_predecessors_per_role": 1.94,
+        "mean_relation_density": 0.21555555555555558,
+        "n_roles": 10,
+        "n_skills": 5,
+        "relation_density_per_skill": [
+          0.17777777777777778,
+          0.25555555555555554,
+          0.18888888888888888,
+          0.17777777777777778,
+          0.2777777777777778
+        ],
+        "relations_per_skill": [
+          16,
+          23,
+          17,
+          16,
+          25
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 10,
+      "D_max": 12,
+      "D_min": 3,
+      "J": 48,
+      "K": 5,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 12450,
+      "legal_blocks_optimized": 12450,
+      "legal_blocks_reference": 12450,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 8.526512829121202e-14,
+      "max_abs_logZ_error": 5.684341886080802e-14,
+      "no_nan": true,
+      "regime": "full",
+      "role_graph": {
+        "max_predecessors_per_role": 7,
+        "mean_predecessors_per_role": 1.94,
+        "mean_relation_density": 0.21555555555555558,
+        "n_roles": 10,
+        "n_skills": 5,
+        "relation_density_per_skill": [
+          0.17777777777777778,
+          0.25555555555555554,
+          0.18888888888888888,
+          0.17777777777777778,
+          0.2777777777777778
+        ],
+        "relations_per_skill": [
+          16,
+          23,
+          17,
+          16,
+          25
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    },
+    {
+      "A": 10,
+      "D_max": 12,
+      "D_min": 3,
+      "J": 48,
+      "K": 5,
+      "N": 6,
+      "PASS": true,
+      "backward_draw_valid": true,
+      "emission_tables_bitwise_identical": true,
+      "inf_pattern_identical": true,
+      "legal_block_counts_identical": true,
+      "legal_blocks_geometry": 12450,
+      "legal_blocks_optimized": 12450,
+      "legal_blocks_reference": 12450,
+      "log_probabilities_not_positive": true,
+      "max_abs_alpha_error": 8.526512829121202e-14,
+      "max_abs_logZ_error": 8.526512829121202e-14,
+      "no_nan": true,
+      "regime": "sparse",
+      "role_graph": {
+        "max_predecessors_per_role": 7,
+        "mean_predecessors_per_role": 1.94,
+        "mean_relation_density": 0.21555555555555558,
+        "n_roles": 10,
+        "n_skills": 5,
+        "relation_density_per_skill": [
+          0.17777777777777778,
+          0.25555555555555554,
+          0.18888888888888888,
+          0.17777777777777778,
+          0.2777777777777778
+        ],
+        "relations_per_skill": [
+          16,
+          23,
+          17,
+          16,
+          25
+        ]
+      },
+      "sweep_parity": {
+        "FULL-COND": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        },
+        "FULL-MARG": {
+          "P_allowed_rows_sum_to_one": true,
+          "P_diagonal_exactly_zero": true,
+          "log_target_abs_error": 0.0,
+          "log_target_within_tolerance": true,
+          "no_nan_in_components": true,
+          "pi_sums_to_one": true,
+          "segmentations_identical": true
+        }
+      },
+      "tolerance": 1e-10
+    }
+  ],
+  "seconds": 12.457924842834473,
+  "software": {
+    "backend_under_test": "optimized_segmental_v1 (hpop.mcmc_optimized, all four optimisation flags on)",
+    "git_branch": "scalability-optimized-v1",
+    "git_commit": "564995efd056d7d33984f0ca1532386e6140ea0c",
+    "git_describe_base": "564995efd056d7d33984f0ca1532386e6140ea0c",
+    "numpy_version": "2.4.6",
+    "platform": "macOS-10.16-x86_64-i386-64bit-Mach-O",
+    "python_executable": "/Users/dongqing/Desktop/hpop/.venv/bin/python3",
+    "python_version": "3.13.2",
+    "scipy_version": "1.18.0",
+    "table_source": "batched",
+    "thread_env": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "worktree": "/Users/dongqing/Desktop/hpop-scalability"
+  },
+  "tolerance": 1e-10,
+  "worst_max_abs_alpha_error": 1.1368683772161603e-13,
+  "worst_max_abs_logZ_error": 1.1368683772161603e-13
+}

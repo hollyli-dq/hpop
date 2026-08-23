@@ -1,0 +1,435 @@
+{
+  "corpus_hash_sha256": "dd280a4a09896154e167f388edd401a9119ba398167c09404aba5f7743e58ec2",
+  "generator_commit": "8ca828153e8e263bf4ea4823e45a53fa454037ad",
+  "generator_version": "1.0.0",
+  "hidden_truth_used_only_for_evaluation": [
+    "widths",
+    "boundaries",
+    "labels",
+    "role_blocks",
+    "block log-likelihoods",
+    "truth object"
+  ],
+  "master_seed": 6200001,
+  "observed_fields_available_to_inference": [
+    "split",
+    "trace_index",
+    "length",
+    "cpa occurrence sequence"
+  ],
+  "rho_note": "supplied-truth mode fixes U* directly; rho* is not part of the registered Stage 6E2 truth and is recorded null",
+  "rho_star": null,
+  "source_commit": "8ca828153e8e263bf4ea4823e45a53fa454037ad",
+  "split_assignment": {
+    "heldout": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44
+    ],
+    "level": "trace",
+    "train": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99
+    ]
+  },
+  "truth": {
+    "delta_b": 0.15,
+    "epsilon": 0.02,
+    "h_by_skill": [
+      [
+        [
+          0,
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          0
+        ]
+      ]
+    ],
+    "h_hashes": [
+      "942b806efae10c261911835af577de14439386e2f7b3cef68255fea5e5861e06",
+      "aad4482089bcdf722d7f73f9cec87a517e9d0c7b9f18ac3428ca9d6ed85bffaf",
+      "de9ea2a22977c4ebe80b9196ce60a07994eabb535c042d5225bad917f8771c5a"
+    ],
+    "latent_dim": 2,
+    "max_width": 12,
+    "min_width": 3,
+    "mode": "supplied",
+    "n_roles": 5,
+    "n_skills": 3,
+    "pi": [
+      0.5,
+      0.3,
+      0.2
+    ],
+    "rho": null,
+    "role_maps": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    ],
+    "scalars": {
+      "beta": 1.5,
+      "lambda_back": 0.25,
+      "lambda_rep": 0.8,
+      "omega": 1.7346010553881064
+    },
+    "transition": [
+      [
+        0.0,
+        0.65,
+        0.35
+      ],
+      [
+        0.3,
+        0.0,
+        0.7
+      ],
+      [
+        0.75,
+        0.25,
+        0.0
+      ]
+    ],
+    "u_by_skill": [
+      [
+        [
+          4.0,
+          4.0
+        ],
+        [
+          0.0,
+          5.0
+        ],
+        [
+          3.0,
+          3.0
+        ],
+        [
+          2.0,
+          2.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          4.0,
+          4.0
+        ],
+        [
+          3.0,
+          3.0
+        ],
+        [
+          0.0,
+          5.0
+        ],
+        [
+          2.0,
+          2.0
+        ]
+      ],
+      [
+        [
+          3.0,
+          0.0
+        ],
+        [
+          0.0,
+          3.0
+        ],
+        [
+          2.0,
+          2.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          4.0,
+          4.0
+        ]
+      ]
+    ]
+  },
+  "truth_hash_sha256": "fc41538fd44d170df8d0a6401f0c6e6b49d52418c487e22f9e4f45ee047f903e",
+  "truth_validation": {
+    "latent_dim": 2,
+    "n_roles": 5,
+    "n_skills": 3,
+    "orders_are_strict_partial_orders": true,
+    "pi_sums_to_one": true,
+    "role_maps_injective": true,
+    "scalars_in_support": true,
+    "transition_diagonal_exactly_zero": true,
+    "transition_rows_normalized": true
+  }
+}

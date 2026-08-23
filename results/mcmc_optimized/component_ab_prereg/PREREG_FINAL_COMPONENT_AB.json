@@ -1,0 +1,217 @@
+{
+  "backend_commit": "564995efd056d7d33984f0ca1532386e6140ea0c",
+  "condition_A": {
+    "excluded": [
+      "new oracle-structure held-out path-marginal NLL"
+    ],
+    "ffbs_draws_per_trace": 5000,
+    "ffbs_used_only_for": "nonlinear summaries not computable exactly from marginals",
+    "kind": "exact semi-Markov dynamic programming, not MCMC",
+    "metrics": [
+      "boundary_auroc",
+      "boundary_brier",
+      "boundary_ece_10bin",
+      "boundary_classification_at_0.5",
+      "occurrence_modal_accuracy",
+      "mean_posterior_prob_true_label",
+      "per_trace_ari",
+      "map_segment_count_accuracy",
+      "path_evidence",
+      "occurrence_nll_vs_prior_reference",
+      "heldout_boundary_auroc"
+    ],
+    "no_chains_burnin_or_convergence_gate": true,
+    "primary_z_metric": "co-skill recovery (relabelling invariant)",
+    "tiny_crosscheck": {
+      "draws": 200000,
+      "trace_lengths": [
+        6,
+        7,
+        10
+      ]
+    }
+  },
+  "condition_B": {
+    "gate": {
+      "branch_a_preconditions": [
+        "starts structurally dispersed",
+        "every chain accepts >=1 H-changing move in warm-up",
+        "exact canonical closure library equal",
+        "all remaining registered diagnostics pass"
+      ],
+      "library_branches": {
+        "a": "constant and equal -> degenerate agreement, no ESS floor",
+        "b": "constant within, unequal across -> automatic FAIL",
+        "c": "non-degenerate -> ordinary gate"
+      },
+      "log_target_bulk_ess": 1000,
+      "log_target_tail_ess": 500,
+      "other_bulk_ess": 400,
+      "other_tail_ess": 400,
+      "rhat": 1.01
+    },
+    "pilot": {
+      "acceptance_band": [
+        0.2,
+        0.6
+      ],
+      "all_pilot_draws_discarded": true,
+      "chains": 2,
+      "esjd_note": "truth-free; not in the enumerated permitted list but required by the historical selection rule, declared deliberately",
+      "failure_rule": "if no candidate enters the band, STOP and report pilot failure; the historical closest-to-band fallback is NOT used",
+      "multipliers": [
+        0.25,
+        0.5,
+        1.0,
+        2.0,
+        4.0,
+        8.0
+      ],
+      "permitted_quantities": [
+        "u_row_acceptance",
+        "invalid_proposal_rate",
+        "h_changing_move_count",
+        "esjd_per_proposal",
+        "finite_log_target"
+      ],
+      "selection_rule": "historical: retain acceptance in band AND finite, then maximum ESJD per proposal",
+      "sweeps_per_candidate": 3000
+    },
+    "recovery_metrics": [
+      "exact_canonical_library_posterior_probability",
+      "exact_labelled_library_after_frozen_alignment",
+      "mean_and_per_skill_closure_f1",
+      "closure_hamming",
+      "incomparable_pair_prf1",
+      "relation_posterior_calibration_brier",
+      "permutation_invariant_rhat_ess",
+      "accepted_h_changing_moves_per_chain",
+      "heldout_nll_vs_antichain_and_total_order_baselines"
+    ],
+    "schedule": {
+      "adaptive_stopping": false,
+      "chains": 4,
+      "label": "final Condition-B rerun under the final production-phase diagnostic protocol; NOT a byte-for-byte historical replication",
+      "production": 100000,
+      "terminal_gates": 1,
+      "thin": 5,
+      "warmup_discarded": 50000
+    }
+  },
+  "corpus_hash_sha256": "3e3aa6533bd7951f9b2ed1dfa050e9d07f1b2e96b0e3914e044010130e9acdfa",
+  "figure_trace_rule": "first trace of each length class (24, 32, 40, 48) in frozen order",
+  "mcse": {
+    "bernoulli": "sqrt(p(1-p)/ESS)",
+    "exact_dp_quantities": "no MCSE; reported as exact",
+    "general": "posterior_sd / sqrt(bulk_ESS) on production draws"
+  },
+  "numerical_equivalence": {
+    "bit_identical_mcmc_required": false,
+    "block_score_tol": 1e-10,
+    "expected_observed": "~1e-14",
+    "logZ_tol": 1e-10
+  },
+  "recovery_verdict_policy": {
+    "B_still_receives_formal_truthfree_convergence_verdict": true,
+    "issue_new_binary_pass_partial": false,
+    "legacy_rule_reported_as": "LEGACY-RULE SENSITIVITY \u2014 NOT THE FORMAL VERDICT",
+    "report_raw_metrics_with_mcse": true
+  },
+  "reference_engine_sha256": "8150bb8235eb159d5e2f08ada7c698c383f4c7fd31f3b882e218b207dd135486",
+  "scoped_truth_access": {
+    "A_evaluation_only_may_read": [
+      "S*",
+      "z*"
+    ],
+    "A_runner_may_read": [
+      "H*",
+      "fixed globals"
+    ],
+    "B_Hstar_opened_after": "the truth-free terminal convergence report is committed",
+    "B_pilot_must_not_read": [
+      "H*",
+      "U*"
+    ],
+    "B_target_and_sampler_may_read": [
+      "S*",
+      "z*",
+      "fixed globals"
+    ],
+    "B_target_and_sampler_must_not_read": [
+      "H*",
+      "U*"
+    ]
+  },
+  "seeds": {
+    "A_ffbs": 6301001,
+    "A_tiny_crosscheck": 6300777,
+    "B_formal_chains": [
+      6302001,
+      6302002,
+      6302003,
+      6302004
+    ],
+    "B_pilot_chains": [
+      6302201,
+      6302202
+    ],
+    "B_pilot_starts": [
+      6302211,
+      6302212
+    ],
+    "B_start_scales": [
+      0.5,
+      1.0,
+      2.0,
+      3.0
+    ],
+    "B_starts": [
+      6302101,
+      6302102,
+      6302103,
+      6302104
+    ]
+  },
+  "status": "NOT LAUNCHED",
+  "stopping_and_failure": [
+    "A is exact and runs once",
+    "B pilot with no in-band candidate -> STOP and report",
+    "B runs 50k+100k once; no extension or adaptive stopping",
+    "B truth-free verdict committed before H* is opened",
+    "numerical-equivalence failure -> stop before publishing any metric",
+    "no new sampler, kernel, dataset, metric or threshold; no historical verdict or sealed source modified"
+  ],
+  "truth_hash_sha256": "effccc91114d9647f87859aaa7ee219e3bc664bb41d2c6389844ea64346a5e8e",
+  "truth_law": "truth ~ p(truth | rho = 0.5, A)",
+  "variable_scope": {
+    "A": {
+      "fix": [
+        "U*",
+        "theta*",
+        "pi*",
+        "P*",
+        "delta_B*",
+        "epsilon*"
+      ],
+      "infer": [
+        "S",
+        "z"
+      ]
+    },
+    "B": {
+      "does_not_infer_rho": true,
+      "evaluate": [
+        "H = h(U)"
+      ],
+      "fix": [
+        "S*",
+        "z*",
+        "theta*",
+        "rho = rho_0 = 0.5"
+      ],
+      "infer": [
+        "U"
+      ]
+    }
+  }
+}

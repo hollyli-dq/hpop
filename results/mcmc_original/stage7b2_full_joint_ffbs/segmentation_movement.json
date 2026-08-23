@@ -1,0 +1,44 @@
+{
+  "per_chain": [
+    {
+      "chain": 0,
+      "boundary_hamming_total": 18587964,
+      "label_changes_total": 45690431,
+      "trace_draws_changed_total": 3372019,
+      "boundary_hamming_per_sweep": 546.7048235294118,
+      "label_changes_per_sweep": 1343.836205882353,
+      "co_clustering_mean": 0.3884495634191176,
+      "co_clustering_movement_per_sweep": 0.029427565884290713
+    },
+    {
+      "chain": 1,
+      "boundary_hamming_total": 17629707,
+      "label_changes_total": 30642887,
+      "trace_draws_changed_total": 3323748,
+      "boundary_hamming_per_sweep": 518.520794117647,
+      "label_changes_per_sweep": 901.2613823529412,
+      "co_clustering_mean": 0.37737787224264707,
+      "co_clustering_movement_per_sweep": 0.026920598767610812
+    },
+    {
+      "chain": 2,
+      "boundary_hamming_total": 17629086,
+      "label_changes_total": 35050419,
+      "trace_draws_changed_total": 3320700,
+      "boundary_hamming_per_sweep": 518.5025294117647,
+      "label_changes_per_sweep": 1030.8946764705881,
+      "co_clustering_mean": 0.35798793658088235,
+      "co_clustering_movement_per_sweep": 0.02682661622400659
+    },
+    {
+      "chain": 3,
+      "boundary_hamming_total": 16143186,
+      "label_changes_total": 25700473,
+      "trace_draws_changed_total": 3278727,
+      "boundary_hamming_per_sweep": 474.7995882352941,
+      "label_changes_per_sweep": 755.8962647058823,
+      "co_clustering_mean": 0.40383926930147057,
+      "co_clustering_movement_per_sweep": 0.02518732168593194
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "accumulator_caveat": "the per-trace boundary and occupancy accumulators are cumulative sums kept without per-draw storage, so unlike the per-draw arrays they cannot be truncated to 75,000. The checkpoint written at exactly 75,000 was overwritten by the continuation before the termination decision. Path-marginal recovery quantities derived from them are therefore reported as SUPPLEMENTARY, computed over each chain's full retained set; the maximum possible shift in any marginal from the extra draws is bounded by excess/total, i.e. cond0 <= 600/13600 = 4.412%, cond1 <= 600/13600 = 4.412%, cond2 <= 600/13600 = 4.412%, cond3 <= 600/13600 = 4.412%, marg0 <= 200/13200 = 1.515%, marg1 <= 200/13200 = 1.515%, marg2 <= 200/13200 = 1.515%, marg3 <= 200/13200 = 1.515%",
+  "deleted": false,
+  "draw_indexing": "retained draw i corresponds to sweep 10000+(i+1)*5",
+  "draws_used_per_chain": 13000,
+  "label": "POST-DECISION / POST-75k CONTINUATION \u2014 NOT USED IN PRIMARY CONDITION-C ANALYSIS",
+  "note": "the continuation draws remain inside the chain .npz files; they are excluded by index, not removed",
+  "per_chain": {
+    "cond0": {
+      "draws_used_primary": 13000,
+      "max_sweep_reached": 78000,
+      "post_75k_draws_quarantined": 600,
+      "post_75k_sweeps": 3000,
+      "retained_draws_total": 13600
+    },
+    "cond1": {
+      "draws_used_primary": 13000,
+      "max_sweep_reached": 78000,
+      "post_75k_draws_quarantined": 600,
+      "post_75k_sweeps": 3000,
+      "retained_draws_total": 13600
+    },
+    "cond2": {
+      "draws_used_primary": 13000,
+      "max_sweep_reached": 78000,
+      "post_75k_draws_quarantined": 600,
+      "post_75k_sweeps": 3000,
+      "retained_draws_total": 13600
+    },
+    "cond3": {
+      "draws_used_primary": 13000,
+      "max_sweep_reached": 78000,
+      "post_75k_draws_quarantined": 600,
+      "post_75k_sweeps": 3000,
+      "retained_draws_total": 13600
+    },
+    "marg0": {
+      "draws_used_primary": 13000,
+      "max_sweep_reached": 76000,
+      "post_75k_draws_quarantined": 200,
+      "post_75k_sweeps": 1000,
+      "retained_draws_total": 13200
+    },
+    "marg1": {
+      "draws_used_primary": 13000,
+      "max_sweep_reached": 76000,
+      "post_75k_draws_quarantined": 200,
+      "post_75k_sweeps": 1000,
+      "retained_draws_total": 13200
+    },
+    "marg2": {
+      "draws_used_primary": 13000,
+      "max_sweep_reached": 76000,
+      "post_75k_draws_quarantined": 200,
+      "post_75k_sweeps": 1000,
+      "retained_draws_total": 13200
+    },
+    "marg3": {
+      "draws_used_primary": 13000,
+      "max_sweep_reached": 76000,
+      "post_75k_draws_quarantined": 200,
+      "post_75k_sweeps": 1000,
+      "retained_draws_total": 13200
+    }
+  },
+  "terminal_sweep_for_primary_analysis": 75000
+}

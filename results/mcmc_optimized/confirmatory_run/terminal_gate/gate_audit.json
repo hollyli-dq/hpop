@@ -1,0 +1,75 @@
+{
+  "arms": {
+    "FULL-COND": {
+      "arm_verdict_agrees": true,
+      "audit_is_more_conservative": true,
+      "audit_verdict": "FAIL",
+      "branch_agreement": "179/179",
+      "disagreements": [
+        {
+          "audit": false,
+          "gate": true,
+          "kind": "pass",
+          "summary": "boundary_probes[23]"
+        },
+        {
+          "audit": false,
+          "gate": true,
+          "kind": "pass",
+          "summary": "boundary_probes[27]"
+        },
+        {
+          "audit": false,
+          "gate": true,
+          "kind": "pass",
+          "summary": "boundary_probes[8]"
+        },
+        {
+          "audit": false,
+          "gate": true,
+          "kind": "pass",
+          "summary": "coskill_probes[62]"
+        },
+        {
+          "audit": false,
+          "gate": true,
+          "kind": "pass",
+          "summary": "same_segment_probes[19]"
+        },
+        {
+          "audit": false,
+          "gate": true,
+          "kind": "pass",
+          "summary": "same_segment_probes[45]"
+        }
+      ],
+      "gate_verdict": "FAIL",
+      "max_relative_difference": {
+        "bulk_ess": 0.6973050408318868,
+        "rhat": 1.9366814367740987e-16,
+        "tail_ess": 0.6973050408318552
+      },
+      "pass_fail_agreement": "173/179",
+      "reproduces_gate": true,
+      "summaries_checked": 179
+    },
+    "FULL-MARG": {
+      "arm_verdict_agrees": true,
+      "audit_is_more_conservative": true,
+      "audit_verdict": "FAIL",
+      "branch_agreement": "179/179",
+      "disagreements": [],
+      "gate_verdict": "FAIL",
+      "max_relative_difference": {
+        "bulk_ess": 0.44991008407798133,
+        "rhat": 0.0,
+        "tail_ess": 0.17991100025316625
+      },
+      "pass_fail_agreement": "179/179",
+      "reproduces_gate": true,
+      "summaries_checked": 179
+    }
+  },
+  "independently_reproduced": true,
+  "method": "independent from-scratch Vehtari et al. (2021); the gate uses the repository's registered stage6b_mcmc_diagnostics"
+}

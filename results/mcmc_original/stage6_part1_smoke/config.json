@@ -1,0 +1,47 @@
+{
+  "date": "2026-08-10",
+  "git_branch": "mcmc-original-latent-poset",
+  "git_commit": "08e2cb6deeec1634d6c91667368b736a5427f2e0",
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "stage_5c": "DEFERRED - not required by this task",
+  "recurrent_mcmc_implemented": false,
+  "mode": "smoke",
+  "generator_seed": 0,
+  "seed_train": 0,
+  "seed_heldout": 10000,
+  "T": 12,
+  "n_train": 50,
+  "n_heldout": 0,
+  "latent_dim": 2,
+  "beta": 1.5,
+  "epsilon": 0.02,
+  "kappa": 0.85,
+  "shared_omega": 1.7346010553881064,
+  "lambda_rep": 0.8,
+  "lambda_back": 0.25,
+  "U_true": [
+    [
+      4.0,
+      4.0
+    ],
+    [
+      0.0,
+      5.0
+    ],
+    [
+      3.0,
+      3.0
+    ],
+    [
+      2.0,
+      2.0
+    ],
+    [
+      1.0,
+      1.0
+    ]
+  ],
+  "likelihood_conditions_on_T": true,
+  "duration_model": null
+}

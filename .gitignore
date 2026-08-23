@@ -33,3 +33,6 @@ legacy/
 # --- intermediate corpus concatenations (derivable: cat pilot100*.jsonl); pilot500 is the working set ---
 data/interim/swe_rebench/pilot200.jsonl
 data/interim/swe_rebench/pilot300.jsonl
+
+# excluded from the public repo: third-party datasets and caches
+data/

@@ -1,0 +1,45 @@
+{
+  "classification": "STRUCTURE STRONGLY IDENTIFIABLE UNDER ORACLE PATHS",
+  "converged": true,
+  "levels": {
+    "A_kernel_mixing": "PASS",
+    "B_structural_identifiability": "STRUCTURE STRONGLY IDENTIFIABLE UNDER ORACLE PATHS",
+    "C_hyperparameter_identifiability": "NOT EVALUATED \u2014 rho fixed at rho_0 by registered correction (rho* = null in the supplied-truth corpus)"
+  },
+  "observed": {
+    "heldout_antichain_nll": 1.752798804531374,
+    "heldout_posterior_mean_nll": 1.0772457251104506,
+    "heldout_total_order_nll": 4.039845037465676,
+    "heldout_truth_nll": 1.0772457251104504,
+    "max_false_relation_marginal": 0.0,
+    "min_true_relation_marginal": 1.0,
+    "modal_h_equals_truth_count": 3,
+    "per_skill_closure_f1": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "per_skill_incomparable_f1": [
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "rule": {
+    "not_converged": "any convergence gate unmet after the 100k ceiling -> 'CONDITION B INFERENCE NOT CONVERGED \u2014 NO RECOVERY CLAIM'",
+    "not_identifiable_if_any": {
+      "heldout": "posterior-mean NLL/occ worse than the antichain baseline",
+      "mean_closure_f1": "< 0.60"
+    },
+    "otherwise": "STRUCTURE PARTIALLY IDENTIFIABLE UNDER ORACLE PATHS",
+    "strong_requires_all": {
+      "convergence": "two consecutive checkpoint passes",
+      "heldout": "posterior-mean NLL/occ <= antichain and <= total-order baselines AND within 0.05 nats/occ of generating truth",
+      "max_false_relation_marginal": "< 0.5",
+      "min_true_relation_marginal": ">= 0.5",
+      "modal_h_equals_truth": "for >= 2 of 3 skills",
+      "per_skill_closure_f1": ">= 0.90 for every skill (threshold 0.5)",
+      "per_skill_incomparable_f1": ">= 0.80 for every skill"
+    }
+  }
+}

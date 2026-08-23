@@ -1,0 +1,45 @@
+{
+  "verdict": "START-0 BASIN-SPECIFIC KERNEL INTERACTION SUPPORTED",
+  "a_conditions": {
+    "late_balanced_inside_envelope": true,
+    "at_most_one_late_z_above_2": false,
+    "median_late_z_leq_1p5": false,
+    "beta_3of4_late_offset_se_below_2": true,
+    "lambda_rep_3of4_late_offset_se_below_2": true,
+    "beta_median_abs_contracts": false,
+    "lambda_rep_median_abs_contracts": true,
+    "controls_clean": true,
+    "late_ess_finite_and_moving": true
+  },
+  "a_supported": false,
+  "b_conditions": {
+    "three_late_z_above_2_with_median_above_2": false,
+    "late_balanced_outside_envelope": false,
+    "beta_3of4_same_direction_above_2": false,
+    "lambda_rep_3of4_same_direction_above_2": false,
+    "no_shrink_early_to_late": true,
+    "joint_beta_lambda_rep_displacement_with_clean_controls": false
+  },
+  "b_supported": true,
+  "late_per_chain_z": [
+    1.4658751616329286,
+    4.263463082433814,
+    2.0293688543804764,
+    0.8029120280115375
+  ],
+  "late_balanced": {
+    "observed": 0.0035088390395232594,
+    "envelope": 0.004522256615497353,
+    "null_mean": 0.0035295761958754612,
+    "null_sd": 0.0005638823977916067,
+    "z": -0.03677567598034096,
+    "inside_envelope": true,
+    "n_x": 4000,
+    "n_y": 4000,
+    "per_chain_contribution": 1000
+  },
+  "historical_gate_pass": true,
+  "note": "run 1 and rep2 remain recorded failures; this probe does not convert them into passes",
+  "recommended_next_if_A": "one final dispersed-start mixed-reference validation with a prospectively frozen chain-balanced, dependence-aware, full-window multivariate diagnostic (NOT launched here)",
+  "recommended_next_if_B": "D0-D4 scalar-release decomposition (collapsed U + FFBS with all scalars fixed; release beta only; lambda_rep only; both; then the rest) to localise the interaction (NOT launched here)"
+}

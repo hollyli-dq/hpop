@@ -1,0 +1,137 @@
+{
+  "sweeps": 50000,
+  "chains": [
+    {
+      "chain": 0,
+      "mean_log_posterior": -5837.896551011109,
+      "max_log_posterior_visited": -5736.643036183707,
+      "total_relation_count_mean": 8.0,
+      "total_relation_count_within_sd": 0.0,
+      "sorted_per_skill_relation_counts": [
+        2.0,
+        3.0,
+        3.0
+      ],
+      "total_segments_mean": 492.8285714285714,
+      "sorted_pi_mean": [
+        0.09938361136487012,
+        0.1838694454835994,
+        0.7167469432013376
+      ],
+      "P_eigenvalues_mean": [
+        -0.46635859171464344,
+        -0.5336414083369505,
+        1.000000000051595
+      ],
+      "P_sorted_row_entropies_mean": [
+        0.3938710689880849,
+        0.5616936783455624,
+        0.6698526458385551
+      ],
+      "lambda_rep_mean": 0.05678625645190295,
+      "beta_mean": 1.3873869492410416,
+      "unique_induced_H_joint_states": 1,
+      "unique_segmentations_first20_traces_mean": 2025.65,
+      "RECOVERY_DIAGNOSTIC_ONLY_boundary_f1": 0.23984526112185686
+    },
+    {
+      "chain": 1,
+      "mean_log_posterior": -5716.362956966917,
+      "max_log_posterior_visited": -5627.151536826825,
+      "total_relation_count_mean": 9.0,
+      "total_relation_count_within_sd": 0.0,
+      "sorted_per_skill_relation_counts": [
+        2.0,
+        2.0,
+        5.0
+      ],
+      "total_segments_mean": 499.987,
+      "sorted_pi_mean": [
+        0.10885745816198843,
+        0.2950083780458995,
+        0.5961341636266028
+      ],
+      "P_eigenvalues_mean": [
+        -0.500000000059902,
+        -0.500000000059902,
+        1.0000000001198042
+      ],
+      "P_sorted_row_entropies_mean": [
+        0.49870480069186196,
+        0.5745839344015317,
+        0.6397226653669149
+      ],
+      "lambda_rep_mean": 0.26449011441931064,
+      "beta_mean": 1.51423878543129,
+      "unique_induced_H_joint_states": 1,
+      "unique_segmentations_first20_traces_mean": 1937.95,
+      "RECOVERY_DIAGNOSTIC_ONLY_boundary_f1": 0.34163701067615665
+    },
+    {
+      "chain": 2,
+      "mean_log_posterior": -5753.51010814893,
+      "max_log_posterior_visited": -5666.642994722635,
+      "total_relation_count_mean": 7.027,
+      "total_relation_count_within_sd": 0.16208331191088118,
+      "sorted_per_skill_relation_counts": [
+        2.0,
+        2.0,
+        3.027
+      ],
+      "total_segments_mean": 498.853,
+      "sorted_pi_mean": [
+        0.12425839665132973,
+        0.3755586069609438,
+        0.5001829962006638
+      ],
+      "P_eigenvalues_mean": [
+        -0.49999999995001715,
+        -0.49999999995001715,
+        0.9999999999000344
+      ],
+      "P_sorted_row_entropies_mean": [
+        0.3865373554569496,
+        0.5590346791543351,
+        0.6392501996470541
+      ],
+      "lambda_rep_mean": 0.21077910220687035,
+      "beta_mean": 1.7029926577953878,
+      "unique_induced_H_joint_states": 2,
+      "unique_segmentations_first20_traces_mean": 2427.95,
+      "RECOVERY_DIAGNOSTIC_ONLY_boundary_f1": 0.23529411764705882
+    },
+    {
+      "chain": 3,
+      "mean_log_posterior": -5580.971412623507,
+      "max_log_posterior_visited": -5419.954587375189,
+      "total_relation_count_mean": 12.437285714285714,
+      "total_relation_count_within_sd": 0.49605132634370297,
+      "sorted_per_skill_relation_counts": [
+        3.0,
+        4.0,
+        5.437285714285714
+      ],
+      "total_segments_mean": 499.2362857142857,
+      "sorted_pi_mean": [
+        0.09088963746725183,
+        0.361215811754976,
+        0.5478945506811141
+      ],
+      "P_eigenvalues_mean": [
+        -0.4999930832653673,
+        -0.5000069169275013,
+        1.0000000001928686
+      ],
+      "P_sorted_row_entropies_mean": [
+        0.5455054017659567,
+        0.5991082324166338,
+        0.6387696742176054
+      ],
+      "lambda_rep_mean": 0.2703978156101398,
+      "beta_mean": 1.3605216446280228,
+      "unique_induced_H_joint_states": 2,
+      "unique_segmentations_first20_traces_mean": 1535.05,
+      "RECOVERY_DIAGNOSTIC_ONLY_boundary_f1": 0.37454545454545457
+    }
+  ]
+}

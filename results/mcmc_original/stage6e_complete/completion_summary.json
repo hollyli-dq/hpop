@@ -1,0 +1,638 @@
+{
+  "stage": "6E",
+  "source_commit": "ad69d927f3b2c54887fe5df80d6a3faa2f93b451",
+  "stage6e_config_hash": "d98897a181b6809a17dd572ca175da7846a6924b8429b9c7337a939686a6da44",
+  "stage6d_config_hash": "ebd5effd5b32e68aeb61df044bfbdcbef998c01955673ae1c077531be3d2ac73",
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "completion_gates": {
+    "gates": {
+      "1_stage6d_parent_verified": {
+        "value": "ebd5effd5b32e68aeb61df044bfbdcbef998c01955673ae1c077531be3d2ac73",
+        "pass": true
+      },
+      "2_stage6e_target_documented": {
+        "value": "True",
+        "pass": true
+      },
+      "3_oracle_boundary_parity": {
+        "value": "see stage6e0 parity_results.json",
+        "pass": true
+      },
+      "4_local_move_kernel_target_parity": {
+        "value": "stage6e0 7.2 + stage6e1a fast/reference agreement",
+        "pass": true
+      },
+      "5_q0_reset_every_candidate_block": {
+        "value": true,
+        "pass": true
+      },
+      "6_exact_segmentation_enumeration": {
+        "value": 8.881784197001252e-16,
+        "pass": true
+      },
+      "7_exact_path_frequency_tv": {
+        "value": 0.0014704498043723745,
+        "pass": true
+      },
+      "8_max_boundary_marginal_error": {
+        "value": 0.00028386996194035286,
+        "pass": true
+      },
+      "9_max_occurrence_label_marginal_error": {
+        "value": 0.001065734285746689,
+        "pass": true
+      },
+      "10_mixed_reference_quality": {
+        "value": true,
+        "pass": true
+      },
+      "11_mixed_reference_comparisons": {
+        "value": true,
+        "pass": true
+      },
+      "12_registered_rhat_and_ess": {
+        "value": false,
+        "pass": false
+      },
+      "13_full_trace_chains_converged": {
+        "value": false,
+        "pass": false
+      },
+      "14_heldout_prediction_complete": {
+        "value": 1.5584198650284364,
+        "pass": true
+      },
+      "15_all_tests_pass": {
+        "value": "reported separately by the final regression run",
+        "pass": null
+      },
+      "16_compressed_artifacts_exist": {
+        "value": true,
+        "pass": true
+      }
+    },
+    "all_determined_pass": false,
+    "n_determined": 15,
+    "n_total": 16
+  },
+  "stage6e0": {
+    "all_passed": true,
+    "parity_all_passed": true,
+    "smoke_all_passed": true,
+    "failed_checks": []
+  },
+  "stage6e1a": {
+    "all_pass": true,
+    "log_evidence_gap": 8.881784197001252e-16,
+    "path_total_variation": 0.0014704498043723745,
+    "max_boundary_marginal_error": 0.00028386996194035286,
+    "max_occurrence_label_marginal_error": 0.001065734285746689,
+    "n_states": 21,
+    "n_retained": 380000
+  },
+  "stage6e1b": {
+    "reference": {
+      "primary_pass": true,
+      "all_active_pass": true,
+      "nondegenerate_pass": true,
+      "checks": {
+        "max_rqmc_standard_error": {
+          "value": 0.0005667929455901159,
+          "threshold": 0.001,
+          "primary": true,
+          "pass": true
+        },
+        "max_half_width_95": {
+          "value": 0.0012080905663045393,
+          "threshold": 0.0025,
+          "primary": true,
+          "pass": true
+        },
+        "min_relative_ess": {
+          "value": 0.04386141741129308,
+          "threshold": 0.02,
+          "primary": false,
+          "comparison": ">=",
+          "pass": true
+        },
+        "max_normalised_weight": {
+          "value": 0.0003295848775089024,
+          "threshold": 0.001,
+          "primary": false,
+          "pass": true
+        },
+        "log_evidence_sd": {
+          "value": 0.0033823943089510656,
+          "threshold": 0.05,
+          "primary": false,
+          "pass": true
+        }
+      },
+      "superseded_checks": {
+        "max_replicate_h_total_variation": {
+          "value": 0.007839579315318427,
+          "threshold": 0.003,
+          "pass": false,
+          "status": "SUPERSEDED DESCRIPTIVE DIAGNOSTIC \u2014 not a precision measure and not a primary gate"
+        },
+        "max_replicate_relation_departure": {
+          "value": 0.0038914035610426723,
+          "threshold": 0.003,
+          "pass": false,
+          "status": "SUPERSEDED DESCRIPTIVE DIAGNOSTIC \u2014 not a precision measure and not a primary gate"
+        }
+      },
+      "label_permutation_audit": "no nontrivial relabelling is a symmetry of this target, so per-skill summaries are well posed and raw per-skill R-hat is meaningful"
+    },
+    "comparison": {
+      "all_pass": true,
+      "gates": {
+        "segmentation_total_variation": {
+          "value": 0.004605349601873157,
+          "threshold": 0.01,
+          "pass": true,
+          "per_trace": [
+            0.004605349601873157,
+            0.0039009540008763375
+          ]
+        },
+        "segmentation_total_variation_vs_sampled_estimator": {
+          "value": 0.005416390249832974,
+          "threshold": 0.01,
+          "pass": true,
+          "per_trace": [
+            0.005416390249832974,
+            0.003475194235310628
+          ],
+          "note": "section 9's literal sampled reference estimator; the conditional estimator above is primary"
+        },
+        "max_boundary_marginal_error": {
+          "value": 0.0015163057229615196,
+          "threshold": 0.01,
+          "pass": true
+        },
+        "max_occurrence_label_marginal_error": {
+          "value": 0.0023641047354658884,
+          "threshold": 0.01,
+          "pass": true
+        },
+        "induced_h_total_variation": {
+          "value": 0.005310317658387368,
+          "threshold": 0.01,
+          "pass": true,
+          "per_skill": [
+            0.004083944814139193,
+            0.005310317658387368,
+            0.003908663323514857
+          ]
+        },
+        "max_relation_marginal_error": {
+          "value": 0.003879532975184785,
+          "threshold": 0.01,
+          "pass": true,
+          "per_skill": [
+            0.002050558020539328,
+            0.003879532975184785,
+            0.002122611637392413
+          ]
+        },
+        "segment_count_total_variation": {
+          "value": 0.0009101928470551246,
+          "threshold": 0.01,
+          "pass": true
+        },
+        "mixed_multivariate_reference_statistic": {
+          "value": 0.003988790714935853,
+          "threshold": 0.004522256615497353,
+          "pass": true,
+          "z_score": 0.8143799502500213
+        },
+        "log_posterior_rhat": {
+          "value": 1.0001201050351363,
+          "threshold": 1.01,
+          "pass": true
+        },
+        "n_segments_rhat": {
+          "value": 1.0000367746372358,
+          "threshold": 1.01,
+          "pass": true
+        },
+        "relation_count_rhat": {
+          "value": 1.0001446644793635,
+          "threshold": 1.01,
+          "pass": true
+        },
+        "selected_boundary_indicator_rhat": {
+          "value": 1.0000671808752921,
+          "threshold": 1.01,
+          "pass": true
+        },
+        "selected_relation_indicator_rhat": {
+          "value": 1.0000169150268408,
+          "threshold": 1.01,
+          "pass": true
+        },
+        "rho_rhat": {
+          "value": 1.000234457879457,
+          "threshold": 1.01,
+          "pass": true
+        },
+        "beta_rhat": {
+          "value": 1.0025561250421307,
+          "threshold": 1.01,
+          "pass": true
+        },
+        "omega_rhat": {
+          "value": 1.0013511147909597,
+          "threshold": 1.01,
+          "pass": true
+        },
+        "lambda_rep_rhat": {
+          "value": 1.0023670549425818,
+          "threshold": 1.01,
+          "pass": true
+        },
+        "lambda_back_rhat": {
+          "value": 1.000631323622403,
+          "threshold": 1.01,
+          "pass": true
+        }
+      }
+    }
+  },
+  "stage6e2": {
+    "corpus": {
+      "corpus_hash": "02be246edf9bd4f4148efa3a3e269afa10b21df53173c7273b5a4deb9e30c941",
+      "n_train_traces": 100,
+      "n_heldout_traces": 45,
+      "n_train_blocks": 510,
+      "n_heldout_blocks": 223,
+      "trace_length": {
+        "mean": 31.99,
+        "min": 16,
+        "max": 52
+      },
+      "block_width": {
+        "mean": 6.272549019607843,
+        "min": 3,
+        "max": 12
+      },
+      "exposure_audit_train": {
+        "valid_repeat": 1617,
+        "leaf_repeat": 931,
+        "upstream_repeat": 686,
+        "recomputation": 243,
+        "total_steps": 3199
+      },
+      "leakage_audit": {
+        "n_traces": 100,
+        "model_traces_equal_observed_sequences": true,
+        "model_holds_no_true_segmentation": true,
+        "exposed_attributes": [],
+        "model_attributes": [
+          "_scorer",
+          "delta_b",
+          "epsilon",
+          "eta_initial",
+          "eta_transition",
+          "infer_pi_P",
+          "max_width",
+          "min_width",
+          "n_roles",
+          "n_skills",
+          "traces"
+        ],
+        "true_boundaries_and_labels_live_only_in": "the frozen corpus manifest, used by the recovery evaluation and by the oracle-boundary control, never by the unknown-boundary sampler",
+        "pass": true
+      }
+    },
+    "pilot": {
+      "selected_scales": {
+        "U": 0.5,
+        "rho": 0.5,
+        "beta": 0.40872,
+        "omega": 1.45704,
+        "lambda_rep": 0.6648,
+        "lambda_back": 1.51552
+      },
+      "selected_proposals_per_trace": 32,
+      "all_pilot_draws_discarded": true
+    },
+    "joint_confirmation": {
+      "all_targets_finite": true,
+      "every_segmentation_legal": true,
+      "block_table_matches_registered_scorer": true,
+      "grouped_and_per_block_evaluators_agree": true,
+      "boundaries_moved": true,
+      "every_trace_visited_more_than_one_segmentation": true,
+      "every_move_type_proposed": true,
+      "every_move_type_accepted": true
+    },
+    "convergence": {
+      "all_pass": false
+    },
+    "recovery_verdicts": {
+      "stage_6e_sampler_correctness": "see stage6e0/6e1a/6e1b \u2014 not restated here",
+      "stage_6e2_convergence": "FAIL",
+      "stage_6e2_boundary_recovery": "FAIL",
+      "stage_6e2_skill_label_recovery": "FAIL",
+      "stage_6e2_structural_recovery": "FAIL",
+      "stage_6e2_scalar_recovery": "PARTIAL",
+      "verdict_thresholds": {
+        "boundary_f1": {
+          "PASS": ">= 0.80",
+          "PARTIAL": ">= 0.50"
+        },
+        "skill_ari": {
+          "PASS": ">= 0.70",
+          "PARTIAL": ">= 0.30"
+        },
+        "closure_f1_min": {
+          "PASS": ">= 0.95",
+          "PARTIAL": ">= 0.60"
+        },
+        "scalars": {
+          "PASS": "truth inside every 95% interval",
+          "PARTIAL": "truth inside at least one"
+        },
+        "registered": "before the chains were analysed"
+      },
+      "stage_6e2_identifiability": "PARTIALLY IDENTIFIED"
+    },
+    "heldout": {
+      "unknown_boundary_posterior_predictive": {
+        "nll_per_occurrence": 1.5584198650284364,
+        "nll_per_trace": 48.20712115821296
+      },
+      "true_parameter_oracle": {
+        "nll_per_occurrence": 1.4905898464236813,
+        "nll_per_trace": 46.10891258270587
+      },
+      "modal_h_representative_draw": null,
+      "negative_control_h_of_mean_U": {
+        "nll_per_occurrence": 1.9786444523336788,
+        "nll_per_trace": 61.20606839218846
+      },
+      "oracle_boundary_control": {
+        "nll_per_occurrence": 1.4926314862528332,
+        "nll_per_trace": 46.17206730808764
+      },
+      "gap_from_oracle_boundary_control": {
+        "nll_per_occurrence": 0.06578837877560328,
+        "nll_per_trace": 2.0350538501253226
+      }
+    },
+    "continuation_history": {
+      "unknown": [
+        {
+          "block": 1,
+          "sweeps_to": 50000,
+          "burn_in": 15000,
+          "thin": 5,
+          "resumed": true,
+          "kind": "crash recovery (same registered sweep count)",
+          "wall_seconds": 34566.951150000095,
+          "retained_pooled": 28000,
+          "scales": {
+            "U": 0.5,
+            "rho": 0.5,
+            "beta": 0.40872,
+            "omega": 1.45704,
+            "lambda_rep": 0.6648,
+            "lambda_back": 1.51552
+          },
+          "n_proposals_per_trace": 32,
+          "why": "crash recovery: the chains were interrupted and resumed from their last checkpoint to the SAME registered sweep count, with each chain's own RNG state restored. Not a continuation and not an extension."
+        },
+        {
+          "block": 2,
+          "sweeps_to": 75000,
+          "burn_in": 15000,
+          "thin": 5,
+          "resumed": true,
+          "kind": "section 14 continuation",
+          "wall_seconds": 26416.102708791965,
+          "retained_pooled": 20000,
+          "scales": {
+            "U": 0.5,
+            "rho": 0.5,
+            "beta": 0.40872,
+            "omega": 1.45704,
+            "lambda_rep": 0.6648,
+            "lambda_back": 1.51552
+          },
+          "n_proposals_per_trace": 32,
+          "why": "registered 25,000-sweep continuation after a convergence gate failed"
+        },
+        {
+          "block": 3,
+          "sweeps_to": 100000,
+          "burn_in": 15000,
+          "thin": 5,
+          "resumed": true,
+          "kind": "section 14 continuation",
+          "wall_seconds": 22541.17177870893,
+          "retained_pooled": 20000,
+          "scales": {
+            "U": 0.5,
+            "rho": 0.5,
+            "beta": 0.40872,
+            "omega": 1.45704,
+            "lambda_rep": 0.6648,
+            "lambda_back": 1.51552
+          },
+          "n_proposals_per_trace": 32,
+          "why": "registered 25,000-sweep continuation after a convergence gate failed"
+        },
+        {
+          "block": 4,
+          "sweeps_to": 125000,
+          "burn_in": 15000,
+          "thin": 5,
+          "resumed": true,
+          "kind": "section 14 continuation",
+          "wall_seconds": 26125.417116959,
+          "retained_pooled": 20000,
+          "scales": {
+            "U": 0.5,
+            "rho": 0.5,
+            "beta": 0.40872,
+            "omega": 1.45704,
+            "lambda_rep": 0.6648,
+            "lambda_back": 1.51552
+          },
+          "n_proposals_per_trace": 32,
+          "why": "registered 25,000-sweep continuation after a convergence gate failed"
+        },
+        {
+          "block": 5,
+          "sweeps_to": 150000,
+          "burn_in": 15000,
+          "thin": 5,
+          "resumed": true,
+          "kind": "section 14 continuation",
+          "wall_seconds": 34415.670835,
+          "retained_pooled": 20000,
+          "scales": {
+            "U": 0.5,
+            "rho": 0.5,
+            "beta": 0.40872,
+            "omega": 1.45704,
+            "lambda_rep": 0.6648,
+            "lambda_back": 1.51552
+          },
+          "n_proposals_per_trace": 32,
+          "why": "registered 25,000-sweep continuation after a convergence gate failed"
+        }
+      ],
+      "oracle": [
+        {
+          "block": 1,
+          "sweeps_to": 50000,
+          "burn_in": 15000,
+          "thin": 5,
+          "resumed": false,
+          "wall_seconds": 7742.859417375061,
+          "retained_pooled": 28000,
+          "scales": {
+            "U": 0.5,
+            "rho": 0.5,
+            "beta": 0.40872,
+            "omega": 1.45704,
+            "lambda_rep": 0.6648,
+            "lambda_back": 1.51552
+          },
+          "n_proposals_per_trace": 0,
+          "why": "initial registered run"
+        }
+      ]
+    }
+  },
+  "artifact_sizes": {
+    "stage6e0": {
+      "path": "results/mcmc_original/stage6e0_unknown_boundary_smoke",
+      "n_files": 5,
+      "total_bytes": 10926,
+      "files": {
+        "config.json": 645,
+        "parity_results.json": 4828,
+        "replay_results.json": 521,
+        "report.md": 3247,
+        "summary.json": 1685
+      }
+    },
+    "stage6e1a": {
+      "path": "results/mcmc_original/stage6e1a_exact_segmentation",
+      "n_files": 5,
+      "total_bytes": 20850,
+      "files": {
+        "chains.npz": 2559,
+        "comparison.json": 6457,
+        "config.json": 3767,
+        "exact_reference.npz": 3078,
+        "report.md": 4989
+      }
+    },
+    "stage6e1b": {
+      "path": "results/mcmc_original/stage6e1b_mixed_reference",
+      "n_files": 10,
+      "total_bytes": 22093557,
+      "files": {
+        "chains.npz": 21716195,
+        "config.json": 3835,
+        "joint_comparison.json": 8042,
+        "qmc_summary.json": 3595,
+        "reference_draws.npz": 333673,
+        "reference_registration.json": 4750,
+        "report.md": 10817,
+        "scalar_comparison.json": 3273,
+        "segmentation_comparison.json": 4312,
+        "structural_comparison.json": 5065
+      }
+    },
+    "stage6e2": {
+      "path": "results/mcmc_original/stage6e2_unknown_boundary_full_seed0",
+      "n_files": 51,
+      "total_bytes": 139520939,
+      "files": {
+        "chains.npz": 84590248,
+        "chains_block1_50k.npz": 21967968,
+        "config.json": 833,
+        "continuation_125k.log": 1009,
+        "continuation_history.json": 3290,
+        "convergence_gates.json": 3603,
+        "corpus_manifest.json": 65938,
+        "gate_supersession.json": 4470,
+        "heldout_results.json": 3404,
+        "interpretation_rule.json": 2913,
+        "invariant_convergence_50k.json": 5689,
+        "joint_confirmation.json": 1399,
+        "ladder_check_100k.json": 7390,
+        "ladder_check_125k.json": 7370,
+        "ladder_check_150k.json": 7610,
+        "ladder_check_75k.json": 7422,
+        "mode_diagnostics_100k.json": 4101,
+        "mode_diagnostics_125k.json": 4103,
+        "mode_diagnostics_150k.json": 4085,
+        "mode_diagnostics_50k.json": 4016,
+        "mode_diagnostics_75k.json": 4027,
+        "oracle_checkpoints/chain0_checkpoint.json": 8767,
+        "oracle_checkpoints/chain0_checkpoint.npz": 2084114,
+        "oracle_checkpoints/chain1_checkpoint.json": 8762,
+        "oracle_checkpoints/chain1_checkpoint.npz": 2081917,
+        "oracle_checkpoints/chain2_checkpoint.json": 8760,
+        "oracle_checkpoints/chain2_checkpoint.npz": 2082140,
+        "oracle_checkpoints/chain3_checkpoint.json": 8761,
+        "oracle_checkpoints/chain3_checkpoint.npz": 2082923,
+        "oracle_control_chains.npz": 8318471,
+        "oracle_final_states.json": 143148,
+        "oracle_run_summary.json": 9790,
+        "pilot_registration.json": 3579,
+        "pilot_results.json": 18220,
+        "recovery_results.json": 32587,
+        "report.md": 11557,
+        "scalar_diagnostics.json": 4792,
+        "segmentation_diagnostics.json": 22887,
+        "skill_diagnostics.json": 12577,
+        "structural_diagnostics.json": 11543,
+        "transition_diagnostics.json": 4571,
+        "unknown_checkpoints/chain0_checkpoint.json": 8628,
+        "unknown_checkpoints/chain0_checkpoint.npz": 3920593,
+        "unknown_checkpoints/chain1_checkpoint.json": 8664,
+        "unknown_checkpoints/chain1_checkpoint.npz": 3940133,
+        "unknown_checkpoints/chain2_checkpoint.json": 8568,
+        "unknown_checkpoints/chain2_checkpoint.npz": 3937709,
+        "unknown_checkpoints/chain3_checkpoint.json": 8816,
+        "unknown_checkpoints/chain3_checkpoint.npz": 3877526,
+        "unknown_final_states.json": 139602,
+        "unknown_run_summary.json": 9946
+      }
+    },
+    "stage6e_complete": {
+      "path": "results/mcmc_original/stage6e_complete",
+      "n_files": 9,
+      "total_bytes": 224430,
+      "files": {
+        "completion_summary.json": 11982,
+        "config.json": 8079,
+        "figures/boundary_calibration.png": 42716,
+        "figures/heldout_prediction.png": 27268,
+        "figures/relation_marginals.png": 34063,
+        "figures/scalar_recovery.png": 45009,
+        "figures/segment_lengths.png": 20058,
+        "figures/stage6e1a_exact_vs_mcmc.png": 27577,
+        "model_audit.md": 7678
+      }
+    }
+  },
+  "figures": [
+    "results/mcmc_original/stage6e_complete/figures/boundary_calibration.png",
+    "results/mcmc_original/stage6e_complete/figures/segment_lengths.png",
+    "results/mcmc_original/stage6e_complete/figures/scalar_recovery.png",
+    "results/mcmc_original/stage6e_complete/figures/relation_marginals.png",
+    "results/mcmc_original/stage6e_complete/figures/heldout_prediction.png",
+    "results/mcmc_original/stage6e_complete/figures/stage6e1a_exact_vs_mcmc.png"
+  ],
+  "next_step": "Step 7 \u2014 replace the local segmentation update with model-agnostic semi-Markov FFBS and verify that it targets the same posterior. FFBS is NOT implemented in Stage 6E."
+}

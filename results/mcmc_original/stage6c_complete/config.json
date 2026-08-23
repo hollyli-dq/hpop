@@ -1,0 +1,136 @@
+{
+  "stage": "6C",
+  "model_id": "recurrent-rfs-latent-product-order-v1",
+  "stage6b_model_id": "recurrent-rfs-utility-weighted-frontier-v1",
+  "stage6b_config_hash": "9ad850f22065d85f6cfd855443395d06b8a566e8c8dcdd4f9d85b1f031e911cc",
+  "target": "p(U, rho[, beta] | Y) proportional to p(Y | h(U), fixed) p(U | rho) p(rho) [p(beta)] -- continuous in U; U is never integrated out and the chain state is never a poset identifier",
+  "inherits_from_stage6b": {
+    "likelihood_branch": {
+      "name": "utility-weighted frontier",
+      "feasibility": "F(x) = prod_{z precedes x} q(z), empty product 1",
+      "utility": "Q(x) = log(1 + S(x)),  S(x) = sum_z 1[x precedes z] (1 - q(z))",
+      "back_cost": "C_back(x) = sigmoid(omega) * sum_{z != x} 1[x precedes z] q(z)",
+      "weights": "W(x) = F(x) * exp(beta*Q(x) - lambda_rep*q(x) - lambda_back*C_back(x))",
+      "emission": "p(x) = (1 - epsilon) * W(x)/sum(W) + epsilon/m",
+      "state_update": "q(y)=1; q(x) *= (1 - sigmoid(omega)) for x downstream of y",
+      "not": "uniform-frontier (beta would not multiply a utility term)"
+    },
+    "dataset": {
+      "mode": "full",
+      "generator_seed": 0,
+      "n_train": 500,
+      "n_heldout": 200,
+      "T": 20
+    },
+    "epsilon": 0.02,
+    "boundaries": {
+      "segmentation": "none \u2014 boundaries are known and fixed",
+      "blocks": "every block is one independent trace of fixed length T",
+      "skills_per_block": 1,
+      "q_reset": "q_0 = 0 at the start of every block; q never crosses a block boundary",
+      "conditions_on_T": true,
+      "duration_model": null
+    },
+    "numerics": {
+      "exponent_stabilisation": "row-wise max subtraction before exp; cancels in the normalisation",
+      "mixture_floor": "p = (1 - epsilon) * structural + epsilon / m",
+      "initial_state": "q_0 = zeros(m)",
+      "feasibility_empty_product": 1.0,
+      "dtype": "float64"
+    },
+    "scalar_priors": {
+      "beta": {
+        "family": "gamma",
+        "shape": 2.0,
+        "rate": 2.0,
+        "support": "(0, inf)"
+      },
+      "lambda_back": {
+        "family": "gamma",
+        "shape": 2.0,
+        "rate": 2.0,
+        "support": "(0, inf)"
+      },
+      "lambda_rep": {
+        "family": "gamma",
+        "shape": 2.0,
+        "rate": 2.0,
+        "support": "(0, inf)"
+      },
+      "omega": {
+        "family": "normal",
+        "mean": 0.0,
+        "sd": 2.0,
+        "support": "(-inf, inf)"
+      }
+    },
+    "truth": {
+      "beta": 1.5,
+      "lambda_back": 0.25,
+      "lambda_rep": 0.8,
+      "omega": 1.7346010553881064
+    }
+  },
+  "structural_model": {
+    "latent": "U in R^{m x d} continuous latent utility matrix",
+    "induced_order": "h(U): i > j iff U[i,r] > U[j,r] for every r; the intersection of the d column orderings",
+    "h_depends_on": "U only -- not on beta",
+    "legality": "every real U induces a legal strict partial order; no acyclicity check exists or is needed",
+    "representation": "precedence_from_u returns the TRANSITIVE CLOSURE",
+    "mcmc_state": "U itself (continuous); the poset is a derived label",
+    "prior": "rows iid Normal(0, Sigma_rho), Sigma_rho = (1-rho) I_d + rho 11^T",
+    "rho_is": "correlation between the d latent COLUMNS within a row; rows are iid. Not a row covariance -- that would need a matrix-normal prior",
+    "prior_normalised": true,
+    "rho_dependent_normaliser": "-(m/2) log|Sigma_rho|, present in log_u_prior; cancels in a U update at fixed rho, does NOT cancel in a rho update at fixed U",
+    "combinatorial_normaliser_needed": false,
+    "combinatorial_normaliser_reason": "the prior is a density on R^{m x d}, not a score over a set of partial orders, so no sum over legal posets arises",
+    "rho_enters_likelihood": false,
+    "tau_in_model": false
+  },
+  "rho_prior": {
+    "family": "beta",
+    "a": 1.0,
+    "b": 1.0,
+    "truncated_at": 0.995,
+    "tol": 0.005,
+    "support": "(0.0, 0.995)",
+    "renormalised": true,
+    "source": "vendored StatisticalUtils.dRprior with stage5.RHO_PRIOR"
+  },
+  "rho_transform": {
+    "name": "logit",
+    "jacobian": "log(rho (1 - rho))"
+  },
+  "u_proposal": {
+    "kernel": "sampler_u.propose_row (Stage 2A), reused unchanged",
+    "form": "U'[j,:] = U[j,:] + sigma_U * Normal(0, I_d)",
+    "sigma_u": 0.5,
+    "symmetric": true,
+    "log_hastings": 0.0
+  },
+  "n_skills": 1,
+  "rho_true_exists": false,
+  "rho_true_reason": "U_TRUE is hand specified in recurrent_synthetic.py, not drawn from p(U | rho); no RHO_TRUE constant exists",
+  "active_6c1": [
+    "U",
+    "rho"
+  ],
+  "active_6c2": [
+    "U",
+    "rho",
+    "beta"
+  ],
+  "sweep_order": [
+    "U",
+    "rho",
+    "beta"
+  ],
+  "never_inferred_in_stage_6c": [
+    "segmentation_boundaries",
+    "skill_labels",
+    "epsilon",
+    "omega",
+    "lambda_rep",
+    "lambda_back"
+  ]
+}

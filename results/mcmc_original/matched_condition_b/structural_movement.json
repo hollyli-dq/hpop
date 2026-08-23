@@ -1,0 +1,58 @@
+{
+  "chain0": {
+    "acceptance": 0.31050933333333336,
+    "accepted": 232882,
+    "distinct_canonical_h_tuples": 1,
+    "esjd_per_proposal": 0.07633049214858757,
+    "esjd_sum": 57247.869111440676,
+    "first_h_change_sweep": 1,
+    "h_change_accepted": 25,
+    "h_change_proposed": 431466,
+    "likelihood_evaluations": 325,
+    "proposed": 750000,
+    "retained_h_changes": 0,
+    "segment_seconds": 43.72955970899784
+  },
+  "chain1": {
+    "acceptance": 0.308024,
+    "accepted": 231018,
+    "distinct_canonical_h_tuples": 1,
+    "esjd_per_proposal": 0.07556561302163567,
+    "esjd_sum": 56674.20976622675,
+    "first_h_change_sweep": 1,
+    "h_change_accepted": 30,
+    "h_change_proposed": 433528,
+    "likelihood_evaluations": 244,
+    "proposed": 750000,
+    "retained_h_changes": 0,
+    "segment_seconds": 44.43510645799688
+  },
+  "chain2": {
+    "acceptance": 0.3066893333333333,
+    "accepted": 230017,
+    "distinct_canonical_h_tuples": 1,
+    "esjd_per_proposal": 0.07547470683916034,
+    "esjd_sum": 56606.03012937026,
+    "first_h_change_sweep": 1,
+    "h_change_accepted": 31,
+    "h_change_proposed": 434436,
+    "likelihood_evaluations": 357,
+    "proposed": 750000,
+    "retained_h_changes": 0,
+    "segment_seconds": 43.73578537598951
+  },
+  "chain3": {
+    "acceptance": 0.310684,
+    "accepted": 233013,
+    "distinct_canonical_h_tuples": 1,
+    "esjd_per_proposal": 0.07646969792028017,
+    "esjd_sum": 57352.27344021013,
+    "first_h_change_sweep": 1,
+    "h_change_accepted": 24,
+    "h_change_proposed": 431420,
+    "likelihood_evaluations": 243,
+    "proposed": 750000,
+    "retained_h_changes": 0,
+    "segment_seconds": 44.34821591700893
+  }
+}

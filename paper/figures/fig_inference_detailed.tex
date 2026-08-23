@@ -1,0 +1,10 @@
+% Standalone wrapper for the detailed appendix inference figure.
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage{mathptmx}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{arrows.meta}
+\newcommand{\figref}[1]{2}  % standalone stub for \ref
+\begin{document}
+\makeatletter\def\ref#1{2}\makeatother
+\input{fig_inference_detailed_inline}
+\end{document}

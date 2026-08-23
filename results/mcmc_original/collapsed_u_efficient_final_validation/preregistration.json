@@ -1,0 +1,63 @@
+{
+  "protocol": "sequential-stopping validation of the UNCHANGED collapsed-U kernel; supersedes the aborted fixed-length final validation (archived non-primary, never pooled)",
+  "historical_verdicts_unchanged": [
+    "run 1 FAIL",
+    "rep2 FAIL",
+    "start[0] probe verdict",
+    "dependence calibration diagnostic"
+  ],
+  "chains": 4,
+  "starts": "registered dispersed starts 0-3, unchanged",
+  "seeds": [
+    8158001,
+    8158002,
+    8158003,
+    8158004
+  ],
+  "burn_in": 100000,
+  "burn_in_verified_by": "burnin_verification.json (criterion frozen before the diagnostic ran; diagnostic chains throwaway)",
+  "thin": 10,
+  "collapsed_u_every": 10,
+  "checkpoints": [
+    150000,
+    200000,
+    250000,
+    300000,
+    400000,
+    500000
+  ],
+  "maximum_sweeps": 500000,
+  "stopping_rule": "VALIDATED only after TWO CONSECUTIVE full-PASS checkpoints; stop immediately then. Distributional or convergence FAILs continue to the next checkpoint. Hard correctness failures stop immediately.",
+  "checkpoint_requirements": [
+    "A: 17 frozen non-energy gates (verbatim, thresholds unchanged)",
+    "B: chain-balanced dependence-aware energy gate z <= 2.33 (cutoff frozen by the dependence calibration as the one-sided 99% point)",
+    "C: block lengths {max(2,l//2), l, 2l} agree, l from the frozen 400-sweep dependence scale converted to the extraction spacing",
+    "D: max registered R-hat <= 1.01 (log posterior, relation count, co-clustering, 5 scalars)",
+    "E: scalar bulk ESS >= 1000 and tail ESS >= 500 (EXCEPT lambda_rep: bulk >= 600, tail >= 300 \u2014 lowered BY USER DECISION BEFORE LAUNCH because the 1000 floor + 500k cap + two-consecutive-pass rule are arithmetically unsatisfiable at its known mixing rate; R-hat still gates it); relation-count and co-clustering bulk ESS >= 1000 (no stricter frozen thresholds exist)",
+    "F: every chain >= 1 joint induced-H change",
+    "G: no hard correctness failure"
+  ],
+  "sensitivity_disagreement": "checkpoint verdict INCONCLUSIVE",
+  "max_length_rules": {
+    "two_consecutive_pass_before_500k": "STOP, VALIDATED",
+    "latest_two_fail_same_distributional_gate": "NOT VALIDATED",
+    "alternating_or_sensitivity_inconsistent": "INCONCLUSIVE",
+    "ess_only_insufficient": "INCONCLUSIVE \u2014 INSUFFICIENT EFFECTIVE SAMPLE"
+  },
+  "historical_energy_gate": "computed, DESCRIPTIVE ONLY (dependence audit established its null is miscalibrated for autocorrelated, prefix-pooled draws)",
+  "no_peek": "between checkpoints only process health and sweep counts are monitored; the frozen evaluator runs once per checkpoint and the run is never altered after seeing an evaluation",
+  "evaluator": {
+    "path": "scripts/collapsed_u_efficient_gate.py",
+    "sha256": "b6c70140d9b415f69a9b582bb13a819c4bb78e5c295a76470e0496b7310cc6e6"
+  },
+  "source_manifest": {
+    "src/hpop/mcmc_original/collapsed_u_kernel.py": "430048ef84030fcfbc347def2a774c51fefdef14ee17409eea90ddefaf15e214",
+    "src/hpop/mcmc_original/collapsed_u_likelihood.py": "8efc9bee86ead719a625b3d9f5371cc2dabe4957e777b61f2cfddf4798e35199",
+    "src/hpop/mcmc_original/semi_markov_ffbs.py": "8150bb8235eb159d5e2f08ada7c698c383f4c7fd31f3b882e218b207dd135486",
+    "src/hpop/mcmc_original/sampler_u.py": "7324f3c853c32ed048eeffbbf97e68ad7efa0f68ee72919068b958394f595999",
+    "src/hpop/mcmc_original/fast_block_tables.py": "7b91a074fe42a600fbe4ab37f18d012e10906f673d1ab9a83e019e77b65fdfcc",
+    "src/hpop/mcmc_original/recurrent_joint_ffbs_mcmc.py": "6b5952414e85ebbc253bd22e0b4195efcfc7f474bf30e41cc5cb143687e8694a",
+    "src/hpop/mcmc_original/stage6e_sampler.py": "2903ad58dff37bc0b0cb3cbdd4c4e76cefe1df73bc7330d852892deae72704f6",
+    "scripts/collapsed_u_efficient_gate.py": "b6c70140d9b415f69a9b582bb13a819c4bb78e5c295a76470e0496b7310cc6e6"
+  }
+}

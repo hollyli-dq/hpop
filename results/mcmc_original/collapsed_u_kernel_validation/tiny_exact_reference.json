@@ -1,0 +1,22 @@
+{
+  "state_space": {
+    "n_u_grid": 4,
+    "n_paths": 4,
+    "joint_states": 16,
+    "trace": [
+      0,
+      1,
+      2,
+      0,
+      1,
+      2
+    ]
+  },
+  "correct_ordering_stationarity_deviation_L_inf": 2.220446049250313e-16,
+  "correct_ordering_tolerance": 1e-12,
+  "correct_ordering_pass": true,
+  "stale_path_ordering_deviation_L_inf": 0.002914536053672201,
+  "stale_path_ordering_floor": 0.0001,
+  "stale_path_control_pass": true,
+  "reading": "the collapsed MH followed by the exact (S,z) conditional draw is stationary for the joint to machine precision; interposing ANY update that consumes the stale (S,z) breaks stationarity by many orders of magnitude \u2014 the immediate-refresh ordering is load-bearing, not stylistic"
+}

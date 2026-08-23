@@ -1,0 +1,195 @@
+{
+  "caffeinate": [
+    "5865     1  5865      0 Ss      12:34:52 /usr/bin/caffeinate -i -w 1650"
+  ],
+  "chains_at_stop_request": {
+    "cond0": {
+      "burn_in": 10000,
+      "checkpoint_sweep": 78000,
+      "collapsed": [
+        0,
+        0,
+        0
+      ],
+      "movement": {
+        "boundary_hamming": 39082295,
+        "label_changes": 60265697,
+        "states_changed": 7449347,
+        "u_accepted": 346491,
+        "u_h_accepted": 24,
+        "u_proposed": 1170000
+      },
+      "mtime": "2026-08-20T08:47:40.514345",
+      "retained_draws": 13600,
+      "seconds": 200855.80372087515,
+      "thin": 5
+    },
+    "cond1": {
+      "burn_in": 10000,
+      "checkpoint_sweep": 78000,
+      "collapsed": [
+        0,
+        0,
+        0
+      ],
+      "movement": {
+        "boundary_hamming": 32406283,
+        "label_changes": 53977979,
+        "states_changed": 7104314,
+        "u_accepted": 359900,
+        "u_h_accepted": 18,
+        "u_proposed": 1170000
+      },
+      "mtime": "2026-08-20T08:47:32.281783",
+      "retained_draws": 13600,
+      "seconds": 201702.07917199912,
+      "thin": 5
+    },
+    "cond2": {
+      "burn_in": 10000,
+      "checkpoint_sweep": 78000,
+      "collapsed": [
+        0,
+        0,
+        0
+      ],
+      "movement": {
+        "boundary_hamming": 28437476,
+        "label_changes": 40572596,
+        "states_changed": 6868792,
+        "u_accepted": 360158,
+        "u_h_accepted": 22,
+        "u_proposed": 1170000
+      },
+      "mtime": "2026-08-20T08:48:19.000685",
+      "retained_draws": 13600,
+      "seconds": 202259.89482520905,
+      "thin": 5
+    },
+    "cond3": {
+      "burn_in": 10000,
+      "checkpoint_sweep": 78000,
+      "collapsed": [
+        0,
+        0,
+        0
+      ],
+      "movement": {
+        "boundary_hamming": 35628930,
+        "label_changes": 66639081,
+        "states_changed": 7408438,
+        "u_accepted": 350748,
+        "u_h_accepted": 20,
+        "u_proposed": 1170000
+      },
+      "mtime": "2026-08-20T08:48:30.994925",
+      "retained_draws": 13600,
+      "seconds": 201366.20637891602,
+      "thin": 5
+    },
+    "marg0": {
+      "burn_in": 10000,
+      "checkpoint_sweep": 76000,
+      "collapsed": [
+        7600,
+        953,
+        7
+      ],
+      "movement": {
+        "boundary_hamming": 26825880,
+        "label_changes": 43023161,
+        "states_changed": 6600728,
+        "u_accepted": 349605,
+        "u_h_accepted": 17,
+        "u_proposed": 1140000
+      },
+      "mtime": "2026-08-20T07:40:44.086166",
+      "retained_draws": 13200,
+      "seconds": 215100.93920395902,
+      "thin": 5
+    },
+    "marg1": {
+      "burn_in": 10000,
+      "checkpoint_sweep": 76000,
+      "collapsed": [
+        7600,
+        985,
+        6
+      ],
+      "movement": {
+        "boundary_hamming": 26541379,
+        "label_changes": 42258466,
+        "states_changed": 6589810,
+        "u_accepted": 351284,
+        "u_h_accepted": 16,
+        "u_proposed": 1140000
+      },
+      "mtime": "2026-08-20T07:41:03.502038",
+      "retained_draws": 13200,
+      "seconds": 215242.1549038759,
+      "thin": 5
+    },
+    "marg2": {
+      "burn_in": 10000,
+      "checkpoint_sweep": 76000,
+      "collapsed": [
+        7600,
+        1003,
+        5
+      ],
+      "movement": {
+        "boundary_hamming": 27753365,
+        "label_changes": 39647681,
+        "states_changed": 6693453,
+        "u_accepted": 352008,
+        "u_h_accepted": 18,
+        "u_proposed": 1140000
+      },
+      "mtime": "2026-08-20T07:41:15.895492",
+      "retained_draws": 13200,
+      "seconds": 215136.76946791605,
+      "thin": 5
+    },
+    "marg3": {
+      "burn_in": 10000,
+      "checkpoint_sweep": 76000,
+      "collapsed": [
+        7600,
+        1008,
+        14
+      ],
+      "movement": {
+        "boundary_hamming": 26602444,
+        "label_changes": 42409136,
+        "states_changed": 6595303,
+        "u_accepted": 353395,
+        "u_h_accepted": 21,
+        "u_proposed": 1140000
+      },
+      "mtime": "2026-08-20T07:41:08.992972",
+      "retained_draws": 13200,
+      "seconds": 214757.06043849798,
+      "thin": 5
+    }
+  },
+  "n_spawn_main_total": 12,
+  "orchestrator": [
+    "1650     1  1650      0 Ss      20:51:12 /Users/dongqing/Desktop/hpop/.venv/bin/python scripts/resume_matched_condition_c_formal.py"
+  ],
+  "recorded_at": "2026-08-20T09:03:08.351582",
+  "tmp_files": [],
+  "workers_spawn_main_all_sessions": [
+    "1660  1650  1650      0 R       20:51:09 /Users/dongqing/Desktop/hpop/.venv/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=9, pipe_handle=17) --multiprocessing-fork",
+    "1661  1650  1650      0 R       20:51:09 /Users/dongqing/Desktop/hpop/.venv/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=9, pipe_handle=19) --multiprocessing-fork",
+    "1662  1650  1650      0 R       20:51:09 /Users/dongqing/Desktop/hpop/.venv/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=9, pipe_handle=21) --multiprocessing-fork",
+    "1663  1650  1650      0 R       20:51:09 /Users/dongqing/Desktop/hpop/.venv/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=9, pipe_handle=23) --multiprocessing-fork",
+    "1664  1650  1650      0 R       20:51:09 /Users/dongqing/Desktop/hpop/.venv/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=9, pipe_handle=25) --multiprocessing-fork",
+    "1665  1650  1650      0 R       20:51:09 /Users/dongqing/Desktop/hpop/.venv/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=9, pipe_handle=27) --multiprocessing-fork",
+    "1666  1650  1650      0 R       20:51:09 /Users/dongqing/Desktop/hpop/.venv/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=9, pipe_handle=29) --multiprocessing-fork",
+    "1667  1650  1650      0 R       20:51:09 /Users/dongqing/Desktop/hpop/.venv/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=9, pipe_handle=31) --multiprocessing-fork",
+    "58248     1 58236      0 S    02-12:13:28 /Users/dongqing/Desktop/hpop/.venv/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=9, pipe_handle=17) --multiprocessing-fork",
+    "58249     1 58236      0 S    02-12:13:28 /Users/dongqing/Desktop/hpop/.venv/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=9, pipe_handle=19) --multiprocessing-fork",
+    "58250     1 58236      0 S    02-12:13:28 /Users/dongqing/Desktop/hpop/.venv/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=9, pipe_handle=21) --multiprocessing-fork",
+    "58252     1 58236      0 S    02-12:13:28 /Users/dongqing/Desktop/hpop/.venv/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=9, pipe_handle=23) --multiprocessing-fork"
+  ]
+}

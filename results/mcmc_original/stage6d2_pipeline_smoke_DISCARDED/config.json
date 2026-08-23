@@ -1,0 +1,84 @@
+{
+  "source_commit": "0905a16b5bfdf1b7e52dc9a99954bc23453b10e4",
+  "stage6d_config_hash": "ebd5effd5b32e68aeb61df044bfbdcbef998c01955673ae1c077531be3d2ac73",
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "stage": "6d2",
+  "chains": 4,
+  "sweeps": 600,
+  "burn_in": 100,
+  "thin": 5,
+  "base_seed": 0,
+  "proposal_scales": {
+    "U": 0.5,
+    "rho": 0.5,
+    "beta": 0.05109,
+    "omega": 0.18213,
+    "lambda_rep": 0.04155,
+    "lambda_back": 0.09472
+  },
+  "omega_scale_multiplier": 1.0,
+  "chain_starts": [
+    {
+      "chain": 0,
+      "u_start": "antichain",
+      "start_relations": 0,
+      "start_values": {
+        "rho": 0.05,
+        "beta": 0.265905804194806,
+        "omega": -0.7706409328151355,
+        "lambda_rep": 1.1094222998462004,
+        "lambda_back": 1.9448600849337145
+      },
+      "seed": 0
+    },
+    {
+      "chain": 1,
+      "u_start": "total_order",
+      "start_relations": 10,
+      "start_values": {
+        "rho": 0.3,
+        "beta": 0.6175218468688276,
+        "omega": 0.7706409328151355,
+        "lambda_rep": 1.9448600849337145,
+        "lambda_back": 0.265905804194806
+      },
+      "seed": 1
+    },
+    {
+      "chain": 2,
+      "u_start": "sparse",
+      "start_relations": 3,
+      "start_values": {
+        "rho": 0.6,
+        "beta": 1.1094222998462004,
+        "omega": 2.5631031310892007,
+        "lambda_rep": 0.265905804194806,
+        "lambda_back": 0.6175218468688276
+      },
+      "seed": 2
+    },
+    {
+      "chain": 3,
+      "u_start": "dense",
+      "start_relations": 10,
+      "start_values": {
+        "rho": 0.9,
+        "beta": 1.9448600849337145,
+        "omega": -2.5631031310892007,
+        "lambda_rep": 0.6175218468688276,
+        "lambda_back": 1.1094222998462004
+      },
+      "seed": 3
+    }
+  ],
+  "retained_per_chain": 100,
+  "retained_pooled": 400,
+  "wall_seconds": 79.96766687498894,
+  "chain_runtime_seconds": [
+    67.85487970896065,
+    67.94848500005901,
+    67.76928554102778,
+    67.68823266692925
+  ]
+}

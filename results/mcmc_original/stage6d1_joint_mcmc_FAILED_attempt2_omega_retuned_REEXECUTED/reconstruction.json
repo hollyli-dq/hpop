@@ -1,0 +1,46 @@
+{
+  "statement": "**Re-execution, not the original chain.** The omega-retuned attempt's directory was overwritten by the third attempt's rerun, and its base seed was never written down. Re-running the recorded configuration (omega x32 = 5.82816, the other three scalars at their registered values, 50,000 sweeps) at each seed that appears anywhere in the Stage 6D1 record \u2014 [6020000, 0] \u2014 reproduces the attempt's *finding* but not its exact numbers, so no seed can be claimed as the original. These artifacts are the configuration re-run at base seed 0; the numbers recorded at the time are listed beside them and are what the report cites as the attempt's own result. Nothing here is presented as the original chain.",
+  "kind": "re-execution of the recorded configuration; seed not identified",
+  "is_the_original_chain": false,
+  "base_seed": 0,
+  "omega_multiplier": 32,
+  "recorded_at_the_time": {
+    "omega_rhat": 1.00006,
+    "beta_rhat": 1.03094
+  },
+  "reproduced_by_this_run": {
+    "omega_rhat": 1.0000707803691984,
+    "beta_rhat": 1.0290965663014007
+  },
+  "match_tolerance": 5e-05,
+  "seeds_tried": [
+    {
+      "base_seed": 6020000,
+      "observed": {
+        "omega_rhat": 1.0001092818933135,
+        "beta_rhat": 1.026240559397012
+      },
+      "distance_from_record": 0.004748722496301427,
+      "matches_record": false,
+      "directory": "stage6d1_attempt2_candidate_seed6020000"
+    },
+    {
+      "base_seed": 0,
+      "observed": {
+        "omega_rhat": 1.0000707803691984,
+        "beta_rhat": 1.0290965663014007
+      },
+      "distance_from_record": 0.0018542140677977326,
+      "matches_record": false,
+      "directory": "stage6d1_attempt2_candidate_seed0"
+    }
+  ],
+  "qualitative_finding_reproduced": "omega is fixed decisively while beta still fails the 1.01 R-hat gate, which is exactly what the history records for this attempt",
+  "outcome": "FAILED \u2014 preserved as a failure, never relabelled",
+  "failed_gates": [
+    "induced_h_total_variation",
+    "beta_rhat",
+    "lambda_rep_rhat",
+    "lambda_back_rhat"
+  ]
+}

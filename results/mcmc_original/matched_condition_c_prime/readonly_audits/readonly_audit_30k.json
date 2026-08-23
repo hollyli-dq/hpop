@@ -1,0 +1,941 @@
+{
+  "check1_rejection_sanity": {
+    "argmax": [
+      "C-COND-SWAP_0",
+      "1-2",
+      11999
+    ],
+    "gate": 1e-10,
+    "max_delta_among_rejected": -4.538408139775129,
+    "n_rejected_scanned": 6232,
+    "pass": true
+  },
+  "check2_independent_recomputation": {
+    "burn_in_era_note": "pre-10k proposals have no retained draws to witness the pre-swap cell and are excluded",
+    "gate": 1e-10,
+    "independence": "witness U from checkpoint (valid: ell_coll reads U only through H, and each used chain holds one retained H tuple); U' by plain numpy row-block exchange; ell_coll via the Condition-A SemiMarkovPosterior forward DP with the production block scorer \u2014 skill_swap_kernel.py and collapsed_u_likelihood.py are never called",
+    "pass": true,
+    "recorded_proposals_covered": 3440,
+    "rows": [
+      {
+        "chain": "C-COND-SWAP_0",
+        "skipped": "8 distinct retained H tuples \u2014 the checkpoint U is not an unambiguous witness for historical proposals; covered by the other chains"
+      },
+      {
+        "abs_error": 1.8189894035458565e-12,
+        "chain": "C-COND-SWAP_1",
+        "independent_delta": -101.39923080963581,
+        "n_recorded_proposals_covered": 235,
+        "pair": "0-1",
+        "stored_delta": -101.39923080963763,
+        "stored_delta_spread_within_group": 0.0
+      },
+      {
+        "abs_error": 9.094947017729282e-13,
+        "chain": "C-COND-SWAP_1",
+        "independent_delta": -74.01108806912453,
+        "n_recorded_proposals_covered": 175,
+        "pair": "0-2",
+        "stored_delta": -74.01108806912544,
+        "stored_delta_spread_within_group": 0.0
+      },
+      {
+        "abs_error": 9.094947017729282e-13,
+        "chain": "C-COND-SWAP_1",
+        "independent_delta": -94.71765104895621,
+        "n_recorded_proposals_covered": 190,
+        "pair": "1-2",
+        "stored_delta": -94.71765104895712,
+        "stored_delta_spread_within_group": 0.0
+      },
+      {
+        "abs_error": 0.0,
+        "chain": "C-COND-SWAP_2",
+        "independent_delta": -125.45523202098593,
+        "n_recorded_proposals_covered": 194,
+        "pair": "0-1",
+        "stored_delta": -125.45523202098593,
+        "stored_delta_spread_within_group": 0.0
+      },
+      {
+        "abs_error": 9.094947017729282e-13,
+        "chain": "C-COND-SWAP_2",
+        "independent_delta": -132.13681178166553,
+        "n_recorded_proposals_covered": 192,
+        "pair": "0-2",
+        "stored_delta": -132.13681178166644,
+        "stored_delta_spread_within_group": 0.0
+      },
+      {
+        "abs_error": 0.0,
+        "chain": "C-COND-SWAP_2",
+        "independent_delta": -104.74866904115424,
+        "n_recorded_proposals_covered": 214,
+        "pair": "1-2",
+        "stored_delta": -104.74866904115424,
+        "stored_delta_spread_within_group": 0.0
+      },
+      {
+        "chain": "C-COND-SWAP_3",
+        "skipped": "3 distinct retained H tuples \u2014 the checkpoint U is not an unambiguous witness for historical proposals; covered by the other chains"
+      },
+      {
+        "abs_error": 0.0,
+        "chain": "C-MARG-SWAP_0",
+        "independent_delta": -125.45523202098593,
+        "n_recorded_proposals_covered": 189,
+        "pair": "0-1",
+        "stored_delta": -125.45523202098593,
+        "stored_delta_spread_within_group": 0.0
+      },
+      {
+        "abs_error": 9.094947017729282e-13,
+        "chain": "C-MARG-SWAP_0",
+        "independent_delta": -132.13681178166553,
+        "n_recorded_proposals_covered": 178,
+        "pair": "0-2",
+        "stored_delta": -132.13681178166644,
+        "stored_delta_spread_within_group": 0.0
+      },
+      {
+        "abs_error": 0.0,
+        "chain": "C-MARG-SWAP_0",
+        "independent_delta": -104.74866904115424,
+        "n_recorded_proposals_covered": 193,
+        "pair": "1-2",
+        "stored_delta": -104.74866904115424,
+        "stored_delta_spread_within_group": 0.0
+      },
+      {
+        "abs_error": 9.094947017729282e-13,
+        "chain": "C-MARG-SWAP_1",
+        "independent_delta": -83.26882340728662,
+        "n_recorded_proposals_covered": 183,
+        "pair": "0-1",
+        "stored_delta": -83.26882340728753,
+        "stored_delta_spread_within_group": 0.0
+      },
+      {
+        "abs_error": 9.094947017729282e-13,
+        "chain": "C-MARG-SWAP_1",
+        "independent_delta": -103.9753863871183,
+        "n_recorded_proposals_covered": 187,
+        "pair": "0-2",
+        "stored_delta": -103.97538638711922,
+        "stored_delta_spread_within_group": 0.0
+      },
+      {
+        "abs_error": 1.8189894035458565e-12,
+        "chain": "C-MARG-SWAP_1",
+        "independent_delta": -110.6569661477979,
+        "n_recorded_proposals_covered": 190,
+        "pair": "1-2",
+        "stored_delta": -110.65696614779972,
+        "stored_delta_spread_within_group": 0.0
+      },
+      {
+        "abs_error": 0.0,
+        "chain": "C-MARG-SWAP_2",
+        "independent_delta": -125.45523202098593,
+        "n_recorded_proposals_covered": 191,
+        "pair": "0-1",
+        "stored_delta": -125.45523202098593,
+        "stored_delta_spread_within_group": 0.0
+      },
+      {
+        "abs_error": 9.094947017729282e-13,
+        "chain": "C-MARG-SWAP_2",
+        "independent_delta": -132.13681178166553,
+        "n_recorded_proposals_covered": 188,
+        "pair": "0-2",
+        "stored_delta": -132.13681178166644,
+        "stored_delta_spread_within_group": 0.0
+      },
+      {
+        "abs_error": 0.0,
+        "chain": "C-MARG-SWAP_2",
+        "independent_delta": -104.74866904115424,
+        "n_recorded_proposals_covered": 181,
+        "pair": "1-2",
+        "stored_delta": -104.74866904115424,
+        "stored_delta_spread_within_group": 0.0
+      },
+      {
+        "abs_error": 0.0,
+        "chain": "C-MARG-SWAP_3",
+        "independent_delta": -125.45523202098593,
+        "n_recorded_proposals_covered": 179,
+        "pair": "0-1",
+        "stored_delta": -125.45523202098593,
+        "stored_delta_spread_within_group": 0.0
+      },
+      {
+        "abs_error": 9.094947017729282e-13,
+        "chain": "C-MARG-SWAP_3",
+        "independent_delta": -132.13681178166553,
+        "n_recorded_proposals_covered": 211,
+        "pair": "0-2",
+        "stored_delta": -132.13681178166644,
+        "stored_delta_spread_within_group": 0.0
+      },
+      {
+        "abs_error": 0.0,
+        "chain": "C-MARG-SWAP_3",
+        "independent_delta": -104.74866904115424,
+        "n_recorded_proposals_covered": 170,
+        "pair": "1-2",
+        "stored_delta": -104.74866904115424,
+        "stored_delta_spread_within_group": 0.0
+      }
+    ],
+    "worst_abs_error": 1.8189894035458565e-12
+  },
+  "check3_gate_reproduction": {
+    "C-COND-SWAP": {
+      "all_inf_consistent": true,
+      "all_rhat_agree": true,
+      "infinite_indicators": [
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 1,
+          "per_chain_constants": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 10,
+          "per_chain_constants": [
+            1.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 11,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 15,
+          "per_chain_constants": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 16,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 2,
+          "per_chain_constants": [
+            1.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 25,
+          "per_chain_constants": [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 27,
+          "per_chain_constants": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 3,
+          "per_chain_constants": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 31,
+          "per_chain_constants": [
+            1.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 37,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 38,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 39,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 4,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 41,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 42,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 5,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 51,
+          "per_chain_constants": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 57,
+          "per_chain_constants": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 58,
+          "per_chain_constants": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 59,
+          "per_chain_constants": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 7,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 8,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        }
+      ],
+      "max_ess_rel_diff": 0.001250727495081401,
+      "summaries": [
+        {
+          "ess_rel_diff": 0.0011373757720599823,
+          "fresh_bulk_ess": 4.694217836926847,
+          "fresh_rhat": 2.6348077778666745,
+          "gate_bulk_ess": 4.699563006029174,
+          "gate_rhat": 2.6348077778666745,
+          "rhat_agrees": true,
+          "summary": "log_target"
+        },
+        {
+          "ess_rel_diff": 0.0003522042215992969,
+          "fresh_bulk_ess": 1841.2258971183448,
+          "fresh_rhat": 1.005887280165789,
+          "gate_bulk_ess": 1840.5776379040938,
+          "gate_rhat": 1.005887280165789,
+          "rhat_agrees": true,
+          "summary": "log_prior"
+        },
+        {
+          "ess_rel_diff": 0.0012324880737398015,
+          "fresh_bulk_ess": 4.414918661401276,
+          "fresh_rhat": 3.6595649995238047,
+          "gate_bulk_ess": 4.420366710653713,
+          "gate_rhat": 3.6595649995238047,
+          "rhat_agrees": true,
+          "summary": "total_relations"
+        },
+        {
+          "ess_rel_diff": 0.001250727495081401,
+          "fresh_bulk_ess": 4.0152536250665065,
+          "fresh_rhat": 18.48943945107234,
+          "gate_bulk_ess": 4.020281902179541,
+          "gate_rhat": 18.48943945107234,
+          "rhat_agrees": true,
+          "summary": "relations_skill0"
+        },
+        {
+          "ess_rel_diff": 0.0012122036374989675,
+          "fresh_bulk_ess": 4.576983795452881,
+          "fresh_rhat": 2.9801427284549424,
+          "gate_bulk_ess": 4.5825387656135375,
+          "gate_rhat": 2.9801427284549424,
+          "rhat_agrees": true,
+          "summary": "relations_skill1"
+        },
+        {
+          "ess_rel_diff": 0.0012367985749737458,
+          "fresh_bulk_ess": 4.137147209730524,
+          "fresh_rhat": 5.7999616244310275,
+          "gate_bulk_ess": 4.142270363813645,
+          "gate_rhat": 5.799961624431028,
+          "rhat_agrees": true,
+          "summary": "relations_skill2"
+        }
+      ]
+    },
+    "C-MARG-SWAP": {
+      "all_inf_consistent": true,
+      "all_rhat_agree": true,
+      "infinite_indicators": [
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 1,
+          "per_chain_constants": [
+            1.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 11,
+          "per_chain_constants": [
+            1.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 15,
+          "per_chain_constants": [
+            1.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 16,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 17,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 18,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 19,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 2,
+          "per_chain_constants": [
+            1.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 21,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 22,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 23,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 24,
+          "per_chain_constants": [
+            1.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 25,
+          "per_chain_constants": [
+            1.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 27,
+          "per_chain_constants": [
+            1.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 28,
+          "per_chain_constants": [
+            1.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 3,
+          "per_chain_constants": [
+            1.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 30,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 35,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 36,
+          "per_chain_constants": [
+            1.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 44,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 45,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 47,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 48,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 50,
+          "per_chain_constants": [
+            1.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 51,
+          "per_chain_constants": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 57,
+          "per_chain_constants": [
+            1.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 58,
+          "per_chain_constants": [
+            1.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        },
+        {
+          "between_variance_positive": true,
+          "consistent_with_inf": true,
+          "indicator": 59,
+          "per_chain_constants": [
+            1.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "within_variance_all_zero": true
+        }
+      ],
+      "max_ess_rel_diff": 0.003249549309227194,
+      "summaries": [
+        {
+          "ess_rel_diff": 0.003249549309227194,
+          "fresh_bulk_ess": 13.9766907969634,
+          "fresh_rhat": 1.192917770557567,
+          "gate_bulk_ess": 13.931419960853056,
+          "gate_rhat": 1.192917770557567,
+          "rhat_agrees": true,
+          "summary": "log_target"
+        },
+        {
+          "ess_rel_diff": 0.0003240727895272507,
+          "fresh_bulk_ess": 1866.5002738997312,
+          "fresh_rhat": 1.0011212408871095,
+          "gate_bulk_ess": 1867.1053519394754,
+          "gate_rhat": 1.0011212408871095,
+          "rhat_agrees": true,
+          "summary": "log_prior"
+        },
+        {
+          "ess_rel_diff": 0.0,
+          "fresh_bulk_ess": 16000.0,
+          "fresh_rhat": 1.0,
+          "gate_bulk_ess": 16000.0,
+          "gate_rhat": 1.0,
+          "rhat_agrees": true,
+          "summary": "total_relations"
+        },
+        {
+          "ess_rel_diff": 0.0,
+          "fresh_bulk_ess": 0.0,
+          "fresh_rhat": Infinity,
+          "gate_bulk_ess": 0.0,
+          "gate_rhat": Infinity,
+          "rhat_agrees": true,
+          "summary": "relations_skill0"
+        },
+        {
+          "ess_rel_diff": 0.0,
+          "fresh_bulk_ess": 16000.0,
+          "fresh_rhat": 1.0,
+          "gate_bulk_ess": 16000.0,
+          "gate_rhat": 1.0,
+          "rhat_agrees": true,
+          "summary": "relations_skill1"
+        },
+        {
+          "ess_rel_diff": 0.0,
+          "fresh_bulk_ess": 0.0,
+          "fresh_rhat": Infinity,
+          "gate_bulk_ess": 0.0,
+          "gate_rhat": Infinity,
+          "rhat_agrees": true,
+          "summary": "relations_skill2"
+        }
+      ]
+    }
+  },
+  "no_formal_file_modified": true,
+  "no_truth_or_recovery_read": true,
+  "read_only": true,
+  "return_transition_wording": {
+    "correct_characterisation": "a post-burn-in return transition demonstrating two-way anchored-assignment mobility across a small (~4.5 nat) barrier",
+    "event": "C-COND-SWAP_0 accepted swap(Delta ell = -4.54) at sweep 12,299 and the exact inverse (+4.54) at sweep 12,499",
+    "explicitly_not_claimed": "this is NOT evidence of mixing between the two major Condition-C assignment modes, whose one-step transposition barriers measure ~83-132 nats in the equilibrium swap-delta records"
+  }
+}

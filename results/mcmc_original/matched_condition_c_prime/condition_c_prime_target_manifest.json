@@ -1,0 +1,344 @@
+{
+  "all_parity_checks_pass": false,
+  "parity_vs_condition_c": {
+    "burn_in": true,
+    "checkpoints": false,
+    "collapsed_cadence": true,
+    "corpus_hash": true,
+    "scheduled_scale": true,
+    "shared_sources_unchanged_since_c_launch": true,
+    "starts": true,
+    "thin": true,
+    "truth_hash": true,
+    "u_scale": true
+  },
+  "permutation_invariance_of_fixed_inputs": {
+    "any_non_identity_symmetry": false,
+    "min_delta_P_over_non_identity": 0.17320508075688767,
+    "min_delta_pi_over_non_identity": 0.14142135623730948,
+    "rows": [
+      {
+        "delta_P_frobenius": 0.0,
+        "delta_pi_l2": 0.0,
+        "is_symmetry": true,
+        "permutation": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "delta_P_frobenius": 0.99498743710662,
+        "delta_pi_l2": 0.14142135623730948,
+        "is_symmetry": false,
+        "permutation": [
+          0,
+          2,
+          1
+        ]
+      },
+      {
+        "delta_P_frobenius": 0.99498743710662,
+        "delta_pi_l2": 0.28284271247461906,
+        "is_symmetry": false,
+        "permutation": [
+          1,
+          0,
+          2
+        ]
+      },
+      {
+        "delta_P_frobenius": 0.17320508075688767,
+        "delta_pi_l2": 0.37416573867739417,
+        "is_symmetry": false,
+        "permutation": [
+          1,
+          2,
+          0
+        ]
+      },
+      {
+        "delta_P_frobenius": 0.17320508075688767,
+        "delta_pi_l2": 0.37416573867739417,
+        "is_symmetry": false,
+        "permutation": [
+          2,
+          0,
+          1
+        ]
+      },
+      {
+        "delta_P_frobenius": 0.9797958971132713,
+        "delta_pi_l2": 0.4242640687119285,
+        "is_symmetry": false,
+        "permutation": [
+          2,
+          1,
+          0
+        ]
+      }
+    ]
+  },
+  "shared_source_detail": {
+    "collapsed_u_kernel": {
+      "sha256_now": "430048ef84030fcfbc347def2a774c51fefdef14ee17409eea90ddefaf15e214",
+      "unchanged_since_c_launch": true
+    },
+    "condition_c_composition": {
+      "sha256_now": "13a19c4f19322740f63ef1947499434ed4d1ff6ec9c07580b21a1ca4f1e1ef1b",
+      "unchanged_since_c_launch": true
+    },
+    "fast_block_tables": {
+      "sha256_now": "7b91a074fe42a600fbe4ab37f18d012e10906f673d1ab9a83e019e77b65fdfcc",
+      "unchanged_since_c_launch": true
+    },
+    "ffbs_joint_sampler": {
+      "sha256_now": "6b5952414e85ebbc253bd22e0b4195efcfc7f474bf30e41cc5cb143687e8694a",
+      "unchanged_since_c_launch": true
+    },
+    "formal_corpus_loader": {
+      "sha256_now": "b954fbc346e6e5b5d22ce35ea934659460985cc4c2b42d95196d32211fb3e4ae",
+      "unchanged_since_c_launch": true
+    },
+    "matched_generator": {
+      "sha256_now": "7b7ee6956448dd29f8860b587b3cffee92de2c51bd2d3dc976f3efdc63721948",
+      "unchanged_since_c_launch": true
+    },
+    "ordinary_u_row_kernel": {
+      "sha256_now": "7324f3c853c32ed048eeffbbf97e68ad7efa0f68ee72919068b958394f595999",
+      "unchanged_since_c_launch": true
+    },
+    "path_marginal_likelihood": {
+      "sha256_now": "8efc9bee86ead719a625b3d9f5371cc2dabe4957e777b61f2cfddf4798e35199",
+      "unchanged_since_c_launch": true
+    },
+    "recurrent_block_scorer": {
+      "sha256_now": "0a1d1f53ac451ef4858236242abfa72696b58b131e45f10229bdf328847e2e3c",
+      "unchanged_since_c_launch": true
+    },
+    "semi_markov_ffbs": {
+      "sha256_now": "8150bb8235eb159d5e2f08ada7c698c383f4c7fd31f3b882e218b207dd135486",
+      "unchanged_since_c_launch": true
+    }
+  },
+  "single_difference_from_condition_c": "one additional transition: a global whole-skill U transposition attempted every 50 sweeps; every other component, parameter, kernel and datum is identical",
+  "target": {
+    "K": 3,
+    "P": [
+      [
+        0.0,
+        0.65,
+        0.35
+      ],
+      [
+        0.3,
+        0.0,
+        0.7
+      ],
+      [
+        0.75,
+        0.25,
+        0.0
+      ]
+    ],
+    "beta": 1.5,
+    "burn_in": 10000,
+    "checkpoints": [
+      50000,
+      75000,
+      100000
+    ],
+    "corpus_hash_sha256": "dd280a4a09896154e167f388edd401a9119ba398167c09404aba5f7743e58ec2",
+    "d": 2,
+    "delta_B": 0.15,
+    "epsilon": 0.02,
+    "lambda_back": 0.25,
+    "lambda_rep": 0.8,
+    "m_roles": 5,
+    "max_width": 12,
+    "min_width": 3,
+    "omega": 1.7346010553881064,
+    "pi": [
+      0.5,
+      0.3,
+      0.2
+    ],
+    "rho": 0.5,
+    "role_maps": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    ],
+    "scheduled_collapsed_scale": 1.0,
+    "thin": 5,
+    "trace_lengths_heldout": [
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24
+    ],
+    "trace_lengths_train": [
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48
+    ],
+    "truth_hash_sha256": "fc41538fd44d170df8d0a6401f0c6e6b49d52418c487e22f9e4f45ee047f903e",
+    "u_scale": 0.5
+  }
+}

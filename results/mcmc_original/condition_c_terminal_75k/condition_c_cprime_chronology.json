@@ -1,0 +1,70 @@
+{
+  "cprime_labelling": "prospectively frozen follow-up motivated by Condition C diagnostics \u2014 NOT preregistered before Condition C data were observed",
+  "events": [
+    {
+      "commit": "50eee50",
+      "detail": "arms, seeds, starts, scales, cadence, gates, ladder, stopping rule",
+      "event": "Condition C protocol and runner frozen"
+    },
+    {
+      "commit": "50eee50",
+      "detail": "8 chains, 4 paired starts",
+      "event": "Condition C launched"
+    },
+    {
+      "commit": "\u2014",
+      "detail": "C-COND FAIL / C-MARG FAIL",
+      "event": "30k registered gate observed"
+    },
+    {
+      "commit": "cb19b02",
+      "detail": "truth-free chain-to-chain diagnostics; permutation check on fixed pi*/P* showed no symmetry",
+      "event": "Anchored-assignment problem diagnosed"
+    },
+    {
+      "commit": "9b8e590",
+      "detail": "skill_swap_kernel.py",
+      "event": "Condition C' transposition move designed and implemented"
+    },
+    {
+      "commit": "9b8e590",
+      "detail": "preregistration.json",
+      "event": "Condition C' protocol prospectively frozen"
+    },
+    {
+      "commit": "ed63b55",
+      "detail": "no-launch default, guards, manifests, 18 tests",
+      "event": "Condition C' runner frozen and validated"
+    },
+    {
+      "commit": "\u2014",
+      "detail": "C-COND FAIL / C-MARG FAIL",
+      "event": "50k registered gate observed"
+    },
+    {
+      "commit": "\u2014",
+      "detail": "C-COND FAIL / C-MARG FAIL",
+      "event": "75k registered gate observed"
+    },
+    {
+      "commit": "\u2014",
+      "detail": "made explicitly by the investigator after the third failed rung",
+      "event": "Decision to terminate Condition C before the 100k ceiling"
+    },
+    {
+      "commit": "\u2014",
+      "detail": "predefined metrics only, draws through 75,000",
+      "event": "Formal recovery opened"
+    },
+    {
+      "commit": "8024bf6",
+      "detail": "\u2014",
+      "event": "Condition C terminal artifact committed"
+    },
+    {
+      "commit": "ed63b55",
+      "detail": "STILL UNLAUNCHED",
+      "event": "Condition C' status"
+    }
+  ]
+}

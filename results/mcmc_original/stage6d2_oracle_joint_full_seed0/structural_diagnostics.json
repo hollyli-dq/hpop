@@ -1,0 +1,103 @@
+{
+  "n_h_states_visited": 1,
+  "h_keys_hex": [
+    "00000101010000000000000000010100000000010000000000"
+  ],
+  "h_probability": [
+    1.0
+  ],
+  "relation_marginal": [
+    0.0,
+    0.0,
+    1.0,
+    1.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "incomparability_marginal": [
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    1.0,
+    1.0,
+    1.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "relation_count_distribution": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "relation_count_convergence": {
+    "degenerate": true,
+    "constant_value": 6.0,
+    "note": "relation count is constant across all draws and chains; R-hat and ESS are undefined, not passing",
+    "rhat": null,
+    "bulk_ess": null,
+    "tail_ess": null,
+    "mcse": null
+  },
+  "per_chain_h_occupancy": [
+    {
+      "0": 4000
+    },
+    {
+      "0": 4000
+    },
+    {
+      "0": 4000
+    },
+    {
+      "0": 4000
+    }
+  ],
+  "uncertain_relations": [],
+  "max_relation_rhat": null,
+  "min_relation_bulk_ess": null,
+  "n_uncertain_relations": 0
+}

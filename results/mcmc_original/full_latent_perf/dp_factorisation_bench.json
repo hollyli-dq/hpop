@@ -1,0 +1,137 @@
+{
+  "E_real_corpus": {
+    "current_seconds": 1.9512274590001653,
+    "factorised_seconds": 1.6132718750000095,
+    "max_abs_disagreement": 4.263256414560601e-14,
+    "n_traces": 100,
+    "speedup": 1.2094845817603768
+  },
+  "E_scaling_in_K": {
+    "D": 12,
+    "J": 40,
+    "empirical_exponent_current": 1.371884472731377,
+    "empirical_exponent_factorised": 0.16246851685880812,
+    "per_K": {
+      "10": {
+        "current_seconds": 0.09717495799986864,
+        "factorised_seconds": 0.014494750000267231,
+        "lse_calls_current_JK": 400,
+        "lse_calls_factorised_2J": 80,
+        "max_abs_disagreement": 1.7763568394002505e-15,
+        "op_ratio": 5.454545454545454,
+        "ops_current_JDK2": 48000,
+        "ops_factorised_JK2_plus_JDK": 8800,
+        "peak_bytes_current": 49536,
+        "peak_bytes_factorised": 19332,
+        "speedup": 6.7041486053969255
+      },
+      "20": {
+        "current_seconds": 0.2734623329997703,
+        "factorised_seconds": 0.01803479199998037,
+        "lse_calls_current_JK": 800,
+        "lse_calls_factorised_2J": 80,
+        "max_abs_disagreement": 1.7763568394002505e-15,
+        "op_ratio": 7.5,
+        "ops_current_JDK2": 192000,
+        "ops_factorised_JK2_plus_JDK": 25600,
+        "peak_bytes_current": 98736,
+        "peak_bytes_factorised": 41390,
+        "speedup": 15.163043355313881
+      },
+      "3": {
+        "current_seconds": 0.02108420800004751,
+        "factorised_seconds": 0.012541209000119125,
+        "lse_calls_current_JK": 120,
+        "lse_calls_factorised_2J": 80,
+        "max_abs_disagreement": 3.552713678800501e-15,
+        "op_ratio": 2.4,
+        "ops_current_JDK2": 4320,
+        "ops_factorised_JK2_plus_JDK": 1800,
+        "peak_bytes_current": 15096,
+        "peak_bytes_factorised": 10375,
+        "speedup": 1.6811942134005773
+      },
+      "5": {
+        "current_seconds": 0.034917167000003246,
+        "factorised_seconds": 0.015067999999700987,
+        "lse_calls_current_JK": 200,
+        "lse_calls_factorised_2J": 80,
+        "max_abs_disagreement": 1.7763568394002505e-15,
+        "op_ratio": 3.5294117647058822,
+        "ops_current_JDK2": 12000,
+        "ops_factorised_JK2_plus_JDK": 3400,
+        "peak_bytes_current": 24936,
+        "peak_bytes_factorised": 12669,
+        "speedup": 2.317306012788436
+      }
+    }
+  },
+  "G_batching": {
+    "all_traces_batched_s": 0.06287016599981143,
+    "all_traces_current_s": 1.9627889150001465,
+    "overall_speedup": 31.219718984136826,
+    "per_length_class": {
+      "24": {
+        "J": 24,
+        "batched_factorised_s": 0.01027804199975435,
+        "batched_peak_traced_bytes": 76572,
+        "max_abs_disagreement_logZ": 1.4210854715202004e-14,
+        "n_traces": 25,
+        "sequential_current_s": 0.30459695799982,
+        "sequential_factorised_s": 0.24938087500004258,
+        "speedup_batched_vs_current": 29.635698901317976,
+        "speedup_batched_vs_factorised": 24.263461368031273,
+        "stack_bytes": 360000
+      },
+      "32": {
+        "J": 32,
+        "batched_factorised_s": 0.015925291000257857,
+        "batched_peak_traced_bytes": 86172,
+        "max_abs_disagreement_logZ": 1.4210854715202004e-14,
+        "n_traces": 25,
+        "sequential_current_s": 0.42285804099992674,
+        "sequential_factorised_s": 0.3298136250000425,
+        "speedup_batched_vs_current": 26.552609995828647,
+        "speedup_batched_vs_factorised": 20.710053272791203,
+        "stack_bytes": 633600
+      },
+      "40": {
+        "J": 40,
+        "batched_factorised_s": 0.018127499999991414,
+        "batched_peak_traced_bytes": 95772,
+        "max_abs_disagreement_logZ": 2.842170943040401e-14,
+        "n_traces": 25,
+        "sequential_current_s": 0.5535177080000722,
+        "sequential_factorised_s": 0.43527499999981956,
+        "speedup_batched_vs_current": 30.53469634535012,
+        "speedup_batched_vs_factorised": 24.011860433045136,
+        "stack_bytes": 984000
+      },
+      "48": {
+        "J": 48,
+        "batched_factorised_s": 0.01853933299980781,
+        "batched_peak_traced_bytes": 105372,
+        "max_abs_disagreement_logZ": 2.842170943040401e-14,
+        "n_traces": 25,
+        "sequential_current_s": 0.6818162080003276,
+        "sequential_factorised_s": 0.49385216699965895,
+        "speedup_batched_vs_current": 36.77673883992459,
+        "speedup_batched_vs_factorised": 26.63807629998223,
+        "stack_bytes": 1411200
+      }
+    }
+  },
+  "created_at_utc": "2026-08-22T16:21:29Z",
+  "dims": {
+    "K": 3,
+    "max_width": 12,
+    "min_width": 3,
+    "n_traces": 100
+  },
+  "loadavg": [
+    22.1416015625,
+    21.23681640625,
+    20.818359375
+  ],
+  "state_origin": "checkpoint:full_cond_0.npz"
+}

@@ -1,0 +1,61 @@
+{
+  "chain_hours_total_including_post_decision": 462.8946966975689,
+  "per_chain": {
+    "cond0": {
+      "compute_seconds_total": 200855.80372087515,
+      "seconds_per_sweep": 2.5750744066778863,
+      "sweeps_at_stop": 78000
+    },
+    "cond1": {
+      "compute_seconds_total": 201702.07917199912,
+      "seconds_per_sweep": 2.5859240919487068,
+      "sweeps_at_stop": 78000
+    },
+    "cond2": {
+      "compute_seconds_total": 202259.89482520905,
+      "seconds_per_sweep": 2.5930755746821674,
+      "sweeps_at_stop": 78000
+    },
+    "cond3": {
+      "compute_seconds_total": 201366.20637891602,
+      "seconds_per_sweep": 2.581618030498923,
+      "sweeps_at_stop": 78000
+    },
+    "marg0": {
+      "compute_seconds_total": 215100.93920395902,
+      "seconds_per_sweep": 2.8302755158415662,
+      "sweeps_at_stop": 76000
+    },
+    "marg1": {
+      "compute_seconds_total": 215242.1549038759,
+      "seconds_per_sweep": 2.832133617156262,
+      "sweeps_at_stop": 76000
+    },
+    "marg2": {
+      "compute_seconds_total": 215136.76946791605,
+      "seconds_per_sweep": 2.830746966683106,
+      "sweeps_at_stop": 76000
+    },
+    "marg3": {
+      "compute_seconds_total": 214757.06043849798,
+      "seconds_per_sweep": 2.8257507952433945,
+      "sweeps_at_stop": 76000
+    }
+  },
+  "post_decision_compute": {
+    "note": "produced by the automatic advance toward the 100k ceiling before the termination decision; excluded from primary analysis",
+    "sweeps_beyond_75k": {
+      "cond0": 3000,
+      "cond1": 3000,
+      "cond2": 3000,
+      "cond3": 3000,
+      "marg0": 1000,
+      "marg1": 1000,
+      "marg2": 1000,
+      "marg3": 1000
+    }
+  },
+  "primary_analysis_sweeps_per_chain": 75000,
+  "primary_total_chain_sweeps_per_arm": 300000,
+  "retained_draws_per_chain_primary": 13000
+}

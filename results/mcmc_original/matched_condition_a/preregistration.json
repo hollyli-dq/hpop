@@ -1,0 +1,62 @@
+{
+  "calibration_bins": 10,
+  "condition": "A \u2014 path identifiability under oracle structures",
+  "corpus_hash_sha256": "dd280a4a09896154e167f388edd401a9119ba398167c09404aba5f7743e58ec2",
+  "ffbs": {
+    "child_seed_rule": "SeedSequence(entropy=FFBS_MASTER_SEED, spawn_key=(global_trace_index,)) with global index 0..144 over train then heldout in frozen order",
+    "draws_per_trace": 5000,
+    "master_seed": 6201001,
+    "mcse_rule": "sd/sqrt(n) reported for every sample-based mean"
+  },
+  "fixed_threshold": 0.5,
+  "label_alignment": "NONE \u2014 fixed generating skill identities; no Hungarian or other alignment. Symmetry check: the three induced orders are pairwise distinct and pi/P entries are asymmetric, so no exact label symmetry exists; if one were found it would be reported, not silently aligned",
+  "map_rule": "exact semi-Markov max-product; ties broken deterministically by first-encountered candidate (lowest start, then lowest skill index)",
+  "no_mcmc": "exact semi-Markov forward-backward + Viterbi; FFBS iid draws only for nonlinear summaries; no burn-in, no thinning, no R-hat",
+  "stop_condition": "no Condition B/C/D, no U/rho/scalar inference, no collapsed-U move, regardless of classification",
+  "target": "p(S, z | x, U*, rho*, beta*, omega*, lambda_rep*, lambda_back*, pi*, P*, delta_B*, epsilon*) \u2014 per trace, conditionally independent; everything except (S, z) fixed to generating truth",
+  "threshold_note": "0.5 is fixed and never tuned on this corpus",
+  "tiny_corpus": {
+    "ffbs_draws_per_trace": 200000,
+    "seed": 6200777,
+    "trace_lengths": [
+      6,
+      7,
+      10,
+      6,
+      7,
+      10,
+      6,
+      7,
+      10
+    ]
+  },
+  "tiny_gates": {
+    "boundary_marginal_max_error": 1e-10,
+    "ffbs_path_tv": 0.01,
+    "log_z_dp_vs_enum": 1e-10,
+    "occurrence_label_max_error": 1e-10,
+    "path_probability_max_error": 1e-10
+  },
+  "truth_hash_sha256": "fc41538fd44d170df8d0a6401f0c6e6b49d52418c487e22f9e4f45ee047f903e",
+  "verdict_rule": {
+    "not_identifiable_if_any": {
+      "boundary_auroc_all": "< 0.65",
+      "boundary_brier_relative_reduction_vs_prior": "< 0.10",
+      "mean_per_trace_ari": "< 0.15",
+      "occurrence_modal_accuracy_all": "< 0.55",
+      "occurrence_nll_relative_reduction_vs_prior": "< 0.10"
+    },
+    "otherwise": "PATH PARTIALLY IDENTIFIABLE",
+    "strong_requires_all": {
+      "boundary_auroc_all": ">= 0.85",
+      "boundary_auroc_heldout": ">= 0.80",
+      "boundary_brier_relative_reduction_vs_prior": ">= 0.40",
+      "boundary_ece_all": "<= 0.05",
+      "map_segment_count_accuracy": ">= 0.60",
+      "mean_per_trace_ari": ">= 0.50",
+      "mean_posterior_prob_of_true_label_all": ">= 0.70",
+      "occurrence_modal_accuracy_all": ">= 0.80",
+      "path_evidence": "MAP full labelled-path recovery >= 0.25 OR median true-path posterior >= 0.02"
+    }
+  }
+}

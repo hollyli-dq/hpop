@@ -1,0 +1,32 @@
+{
+  "question": "does every frozen structural mode have a non-negligible collapsed-U escape tail, or was C0 driven by favourable states?",
+  "u_scale": 0.5,
+  "audit_seed": 8152000,
+  "n_cross_per_chain": 300,
+  "n_same_h_controls": 8,
+  "m_u_per_sweep": 15,
+  "sweeps": 50000,
+  "checkpoint_rule_preregistered": "latest complete checkpoint per chain at audit start; 6E2 chains all at the final 150k rung, 7B2 chains at the latest in-flight block; copies parsed before use, re-copied on a failed parse",
+  "r_cross_source": "measured from this audit's raw proposal stream per chain",
+  "tail_criteria_preregistered": {
+    "per_chain": "P(alpha_coll > 0.01 | cross) >= 0.01 AND E_escape_50k >= 10",
+    "classification": {
+      "8": "COLLAPSED-U ROBUST ACROSS MODES",
+      "6-7": "COLLAPSED-U MOSTLY ROBUST",
+      "3-5": "COLLAPSED-U MODE-DEPENDENT",
+      "<=2": "COLLAPSED-U NOT ROBUST"
+    }
+  },
+  "parity_tolerance": 1e-10,
+  "proposal_selection": "first N cross-H proposals in deterministic (skill,row) cycle order under the registered per-chain seed; never filtered on acceptance, distance, or proposed order",
+  "seeds_per_chain": {
+    "7b2_ffbs:0": 8152000,
+    "7b2_ffbs:1": 8153000,
+    "7b2_ffbs:2": 8154000,
+    "7b2_ffbs:3": 8155000,
+    "6e2_local:0": 8156000,
+    "6e2_local:1": 8157000,
+    "6e2_local:2": 8158000,
+    "6e2_local:3": 8159000
+  }
+}

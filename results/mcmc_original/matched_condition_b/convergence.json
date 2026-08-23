@@ -1,0 +1,105 @@
+{
+  "checkpoint_log": [
+    {
+      "checkpoint": 30000,
+      "checks": {
+        "chains_with_zero_accepted_h_changes": 0,
+        "distinct_canonical_h_states_pooled": 1,
+        "log_posterior_bulk_ess": 1930.8383559503159,
+        "log_posterior_tail_ess": 4019.198802970869,
+        "max_rhat": 1.000454355774406,
+        "n_uncertain_relations": 0,
+        "total_relations_bulk_ess": 16000.0,
+        "uncertain_max_rhat": 1.0,
+        "uncertain_min_bulk_ess": Infinity
+      },
+      "pass": true
+    },
+    {
+      "checkpoint": 50000,
+      "checks": {
+        "chains_with_zero_accepted_h_changes": 0,
+        "distinct_canonical_h_states_pooled": 1,
+        "log_posterior_bulk_ess": 3674.75168838125,
+        "log_posterior_tail_ess": 7634.523637355105,
+        "max_rhat": 1.0008652603065602,
+        "n_uncertain_relations": 0,
+        "total_relations_bulk_ess": 32000.0,
+        "uncertain_max_rhat": 1.0,
+        "uncertain_min_bulk_ess": Infinity
+      },
+      "pass": true
+    }
+  ],
+  "converged": true,
+  "final_gate_checks": {
+    "chains_with_zero_accepted_h_changes": 0,
+    "distinct_canonical_h_states_pooled": 1,
+    "log_posterior_bulk_ess": 3674.75168838125,
+    "log_posterior_tail_ess": 7634.523637355105,
+    "max_rhat": 1.0008652603065602,
+    "n_uncertain_relations": 0,
+    "total_relations_bulk_ess": 32000.0,
+    "uncertain_max_rhat": 1.0,
+    "uncertain_min_bulk_ess": Infinity
+  },
+  "final_summary_diagnostics": {
+    "log_posterior": {
+      "bulk_ess": 3674.75168838125,
+      "degenerate": null,
+      "rhat": 1.0008652603065602,
+      "tail_ess": 7634.523637355105
+    },
+    "log_prior": {
+      "bulk_ess": 3674.75168838125,
+      "degenerate": null,
+      "rhat": 1.0008652603065602,
+      "tail_ess": 7634.523637355105
+    },
+    "relations_skill0": {
+      "bulk_ess": 32000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 32000.0
+    },
+    "relations_skill1": {
+      "bulk_ess": 32000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 32000.0
+    },
+    "relations_skill2": {
+      "bulk_ess": 32000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 32000.0
+    },
+    "sorted_relations_rank0": {
+      "bulk_ess": 32000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 32000.0
+    },
+    "sorted_relations_rank1": {
+      "bulk_ess": 32000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 32000.0
+    },
+    "sorted_relations_rank2": {
+      "bulk_ess": 32000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 32000.0
+    },
+    "total_relations": {
+      "bulk_ess": 32000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 32000.0
+    }
+  },
+  "stop_reason": "two consecutive checkpoint passes",
+  "stopped_at": 50000,
+  "uncertain_relation_diagnostics": {}
+}

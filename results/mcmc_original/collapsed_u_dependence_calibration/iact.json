@@ -1,0 +1,15 @@
+{
+  "psi_iact_late_by_chain": {
+    "0": 3.2355297507195324,
+    "1": 4.857639519736917,
+    "2": 1.9133131229329643,
+    "3": 2.031578591667104
+  },
+  "L": 5,
+  "sensitivity_lengths": [
+    2,
+    5,
+    10
+  ],
+  "units": "stride-8 retained-draw index (1 unit = 80 sweeps)"
+}

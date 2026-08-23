@@ -1,0 +1,163 @@
+{
+  "ffbs": {
+    "method": "FFBS",
+    "n_chains": 4,
+    "draws_per_chain": 25000,
+    "total_draws": 100000,
+    "seconds": 3.504705625004135,
+    "seconds_per_retained_draw": 3.504705625004135e-05,
+    "segment_count_rhat": 1.0000025927555465,
+    "segment_count_autocorrelation": {
+      "lag_1": -0.01189011681577446,
+      "lag_2": 0.002601855917363011,
+      "lag_5": 0.004264272369805354,
+      "lag_10": -0.0051869528494230205
+    },
+    "segment_count_bulk_ess": 99987.18563436574,
+    "segment_count_ess_per_second": 28529.410550493172,
+    "boundary_indicator_bulk_ess": {
+      "t=1": null,
+      "t=2": null,
+      "t=3": 99890.93714899167,
+      "t=4": 97157.92490092707,
+      "t=5": 100208.7226356782,
+      "t=6": null,
+      "t=7": null
+    },
+    "boundary_indicator_lag1_autocorrelation": {
+      "t=1": null,
+      "t=2": null,
+      "t=3": -0.007383336591964578,
+      "t=4": -0.009704460617822132,
+      "t=5": -0.002943542624488685,
+      "t=6": null,
+      "t=7": null
+    },
+    "worst_boundary_indicator_bulk_ess": 97157.92490092707,
+    "worst_boundary_indicator_ess_per_second": 27722.13569315467,
+    "unique_complete_paths_visited": 9,
+    "n_exact_paths": 21,
+    "n_exact_paths_above_1e-6": 9,
+    "segment_count_ess_per_retained_draw": 0.9998718563436574
+  },
+  "local_move_kernel": {
+    "method": "LocalMoveKernel",
+    "n_chains": 4,
+    "draws_per_chain": 95000,
+    "total_draws": 380000,
+    "seconds": 31.162592208129354,
+    "seconds_per_retained_draw": 8.20068216003404e-05,
+    "segment_count_rhat": 1.0000044375267323,
+    "segment_count_autocorrelation": {
+      "lag_1": 0.39856582585238887,
+      "lag_2": 0.16026137884689204,
+      "lag_5": 0.014060541108714417,
+      "lag_10": 0.00307298679009896
+    },
+    "segment_count_bulk_ess": 166012.2159298112,
+    "segment_count_ess_per_second": 5327.291607227199,
+    "boundary_indicator_bulk_ess": {
+      "t=1": null,
+      "t=2": null,
+      "t=3": 211036.41089928843,
+      "t=4": 189014.1539837345,
+      "t=5": 221372.6986280269,
+      "t=6": null,
+      "t=7": null
+    },
+    "boundary_indicator_lag1_autocorrelation": {
+      "t=1": null,
+      "t=2": null,
+      "t=3": 0.2929260346749659,
+      "t=4": 0.33143578762417175,
+      "t=5": 0.25209912767584924,
+      "t=6": null,
+      "t=7": null
+    },
+    "worst_boundary_indicator_bulk_ess": 189014.1539837345,
+    "worst_boundary_indicator_ess_per_second": 6065.418201455865,
+    "unique_complete_paths_visited": 9,
+    "n_exact_paths": 21,
+    "n_exact_paths_above_1e-6": 9,
+    "segment_count_ess_per_retained_draw": 0.4368742524468716,
+    "segment_count_ess_per_second_at_frozen_runtime": 7188.206736359711
+  },
+  "forward_chart": {
+    "block_table_seconds": 0.008539124974049628,
+    "chart_seconds_median": 0.0016178545192815363,
+    "chart_seconds_min": 0.0015690840082243085,
+    "chart_seconds_max": 0.00237354205455631,
+    "repeats": 20,
+    "note": "the chart depends only on the parameters, so at fixed parameters it is built once and every subsequent draw pays only the backward cost"
+  },
+  "one_backward_draw_seconds": 3.504705625004135e-05,
+  "draws_amortising_the_chart": 289.80977520242317,
+  "local_move_kernel_frozen_runtime_seconds": 23.09508087602444,
+  "timing_caveat": "Both wall clocks were measured while four Stage 6E worker processes were saturating four of this machine's ten cores, so both are pessimistic. The LocalMoveKernel re-run took 31.2s against the frozen Stage 6E1A run's 23.1s for the identical chains; scoring its ESS against that faster frozen runtime is also reported, and FFBS still leads on ESS/second.",
+  "chart_construction_benchmark": [
+    {
+      "J": 48,
+      "traces": [
+        {
+          "J": 48,
+          "block_table_seconds": 0.23620445793494582,
+          "chart_seconds": 0.014276083093136549,
+          "one_backward_draw_seconds": 0.00024190750089474024,
+          "log_normalizer": -56.92208204314524,
+          "n_legal_blocks": 1245
+        },
+        {
+          "J": 48,
+          "block_table_seconds": 0.22785495803691447,
+          "chart_seconds": 0.013894790899939835,
+          "one_backward_draw_seconds": 0.00020502083003520966,
+          "log_normalizer": -59.96886088135161,
+          "n_legal_blocks": 1245
+        },
+        {
+          "J": 48,
+          "block_table_seconds": 0.22971558303106576,
+          "chart_seconds": 0.0138531249249354,
+          "one_backward_draw_seconds": 0.0002441424992866814,
+          "log_normalizer": -57.2201478700962,
+          "n_legal_blocks": 1245
+        }
+      ],
+      "median_block_table_seconds": 0.22971558303106576,
+      "median_chart_seconds": 0.013894790899939835,
+      "median_backward_draw_seconds": 0.00024190750089474024
+    },
+    {
+      "J": 96,
+      "traces": [
+        {
+          "J": 96,
+          "block_table_seconds": 0.4990124579053372,
+          "chart_seconds": 0.029174875002354383,
+          "one_backward_draw_seconds": 0.00044323375099338593,
+          "log_normalizer": -117.50194404929194,
+          "n_legal_blocks": 2685
+        },
+        {
+          "J": 96,
+          "block_table_seconds": 0.4986930419690907,
+          "chart_seconds": 0.054944499977864325,
+          "one_backward_draw_seconds": 0.0005808804195839911,
+          "log_normalizer": -118.91599932765259,
+          "n_legal_blocks": 2685
+        },
+        {
+          "J": 96,
+          "block_table_seconds": 0.5349415829405189,
+          "chart_seconds": 0.030019208090379834,
+          "one_backward_draw_seconds": 0.0004813975002616644,
+          "log_normalizer": -118.13763903680103,
+          "n_legal_blocks": 2685
+        }
+      ],
+      "median_block_table_seconds": 0.4990124579053372,
+      "median_chart_seconds": 0.030019208090379834,
+      "median_backward_draw_seconds": 0.0004813975002616644
+    }
+  ]
+}

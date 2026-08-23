@@ -1,0 +1,1210 @@
+{
+  "arm": "FULL-MARG",
+  "chain_iterations": [
+    30000,
+    30000,
+    30000,
+    30000
+  ],
+  "checkpoint": 30000,
+  "checks": {
+    "accepted_H_changes_per_chain": [
+      29,
+      33,
+      28,
+      36
+    ],
+    "all_diagnostics_finite": true,
+    "chains_with_zero_accepted_H_changes": 0,
+    "log_target_bulk_ess": 66.71240761698833,
+    "log_target_tail_ess": 28.313123891860265,
+    "marginal_attempts_equal_refreshes": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "max_rhat": 1.1532591440608424,
+    "minimum_remaining_invariant_bulk_ess": 17.788878876927146,
+    "total_relations_bulk_ess": 17.86334398439416
+  },
+  "formal_truth_free_verdict": "FAIL",
+  "n_chains": 4,
+  "n_retained_per_chain": [
+    4000,
+    4000,
+    4000,
+    4000
+  ],
+  "pass": false,
+  "runtime": [
+    {
+      "movement": {
+        "boundary_hamming": 11303434,
+        "label_changes": 16741724,
+        "states_changed": 2660286
+      },
+      "seconds": 69753.99493074905,
+      "seconds_per_sweep": 2.3251331643583018,
+      "structural": {
+        "accepts": 965,
+        "attempts": 3000,
+        "ffbs_after_marginal": 3000,
+        "h_accepts": 29,
+        "invalid": 0,
+        "marginal_attempts": 3000
+      }
+    },
+    {
+      "movement": {
+        "boundary_hamming": 11269458,
+        "label_changes": 16960143,
+        "states_changed": 2652074
+      },
+      "seconds": 69818.94981937498,
+      "seconds_per_sweep": 2.327298327312499,
+      "structural": {
+        "accepts": 986,
+        "attempts": 3000,
+        "ffbs_after_marginal": 3000,
+        "h_accepts": 33,
+        "invalid": 0,
+        "marginal_attempts": 3000
+      }
+    },
+    {
+      "movement": {
+        "boundary_hamming": 11404369,
+        "label_changes": 16602465,
+        "states_changed": 2658503
+      },
+      "seconds": 70507.94601312396,
+      "seconds_per_sweep": 2.350264867104132,
+      "structural": {
+        "accepts": 996,
+        "attempts": 3000,
+        "ffbs_after_marginal": 3000,
+        "h_accepts": 28,
+        "invalid": 0,
+        "marginal_attempts": 3000
+      }
+    },
+    {
+      "movement": {
+        "boundary_hamming": 12264413,
+        "label_changes": 18575165,
+        "states_changed": 2697822
+      },
+      "seconds": 69431.89482041597,
+      "seconds_per_sweep": 2.3143964940138657,
+      "structural": {
+        "accepts": 1051,
+        "attempts": 3000,
+        "ffbs_after_marginal": 3000,
+        "h_accepts": 36,
+        "invalid": 0,
+        "marginal_attempts": 3000
+      }
+    }
+  ],
+  "summaries": {
+    "P_frobenius": {
+      "bulk_ess": 338.88081128990046,
+      "degenerate": null,
+      "rhat": 1.0096986725471533,
+      "tail_ess": 119.97253433519154
+    },
+    "P_trace2": {
+      "bulk_ess": 368.1529995707011,
+      "degenerate": null,
+      "rhat": 1.0093799788140472,
+      "tail_ess": 118.58708907878339
+    },
+    "P_trace3": {
+      "bulk_ess": 366.80459706345795,
+      "degenerate": null,
+      "rhat": 1.009405111438779,
+      "tail_ess": 118.58708907878294
+    },
+    "boundary_probes[0]": {
+      "bulk_ess": 15687.683334817093,
+      "degenerate": null,
+      "rhat": 1.0006753921084637,
+      "tail_ess": 15687.683334817093
+    },
+    "boundary_probes[10]": {
+      "bulk_ess": 12657.817379692275,
+      "degenerate": null,
+      "rhat": 1.0012263939708492,
+      "tail_ess": 12657.817379692253
+    },
+    "boundary_probes[11]": {
+      "bulk_ess": 16018.315964257441,
+      "degenerate": null,
+      "rhat": 0.9999642850765078,
+      "tail_ess": 16018.315964257441
+    },
+    "boundary_probes[12]": {
+      "bulk_ess": 15595.644043465696,
+      "degenerate": null,
+      "rhat": 1.0000259725447225,
+      "tail_ess": 15595.644043465689
+    },
+    "boundary_probes[13]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "boundary_probes[14]": {
+      "bulk_ess": 16018.315964257441,
+      "degenerate": null,
+      "rhat": 0.9999642850765078,
+      "tail_ess": 16018.315964257441
+    },
+    "boundary_probes[15]": {
+      "bulk_ess": 16044.513665813654,
+      "degenerate": null,
+      "rhat": 0.9999573078758289,
+      "tail_ess": 16044.513665813647
+    },
+    "boundary_probes[16]": {
+      "bulk_ess": 14774.599513359644,
+      "degenerate": null,
+      "rhat": 1.0000322052965527,
+      "tail_ess": 14774.599513359644
+    },
+    "boundary_probes[17]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "boundary_probes[18]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "boundary_probes[19]": {
+      "bulk_ess": 15265.37264209363,
+      "degenerate": null,
+      "rhat": 1.0001369313200055,
+      "tail_ess": 15265.37264209363
+    },
+    "boundary_probes[1]": {
+      "bulk_ess": 16008.447756549733,
+      "degenerate": null,
+      "rhat": 0.9998626945673765,
+      "tail_ess": 16008.447756549718
+    },
+    "boundary_probes[20]": {
+      "bulk_ess": 15406.214141442544,
+      "degenerate": null,
+      "rhat": 1.0003823108934564,
+      "tail_ess": 15406.214141442539
+    },
+    "boundary_probes[21]": {
+      "bulk_ess": 15006.605721444728,
+      "degenerate": null,
+      "rhat": 1.0000932577849222,
+      "tail_ess": 15006.605721444723
+    },
+    "boundary_probes[22]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "boundary_probes[23]": {
+      "bulk_ess": 16301.645915861798,
+      "degenerate": null,
+      "rhat": 0.999825193954551,
+      "tail_ess": 16301.645915861798
+    },
+    "boundary_probes[24]": {
+      "bulk_ess": 14896.819276198145,
+      "degenerate": null,
+      "rhat": 1.000153814828721,
+      "tail_ess": 14896.819276198145
+    },
+    "boundary_probes[25]": {
+      "bulk_ess": 16029.832377710247,
+      "degenerate": null,
+      "rhat": 0.9998717504936457,
+      "tail_ess": 16029.83237771024
+    },
+    "boundary_probes[26]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "boundary_probes[27]": {
+      "bulk_ess": 15067.163372120618,
+      "degenerate": null,
+      "rhat": 0.9999356247984138,
+      "tail_ess": 15067.163372120593
+    },
+    "boundary_probes[28]": {
+      "bulk_ess": 16079.621601313205,
+      "degenerate": null,
+      "rhat": 1.0002025779559431,
+      "tail_ess": 16079.62160131322
+    },
+    "boundary_probes[29]": {
+      "bulk_ess": 16163.058227606934,
+      "degenerate": null,
+      "rhat": 1.0000801846189242,
+      "tail_ess": 16163.058227606934
+    },
+    "boundary_probes[2]": {
+      "bulk_ess": 15563.962211341415,
+      "degenerate": null,
+      "rhat": 1.0001678794631785,
+      "tail_ess": 15563.962211341395
+    },
+    "boundary_probes[30]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "boundary_probes[31]": {
+      "bulk_ess": 15566.911697643953,
+      "degenerate": null,
+      "rhat": 1.000464483774071,
+      "tail_ess": 15566.91169764394
+    },
+    "boundary_probes[3]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "boundary_probes[4]": {
+      "bulk_ess": 16133.42854600854,
+      "degenerate": null,
+      "rhat": 1.0000005213921626,
+      "tail_ess": 16133.42854600854
+    },
+    "boundary_probes[5]": {
+      "bulk_ess": 16339.032747686497,
+      "degenerate": null,
+      "rhat": 0.9999063438384157,
+      "tail_ess": 16339.032747686497
+    },
+    "boundary_probes[6]": {
+      "bulk_ess": 16037.314279171089,
+      "degenerate": null,
+      "rhat": 0.9998506748330468,
+      "tail_ess": 16037.314279171094
+    },
+    "boundary_probes[7]": {
+      "bulk_ess": 15743.719256976327,
+      "degenerate": null,
+      "rhat": 0.9998957733023143,
+      "tail_ess": 15743.719256976312
+    },
+    "boundary_probes[8]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "boundary_probes[9]": {
+      "bulk_ess": 3152.2117515635896,
+      "degenerate": null,
+      "rhat": 1.0033991907157591,
+      "tail_ess": 3152.211751563501
+    },
+    "coskill_probes[0]": {
+      "bulk_ess": 15463.728890580738,
+      "degenerate": null,
+      "rhat": 1.000066339452935,
+      "tail_ess": 15463.728890580705
+    },
+    "coskill_probes[10]": {
+      "bulk_ess": 13677.294993440708,
+      "degenerate": null,
+      "rhat": 1.0013356403273141,
+      "tail_ess": 13677.294993440646
+    },
+    "coskill_probes[11]": {
+      "bulk_ess": 16184.051303263659,
+      "degenerate": null,
+      "rhat": 0.9999173887269656,
+      "tail_ess": 16184.051303263652
+    },
+    "coskill_probes[12]": {
+      "bulk_ess": 42.46354732101232,
+      "degenerate": null,
+      "rhat": 1.0567184800938643,
+      "tail_ess": NaN
+    },
+    "coskill_probes[13]": {
+      "bulk_ess": 16067.756322202902,
+      "degenerate": null,
+      "rhat": 0.9998199576214218,
+      "tail_ess": 16067.756322202902
+    },
+    "coskill_probes[14]": {
+      "bulk_ess": 16004.17666455368,
+      "degenerate": null,
+      "rhat": 0.9999711969986067,
+      "tail_ess": 16004.176664553674
+    },
+    "coskill_probes[15]": {
+      "bulk_ess": 15680.844810555842,
+      "degenerate": null,
+      "rhat": 1.000485593775819,
+      "tail_ess": 15680.844810555809
+    },
+    "coskill_probes[16]": {
+      "bulk_ess": 3833.9276330879816,
+      "degenerate": null,
+      "rhat": 1.002936454049216,
+      "tail_ess": NaN
+    },
+    "coskill_probes[17]": {
+      "bulk_ess": 16082.396230667471,
+      "degenerate": null,
+      "rhat": 1.0000393216886827,
+      "tail_ess": 16082.396230667471
+    },
+    "coskill_probes[18]": {
+      "bulk_ess": 120.78243225455624,
+      "degenerate": null,
+      "rhat": 1.0213142342205268,
+      "tail_ess": 120.78243225455584
+    },
+    "coskill_probes[19]": {
+      "bulk_ess": 15584.873390608827,
+      "degenerate": null,
+      "rhat": 0.9999768029712126,
+      "tail_ess": 15584.87339060882
+    },
+    "coskill_probes[1]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "coskill_probes[20]": {
+      "bulk_ess": 16188.572947788402,
+      "degenerate": null,
+      "rhat": 1.0000421470438239,
+      "tail_ess": 16188.572947788381
+    },
+    "coskill_probes[21]": {
+      "bulk_ess": 15976.820842216332,
+      "degenerate": null,
+      "rhat": 0.9999477362402222,
+      "tail_ess": 15976.82084221636
+    },
+    "coskill_probes[22]": {
+      "bulk_ess": 16021.755705135589,
+      "degenerate": null,
+      "rhat": 1.0000357851276098,
+      "tail_ess": 16021.755705135589
+    },
+    "coskill_probes[23]": {
+      "bulk_ess": 16205.854733838185,
+      "degenerate": null,
+      "rhat": 0.999911780571527,
+      "tail_ess": 16205.854733838178
+    },
+    "coskill_probes[24]": {
+      "bulk_ess": 15135.726197542539,
+      "degenerate": null,
+      "rhat": 1.0000701718420184,
+      "tail_ess": 15135.726197542539
+    },
+    "coskill_probes[25]": {
+      "bulk_ess": 14240.634808665905,
+      "degenerate": null,
+      "rhat": 1.0012161877727808,
+      "tail_ess": 14240.634808665867
+    },
+    "coskill_probes[26]": {
+      "bulk_ess": 16185.27349907002,
+      "degenerate": null,
+      "rhat": 1.0003222659408162,
+      "tail_ess": 16185.273499070012
+    },
+    "coskill_probes[27]": {
+      "bulk_ess": 15181.587722171791,
+      "degenerate": null,
+      "rhat": 1.000145565043873,
+      "tail_ess": 15181.587722171771
+    },
+    "coskill_probes[28]": {
+      "bulk_ess": 84.03804601417863,
+      "degenerate": null,
+      "rhat": 1.0302301972165053,
+      "tail_ess": 84.03804601417897
+    },
+    "coskill_probes[29]": {
+      "bulk_ess": 15884.667564009782,
+      "degenerate": null,
+      "rhat": 1.0000229336113815,
+      "tail_ess": NaN
+    },
+    "coskill_probes[2]": {
+      "bulk_ess": 16231.224624019664,
+      "degenerate": null,
+      "rhat": 1.0000549959056868,
+      "tail_ess": 16231.224624019665
+    },
+    "coskill_probes[30]": {
+      "bulk_ess": 15953.278441190583,
+      "degenerate": null,
+      "rhat": 0.9997999491238816,
+      "tail_ess": NaN
+    },
+    "coskill_probes[31]": {
+      "bulk_ess": 15876.819670894265,
+      "degenerate": null,
+      "rhat": 1.0001912890500764,
+      "tail_ess": 15876.819670894265
+    },
+    "coskill_probes[32]": {
+      "bulk_ess": 15180.849306014676,
+      "degenerate": null,
+      "rhat": 1.0008081168650207,
+      "tail_ess": 15180.849306014663
+    },
+    "coskill_probes[33]": {
+      "bulk_ess": 15402.934059011983,
+      "degenerate": null,
+      "rhat": 1.0011102256956916,
+      "tail_ess": 15402.93405901197
+    },
+    "coskill_probes[34]": {
+      "bulk_ess": 1173.6835660617276,
+      "degenerate": null,
+      "rhat": 1.0036572411089786,
+      "tail_ess": 1173.683566061734
+    },
+    "coskill_probes[35]": {
+      "bulk_ess": 14962.768567045174,
+      "degenerate": null,
+      "rhat": 1.0000544954225077,
+      "tail_ess": 14962.768567045181
+    },
+    "coskill_probes[36]": {
+      "bulk_ess": 15945.590113034194,
+      "degenerate": null,
+      "rhat": 0.9999122763104352,
+      "tail_ess": 15945.590113034194
+    },
+    "coskill_probes[37]": {
+      "bulk_ess": 15680.94679982696,
+      "degenerate": null,
+      "rhat": 1.0000236316951032,
+      "tail_ess": 15680.94679982696
+    },
+    "coskill_probes[38]": {
+      "bulk_ess": 15712.390044772017,
+      "degenerate": null,
+      "rhat": 1.0000970508984144,
+      "tail_ess": 15712.390044772032
+    },
+    "coskill_probes[39]": {
+      "bulk_ess": 16138.471365628462,
+      "degenerate": null,
+      "rhat": 0.9999184535098878,
+      "tail_ess": 16138.471365628455
+    },
+    "coskill_probes[3]": {
+      "bulk_ess": 1033.8720429791933,
+      "degenerate": null,
+      "rhat": 1.0046295575546362,
+      "tail_ess": 1033.872042979184
+    },
+    "coskill_probes[40]": {
+      "bulk_ess": 5728.619535005948,
+      "degenerate": null,
+      "rhat": 1.0024739353430152,
+      "tail_ess": 5728.619535005904
+    },
+    "coskill_probes[41]": {
+      "bulk_ess": 371.77228996468335,
+      "degenerate": null,
+      "rhat": 1.0101255900022788,
+      "tail_ess": 371.77228996468284
+    },
+    "coskill_probes[42]": {
+      "bulk_ess": 15875.596828009588,
+      "degenerate": null,
+      "rhat": 1.0001788050297102,
+      "tail_ess": 15875.596828009595
+    },
+    "coskill_probes[43]": {
+      "bulk_ess": 16074.85434278315,
+      "degenerate": null,
+      "rhat": 0.9999551166125679,
+      "tail_ess": 16074.85434278315
+    },
+    "coskill_probes[44]": {
+      "bulk_ess": 14751.388784783823,
+      "degenerate": null,
+      "rhat": 1.0002661472287349,
+      "tail_ess": 14751.388784783836
+    },
+    "coskill_probes[45]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "coskill_probes[46]": {
+      "bulk_ess": 15883.949638192566,
+      "degenerate": null,
+      "rhat": 1.0008206013744791,
+      "tail_ess": 15883.949638192558
+    },
+    "coskill_probes[47]": {
+      "bulk_ess": 16077.062267217294,
+      "degenerate": null,
+      "rhat": 0.9998892911739681,
+      "tail_ess": 16077.062267217301
+    },
+    "coskill_probes[48]": {
+      "bulk_ess": 1814.2606177679422,
+      "degenerate": null,
+      "rhat": 1.003594239574755,
+      "tail_ess": 1814.2606177679497
+    },
+    "coskill_probes[49]": {
+      "bulk_ess": 16241.445162725946,
+      "degenerate": null,
+      "rhat": 0.9999751544776182,
+      "tail_ess": 16241.445162725946
+    },
+    "coskill_probes[4]": {
+      "bulk_ess": 15911.233319638795,
+      "degenerate": null,
+      "rhat": 1.0000467838693965,
+      "tail_ess": 15911.233319638803
+    },
+    "coskill_probes[50]": {
+      "bulk_ess": 15301.916785305872,
+      "degenerate": null,
+      "rhat": 1.0002410202197283,
+      "tail_ess": 15301.916785305859
+    },
+    "coskill_probes[51]": {
+      "bulk_ess": 1701.6610260763441,
+      "degenerate": null,
+      "rhat": 1.0035820168261302,
+      "tail_ess": 1701.6610260763402
+    },
+    "coskill_probes[52]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "coskill_probes[53]": {
+      "bulk_ess": 16024.279591527273,
+      "degenerate": null,
+      "rhat": 0.9999714724812551,
+      "tail_ess": 16024.279591527265
+    },
+    "coskill_probes[54]": {
+      "bulk_ess": 14613.782250078528,
+      "degenerate": null,
+      "rhat": 1.0011325140933778,
+      "tail_ess": 14613.782250078551
+    },
+    "coskill_probes[55]": {
+      "bulk_ess": 89.97252677772124,
+      "degenerate": null,
+      "rhat": 1.0290155393929659,
+      "tail_ess": 89.97252677772089
+    },
+    "coskill_probes[56]": {
+      "bulk_ess": 11915.808802986288,
+      "degenerate": null,
+      "rhat": 1.0011187739002074,
+      "tail_ess": 11915.808802986288
+    },
+    "coskill_probes[57]": {
+      "bulk_ess": 15685.591297297953,
+      "degenerate": null,
+      "rhat": 0.9999897834411349,
+      "tail_ess": 15685.591297297946
+    },
+    "coskill_probes[58]": {
+      "bulk_ess": 16032.34360997213,
+      "degenerate": null,
+      "rhat": 0.9999683505608735,
+      "tail_ess": NaN
+    },
+    "coskill_probes[59]": {
+      "bulk_ess": 16433.226640570585,
+      "degenerate": null,
+      "rhat": 0.9998100617508247,
+      "tail_ess": 16433.226640570585
+    },
+    "coskill_probes[5]": {
+      "bulk_ess": 1663.6653437497273,
+      "degenerate": null,
+      "rhat": 1.0031334409227828,
+      "tail_ess": 1663.6653437497187
+    },
+    "coskill_probes[60]": {
+      "bulk_ess": 10414.149849058382,
+      "degenerate": null,
+      "rhat": 1.0007874808427972,
+      "tail_ess": 10414.149849058394
+    },
+    "coskill_probes[61]": {
+      "bulk_ess": 15292.318003837483,
+      "degenerate": null,
+      "rhat": 1.0008871718407086,
+      "tail_ess": 15292.318003837503
+    },
+    "coskill_probes[62]": {
+      "bulk_ess": 13311.84142198238,
+      "degenerate": null,
+      "rhat": 1.0004272024028174,
+      "tail_ess": 13311.841421982332
+    },
+    "coskill_probes[63]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "coskill_probes[6]": {
+      "bulk_ess": 15807.20570048856,
+      "degenerate": null,
+      "rhat": 0.9999889240186233,
+      "tail_ess": 15807.20570048856
+    },
+    "coskill_probes[7]": {
+      "bulk_ess": 12689.330191618717,
+      "degenerate": null,
+      "rhat": 1.0014988599053989,
+      "tail_ess": 12689.330191618463
+    },
+    "coskill_probes[8]": {
+      "bulk_ess": 15930.048108481515,
+      "degenerate": null,
+      "rhat": 0.9999039184906136,
+      "tail_ess": 15930.048108481515
+    },
+    "coskill_probes[9]": {
+      "bulk_ess": 16016.024032044059,
+      "degenerate": null,
+      "rhat": 1.0,
+      "tail_ess": NaN
+    },
+    "log_target": {
+      "bulk_ess": 66.71240761698833,
+      "degenerate": null,
+      "rhat": 1.0373376265335825,
+      "tail_ess": 28.313123891860265
+    },
+    "mean_segment_length": {
+      "bulk_ess": 15108.15392372849,
+      "degenerate": null,
+      "rhat": 1.0000555320213316,
+      "tail_ess": 15500.366808896168
+    },
+    "mean_segments_per_trace": {
+      "bulk_ess": 15108.489359343104,
+      "degenerate": null,
+      "rhat": 1.0000328903539646,
+      "tail_ess": 15026.664081851863
+    },
+    "pi_entropy": {
+      "bulk_ess": 16018.057400533735,
+      "degenerate": null,
+      "rhat": 1.0000761557506108,
+      "tail_ess": 15962.150803673909
+    },
+    "pi_l2": {
+      "bulk_ess": 16034.430967943594,
+      "degenerate": null,
+      "rhat": 1.0000757115816492,
+      "tail_ess": 16046.689585012342
+    },
+    "same_segment_probes[0]": {
+      "bulk_ess": 15463.728890580738,
+      "degenerate": null,
+      "rhat": 1.000066339452935,
+      "tail_ess": 15463.728890580705
+    },
+    "same_segment_probes[10]": {
+      "bulk_ess": 14003.694931699307,
+      "degenerate": null,
+      "rhat": 1.0013392029565265,
+      "tail_ess": 14003.694931699427
+    },
+    "same_segment_probes[11]": {
+      "bulk_ess": 16198.184356924578,
+      "degenerate": null,
+      "rhat": 0.999914993348748,
+      "tail_ess": 16198.184356924592
+    },
+    "same_segment_probes[12]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[13]": {
+      "bulk_ess": 15577.853353024666,
+      "degenerate": null,
+      "rhat": 0.9999394388193462,
+      "tail_ess": 15577.85335302468
+    },
+    "same_segment_probes[14]": {
+      "bulk_ess": 15989.89815364787,
+      "degenerate": null,
+      "rhat": 0.9999728894658919,
+      "tail_ess": 15989.89815364787
+    },
+    "same_segment_probes[15]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[16]": {
+      "bulk_ess": 2880.7295938324482,
+      "degenerate": null,
+      "rhat": 1.0031417827690228,
+      "tail_ess": 2880.729593832429
+    },
+    "same_segment_probes[17]": {
+      "bulk_ess": 15809.27418658232,
+      "degenerate": null,
+      "rhat": 0.9999650111298181,
+      "tail_ess": 15809.27418658232
+    },
+    "same_segment_probes[18]": {
+      "bulk_ess": 120.78243225455624,
+      "degenerate": null,
+      "rhat": 1.0213142342205268,
+      "tail_ess": 120.78243225455584
+    },
+    "same_segment_probes[19]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[1]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[20]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[21]": {
+      "bulk_ess": 16020.60887612031,
+      "degenerate": null,
+      "rhat": 1.0001787699494384,
+      "tail_ess": 16020.608876120317
+    },
+    "same_segment_probes[22]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[23]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[24]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[25]": {
+      "bulk_ess": 15619.656185558066,
+      "degenerate": null,
+      "rhat": 1.0001750593133738,
+      "tail_ess": 15619.656185558066
+    },
+    "same_segment_probes[26]": {
+      "bulk_ess": 16185.27349907002,
+      "degenerate": null,
+      "rhat": 1.0003222659408162,
+      "tail_ess": 16185.273499070012
+    },
+    "same_segment_probes[27]": {
+      "bulk_ess": 15268.90024453323,
+      "degenerate": null,
+      "rhat": 1.0001555776439228,
+      "tail_ess": 15268.90024453323
+    },
+    "same_segment_probes[28]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[29]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[2]": {
+      "bulk_ess": 16056.330296296122,
+      "degenerate": null,
+      "rhat": 0.9999934988834264,
+      "tail_ess": 16056.330296296122
+    },
+    "same_segment_probes[30]": {
+      "bulk_ess": 15998.414956710614,
+      "degenerate": null,
+      "rhat": 0.9999701752289389,
+      "tail_ess": 15998.414956710621
+    },
+    "same_segment_probes[31]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[32]": {
+      "bulk_ess": 16021.755705135589,
+      "degenerate": null,
+      "rhat": 1.0000357851276098,
+      "tail_ess": 16021.755705135589
+    },
+    "same_segment_probes[33]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[34]": {
+      "bulk_ess": 14816.302702201037,
+      "degenerate": null,
+      "rhat": 1.0003828854454972,
+      "tail_ess": 14816.302702201025
+    },
+    "same_segment_probes[35]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[36]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[37]": {
+      "bulk_ess": 16033.467411171408,
+      "degenerate": null,
+      "rhat": 1.0000787986002933,
+      "tail_ess": 16033.467411171408
+    },
+    "same_segment_probes[38]": {
+      "bulk_ess": 15733.496831522349,
+      "degenerate": null,
+      "rhat": 1.0000881843376688,
+      "tail_ess": 15733.496831522349
+    },
+    "same_segment_probes[39]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[3]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[40]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[41]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[42]": {
+      "bulk_ess": 15875.596828009588,
+      "degenerate": null,
+      "rhat": 1.0001788050297102,
+      "tail_ess": 15875.596828009595
+    },
+    "same_segment_probes[43]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[44]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[45]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[46]": {
+      "bulk_ess": 15883.949638192566,
+      "degenerate": null,
+      "rhat": 1.0008206013744791,
+      "tail_ess": 15883.949638192558
+    },
+    "same_segment_probes[47]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[48]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[49]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[4]": {
+      "bulk_ess": 16068.045705294788,
+      "degenerate": null,
+      "rhat": 1.0000454761683655,
+      "tail_ess": 16068.045705294788
+    },
+    "same_segment_probes[50]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[51]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[52]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[53]": {
+      "bulk_ess": 16024.279591527273,
+      "degenerate": null,
+      "rhat": 0.9999714724812551,
+      "tail_ess": 16024.279591527265
+    },
+    "same_segment_probes[54]": {
+      "bulk_ess": 14613.782250078528,
+      "degenerate": null,
+      "rhat": 1.0011325140933778,
+      "tail_ess": 14613.782250078551
+    },
+    "same_segment_probes[55]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[56]": {
+      "bulk_ess": 16016.024032044059,
+      "degenerate": null,
+      "rhat": 1.0,
+      "tail_ess": 16016.024032044059
+    },
+    "same_segment_probes[57]": {
+      "bulk_ess": 15685.591297297953,
+      "degenerate": null,
+      "rhat": 0.9999897834411349,
+      "tail_ess": 15685.591297297946
+    },
+    "same_segment_probes[58]": {
+      "bulk_ess": 16032.34360997213,
+      "degenerate": null,
+      "rhat": 0.9999683505608735,
+      "tail_ess": NaN
+    },
+    "same_segment_probes[59]": {
+      "bulk_ess": 16433.226640570585,
+      "degenerate": null,
+      "rhat": 0.9998100617508247,
+      "tail_ess": 16433.226640570585
+    },
+    "same_segment_probes[5]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[60]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[61]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[62]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[63]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[6]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[7]": {
+      "bulk_ess": 16000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 16000.0
+    },
+    "same_segment_probes[8]": {
+      "bulk_ess": 15930.048108481515,
+      "degenerate": null,
+      "rhat": 0.9999039184906136,
+      "tail_ess": 15930.048108481515
+    },
+    "same_segment_probes[9]": {
+      "bulk_ess": 16016.024032044059,
+      "degenerate": null,
+      "rhat": 1.0,
+      "tail_ess": NaN
+    },
+    "sd_segment_length": {
+      "bulk_ess": 12356.100323048146,
+      "degenerate": null,
+      "rhat": 1.0012345683910318,
+      "tail_ess": 12885.415128429728
+    },
+    "sorted_P_row_entropy[0]": {
+      "bulk_ess": 2075.9271534615864,
+      "degenerate": null,
+      "rhat": 1.0022419373574432,
+      "tail_ess": 2517.0236603948206
+    },
+    "sorted_P_row_entropy[1]": {
+      "bulk_ess": 291.6778257151967,
+      "degenerate": null,
+      "rhat": 1.0114037064717407,
+      "tail_ess": 92.7490324570082
+    },
+    "sorted_P_row_entropy[2]": {
+      "bulk_ess": 2988.5195633131107,
+      "degenerate": null,
+      "rhat": 1.0021684358035914,
+      "tail_ess": 2546.1617076857347
+    },
+    "sorted_pi[0]": {
+      "bulk_ess": 15921.70692420244,
+      "degenerate": null,
+      "rhat": 1.0000126102136568,
+      "tail_ess": 15884.41954783484
+    },
+    "sorted_pi[1]": {
+      "bulk_ess": 15807.988771662524,
+      "degenerate": null,
+      "rhat": 0.9999914700838409,
+      "tail_ess": 16272.46060623879
+    },
+    "sorted_pi[2]": {
+      "bulk_ess": 16007.664905586169,
+      "degenerate": null,
+      "rhat": 1.0000770496775846,
+      "tail_ess": 16018.47782402243
+    },
+    "sorted_relation_counts[0]": {
+      "bulk_ess": 1319.6961896554715,
+      "degenerate": null,
+      "rhat": 1.0015041372251425,
+      "tail_ess": NaN
+    },
+    "sorted_relation_counts[1]": {
+      "bulk_ess": 17.788878876927146,
+      "degenerate": null,
+      "rhat": 1.1532591440608424,
+      "tail_ess": NaN
+    },
+    "sorted_relation_counts[2]": {
+      "bulk_ess": 22.807357566861434,
+      "degenerate": null,
+      "rhat": 1.1111763071943925,
+      "tail_ess": NaN
+    },
+    "sorted_stationary[0]": {
+      "bulk_ess": 14068.37868783011,
+      "degenerate": null,
+      "rhat": 1.0005547578955418,
+      "tail_ess": 14965.817299207703
+    },
+    "sorted_stationary[1]": {
+      "bulk_ess": 2113.400779837863,
+      "degenerate": null,
+      "rhat": 1.003489673756166,
+      "tail_ess": 3224.903157495925
+    },
+    "sorted_stationary[2]": {
+      "bulk_ess": 14538.137721509298,
+      "degenerate": null,
+      "rhat": 1.0009404832780515,
+      "tail_ess": 15847.578414202153
+    },
+    "total_relations": {
+      "bulk_ess": 17.86334398439416,
+      "degenerate": null,
+      "rhat": 1.1515763453084154,
+      "tail_ess": NaN
+    },
+    "total_segments": {
+      "bulk_ess": 15108.489359343104,
+      "degenerate": null,
+      "rhat": 1.0000444345825845,
+      "tail_ess": 15026.664081851863
+    }
+  }
+}

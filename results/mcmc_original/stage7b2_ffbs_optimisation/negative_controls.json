@@ -1,0 +1,30 @@
+{
+  "honest_implementation_gap_vs_replay": 0.0,
+  "controls": [
+    {
+      "name": "recurrent state leaks across candidates",
+      "injected": "each candidate's first emission absorbs 5% of the previous candidate's",
+      "observed_gap_vs_replay": 0.2760730458931153,
+      "tolerance": 1e-10,
+      "detected": true
+    },
+    {
+      "name": "omega does not invalidate the table",
+      "injected": "omega removed from the skill fingerprint",
+      "rebuilt_skills_after_omega_moved": [],
+      "observed_gap_vs_fresh_rebuild": 1.7798789880242651,
+      "tolerance": 1e-06,
+      "detected": true
+    },
+    {
+      "name": "U_k does not invalidate its own column",
+      "injected": "U removed from the skill fingerprint",
+      "perturbation_moves_h_of_u": true,
+      "rebuilt_skills_after_u_moved": [],
+      "observed_gap_vs_fresh_rebuild": 24.341285476648704,
+      "tolerance": 1e-06,
+      "detected": true
+    }
+  ],
+  "note": "a uniform shift of U_k would NOT be observable: the likelihood sees U only through the precedence closure h(U), so control 3 uses a perturbation that actually moves the induced order"
+}

@@ -1,0 +1,10 @@
+{
+  "constant_terms_never_computed": [
+    "p(S* | J, delta_B*)",
+    "p(z* | S*, pi*, P*)"
+  ],
+  "likelihood_reads_u_through": "H_k = h(U_k) only (verified: recurrent_step_probabilities consumes precedence_from_u(u) alone), so the block likelihood is cached per (skill, canonical H)",
+  "q0": "every oracle block replayed from q_0 = 0 (production vectorized_state_features initialises q = 0)",
+  "rho_0": 0.5,
+  "target": "p(U | X, S*, z*, vartheta*, rho_0) proportional to prod_k p(U_k | rho_0) prod_(n,l) e_{n,z*_nl}(a*_nl, b*_nl; h(U), vartheta*)"
+}

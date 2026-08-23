@@ -1,0 +1,61 @@
+{
+  "source": "Stage 6E1A chains re-run from the recorded seeds",
+  "frozen_directory": "results/mcmc_original/stage6e1a_exact_segmentation",
+  "n_retained": 380000,
+  "reproduction_gap_vs_frozen_frequencies": 0.0,
+  "frozen_path_total_variation": 0.0014704498043723745,
+  "errors_vs_exact": {
+    "full_path_total_variation": 0.0014704498043723745,
+    "max_boundary_marginal_error": 0.00028386996194035286,
+    "max_occurrence_label_marginal_error": 0.001065734285746689,
+    "max_labelled_segment_marginal_error": 0.000992902405123397,
+    "max_unlabelled_segment_marginal_error": 0.0002838699619403598,
+    "segment_count_total_variation": 6.775929372793144e-05,
+    "max_expected_transition_count_error": 0.00011092366016450528,
+    "boundary_marginals": [
+      0.0,
+      0.0,
+      0.023602631578947368,
+      0.03527894736842105,
+      0.018415789473684212,
+      0.0,
+      0.0
+    ],
+    "segment_count_distribution": [
+      0.0,
+      0.9227026315789474,
+      0.07729736842105263,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "expected_transition_counts": [
+      [
+        0.0,
+        0.0353421052631579,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.04195526315789473,
+        0.0
+      ]
+    ]
+  },
+  "three_way": {
+    "ffbs_tv_to_exact": 0.00238809835717739,
+    "local_tv_to_exact": 0.0014704498043723745,
+    "ffbs_to_local_tv": 0.003029999999999965,
+    "sum_of_the_two_tv_to_exact": 0.0038585481615497647,
+    "triangle_inequality_respected": true
+  },
+  "conclusion": "same model target, different inference algorithm"
+}

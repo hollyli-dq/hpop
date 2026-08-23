@@ -1,0 +1,59 @@
+{
+  "gates": {
+    "complete_data_log_prob_parity": 1e-10,
+    "dp_normalizer_vs_enumeration_abs_log_error": 1e-12,
+    "empirical_boundary_marginal_max_error": 0.01,
+    "empirical_segment_count_tv": 0.01,
+    "exact_boundary_marginal_two_route_max_error": 1e-12,
+    "exact_segment_count_two_route_max_error": 1e-12,
+    "illegal_segmentation_count": 0,
+    "pi_empirical_max_error": 0.01,
+    "self_transition_count": 0,
+    "tiny_full_state_max_probability_error": 0.01,
+    "tiny_full_state_tv": 0.01,
+    "tiny_logz_parity": 1e-10,
+    "transition_row_empirical_max_error": 0.01
+  },
+  "generator_version": "1.0.0",
+  "n_label_samples": 200000,
+  "n_parity_traces": 50,
+  "n_segmentation_samples_per_J": 100000,
+  "n_tiny_state_samples_per_J": 200000,
+  "seeds": {
+    "corpus_label_frequencies": 720003,
+    "log_prob_parity_corpus": 730001,
+    "negative_control_old_mechanism": 740001,
+    "negative_control_state_leak": 740002,
+    "reproducibility_master_a": 750001,
+    "reproducibility_master_b": 750002,
+    "reset_parity_corpus": 730003,
+    "segmentation_parity": {
+      "24": 700024,
+      "32": 700032,
+      "40": 700040,
+      "48": 700048
+    },
+    "skill_label_initial": 720001,
+    "skill_label_transitions": 720002,
+    "tiny_logz_corpus": 730002,
+    "tiny_state_parity": {
+      "10": 710010,
+      "6": 710006,
+      "7": 710007
+    }
+  },
+  "task": "matched synthetic generator validation",
+  "tiny_J": [
+    6,
+    7,
+    10
+  ],
+  "trace_length_design_J": [
+    24,
+    32,
+    40,
+    48
+  ],
+  "trace_length_design_note": "no registered trace-length support exists in the current model (the likelihood conditions on J); the suggested design {24, 32, 40, 48} is adopted and registered here before sampling",
+  "truth_configuration": "supplied mode: the Stage 6E2 registered truth (U, pi, P, scalars, epsilon, delta_B, widths), recorded before any observation was generated"
+}

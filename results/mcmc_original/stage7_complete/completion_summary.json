@@ -1,0 +1,15 @@
+{
+  "step_7a_ffbs_correctness": {
+    "status": "PASS",
+    "log_z_absolute_error": 8.881784197001252e-16
+  },
+  "step_7b0_integration_parity": {
+    "status": "PASS"
+  },
+  "step_7b1_full_joint_correctness": {
+    "status": "PASS"
+  },
+  "step_7b2_full_corpus_comparison": "COMPARED against the frozen baseline",
+  "step_7_final_tag": "NOT CREATED \u2014 the tag requires Step 7B1 and Step 7B2",
+  "source_commit": "24739d802a3fc78caa56590c0d74a29ac15f7317"
+}

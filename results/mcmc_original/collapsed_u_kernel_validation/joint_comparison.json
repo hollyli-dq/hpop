@@ -1,0 +1,319 @@
+{
+  "gates": {
+    "segmentation_total_variation": {
+      "value": 0.004734243509692589,
+      "threshold": 0.01,
+      "pass": true,
+      "per_trace": [
+        0.004734243509692589,
+        0.0033490451305068602
+      ]
+    },
+    "segmentation_total_variation_vs_sampled_estimator": {
+      "value": 0.004563948946669869,
+      "threshold": 0.01,
+      "pass": true,
+      "per_trace": [
+        0.004563948946669869,
+        0.00323161136441388
+      ],
+      "note": "section 9's literal sampled reference estimator; the conditional estimator above is primary"
+    },
+    "max_boundary_marginal_error": {
+      "value": 0.0012649442770384933,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "max_occurrence_label_marginal_error": {
+      "value": 0.002554922423978645,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "induced_h_total_variation": {
+      "value": 0.0052078099496989366,
+      "threshold": 0.01,
+      "pass": true,
+      "per_skill": [
+        0.004686440948789917,
+        0.0037191218517754,
+        0.0052078099496989366
+      ]
+    },
+    "max_relation_marginal_error": {
+      "value": 0.0027588085135532014,
+      "threshold": 0.01,
+      "pass": true,
+      "per_skill": [
+        0.0018408133619340905,
+        0.0022087644986120147,
+        0.0027588085135532014
+      ]
+    },
+    "segment_count_total_variation": {
+      "value": 0.0013636393857847928,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "mixed_multivariate_reference_statistic": {
+      "value": 0.005139473105523429,
+      "threshold": 0.004522256615497353,
+      "pass": false,
+      "z_score": 2.855022458500177
+    },
+    "log_posterior_rhat": {
+      "value": 1.0002976534502233,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "n_segments_rhat": {
+      "value": 1.0000213908077262,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "relation_count_rhat": {
+      "value": 1.0002456232489758,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "selected_boundary_indicator_rhat": {
+      "value": 1.0000016687761946,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "selected_relation_indicator_rhat": {
+      "value": 1.0000055965752794,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "rho_rhat": {
+      "value": 1.0003275036270363,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "beta_rhat": {
+      "value": 1.0034437620998884,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "omega_rhat": {
+      "value": 1.002192824994913,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "lambda_rep_rhat": {
+      "value": 1.0034944802621257,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "lambda_back_rhat": {
+      "value": 1.000799042485396,
+      "threshold": 1.01,
+      "pass": true
+    }
+  },
+  "all_pass": false,
+  "mixed_multivariate": {
+    "statistic": "energy distance on [closure indicators, segment counts, standardised scalars]",
+    "observed": 0.005139473105523429,
+    "envelope": 0.004522256615497353,
+    "envelope_quantile": 0.99,
+    "null_mean": 0.0035295761958754612,
+    "null_sd": 0.0005638823977916067,
+    "n_reference": 4000,
+    "n_mcmc": 4000,
+    "n_coordinates": 25,
+    "dropped_constant_coordinates": 9,
+    "z_score": 2.855022458500177,
+    "pass": false
+  },
+  "convergence": {
+    "log_posterior": {
+      "rhat_bulk": 1.0002976534502233,
+      "rhat_tail": 1.000062319370563,
+      "rhat": 1.0002976534502233,
+      "degenerate": false,
+      "bulk_ess": 25595.115696614626,
+      "tail_ess": 35088.91389359101,
+      "mcse": 0.030438243132075427,
+      "n_draws": 192000,
+      "n_chains": 4
+    },
+    "n_segments": {
+      "rhat_bulk": 1.0000027438449417,
+      "rhat_tail": 1.0000213908077262,
+      "rhat": 1.0000213908077262,
+      "degenerate": false,
+      "bulk_ess": 99409.51008576628,
+      "tail_ess": 84960.67197692698,
+      "mcse": 0.002142611711626888,
+      "n_draws": 192000,
+      "n_chains": 4
+    },
+    "relation_count": {
+      "rhat_bulk": 1.0002456232489758,
+      "rhat_tail": 1.0000440879970989,
+      "rhat": 1.0002456232489758,
+      "degenerate": false,
+      "bulk_ess": 29252.144380356945,
+      "tail_ess": 60656.01384198728,
+      "mcse": 0.009624234829370588,
+      "n_draws": 192000,
+      "n_chains": 4
+    },
+    "selected_boundary_indicator": {
+      "rhat_bulk": 1.0000016687761946,
+      "rhat_tail": 1.0000016687761946,
+      "rhat": 1.0000016687761946,
+      "degenerate": false,
+      "bulk_ess": 59599.72396803385,
+      "tail_ess": 59599.7239680332,
+      "mcse": 0.0019646656440353706,
+      "n_draws": 192000,
+      "n_chains": 4
+    },
+    "selected_relation_indicator": {
+      "rhat_bulk": 1.0000055965752794,
+      "rhat_tail": 1.0000055965752794,
+      "rhat": 1.0000055965752794,
+      "degenerate": false,
+      "bulk_ess": 51681.94046472204,
+      "tail_ess": 51681.94046472204,
+      "mcse": 0.002025781174581668,
+      "n_draws": 192000,
+      "n_chains": 4
+    },
+    "rho": {
+      "rhat": 1.0003275036270363,
+      "degenerate": false,
+      "bulk_ess": 18950.46719893045,
+      "tail_ess": 29924.845325021714,
+      "mcse": 0.0020229399253645433
+    },
+    "beta": {
+      "rhat": 1.0034437620998884,
+      "degenerate": false,
+      "bulk_ess": 2122.389923487904,
+      "tail_ess": 1938.7939964269958,
+      "mcse": 0.020122499866286725
+    },
+    "omega": {
+      "rhat": 1.002192824994913,
+      "degenerate": false,
+      "bulk_ess": 3367.7711551361735,
+      "tail_ess": 6614.4788423232685,
+      "mcse": 0.034629207390772195
+    },
+    "lambda_rep": {
+      "rhat": 1.0034944802621257,
+      "degenerate": false,
+      "bulk_ess": 1311.1421780184614,
+      "tail_ess": 1429.8334801718227,
+      "mcse": 0.010035553216430336
+    },
+    "lambda_back": {
+      "rhat": 1.000799042485396,
+      "degenerate": false,
+      "bulk_ess": 5871.176308192377,
+      "tail_ess": 7259.243180430841,
+      "mcse": 0.008543048510071857
+    }
+  },
+  "acceptance_by_chain": [
+    {
+      "relabel": null,
+      "split": null,
+      "merge": null,
+      "shift": null,
+      "U": 0.6069606481481481,
+      "rho": 0.8090291666666667,
+      "pi_P": null,
+      "S_z_ffbs": 1.0,
+      "U_collapsed": 0.6378958333333333,
+      "beta": 0.9612354166666667,
+      "omega": 0.9688645833333334,
+      "lambda_rep": 0.9789875,
+      "lambda_back": 0.957275
+    },
+    {
+      "relabel": null,
+      "split": null,
+      "merge": null,
+      "shift": null,
+      "U": 0.6066224537037037,
+      "rho": 0.80948125,
+      "pi_P": null,
+      "S_z_ffbs": 1.0,
+      "U_collapsed": 0.6362083333333334,
+      "beta": 0.9617125,
+      "omega": 0.9673166666666667,
+      "lambda_rep": 0.97935625,
+      "lambda_back": 0.9582375
+    },
+    {
+      "relabel": null,
+      "split": null,
+      "merge": null,
+      "shift": null,
+      "U": 0.6092664351851852,
+      "rho": 0.8106895833333333,
+      "pi_P": null,
+      "S_z_ffbs": 1.0,
+      "U_collapsed": 0.6381666666666667,
+      "beta": 0.9615791666666667,
+      "omega": 0.9684895833333333,
+      "lambda_rep": 0.9789979166666667,
+      "lambda_back": 0.9577770833333333
+    },
+    {
+      "relabel": null,
+      "split": null,
+      "merge": null,
+      "shift": null,
+      "U": 0.6048296296296296,
+      "rho": 0.8076458333333333,
+      "pi_P": null,
+      "S_z_ffbs": 1.0,
+      "U_collapsed": 0.6377083333333333,
+      "beta": 0.9614145833333333,
+      "omega": 0.9678875,
+      "lambda_rep": 0.9794666666666667,
+      "lambda_back": 0.95896875
+    }
+  ],
+  "movement": [
+    {
+      "boundary_hamming": 775239,
+      "label_changes": 3202260,
+      "states_changed": 736754
+    },
+    {
+      "boundary_hamming": 772061,
+      "label_changes": 3187463,
+      "states_changed": 733444
+    },
+    {
+      "boundary_hamming": 773065,
+      "label_changes": 3215075,
+      "states_changed": 736418
+    },
+    {
+      "boundary_hamming": 770852,
+      "label_changes": 3216369,
+      "states_changed": 736343
+    }
+  ],
+  "retained_per_chain": [
+    48000,
+    48000,
+    48000,
+    48000
+  ],
+  "retained_pooled": 192000,
+  "runtime_seconds": [
+    11917.667465416002,
+    11960.330326041003,
+    11915.488415041007,
+    11980.046114874
+  ],
+  "worst_rhat": 1.0034944802621257
+}

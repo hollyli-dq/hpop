@@ -1,0 +1,36 @@
+{
+  "cause_of_interruptions": "signals delivered to the launching shell's process group; resolved by relaunching the orchestrator in its own session (start_new_session=True, verified PPID 1)",
+  "final_stop": {
+    "checkpoints_preserved": true,
+    "method": "SIGTERM to the orchestrator, then SIGTERM to its eight orphaned workers after verifying their identity by elapsed time; peer-session processes untouched",
+    "partial_writes_found": []
+  },
+  "gate_files_verified_unchanged": true,
+  "interruptions": [
+    {
+      "checkpoint_sweep": 50000,
+      "compute_lost_minutes": "~20",
+      "gate_history_unchanged": true,
+      "n": 1,
+      "resumed_sweep": 50000,
+      "retained_draws_lost": 0,
+      "rng_state_restored": true,
+      "scientific_state_changed": false,
+      "when": "just after the 75k-segment start message 'advancing to 100,000' was NOT yet reached; the orchestrator died after the 50k gate while advancing to 75,000"
+    },
+    {
+      "checkpoint_sweep": 52000,
+      "compute_lost_minutes": "~30",
+      "gate_history_unchanged": true,
+      "n": 2,
+      "resumed_sweep": 52000,
+      "retained_draws_lost": 0,
+      "rng_state_restored": true,
+      "scientific_state_changed": false,
+      "when": "during the first resumed 75k segment"
+    }
+  ],
+  "resume_mechanism": "each chain resumed from its stored chain state and RNG bit-generator state; the ladder restarted at the first UN-evaluated rung so no registered checkpoint result was recomputed; the two-consecutive-pass counters were reconstructed from the recorded gate files",
+  "scope": "execution/provenance deviation only; the scientific target, kernel, seeds, scales, cadence, gates and stopping rule were unchanged throughout",
+  "transient_registration_rewrite": "the frozen runner rewrites formal_registration.json on entry, so during each resumed segment two fields transiently carried resume-time values: parent_commit and checkpoints. Both were restored to the launch values (50eee50; the full four-rung ladder). Every other field regenerated identically."
+}

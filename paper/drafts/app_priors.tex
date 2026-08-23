@@ -1,0 +1,82 @@
+% Verified against src/hpop/mcmc_original/{recurrent_scalar_posterior,
+% recurrent_scalar_mcmc,stage6c_frozen,sampler_u,transitions,stage6e_state,
+% full_latent_constants}.py at commit 3f99926.
+Here $d$ is the number of realizer coordinates of $U$, and the rows of $U$ ---
+one per CPA role --- are i.i.d.\ $\mathcal N(\vect 0,\Sigma_\rho)$, so that
+$\rho$ correlates a role's coordinates across dimensions.  For a skill with $m$
+roles,
+\begin{equation}
+  \log p(U\mid\rho)
+  =
+  -\tfrac12\Bigl[
+    md\log 2\pi + m\log|\Sigma_\rho|
+    + \operatorname{tr}\bigl(U\Sigma_\rho^{-1}U^\top\bigr)
+  \Bigr].
+\end{equation}
+
+\paragraph{Priors.}
+All priors were registered before any posterior was inspected:
+\begin{align}
+  \rho &\sim \mathrm{Beta}(1,1)\ \text{truncated to } (0,1-\delta_\rho),
+        \quad \delta_\rho=5\times10^{-3},\\
+  \beta,\ \lambda_{\mathrm{rep}},\ \lambda_{\mathrm{back}}
+       &\stackrel{\text{ind}}{\sim} \mathrm{Gamma}(2,2)
+        \quad\text{(shape--rate)},\\
+  \omega &\sim \mathcal N(0,2^2),\\
+  \vect\pi &\sim \mathrm{Dir}(\eta_\pi\vect 1_K),\qquad
+  P_{h,\cdot}\sim \mathrm{Dir}(\eta_P\vect 1_{K-1}),\quad P_{hh}=0,
+\end{align}
+with $\eta_\pi=\eta_P=1$, so both label priors are flat; the rows of $P$ are
+supported on the $(K{-}1)$-simplex of admissible successors, the diagonal being
+excluded by the convention $z_{n\ell}\neq z_{n,\ell+1}$.  The truncation of
+$\rho$ keeps $\Sigma_\rho$ safely positive definite and is renormalised by
+$\log F_{\mathrm{Beta}}(1-\delta_\rho)$.
+
+\paragraph{Proposal transformations.}
+Each unconstrained coordinate carries its own change of variables, and the
+corresponding log-Jacobian is retained in the acceptance ratio:
+\begin{center}
+\begin{tabular}{@{}llll@{}}
+\toprule
+coordinate & transform & proposal & log-Jacobian \\
+\midrule
+$U_{r,\cdot}$ (one row)
+  & identity & $U_{r,\cdot}+\sigma_U\vect\xi$, $\vect\xi\sim\mathcal N(\vect0,I_d)$ & $0$ \\
+$\rho$
+  & $z=\operatorname{logit}\rho$ & $\rho'=\sigma(z+s_\rho\xi)$
+  & $\log\rho'(1-\rho')-\log\rho(1-\rho)$ \\
+$\beta,\lambda_{\mathrm{rep}},\lambda_{\mathrm{back}}$
+  & $\log$ & $\theta'=\theta e^{s\xi}$ & $\log\theta'-\log\theta$ \\
+$\omega$
+  & identity & $\omega+s_\omega\xi$ & $0$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+with $\xi\sim\mathcal N(0,1)$ and $\sigma_U=0.5$.  Structural moves select one
+skill and one role row uniformly.  Dropping the $\log$-scale correction visibly
+shifts the stationary distribution; a negative control for each Jacobian is
+retained in the test suite.
+
+\paragraph{Conjugate updates.}
+$\vect\pi$ and $P$ are not proposed but drawn directly from their conditional
+posteriors, which are Dirichlet by conjugacy:
+\begin{equation}
+  \vect\pi\mid Z \sim \mathrm{Dir}\bigl(\eta_\pi+n_k\bigr)_{k=1}^{K},
+  \qquad
+  P_{h,\cdot}\mid Z \sim \mathrm{Dir}\bigl(\eta_P+C_{hk}\bigr)_{k\neq h},
+\end{equation}
+where $n_k$ counts first segments of type $k$ and $C_{hk}$ counts $h\to k$
+transitions across all traces.
+
+\paragraph{Normalising constants.}
+As with $|\Sigma_\rho|$ above, the Gamma, Gaussian and Dirichlet normalisers are
+omitted identically on every call and cancel in every ratio the sampler forms;
+they must be restored if the corresponding hyperparameters are themselves
+updated.
+
+\paragraph{Coordinates held fixed.}
+In the reported FULL-LATENT runs only $(S_n,z_n,U,\vect\pi,P)$ are inferred; the
+recurrent nuisance coordinates are fixed at $\rho=0.5$, $\beta=1.5$,
+$\omega=\log(0.85/0.15)$, $\lambda_{\mathrm{rep}}=0.8$,
+$\lambda_{\mathrm{back}}=0.25$, with $\epsilon=0.02$ and $\delta_B=0.15$, so the
+scalar priors above are registered but not exercised there.

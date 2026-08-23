@@ -1,0 +1,11 @@
+{
+  "source_commit": "05ef2c291fa84bbba9960064836729d317d66c31",
+  "stage6c_config_hash": "c1545b0b24acad470aca96954963ef619e4ee55d7094bb597041b6e4e98a8dad",
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "platform": "macOS-10.16-x86_64-i386-64bit-Mach-O",
+  "stage": "6c1 smoke",
+  "n_sweeps": 300,
+  "blocks_used": 60,
+  "seed": 7
+}

@@ -1,0 +1,27 @@
+{
+  "source_commit": "05ef2c291fa84bbba9960064836729d317d66c31",
+  "stage6c_config_hash": "c1545b0b24acad470aca96954963ef619e4ee55d7094bb597041b6e4e98a8dad",
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "platform": "macOS-10.16-x86_64-i386-64bit-Mach-O",
+  "stage": "6C1 reference",
+  "target": "p(P, rho | Y) proportional to p(rho) L(P) pi_rho(P)",
+  "uses_mcmc": false,
+  "rho_grid": {
+    "lo": 0.001,
+    "hi": 0.994,
+    "n": 81
+  },
+  "cell_masses": {
+    "n_draws": 40000000,
+    "seed": 20250811
+  },
+  "fixed_scalars": {
+    "beta": 1.5,
+    "omega": 1.7346010553881064,
+    "lambda_rep": 0.8,
+    "lambda_back": 0.25
+  },
+  "epsilon": 0.02,
+  "runtime_seconds": 13.45805679098703
+}

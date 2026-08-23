@@ -1,0 +1,48 @@
+{
+  "counts": {
+    "censored_rows": 2,
+    "memory_summary_rows": 306,
+    "raw_timings_rows": 9927,
+    "timing_summary_rows": 690
+  },
+  "figures": {
+    "fig_marg_overhead": [
+      "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/figures/fig_marg_overhead.png",
+      "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/figures/fig_marg_overhead.pdf"
+    ],
+    "fig_memory_JK": [
+      "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/figures/fig_memory_JK.png",
+      "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/figures/fig_memory_JK.pdf"
+    ],
+    "fig_runtime_breakdown": [
+      "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/figures/fig_runtime_breakdown.png",
+      "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/figures/fig_runtime_breakdown.pdf"
+    ],
+    "fig_scaling_A": [
+      "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/figures/fig_scaling_A.png",
+      "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/figures/fig_scaling_A.pdf"
+    ],
+    "fig_scaling_D": [
+      "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/figures/fig_scaling_D.png",
+      "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/figures/fig_scaling_D.pdf"
+    ],
+    "fig_scaling_J": [
+      "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/figures/fig_scaling_J.png",
+      "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/figures/fig_scaling_J.pdf"
+    ],
+    "fig_scaling_K": [
+      "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/figures/fig_scaling_K.png",
+      "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/figures/fig_scaling_K.pdf"
+    ],
+    "fig_scaling_N": [
+      "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/figures/fig_scaling_N.png",
+      "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/figures/fig_scaling_N.pdf"
+    ],
+    "fig_target_operating_point": [
+      "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/figures/fig_target_operating_point.png",
+      "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/figures/fig_target_operating_point.pdf"
+    ]
+  },
+  "n_measured": 306,
+  "n_records": 310
+}

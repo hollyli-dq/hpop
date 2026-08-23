@@ -1,0 +1,32 @@
+{
+  "A_REGISTERED_FORMAL_VERDICT": {
+    "C-COND": "NOT CONVERGED",
+    "C-MARG": "NOT CONVERGED",
+    "basis": "neither arm obtained two consecutive passing checkpoints; 30k, 50k and 75k all FAILED",
+    "registered_history": {
+      "30000": {
+        "cond": "FAIL",
+        "marg": "FAIL"
+      },
+      "50000": {
+        "cond": "FAIL",
+        "marg": "FAIL"
+      },
+      "75000": {
+        "cond": "FAIL",
+        "marg": "FAIL"
+      }
+    }
+  },
+  "PROVENANCE": "written by the MANUAL termination of Condition C at the registered 75k checkpoint, NOT by the runner's own end-of-ladder analysis path, which never executed because the run was stopped before the 100k ceiling. It records the same terminal verdict as the authoritative artifact and exists so the frozen Condition C' launch guard \u2014 which tests for this path \u2014 sees the true terminal state.",
+  "authoritative_artifact": "results/mcmc_original/condition_c_terminal_75k/terminal_verdict.json",
+  "classification": "CONDITION C TERMINATED AT 75k \u2014 FORMAL VERDICT: NOT CONVERGED",
+  "converged": {
+    "cond": false,
+    "marg": false
+  },
+  "early_termination_deviation": "Condition C was terminated after the third consecutive failed registered checkpoint at 75k sweeps, before the preregistered 100k ceiling. Because the protocol required two consecutive passing checkpoints and only one checkpoint remained, the registered convergence criterion was no longer attainable.",
+  "recorded_at_commit": "c693d85174ea84d57a0e7b6221373f761f633192",
+  "rule": "no arm obtained two consecutive passing checkpoints",
+  "terminal_commit": "8024bf653c16c0ee5279af0d5834d9c3cce1784c"
+}

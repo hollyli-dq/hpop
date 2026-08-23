@@ -1,0 +1,55 @@
+{
+  "recovery_inspected": false,
+  "stage1": [
+    {
+      "acceptance": 0.5782222222222222,
+      "esjd_per_proposal": 0.054710930534455436,
+      "finite": true,
+      "seconds_per_sweep": 0.7774835456932973,
+      "u_h_accepted": 17,
+      "u_scale": 0.25
+    },
+    {
+      "acceptance": 0.33444444444444443,
+      "esjd_per_proposal": 0.09303527983677243,
+      "finite": true,
+      "seconds_per_sweep": 0.7744208802766904,
+      "u_h_accepted": 19,
+      "u_scale": 0.5
+    },
+    {
+      "acceptance": 0.14244444444444446,
+      "esjd_per_proposal": 0.08475646221533031,
+      "finite": true,
+      "seconds_per_sweep": 0.7767409676366758,
+      "u_h_accepted": 12,
+      "u_scale": 1.0
+    }
+  ],
+  "stage2": [
+    {
+      "collapsed_acceptance": 0.6333333333333333,
+      "collapsed_h_accepted": 2,
+      "collapsed_proposed": 60,
+      "collapsed_scale": 0.25,
+      "finite": true,
+      "seconds_per_sweep": 0.9115578409033576
+    },
+    {
+      "collapsed_acceptance": 0.36666666666666664,
+      "collapsed_h_accepted": 4,
+      "collapsed_proposed": 60,
+      "collapsed_scale": 0.5,
+      "finite": true,
+      "seconds_per_sweep": 0.9308734968749923
+    },
+    {
+      "collapsed_acceptance": 0.23333333333333334,
+      "collapsed_h_accepted": 5,
+      "collapsed_proposed": 60,
+      "collapsed_scale": 1.0,
+      "finite": true,
+      "seconds_per_sweep": 0.9658395413200196
+    }
+  ]
+}

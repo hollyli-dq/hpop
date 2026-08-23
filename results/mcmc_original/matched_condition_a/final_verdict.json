@@ -1,0 +1,37 @@
+{
+  "observed": {
+    "boundary_auroc_all": 0.9560829047026905,
+    "boundary_auroc_heldout": 0.9659293535124301,
+    "boundary_brier_relative_reduction_vs_prior": 0.5238232840811006,
+    "boundary_ece_all": 0.008365688996015938,
+    "map_exact_recovery_rate": 0.20689655172413793,
+    "map_segment_count_accuracy": 0.7034482758620689,
+    "mean_per_trace_ari": 0.7470713137246066,
+    "mean_posterior_prob_of_true_label_all": 0.8543039847317346,
+    "median_true_path_posterior": 0.04791247353270877,
+    "occurrence_modal_accuracy_all": 0.8984254992319508,
+    "occurrence_nll_relative_reduction_vs_prior": 0.7711407544920363
+  },
+  "rule": {
+    "not_identifiable_if_any": {
+      "boundary_auroc_all": "< 0.65",
+      "boundary_brier_relative_reduction_vs_prior": "< 0.10",
+      "mean_per_trace_ari": "< 0.15",
+      "occurrence_modal_accuracy_all": "< 0.55",
+      "occurrence_nll_relative_reduction_vs_prior": "< 0.10"
+    },
+    "otherwise": "PATH PARTIALLY IDENTIFIABLE",
+    "strong_requires_all": {
+      "boundary_auroc_all": ">= 0.85",
+      "boundary_auroc_heldout": ">= 0.80",
+      "boundary_brier_relative_reduction_vs_prior": ">= 0.40",
+      "boundary_ece_all": "<= 0.05",
+      "map_segment_count_accuracy": ">= 0.60",
+      "mean_per_trace_ari": ">= 0.50",
+      "mean_posterior_prob_of_true_label_all": ">= 0.70",
+      "occurrence_modal_accuracy_all": ">= 0.80",
+      "path_evidence": "MAP full labelled-path recovery >= 0.25 OR median true-path posterior >= 0.02"
+    }
+  },
+  "verdict": "PATH STRONGLY IDENTIFIABLE"
+}

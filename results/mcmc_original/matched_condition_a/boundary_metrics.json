@@ -1,0 +1,1490 @@
+{
+  "posterior": {
+    "J=24": {
+      "auprc": 0.8423579481413977,
+      "auroc": 0.9729718543046357,
+      "brier": 0.03970060304459024,
+      "ece": 0.015117035016707307,
+      "n_gaps": 851,
+      "n_true_cuts": 96,
+      "nll": 0.12635161661153904,
+      "reliability_table": [
+        {
+          "bin": [
+            0.0,
+            0.1
+          ],
+          "count": 654,
+          "empirical_rate": 0.0030581039755351682,
+          "mean_predicted": 0.006270273722254056
+        },
+        {
+          "bin": [
+            0.1,
+            0.2
+          ],
+          "count": 43,
+          "empirical_rate": 0.16279069767441862,
+          "mean_predicted": 0.15572615843258614
+        },
+        {
+          "bin": [
+            0.2,
+            0.30000000000000004
+          ],
+          "count": 37,
+          "empirical_rate": 0.2972972972972973,
+          "mean_predicted": 0.24853800435711754
+        },
+        {
+          "bin": [
+            0.30000000000000004,
+            0.4
+          ],
+          "count": 24,
+          "empirical_rate": 0.3333333333333333,
+          "mean_predicted": 0.3467225563322794
+        },
+        {
+          "bin": [
+            0.4,
+            0.5
+          ],
+          "count": 15,
+          "empirical_rate": 0.2,
+          "mean_predicted": 0.4488536445810673
+        },
+        {
+          "bin": [
+            0.5,
+            0.6000000000000001
+          ],
+          "count": 12,
+          "empirical_rate": 0.6666666666666666,
+          "mean_predicted": 0.5413452037835063
+        },
+        {
+          "bin": [
+            0.6000000000000001,
+            0.7000000000000001
+          ],
+          "count": 16,
+          "empirical_rate": 0.75,
+          "mean_predicted": 0.6512939943185378
+        },
+        {
+          "bin": [
+            0.7000000000000001,
+            0.8
+          ],
+          "count": 16,
+          "empirical_rate": 0.75,
+          "mean_predicted": 0.7306225863995754
+        },
+        {
+          "bin": [
+            0.8,
+            0.9
+          ],
+          "count": 7,
+          "empirical_rate": 1.0,
+          "mean_predicted": 0.8567253478239586
+        },
+        {
+          "bin": [
+            0.9,
+            1.0
+          ],
+          "count": 27,
+          "empirical_rate": 0.9629629629629629,
+          "mean_predicted": 0.9705817744313777
+        }
+      ],
+      "threshold_0.5": {
+        "f1": 0.7471264367816092,
+        "precision": 0.8333333333333334,
+        "recall": 0.6770833333333334
+      }
+    },
+    "J=32": {
+      "auprc": 0.7300120464108101,
+      "auroc": 0.9427746098439376,
+      "brier": 0.05789715115207405,
+      "ece": 0.021734382604350972,
+      "n_gaps": 1116,
+      "n_true_cuts": 136,
+      "nll": 0.18457659506910562,
+      "reliability_table": [
+        {
+          "bin": [
+            0.0,
+            0.1
+          ],
+          "count": 809,
+          "empirical_rate": 0.011124845488257108,
+          "mean_predicted": 0.008490303590049542
+        },
+        {
+          "bin": [
+            0.1,
+            0.2
+          ],
+          "count": 66,
+          "empirical_rate": 0.22727272727272727,
+          "mean_predicted": 0.15022521508607592
+        },
+        {
+          "bin": [
+            0.2,
+            0.30000000000000004
+          ],
+          "count": 61,
+          "empirical_rate": 0.21311475409836064,
+          "mean_predicted": 0.2506102048639989
+        },
+        {
+          "bin": [
+            0.30000000000000004,
+            0.4
+          ],
+          "count": 44,
+          "empirical_rate": 0.3181818181818182,
+          "mean_predicted": 0.3424566606802111
+        },
+        {
+          "bin": [
+            0.4,
+            0.5
+          ],
+          "count": 34,
+          "empirical_rate": 0.20588235294117646,
+          "mean_predicted": 0.4431386578302928
+        },
+        {
+          "bin": [
+            0.5,
+            0.6000000000000001
+          ],
+          "count": 24,
+          "empirical_rate": 0.625,
+          "mean_predicted": 0.5479012613071829
+        },
+        {
+          "bin": [
+            0.6000000000000001,
+            0.7000000000000001
+          ],
+          "count": 22,
+          "empirical_rate": 0.7272727272727273,
+          "mean_predicted": 0.6470474832571314
+        },
+        {
+          "bin": [
+            0.7000000000000001,
+            0.8
+          ],
+          "count": 17,
+          "empirical_rate": 0.6470588235294118,
+          "mean_predicted": 0.7511190856476725
+        },
+        {
+          "bin": [
+            0.8,
+            0.9
+          ],
+          "count": 12,
+          "empirical_rate": 0.8333333333333334,
+          "mean_predicted": 0.8423443605931201
+        },
+        {
+          "bin": [
+            0.9,
+            1.0
+          ],
+          "count": 27,
+          "empirical_rate": 0.9629629629629629,
+          "mean_predicted": 0.9583489269064813
+        }
+      ],
+      "threshold_0.5": {
+        "f1": 0.6554621848739496,
+        "precision": 0.7647058823529411,
+        "recall": 0.5735294117647058
+      }
+    },
+    "J=40": {
+      "auprc": 0.7962814256059744,
+      "auroc": 0.9566539578794481,
+      "brier": 0.05207737927314114,
+      "ece": 0.012772942553326042,
+      "n_gaps": 1404,
+      "n_true_cuts": 180,
+      "nll": 0.16791129556483667,
+      "reliability_table": [
+        {
+          "bin": [
+            0.0,
+            0.1
+          ],
+          "count": 1021,
+          "empirical_rate": 0.007835455435847209,
+          "mean_predicted": 0.008041188646560813
+        },
+        {
+          "bin": [
+            0.1,
+            0.2
+          ],
+          "count": 82,
+          "empirical_rate": 0.10975609756097561,
+          "mean_predicted": 0.1448948663732273
+        },
+        {
+          "bin": [
+            0.2,
+            0.30000000000000004
+          ],
+          "count": 79,
+          "empirical_rate": 0.31645569620253167,
+          "mean_predicted": 0.24633539603923604
+        },
+        {
+          "bin": [
+            0.30000000000000004,
+            0.4
+          ],
+          "count": 38,
+          "empirical_rate": 0.3157894736842105,
+          "mean_predicted": 0.3497363035990737
+        },
+        {
+          "bin": [
+            0.4,
+            0.5
+          ],
+          "count": 33,
+          "empirical_rate": 0.3939393939393939,
+          "mean_predicted": 0.45315170023042556
+        },
+        {
+          "bin": [
+            0.5,
+            0.6000000000000001
+          ],
+          "count": 31,
+          "empirical_rate": 0.4838709677419355,
+          "mean_predicted": 0.5419032717546333
+        },
+        {
+          "bin": [
+            0.6000000000000001,
+            0.7000000000000001
+          ],
+          "count": 30,
+          "empirical_rate": 0.7,
+          "mean_predicted": 0.6427899299660946
+        },
+        {
+          "bin": [
+            0.7000000000000001,
+            0.8
+          ],
+          "count": 33,
+          "empirical_rate": 0.696969696969697,
+          "mean_predicted": 0.7449364216695085
+        },
+        {
+          "bin": [
+            0.8,
+            0.9
+          ],
+          "count": 12,
+          "empirical_rate": 0.8333333333333334,
+          "mean_predicted": 0.8494618068793672
+        },
+        {
+          "bin": [
+            0.9,
+            1.0
+          ],
+          "count": 45,
+          "empirical_rate": 0.9777777777777777,
+          "mean_predicted": 0.960743506359992
+        }
+      ],
+      "threshold_0.5": {
+        "f1": 0.6827794561933536,
+        "precision": 0.7483443708609272,
+        "recall": 0.6277777777777778
+      }
+    },
+    "J=48": {
+      "auprc": 0.8073660669512116,
+      "auroc": 0.9548641069887834,
+      "brier": 0.05301342313254392,
+      "ece": 0.01394160009500793,
+      "n_gaps": 1692,
+      "n_true_cuts": 228,
+      "nll": 0.17283593966662186,
+      "reliability_table": [
+        {
+          "bin": [
+            0.0,
+            0.1
+          ],
+          "count": 1227,
+          "empirical_rate": 0.009779951100244499,
+          "mean_predicted": 0.009447401393929713
+        },
+        {
+          "bin": [
+            0.1,
+            0.2
+          ],
+          "count": 92,
+          "empirical_rate": 0.10869565217391304,
+          "mean_predicted": 0.14760373791832013
+        },
+        {
+          "bin": [
+            0.2,
+            0.30000000000000004
+          ],
+          "count": 97,
+          "empirical_rate": 0.31958762886597936,
+          "mean_predicted": 0.24737597785492177
+        },
+        {
+          "bin": [
+            0.30000000000000004,
+            0.4
+          ],
+          "count": 66,
+          "empirical_rate": 0.3787878787878788,
+          "mean_predicted": 0.3410192381462726
+        },
+        {
+          "bin": [
+            0.4,
+            0.5
+          ],
+          "count": 42,
+          "empirical_rate": 0.38095238095238093,
+          "mean_predicted": 0.45110183899794454
+        },
+        {
+          "bin": [
+            0.5,
+            0.6000000000000001
+          ],
+          "count": 33,
+          "empirical_rate": 0.5151515151515151,
+          "mean_predicted": 0.5559109947889468
+        },
+        {
+          "bin": [
+            0.6000000000000001,
+            0.7000000000000001
+          ],
+          "count": 33,
+          "empirical_rate": 0.6666666666666666,
+          "mean_predicted": 0.658244913994346
+        },
+        {
+          "bin": [
+            0.7000000000000001,
+            0.8
+          ],
+          "count": 26,
+          "empirical_rate": 0.8076923076923077,
+          "mean_predicted": 0.742216139629967
+        },
+        {
+          "bin": [
+            0.8,
+            0.9
+          ],
+          "count": 29,
+          "empirical_rate": 0.9655172413793104,
+          "mean_predicted": 0.8495164298124035
+        },
+        {
+          "bin": [
+            0.9,
+            1.0
+          ],
+          "count": 47,
+          "empirical_rate": 0.9787234042553191,
+          "mean_predicted": 0.9687514309999047
+        }
+      ],
+      "threshold_0.5": {
+        "f1": 0.6767676767676768,
+        "precision": 0.7976190476190477,
+        "recall": 0.5877192982456141
+      }
+    },
+    "all": {
+      "auprc": 0.7928530797371494,
+      "auroc": 0.9560829047026905,
+      "brier": 0.051592689377131226,
+      "ece": 0.008365688996015938,
+      "n_gaps": 5063,
+      "n_true_cuts": 640,
+      "nll": 0.16624502759677987,
+      "reliability_table": [
+        {
+          "bin": [
+            0.0,
+            0.1
+          ],
+          "count": 3711,
+          "empirical_rate": 0.008353543519267044,
+          "mean_predicted": 0.008291950885797515
+        },
+        {
+          "bin": [
+            0.1,
+            0.2
+          ],
+          "count": 283,
+          "empirical_rate": 0.14487632508833923,
+          "mean_predicted": 0.1486643531426583
+        },
+        {
+          "bin": [
+            0.2,
+            0.30000000000000004
+          ],
+          "count": 274,
+          "empirical_rate": 0.291970802919708,
+          "mean_predicted": 0.247952900718775
+        },
+        {
+          "bin": [
+            0.30000000000000004,
+            0.4
+          ],
+          "count": 172,
+          "empirical_rate": 0.3430232558139535,
+          "mean_predicted": 0.3441086260251325
+        },
+        {
+          "bin": [
+            0.4,
+            0.5
+          ],
+          "count": 124,
+          "empirical_rate": 0.31451612903225806,
+          "mean_predicted": 0.4491919546811587
+        },
+        {
+          "bin": [
+            0.5,
+            0.6000000000000001
+          ],
+          "count": 100,
+          "empirical_rate": 0.55,
+          "mean_predicted": 0.5478983696920333
+        },
+        {
+          "bin": [
+            0.6000000000000001,
+            0.7000000000000001
+          ],
+          "count": 101,
+          "empirical_rate": 0.7029702970297029,
+          "mean_predicted": 0.6501141445697993
+        },
+        {
+          "bin": [
+            0.7000000000000001,
+            0.8
+          ],
+          "count": 92,
+          "empirical_rate": 0.7282608695652174,
+          "mean_predicted": 0.7428207324334409
+        },
+        {
+          "bin": [
+            0.8,
+            0.9
+          ],
+          "count": 60,
+          "empirical_rate": 0.9166666666666666,
+          "mean_predicted": 0.8489121318166212
+        },
+        {
+          "bin": [
+            0.9,
+            1.0
+          ],
+          "count": 146,
+          "empirical_rate": 0.9726027397260274,
+          "mean_predicted": 0.9646979724610779
+        }
+      ],
+      "threshold_0.5": {
+        "f1": 0.6848112379280069,
+        "precision": 0.781563126252505,
+        "recall": 0.609375
+      }
+    },
+    "heldout": {
+      "auprc": 0.8231488256543508,
+      "auroc": 0.9659293535124301,
+      "brier": 0.047669046980818953,
+      "ece": 0.011757701080799403,
+      "n_gaps": 1563,
+      "n_true_cuts": 199,
+      "nll": 0.1504270946855817,
+      "reliability_table": [
+        {
+          "bin": [
+            0.0,
+            0.1
+          ],
+          "count": 1149,
+          "empirical_rate": 0.005221932114882507,
+          "mean_predicted": 0.009113421142379702
+        },
+        {
+          "bin": [
+            0.1,
+            0.2
+          ],
+          "count": 86,
+          "empirical_rate": 0.12790697674418605,
+          "mean_predicted": 0.14795230947938695
+        },
+        {
+          "bin": [
+            0.2,
+            0.30000000000000004
+          ],
+          "count": 76,
+          "empirical_rate": 0.3026315789473684,
+          "mean_predicted": 0.2520089256337629
+        },
+        {
+          "bin": [
+            0.30000000000000004,
+            0.4
+          ],
+          "count": 52,
+          "empirical_rate": 0.3269230769230769,
+          "mean_predicted": 0.3398843059008977
+        },
+        {
+          "bin": [
+            0.4,
+            0.5
+          ],
+          "count": 37,
+          "empirical_rate": 0.35135135135135137,
+          "mean_predicted": 0.44507677048040745
+        },
+        {
+          "bin": [
+            0.5,
+            0.6000000000000001
+          ],
+          "count": 34,
+          "empirical_rate": 0.5882352941176471,
+          "mean_predicted": 0.5482849599811378
+        },
+        {
+          "bin": [
+            0.6000000000000001,
+            0.7000000000000001
+          ],
+          "count": 31,
+          "empirical_rate": 0.6451612903225806,
+          "mean_predicted": 0.647337715530705
+        },
+        {
+          "bin": [
+            0.7000000000000001,
+            0.8
+          ],
+          "count": 28,
+          "empirical_rate": 0.75,
+          "mean_predicted": 0.7470375820208719
+        },
+        {
+          "bin": [
+            0.8,
+            0.9
+          ],
+          "count": 17,
+          "empirical_rate": 1.0,
+          "mean_predicted": 0.8477057703298257
+        },
+        {
+          "bin": [
+            0.9,
+            1.0
+          ],
+          "count": 53,
+          "empirical_rate": 0.9622641509433962,
+          "mean_predicted": 0.9604680931111241
+        }
+      ],
+      "threshold_0.5": {
+        "f1": 0.7127071823204421,
+        "precision": 0.7914110429447853,
+        "recall": 0.6482412060301508
+      }
+    },
+    "train": {
+      "auprc": 0.778616613400193,
+      "auroc": 0.9515803706248763,
+      "brier": 0.05334487596725582,
+      "ece": 0.010798955035688493,
+      "n_gaps": 3500,
+      "n_true_cuts": 441,
+      "nll": 0.17330886449398067,
+      "reliability_table": [
+        {
+          "bin": [
+            0.0,
+            0.1
+          ],
+          "count": 2562,
+          "empirical_rate": 0.00975800156128025,
+          "mean_predicted": 0.007923539751990748
+        },
+        {
+          "bin": [
+            0.1,
+            0.2
+          ],
+          "count": 197,
+          "empirical_rate": 0.15228426395939088,
+          "mean_predicted": 0.14897519453880723
+        },
+        {
+          "bin": [
+            0.2,
+            0.30000000000000004
+          ],
+          "count": 198,
+          "empirical_rate": 0.2878787878787879,
+          "mean_predicted": 0.24639604267059775
+        },
+        {
+          "bin": [
+            0.30000000000000004,
+            0.4
+          ],
+          "count": 120,
+          "empirical_rate": 0.35,
+          "mean_predicted": 0.34593916474563424
+        },
+        {
+          "bin": [
+            0.4,
+            0.5
+          ],
+          "count": 87,
+          "empirical_rate": 0.2988505747126437,
+          "mean_predicted": 0.45094209049067363
+        },
+        {
+          "bin": [
+            0.5,
+            0.6000000000000001
+          ],
+          "count": 66,
+          "empirical_rate": 0.5303030303030303,
+          "mean_predicted": 0.5476992171188583
+        },
+        {
+          "bin": [
+            0.6000000000000001,
+            0.7000000000000001
+          ],
+          "count": 70,
+          "empirical_rate": 0.7285714285714285,
+          "mean_predicted": 0.6513437060013985
+        },
+        {
+          "bin": [
+            0.7000000000000001,
+            0.8
+          ],
+          "count": 64,
+          "empirical_rate": 0.71875,
+          "mean_predicted": 0.7409758607389398
+        },
+        {
+          "bin": [
+            0.8,
+            0.9
+          ],
+          "count": 43,
+          "empirical_rate": 0.8837209302325582,
+          "mean_predicted": 0.8493890654276796
+        },
+        {
+          "bin": [
+            0.9,
+            1.0
+          ],
+          "count": 93,
+          "empirical_rate": 0.978494623655914,
+          "mean_predicted": 0.9671085488648149
+        }
+      ],
+      "threshold_0.5": {
+        "f1": 0.6718146718146718,
+        "precision": 0.7767857142857143,
+        "recall": 0.5918367346938775
+      }
+    }
+  },
+  "prior": {
+    "J=24": {
+      "auprc": 0.17847694233455766,
+      "auroc": 0.6679497792494481,
+      "brier": 0.09691226745400149,
+      "ece": 0.003671130664921713,
+      "n_gaps": 851,
+      "n_true_cuts": 96,
+      "nll": 0.3272710195552169,
+      "reliability_table": [
+        {
+          "bin": [
+            0.0,
+            0.1
+          ],
+          "count": 148,
+          "empirical_rate": 0.0,
+          "mean_predicted": 0.0
+        },
+        {
+          "bin": [
+            0.1,
+            0.2
+          ],
+          "count": 666,
+          "empirical_rate": 0.13363363363363365,
+          "mean_predicted": 0.13723572286934652
+        },
+        {
+          "bin": [
+            0.2,
+            0.30000000000000004
+          ],
+          "count": 37,
+          "empirical_rate": 0.1891891891891892,
+          "mean_predicted": 0.20878758823955695
+        },
+        {
+          "bin": [
+            0.30000000000000004,
+            0.4
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.4,
+            0.5
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.5,
+            0.6000000000000001
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.6000000000000001,
+            0.7000000000000001
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.7000000000000001,
+            0.8
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.8,
+            0.9
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.9,
+            1.0
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        }
+      ],
+      "threshold_0.5": {
+        "f1": 0.0,
+        "precision": NaN,
+        "recall": 0.0
+      }
+    },
+    "J=32": {
+      "auprc": 0.15063422972698545,
+      "auroc": 0.5858943577430973,
+      "brier": 0.104782699820887,
+      "ece": 0.0019050779514373998,
+      "n_gaps": 1116,
+      "n_true_cuts": 136,
+      "nll": 0.35250396788980404,
+      "reliability_table": [
+        {
+          "bin": [
+            0.0,
+            0.1
+          ],
+          "count": 144,
+          "empirical_rate": 0.0,
+          "mean_predicted": 0.0
+        },
+        {
+          "bin": [
+            0.1,
+            0.2
+          ],
+          "count": 972,
+          "empirical_rate": 0.13991769547325103,
+          "mean_predicted": 0.14210500719527175
+        },
+        {
+          "bin": [
+            0.2,
+            0.30000000000000004
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.30000000000000004,
+            0.4
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.4,
+            0.5
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.5,
+            0.6000000000000001
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.6000000000000001,
+            0.7000000000000001
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.7000000000000001,
+            0.8
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.8,
+            0.9
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.9,
+            1.0
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        }
+      ],
+      "threshold_0.5": {
+        "f1": 0.0,
+        "precision": NaN,
+        "recall": 0.0
+      }
+    },
+    "J=40": {
+      "auprc": 0.14461983457374408,
+      "auroc": 0.5605392156862745,
+      "brier": 0.11003604618633073,
+      "ece": 0.00015315292077486918,
+      "n_gaps": 1404,
+      "n_true_cuts": 180,
+      "nll": 0.36858762654593247,
+      "reliability_table": [
+        {
+          "bin": [
+            0.0,
+            0.1
+          ],
+          "count": 144,
+          "empirical_rate": 0.0,
+          "mean_predicted": 0.0
+        },
+        {
+          "bin": [
+            0.1,
+            0.2
+          ],
+          "count": 1260,
+          "empirical_rate": 0.14285714285714285,
+          "mean_predicted": 0.14302779896886342
+        },
+        {
+          "bin": [
+            0.2,
+            0.30000000000000004
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.30000000000000004,
+            0.4
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.4,
+            0.5
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.5,
+            0.6000000000000001
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.6000000000000001,
+            0.7000000000000001
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.7000000000000001,
+            0.8
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.8,
+            0.9
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.9,
+            1.0
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        }
+      ],
+      "threshold_0.5": {
+        "f1": 0.0,
+        "precision": NaN,
+        "recall": 0.0
+      }
+    },
+    "J=48": {
+      "auprc": 0.14704122722135887,
+      "auroc": 0.5437338222605694,
+      "brier": 0.11504985901701904,
+      "ece": 0.0033943879600947034,
+      "n_gaps": 1692,
+      "n_true_cuts": 228,
+      "nll": 0.3829830389931466,
+      "reliability_table": [
+        {
+          "bin": [
+            0.0,
+            0.1
+          ],
+          "count": 144,
+          "empirical_rate": 0.0,
+          "mean_predicted": 0.0
+        },
+        {
+          "bin": [
+            0.1,
+            0.2
+          ],
+          "count": 1548,
+          "empirical_rate": 0.14728682170542637,
+          "mean_predicted": 0.14357667672578797
+        },
+        {
+          "bin": [
+            0.2,
+            0.30000000000000004
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.30000000000000004,
+            0.4
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.4,
+            0.5
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.5,
+            0.6000000000000001
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.6000000000000001,
+            0.7000000000000001
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.7000000000000001,
+            0.8
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.8,
+            0.9
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.9,
+            1.0
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        }
+      ],
+      "threshold_0.5": {
+        "f1": 0.0,
+        "precision": NaN,
+        "recall": 0.0
+      }
+    },
+    "all": {
+      "auprc": 0.1501104001129517,
+      "auroc": 0.5787032981008365,
+      "brier": 0.10834777857117713,
+      "ece": 0.00034137074220562304,
+      "n_gaps": 5063,
+      "n_true_cuts": 640,
+      "nll": 0.3629086303482923,
+      "reliability_table": [
+        {
+          "bin": [
+            0.0,
+            0.1
+          ],
+          "count": 580,
+          "empirical_rate": 0.0,
+          "mean_predicted": 0.0
+        },
+        {
+          "bin": [
+            0.1,
+            0.2
+          ],
+          "count": 4446,
+          "empirical_rate": 0.14237516869095818,
+          "mean_predicted": 0.14214952332367894
+        },
+        {
+          "bin": [
+            0.2,
+            0.30000000000000004
+          ],
+          "count": 37,
+          "empirical_rate": 0.1891891891891892,
+          "mean_predicted": 0.20878758823955695
+        },
+        {
+          "bin": [
+            0.30000000000000004,
+            0.4
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.4,
+            0.5
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.5,
+            0.6000000000000001
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.6000000000000001,
+            0.7000000000000001
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.7000000000000001,
+            0.8
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.8,
+            0.9
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.9,
+            1.0
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        }
+      ],
+      "threshold_0.5": {
+        "f1": 0.0,
+        "precision": NaN,
+        "recall": 0.0
+      }
+    },
+    "heldout": {
+      "auprc": 0.15098771936949282,
+      "auroc": 0.5839313871409835,
+      "brier": 0.10907702960999996,
+      "ece": 0.00427375373499039,
+      "n_gaps": 1563,
+      "n_true_cuts": 199,
+      "nll": 0.36473673682239366,
+      "reliability_table": [
+        {
+          "bin": [
+            0.0,
+            0.1
+          ],
+          "count": 180,
+          "empirical_rate": 0.0,
+          "mean_predicted": 0.0
+        },
+        {
+          "bin": [
+            0.1,
+            0.2
+          ],
+          "count": 1371,
+          "empirical_rate": 0.14514952589350838,
+          "mean_predicted": 0.1421047220795658
+        },
+        {
+          "bin": [
+            0.2,
+            0.30000000000000004
+          ],
+          "count": 12,
+          "empirical_rate": 0.0,
+          "mean_predicted": 0.20878758823955704
+        },
+        {
+          "bin": [
+            0.30000000000000004,
+            0.4
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.4,
+            0.5
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.5,
+            0.6000000000000001
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.6000000000000001,
+            0.7000000000000001
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.7000000000000001,
+            0.8
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.8,
+            0.9
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.9,
+            1.0
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        }
+      ],
+      "threshold_0.5": {
+        "f1": 0.0,
+        "precision": NaN,
+        "recall": 0.0
+      }
+    },
+    "train": {
+      "auprc": 0.15049578675634404,
+      "auroc": 0.576333246603643,
+      "brier": 0.10802211589298277,
+      "ece": 0.0014147191485722665,
+      "n_gaps": 3500,
+      "n_true_cuts": 441,
+      "nll": 0.3620922502285723,
+      "reliability_table": [
+        {
+          "bin": [
+            0.0,
+            0.1
+          ],
+          "count": 400,
+          "empirical_rate": 0.0,
+          "mean_predicted": 0.0
+        },
+        {
+          "bin": [
+            0.1,
+            0.2
+          ],
+          "count": 3075,
+          "empirical_rate": 0.14113821138211383,
+          "mean_predicted": 0.14216949812227378
+        },
+        {
+          "bin": [
+            0.2,
+            0.30000000000000004
+          ],
+          "count": 25,
+          "empirical_rate": 0.28,
+          "mean_predicted": 0.208787588239557
+        },
+        {
+          "bin": [
+            0.30000000000000004,
+            0.4
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.4,
+            0.5
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.5,
+            0.6000000000000001
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.6000000000000001,
+            0.7000000000000001
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.7000000000000001,
+            0.8
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.8,
+            0.9
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        },
+        {
+          "bin": [
+            0.9,
+            1.0
+          ],
+          "count": 0,
+          "empirical_rate": null,
+          "mean_predicted": null
+        }
+      ],
+      "threshold_0.5": {
+        "f1": 0.0,
+        "precision": NaN,
+        "recall": 0.0
+      }
+    }
+  }
+}

@@ -1,0 +1,136 @@
+% ---------------------------------------------------------------------------
+% paper/tables/table_claim_scope.tex
+% Claim-scope table. Primarily an INTERNAL author-discipline table; may move to
+% the appendix, or be cut entirely, once the main text is stable.
+% Requires: booktabs, tabularx, array. Draft fragment. NOT in the main paper.
+%
+% Rows are ordered by dependency, not by section order.
+% Sources: paper/evidence/evidence_manifest.json (claims C1-C12).
+% ---------------------------------------------------------------------------
+
+\begin{table*}[p]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.25}
+\caption{%
+Scope of every experimental component: what is tested, what is thereby
+established, and --- as importantly --- what is not. Three evidence classes are
+distinguished throughout: \textsc{full hpop} (the complete generative model
+under inference), \textsc{component} (one part of the model, in isolation), and
+\textsc{pending} (no frozen artifact exists; no outcome is implied).%
+}
+\label{tab:claim-scope}
+\begin{tabularx}{\textwidth}{@{}l l X X l@{}}
+\toprule
+Component & Class & What is tested / established & What is \emph{not} established & Location \\
+\midrule
+
+Exact FFBS
+& \textsc{component} \newline (inference kernel)
+& That the labelled-path conditional posterior $p(S, z \mid x, \cdot)$ is
+  sampled exactly. Tiny-space DP-versus-enumeration agreement to
+  $\leq 2.6\times10^{-15}$ on log-normalisers, path probabilities, boundary
+  marginals and occurrence-label marginals; FFBS path TV $0.002$ at
+  $200{,}000$ draws/trace; $0$ illegal draws in $725{,}000$ corpus draws.
+& Nothing about $H$, about global parameters, or about joint mixing. Exactness
+  is certified numerically on an enumerable corpus, not proved.
+& \S\ref{sec:inference}, App.~A \\
+
+Path-marginal ($U$-collapsed) kernel
+& \textsc{component} \newline (inference kernel)
+& That a collapsed MH move on $U$ followed by an \emph{immediate} exact FFBS
+  refresh is stationary for the joint target (finite-state deviation
+  $2.2\times10^{-16}$), and that interposing any stale-path update breaks
+  stationarity ($2.9\times10^{-3}$ negative control). Full-scale validation
+  passes all $17$ frozen distributional and convergence gates plus a
+  dependence-aware energy gate at $500{,}000$ sweeps.
+& That the kernel recovers the truth. Validation is a \emph{correctness}
+  result against references, not a recovery result. Two historical runs FAILED
+  the earlier IID-calibrated energy gate ($z = +2.86$, $+5.76$) and those
+  verdicts stand; the gate was replaced only after a separate calibration study
+  showed its null was miscalibrated for autocorrelated draws.
+& \S\ref{sec:inference}, App.~B \\
+
+Matched generator
+& \textsc{component} \newline (matched synthetic)
+& That the generator implements the inference target exactly: the normalised
+  segmentation prior via exact suffix-DP, per-block recurrent reset, zero
+  self-transitions. $15/15$ registered gates pass; $4/4$ negative controls
+  detected; generator/scorer complete-data parity $1.4\times10^{-14}$.
+& Anything about recovery. A perfectly matched generator makes a subsequent
+  failure interpretable; it is not itself evidence for the model.
+& App.~C \\
+
+Condition A
+& \textsc{full hpop} \newline (conditional)
+& Path identifiability under oracle structures: boundary AUROC $0.956$
+  ($0.966$ held out), Brier $0.052$ ($-52.4\%$ vs prior), ECE $0.008$,
+  occurrence accuracy $0.898$, ARI $0.747$, segment-count MAP accuracy $0.703$.
+& Joint recovery. $H$, $\pi$, $P$ and every scalar are fixed at truth. Exact
+  whole-path MAP recovery is only $0.207$ and falls to $0.083$ at $J = 48$;
+  the strong verdict rests on marginals and calibration.
+& \S\ref{sec:matched-synthetic-ab} \\
+
+Condition B
+& \textsc{full hpop} \newline (conditional)
+& Structure identifiability under oracle paths: closure, incomparable and
+  reduction $F_1$ all $1.000$, closure Hamming $0$, posterior mass on true $H$
+  $= 1.000$ for all three skills, held-out oracle-path NLL indistinguishable
+  from truth ($1.077$ vs $1.077$; antichain $1.753$, total order $4.040$),
+  $\widehat{R}_{\max} = 1.001$.
+& Joint recovery; recovery of $\rho$ (fixed at $\rho_0 = 0.5$ by registered
+  correction, $\rho^\ast = $ null); raw entrywise $U$ recovery (not a target ---
+  the likelihood reads $U$ only through $h(U)$); scaling beyond $K = 3$ skills
+  and $m = 5$ roles.
+& \S\ref{sec:matched-synthetic-ab} \\
+
+Condition C
+& \textsc{pending}
+& \emph{Nothing yet.} Frozen design facts only: both arms provably target the
+  same posterior (small-reference equality PASS), conditional $U$ scale $0.5$,
+  scheduled collapsed scale $1.0$, cadence $c = 10$.
+& Everything. Joint recoverability of $(S, z, H)$ is exactly the open question.
+  No outcome may be inferred from the run's existence or duration.
+& \textit{pending} \\
+
+TaskBench
+& \textsc{component} \newline (static partial order)
+& That the static product-order component generalises to unseen legal
+  linearizations on external gold graphs: monotone
+  \textsc{one}$\to$\textsc{two}$\to$\textsc{four} improvement in closure $F_1$
+  ($0.452 \to 0.902$), incomparable $F_1$, Brier, held-out legal NLL and AUROC,
+  with all \textsc{four}$-$\textsc{one} intervals excluding zero; $132/132$
+  fits converged.
+& Full HPOP; segmentation; reusable skill instances; recurrent repair;
+  hierarchy; library learning. Also \emph{not} a point-recovery win:
+  order-intersection is ahead on closure $F_1$ at \textsc{one} and \textsc{two}
+  and tied at \textsc{four}, and every AUROC difference covers zero. The
+  linearizations are enumerated from gold DAGs, not observed trajectories.
+& \S\ref{sec:taskbench}, App.~D \\
+
+$\tau^3$-Retail
+& \textsc{pending} \newline (setup frozen)
+& \emph{Setup only.} A frozen, task-disjoint, externally sourced corpus:
+  $456$ extracted trajectories, $30$ tasks / $119$ trajectories selected,
+  $79$/$20$/$20$ train/dev/sealed-test, $8$-tool exact-name CPA vocabulary,
+  median length $7$, repeated-CPA fraction $0.924$, $103$ successes /
+  $16$ failures; $24/24$ construction gates pass; version alignment verified
+  against the pinned official benchmark.
+& Any predictive claim whatsoever. No HPOP fit result exists. The corpus has no
+  gold segmentation and no gold partial order. Trajectories are a third-party
+  public release from one specific agent configuration, not an official
+  maintainer release.
+& \S\ref{sec:tau3-setup} \\
+
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+% ---------------------------------------------------------------------------
+% NOTE TO AUTHOR (delete before submission):
+%  - This table is the discipline mechanism for the paper's scope claims. If a
+%    sentence anywhere in the paper contradicts a "what is NOT established"
+%    cell, the sentence is wrong, not the cell.
+%  - The Condition C and tau^3 rows must not be edited to describe outcomes
+%    until frozen artifacts exist.
+% ---------------------------------------------------------------------------

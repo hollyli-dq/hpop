@@ -1,0 +1,80 @@
+{
+  "n_posets": 4231,
+  "map_poset": 4002,
+  "map_probability": 1.0,
+  "true_poset_index": 4002,
+  "true_poset_probability": 1.0,
+  "true_poset_rank": 1,
+  "map_is_true_poset": true,
+  "top5": [
+    {
+      "index": 4002,
+      "probability": 1.0,
+      "relations": 6
+    },
+    {
+      "index": 4109,
+      "probability": 7.2549075829641635e-115,
+      "relations": 7
+    },
+    {
+      "index": 4108,
+      "probability": 1.1061012759824261e-287,
+      "relations": 8
+    },
+    {
+      "index": 4006,
+      "probability": 3.7132235854178246e-306,
+      "relations": 7
+    },
+    {
+      "index": 0,
+      "probability": 0.0,
+      "relations": 10
+    }
+  ],
+  "rho": {
+    "mean": 0.3252519980234956,
+    "sd": 0.21975357201787926,
+    "median": 0.2940401997519399,
+    "q025": 0.014667632107882606,
+    "q975": 0.7918894950513183
+  },
+  "relation_marginal_min": 0.0,
+  "relation_marginal_max": 1.0,
+  "beta": {
+    "mean": 1.4960736908291867,
+    "sd": 0.03188430684434604,
+    "median": 1.4959698740520597,
+    "q025": 1.4336050006335985,
+    "q975": 1.5591117606521963
+  },
+  "coverage": {
+    "rho": {
+      "grid_lo": 0.001,
+      "grid_hi": 0.994,
+      "n_points": 81,
+      "spacing": 0.012412499999999998,
+      "integrates_to": 1.0,
+      "outer_boundary_mass_fraction": 0.022729398559543458,
+      "prior_truncation_point": 0.995
+    },
+    "beta": {
+      "grid_lo": 1.0,
+      "grid_hi": 2.2,
+      "n_points": 241,
+      "spacing": 0.005000000000000001,
+      "integrates_to": 1.0,
+      "outer_boundary_mass_fraction": 3.3940916921301103e-59
+    }
+  },
+  "refinement": {
+    "rho_mean_fine": 0.3252519980234956,
+    "rho_mean_coarse": 0.3250850996394835,
+    "rho_mean_abs_change": 0.0001668983840120708,
+    "rho_sd_abs_change": 1.182087779941221e-05,
+    "poset_probability_max_abs_change": 2.070321445158723e-118,
+    "beta_mean_abs_change": 1.2114753644709708e-12,
+    "beta_sd_abs_change": 2.190678194402551e-13
+  }
+}

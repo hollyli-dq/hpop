@@ -1,0 +1,16 @@
+{
+  "q0_reset_per_candidate_block": true,
+  "cached_equals_fresh_replay": true,
+  "score_order_invariant": true,
+  "rejection_safe": true,
+  "full_replay_calls": 14652,
+  "cached_calls": 5819,
+  "cache_key_fields": [
+    "version(-> U_by_skill, beta, omega, lambda_rep, lambda_back, epsilon)",
+    "trace",
+    "start",
+    "end",
+    "skill"
+  ],
+  "cache_design": "monotone integer version bumped by any parameter change; the key is (version, trace, start, end, skill), so correctness never depends on float equality"
+}

@@ -1,0 +1,26 @@
+{
+  "prior_reference_check": {
+    "iid_draws": 200000,
+    "log_target_parity": 0.0,
+    "mcmc_retained": 22000,
+    "pass": true,
+    "reference": "prior-only target (empty oracle-block subset): the row-MH sampler must reproduce iid draws from p(U | rho_0); rho marginal is N/A (rho fixed). The validated Stage 6C/6D oracle-block U kernel is the cited precedent for the with-data kernel.",
+    "relation_count_tv": 0.012114545454545452,
+    "relation_count_tv_gate": 0.02,
+    "relation_marginal_gate": 0.02,
+    "relation_marginal_max_abs_diff": 0.015855000000000008
+  },
+  "target_parity": {
+    "gate": 1e-10,
+    "max_complete_target_discrepancy": 9.094947017729282e-13,
+    "max_likelihood_discrepancy": 9.094947017729282e-13,
+    "max_prior_discrepancy": 5.684341886080802e-14,
+    "n_points": 21,
+    "negative_control_state_leak": {
+      "abs_log_likelihood_gap": 3.1185098034908343,
+      "detected": true
+    },
+    "pass": true,
+    "q0_reset_per_block_max_error": 3.552713678800501e-15
+  }
+}

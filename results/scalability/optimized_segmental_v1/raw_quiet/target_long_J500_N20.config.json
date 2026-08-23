@@ -1,0 +1,23 @@
+{
+  "A": 50,
+  "D_max": 12,
+  "D_min": 3,
+  "J": 500,
+  "K": 20,
+  "N": 20,
+  "axis": "target_long",
+  "groups": [
+    "build",
+    "primitives"
+  ],
+  "label": "target_long_J500_N20",
+  "length_mix": [],
+  "max_reps": 15,
+  "min_reps": 5,
+  "note": "REDUCED CORPUS. The J=500 long-trace primitive point at the largest N the dense score table fits in the memory gate. It measures trace length at the target K and A; it is not the N=100 operating point and is never reported as one.",
+  "op_reps": [],
+  "regime": "sparse",
+  "seed": 20260822,
+  "timeout_s": 1800,
+  "warmups": 2
+}

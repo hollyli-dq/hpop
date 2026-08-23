@@ -1,0 +1,319 @@
+{
+  "gates": {
+    "segmentation_total_variation": {
+      "value": 0.00610020747840659,
+      "threshold": 0.01,
+      "pass": true,
+      "per_trace": [
+        0.00610020747840659,
+        0.0035924843488449347
+      ]
+    },
+    "segmentation_total_variation_vs_sampled_estimator": {
+      "value": 0.006652383710379642,
+      "threshold": 0.01,
+      "pass": true,
+      "per_trace": [
+        0.006652383710379642,
+        0.0037674942052863454
+      ],
+      "note": "section 9's literal sampled reference estimator; the conditional estimator above is primary"
+    },
+    "max_boundary_marginal_error": {
+      "value": 0.0020648322320637458,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "max_occurrence_label_marginal_error": {
+      "value": 0.00540449089982209,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "induced_h_total_variation": {
+      "value": 0.005770562526010411,
+      "threshold": 0.01,
+      "pass": true,
+      "per_skill": [
+        0.005770562526010411,
+        0.004800285819501226,
+        0.004401920509787263
+      ]
+    },
+    "max_relation_marginal_error": {
+      "value": 0.004739650710817833,
+      "threshold": 0.01,
+      "pass": true,
+      "per_skill": [
+        0.004739650710817833,
+        0.002245222831945337,
+        0.0023883211091201006
+      ]
+    },
+    "segment_count_total_variation": {
+      "value": 0.002001265486278242,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "mixed_multivariate_reference_statistic": {
+      "value": 0.006777466426885148,
+      "threshold": 0.004522256615497353,
+      "pass": false,
+      "z_score": 5.759871639422952
+    },
+    "log_posterior_rhat": {
+      "value": 1.000257585842114,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "n_segments_rhat": {
+      "value": 1.0000556177921591,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "relation_count_rhat": {
+      "value": 1.0002782123805811,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "selected_boundary_indicator_rhat": {
+      "value": 1.0000759520018705,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "selected_relation_indicator_rhat": {
+      "value": 1.0000728841980147,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "rho_rhat": {
+      "value": 1.0003653873883602,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "beta_rhat": {
+      "value": 1.006442588237702,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "omega_rhat": {
+      "value": 1.0019775237931128,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "lambda_rep_rhat": {
+      "value": 1.0098167606365054,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "lambda_back_rhat": {
+      "value": 1.0008838607431894,
+      "threshold": 1.01,
+      "pass": true
+    }
+  },
+  "all_pass": false,
+  "mixed_multivariate": {
+    "statistic": "energy distance on [closure indicators, segment counts, standardised scalars]",
+    "observed": 0.006777466426885148,
+    "envelope": 0.004522256615497353,
+    "envelope_quantile": 0.99,
+    "null_mean": 0.0035295761958754612,
+    "null_sd": 0.0005638823977916067,
+    "n_reference": 4000,
+    "n_mcmc": 4000,
+    "n_coordinates": 25,
+    "dropped_constant_coordinates": 9,
+    "z_score": 5.759871639422952,
+    "pass": false
+  },
+  "convergence": {
+    "log_posterior": {
+      "rhat_bulk": 1.000257585842114,
+      "rhat_tail": 1.0001720668328953,
+      "rhat": 1.000257585842114,
+      "degenerate": false,
+      "bulk_ess": 25975.333644031907,
+      "tail_ess": 32100.03490324158,
+      "mcse": 0.030200168683433753,
+      "n_draws": 192000,
+      "n_chains": 4
+    },
+    "n_segments": {
+      "rhat_bulk": 1.0000556177921591,
+      "rhat_tail": 1.0000270894476233,
+      "rhat": 1.0000556177921591,
+      "degenerate": false,
+      "bulk_ess": 97992.58782829404,
+      "tail_ess": 86601.87725437363,
+      "mcse": 0.002151174019857365,
+      "n_draws": 192000,
+      "n_chains": 4
+    },
+    "relation_count": {
+      "rhat_bulk": 1.0002782123805811,
+      "rhat_tail": 1.000040074444694,
+      "rhat": 1.0002782123805811,
+      "degenerate": false,
+      "bulk_ess": 27931.888341810096,
+      "tail_ess": 59268.177069486395,
+      "mcse": 0.009789985871561085,
+      "n_draws": 192000,
+      "n_chains": 4
+    },
+    "selected_boundary_indicator": {
+      "rhat_bulk": 1.0000759520018705,
+      "rhat_tail": 1.0000759520018705,
+      "rhat": 1.0000759520018705,
+      "degenerate": false,
+      "bulk_ess": 55902.53161823807,
+      "tail_ess": 55902.5316182373,
+      "mcse": 0.002026812810094192,
+      "n_draws": 192000,
+      "n_chains": 4
+    },
+    "selected_relation_indicator": {
+      "rhat_bulk": 1.0000728841980144,
+      "rhat_tail": 1.0000728841980147,
+      "rhat": 1.0000728841980147,
+      "degenerate": false,
+      "bulk_ess": 50377.92599401778,
+      "tail_ess": 50377.92599401778,
+      "mcse": 0.002048993705255074,
+      "n_draws": 192000,
+      "n_chains": 4
+    },
+    "rho": {
+      "rhat": 1.0003653873883602,
+      "degenerate": false,
+      "bulk_ess": 17669.13183281258,
+      "tail_ess": 28616.936033577174,
+      "mcse": 0.0020945625195342675
+    },
+    "beta": {
+      "rhat": 1.006442588237702,
+      "degenerate": false,
+      "bulk_ess": 1583.0269703363485,
+      "tail_ess": 1559.1009358810145,
+      "mcse": 0.02342767267358826
+    },
+    "omega": {
+      "rhat": 1.0019775237931128,
+      "degenerate": false,
+      "bulk_ess": 3734.4964391235485,
+      "tail_ess": 7986.32966848637,
+      "mcse": 0.03261323907854725
+    },
+    "lambda_rep": {
+      "rhat": 1.0098167606365054,
+      "degenerate": false,
+      "bulk_ess": 1111.7060818644861,
+      "tail_ess": 1311.2271898196982,
+      "mcse": 0.010894612208169879
+    },
+    "lambda_back": {
+      "rhat": 1.0008838607431894,
+      "degenerate": false,
+      "bulk_ess": 5986.468157622744,
+      "tail_ess": 6512.205452355548,
+      "mcse": 0.008209196523469582
+    }
+  },
+  "acceptance_by_chain": [
+    {
+      "relabel": null,
+      "split": null,
+      "merge": null,
+      "shift": null,
+      "U": 0.6060386574074074,
+      "rho": 0.80636875,
+      "pi_P": null,
+      "S_z_ffbs": 1.0,
+      "U_collapsed": 0.6353958333333334,
+      "beta": 0.9626,
+      "omega": 0.9686625,
+      "lambda_rep": 0.9799729166666666,
+      "lambda_back": 0.9585645833333334
+    },
+    {
+      "relabel": null,
+      "split": null,
+      "merge": null,
+      "shift": null,
+      "U": 0.606293287037037,
+      "rho": 0.80870625,
+      "pi_P": null,
+      "S_z_ffbs": 1.0,
+      "U_collapsed": 0.6328333333333334,
+      "beta": 0.96140625,
+      "omega": 0.9690291666666667,
+      "lambda_rep": 0.9789375,
+      "lambda_back": 0.95795625
+    },
+    {
+      "relabel": null,
+      "split": null,
+      "merge": null,
+      "shift": null,
+      "U": 0.6085564814814814,
+      "rho": 0.8107458333333334,
+      "pi_P": null,
+      "S_z_ffbs": 1.0,
+      "U_collapsed": 0.63775,
+      "beta": 0.9604854166666666,
+      "omega": 0.9678520833333333,
+      "lambda_rep": 0.97866875,
+      "lambda_back": 0.9584833333333334
+    },
+    {
+      "relabel": null,
+      "split": null,
+      "merge": null,
+      "shift": null,
+      "U": 0.6083581018518519,
+      "rho": 0.8085041666666667,
+      "pi_P": null,
+      "S_z_ffbs": 1.0,
+      "U_collapsed": 0.6384375,
+      "beta": 0.9607104166666667,
+      "omega": 0.96855,
+      "lambda_rep": 0.9800020833333334,
+      "lambda_back": 0.95889375
+    }
+  ],
+  "movement": [
+    {
+      "boundary_hamming": 773045,
+      "label_changes": 3238529,
+      "states_changed": 738615
+    },
+    {
+      "boundary_hamming": 770113,
+      "label_changes": 3201999,
+      "states_changed": 733836
+    },
+    {
+      "boundary_hamming": 768001,
+      "label_changes": 3175690,
+      "states_changed": 730651
+    },
+    {
+      "boundary_hamming": 772377,
+      "label_changes": 3191045,
+      "states_changed": 734872
+    }
+  ],
+  "retained_per_chain": [
+    48000,
+    48000,
+    48000,
+    48000
+  ],
+  "retained_pooled": 192000,
+  "runtime_seconds": [
+    9104.770354000997,
+    9020.992268000002,
+    9091.735315292011,
+    9094.732416333994
+  ],
+  "worst_rhat": 1.0098167606365054
+}

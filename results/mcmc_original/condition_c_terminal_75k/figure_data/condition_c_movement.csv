@@ -1,0 +1,9 @@
+arm,chain,ordinary_u_proposed,ordinary_u_accepted,ordinary_u_accepted_h_changes,path_marginal_proposed,path_marginal_accepted,path_marginal_accepted_that_changed_h,anchored_assignment_changes_after_burn_in,last_anchored_change_sweep
+cond,cond0,1170000,346491,24,0,0,0,3,25370
+cond,cond1,1170000,359900,18,0,0,0,4,51185
+cond,cond2,1170000,360158,22,0,0,0,0,
+cond,cond3,1170000,350748,20,0,0,0,0,
+marg,marg0,1140000,349605,17,7600,953,7,0,
+marg,marg1,1140000,351284,16,7600,985,6,0,
+marg,marg2,1140000,352008,18,7600,1003,5,0,
+marg,marg3,1140000,353395,21,7600,1008,14,0,

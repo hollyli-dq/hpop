@@ -1,0 +1,30 @@
+{
+  "A_REGISTERED_FORMAL_VERDICT": {
+    "C-COND": "NOT CONVERGED",
+    "C-MARG": "NOT CONVERGED",
+    "basis": "neither arm obtained two consecutive passing checkpoints; 30k, 50k and 75k all FAILED",
+    "registered_history": {
+      "30000": {
+        "cond": "FAIL",
+        "marg": "FAIL"
+      },
+      "50000": {
+        "cond": "FAIL",
+        "marg": "FAIL"
+      },
+      "75000": {
+        "cond": "FAIL",
+        "marg": "FAIL"
+      }
+    }
+  },
+  "B_SCIENTIFIC_DIAGNOSIS": {
+    "C-COND": "separated at the structural-library level",
+    "C-MARG": "shares one unordered structural library; separated in the assignment of that library to anchored skill identities",
+    "not_label_switching": "fixed pi* and P* are not invariant under any non-identity permutation, so the competing assignments are distinct posterior states",
+    "phenomenon": "anchored structure-to-skill assignment multimodality"
+  },
+  "early_termination_deviation": "Condition C was terminated after the third consecutive failed registered checkpoint at 75k sweeps, before the preregistered 100k ceiling. Because the protocol required two consecutive passing checkpoints and only one checkpoint remained, the registered convergence criterion was no longer attainable.",
+  "headline": "CONDITION C TERMINATED AT 75k \u2014 FORMAL VERDICT: NOT CONVERGED",
+  "terminal_commit": "8024bf653c16c0ee5279af0d5834d9c3cce1784c"
+}

@@ -1,0 +1,158 @@
+{
+  "mode": "full",
+  "generator_seed": 0,
+  "sigma_u_initial": 0.8,
+  "stage5a": {
+    "n_chains": 4,
+    "n_iterations": 15000,
+    "burn_in": 3000,
+    "thin": 3
+  },
+  "stage5b": {
+    "n_chains": 4,
+    "n_sweeps": 20000,
+    "burn_in": 5000,
+    "thin": 5
+  },
+  "gates": {
+    "ordered_f1": 0.85,
+    "incomparable_f1": 0.8,
+    "mae": 0.1,
+    "boundary_f1": 0.85,
+    "ari": 0.85,
+    "ambiguous_boundary_f1": 0.75
+  },
+  "model": {
+    "delta_B": 0.5,
+    "beta": 1.5,
+    "epsilon": 0.05,
+    "rho_U": 0.25,
+    "supports_reused": true,
+    "E_uses_asym": true
+  },
+  "dataset_config": {
+    "mode": "full",
+    "generator_seed": 0,
+    "beta": 1.5,
+    "epsilon": 0.05,
+    "delta_B": 0.5,
+    "rho_U": 0.25,
+    "latent_dim": 2,
+    "n_skills": 4,
+    "skill_names": [
+      "A",
+      "D",
+      "F",
+      "E"
+    ],
+    "cpa_supports": {
+      "A": [
+        0,
+        1
+      ],
+      "D": [
+        0,
+        1
+      ],
+      "F": [
+        2,
+        3
+      ],
+      "E": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "U_true": {
+      "A": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "D": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "F": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "E": [
+        [
+          2.0,
+          2.0
+        ],
+        [
+          3.0,
+          -1.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "P_true": [
+      [
+        0.0,
+        0.1,
+        0.75,
+        0.15
+      ],
+      [
+        0.1,
+        0.0,
+        0.7,
+        0.2
+      ],
+      [
+        0.55,
+        0.15,
+        0.0,
+        0.3
+      ],
+      [
+        0.35,
+        0.35,
+        0.3,
+        0.0
+      ]
+    ],
+    "pi_true": [
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "segments_per_trace": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "disallow_self_transitions": true
+  }
+}

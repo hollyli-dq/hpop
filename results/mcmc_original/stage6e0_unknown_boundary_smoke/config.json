@@ -1,0 +1,22 @@
+{
+  "stage": "6E0",
+  "model_id": "recurrent-rfs-unknown-boundary-joint-v1",
+  "stage6e_config_hash": "d98897a181b6809a17dd572ca175da7846a6924b8429b9c7337a939686a6da44",
+  "stage6d_config_hash": "ebd5effd5b32e68aeb61df044bfbdcbef998c01955673ae1c077531be3d2ac73",
+  "source_commit": "53914ff47670ca274d8942b5036b5bcad3138eae",
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "problem": {
+    "n_traces": 4,
+    "trace_length": 18,
+    "block_width": 6,
+    "n_skills": 3,
+    "n_roles": 5,
+    "min_width": 3,
+    "max_width": 12,
+    "delta_B": 0.15
+  },
+  "pi_P_inferred": true,
+  "self_transitions_allowed": false,
+  "terminal_transition": false
+}

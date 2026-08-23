@@ -1,0 +1,33 @@
+{
+  "checks": {
+    "legal_u_proposals": true,
+    "accepted_u_proposals": true,
+    "rejected_u_proposals": true,
+    "rho_moved": true,
+    "all_targets_finite": true,
+    "q_zero_reset": true,
+    "rejection_safe": true,
+    "cache_parity": true,
+    "deterministic_resume": true,
+    "diagnostics_ran": true,
+    "beta_moved": true,
+    "beta_accepted_and_rejected": true,
+    "beta_parity_with_stage6b": true
+  },
+  "failed_checks": [],
+  "all_passed": true,
+  "stage": "6c2",
+  "n_sweeps": 300,
+  "u_acceptance": 0.312,
+  "rho_acceptance": 0.8433333333333334,
+  "rho_range": [
+    0.0353196866659952,
+    0.8414162721013999
+  ],
+  "final_relation_count": 6,
+  "beta_acceptance": 0.72,
+  "beta_range": [
+    1.2155324792036906,
+    2.139173327475038
+  ]
+}

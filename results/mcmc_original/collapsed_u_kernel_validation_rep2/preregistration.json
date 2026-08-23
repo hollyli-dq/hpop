@@ -1,0 +1,16 @@
+{
+  "purpose": "independent-seed replication of the registered collapsed-U mixed-reference validation, after run 1 failed ONLY mixed_multivariate_reference_statistic (0.005139 vs envelope 0.004522, z=+2.86) with 17/18 gates passing",
+  "authorized_by_user": "2026-08-15, 'ok launch a run at the back'",
+  "changed": "chain seeds only: 8153001-004 -> 8154001-004",
+  "unchanged": ["code (env-parameterized seeds/outdir, defaults preserve run 1)",
+                "sweeps 600000 / burn-in 120000 / thin 10 / 4 chains",
+                "collapsed_u_every = 10, scale 0.5",
+                "all 18 gates and thresholds", "frozen 6E1B reference",
+                "comparison code (Stage 6E1B compare, verbatim)"],
+  "decision_rule_preregistered": {
+    "rep2 all 18 gates PASS": "run-1 failure judged Monte Carlo noise; kernel verdict becomes COLLAPSED-U KERNEL CORRECT — READY FOR MATCHED SYNTHETIC",
+    "rep2 fails mixed_multivariate_reference_statistic again": "treat as evidence of a real sub-resolution discrepancy; diagnose (first suspect: collapsed-move/scalar-update interaction); do NOT proceed to matched synthetic",
+    "rep2 fails any OTHER gate": "STOP and report; no interpretation beyond the artifacts"
+  },
+  "note": "thresholds and length must not be revisited after seeing rep2; two runs, one rule"
+}

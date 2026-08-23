@@ -1,0 +1,3731 @@
+{
+  "bench_seed": 20260822,
+  "deadline_epoch": 1787470259.0,
+  "decisions": [],
+  "finished_at_epoch": 1787454306.808018,
+  "finished_at_utc": "2026-08-23T03:05:06Z",
+  "plan_digest": "f84f7d2260bf9ca09096ff395e9f5d7504f76a01bb99dd3953fb46d26b354934",
+  "resumed_at_utc": "2026-08-23T00:46:30Z",
+  "runs": 3,
+  "started_at_epoch": 1787437629.835673,
+  "started_at_utc": "2026-08-22T22:27:09Z",
+  "tasks": {
+    "A_full_10::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        15.38916015625,
+        9.40087890625,
+        5.40234375
+      ],
+      "loadavg_after_driver": [
+        15.19775390625,
+        9.46044921875,
+        5.44677734375
+      ],
+      "loadavg_before": [
+        14.67822265625,
+        8.9462890625,
+        5.173828125
+      ],
+      "peak_rss_bytes": 210964480,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_full_10__build.json",
+      "seconds": 19.639714241027832,
+      "status": "ok"
+    },
+    "A_full_10::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        13.73388671875,
+        9.66650390625,
+        5.66064453125
+      ],
+      "loadavg_after_driver": [
+        13.73388671875,
+        9.66650390625,
+        5.66064453125
+      ],
+      "loadavg_before": [
+        14.861328125,
+        9.48583984375,
+        5.47900390625
+      ],
+      "peak_rss_bytes": 348467200,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_full_10__cond.json",
+      "seconds": 23.86546301841736,
+      "status": "ok"
+    },
+    "A_full_10::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        14.67822265625,
+        8.9462890625,
+        5.173828125
+      ],
+      "loadavg_after_driver": [
+        14.67822265625,
+        8.9462890625,
+        5.173828125
+      ],
+      "loadavg_before": [
+        14.38818359375,
+        8.27734375,
+        4.8115234375
+      ],
+      "peak_rss_bytes": 343068672,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_full_10__marg.json",
+      "seconds": 27.625557899475098,
+      "status": "ok"
+    },
+    "A_full_10::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        14.861328125,
+        9.48583984375,
+        5.47900390625
+      ],
+      "loadavg_after_driver": [
+        14.861328125,
+        9.48583984375,
+        5.47900390625
+      ],
+      "loadavg_before": [
+        15.19775390625,
+        9.46044921875,
+        5.44677734375
+      ],
+      "peak_rss_bytes": 217104384,
+      "reps": 16,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_full_10__primitives.json",
+      "seconds": 6.904025077819824,
+      "status": "ok"
+    },
+    "A_full_20::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        11.27978515625,
+        10.1982421875,
+        10.041015625
+      ],
+      "loadavg_after_driver": [
+        11.27978515625,
+        10.1982421875,
+        10.041015625
+      ],
+      "loadavg_before": [
+        9.61767578125,
+        9.80908203125,
+        9.9052734375
+      ],
+      "peak_rss_bytes": 229216256,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_full_20__build.json",
+      "seconds": 44.51671624183655,
+      "status": "ok"
+    },
+    "A_full_20::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        10.369140625,
+        10.1298828125,
+        10.02392578125
+      ],
+      "loadavg_after_driver": [
+        10.369140625,
+        10.1298828125,
+        10.02392578125
+      ],
+      "loadavg_before": [
+        10.92919921875,
+        10.158203125,
+        10.0283203125
+      ],
+      "peak_rss_bytes": 395321344,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_full_20__cond.json",
+      "seconds": 46.55550479888916,
+      "status": "ok"
+    },
+    "A_full_20::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        10.330078125,
+        10.166015625,
+        10.04248046875
+      ],
+      "loadavg_after_driver": [
+        10.330078125,
+        10.166015625,
+        10.04248046875
+      ],
+      "loadavg_before": [
+        10.369140625,
+        10.1298828125,
+        10.02392578125
+      ],
+      "peak_rss_bytes": 374759424,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_full_20__marg.json",
+      "seconds": 50.10480499267578,
+      "status": "ok"
+    },
+    "A_full_20::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        10.92919921875,
+        10.158203125,
+        10.0283203125
+      ],
+      "loadavg_after_driver": [
+        10.92919921875,
+        10.158203125,
+        10.0283203125
+      ],
+      "loadavg_before": [
+        11.27978515625,
+        10.1982421875,
+        10.041015625
+      ],
+      "peak_rss_bytes": 238080000,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_full_20__primitives.json",
+      "seconds": 11.085381031036377,
+      "status": "ok"
+    },
+    "A_full_30::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        10.09130859375,
+        9.7548828125,
+        9.6962890625
+      ],
+      "loadavg_after_driver": [
+        10.09130859375,
+        9.7548828125,
+        9.6962890625
+      ],
+      "loadavg_before": [
+        9.556640625,
+        9.61083984375,
+        9.64697265625
+      ],
+      "peak_rss_bytes": 242827264,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_full_30__build.json",
+      "seconds": 62.709181785583496,
+      "status": "ok"
+    },
+    "A_full_30::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        9.4765625,
+        9.6044921875,
+        9.64697265625
+      ],
+      "loadavg_after_driver": [
+        9.4765625,
+        9.6044921875,
+        9.64697265625
+      ],
+      "loadavg_before": [
+        9.71923828125,
+        9.65283203125,
+        9.66650390625
+      ],
+      "peak_rss_bytes": 374419456,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_full_30__cond.json",
+      "seconds": 71.04759573936462,
+      "status": "ok"
+    },
+    "A_full_30::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        9.556640625,
+        9.61083984375,
+        9.64697265625
+      ],
+      "loadavg_after_driver": [
+        9.556640625,
+        9.61083984375,
+        9.64697265625
+      ],
+      "loadavg_before": [
+        9.4765625,
+        9.6044921875,
+        9.64697265625
+      ],
+      "peak_rss_bytes": 387125248,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_full_30__marg.json",
+      "seconds": 76.97550106048584,
+      "status": "ok"
+    },
+    "A_full_30::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        9.71923828125,
+        9.65283203125,
+        9.66650390625
+      ],
+      "loadavg_after_driver": [
+        9.71923828125,
+        9.65283203125,
+        9.66650390625
+      ],
+      "loadavg_before": [
+        9.6689453125,
+        9.64111328125,
+        9.66259765625
+      ],
+      "peak_rss_bytes": 251449344,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_full_30__primitives.json",
+      "seconds": 12.541492223739624,
+      "status": "ok"
+    },
+    "A_full_50::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.54541015625,
+        1.50439453125,
+        2.45166015625
+      ],
+      "loadavg_after_driver": [
+        1.54541015625,
+        1.50439453125,
+        2.45166015625
+      ],
+      "loadavg_before": [
+        1.40771484375,
+        1.47998046875,
+        2.47216796875
+      ],
+      "peak_rss_bytes": 205107200,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_full_50__build.json",
+      "seconds": 25.75292205810547,
+      "status": "ok"
+    },
+    "A_full_50::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.32373046875,
+        1.478515625,
+        2.50830078125
+      ],
+      "loadavg_after_driver": [
+        1.32373046875,
+        1.478515625,
+        2.50830078125
+      ],
+      "loadavg_before": [
+        1.40478515625,
+        1.51220703125,
+        2.55810546875
+      ],
+      "peak_rss_bytes": 344920064,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_full_50__cond.json",
+      "seconds": 30.145699977874756,
+      "status": "ok"
+    },
+    "A_full_50::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.40771484375,
+        1.47998046875,
+        2.47216796875
+      ],
+      "loadavg_after_driver": [
+        1.40771484375,
+        1.47998046875,
+        2.47216796875
+      ],
+      "loadavg_before": [
+        1.32373046875,
+        1.478515625,
+        2.50830078125
+      ],
+      "peak_rss_bytes": 335781888,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_full_50__marg.json",
+      "seconds": 32.14943265914917,
+      "status": "ok"
+    },
+    "A_full_50::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.46240234375,
+        1.69482421875,
+        2.51318359375
+      ],
+      "loadavg_after_driver": [
+        2.46240234375,
+        1.69482421875,
+        2.51318359375
+      ],
+      "loadavg_before": [
+        1.54541015625,
+        1.50439453125,
+        2.45166015625
+      ],
+      "peak_rss_bytes": 220102656,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_full_50__primitives.json",
+      "seconds": 4.925262928009033,
+      "status": "ok"
+    },
+    "A_full_5::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.869140625,
+        2.04052734375,
+        3.48779296875
+      ],
+      "loadavg_after_driver": [
+        1.869140625,
+        2.04052734375,
+        3.48779296875
+      ],
+      "loadavg_before": [
+        1.85791015625,
+        2.04150390625,
+        3.49658203125
+      ],
+      "peak_rss_bytes": 161812480,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_full_5__build.json",
+      "seconds": 5.2474141120910645,
+      "status": "ok"
+    },
+    "A_full_5::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.84033203125,
+        2.0439453125,
+        3.51513671875
+      ],
+      "loadavg_after_driver": [
+        1.84033203125,
+        2.0439453125,
+        3.51513671875
+      ],
+      "loadavg_before": [
+        1.65234375,
+        2.01123046875,
+        3.5126953125
+      ],
+      "peak_rss_bytes": 316751872,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_full_5__cond.json",
+      "seconds": 7.072464942932129,
+      "status": "ok"
+    },
+    "A_full_5::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.85791015625,
+        2.04150390625,
+        3.49658203125
+      ],
+      "loadavg_after_driver": [
+        1.85791015625,
+        2.04150390625,
+        3.49658203125
+      ],
+      "loadavg_before": [
+        1.84033203125,
+        2.0439453125,
+        3.51513671875
+      ],
+      "peak_rss_bytes": 363061248,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_full_5__marg.json",
+      "seconds": 7.849071025848389,
+      "status": "ok"
+    },
+    "A_full_5::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.869140625,
+        2.04052734375,
+        3.48779296875
+      ],
+      "loadavg_after_driver": [
+        1.869140625,
+        2.04052734375,
+        3.48779296875
+      ],
+      "loadavg_before": [
+        1.869140625,
+        2.04052734375,
+        3.48779296875
+      ],
+      "peak_rss_bytes": 171094016,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_full_5__primitives.json",
+      "seconds": 2.152589797973633,
+      "status": "ok"
+    },
+    "A_sparse_10::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        13.12744140625,
+        9.73095703125,
+        5.75341796875
+      ],
+      "loadavg_after_driver": [
+        13.12744140625,
+        9.73095703125,
+        5.75341796875
+      ],
+      "loadavg_before": [
+        13.73388671875,
+        9.66650390625,
+        5.66064453125
+      ],
+      "peak_rss_bytes": 207020032,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_sparse_10__build.json",
+      "seconds": 18.759454011917114,
+      "status": "ok"
+    },
+    "A_sparse_10::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        14.10791015625,
+        10.3583984375,
+        6.1220703125
+      ],
+      "loadavg_after_driver": [
+        14.10791015625,
+        10.3583984375,
+        6.1220703125
+      ],
+      "loadavg_before": [
+        14.9970703125,
+        10.26171875,
+        5.98876953125
+      ],
+      "peak_rss_bytes": 365694976,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_sparse_10__cond.json",
+      "seconds": 23.122404098510742,
+      "status": "ok"
+    },
+    "A_sparse_10::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        13.1728515625,
+        10.43994140625,
+        6.27392578125
+      ],
+      "loadavg_after_driver": [
+        13.1728515625,
+        10.43994140625,
+        6.27392578125
+      ],
+      "loadavg_before": [
+        14.10791015625,
+        10.3583984375,
+        6.1220703125
+      ],
+      "peak_rss_bytes": 330874880,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_sparse_10__marg.json",
+      "seconds": 24.658376932144165,
+      "status": "ok"
+    },
+    "A_sparse_10::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        14.9970703125,
+        10.26171875,
+        5.98876953125
+      ],
+      "loadavg_after_driver": [
+        14.9970703125,
+        10.26171875,
+        5.98876953125
+      ],
+      "loadavg_before": [
+        13.12744140625,
+        9.73095703125,
+        5.75341796875
+      ],
+      "peak_rss_bytes": 215482368,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_sparse_10__primitives.json",
+      "seconds": 6.075937747955322,
+      "status": "ok"
+    },
+    "A_sparse_20::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        10.4130859375,
+        10.12841796875,
+        10.0341796875
+      ],
+      "loadavg_after_driver": [
+        10.4130859375,
+        10.12841796875,
+        10.0341796875
+      ],
+      "loadavg_before": [
+        9.7412109375,
+        10.015625,
+        9.99365234375
+      ],
+      "peak_rss_bytes": 229470208,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_sparse_20__build.json",
+      "seconds": 32.19581604003906,
+      "status": "ok"
+    },
+    "A_sparse_20::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        9.900390625,
+        10.0751953125,
+        10.01416015625
+      ],
+      "loadavg_after_driver": [
+        9.900390625,
+        10.0751953125,
+        10.01416015625
+      ],
+      "loadavg_before": [
+        10.330078125,
+        10.17333984375,
+        10.046875
+      ],
+      "peak_rss_bytes": 367964160,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_sparse_20__cond.json",
+      "seconds": 38.22698998451233,
+      "status": "ok"
+    },
+    "A_sparse_20::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        9.7412109375,
+        10.015625,
+        9.99365234375
+      ],
+      "loadavg_after_driver": [
+        9.7412109375,
+        10.015625,
+        9.99365234375
+      ],
+      "loadavg_before": [
+        9.900390625,
+        10.0751953125,
+        10.01416015625
+      ],
+      "peak_rss_bytes": 370028544,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_sparse_20__marg.json",
+      "seconds": 41.38446283340454,
+      "status": "ok"
+    },
+    "A_sparse_20::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        10.330078125,
+        10.17333984375,
+        10.046875
+      ],
+      "loadavg_after_driver": [
+        10.330078125,
+        10.17333984375,
+        10.046875
+      ],
+      "loadavg_before": [
+        10.330078125,
+        10.166015625,
+        10.04248046875
+      ],
+      "peak_rss_bytes": 232292352,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_sparse_20__primitives.json",
+      "seconds": 10.759528398513794,
+      "status": "ok"
+    },
+    "A_sparse_30::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        11.04296875,
+        10.23974609375,
+        9.89111328125
+      ],
+      "loadavg_after_driver": [
+        11.04296875,
+        10.23974609375,
+        9.89111328125
+      ],
+      "loadavg_before": [
+        11.158203125,
+        10.10498046875,
+        9.8271484375
+      ],
+      "peak_rss_bytes": 245854208,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_sparse_30__build.json",
+      "seconds": 47.92092299461365,
+      "status": "ok"
+    },
+    "A_sparse_30::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        9.84912109375,
+        9.734375,
+        9.68896484375
+      ],
+      "loadavg_after_driver": [
+        9.84912109375,
+        9.734375,
+        9.68896484375
+      ],
+      "loadavg_before": [
+        10.09130859375,
+        9.7548828125,
+        9.6962890625
+      ],
+      "peak_rss_bytes": 382767104,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_sparse_30__cond.json",
+      "seconds": 53.46463203430176,
+      "status": "ok"
+    },
+    "A_sparse_30::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        11.158203125,
+        10.10498046875,
+        9.8271484375
+      ],
+      "loadavg_after_driver": [
+        11.158203125,
+        10.10498046875,
+        9.8271484375
+      ],
+      "loadavg_before": [
+        9.84912109375,
+        9.734375,
+        9.68896484375
+      ],
+      "peak_rss_bytes": 392957952,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_sparse_30__marg.json",
+      "seconds": 61.286810874938965,
+      "status": "ok"
+    },
+    "A_sparse_30::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        11.10986328125,
+        10.3046875,
+        9.92236328125
+      ],
+      "loadavg_after_driver": [
+        11.10986328125,
+        10.3046875,
+        9.92236328125
+      ],
+      "loadavg_before": [
+        11.04296875,
+        10.23974609375,
+        9.89111328125
+      ],
+      "peak_rss_bytes": 256552960,
+      "reps": 26,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_sparse_30__primitives.json",
+      "seconds": 20.035281896591187,
+      "status": "ok"
+    },
+    "A_sparse_50::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.10693359375,
+        1.6943359375,
+        2.47900390625
+      ],
+      "loadavg_after_driver": [
+        2.10693359375,
+        1.6943359375,
+        2.47900390625
+      ],
+      "loadavg_before": [
+        2.2333984375,
+        1.6962890625,
+        2.49365234375
+      ],
+      "peak_rss_bytes": 201703424,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_sparse_50__build.json",
+      "seconds": 16.991037130355835,
+      "status": "ok"
+    },
+    "A_sparse_50::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.78515625,
+        1.6533203125,
+        2.44091796875
+      ],
+      "loadavg_after_driver": [
+        1.78515625,
+        1.6533203125,
+        2.44091796875
+      ],
+      "loadavg_before": [
+        2.09814453125,
+        1.69921875,
+        2.47607421875
+      ],
+      "peak_rss_bytes": 326811648,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_sparse_50__cond.json",
+      "seconds": 18.673158884048462,
+      "status": "ok"
+    },
+    "A_sparse_50::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.2333984375,
+        1.6962890625,
+        2.49365234375
+      ],
+      "loadavg_after_driver": [
+        2.2333984375,
+        1.6962890625,
+        2.49365234375
+      ],
+      "loadavg_before": [
+        2.46240234375,
+        1.69482421875,
+        2.51318359375
+      ],
+      "peak_rss_bytes": 334057472,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_sparse_50__marg.json",
+      "seconds": 19.549528121948242,
+      "status": "ok"
+    },
+    "A_sparse_50::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.09814453125,
+        1.69921875,
+        2.47607421875
+      ],
+      "loadavg_after_driver": [
+        2.09814453125,
+        1.69921875,
+        2.47607421875
+      ],
+      "loadavg_before": [
+        2.10693359375,
+        1.6943359375,
+        2.47900390625
+      ],
+      "peak_rss_bytes": 220426240,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_sparse_50__primitives.json",
+      "seconds": 3.909472942352295,
+      "status": "ok"
+    },
+    "A_sparse_5::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.9033203125,
+        2.0380859375,
+        3.46142578125
+      ],
+      "loadavg_after_driver": [
+        1.9033203125,
+        2.0380859375,
+        3.46142578125
+      ],
+      "loadavg_before": [
+        1.89501953125,
+        2.0390625,
+        3.47021484375
+      ],
+      "peak_rss_bytes": 154120192,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_sparse_5__build.json",
+      "seconds": 5.302376985549927,
+      "status": "ok"
+    },
+    "A_sparse_5::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.923828125,
+        2.03662109375,
+        3.44384765625
+      ],
+      "loadavg_after_driver": [
+        1.923828125,
+        2.03662109375,
+        3.44384765625
+      ],
+      "loadavg_before": [
+        1.9033203125,
+        2.0380859375,
+        3.46142578125
+      ],
+      "peak_rss_bytes": 365391872,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_sparse_5__cond.json",
+      "seconds": 7.141253709793091,
+      "status": "ok"
+    },
+    "A_sparse_5::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.89501953125,
+        2.0390625,
+        3.47021484375
+      ],
+      "loadavg_after_driver": [
+        1.89501953125,
+        2.0390625,
+        3.47021484375
+      ],
+      "loadavg_before": [
+        1.869140625,
+        2.04052734375,
+        3.48779296875
+      ],
+      "peak_rss_bytes": 341192704,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_sparse_5__marg.json",
+      "seconds": 7.483870983123779,
+      "status": "ok"
+    },
+    "A_sparse_5::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.9033203125,
+        2.0380859375,
+        3.46142578125
+      ],
+      "loadavg_after_driver": [
+        1.9033203125,
+        2.0380859375,
+        3.46142578125
+      ],
+      "loadavg_before": [
+        1.9033203125,
+        2.0380859375,
+        3.46142578125
+      ],
+      "peak_rss_bytes": 171864064,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/A_sparse_5__primitives.json",
+      "seconds": 2.168544054031372,
+      "status": "ok"
+    },
+    "D_12::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        14.18310546875,
+        7.9306640625,
+        4.630859375
+      ],
+      "loadavg_after_driver": [
+        14.18310546875,
+        7.9306640625,
+        4.630859375
+      ],
+      "loadavg_before": [
+        13.7939453125,
+        6.75146484375,
+        4.04150390625
+      ],
+      "peak_rss_bytes": 295100416,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/D_12__build.json",
+      "seconds": 50.1666419506073,
+      "status": "ok"
+    },
+    "D_12::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        12.9521484375,
+        5.126953125,
+        3.3203125
+      ],
+      "loadavg_after_driver": [
+        12.9521484375,
+        5.126953125,
+        3.3203125
+      ],
+      "loadavg_before": [
+        3.7001953125,
+        2.37744140625,
+        2.298828125
+      ],
+      "peak_rss_bytes": 542031872,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/D_12__cond.json",
+      "seconds": 54.78009486198425,
+      "status": "ok"
+    },
+    "D_12::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        13.7939453125,
+        6.75146484375,
+        4.04150390625
+      ],
+      "loadavg_after_driver": [
+        13.7939453125,
+        6.75146484375,
+        4.04150390625
+      ],
+      "loadavg_before": [
+        12.9521484375,
+        5.126953125,
+        3.3203125
+      ],
+      "peak_rss_bytes": 597491712,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/D_12__marg.json",
+      "seconds": 58.63098430633545,
+      "status": "ok"
+    },
+    "D_12::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        14.38818359375,
+        8.27734375,
+        4.8115234375
+      ],
+      "loadavg_after_driver": [
+        14.38818359375,
+        8.27734375,
+        4.8115234375
+      ],
+      "loadavg_before": [
+        14.18310546875,
+        7.9306640625,
+        4.630859375
+      ],
+      "peak_rss_bytes": 328888320,
+      "reps": 27,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/D_12__primitives.json",
+      "seconds": 13.956747055053711,
+      "status": "ok"
+    },
+    "D_24::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        9.662109375,
+        9.9267578125,
+        9.97802734375
+      ],
+      "loadavg_after_driver": [
+        9.662109375,
+        9.9267578125,
+        9.97802734375
+      ],
+      "loadavg_before": [
+        9.6806640625,
+        10.08056640625,
+        10.03857421875
+      ],
+      "peak_rss_bytes": 330776576,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/D_24__build.json",
+      "seconds": 204.02482891082764,
+      "status": "ok"
+    },
+    "D_24::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        9.61767578125,
+        9.80908203125,
+        9.9052734375
+      ],
+      "loadavg_after_driver": [
+        9.61767578125,
+        9.80908203125,
+        9.9052734375
+      ],
+      "loadavg_before": [
+        9.498046875,
+        9.8671875,
+        9.95458984375
+      ],
+      "peak_rss_bytes": 675012608,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/D_24__cond.json",
+      "seconds": 213.3946099281311,
+      "status": "ok"
+    },
+    "D_24::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        9.6806640625,
+        10.08056640625,
+        10.03857421875
+      ],
+      "loadavg_after_driver": [
+        9.6806640625,
+        10.08056640625,
+        10.03857421875
+      ],
+      "loadavg_before": [
+        10.1044921875,
+        10.40087890625,
+        10.11474609375
+      ],
+      "peak_rss_bytes": 666193920,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/D_24__marg.json",
+      "seconds": 226.6501100063324,
+      "status": "ok"
+    },
+    "D_24::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        9.498046875,
+        9.8671875,
+        9.95458984375
+      ],
+      "loadavg_after_driver": [
+        9.498046875,
+        9.8671875,
+        9.95458984375
+      ],
+      "loadavg_before": [
+        9.662109375,
+        9.9267578125,
+        9.97802734375
+      ],
+      "peak_rss_bytes": 363315200,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/D_24__primitives.json",
+      "seconds": 22.729009866714478,
+      "status": "ok"
+    },
+    "D_48::build": {
+      "attempts": 1,
+      "censored": true,
+      "loadavg_after": [
+        9.65771484375,
+        9.625,
+        9.69384765625
+      ],
+      "loadavg_after_driver": [
+        9.65771484375,
+        9.625,
+        9.69384765625
+      ],
+      "loadavg_before": [
+        10.15283203125,
+        9.7509765625,
+        9.8154296875
+      ],
+      "peak_rss_bytes": 369692672,
+      "reps": 13,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/D_48__build.json",
+      "seconds": 652.3732440471649,
+      "status": "ok"
+    },
+    "D_48::cond": {
+      "attempts": 1,
+      "censored": true,
+      "loadavg_after": [
+        9.98974609375,
+        9.775390625,
+        9.705078125
+      ],
+      "loadavg_after_driver": [
+        9.98974609375,
+        9.775390625,
+        9.705078125
+      ],
+      "loadavg_before": [
+        9.95556640625,
+        9.689453125,
+        9.7099609375
+      ],
+      "peak_rss_bytes": 793489408,
+      "reps": 13,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/D_48__cond.json",
+      "seconds": 675.2079548835754,
+      "status": "ok"
+    },
+    "D_48::marg": {
+      "attempts": 1,
+      "censored": true,
+      "loadavg_after": [
+        9.6689453125,
+        9.64111328125,
+        9.66259765625
+      ],
+      "loadavg_after_driver": [
+        9.6689453125,
+        9.64111328125,
+        9.66259765625
+      ],
+      "loadavg_before": [
+        9.98974609375,
+        9.775390625,
+        9.705078125
+      ],
+      "peak_rss_bytes": 851419136,
+      "reps": 13,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/D_48__marg.json",
+      "seconds": 687.1077592372894,
+      "status": "ok"
+    },
+    "D_48::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        9.5166015625,
+        9.60009765625,
+        9.67919921875
+      ],
+      "loadavg_after_driver": [
+        9.95556640625,
+        9.689453125,
+        9.7099609375
+      ],
+      "loadavg_before": [
+        9.65771484375,
+        9.625,
+        9.69384765625
+      ],
+      "peak_rss_bytes": 402636800,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/D_48__primitives.json",
+      "seconds": 51.074371099472046,
+      "status": "ok"
+    },
+    "D_6::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.65234375,
+        2.01123046875,
+        3.5126953125
+      ],
+      "loadavg_after_driver": [
+        1.65234375,
+        2.01123046875,
+        3.5126953125
+      ],
+      "loadavg_before": [
+        1.70947265625,
+        2.0283203125,
+        3.52783203125
+      ],
+      "peak_rss_bytes": 235446272,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/D_6__build.json",
+      "seconds": 5.8315699100494385,
+      "status": "ok"
+    },
+    "D_6::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.8388671875,
+        2.06396484375,
+        3.55810546875
+      ],
+      "loadavg_after_driver": [
+        1.8388671875,
+        2.06396484375,
+        3.55810546875
+      ],
+      "loadavg_before": [
+        1.8974609375,
+        2.08349609375,
+        3.58251953125
+      ],
+      "peak_rss_bytes": 471674880,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/D_6__cond.json",
+      "seconds": 8.703173160552979,
+      "status": "ok"
+    },
+    "D_6::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.70947265625,
+        2.0283203125,
+        3.52783203125
+      ],
+      "loadavg_after_driver": [
+        1.70947265625,
+        2.0283203125,
+        3.52783203125
+      ],
+      "loadavg_before": [
+        1.8388671875,
+        2.06396484375,
+        3.55810546875
+      ],
+      "peak_rss_bytes": 472039424,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/D_6__marg.json",
+      "seconds": 9.07952618598938,
+      "status": "ok"
+    },
+    "D_6::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.8974609375,
+        2.08349609375,
+        3.58251953125
+      ],
+      "loadavg_after_driver": [
+        1.8974609375,
+        2.08349609375,
+        3.58251953125
+      ],
+      "loadavg_before": [
+        1.8974609375,
+        2.08349609375,
+        3.58251953125
+      ],
+      "peak_rss_bytes": 251060224,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/D_6__primitives.json",
+      "seconds": 2.487523078918457,
+      "status": "ok"
+    },
+    "D_96::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.40478515625,
+        1.51220703125,
+        2.55810546875
+      ],
+      "loadavg_after_driver": [
+        1.40478515625,
+        1.51220703125,
+        2.55810546875
+      ],
+      "loadavg_before": [
+        1.8603515625,
+        1.68603515625,
+        3.2353515625
+      ],
+      "peak_rss_bytes": 402935808,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/D_96__build.json",
+      "seconds": 402.858767747879,
+      "status": "ok"
+    },
+    "D_96::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.39013671875,
+        2.07666015625,
+        4.4541015625
+      ],
+      "loadavg_after_driver": [
+        1.39013671875,
+        2.07666015625,
+        4.4541015625
+      ],
+      "loadavg_before": [
+        2.03076171875,
+        4.50341796875,
+        6.60546875
+      ],
+      "peak_rss_bytes": 1152884736,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/D_96__cond.json",
+      "seconds": 454.51100897789,
+      "status": "ok"
+    },
+    "D_96::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.8603515625,
+        1.68603515625,
+        3.2353515625
+      ],
+      "loadavg_after_driver": [
+        1.8603515625,
+        1.68603515625,
+        3.2353515625
+      ],
+      "loadavg_before": [
+        1.39013671875,
+        2.07666015625,
+        4.4541015625
+      ],
+      "peak_rss_bytes": 1241485312,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/D_96__marg.json",
+      "seconds": 458.013947725296,
+      "status": "ok"
+    },
+    "D_96::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.03076171875,
+        4.50341796875,
+        6.60546875
+      ],
+      "loadavg_after_driver": [
+        2.03076171875,
+        4.50341796875,
+        6.60546875
+      ],
+      "loadavg_before": [
+        2.73876953125,
+        5.06884765625,
+        6.92236328125
+      ],
+      "peak_rss_bytes": 442499072,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/D_96__primitives.json",
+      "seconds": 49.62494111061096,
+      "status": "ok"
+    },
+    "J_1024::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.48193359375,
+        1.47607421875,
+        1.73828125
+      ],
+      "loadavg_after_driver": [
+        1.48193359375,
+        1.47607421875,
+        1.73828125
+      ],
+      "loadavg_before": [
+        1.5234375,
+        1.4765625,
+        1.7548828125
+      ],
+      "peak_rss_bytes": 1685884928,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_1024__build.json",
+      "seconds": 52.03048896789551,
+      "status": "ok"
+    },
+    "J_1024::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.4326171875,
+        1.4521484375,
+        1.7001953125
+      ],
+      "loadavg_after_driver": [
+        1.4326171875,
+        1.4521484375,
+        1.7001953125
+      ],
+      "loadavg_before": [
+        1.4423828125,
+        1.4677734375,
+        1.73095703125
+      ],
+      "peak_rss_bytes": 4995375104,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_1024__cond.json",
+      "seconds": 71.46505212783813,
+      "status": "ok"
+    },
+    "J_1024::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.5234375,
+        1.4765625,
+        1.7548828125
+      ],
+      "loadavg_after_driver": [
+        1.5234375,
+        1.4765625,
+        1.7548828125
+      ],
+      "loadavg_before": [
+        1.32373046875,
+        1.458984375,
+        1.7890625
+      ],
+      "peak_rss_bytes": 5131534336,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_1024__marg.json",
+      "seconds": 95.86417198181152,
+      "status": "ok"
+    },
+    "J_1024::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.4423828125,
+        1.4677734375,
+        1.73095703125
+      ],
+      "loadavg_after_driver": [
+        1.4423828125,
+        1.4677734375,
+        1.73095703125
+      ],
+      "loadavg_before": [
+        1.48193359375,
+        1.47607421875,
+        1.73828125
+      ],
+      "peak_rss_bytes": 3023478784,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_1024__primitives.json",
+      "seconds": 16.950212240219116,
+      "status": "ok"
+    },
+    "J_192::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.84716796875,
+        2.390625,
+        4.08447265625
+      ],
+      "loadavg_after_driver": [
+        2.84716796875,
+        2.390625,
+        4.08447265625
+      ],
+      "loadavg_before": [
+        2.1396484375,
+        2.2158203125,
+        4.064453125
+      ],
+      "peak_rss_bytes": 272707584,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_192__build.json",
+      "seconds": 20.644541025161743,
+      "status": "ok"
+    },
+    "J_192::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.75537109375,
+        2.40185546875,
+        4.0283203125
+      ],
+      "loadavg_after_driver": [
+        2.75537109375,
+        2.40185546875,
+        4.0283203125
+      ],
+      "loadavg_before": [
+        2.69921875,
+        2.3671875,
+        4.06591796875
+      ],
+      "peak_rss_bytes": 578506752,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_192__cond.json",
+      "seconds": 24.62088894844055,
+      "status": "ok"
+    },
+    "J_192::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.29150390625,
+        2.32080078125,
+        3.951171875
+      ],
+      "loadavg_after_driver": [
+        2.29150390625,
+        2.32080078125,
+        3.951171875
+      ],
+      "loadavg_before": [
+        2.75537109375,
+        2.40185546875,
+        4.0283203125
+      ],
+      "peak_rss_bytes": 586346496,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_192__marg.json",
+      "seconds": 26.49124002456665,
+      "status": "ok"
+    },
+    "J_192::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.69921875,
+        2.3671875,
+        4.06591796875
+      ],
+      "loadavg_after_driver": [
+        2.69921875,
+        2.3671875,
+        4.06591796875
+      ],
+      "loadavg_before": [
+        2.84716796875,
+        2.390625,
+        4.08447265625
+      ],
+      "peak_rss_bytes": 274100224,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_192__primitives.json",
+      "seconds": 3.8124799728393555,
+      "status": "ok"
+    },
+    "J_24::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.0439453125,
+        2.20263671875,
+        4.20751953125
+      ],
+      "loadavg_after_driver": [
+        2.0439453125,
+        2.20263671875,
+        4.20751953125
+      ],
+      "loadavg_before": [
+        1.9609375,
+        2.189453125,
+        4.21484375
+      ],
+      "peak_rss_bytes": 120823808,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_24__build.json",
+      "seconds": 3.6511127948760986,
+      "status": "ok"
+    },
+    "J_24::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.87060546875,
+        2.17578125,
+        4.22216796875
+      ],
+      "loadavg_after_driver": [
+        1.9609375,
+        2.189453125,
+        4.21484375
+      ],
+      "loadavg_before": [
+        1.87060546875,
+        2.17578125,
+        4.22216796875
+      ],
+      "peak_rss_bytes": 131846144,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_24__cond.json",
+      "seconds": 4.319176197052002,
+      "status": "ok"
+    },
+    "J_24::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.9609375,
+        2.189453125,
+        4.21484375
+      ],
+      "loadavg_after_driver": [
+        1.9609375,
+        2.189453125,
+        4.21484375
+      ],
+      "loadavg_before": [
+        1.9609375,
+        2.189453125,
+        4.21484375
+      ],
+      "peak_rss_bytes": 131493888,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_24__marg.json",
+      "seconds": 4.490874767303467,
+      "status": "ok"
+    },
+    "J_24::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.87060546875,
+        2.17578125,
+        4.22216796875
+      ],
+      "loadavg_after_driver": [
+        1.87060546875,
+        2.17578125,
+        4.22216796875
+      ],
+      "loadavg_before": [
+        1.685546875,
+        2.14501953125,
+        4.2236328125
+      ],
+      "peak_rss_bytes": 116264960,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_24__primitives.json",
+      "seconds": 1.3598520755767822,
+      "status": "ok"
+    },
+    "J_384::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        5.9697265625,
+        8.423828125,
+        9.22607421875
+      ],
+      "loadavg_after_driver": [
+        5.9697265625,
+        8.423828125,
+        9.22607421875
+      ],
+      "loadavg_before": [
+        7.111328125,
+        9.27001953125,
+        9.576171875
+      ],
+      "peak_rss_bytes": 549912576,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_384__build.json",
+      "seconds": 77.27474999427795,
+      "status": "ok"
+    },
+    "J_384::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.73193359375,
+        2.15771484375,
+        3.787109375
+      ],
+      "loadavg_after_driver": [
+        1.73193359375,
+        2.15771484375,
+        3.787109375
+      ],
+      "loadavg_before": [
+        2.0927734375,
+        2.27685546875,
+        3.916015625
+      ],
+      "peak_rss_bytes": 1525649408,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_384__cond.json",
+      "seconds": 48.82987713813782,
+      "status": "ok"
+    },
+    "J_384::marg": {
+      "attempts": 2,
+      "censored": false,
+      "loadavg_after": [
+        7.111328125,
+        9.27001953125,
+        9.576171875
+      ],
+      "loadavg_after_driver": [
+        7.111328125,
+        9.27001953125,
+        9.576171875
+      ],
+      "loadavg_before": [
+        11.10986328125,
+        10.3046875,
+        9.92236328125
+      ],
+      "peak_rss_bytes": 1462407168,
+      "reps": 16,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_384__marg.json",
+      "seconds": 121.94127106666565,
+      "status": "ok"
+    },
+    "J_384::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.18798828125,
+        2.298828125,
+        3.93359375
+      ],
+      "loadavg_after_driver": [
+        2.0927734375,
+        2.27685546875,
+        3.916015625
+      ],
+      "loadavg_before": [
+        2.29150390625,
+        2.32080078125,
+        3.951171875
+      ],
+      "peak_rss_bytes": 642535424,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_384__primitives.json",
+      "seconds": 8.104007005691528,
+      "status": "ok"
+    },
+    "J_48::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.17919921875,
+        2.22119140625,
+        4.16650390625
+      ],
+      "loadavg_after_driver": [
+        2.17919921875,
+        2.22119140625,
+        4.16650390625
+      ],
+      "loadavg_before": [
+        2.10791015625,
+        2.20849609375,
+        4.173828125
+      ],
+      "peak_rss_bytes": 141795328,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_48__build.json",
+      "seconds": 6.110735893249512,
+      "status": "ok"
+    },
+    "J_48::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.0302734375,
+        2.1953125,
+        4.18115234375
+      ],
+      "loadavg_after_driver": [
+        2.0302734375,
+        2.1953125,
+        4.18115234375
+      ],
+      "loadavg_before": [
+        2.0439453125,
+        2.20263671875,
+        4.20751953125
+      ],
+      "peak_rss_bytes": 171642880,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_48__cond.json",
+      "seconds": 7.263535261154175,
+      "status": "ok"
+    },
+    "J_48::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.10791015625,
+        2.20849609375,
+        4.173828125
+      ],
+      "loadavg_after_driver": [
+        2.10791015625,
+        2.20849609375,
+        4.173828125
+      ],
+      "loadavg_before": [
+        2.0302734375,
+        2.1953125,
+        4.18115234375
+      ],
+      "peak_rss_bytes": 172453888,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_48__marg.json",
+      "seconds": 7.785449981689453,
+      "status": "ok"
+    },
+    "J_48::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.16455078125,
+        2.21728515625,
+        4.15380859375
+      ],
+      "loadavg_after_driver": [
+        2.16455078125,
+        2.21728515625,
+        4.15380859375
+      ],
+      "loadavg_before": [
+        2.17919921875,
+        2.22119140625,
+        4.16650390625
+      ],
+      "peak_rss_bytes": 138063872,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_48__primitives.json",
+      "seconds": 1.6874959468841553,
+      "status": "ok"
+    },
+    "J_768::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.46240234375,
+        1.54150390625,
+        2.26171875
+      ],
+      "loadavg_after_driver": [
+        1.46240234375,
+        1.54150390625,
+        2.26171875
+      ],
+      "loadavg_before": [
+        1.3740234375,
+        1.53369140625,
+        2.294921875
+      ],
+      "peak_rss_bytes": 1041154048,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_768__build.json",
+      "seconds": 38.99700903892517,
+      "status": "ok"
+    },
+    "J_768::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.525390625,
+        1.59765625,
+        2.37353515625
+      ],
+      "loadavg_after_driver": [
+        1.525390625,
+        1.59765625,
+        2.37353515625
+      ],
+      "loadavg_before": [
+        1.78515625,
+        1.6533203125,
+        2.44091796875
+      ],
+      "peak_rss_bytes": 3637415936,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_768__cond.json",
+      "seconds": 51.64706993103027,
+      "status": "ok"
+    },
+    "J_768::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.3740234375,
+        1.53369140625,
+        2.294921875
+      ],
+      "loadavg_after_driver": [
+        1.3740234375,
+        1.53369140625,
+        2.294921875
+      ],
+      "loadavg_before": [
+        1.525390625,
+        1.59765625,
+        2.37353515625
+      ],
+      "peak_rss_bytes": 4429135872,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_768__marg.json",
+      "seconds": 61.648045778274536,
+      "status": "ok"
+    },
+    "J_768::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.439453125,
+        1.53076171875,
+        2.24462890625
+      ],
+      "loadavg_after_driver": [
+        1.439453125,
+        1.53076171875,
+        2.24462890625
+      ],
+      "loadavg_before": [
+        1.46240234375,
+        1.54150390625,
+        2.26171875
+      ],
+      "peak_rss_bytes": 1794965504,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_768__primitives.json",
+      "seconds": 11.896733045578003,
+      "status": "ok"
+    },
+    "J_96::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.283203125,
+        2.24560546875,
+        4.10791015625
+      ],
+      "loadavg_after_driver": [
+        2.283203125,
+        2.24560546875,
+        4.10791015625
+      ],
+      "loadavg_before": [
+        2.3427734375,
+        2.2548828125,
+        4.13330078125
+      ],
+      "peak_rss_bytes": 180969472,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_96__build.json",
+      "seconds": 11.206968069076538,
+      "status": "ok"
+    },
+    "J_96::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.1396484375,
+        2.2158203125,
+        4.064453125
+      ],
+      "loadavg_after_driver": [
+        2.1396484375,
+        2.2158203125,
+        4.064453125
+      ],
+      "loadavg_before": [
+        2.283203125,
+        2.24560546875,
+        4.10791015625
+      ],
+      "peak_rss_bytes": 266051584,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_96__cond.json",
+      "seconds": 13.093967199325562,
+      "status": "ok"
+    },
+    "J_96::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.3427734375,
+        2.2548828125,
+        4.13330078125
+      ],
+      "loadavg_after_driver": [
+        2.3427734375,
+        2.2548828125,
+        4.13330078125
+      ],
+      "loadavg_before": [
+        2.16455078125,
+        2.21728515625,
+        4.15380859375
+      ],
+      "peak_rss_bytes": 276004864,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_96__marg.json",
+      "seconds": 14.253323078155518,
+      "status": "ok"
+    },
+    "J_96::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.283203125,
+        2.24560546875,
+        4.10791015625
+      ],
+      "loadavg_after_driver": [
+        2.283203125,
+        2.24560546875,
+        4.10791015625
+      ],
+      "loadavg_before": [
+        2.283203125,
+        2.24560546875,
+        4.10791015625
+      ],
+      "peak_rss_bytes": 168267776,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/J_96__primitives.json",
+      "seconds": 2.3996810913085938,
+      "status": "ok"
+    },
+    "K_10::build": {
+      "attempts": 3,
+      "censored": false,
+      "last_error": "nonzero exit",
+      "loadavg_after": [
+        11.88623046875,
+        10.857421875,
+        10.1982421875
+      ],
+      "loadavg_after_driver": [
+        11.88623046875,
+        10.857421875,
+        10.1982421875
+      ],
+      "loadavg_before": [
+        12.1474609375,
+        10.59375,
+        10.0546875
+      ],
+      "peak_rss_bytes": 342110208,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/K_10__build.json",
+      "seconds": 77.37757706642151,
+      "status": "ok"
+    },
+    "K_10::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        10.0615234375,
+        9.94140625,
+        9.787109375
+      ],
+      "loadavg_after_driver": [
+        10.0615234375,
+        9.94140625,
+        9.787109375
+      ],
+      "loadavg_before": [
+        10.17626953125,
+        9.92626953125,
+        9.771484375
+      ],
+      "peak_rss_bytes": 595898368,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/K_10__cond.json",
+      "seconds": 77.44421291351318,
+      "status": "ok"
+    },
+    "K_10::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        10.71044921875,
+        10.1513671875,
+        9.87744140625
+      ],
+      "loadavg_after_driver": [
+        10.71044921875,
+        10.1513671875,
+        9.87744140625
+      ],
+      "loadavg_before": [
+        10.0615234375,
+        9.94140625,
+        9.787109375
+      ],
+      "peak_rss_bytes": 588914688,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/K_10__marg.json",
+      "seconds": 85.4338207244873,
+      "status": "ok"
+    },
+    "K_10::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        11.59130859375,
+        10.84619140625,
+        10.20556640625
+      ],
+      "loadavg_after_driver": [
+        11.3837890625,
+        10.8154296875,
+        10.1982421875
+      ],
+      "loadavg_before": [
+        11.88623046875,
+        10.857421875,
+        10.1982421875
+      ],
+      "peak_rss_bytes": 356806656,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/K_10__primitives.json",
+      "seconds": 15.66606616973877,
+      "status": "ok"
+    },
+    "K_20::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        10.0419921875,
+        9.96533203125,
+        9.970703125
+      ],
+      "loadavg_after_driver": [
+        10.0419921875,
+        9.96533203125,
+        9.970703125
+      ],
+      "loadavg_before": [
+        9.640625,
+        9.9404296875,
+        9.970703125
+      ],
+      "peak_rss_bytes": 398544896,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/K_20__build.json",
+      "seconds": 132.85160493850708,
+      "status": "ok"
+    },
+    "K_20::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        9.56787109375,
+        9.7353515625,
+        9.865234375
+      ],
+      "loadavg_after_driver": [
+        9.56787109375,
+        9.7353515625,
+        9.865234375
+      ],
+      "loadavg_before": [
+        9.80517578125,
+        9.91845703125,
+        9.953125
+      ],
+      "peak_rss_bytes": 899633152,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/K_20__cond.json",
+      "seconds": 155.3953709602356,
+      "status": "ok"
+    },
+    "K_20::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        9.640625,
+        9.9404296875,
+        9.970703125
+      ],
+      "loadavg_after_driver": [
+        9.640625,
+        9.9404296875,
+        9.970703125
+      ],
+      "loadavg_before": [
+        10.4130859375,
+        10.12841796875,
+        10.0341796875
+      ],
+      "peak_rss_bytes": 924311552,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/K_20__marg.json",
+      "seconds": 159.24159908294678,
+      "status": "ok"
+    },
+    "K_20::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        9.80517578125,
+        9.91845703125,
+        9.953125
+      ],
+      "loadavg_after_driver": [
+        9.80517578125,
+        9.91845703125,
+        9.953125
+      ],
+      "loadavg_before": [
+        10.0419921875,
+        9.96533203125,
+        9.970703125
+      ],
+      "peak_rss_bytes": 464846848,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/K_20__primitives.json",
+      "seconds": 23.732645273208618,
+      "status": "ok"
+    },
+    "K_3::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.736328125,
+        2.0927734375,
+        3.65087890625
+      ],
+      "loadavg_after_driver": [
+        1.736328125,
+        2.0927734375,
+        3.65087890625
+      ],
+      "loadavg_before": [
+        1.87060546875,
+        2.13037109375,
+        3.6826171875
+      ],
+      "peak_rss_bytes": 222900224,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/K_3__build.json",
+      "seconds": 8.478774070739746,
+      "status": "ok"
+    },
+    "K_3::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.62255859375,
+        2.05615234375,
+        3.61962890625
+      ],
+      "loadavg_after_driver": [
+        1.62255859375,
+        2.05615234375,
+        3.61962890625
+      ],
+      "loadavg_before": [
+        1.736328125,
+        2.0927734375,
+        3.65087890625
+      ],
+      "peak_rss_bytes": 314429440,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/K_3__cond.json",
+      "seconds": 11.46263337135315,
+      "status": "ok"
+    },
+    "K_3::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.7919921875,
+        2.06982421875,
+        3.59619140625
+      ],
+      "loadavg_after_driver": [
+        1.7919921875,
+        2.06982421875,
+        3.59619140625
+      ],
+      "loadavg_before": [
+        1.62255859375,
+        2.05615234375,
+        3.61962890625
+      ],
+      "peak_rss_bytes": 311529472,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/K_3__marg.json",
+      "seconds": 11.31703495979309,
+      "status": "ok"
+    },
+    "K_3::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.736328125,
+        2.0927734375,
+        3.65087890625
+      ],
+      "loadavg_after_driver": [
+        1.736328125,
+        2.0927734375,
+        3.65087890625
+      ],
+      "loadavg_before": [
+        1.736328125,
+        2.0927734375,
+        3.65087890625
+      ],
+      "peak_rss_bytes": 200343552,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/K_3__primitives.json",
+      "seconds": 2.403212785720825,
+      "status": "ok"
+    },
+    "K_40::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        5.40380859375,
+        7.5126953125,
+        8.7744140625
+      ],
+      "loadavg_after_driver": [
+        5.40380859375,
+        7.5126953125,
+        8.7744140625
+      ],
+      "loadavg_before": [
+        5.9697265625,
+        8.423828125,
+        9.22607421875
+      ],
+      "peak_rss_bytes": 509415424,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/K_40__build.json",
+      "seconds": 104.72404909133911,
+      "status": "ok"
+    },
+    "K_40::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        5.37353515625,
+        6.6943359375,
+        8.25341796875
+      ],
+      "loadavg_after_driver": [
+        5.37353515625,
+        6.6943359375,
+        8.25341796875
+      ],
+      "loadavg_before": [
+        5.3623046875,
+        7.365234375,
+        8.69140625
+      ],
+      "peak_rss_bytes": 1575362560,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/K_40__cond.json",
+      "seconds": 113.036306142807,
+      "status": "ok"
+    },
+    "K_40::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        5.4130859375,
+        6.287109375,
+        7.890625
+      ],
+      "loadavg_after_driver": [
+        5.4130859375,
+        6.287109375,
+        7.890625
+      ],
+      "loadavg_before": [
+        5.37353515625,
+        6.6943359375,
+        8.25341796875
+      ],
+      "peak_rss_bytes": 1595887616,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/K_40__marg.json",
+      "seconds": 117.99175500869751,
+      "status": "ok"
+    },
+    "K_40::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        5.3623046875,
+        7.365234375,
+        8.69140625
+      ],
+      "loadavg_after_driver": [
+        5.3623046875,
+        7.365234375,
+        8.69140625
+      ],
+      "loadavg_before": [
+        5.40380859375,
+        7.5126953125,
+        8.7744140625
+      ],
+      "peak_rss_bytes": 642535424,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/K_40__primitives.json",
+      "seconds": 20.25249195098877,
+      "status": "ok"
+    },
+    "K_5::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.392578125,
+        2.05859375,
+        2.19189453125
+      ],
+      "loadavg_after_driver": [
+        2.392578125,
+        2.05859375,
+        2.19189453125
+      ],
+      "loadavg_before": [
+        2.3603515625,
+        2.02978515625,
+        2.18603515625
+      ],
+      "peak_rss_bytes": 264278016,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/K_5__build.json",
+      "seconds": 16.003084897994995,
+      "status": "ok"
+    },
+    "K_5::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.50341796875,
+        2.033203125,
+        2.19189453125
+      ],
+      "loadavg_after_driver": [
+        2.54296875,
+        2.048828125,
+        2.1962890625
+      ],
+      "loadavg_before": [
+        2.84521484375,
+        2.0703125,
+        2.2080078125
+      ],
+      "peak_rss_bytes": 387940352,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/K_5__cond.json",
+      "seconds": 16.45847511291504,
+      "status": "ok"
+    },
+    "K_5::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.3603515625,
+        2.02978515625,
+        2.18603515625
+      ],
+      "loadavg_after_driver": [
+        2.3603515625,
+        2.02978515625,
+        2.18603515625
+      ],
+      "loadavg_before": [
+        2.54296875,
+        2.048828125,
+        2.1962890625
+      ],
+      "peak_rss_bytes": 383283200,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/K_5__marg.json",
+      "seconds": 19.385539293289185,
+      "status": "ok"
+    },
+    "K_5::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.84521484375,
+        2.0703125,
+        2.2080078125
+      ],
+      "loadavg_after_driver": [
+        2.84521484375,
+        2.0703125,
+        2.2080078125
+      ],
+      "loadavg_before": [
+        2.84521484375,
+        2.0703125,
+        2.2080078125
+      ],
+      "peak_rss_bytes": 244879360,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/K_5__primitives.json",
+      "seconds": 2.9810237884521484,
+      "status": "ok"
+    },
+    "K_80::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.75341796875,
+        1.54150390625,
+        1.98388671875
+      ],
+      "loadavg_after_driver": [
+        1.75341796875,
+        1.54150390625,
+        1.98388671875
+      ],
+      "loadavg_before": [
+        1.412109375,
+        1.44921875,
+        2.0087890625
+      ],
+      "peak_rss_bytes": 663113728,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/K_80__build.json",
+      "seconds": 96.99874114990234,
+      "status": "ok"
+    },
+    "K_80::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.41455078125,
+        1.50244140625,
+        2.12646484375
+      ],
+      "loadavg_after_driver": [
+        1.41455078125,
+        1.50244140625,
+        2.12646484375
+      ],
+      "loadavg_before": [
+        1.46142578125,
+        1.5283203125,
+        2.22705078125
+      ],
+      "peak_rss_bytes": 2408579072,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/K_80__cond.json",
+      "seconds": 119.0622718334198,
+      "status": "ok"
+    },
+    "K_80::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.412109375,
+        1.44921875,
+        2.0087890625
+      ],
+      "loadavg_after_driver": [
+        1.412109375,
+        1.44921875,
+        2.0087890625
+      ],
+      "loadavg_before": [
+        1.41455078125,
+        1.50244140625,
+        2.12646484375
+      ],
+      "peak_rss_bytes": 2414452736,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/K_80__marg.json",
+      "seconds": 132.07544612884521,
+      "status": "ok"
+    },
+    "K_80::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.46142578125,
+        1.5283203125,
+        2.22705078125
+      ],
+      "loadavg_after_driver": [
+        1.46142578125,
+        1.5283203125,
+        2.22705078125
+      ],
+      "loadavg_before": [
+        1.439453125,
+        1.53076171875,
+        2.24462890625
+      ],
+      "peak_rss_bytes": 996995072,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/K_80__primitives.json",
+      "seconds": 21.103397130966187,
+      "status": "ok"
+    },
+    "N_128::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.462890625,
+        1.5146484375,
+        1.86767578125
+      ],
+      "loadavg_after_driver": [
+        1.462890625,
+        1.5146484375,
+        1.86767578125
+      ],
+      "loadavg_before": [
+        1.63525390625,
+        1.6123046875,
+        1.94873046875
+      ],
+      "peak_rss_bytes": 543047680,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_128__build.json",
+      "seconds": 102.65246510505676,
+      "status": "ok"
+    },
+    "N_128::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.32373046875,
+        1.458984375,
+        1.7890625
+      ],
+      "loadavg_after_driver": [
+        1.32373046875,
+        1.458984375,
+        1.7890625
+      ],
+      "loadavg_before": [
+        1.33056640625,
+        1.48046875,
+        1.84619140625
+      ],
+      "peak_rss_bytes": 1569648640,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_128__cond.json",
+      "seconds": 121.38246011734009,
+      "status": "ok"
+    },
+    "N_128::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.63525390625,
+        1.6123046875,
+        1.94873046875
+      ],
+      "loadavg_after_driver": [
+        1.63525390625,
+        1.6123046875,
+        1.94873046875
+      ],
+      "loadavg_before": [
+        1.75341796875,
+        1.54150390625,
+        1.98388671875
+      ],
+      "peak_rss_bytes": 1571893248,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_128__marg.json",
+      "seconds": 135.8198208808899,
+      "status": "ok"
+    },
+    "N_128::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.33056640625,
+        1.48046875,
+        1.84619140625
+      ],
+      "loadavg_after_driver": [
+        1.33056640625,
+        1.48046875,
+        1.84619140625
+      ],
+      "loadavg_before": [
+        1.462890625,
+        1.5146484375,
+        1.86767578125
+      ],
+      "peak_rss_bytes": 692613120,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_128__primitives.json",
+      "seconds": 17.450700044631958,
+      "status": "ok"
+    },
+    "N_16::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        10.5615234375,
+        10.6748046875,
+        10.17041015625
+      ],
+      "loadavg_after_driver": [
+        10.5615234375,
+        10.6748046875,
+        10.17041015625
+      ],
+      "loadavg_before": [
+        11.3837890625,
+        10.8154296875,
+        10.1982421875
+      ],
+      "peak_rss_bytes": 230117376,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_16__build.json",
+      "seconds": 38.53630208969116,
+      "status": "ok"
+    },
+    "N_16::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        9.9443359375,
+        10.4833984375,
+        10.12939453125
+      ],
+      "loadavg_after_driver": [
+        9.86865234375,
+        10.45849609375,
+        10.12255859375
+      ],
+      "loadavg_before": [
+        10.48095703125,
+        10.65283203125,
+        10.16796875
+      ],
+      "peak_rss_bytes": 367587328,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_16__cond.json",
+      "seconds": 45.5250129699707,
+      "status": "ok"
+    },
+    "N_16::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        10.1044921875,
+        10.40087890625,
+        10.11474609375
+      ],
+      "loadavg_after_driver": [
+        10.1044921875,
+        10.40087890625,
+        10.11474609375
+      ],
+      "loadavg_before": [
+        9.86865234375,
+        10.45849609375,
+        10.12255859375
+      ],
+      "peak_rss_bytes": 363544576,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_16__marg.json",
+      "seconds": 48.73493790626526,
+      "status": "ok"
+    },
+    "N_16::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        10.48095703125,
+        10.65283203125,
+        10.16796875
+      ],
+      "loadavg_after_driver": [
+        10.48095703125,
+        10.65283203125,
+        10.16796875
+      ],
+      "loadavg_before": [
+        10.5615234375,
+        10.6748046875,
+        10.17041015625
+      ],
+      "peak_rss_bytes": 240373760,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_16__primitives.json",
+      "seconds": 11.14725112915039,
+      "status": "ok"
+    },
+    "N_1::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.888671875,
+        2.0849609375,
+        3.59228515625
+      ],
+      "loadavg_after_driver": [
+        1.888671875,
+        2.0849609375,
+        3.59228515625
+      ],
+      "loadavg_before": [
+        1.888671875,
+        2.0849609375,
+        3.59228515625
+      ],
+      "peak_rss_bytes": 115326976,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_1__build.json",
+      "seconds": 2.7464678287506104,
+      "status": "ok"
+    },
+    "N_1::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.7919921875,
+        2.06982421875,
+        3.59619140625
+      ],
+      "loadavg_after_driver": [
+        1.7919921875,
+        2.06982421875,
+        3.59619140625
+      ],
+      "loadavg_before": [
+        1.7919921875,
+        2.06982421875,
+        3.59619140625
+      ],
+      "peak_rss_bytes": 125997056,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_1__cond.json",
+      "seconds": 3.236348867416382,
+      "status": "ok"
+    },
+    "N_1::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.888671875,
+        2.0849609375,
+        3.59228515625
+      ],
+      "loadavg_after_driver": [
+        1.888671875,
+        2.0849609375,
+        3.59228515625
+      ],
+      "loadavg_before": [
+        1.7919921875,
+        2.06982421875,
+        3.59619140625
+      ],
+      "peak_rss_bytes": 128225280,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_1__marg.json",
+      "seconds": 3.4621071815490723,
+      "status": "ok"
+    },
+    "N_1::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.8974609375,
+        2.08349609375,
+        3.58251953125
+      ],
+      "loadavg_after_driver": [
+        1.8974609375,
+        2.08349609375,
+        3.58251953125
+      ],
+      "loadavg_before": [
+        1.888671875,
+        2.0849609375,
+        3.59228515625
+      ],
+      "peak_rss_bytes": 118210560,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_1__primitives.json",
+      "seconds": 1.2661969661712646,
+      "status": "ok"
+    },
+    "N_256::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.5625,
+        1.490234375,
+        1.6796875
+      ],
+      "loadavg_after_driver": [
+        1.5625,
+        1.490234375,
+        1.6796875
+      ],
+      "loadavg_before": [
+        1.4326171875,
+        1.4521484375,
+        1.7001953125
+      ],
+      "peak_rss_bytes": 988561408,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_256__build.json",
+      "seconds": 114.95446491241455,
+      "status": "ok"
+    },
+    "N_256::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.37109375,
+        1.40673828125,
+        1.6083984375
+      ],
+      "loadavg_after_driver": [
+        1.37109375,
+        1.40673828125,
+        1.6083984375
+      ],
+      "loadavg_before": [
+        1.48388671875,
+        1.48095703125,
+        1.66943359375
+      ],
+      "peak_rss_bytes": 3061800960,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_256__cond.json",
+      "seconds": 131.19843697547913,
+      "status": "ok"
+    },
+    "N_256::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.30712890625,
+        1.38818359375,
+        1.56298828125
+      ],
+      "loadavg_after_driver": [
+        1.30712890625,
+        1.38818359375,
+        1.56298828125
+      ],
+      "loadavg_before": [
+        1.37109375,
+        1.40673828125,
+        1.6083984375
+      ],
+      "peak_rss_bytes": 2955456512,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_256__marg.json",
+      "seconds": 147.05151391029358,
+      "status": "ok"
+    },
+    "N_256::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.48388671875,
+        1.48095703125,
+        1.66943359375
+      ],
+      "loadavg_after_driver": [
+        1.48388671875,
+        1.48095703125,
+        1.66943359375
+      ],
+      "loadavg_before": [
+        1.5625,
+        1.490234375,
+        1.6796875
+      ],
+      "peak_rss_bytes": 1274040320,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_256__primitives.json",
+      "seconds": 23.15747594833374,
+      "status": "ok"
+    },
+    "N_32::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        10.15283203125,
+        9.7509765625,
+        9.8154296875
+      ],
+      "loadavg_after_driver": [
+        10.15283203125,
+        9.7509765625,
+        9.8154296875
+      ],
+      "loadavg_before": [
+        9.44189453125,
+        9.58740234375,
+        9.7724609375
+      ],
+      "peak_rss_bytes": 344641536,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_32__build.json",
+      "seconds": 72.08920288085938,
+      "status": "ok"
+    },
+    "N_32::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        9.33203125,
+        9.61474609375,
+        9.802734375
+      ],
+      "loadavg_after_driver": [
+        9.33203125,
+        9.61474609375,
+        9.802734375
+      ],
+      "loadavg_before": [
+        9.59521484375,
+        9.7314453125,
+        9.86083984375
+      ],
+      "peak_rss_bytes": 596692992,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_32__cond.json",
+      "seconds": 80.36605215072632,
+      "status": "ok"
+    },
+    "N_32::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        9.44189453125,
+        9.58740234375,
+        9.7724609375
+      ],
+      "loadavg_after_driver": [
+        9.44189453125,
+        9.58740234375,
+        9.7724609375
+      ],
+      "loadavg_before": [
+        9.33203125,
+        9.61474609375,
+        9.802734375
+      ],
+      "peak_rss_bytes": 596488192,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_32__marg.json",
+      "seconds": 86.75981998443604,
+      "status": "ok"
+    },
+    "N_32::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        9.59521484375,
+        9.7314453125,
+        9.86083984375
+      ],
+      "loadavg_after_driver": [
+        9.59521484375,
+        9.7314453125,
+        9.86083984375
+      ],
+      "loadavg_before": [
+        9.56787109375,
+        9.7353515625,
+        9.865234375
+      ],
+      "peak_rss_bytes": 357257216,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_32__primitives.json",
+      "seconds": 15.053097009658813,
+      "status": "ok"
+    },
+    "N_64::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.9677734375,
+        5.19091796875,
+        6.98681640625
+      ],
+      "loadavg_after_driver": [
+        2.9677734375,
+        5.19091796875,
+        6.98681640625
+      ],
+      "loadavg_before": [
+        5.306640625,
+        5.93603515625,
+        7.353515625
+      ],
+      "peak_rss_bytes": 385650688,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_64__build.json",
+      "seconds": 54.489442110061646,
+      "status": "ok"
+    },
+    "N_64::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        6.82958984375,
+        6.3388671875,
+        7.70166015625
+      ],
+      "loadavg_after_driver": [
+        6.6826171875,
+        6.31640625,
+        7.685546875
+      ],
+      "loadavg_before": [
+        5.4130859375,
+        6.287109375,
+        7.890625
+      ],
+      "peak_rss_bytes": 1014845440,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_64__cond.json",
+      "seconds": 112.0922281742096,
+      "status": "ok"
+    },
+    "N_64::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        5.306640625,
+        5.93603515625,
+        7.353515625
+      ],
+      "loadavg_after_driver": [
+        5.306640625,
+        5.93603515625,
+        7.353515625
+      ],
+      "loadavg_before": [
+        6.6826171875,
+        6.31640625,
+        7.685546875
+      ],
+      "peak_rss_bytes": 1078431744,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_64__marg.json",
+      "seconds": 124.46703791618347,
+      "status": "ok"
+    },
+    "N_64::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.73876953125,
+        5.06884765625,
+        6.92236328125
+      ],
+      "loadavg_after_driver": [
+        2.73876953125,
+        5.06884765625,
+        6.92236328125
+      ],
+      "loadavg_before": [
+        2.9677734375,
+        5.19091796875,
+        6.98681640625
+      ],
+      "peak_rss_bytes": 408559616,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_64__primitives.json",
+      "seconds": 9.789144039154053,
+      "status": "ok"
+    },
+    "N_8::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.52587890625,
+        2.1044921875,
+        2.205078125
+      ],
+      "loadavg_after_driver": [
+        2.52587890625,
+        2.1044921875,
+        2.205078125
+      ],
+      "loadavg_before": [
+        2.57177734375,
+        2.1064453125,
+        2.20654296875
+      ],
+      "peak_rss_bytes": 161390592,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_8__build.json",
+      "seconds": 8.499563932418823,
+      "status": "ok"
+    },
+    "N_8::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        3.7001953125,
+        2.37744140625,
+        2.298828125
+      ],
+      "loadavg_after_driver": [
+        3.7001953125,
+        2.37744140625,
+        2.298828125
+      ],
+      "loadavg_before": [
+        2.5634765625,
+        2.119140625,
+        2.20947265625
+      ],
+      "peak_rss_bytes": 245399552,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_8__cond.json",
+      "seconds": 13.508360862731934,
+      "status": "ok"
+    },
+    "N_8::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.57177734375,
+        2.1064453125,
+        2.20654296875
+      ],
+      "loadavg_after_driver": [
+        2.57177734375,
+        2.1064453125,
+        2.20654296875
+      ],
+      "loadavg_before": [
+        2.392578125,
+        2.05859375,
+        2.19189453125
+      ],
+      "peak_rss_bytes": 240562176,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_8__marg.json",
+      "seconds": 11.122877836227417,
+      "status": "ok"
+    },
+    "N_8::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.5634765625,
+        2.119140625,
+        2.20947265625
+      ],
+      "loadavg_after_driver": [
+        2.5634765625,
+        2.119140625,
+        2.20947265625
+      ],
+      "loadavg_before": [
+        2.52587890625,
+        2.1044921875,
+        2.205078125
+      ],
+      "peak_rss_bytes": 159141888,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/N_8__primitives.json",
+      "seconds": 2.1254658699035645,
+      "status": "ok"
+    },
+    "baseline_matched_scale::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.63671875,
+        2.15087890625,
+        4.25
+      ],
+      "loadavg_after_driver": [
+        1.63671875,
+        2.15087890625,
+        4.25
+      ],
+      "loadavg_before": [
+        1.57861328125,
+        2.15673828125,
+        4.27734375
+      ],
+      "peak_rss_bytes": 167333888,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/baseline_matched_scale__build.json",
+      "seconds": 12.471251964569092,
+      "status": "ok"
+    },
+    "baseline_matched_scale::cond": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.74560546875,
+        2.16455078125,
+        4.24267578125
+      ],
+      "loadavg_after_driver": [
+        1.74560546875,
+        2.16455078125,
+        4.24267578125
+      ],
+      "loadavg_before": [
+        1.74560546875,
+        2.16455078125,
+        4.24267578125
+      ],
+      "peak_rss_bytes": 195317760,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/baseline_matched_scale__cond.json",
+      "seconds": 4.341451168060303,
+      "status": "ok"
+    },
+    "baseline_matched_scale::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.685546875,
+        2.14501953125,
+        4.2236328125
+      ],
+      "loadavg_after_driver": [
+        1.685546875,
+        2.14501953125,
+        4.2236328125
+      ],
+      "loadavg_before": [
+        1.74560546875,
+        2.16455078125,
+        4.24267578125
+      ],
+      "peak_rss_bytes": 199487488,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/baseline_matched_scale__marg.json",
+      "seconds": 5.089982986450195,
+      "status": "ok"
+    },
+    "baseline_matched_scale::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.63671875,
+        2.15087890625,
+        4.25
+      ],
+      "loadavg_after_driver": [
+        1.74560546875,
+        2.16455078125,
+        4.24267578125
+      ],
+      "loadavg_before": [
+        1.63671875,
+        2.15087890625,
+        4.25
+      ],
+      "peak_rss_bytes": 143425536,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/baseline_matched_scale__primitives.json",
+      "seconds": 1.967552900314331,
+      "status": "ok"
+    },
+    "target_long_J500::build": {
+      "attempts": 1,
+      "loadavg_after_driver": [
+        2.83203125,
+        2.0546875,
+        2.20361328125
+      ],
+      "loadavg_before": [
+        2.83203125,
+        2.0546875,
+        2.20361328125
+      ],
+      "predicted_rss_bytes": 8366350720,
+      "reason": "predicted RSS 7.79 GiB exceeds the frozen cap 6.00 GiB; predicted RSS 7.79 GiB exceeds 80% of the 6.06 GiB currently reclaimable",
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/target_long_J500__build.json",
+      "seconds": 1.227248191833496,
+      "status": "skipped_memory"
+    },
+    "target_long_J500::primitives": {
+      "attempts": 1,
+      "loadavg_after_driver": [
+        2.84521484375,
+        2.0703125,
+        2.2080078125
+      ],
+      "loadavg_before": [
+        2.83203125,
+        2.0546875,
+        2.20361328125
+      ],
+      "predicted_rss_bytes": 8366350720,
+      "reason": "predicted RSS 7.79 GiB exceeds the frozen cap 6.00 GiB; predicted RSS 7.79 GiB exceeds 80% of the 6.01 GiB currently reclaimable",
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/target_long_J500__primitives.json",
+      "seconds": 1.053044080734253,
+      "status": "skipped_memory"
+    },
+    "target_long_J500_N20::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        10.17626953125,
+        9.92626953125,
+        9.771484375
+      ],
+      "loadavg_after_driver": [
+        10.17626953125,
+        9.92626953125,
+        9.771484375
+      ],
+      "loadavg_before": [
+        9.91943359375,
+        9.7138671875,
+        9.67333984375
+      ],
+      "peak_rss_bytes": 1472860160,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/target_long_J500_N20__build.json",
+      "seconds": 342.7988512516022,
+      "status": "ok"
+    },
+    "target_long_J500_N20::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        9.91943359375,
+        9.7138671875,
+        9.67333984375
+      ],
+      "loadavg_after_driver": [
+        9.91943359375,
+        9.7138671875,
+        9.67333984375
+      ],
+      "loadavg_before": [
+        9.74267578125,
+        9.68212890625,
+        9.66162109375
+      ],
+      "peak_rss_bytes": 2230730752,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/target_long_J500_N20__primitives.json",
+      "seconds": 59.67091202735901,
+      "status": "ok"
+    },
+    "target_operating_point::build": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.671875,
+        1.78857421875,
+        2.9375
+      ],
+      "loadavg_after_driver": [
+        1.671875,
+        1.78857421875,
+        2.9375
+      ],
+      "loadavg_before": [
+        1.923828125,
+        2.03662109375,
+        3.44384765625
+      ],
+      "peak_rss_bytes": 1785122816,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/target_operating_point__build.json",
+      "seconds": 271.0794038772583,
+      "status": "ok"
+    },
+    "target_operating_point::cond": {
+      "attempts": 2,
+      "censored": false,
+      "loadavg_after": [
+        1.92578125,
+        2.01123046875,
+        2.44677734375
+      ],
+      "loadavg_after_driver": [
+        1.92578125,
+        2.01123046875,
+        2.44677734375
+      ],
+      "loadavg_before": [
+        1.5234375,
+        1.70703125,
+        2.75830078125
+      ],
+      "peak_rss_bytes": 3501580288,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/target_operating_point__cond.json",
+      "seconds": 478.10301423072815,
+      "status": "ok"
+    },
+    "target_operating_point::marg": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        2.83203125,
+        2.0546875,
+        2.20361328125
+      ],
+      "loadavg_after_driver": [
+        2.83203125,
+        2.0546875,
+        2.20361328125
+      ],
+      "loadavg_before": [
+        1.92578125,
+        2.01123046875,
+        2.44677734375
+      ],
+      "peak_rss_bytes": 3925188608,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/target_operating_point__marg.json",
+      "seconds": 489.14089703559875,
+      "status": "ok"
+    },
+    "target_operating_point::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        1.7294921875,
+        1.78955078125,
+        2.865234375
+      ],
+      "loadavg_after_driver": [
+        1.7294921875,
+        1.78955078125,
+        2.865234375
+      ],
+      "loadavg_before": [
+        1.671875,
+        1.78857421875,
+        2.9375
+      ],
+      "peak_rss_bytes": 2304663552,
+      "reps": 15,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/target_operating_point__primitives.json",
+      "seconds": 58.350560903549194,
+      "status": "ok"
+    },
+    "target_operating_point_full_support::build": {
+      "attempts": 1,
+      "loadavg_after_driver": [
+        9.74267578125,
+        9.68212890625,
+        9.66162109375
+      ],
+      "loadavg_before": [
+        9.78125,
+        9.77197265625,
+        9.7470703125
+      ],
+      "partial_result": false,
+      "reason": "exceeded the 1800s ceiling",
+      "result": null,
+      "seconds": 1800.1469676494598,
+      "status": "censored_timeout"
+    },
+    "target_operating_point_full_support::cond": {
+      "attempts": 1,
+      "loadavg_after_driver": [
+        9.4638671875,
+        9.69580078125,
+        9.4423828125
+      ],
+      "loadavg_before": [
+        10.90869140625,
+        10.9013671875,
+        7.22021484375
+      ],
+      "partial_result": false,
+      "reason": "exceeded the 1800s ceiling",
+      "result": null,
+      "seconds": 1800.1743857860565,
+      "status": "censored_timeout"
+    },
+    "target_operating_point_full_support::marg": {
+      "attempts": 1,
+      "loadavg_after_driver": [
+        9.78125,
+        9.77197265625,
+        9.7470703125
+      ],
+      "loadavg_before": [
+        9.4638671875,
+        9.69580078125,
+        9.4423828125
+      ],
+      "partial_result": false,
+      "reason": "exceeded the 1800s ceiling",
+      "result": null,
+      "seconds": 1800.1827580928802,
+      "status": "censored_timeout"
+    },
+    "target_operating_point_full_support::primitives": {
+      "attempts": 1,
+      "censored": false,
+      "loadavg_after": [
+        10.90869140625,
+        10.9013671875,
+        7.22021484375
+      ],
+      "loadavg_after_driver": [
+        10.90869140625,
+        10.9013671875,
+        7.22021484375
+      ],
+      "loadavg_before": [
+        13.1728515625,
+        10.43994140625,
+        6.27392578125
+      ],
+      "peak_rss_bytes": 2317725696,
+      "reps": 5,
+      "result": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/raw/target_operating_point_full_support__primitives.json",
+      "seconds": 167.0914077758789,
+      "status": "ok"
+    }
+  },
+  "updated_at_utc": "2026-08-23T03:05:06Z",
+  "worker": "/Users/dongqing/Desktop/hpop-scalability/scripts/scalability/bench_worker.py"
+}

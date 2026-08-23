@@ -1,0 +1,44 @@
+{
+  "relation_count_vs_rho": {
+    "correlation": 0.25753087212939935
+  },
+  "relation_count_vs_beta": {
+    "correlation": -0.009319728414780688
+  },
+  "relation_count_vs_omega": {
+    "correlation": -0.09790501230636768
+  },
+  "rho_vs_beta": {
+    "correlation": 0.00917969885413547
+  },
+  "beta_vs_omega": {
+    "correlation": 0.013545813804498062
+  },
+  "beta_vs_lambda_rep": {
+    "correlation": 0.30460344495212716
+  },
+  "omega_vs_lambda_back": {
+    "correlation": -0.11343686340505316
+  },
+  "log_likelihood_vs_relation_count": {
+    "correlation": 0.4607236649531064
+  },
+  "column_permutation": {
+    "target_is_column_exchangeable": true,
+    "per_chain_signed_column_contrast": [
+      0.00940403413610467,
+      0.009880553179769156,
+      -0.0023236036541965776,
+      -0.003353576473811511
+    ],
+    "per_chain_absolute_column_contrast": [
+      0.8873431024598536,
+      0.8655133455957262,
+      0.866435898803472,
+      0.8809712698187595
+    ],
+    "chains_in_opposite_labellings": true,
+    "signed_contrast_rhat": 1.0001615321709951,
+    "note": "a large signed-contrast R-hat with a small invariant-summary R-hat is label switching, not non-convergence; H and relation probabilities are the reported quantities and are invariant"
+  }
+}

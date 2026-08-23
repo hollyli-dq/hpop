@@ -1,0 +1,28 @@
+{
+  "per_chain": {
+    "7b2_ffbs": {
+      "r_cross_frozen": 0.5303348325837082,
+      "mean_alpha_conditional_given_cross": 1.895370239683543e-23,
+      "mean_alpha_collapsed_given_cross": 0.05258565003192544,
+      "expected_escapes_conditional": 7.538856440600359e-18,
+      "expected_escapes_collapsed": 20916.001429489985
+    },
+    "6e2_local": {
+      "r_cross_frozen": 0.5887056471764118,
+      "mean_alpha_conditional_given_cross": 4.103818426735511e-14,
+      "mean_alpha_collapsed_given_cross": 0.04657610648540735,
+      "expected_escapes_conditional": 1.81195581210436e-08,
+      "expected_escapes_collapsed": 20564.712683586906
+    }
+  },
+  "rule": {
+    "formula": "E = 50000 * M_U * r_cross * mean(alpha_coll | cross)",
+    "E < 1": "COLLAPSED-U NOT VIABLE \u2014 STOP",
+    "1 <= E < 10": "COLLAPSED-U MARGINAL \u2014 REVIEW",
+    "E >= 10": "COLLAPSED-U MECHANISM VIABLE \u2014 EXPAND AUDIT"
+  },
+  "expected_escapes_min": 20564.712683586906,
+  "expected_escapes_max": 20916.001429489985,
+  "expected_escapes_mean": 20740.357056538443,
+  "verdict": "COLLAPSED-U MECHANISM VIABLE \u2014 EXPAND AUDIT"
+}

@@ -1,0 +1,23 @@
+{
+  "A": 50,
+  "D_max": 12,
+  "D_min": 3,
+  "J": 500,
+  "K": 20,
+  "N": 100,
+  "axis": "target_long",
+  "groups": [
+    "build",
+    "primitives"
+  ],
+  "label": "target_long_J500",
+  "length_mix": [],
+  "max_reps": 15,
+  "min_reps": 5,
+  "note": "primitives only; expected to fail the memory gate at N=100 and to be recorded as skipped rather than attempted",
+  "op_reps": [],
+  "regime": "sparse",
+  "seed": 20260822,
+  "timeout_s": 1800,
+  "warmups": 2
+}

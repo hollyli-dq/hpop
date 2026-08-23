@@ -1,0 +1,60 @@
+{
+  "source_commit": "05ef2c291fa84bbba9960064836729d317d66c31",
+  "stage6c_config_hash": "c1545b0b24acad470aca96954963ef619e4ee55d7094bb597041b6e4e98a8dad",
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "platform": "macOS-10.16-x86_64-i386-64bit-Mach-O",
+  "stage": "6c2",
+  "n_chains": 4,
+  "n_sweeps": 20000,
+  "burn_in": 5000,
+  "thin": 5,
+  "base_seed": 0,
+  "sigma_u": 0.5,
+  "rho_scale": 0.5,
+  "beta_scale": 0.05109,
+  "chain_starts": [
+    {
+      "chain": 0,
+      "u_start": "antichain",
+      "start_relations": 0,
+      "rho": 0.05,
+      "beta": 0.8,
+      "seed": 0
+    },
+    {
+      "chain": 1,
+      "u_start": "total_order",
+      "start_relations": 10,
+      "rho": 0.3,
+      "beta": 1.2,
+      "seed": 1
+    },
+    {
+      "chain": 2,
+      "u_start": "sparse",
+      "start_relations": 3,
+      "rho": 0.6,
+      "beta": 1.9,
+      "seed": 2
+    },
+    {
+      "chain": 3,
+      "u_start": "dense",
+      "start_relations": 10,
+      "rho": 0.9,
+      "beta": 2.6,
+      "seed": 3
+    }
+  ],
+  "retained_per_chain": 3000,
+  "retained_pooled": 12000,
+  "wall_seconds": 943.2437032919843,
+  "chain_runtime_seconds": [
+    913.6430854160571,
+    939.3666752499994,
+    914.6515738330781,
+    895.4812416670611
+  ],
+  "reference": "results/mcmc_original/stage6c2_u_rho_beta_reference"
+}

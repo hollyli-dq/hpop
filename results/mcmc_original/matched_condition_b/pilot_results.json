@@ -1,0 +1,65 @@
+{
+  "grid": [
+    {
+      "acceptance": 0.7298666666666667,
+      "esjd_per_proposal": 0.019276554810297043,
+      "finite": true,
+      "h_change_accept_rate": 0.0007999999999999999,
+      "multiplier": 0.25,
+      "sigma_u": 0.125,
+      "sweeps_per_second": 1238.9988844659556
+    },
+    {
+      "acceptance": 0.5372333333333333,
+      "esjd_per_proposal": 0.047433858754729004,
+      "finite": true,
+      "h_change_accept_rate": 0.0007,
+      "multiplier": 0.5,
+      "sigma_u": 0.25,
+      "sweeps_per_second": 1166.3061110934261
+    },
+    {
+      "acceptance": 0.3141666666666667,
+      "esjd_per_proposal": 0.07732430970709793,
+      "finite": true,
+      "h_change_accept_rate": 0.0006777777777777778,
+      "multiplier": 1.0,
+      "sigma_u": 0.5,
+      "sweeps_per_second": 1121.4803864880878
+    },
+    {
+      "acceptance": 0.13604444444444444,
+      "esjd_per_proposal": 0.07570689206158901,
+      "finite": true,
+      "h_change_accept_rate": 0.0005555555555555556,
+      "multiplier": 2.0,
+      "sigma_u": 1.0,
+      "sweeps_per_second": 1121.103758344761
+    },
+    {
+      "acceptance": 0.04343333333333334,
+      "esjd_per_proposal": 0.045641917606350904,
+      "finite": true,
+      "h_change_accept_rate": 0.0005555555555555556,
+      "multiplier": 4.0,
+      "sigma_u": 2.0,
+      "sweeps_per_second": 1105.0664514935997
+    },
+    {
+      "acceptance": 0.0142,
+      "esjd_per_proposal": 0.04027942293791738,
+      "finite": true,
+      "h_change_accept_rate": 0.00046666666666666666,
+      "multiplier": 8.0,
+      "sigma_u": 4.0,
+      "sweeps_per_second": 1087.104687595051
+    }
+  ],
+  "inspected": [
+    "acceptance",
+    "ESJD",
+    "H-change frequency",
+    "sweeps/s"
+  ],
+  "recovery_inspected": false
+}

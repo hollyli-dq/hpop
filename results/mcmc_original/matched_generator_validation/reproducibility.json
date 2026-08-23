@@ -1,0 +1,10 @@
+{
+  "different_seed_hash": "88e55bd410932131662f015de74dced7fa022356f781169008fa926eed9ee7f7",
+  "different_seed_hash_differs": true,
+  "hash_algorithm": "sha256 over canonical JSON (sorted keys, no whitespace, no timestamps, no paths)",
+  "same_seed_byte_identical": true,
+  "same_seed_hash": "043dd7c98b50fb42301c1efb6abf92200c41627791710b81fb49d5701f031c41",
+  "save_load_byte_identical": true,
+  "seed_a": 750001,
+  "seed_b": 750002
+}

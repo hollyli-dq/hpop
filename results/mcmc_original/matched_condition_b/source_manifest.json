@@ -1,0 +1,20 @@
+{
+  "collapsed_u_and_ffbs": "collapsed_u_kernel.py, collapsed_u_likelihood.py and semi_markov_ffbs.py do not exist in this worktree and are not imported anywhere in the Condition-B modules (source-level test enforces this); their diffs are empty by absence",
+  "file_hashes": {
+    "scripts/run_matched_condition_b.py": "08fde726ae107b33873623951b36860b9893d82ac86065ff12fa54afcd6ebbe0",
+    "src/hpop/mcmc_original/latent_poset.py": "00bb4d02f90699e9eedfce3a8d91d5f528b164845c9fce02d1e9b1c8db618569",
+    "src/hpop/mcmc_original/matched_condition_b.py": "91a74fee6c967e96d4678498bf482c169c0bfbb8b1fa243d4ced3e6908f53f87",
+    "src/hpop/mcmc_original/recurrent_joint_scalar_mcmc.py": "de709ebdba8d32b4f2a686b7d94e6353fa9df432c443c29c1961def5497b744a",
+    "src/hpop/mcmc_original/recurrent_scalar_posterior.py": "0de9230cd84f94d5f37b516331f0d7137165b29d3a56dbceb85031d8cf630504",
+    "src/hpop/mcmc_original/sampler_u.py": "7324f3c853c32ed048eeffbbf97e68ad7efa0f68ee72919068b958394f595999",
+    "src/hpop/mcmc_original/stage6b_mcmc_diagnostics.py": "2eb8de60118eee3316e0ab5493de88c235976e20b1be84de93078191a999f38b"
+  },
+  "parent_commit": "b199374baaf3f795ce5ee6dca16b7478bd07a3b9",
+  "reused_validated_components": [
+    "sampler_u.propose_row / log_u_prior / sigma_rho_matrix",
+    "latent_poset.precedence_from_u",
+    "recurrent_joint_scalar_mcmc.vectorized_state_features",
+    "recurrent_scalar_posterior.cached_batch_log_likelihood",
+    "stage6b_mcmc_diagnostics rank-normalized split R-hat / ESS"
+  ]
+}

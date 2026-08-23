@@ -1,0 +1,32 @@
+{
+  "purpose": "the ONE final dispersed-start mixed-reference validation prescribed by the user's frozen decision framework after ESTIMATOR ARTIFACT was supported by the dependence-aware calibration (collapsed_u_dependence_calibration/)",
+  "authorized_by": "user's framework message 2026-08-16: 'artifact supported -> one final balanced formal validation ... 只有这次 final validation PASS,才进入 matched synthetic'",
+  "run": {
+    "chains": 4, "starts": "the four registered DISPERSED starts (6E1B dispersed_starts[0..3]), unchanged",
+    "kernel": "partially-collapsed, UNCHANGED (collapsed_u_kernel.py sha 430048ef...)",
+    "cadence": 10, "scales": "REGISTERED_SCALES unchanged",
+    "sweeps": 600000, "burn_in": 120000, "thin": 10,
+    "seeds": [8157001, 8157002, 8157003, 8157004],
+    "seeds_never_used": true
+  },
+  "gates_preregistered": {
+    "seventeen_frozen_gates": "all 7 distributional + 11 R-hat gates of the Stage 6E1B compare, verbatim, thresholds unchanged — ALL must pass",
+    "old_unbalanced_mixed_gate": "computed and reported as HISTORICAL/DESCRIPTIVE only (its first-4000-row window and iid envelope are the documented artifact); it does not decide",
+    "primary_multivariate_gate_prospective": {
+      "extraction": "1000 equally spaced retained draws per chain (stride 48, offset 0) over the FULL retained window, concatenated 4x1000=4000, equal chain contribution",
+      "coordinates": "[closures, TOTAL segment count, scalars] — identical to the dependence-calibration study",
+      "statistic": "all-pairs energy vs reference (A[:n_x*2:2], n_x=n_y=4000)",
+      "null_centre": "the identical balanced extraction applied to the four validated 7B1 chains (one value, with its own bootstrap SE)",
+      "dependence": "within-chain circular moving-block bootstrap, 150 replicates; block length L = ceil(max IACT of the contribution series over the four chain segments), sensitivity {max(2,L//2), L, 2L}",
+      "decision": "z_bal = (T_obs - T_7b1) / sqrt(SE_obs^2 + SE_7b1^2) <= 2.33 at ALL three lengths"
+    },
+    "supporting_per_chain_check": "full-window per-chain dependence-aware z (mu0 = mean full-window T of the four 7B1 chains, same machinery as the calibration study): at most 1 of 4 chains > 2.33 at all lengths; 2+ chains over => INCONCLUSIVE, not FAIL"
+  },
+  "verdict_rules": {
+    "PASS -> COLLAPSED-U KERNEL VALIDATED": "all 17 frozen gates pass AND primary balanced gate <= 2.33 at all lengths AND supporting check <= 1/4 over",
+    "FAIL -> NOT VALIDATED": "any frozen gate fails OR primary balanced gate > 2.33 at all lengths",
+    "INCONCLUSIVE": "primary unstable across lengths, or supporting check has 2+ chains over — stop and review",
+    "after_pass": "matched synthetic A/B/C/D unblocked (not launched in this task)"
+  },
+  "bootstrap_seed": 8157900
+}

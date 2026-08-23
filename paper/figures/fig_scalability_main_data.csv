@@ -1,0 +1,42 @@
+panel,series,config_id,label,phase,x_name,x,y_name,y,y_ci_lo,y_ci_hi,n_reps,N,J,K,A,D_min,D_max,regime,note
+a,cond_plain,J/N16_J24_K10_A20_D12_full_s20260822,J_24,quiet,J,24.0,wall_median_s,0.0127015,0.012570333,0.012768583,15,16,24,10,20,3,12,full,
+a,cond_plain,J/N16_J48_K10_A20_D12_full_s20260822,J_48,quiet,J,48.0,wall_median_s,0.021412209,0.021312875,0.021460148,15,16,48,10,20,3,12,full,
+a,cond_plain,J/N16_J96_K10_A20_D12_full_s20260822,J_96,quiet,J,96.0,wall_median_s,0.038225583,0.038035542,0.038338458,15,16,96,10,20,3,12,full,
+a,cond_plain,J/N16_J192_K10_A20_D12_full_s20260822,J_192,quiet,J,192.0,wall_median_s,0.069187875,0.068798208,0.069677667,15,16,192,10,20,3,12,full,
+a,cond_plain,J/N16_J384_K10_A20_D12_full_s20260822,J_384,quiet,J,384.0,wall_median_s,0.141699833,0.141351958,0.142300964,15,16,384,10,20,3,12,full,
+a,cond_plain,J/N16_J768_K10_A20_D12_full_s20260822,J_768,quiet,J,768.0,wall_median_s,0.351142917,0.349048208,0.352613083,5,16,768,10,20,3,12,full,
+a,cond_plain,J/N16_J1024_K10_A20_D12_full_s20260822,J_1024,quiet,J,1024.0,wall_median_s,0.534547646,0.530324166,0.572143125,18,16,1024,10,20,3,12,full,
+b,cond_plain,K/N32_J128_K3_A20_D12_full_s20260822,K_3,quiet,K,3.0,wall_median_s,0.038308083,0.037972208,0.038878417,15,32,128,3,20,3,12,full,
+b,cond_plain,K/N32_J128_K5_A20_D12_full_s20260822,K_5,quiet,K,5.0,wall_median_s,0.050967583,0.050503708,0.051131727,15,32,128,5,20,3,12,full,
+b,cond_plain,K/N32_J128_K10_A20_D12_full_s20260822,K_10,quiet,K,10.0,wall_median_s,0.082190916,0.080903041,0.082303333,15,32,128,10,20,3,12,full,
+b,cond_plain,K/N32_J128_K20_A20_D12_full_s20260822,K_20,quiet,K,20.0,wall_median_s,0.141902125,0.140708208,0.1430035,15,32,128,20,20,3,12,full,
+b,cond_plain,K/N32_J128_K40_A20_D12_full_s20260822,K_40,quiet,K,40.0,wall_median_s,0.255303958,0.253718459,0.256996209,5,32,128,40,20,3,12,full,
+b,cond_plain,K/N32_J128_K80_A20_D12_full_s20260822,K_80,quiet,K,80.0,wall_median_s,0.518258,0.514900042,0.519052375,5,32,128,80,20,3,12,full,
+c,peak_rss_gib,J/N16_J24_K10_A20_D12_full_s20260822,J_24,quiet,J,24,gib,0.11809539794921875,,,,16,24,10,20,3,12,full,measured ru_maxrss
+c,dense_score_table_gib,J/N16_J24_K10_A20_D12_full_s20260822,J_24,quiet,J,24,gib,0.0007152557373046875,,,,16,24,10,20,3,12,full,computed from exact array shapes
+c,projected_banded_gib,J/N16_J24_K10_A20_D12_full_s20260822,J_24,quiet,J,24,gib,0.00026226043701171875,,,,16,24,10,20,3,12,full,NOT IMPLEMENTED; arithmetic counterfactual only
+c,peak_rss_gib,J/N16_J48_K10_A20_D12_full_s20260822,J_48,quiet,J,48,gib,0.15443801879882812,,,,16,48,10,20,3,12,full,measured ru_maxrss
+c,dense_score_table_gib,J/N16_J48_K10_A20_D12_full_s20260822,J_48,quiet,J,48,gib,0.002803802490234375,,,,16,48,10,20,3,12,full,computed from exact array shapes
+c,projected_banded_gib,J/N16_J48_K10_A20_D12_full_s20260822,J_48,quiet,J,48,gib,0.0005483627319335938,,,,16,48,10,20,3,12,full,NOT IMPLEMENTED; arithmetic counterfactual only
+c,peak_rss_gib,J/N16_J96_K10_A20_D12_full_s20260822,J_96,quiet,J,96,gib,0.23169326782226562,,,,16,96,10,20,3,12,full,measured ru_maxrss
+c,dense_score_table_gib,J/N16_J96_K10_A20_D12_full_s20260822,J_96,quiet,J,96,gib,0.01110076904296875,,,,16,96,10,20,3,12,full,computed from exact array shapes
+c,projected_banded_gib,J/N16_J96_K10_A20_D12_full_s20260822,J_96,quiet,J,96,gib,0.0011205673217773438,,,,16,96,10,20,3,12,full,NOT IMPLEMENTED; arithmetic counterfactual only
+c,peak_rss_gib,J/N16_J192_K10_A20_D12_full_s20260822,J_192,quiet,J,192,gib,0.5417022705078125,,,,16,192,10,20,3,12,full,measured ru_maxrss
+c,dense_score_table_gib,J/N16_J192_K10_A20_D12_full_s20260822,J_192,quiet,J,192,gib,0.0441741943359375,,,,16,192,10,20,3,12,full,computed from exact array shapes
+c,projected_banded_gib,J/N16_J192_K10_A20_D12_full_s20260822,J_192,quiet,J,192,gib,0.0022649765014648438,,,,16,192,10,20,3,12,full,NOT IMPLEMENTED; arithmetic counterfactual only
+c,peak_rss_gib,J/N16_J384_K10_A20_D12_full_s20260822,J_384,quiet,J,384,gib,1.36761474609375,,,,16,384,10,20,3,12,full,measured ru_maxrss
+c,dense_score_table_gib,J/N16_J384_K10_A20_D12_full_s20260822,J_384,quiet,J,384,gib,0.176239013671875,,,,16,384,10,20,3,12,full,computed from exact array shapes
+c,projected_banded_gib,J/N16_J384_K10_A20_D12_full_s20260822,J_384,quiet,J,384,gib,0.004553794860839844,,,,16,384,10,20,3,12,full,NOT IMPLEMENTED; arithmetic counterfactual only
+c,peak_rss_gib,J/N16_J768_K10_A20_D12_full_s20260822,J_768,quiet,J,768,gib,4.074226379394531,,,,16,768,10,20,3,12,full,measured ru_maxrss
+c,dense_score_table_gib,J/N16_J768_K10_A20_D12_full_s20260822,J_768,quiet,J,768,gib,0.70404052734375,,,,16,768,10,20,3,12,full,computed from exact array shapes
+c,projected_banded_gib,J/N16_J768_K10_A20_D12_full_s20260822,J_768,quiet,J,768,gib,0.009131431579589844,,,,16,768,10,20,3,12,full,NOT IMPLEMENTED; arithmetic counterfactual only
+c,peak_rss_gib,J/N16_J1024_K10_A20_D12_full_s20260822,J_1024,quiet,J,1024,gib,4.4306182861328125,,,,16,1024,10,20,3,12,full,measured ru_maxrss
+c,dense_score_table_gib,J/N16_J1024_K10_A20_D12_full_s20260822,J_1024,quiet,J,1024,gib,1.251220703125,,,,16,1024,10,20,3,12,full,computed from exact array shapes
+c,projected_banded_gib,J/N16_J1024_K10_A20_D12_full_s20260822,J_1024,quiet,J,1024,gib,0.012183189392089844,,,,16,1024,10,20,3,12,full,NOT IMPLEMENTED; arithmetic counterfactual only
+c,refused_predicted_gib,target_long/target_long_J500,target_long_J500,quiet,J,500,gib,7.791771292686462,,,,100,500,20,50,3,12,sparse,"PREDICTED, never allocated; refused by the 6 GiB preflight"
+d,cond_plain,target/N100_J200_K20_A50_D12_sparse_s20260822,target_operating_point,quiet,operation,FULL-COND plain,wall_median_s,0.654177146,0.65365343,0.654835625,200,100,200,20,50,3,12,sparse,
+d,marg_plain,target/N100_J200_K20_A50_D12_sparse_s20260822,target_operating_point,quiet,operation,FULL-MARG plain,wall_median_s,0.646241729,0.645823396,0.646821604,200,100,200,20,50,3,12,sparse,
+d,cond_structural,target/N100_J200_K20_A50_D12_sparse_s20260822,target_operating_point,quiet,operation,FULL-COND structural,wall_median_s,32.77101575,32.640184584,32.912813875,5,100,200,20,50,3,12,sparse,
+d,marg_structural,target/N100_J200_K20_A50_D12_sparse_s20260822,target_operating_point,quiet,operation,FULL-MARG structural,wall_median_s,34.534218792,34.391145959,34.567121542,5,100,200,20,50,3,12,sparse,
+d,emission_build,target/N100_J200_K20_A50_D12_sparse_s20260822,target_operating_point,quiet,operation,table rebuild,wall_median_s,33.844944917,33.723294708,33.980254458,5,100,200,20,50,3,12,sparse,
+d,emission_cache_hit,target/N100_J200_K20_A50_D12_sparse_s20260822,target_operating_point,quiet,operation,H-cache hit,wall_median_s,0.001355084,0.001343083,0.001364959,15,100,200,20,50,3,12,sparse,

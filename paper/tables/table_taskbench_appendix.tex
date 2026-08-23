@@ -1,0 +1,207 @@
+% ---------------------------------------------------------------------------
+% paper/tables/table_taskbench_appendix.tex
+% COMPLETE appendix version: all seven frozen metrics, all five methods,
+% all three conditions, with 95% bootstrap intervals.
+% Requires: booktabs, pdflscape (for the landscape wrapper).
+% Draft fragment. NOT included in the main paper.
+%
+% Sources: results/external/taskbench_static_poset/main_table.json,
+%          .../test/paired_bootstrap.json, .../test/condition_curves.json
+%          (commit 10d4bf4).
+% Rounding: three decimals. Unrounded: paper/evidence/result_ledger.csv.
+% Bolding policy identical to Table~\ref{tab:taskbench-main}.
+% ---------------------------------------------------------------------------
+
+\begin{landscape}
+\begin{table}[p]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\caption{%
+Complete TaskBench test results, graph-level means with $95\%$ bootstrap
+intervals. $n = 37$ test graphs at \textsc{one} and \textsc{two}, $n = 26$ at
+\textsc{four}. Static partial-order component only; linearizations are
+enumerated from gold graphs, not observed agent trajectories.
+\textbf{Bold} marks the best fitted method only where the frozen paired
+bootstrap interval against the runner-up excludes zero. The gold-graph oracle
+is a reference bound, not a fitted model.%
+}
+\label{tab:taskbench-appendix}
+\begin{tabular}{@{}ll ccccccc@{}}
+\toprule
+Cond. & Method
+& Closure $F_1$ $\uparrow$ & Incomp.\ $F_1$ $\uparrow$ & Brier $\downarrow$
+& Legal NLL/node $\downarrow$ & Illegal NLL/node
+& AUROC $\uparrow$ & Pairwise acc.\ $\uparrow$ \\
+\midrule
+\multirow{5}{*}{\textsc{one}}
+ & First total order
+   & $0.653$ \tiny[0.610,\,0.696]
+   & $0.000$ \tiny[0.000,\,0.000]
+   & $0.250$ \tiny[0.226,\,0.274]
+   & $1.670$ \tiny[1.535,\,1.802]
+   & $2.514$ \tiny[2.386,\,2.635]
+   & $0.835$ \tiny[0.793,\,0.874]
+   & $0.797$ \tiny[0.749,\,0.841] \\
+ & Antichain
+   & $0.000$ \tiny[0.000,\,0.000]
+   & $\mathbf{0.653}$ \tiny[0.607,\,0.697]
+   & $0.250$ \tiny[0.226,\,0.274]
+   & $0.886$ \tiny[0.848,\,0.928]
+   & $0.886$ \tiny[0.849,\,0.927]
+   & $0.500$ \tiny[0.500,\,0.500]
+   & $0.000$ \tiny[0.000,\,0.000] \\
+ & Intersection
+   & $\mathbf{0.653}$ \tiny[0.610,\,0.695]
+   & $0.000$ \tiny[0.000,\,0.000]
+   & $0.250$ \tiny[0.226,\,0.274]
+   & $1.670$ \tiny[1.539,\,1.806]
+   & $2.514$ \tiny[2.387,\,2.639]
+   & $0.835$ \tiny[0.792,\,0.874]
+   & $0.797$ \tiny[0.749,\,0.841] \\
+ & Bayesian
+   & $0.477$ \tiny[0.396,\,0.554]
+   & $0.533$ \tiny[0.473,\,0.593]
+   & $\mathbf{0.129}$ \tiny[0.122,\,0.135]
+   & $\mathbf{0.738}$ \tiny[0.712,\,0.764]
+   & $1.043$ \tiny[1.008,\,1.076]
+   & $0.843$ \tiny[0.808,\,0.877]
+   & $0.843$ \tiny[0.807,\,0.877] \\
+ & \textit{Gold oracle}
+   & \textit{1.000} & \textit{1.000} & \textit{0.000}
+   & \textit{0.423} \tiny[0.398,\,0.448]
+   & \textit{1.946} \tiny[1.858,\,2.027]
+   & \textit{1.000} & \textit{1.000} \\
+\midrule
+\multirow{5}{*}{\textsc{two}}
+ & First total order
+   & $0.653$ \tiny[0.610,\,0.695]
+   & $0.000$ \tiny[0.000,\,0.000]
+   & $0.250$ \tiny[0.226,\,0.274]
+   & $1.628$ \tiny[1.514,\,1.740]
+   & $2.585$ \tiny[2.448,\,2.717]
+   & $0.855$ \tiny[0.811,\,0.895]
+   & $0.818$ \tiny[0.769,\,0.864] \\
+ & Antichain
+   & $0.000$ \tiny[0.000,\,0.000]
+   & $0.653$ \tiny[0.608,\,0.698]
+   & $0.250$ \tiny[0.225,\,0.274]
+   & $0.886$ \tiny[0.849,\,0.927]
+   & $0.886$ \tiny[0.849,\,0.928]
+   & $0.500$ \tiny[0.500,\,0.500]
+   & $0.000$ \tiny[0.000,\,0.000] \\
+ & Intersection
+   & $\mathbf{0.818}$ \tiny[0.769,\,0.865]
+   & $0.680$ \tiny[0.607,\,0.754]
+   & $0.110$ \tiny[0.083,\,0.138]
+   & $1.020$ \tiny[0.876,\,1.169]
+   & $2.234$ \tiny[2.085,\,2.374]
+   & $0.910$ \tiny[0.865,\,0.949]
+   & $0.885$ \tiny[0.833,\,0.930] \\
+ & Bayesian
+   & $0.706$ \tiny[0.641,\,0.762]
+   & $0.637$ \tiny[0.577,\,0.697]
+   & $\mathbf{0.086}$ \tiny[0.075,\,0.095]
+   & $\mathbf{0.685}$ \tiny[0.654,\,0.716]
+   & $1.130$ \tiny[1.077,\,1.181]
+   & $0.874$ \tiny[0.833,\,0.913]
+   & $0.874$ \tiny[0.832,\,0.912] \\
+ & \textit{Gold oracle}
+   & \textit{1.000} & \textit{1.000} & \textit{0.000}
+   & \textit{0.418} \tiny[0.391,\,0.444]
+   & \textit{2.064} \tiny[1.959,\,2.166]
+   & \textit{1.000} & \textit{1.000} \\
+\midrule
+\multirow{5}{*}{\textsc{four}}
+ & First total order
+   & $0.602$ \tiny[0.557,\,0.648]
+   & $0.000$ \tiny[0.000,\,0.000]
+   & $0.279$ \tiny[0.254,\,0.303]
+   & $1.953$ \tiny[1.761,\,2.184]
+   & $2.782$ \tiny[2.604,\,2.963]
+   & $0.792$ \tiny[0.709,\,0.868]
+   & $0.727$ \tiny[0.608,\,0.832] \\
+ & Antichain
+   & $0.000$ \tiny[0.000,\,0.000]
+   & $0.708$ \tiny[0.663,\,0.749]
+   & $0.221$ \tiny[0.197,\,0.246]
+   & $0.876$ \tiny[0.829,\,0.930]
+   & $0.876$ \tiny[0.829,\,0.929]
+   & $0.500$ \tiny[0.500,\,0.500]
+   & $0.000$ \tiny[0.000,\,0.000] \\
+ & Intersection
+   & $0.906$ \tiny[0.868,\,0.944]
+   & $0.899$ \tiny[0.848,\,0.942]
+   & $0.045$ \tiny[0.027,\,0.064]
+   & $0.769$ \tiny[0.647,\,0.900]
+   & $2.233$ \tiny[2.105,\,2.360]
+   & $0.986$ \tiny[0.967,\,0.999]
+   & $0.985$ \tiny[0.968,\,0.999] \\
+ & Bayesian
+   & $0.902$ \tiny[0.864,\,0.941]
+   & $0.892$ \tiny[0.839,\,0.940]
+   & $0.041$ \tiny[0.029,\,0.054]
+   & $\mathbf{0.642}$ \tiny[0.590,\,0.696]
+   & $1.363$ \tiny[1.273,\,1.446]
+   & $0.975$ \tiny[0.949,\,0.997]
+   & $0.975$ \tiny[0.949,\,0.997] \\
+ & \textit{Gold oracle}
+   & \textit{1.000} & \textit{1.000} & \textit{0.000}
+   & \textit{0.476} \tiny[0.452,\,0.500]
+   & \textit{2.112} \tiny[2.000,\,2.222]
+   & \textit{1.000} & \textit{1.000} \\
+\bottomrule
+\end{tabular}
+
+\vspace{3pt}
+\begin{minipage}{0.98\linewidth}
+\footnotesize
+\textbf{Paired Bayesian-versus-intersection differences (test split).}
+Closure $F_1$: $-0.175$ \tiny[$-0.246$,\,$-0.104$]\normalsize\ at \textsc{one},
+$-0.112$ \tiny[$-0.182$,\,$-0.055$]\normalsize\ at \textsc{two},
+$-0.004$ \tiny[$-0.010$,\,$0.000$]\normalsize\ at \textsc{four}
+($24/26$ graphs exactly tied).
+Incomparable $F_1$: $+0.533$ \tiny[$0.472$,\,$0.593$]\normalsize\ at
+\textsc{one} ($37/37$ wins), $-0.044$
+\tiny[$-0.087$,\,$0.002$]\normalsize\ at \textsc{two},
+$-0.006$ \tiny[$-0.016$,\,$0.000$]\normalsize\ at \textsc{four}.
+Brier: $-0.122$ \tiny[$-0.144$,\,$-0.098$]\normalsize\ ($36/37$),
+$-0.024$ \tiny[$-0.044$,\,$-0.005$]\normalsize,
+$-0.004$ \tiny[$-0.011$,\,$0.003$]\normalsize.
+Legal NLL/node: $-0.933$ \tiny[$-1.056$,\,$-0.810$]\normalsize\ ($37/37$),
+$-0.335$ \tiny[$-0.458$,\,$-0.218$]\normalsize\ ($29/37$),
+$-0.126$ \tiny[$-0.208$,\,$-0.050$]\normalsize.
+AUROC: $+0.008$ \tiny[$-0.039$,\,$0.055$]\normalsize,
+$-0.036$ \tiny[$-0.079$,\,$0.005$]\normalsize,
+$-0.010$ \tiny[$-0.032$,\,$0.002$]\normalsize\ --- \emph{every AUROC interval
+covers zero}.
+
+\textbf{Paired \textsc{one}$\rightarrow$\textsc{two}$\rightarrow$\textsc{four}
+curve, Bayesian model, $26$ graphs present in all three conditions.}
+Closure $F_1$ $0.452 \to 0.677 \to 0.902$
+(\textsc{four}$-$\textsc{one} $+0.450$ \tiny[$0.356$,\,$0.552$]\normalsize);
+incomparable $F_1$ $0.566 \to 0.647 \to 0.892$
+($+0.327$ \tiny[$0.256$,\,$0.400$]\normalsize);
+Brier $0.130 \to 0.088 \to 0.041$
+($-0.088$ \tiny[$-0.101$,\,$-0.075$]\normalsize);
+legal NLL/node $0.758 \to 0.704 \to 0.642$
+($-0.116$ \tiny[$-0.165$,\,$-0.063$]\normalsize);
+AUROC $0.836 \to 0.907 \to 0.975$
+($+0.140$ \tiny[$0.092$,\,$0.188$]\normalsize).
+All \textsc{four}$-$\textsc{one} intervals exclude zero.
+
+\textbf{Illegal NLL/node is a diagnostic, not a score to maximise.} The
+intersection assigns illegal orderings lower probability than the Bayesian model
+because its hard structure is more restrictive; discrimination nevertheless ties
+because the Bayesian model scores unseen \emph{legal} orderings correspondingly
+higher. The antichain assigns legal and illegal orderings identical probability
+by construction, which is why its AUROC is exactly $0.500$.
+
+\textbf{Errata against the frozen run report.}
+\texttt{report.md} prints $0.818$ for the \textsc{two}/first-total-order AUROC
+cell; \texttt{main\_table.json} records AUROC $0.855$ and pairwise accuracy
+$0.818$ for that cell. The JSON is authoritative and is used above. See
+\texttt{paper/evidence/extraction\_report.md}, discrepancy D4.
+\end{minipage}
+\end{table}
+\end{landscape}

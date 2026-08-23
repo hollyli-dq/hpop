@@ -1,0 +1,114 @@
+{
+  "cond0": {
+    "cumulative": {
+      "collapsed_accepted": 0,
+      "collapsed_accepted_cross_H": 0,
+      "collapsed_proposed": 0,
+      "ffbs_boundary_hamming": 20811185,
+      "ffbs_label_changes": 32299714,
+      "ffbs_states_changed": 3849471,
+      "u_accepted": 177508,
+      "u_accepted_H_changes": 24,
+      "u_proposed": 600000
+    },
+    "iteration": 40000
+  },
+  "cond1": {
+    "cumulative": {
+      "collapsed_accepted": 0,
+      "collapsed_accepted_cross_H": 0,
+      "collapsed_proposed": 0,
+      "ffbs_boundary_hamming": 18534427,
+      "ffbs_label_changes": 31784151,
+      "ffbs_states_changed": 3766988,
+      "u_accepted": 183644,
+      "u_accepted_H_changes": 17,
+      "u_proposed": 600000
+    },
+    "iteration": 40000
+  },
+  "cond2": {
+    "cumulative": {
+      "collapsed_accepted": 0,
+      "collapsed_accepted_cross_H": 0,
+      "collapsed_proposed": 0,
+      "ffbs_boundary_hamming": 14583781,
+      "ffbs_label_changes": 20817890,
+      "ffbs_states_changed": 3522333,
+      "u_accepted": 185375,
+      "u_accepted_H_changes": 22,
+      "u_proposed": 600000
+    },
+    "iteration": 40000
+  },
+  "cond3": {
+    "cumulative": {
+      "collapsed_accepted": 0,
+      "collapsed_accepted_cross_H": 0,
+      "collapsed_proposed": 0,
+      "ffbs_boundary_hamming": 18267096,
+      "ffbs_label_changes": 34170228,
+      "ffbs_states_changed": 3798338,
+      "u_accepted": 179212,
+      "u_accepted_H_changes": 20,
+      "u_proposed": 600000
+    },
+    "iteration": 40000
+  },
+  "marg0": {
+    "cumulative": {
+      "collapsed_accepted": 491,
+      "collapsed_accepted_cross_H": 7,
+      "collapsed_proposed": 3800,
+      "ffbs_boundary_hamming": 13604295,
+      "ffbs_label_changes": 21999357,
+      "ffbs_states_changed": 3308565,
+      "u_accepted": 173915,
+      "u_accepted_H_changes": 17,
+      "u_proposed": 570000
+    },
+    "iteration": 38000
+  },
+  "marg1": {
+    "cumulative": {
+      "collapsed_accepted": 509,
+      "collapsed_accepted_cross_H": 6,
+      "collapsed_proposed": 3800,
+      "ffbs_boundary_hamming": 13311876,
+      "ffbs_label_changes": 21213106,
+      "ffbs_states_changed": 3297152,
+      "u_accepted": 174852,
+      "u_accepted_H_changes": 16,
+      "u_proposed": 570000
+    },
+    "iteration": 38000
+  },
+  "marg2": {
+    "cumulative": {
+      "collapsed_accepted": 494,
+      "collapsed_accepted_cross_H": 5,
+      "collapsed_proposed": 3800,
+      "ffbs_boundary_hamming": 13912176,
+      "ffbs_label_changes": 19904403,
+      "ffbs_states_changed": 3348565,
+      "u_accepted": 175881,
+      "u_accepted_H_changes": 18,
+      "u_proposed": 570000
+    },
+    "iteration": 38000
+  },
+  "marg3": {
+    "cumulative": {
+      "collapsed_accepted": 540,
+      "collapsed_accepted_cross_H": 14,
+      "collapsed_proposed": 3800,
+      "ffbs_boundary_hamming": 13376693,
+      "ffbs_label_changes": 21372557,
+      "ffbs_states_changed": 3301351,
+      "u_accepted": 177057,
+      "u_accepted_H_changes": 21,
+      "u_proposed": 570000
+    },
+    "iteration": 38000
+  }
+}

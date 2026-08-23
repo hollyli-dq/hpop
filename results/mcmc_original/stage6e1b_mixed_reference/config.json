@@ -1,0 +1,228 @@
+{
+  "stage": "6E1B",
+  "source_commit": "1f5e8a093124dbded1a75013297498ad34094a49",
+  "stage6e_config_hash": "d98897a181b6809a17dd572ca175da7846a6924b8429b9c7337a939686a6da44",
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "problem": {
+    "J": 8,
+    "n_traces": 2,
+    "n_skills": 3,
+    "m_roles": 3,
+    "d_latent": 2,
+    "epsilon": 0.02,
+    "delta_B": 0.15,
+    "min_width": 3,
+    "max_width": 12,
+    "corpus_seed": 6052000,
+    "pi_fixed": [
+      0.6,
+      0.3,
+      0.1
+    ],
+    "P_fixed": [
+      [
+        0.0,
+        0.7,
+        0.3
+      ],
+      [
+        0.25,
+        0.0,
+        0.75
+      ],
+      [
+        0.8,
+        0.2,
+        0.0
+      ]
+    ],
+    "traces": [
+      [
+        2,
+        0,
+        2,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0
+      ]
+    ],
+    "generating_segmentations": [
+      [
+        [
+          4,
+          1
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      [
+        [
+          4,
+          2
+        ],
+        [
+          8,
+          0
+        ]
+      ]
+    ],
+    "generating_note": "recorded only; enters no comparison",
+    "U_generating": [
+      [
+        [
+          2.0,
+          2.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      [
+        [
+          0.0,
+          3.0
+        ],
+        [
+          1.0,
+          2.0
+        ],
+        [
+          2.0,
+          1.0
+        ]
+      ],
+      [
+        [
+          3.0,
+          3.0
+        ],
+        [
+          2.0,
+          2.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ]
+    ],
+    "truth_scalars": {
+      "beta": 1.5,
+      "omega": 1.7346,
+      "lambda_rep": 0.8,
+      "lambda_back": 0.25
+    },
+    "n_enumerated_states_per_trace": 21,
+    "qmc_dimension": 23,
+    "qmc_coordinates": [
+      "rho",
+      "z_U[0,0,0]",
+      "z_U[0,0,1]",
+      "z_U[0,1,0]",
+      "z_U[0,1,1]",
+      "z_U[0,2,0]",
+      "z_U[0,2,1]",
+      "z_U[1,0,0]",
+      "z_U[1,0,1]",
+      "z_U[1,1,0]",
+      "z_U[1,1,1]",
+      "z_U[1,2,0]",
+      "z_U[1,2,1]",
+      "z_U[2,0,0]",
+      "z_U[2,0,1]",
+      "z_U[2,1,0]",
+      "z_U[2,1,1]",
+      "z_U[2,2,0]",
+      "z_U[2,2,1]",
+      "beta",
+      "omega",
+      "lambda_rep",
+      "lambda_back"
+    ]
+  },
+  "latent": [
+    "S",
+    "z",
+    "U",
+    "rho",
+    "beta",
+    "omega",
+    "lambda_rep",
+    "lambda_back"
+  ],
+  "fixed": [
+    "pi",
+    "P",
+    "delta_B",
+    "epsilon",
+    "K",
+    "m",
+    "d"
+  ],
+  "pi_P_fixed_why": "section 9 permits it; their conjugate update is defined given sampled labels, so adding them to the QMC construction would need a Dirichlet inverse CDF and K more nearly-unidentified dimensions for no gain in what this reference tests. They are INFERRED in Stage 6E2.",
+  "qmc": {
+    "sequence": "scrambled Sobol",
+    "n_replicates": 16,
+    "n_points_per_replicate": 1048576,
+    "seeds": [
+      6052100,
+      6052101,
+      6052102,
+      6052103,
+      6052104,
+      6052105,
+      6052106,
+      6052107,
+      6052108,
+      6052109,
+      6052110,
+      6052111,
+      6052112,
+      6052113,
+      6052114,
+      6052115
+    ],
+    "weight": "w = prod_n Z_n(theta), the exact marginal segmentation likelihood; the proposal IS the joint prior so no prior density remains in the weight"
+  },
+  "chains": {
+    "n_chains": 4,
+    "sweeps": 600000,
+    "burn_in": 120000,
+    "thin": 10,
+    "seeds": [
+      6052001,
+      6052002,
+      6052003,
+      6052004
+    ],
+    "proposals_per_trace_per_sweep": 8,
+    "scales": {
+      "U": 0.5,
+      "rho": 0.5,
+      "beta": 0.05109,
+      "omega": 0.18213,
+      "lambda_rep": 0.04155,
+      "lambda_back": 0.09472
+    }
+  }
+}

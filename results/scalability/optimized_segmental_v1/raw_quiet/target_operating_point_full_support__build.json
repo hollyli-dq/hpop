@@ -1,0 +1,309 @@
+{
+  "budget_limited_operations": [],
+  "censored": false,
+  "config": {
+    "A": 50,
+    "D_max": 12,
+    "D_min": 3,
+    "J": 200,
+    "K": 20,
+    "N": 100,
+    "axis": "target",
+    "groups": [
+      "build",
+      "primitives",
+      "cond",
+      "marg"
+    ],
+    "label": "target_operating_point_full_support",
+    "length_mix": [],
+    "max_reps": 50,
+    "min_reps": 5,
+    "note": "the same operating point under the full-support stress regime, reported beside the sparse primary and never averaged with it",
+    "op_reps": [],
+    "regime": "full",
+    "seed": 20260822,
+    "timeout_s": 1800,
+    "warmups": 10
+  },
+  "config_id": "target/N100_J200_K20_A50_D12_full_s20260822",
+  "counters": {
+    "emission_cache_hits": 6,
+    "emission_rebuilds": 15,
+    "forward_batched_groups": 0,
+    "forward_batched_traces": 0,
+    "forward_factorised_calls": 0,
+    "forward_inline_calls": 0,
+    "forward_reference_calls": 0
+  },
+  "extras": {
+    "emission_table_alloc_seconds": 1.0671503750054399
+  },
+  "flags": {
+    "batched_forward": true,
+    "emission_hash_cache": true,
+    "factorised_forward": true,
+    "inline_logsumexp": true
+  },
+  "forward_work": {
+    "forward_duration_reductions": 3850000,
+    "forward_states": 400000,
+    "forward_total_reductions": 11850000,
+    "forward_transition_reductions": 8000000
+  },
+  "geometry": {
+    "legal_blocks_per_trace_mean": 1935.0,
+    "legal_blocks_times_skills": 3870000,
+    "legal_blocks_total": 193500,
+    "n_legal_widths": 10,
+    "trace_occurrences": 20000
+  },
+  "group": "build",
+  "group_build_seconds": 54.16383241699805,
+  "invariants": {
+    "emission_cache_hits": 0,
+    "emission_rebuilds": 1,
+    "expected_finite_block_entries": 3870000,
+    "finite_block_entries": 3870000,
+    "flags": {
+      "batched_forward": true,
+      "emission_hash_cache": true,
+      "factorised_forward": true,
+      "inline_logsumexp": true
+    },
+    "legal_block_count_matches_geometry": true,
+    "no_nan_in_block_tables": true,
+    "table_source": "batched"
+  },
+  "loadavg_after": [
+    1.5048828125,
+    1.482421875,
+    1.48291015625
+  ],
+  "loadavg_before": [
+    1.72705078125,
+    1.57958984375,
+    1.5224609375
+  ],
+  "operations": {
+    "emission_build": {
+      "cpu": {
+        "ci_hi": 53.425869000000034,
+        "ci_lo": 53.12230599999998,
+        "ci_relative_half_width": 0.0028498323313273254,
+        "iqr": 0.14811599999995906,
+        "max": 53.425869000000034,
+        "mean": 53.26923019999997,
+        "median": 53.25979999999993,
+        "min": 53.12230599999998,
+        "n": 5,
+        "p90": 53.39277979999999,
+        "q25": 53.195029999999974,
+        "q75": 53.34314599999993
+      },
+      "cpu_raw": [
+        53.34314599999993,
+        53.195029999999974,
+        53.12230599999998,
+        53.425869000000034,
+        53.25979999999993
+      ],
+      "wall": {
+        "ci_hi": 53.43105416600156,
+        "ci_lo": 53.12826287500502,
+        "ci_relative_half_width": 0.00284230990058769,
+        "iqr": 0.14923083299800055,
+        "max": 53.43105416600156,
+        "mean": 53.27482149980206,
+        "median": 53.265003041000455,
+        "min": 53.12826287500502,
+        "n": 5,
+        "p90": 53.39843614960118,
+        "q25": 53.20027829200262,
+        "q75": 53.34950912500062
+      },
+      "wall_raw": [
+        53.34950912500062,
+        53.20027829200262,
+        53.12826287500502,
+        53.43105416600156,
+        53.265003041000455
+      ]
+    },
+    "emission_cache_hit": {
+      "cpu": {
+        "ci_hi": 0.001556000000050517,
+        "ci_lo": 0.0014300000000275759,
+        "ci_relative_half_width": 0.042886317229159386,
+        "iqr": 2.6000000048043148e-05,
+        "max": 0.001556000000050517,
+        "mean": 0.0014754000000266388,
+        "median": 0.0014690000000427972,
+        "min": 0.0014300000000275759,
+        "n": 5,
+        "p90": 0.0015232000000423795,
+        "q25": 0.0014479999999821302,
+        "q75": 0.0014740000000301734
+      },
+      "cpu_raw": [
+        0.001556000000050517,
+        0.0014479999999821302,
+        0.0014740000000301734,
+        0.0014690000000427972,
+        0.0014300000000275759
+      ],
+      "wall": {
+        "ci_hi": 0.001556000002892688,
+        "ci_lo": 0.0014322089991765097,
+        "ci_relative_half_width": 0.042144028574452284,
+        "iqr": 2.629099617479369e-05,
+        "max": 0.001556000002892688,
+        "mean": 0.0014763667990337127,
+        "median": 0.0014686659997096285,
+        "min": 0.0014322089991765097,
+        "n": 5,
+        "p90": 0.0015238499996485188,
+        "q25": 0.0014493339986074716,
+        "q75": 0.0014756249947822653
+      },
+      "wall_raw": [
+        0.001556000002892688,
+        0.0014493339986074716,
+        0.0014756249947822653,
+        0.0014686659997096285,
+        0.0014322089991765097
+      ]
+    }
+  },
+  "peak_rss_at_process_start_bytes": 110174208,
+  "peak_rss_bytes": 1596416000,
+  "predicted_memory": {
+    "alpha_chart_bytes": 3216000,
+    "batched_alpha_r_bytes": 6432000,
+    "batched_stack_bytes_worst_class": 643200000,
+    "dense_block_table_bytes": 643200000,
+    "dense_block_table_bytes_all_copies": 643200000,
+    "dense_copies_live_in_this_group": 1,
+    "fast_cumulative_bytes": 38016000,
+    "group": "build",
+    "predicted_arrays_total_bytes": 1334064000,
+    "predicted_process_rss_bytes": 1564750720,
+    "projected_banded_bytes_NOT_IMPLEMENTED": 31680000,
+    "projected_banded_saving_ratio_NOT_IMPLEMENTED": 20.303030303030305
+  },
+  "preflight": {
+    "allowed": true,
+    "available_bytes": 8543551488,
+    "cap_bytes": 6442450944,
+    "predicted_rss_bytes": 1564750720,
+    "reasons": []
+  },
+  "process_cpu_seconds_total": 800.80972,
+  "reduced_repetitions": true,
+  "repetition_plan": {
+    "emission_build": {
+      "max_reps": 50,
+      "min_reps": 5,
+      "warmups": 10
+    },
+    "emission_cache_hit": {
+      "max_reps": 50,
+      "min_reps": 5,
+      "warmups": 10
+    }
+  },
+  "reps_completed": 5,
+  "reps_completed_per_operation": {
+    "emission_build": 5,
+    "emission_cache_hit": 5
+  },
+  "role_graph": {
+    "max_predecessors_per_role": 48,
+    "mean_predecessors_per_role": 12.608,
+    "mean_relation_density": 0.2573061224489796,
+    "n_roles": 50,
+    "n_skills": 20,
+    "relation_density_per_skill": [
+      0.24285714285714285,
+      0.22163265306122448,
+      0.26653061224489794,
+      0.28122448979591835,
+      0.2126530612244898,
+      0.2808163265306122,
+      0.2693877551020408,
+      0.27714285714285714,
+      0.2873469387755102,
+      0.2587755102040816,
+      0.253469387755102,
+      0.25142857142857145,
+      0.26040816326530614,
+      0.2755102040816326,
+      0.19306122448979593,
+      0.25673469387755105,
+      0.28122448979591835,
+      0.26571428571428574,
+      0.2706122448979592,
+      0.23959183673469386
+    ],
+    "relations_per_skill": [
+      595,
+      543,
+      653,
+      689,
+      521,
+      688,
+      660,
+      679,
+      704,
+      634,
+      621,
+      616,
+      638,
+      675,
+      473,
+      629,
+      689,
+      651,
+      663,
+      587
+    ]
+  },
+  "setup_seconds": 0.006917708000401035,
+  "speed_probe_median_seconds": 0.0172274170035962,
+  "speed_probe_seconds": [
+    0.017189124999276828,
+    0.0172274170035962,
+    0.017301125000813045
+  ],
+  "status": "ok",
+  "swap": {
+    "available": true,
+    "available_bytes": 6530891776,
+    "raw": "total = 3072.00M  used = 1523.38M  free = 1548.62M  (encrypted)",
+    "swapins": 1784513.0,
+    "swapouts": 2238774.0,
+    "used_mb": 1523.38
+  },
+  "time_budget_share_seconds": {
+    "emission_build": 1241.166477144311,
+    "emission_cache_hit": 0.03393202965448762
+  },
+  "time_spent_per_operation_seconds": {
+    "emission_build": 266.3741074990103,
+    "emission_cache_hit": 0.007381833995168563
+  },
+  "wall_seconds_total": 800.4391577243805,
+  "warmup_mean_seconds": {
+    "emission_build": 53.18751433788889,
+    "emission_cache_hit": 0.001454083998396527
+  },
+  "warmups": 10,
+  "warmups_completed": {
+    "emission_build": 9,
+    "emission_cache_hit": 1
+  },
+  "warmups_truncated_by_budget": [
+    "emission_build",
+    "emission_cache_hit"
+  ]
+}

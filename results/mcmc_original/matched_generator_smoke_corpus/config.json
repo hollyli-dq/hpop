@@ -1,0 +1,52 @@
+{
+  "generator_version": "1.0.0",
+  "master_seed": 6100001,
+  "n_heldout_traces": 10,
+  "n_train_traces": 20,
+  "purpose": "smoke corpus: serialization, manifest validation, scorer parity, pipeline smoke tests. NOT the headline matched-synthetic corpus; no inference is run on it.",
+  "rng_scheme": "numpy SeedSequence(entropy=master_seed, spawn_key=(split_code, trace_index, component[, block_index])); components: 0=segmentation, 1=labels, 2+block streams",
+  "scorer_parity_max_abs_error": 1.4210854715202004e-14,
+  "segmentation_prior": "p(S | J, delta_B) = delta_B^(L-1) (1-delta_B)^(J-L) / C_J(delta_B), widths in [3, 12], exact DP sampler",
+  "split_codes": {
+    "heldout": 1,
+    "train": 0
+  },
+  "split_level": "trace",
+  "trace_lengths_heldout": [
+    24,
+    32,
+    40,
+    48,
+    24,
+    32,
+    40,
+    48,
+    24,
+    32
+  ],
+  "trace_lengths_train": [
+    24,
+    32,
+    40,
+    48,
+    24,
+    32,
+    40,
+    48,
+    24,
+    32,
+    40,
+    48,
+    24,
+    32,
+    40,
+    48,
+    24,
+    32,
+    40,
+    48
+  ],
+  "truth_mode": "supplied",
+  "validation_report": "results/mcmc_original/matched_generator_validation/report.md",
+  "validation_verdict": "ALL GATES PASS"
+}

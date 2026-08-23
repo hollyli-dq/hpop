@@ -1,0 +1,439 @@
+{
+  "stage": "6E2",
+  "run": "unknown",
+  "source_commit": "ad69d927f3b2c54887fe5df80d6a3faa2f93b451",
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "n_chains": 4,
+  "sweeps": 150000,
+  "burn_in": 15000,
+  "thin": 5,
+  "chain_seeds": [
+    6053201,
+    6053202,
+    6053203,
+    6053204
+  ],
+  "start_seeds": [
+    6053301,
+    6053302,
+    6053303,
+    6053304
+  ],
+  "scales": {
+    "U": 0.5,
+    "rho": 0.5,
+    "beta": 0.40872,
+    "omega": 1.45704,
+    "lambda_rep": 0.6648,
+    "lambda_back": 1.51552
+  },
+  "n_proposals_per_trace": 32,
+  "start_shapes": [
+    "fine, varied labels",
+    "coarse",
+    "random legal",
+    "intermediate alternating widths"
+  ],
+  "rho_starts": [
+    0.1,
+    0.35,
+    0.6,
+    0.85
+  ],
+  "scalar_starts": [
+    {
+      "beta": 0.6,
+      "omega": -1.0,
+      "lambda_rep": 0.3,
+      "lambda_back": 0.8
+    },
+    {
+      "beta": 1.1,
+      "omega": 0.6,
+      "lambda_rep": 0.9,
+      "lambda_back": 0.2
+    },
+    {
+      "beta": 2.2,
+      "omega": 2.4,
+      "lambda_rep": 1.6,
+      "lambda_back": 1.2
+    },
+    {
+      "beta": 3.0,
+      "omega": 3.8,
+      "lambda_rep": 2.4,
+      "lambda_back": 0.06
+    }
+  ],
+  "wall_seconds": 34415.670835,
+  "retained_per_chain": [
+    5000,
+    5000,
+    5000,
+    5000
+  ],
+  "retained_pooled": 20000,
+  "oracle_control_note": null,
+  "per_chain": [
+    {
+      "chain": 0,
+      "seed": 6053201,
+      "n_retained": 5000,
+      "runtime_seconds": 34409.70719475,
+      "movement": {
+        "boundary_hamming": 8879613,
+        "label_changes": 42409120
+      },
+      "proposed": {
+        "relabel": 119977128,
+        "split": 120017511,
+        "merge": 119992136,
+        "shift": 120013225,
+        "U": 2250000,
+        "rho": 150000,
+        "pi_P": 150000,
+        "beta": 150000,
+        "omega": 150000,
+        "lambda_rep": 150000,
+        "lambda_back": 150000
+      },
+      "accepted": {
+        "relabel": 15591585,
+        "split": 11355115,
+        "merge": 11355661,
+        "shift": 15195475,
+        "U": 756640,
+        "rho": 128241,
+        "pi_P": 150000,
+        "beta": 18578,
+        "omega": 88794,
+        "lambda_rep": 97261,
+        "lambda_back": 47350
+      },
+      "invalid": {
+        "relabel": 0,
+        "split": 790457,
+        "merge": 27751247,
+        "shift": 5258,
+        "U": 0,
+        "rho": 0,
+        "pi_P": 0,
+        "beta": 0,
+        "omega": 0,
+        "lambda_rep": 0,
+        "lambda_back": 0
+      },
+      "proposed_after_burn_in": {
+        "relabel": 19998983,
+        "split": 20004922,
+        "merge": 19992274,
+        "shift": 20003821,
+        "U": 375000,
+        "rho": 25000,
+        "pi_P": 25000,
+        "beta": 25000,
+        "omega": 25000,
+        "lambda_rep": 25000,
+        "lambda_back": 25000
+      },
+      "accepted_after_burn_in": {
+        "relabel": 2607171,
+        "split": 1900629,
+        "merge": 1900630,
+        "shift": 2539177,
+        "U": 126613,
+        "rho": 21339,
+        "pi_P": 25000,
+        "beta": 3163,
+        "omega": 14676,
+        "lambda_rep": 16147,
+        "lambda_back": 7959
+      },
+      "start_log_target": -5815.459736359501
+    },
+    {
+      "chain": 1,
+      "seed": 6053202,
+      "n_retained": 5000,
+      "runtime_seconds": 34126.767809292,
+      "movement": {
+        "boundary_hamming": 7930963,
+        "label_changes": 31043993
+      },
+      "proposed": {
+        "relabel": 119993920,
+        "split": 120002555,
+        "merge": 120006988,
+        "shift": 119996537,
+        "U": 2250000,
+        "rho": 150000,
+        "pi_P": 150000,
+        "beta": 150000,
+        "omega": 150000,
+        "lambda_rep": 150000,
+        "lambda_back": 150000
+      },
+      "accepted": {
+        "relabel": 8159799,
+        "split": 9436932,
+        "merge": 9436753,
+        "shift": 14231269,
+        "U": 771219,
+        "rho": 127603,
+        "pi_P": 150000,
+        "beta": 14840,
+        "omega": 79192,
+        "lambda_rep": 44369,
+        "lambda_back": 24914
+      },
+      "invalid": {
+        "relabel": 0,
+        "split": 1013931,
+        "merge": 24157334,
+        "shift": 6304,
+        "U": 0,
+        "rho": 0,
+        "pi_P": 0,
+        "beta": 0,
+        "omega": 0,
+        "lambda_rep": 0,
+        "lambda_back": 0
+      },
+      "proposed_after_burn_in": {
+        "relabel": 20001276,
+        "split": 20002006,
+        "merge": 20000746,
+        "shift": 19995972,
+        "U": 375000,
+        "rho": 25000,
+        "pi_P": 25000,
+        "beta": 25000,
+        "omega": 25000,
+        "lambda_rep": 25000,
+        "lambda_back": 25000
+      },
+      "accepted_after_burn_in": {
+        "relabel": 1371032,
+        "split": 1585493,
+        "merge": 1585488,
+        "shift": 2379991,
+        "U": 128984,
+        "rho": 21232,
+        "pi_P": 25000,
+        "beta": 2474,
+        "omega": 13173,
+        "lambda_rep": 7182,
+        "lambda_back": 4067
+      },
+      "start_log_target": -5742.8571844795815
+    },
+    {
+      "chain": 2,
+      "seed": 6053203,
+      "n_retained": 5000,
+      "runtime_seconds": 34222.501157665996,
+      "movement": {
+        "boundary_hamming": 8609132,
+        "label_changes": 38181783
+      },
+      "proposed": {
+        "relabel": 119995865,
+        "split": 120000984,
+        "merge": 119998393,
+        "shift": 120004758,
+        "U": 2250000,
+        "rho": 150000,
+        "pi_P": 150000,
+        "beta": 150000,
+        "omega": 150000,
+        "lambda_rep": 150000,
+        "lambda_back": 150000
+      },
+      "accepted": {
+        "relabel": 12605202,
+        "split": 10332236,
+        "merge": 10332242,
+        "shift": 15712011,
+        "U": 763175,
+        "rho": 128154,
+        "pi_P": 150000,
+        "beta": 14564,
+        "omega": 83096,
+        "lambda_rep": 48163,
+        "lambda_back": 29628
+      },
+      "invalid": {
+        "relabel": 0,
+        "split": 978152,
+        "merge": 25368303,
+        "shift": 13741,
+        "U": 0,
+        "rho": 0,
+        "pi_P": 0,
+        "beta": 0,
+        "omega": 0,
+        "lambda_rep": 0,
+        "lambda_back": 0
+      },
+      "proposed_after_burn_in": {
+        "relabel": 20003358,
+        "split": 19998894,
+        "merge": 20000794,
+        "shift": 19996954,
+        "U": 375000,
+        "rho": 25000,
+        "pi_P": 25000,
+        "beta": 25000,
+        "omega": 25000,
+        "lambda_rep": 25000,
+        "lambda_back": 25000
+      },
+      "accepted_after_burn_in": {
+        "relabel": 2069219,
+        "split": 1720759,
+        "merge": 1720773,
+        "shift": 2583800,
+        "U": 127127,
+        "rho": 21314,
+        "pi_P": 25000,
+        "beta": 2337,
+        "omega": 13336,
+        "lambda_rep": 7357,
+        "lambda_back": 4346
+      },
+      "start_log_target": -5724.8924204162995
+    },
+    {
+      "chain": 3,
+      "seed": 6053204,
+      "n_retained": 5000,
+      "runtime_seconds": 33522.601619707995,
+      "movement": {
+        "boundary_hamming": 6028523,
+        "label_changes": 23893114
+      },
+      "proposed": {
+        "relabel": 119988279,
+        "split": 120001116,
+        "merge": 120008759,
+        "shift": 120001846,
+        "U": 2250000,
+        "rho": 150000,
+        "pi_P": 150000,
+        "beta": 150000,
+        "omega": 150000,
+        "lambda_rep": 150000,
+        "lambda_back": 150000
+      },
+      "accepted": {
+        "relabel": 7971875,
+        "split": 7324664,
+        "merge": 7324652,
+        "shift": 11669013,
+        "U": 764594,
+        "rho": 127029,
+        "pi_P": 150000,
+        "beta": 16314,
+        "omega": 70536,
+        "lambda_rep": 41219,
+        "lambda_back": 20150
+      },
+      "invalid": {
+        "relabel": 0,
+        "split": 1635554,
+        "merge": 22804266,
+        "shift": 1256,
+        "U": 0,
+        "rho": 0,
+        "pi_P": 0,
+        "beta": 0,
+        "omega": 0,
+        "lambda_rep": 0,
+        "lambda_back": 0
+      },
+      "proposed_after_burn_in": {
+        "relabel": 19997153,
+        "split": 19992449,
+        "merge": 20004387,
+        "shift": 20006011,
+        "U": 375000,
+        "rho": 25000,
+        "pi_P": 25000,
+        "beta": 25000,
+        "omega": 25000,
+        "lambda_rep": 25000,
+        "lambda_back": 25000
+      },
+      "accepted_after_burn_in": {
+        "relabel": 1255648,
+        "split": 1167746,
+        "merge": 1167743,
+        "shift": 1846517,
+        "U": 126717,
+        "rho": 21049,
+        "pi_P": 25000,
+        "beta": 2619,
+        "omega": 10936,
+        "lambda_rep": 5532,
+        "lambda_back": 3190
+      },
+      "start_log_target": -5509.636836193414
+    }
+  ],
+  "acceptance_post_burn_in": [
+    {
+      "relabel": 0.13036517906935569,
+      "split": 0.09500806851433861,
+      "merge": 0.09506822485526159,
+      "shift": 0.12693459914483338,
+      "U": 0.3376346666666667,
+      "rho": 0.85356,
+      "pi_P": 1.0,
+      "beta": 0.12652,
+      "omega": 0.58704,
+      "lambda_rep": 0.64588,
+      "lambda_back": 0.31836
+    },
+    {
+      "relabel": 0.06854722668693737,
+      "split": 0.07926669955003512,
+      "merge": 0.07927144317516957,
+      "shift": 0.1190235213371973,
+      "U": 0.34395733333333334,
+      "rho": 0.84928,
+      "pi_P": 1.0,
+      "beta": 0.09896,
+      "omega": 0.52692,
+      "lambda_rep": 0.28728,
+      "lambda_back": 0.16268
+    },
+    {
+      "relabel": 0.10344358182261199,
+      "split": 0.08604270816176135,
+      "merge": 0.08603523440119427,
+      "shift": 0.12920967863405597,
+      "U": 0.3390053333333333,
+      "rho": 0.85256,
+      "pi_P": 1.0,
+      "beta": 0.09348,
+      "omega": 0.53344,
+      "lambda_rep": 0.29428,
+      "lambda_back": 0.17384
+    },
+    {
+      "relabel": 0.0627913383470137,
+      "split": 0.05840935245101788,
+      "merge": 0.05837434558729543,
+      "shift": 0.09229810980309867,
+      "U": 0.337912,
+      "rho": 0.84196,
+      "pi_P": 1.0,
+      "beta": 0.10476,
+      "omega": 0.43744,
+      "lambda_rep": 0.22128,
+      "lambda_back": 0.1276
+    }
+  ]
+}

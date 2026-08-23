@@ -1,0 +1,60 @@
+{
+  "relation_count_vs_rho": {
+    "correlation": null,
+    "undefined_because_constant": [
+      "relation_count"
+    ],
+    "note": "correlation is undefined, not zero: relation_count has zero variance"
+  },
+  "relation_count_vs_beta": {
+    "correlation": null,
+    "undefined_because_constant": [
+      "relation_count"
+    ],
+    "note": "correlation is undefined, not zero: relation_count has zero variance"
+  },
+  "relation_count_vs_omega": {
+    "correlation": null,
+    "undefined_because_constant": [
+      "relation_count"
+    ],
+    "note": "correlation is undefined, not zero: relation_count has zero variance"
+  },
+  "rho_vs_beta": {
+    "correlation": 0.07488180043950453
+  },
+  "beta_vs_omega": {
+    "correlation": -0.23885391917059234
+  },
+  "beta_vs_lambda_rep": {
+    "correlation": 0.6233608787018624
+  },
+  "omega_vs_lambda_back": {
+    "correlation": -0.19021629035253435
+  },
+  "log_likelihood_vs_relation_count": {
+    "correlation": null,
+    "undefined_because_constant": [
+      "relation_count"
+    ],
+    "note": "correlation is undefined, not zero: relation_count has zero variance"
+  },
+  "column_permutation": {
+    "target_is_column_exchangeable": true,
+    "per_chain_signed_column_contrast": [
+      0.2081152976611629,
+      0.17185976211953674,
+      -0.12270089472457767,
+      -0.0918184471426066
+    ],
+    "per_chain_absolute_column_contrast": [
+      1.0485578245026992,
+      0.8990427589414176,
+      0.7948090387508273,
+      1.0452337227405515
+    ],
+    "chains_in_opposite_labellings": true,
+    "signed_contrast_rhat": 1.106929851376221,
+    "note": "a large signed-contrast R-hat with a small invariant-summary R-hat is label switching, not non-convergence; H and relation probabilities are the reported quantities and are invariant"
+  }
+}

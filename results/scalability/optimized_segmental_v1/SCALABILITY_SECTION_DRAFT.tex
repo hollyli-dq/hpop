@@ -1,0 +1,84 @@
+% Draft scalability section. NOT auto-inserted into the paper.
+% Generated from results/scalability/optimized_segmental_v1/ at commit 564995efd056d7d33984f0ca1532386e6140ea0c.
+% Every number below is read from timing_summary.csv / memory_summary.csv /
+% complexity_fits.json. Regenerate with scripts/scalability/report.py.
+
+\section{Computational scalability}
+\label{sec:scalability}
+
+Exact inference in the segmental partial-order skill model is a semi-Markov
+forward--backward recursion over candidate blocks. With the maximum segment width
+$D$ bounded, the factorised forward pass costs $O(N[JK^2 + JDK])$ per all-trace
+sweep, against $O(NJDK^2)$ for the direct recursion. We measured the optimized
+backend against the frozen reference engine on a grid of small problems before any
+scaling measurement: the worst absolute discrepancy in $\alpha$ and in $\log Z$ was
+1.1e-13, against a
+pre-registered tolerance of $10^{-10}$, with identical $-\infty$ support patterns
+and bit-identical candidate score tables. The two implementations compute the same
+numbers.
+
+\paragraph{Protocol.}
+Every configuration ran in its own process on a single pinned thread, with all BLAS
+and OpenMP thread counts set to one and configurations executed strictly
+sequentially. Each point reports the median of at least fifteen timed repetitions
+after three untimed warm-ups, with repetitions continued until the bootstrap
+$95\%$ interval for the median had relative half-width at most $5\%$. Expensive
+points are allowed five repetitions and are marked as such. Wall-clock and process
+CPU time were both recorded and agree throughout.
+
+\paragraph{Trace length.}
+With $D$ bounded, runtime grows approximately linearly in trace length. Over
+$J \in [24$-$1024]$ the optimized forward pass scales as $J^{1.38}$ and a
+complete plain sweep as $J^{0.99}$ (Table~\ref{tab:scal-J}).
+
+\begin{table}[t]
+  \centering
+  \small
+  \begin{tabular}{rrrrrr}
+    \toprule
+    $J$ & legal blocks & forward & FFBS & plain sweep & peak RSS \\
+    \midrule
+    1024 & 162,800 & 319.8\,ms & 478.9\,ms & 528.8\,ms & 4.78\,GiB \\
+    192 & 29,680 & 13.7\,ms & 42.7\,ms & 61.8\,ms & 559\,MiB \\
+    24 & 2,800 & 1.5\,ms & 4.6\,ms & 11.9\,ms & 126\,MiB \\
+    384 & 60,400 & 63.6\,ms & 122.5\,ms & 147.1\,ms & 1.42\,GiB \\
+    48 & 6,640 & 3.1\,ms & 9.7\,ms & 20.4\,ms & 164\,MiB \\
+    768 & 121,840 & 192.7\,ms & 309.6\,ms & 350.3\,ms & 4.12\,GiB \\
+    96 & 14,320 & 6.4\,ms & 20.4\,ms & 36.0\,ms & 263\,MiB \\
+    \bottomrule
+  \end{tabular}
+  \caption{Trace-length scaling at $N=16$, $K=10$, $A=20$, $D\in[3,12]$. Medians
+  over at least fifteen timed repetitions in a dedicated process.}
+  \label{tab:scal-J}
+\end{table}
+
+\paragraph{Skills, corpus, width and roles.}
+A complete plain sweep scales as $K^{0.79}$ in the size of the skill
+library and $N^{0.72}$ in corpus size. Widening the maximum segment width
+increases cost through the number of legal candidate blocks rather than through $D$
+directly, and we report it against that count. The size of the canonical-action
+inventory $A$ acts through the density of the induced role graph, not through $A$
+alone: with every skill supported on all $A$ roles the candidate-table construction
+grows sharply, while with a fixed ten-role support drawn from a size-$A$ vocabulary
+it is close to flat. We report the two regimes separately and never average them.
+
+\paragraph{Marginalisation.}
+A sweep that performs no structural update executes identical code in both arms, so
+marginalising the partial order is free on that path; the entire overhead of
+FULL-MARG falls on the scheduled structural update, and at the registered cadence of
+one structural sweep in ten it amortises to the ratio reported in the supplement.
+
+\paragraph{Operating point.}
+At the scale we anticipate for real data --- $N=100$ traces of length $J=200$ over
+$K=20$ skills and $A=50$ canonical actions, with a ten-role support per skill and
+$D\in[3,12]$ --- a plain sweep takes 648.3\,ms and the process peaks at
+3.66\,GiB resident. These are throughput measurements; they bear on cost per
+sweep and not on the number of sweeps required.
+
+\paragraph{Memory.}
+The binding constraint on trace length is memory rather than time. The current
+implementation stores a dense $(J, J{+}1, K)$ candidate score table per trace, so
+score-table memory is $O(NJ^2K)$. Storing only the $D_{\max} - D_{\min} + 1$
+legal durations per start would reduce this to $O(NJDK)$, but
+\emph{this layout is not implemented here}: every banded figure we quote is
+arithmetic on array shapes rather than a measurement.

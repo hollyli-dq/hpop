@@ -1,0 +1,6 @@
+{
+  "corpus_hash_sha256": "81d6393e45870ff7e2ec1e65d272eacab61c7075a6e3fbe9b4dd07818885a3b3",
+  "hash_covers": "canonical JSON of config + truth + all traces (observed and hidden), sorted keys, no timestamps, no paths",
+  "heldout_traces_jsonl_sha256": "9ef662ff753fc7203e55edbec694925d8c48540c4d1346feec2ec300502045f0",
+  "train_traces_jsonl_sha256": "a3ad5fca4b93d0fc5fabc83587a2ca81f7d38519749a0794dcef1c603cdb2cd1"
+}

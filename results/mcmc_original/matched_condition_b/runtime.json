@@ -1,0 +1,8 @@
+{
+  "chain_seconds_sum": 176.24866745999316,
+  "mean_log_posterior": -3972.792460548428,
+  "retained_draws_total": 32000,
+  "structural_ess_per_second": 181.56165638678493,
+  "sweeps_per_chain": 50000,
+  "wall_seconds_total": 203.31245254099485
+}

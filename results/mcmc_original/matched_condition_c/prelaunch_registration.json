@@ -1,0 +1,169 @@
+{
+  "arms": {
+    "C-COND": "conditional-only: exact FFBS (S,z) refresh + conditional U rows (collapsed cadence every = 0)",
+    "C-MARG": "partially collapsed: scheduled verbatim collapsed_u_mh_step -> immediate exact FFBS refresh -> conditional U rows (every = 10)"
+  },
+  "cadence": 10,
+  "cadence_provenance": "fixed by the pre-launch amendment; the validated Step 8 kernel default, not tuned",
+  "corpus_hash_sha256": "dd280a4a09896154e167f388edd401a9119ba398167c09404aba5f7743e58ec2",
+  "equality_test_v1": {
+    "burn_in": 2000,
+    "cond_seeds": [
+      6203001,
+      6203002
+    ],
+    "corpus_seed": 6203100,
+    "gates": {
+      "boundary_marginal_abs": 0.05,
+      "occurrence_marginal_abs": 0.05,
+      "relation_marginal": "abs diff <= max(0.04, 4 * joint MCSE)",
+      "scalar_summaries": "abs diff <= 4 * joint MCSE (log target, relation-count mean)"
+    },
+    "marg_seeds": [
+      6203011,
+      6203012
+    ],
+    "start_scale": 1.5,
+    "start_seeds": [
+      6203021,
+      6203022
+    ],
+    "sweeps": 8000,
+    "thin": 4,
+    "trace_lengths": [
+      6,
+      7,
+      10,
+      12,
+      14,
+      6,
+      7,
+      10,
+      12,
+      14
+    ]
+  },
+  "equality_test_v2": {
+    "burn_in": 1500,
+    "cond_seeds": [
+      6203061,
+      6203062
+    ],
+    "corpus_seed": 6203150,
+    "gates": {
+      "boundary_marginal_abs": 0.05,
+      "occurrence_marginal_abs": 0.05,
+      "relation_marginal": "abs diff <= max(0.04, 4 * joint MCSE)",
+      "scalar_summaries": "abs diff <= 4 * joint MCSE"
+    },
+    "marg_seeds": [
+      6203071,
+      6203072
+    ],
+    "revision_rationale": "v1 FAILED by design defect, preserved in small_reference_equality_v1_FAILED.json: on the 10-trace tiny reference the posterior has near-equal-mass label-permutation modes; diagnostics showed the two C-MARG chains disagreed with EACH OTHER (max relation-marginal diff 0.98 \u2014 each occupying a different permutation mode) while the C-COND chains agreed (0.18) because conditional dynamics cannot cross modes. Pooled-marginal equality therefore measured inter-mode MIXING, which C-COND structurally lacks \u2014 the very phenomenon Condition C studies \u2014 rather than stationary-distribution equality, which is what the amendment requires. v2 tests invariance-equality: a more informative reference and one COMMON registered warm start inside a single basin, where two correct kernels must produce the same marginals. Registered before any v2 draw; gates unchanged in form.",
+    "sweeps": 6000,
+    "thin": 3,
+    "trace_lengths": [
+      24,
+      32,
+      24,
+      32,
+      24,
+      32,
+      24,
+      32,
+      24,
+      32,
+      24,
+      32
+    ],
+    "warm_start": {
+      "chain_seed": 6203050,
+      "kernel": "C-MARG (every=10, scale=0.5)",
+      "note": "the warm phase only locates a basin; its draws are discarded and no recovery quantity is inspected",
+      "sweeps": 500,
+      "u_scale": 1.5,
+      "u_seed": 6203051
+    }
+  },
+  "fixed": {
+    "P": "P*",
+    "beta": 1.5,
+    "delta_B": 0.15,
+    "epsilon": 0.02,
+    "lambda_back": 0.25,
+    "lambda_rep": 0.8,
+    "omega": 1.7346,
+    "pi": "pi*",
+    "rho": 0.5
+  },
+  "inferred": [
+    "S",
+    "z",
+    "U"
+  ],
+  "parent_commits": {
+    "collapsed_u_validation": "58f005e",
+    "condition_a": "b199374",
+    "condition_b": "34873d8",
+    "integration_merge": "2f146bbce52ca482546a92af2b15b1338fdceed4"
+  },
+  "phase": "CONDITION C PRE-LAUNCH ONLY \u2014 no formal chain is launched",
+  "pilot": {
+    "acceptance_band": [
+      0.2,
+      0.6
+    ],
+    "may_inspect": [
+      "acceptance",
+      "ESJD",
+      "H-change counts",
+      "runtime",
+      "numerical health"
+    ],
+    "must_not_inspect": [
+      "truth recovery",
+      "relation F1",
+      "Hamming to H*",
+      "posterior truth coverage",
+      "held-out likelihood",
+      "formal R-hat"
+    ],
+    "stage1": {
+      "central": 0.5,
+      "every": 0,
+      "seeds": [
+        6203201,
+        6203202,
+        6203203
+      ],
+      "sweeps": 300,
+      "u_scale_grid": [
+        0.25,
+        0.5,
+        1.0
+      ]
+    },
+    "stage1_rule": "acceptance in band -> max per-proposal ESJD; else closest to band, band never widened",
+    "stage2": {
+      "collapsed_scale_grid": [
+        0.25,
+        0.5,
+        1.0
+      ],
+      "every": 10,
+      "seeds": [
+        6203204,
+        6203205,
+        6203206
+      ],
+      "sweeps": 600
+    },
+    "stage2_rule": "collapsed acceptance in band -> LARGEST admissible scale (monotone ESJD proxy for a symmetric row walk); else closest to band, band never widened",
+    "start_scale": 1.5,
+    "start_seed": 6203211
+  },
+  "stop_condition": "STOP after equality test, pilot and scale freeze; formal Condition-C chains are NOT launched in this task",
+  "target": "p(S, z, U | X, vartheta*, pi*, P*, delta_B*, epsilon*, rho_0) with rho_0 = 0.5 fixed (Condition-B correction carries over: rho* = null)",
+  "truth_hash_sha256": "fc41538fd44d170df8d0a6401f0c6e6b49d52418c487e22f9e4f45ee047f903e"
+}

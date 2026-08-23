@@ -1,0 +1,20 @@
+{
+  "backend_under_test": "optimized_segmental_v1 (hpop.mcmc_optimized, all four optimisation flags on)",
+  "git_branch": "scalability-optimized-v1",
+  "git_commit": "564995efd056d7d33984f0ca1532386e6140ea0c",
+  "git_describe_base": "564995efd056d7d33984f0ca1532386e6140ea0c",
+  "numpy_version": "2.4.6",
+  "platform": "macOS-10.16-x86_64-i386-64bit-Mach-O",
+  "python_executable": "/Users/dongqing/Desktop/hpop/.venv/bin/python3",
+  "python_version": "3.13.2",
+  "scipy_version": "1.18.0",
+  "table_source": "batched",
+  "thread_env": {
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "worktree": "/Users/dongqing/Desktop/hpop-scalability"
+}

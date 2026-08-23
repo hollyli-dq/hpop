@@ -1,0 +1,111 @@
+{
+  "branch": "mcmc-original-latent-poset",
+  "file_hashes": {
+    "scripts/generate_matched_smoke_corpus.py": "972847d72bbd8f62d9c50934c6ea65c558056a80fa8e7bedf1336a16d64a4abd",
+    "scripts/validate_matched_segmentation_generator.py": "bec0799f2ec7a5ba61b6019859640ecee88380e558d157b5cc6e9891847d2e5a",
+    "src/hpop/mcmc_original/latent_poset.py": "00bb4d02f90699e9eedfce3a8d91d5f528b164845c9fce02d1e9b1c8db618569",
+    "src/hpop/mcmc_original/matched_generator_diagnostics.py": "7ad7eeb93907ffd60a1cbf8e088da642a66bd200ac01f707c8184342591f9e7d",
+    "src/hpop/mcmc_original/matched_segmentation_prior.py": "4e44b7955c649b773ce9c9f22e39dd005356daa2bccfac1dd1a7cda28564a757",
+    "src/hpop/mcmc_original/matched_synthetic_generator.py": "7b7ee6956448dd29f8860b587b3cffee92de2c51bd2d3dc976f3efdc63721948",
+    "src/hpop/mcmc_original/recurrent_rfs.py": "d39f7e519d39f6941356d6d6e8b2be64ac955ce64e1ad25059d5d431e1809643",
+    "src/hpop/mcmc_original/recurrent_segmentation.py": "0a1d1f53ac451ef4858236242abfa72696b58b131e45f10229bdf328847e2e3c",
+    "src/hpop/mcmc_original/sampler_u.py": "7324f3c853c32ed048eeffbbf97e68ad7efa0f68ee72919068b958394f595999",
+    "src/hpop/mcmc_original/stage6c_frozen.py": "28a96f222389a22424fccafb68b0763bac0ddcb12ec18d1161de908f72b62ab2",
+    "src/hpop/mcmc_original/stage6e_corpus.py": "2681f9c627a41ab53fde6e7ec86259767928f47df7100cc83645eaa5b2ed2843",
+    "src/hpop/mcmc_original/stage6e_frozen.py": "230f7dd4f2323daf5aa43d33fd8597a08e0a9b260675402a960af775153583f7",
+    "src/hpop/mcmc_original/targets.py": "8526c30b7230dc28825c0fa48da50cc2ef839afca94465b0e5790a43040941f2",
+    "src/hpop/mcmc_original/transitions.py": "d36534cc4fd85cc084832e47daa8ce89eefd4d9f2f779dae8900def6546b689a"
+  },
+  "generator_version": "1.0.0",
+  "inference_side_scorers_used_for_parity": [
+    "targets.log_boundary_prior",
+    "targets.log_path_prior",
+    "recurrent_segmentation.RecurrentBlockScorer.score",
+    "stage6e_exact.log_evidence_forward (tiny-trace log Z only)"
+  ],
+  "model_facts_verified_against_source": {
+    "D_max": {
+      "source": "stage6e_frozen.MAX_BLOCK_WIDTH",
+      "value": 12
+    },
+    "D_min": {
+      "source": "stage6e_frozen.MIN_BLOCK_WIDTH",
+      "value": 3
+    },
+    "K_skills": {
+      "source": "stage6e_frozen.N_SKILLS",
+      "value": 3
+    },
+    "P_diagonal_zero": {
+      "source": "transitions.allowed_next excludes h; stage6e_frozen.SELF_TRANSITIONS_ALLOWED = False",
+      "value": true
+    },
+    "U_rho_prior": {
+      "source": "sampler_u.log_u_prior / sigma_rho_matrix; stage6c_frozen.log_rho_prior",
+      "value": "U rows iid N(0, Sigma_rho); rho ~ Beta(1,1) truncated to (0, 0.995)"
+    },
+    "background_skill": {
+      "source": "no such component in stage6e_frozen/state",
+      "value": false
+    },
+    "d_product_order": {
+      "source": "stage6e_frozen.LATENT_DIM (= stage6d_frozen.N_LATENT_COLUMNS)",
+      "value": 2
+    },
+    "delta_B": {
+      "source": "stage6e_frozen.DELTA_B",
+      "value": 0.15
+    },
+    "duration_model": {
+      "source": "recurrent_rfs: block length observed and conditioned upon; no p(T | skill)",
+      "value": null
+    },
+    "epsilon": {
+      "source": "stage6b_frozen.EPSILON, inherited through the 6C/6D/6E freezes",
+      "value": 0.02
+    },
+    "generalized_EM": {
+      "source": "not present",
+      "value": false
+    },
+    "m_roles": {
+      "source": "stage6e_frozen.N_ROLES",
+      "value": 5
+    },
+    "recurrent_execution": {
+      "source": "recurrent_rfs.recurrent_step_probabilities / recurrent_validity_update / sample_recurrent_rfs_sequence",
+      "value": "p_RFS from q_0 = 0 per block"
+    },
+    "role_to_cpa_maps": {
+      "source": "Stage6EModel feeds observed symbols directly to RecurrentBlockScorer as role indices",
+      "value": "identity, injective"
+    },
+    "segmentation_prior_weight": {
+      "source": "targets.log_boundary_prior via stage6e_frozen.log_boundary_prior_6e; width bounds enforced by recurrent_segmentation.is_legal_segmentation",
+      "value": "delta_B^(L-1) (1-delta_B)^(J-L) on widths in [D_min, D_max]"
+    },
+    "terminal_transition": {
+      "source": "targets.log_path_prior emits none; stage6e_frozen.TERMINAL_TRANSITION = False",
+      "value": false
+    },
+    "unknown_K_inference": {
+      "source": "stage6e_frozen fixes N_SKILLS",
+      "value": false
+    }
+  },
+  "old_generator_preserved_not_reused": {
+    "file": "src/hpop/mcmc_original/stage6e_corpus.py",
+    "mechanism": "BLOCKS_PER_TRACE = (4, 5, 6) drawn uniformly, then iid widths not conditioned on total length",
+    "status": "unmodified; source-level regression test tests/mcmc_original/test_matched_synthetic_generator.py::TestOldMechanismBanned proves the new generator does not contain, import, or call it"
+  },
+  "production_functions_reused_by_generator": [
+    "matched_segmentation_prior.sample_segmentation_widths (exact DP)",
+    "recurrent_rfs.sample_recurrent_rfs_sequence",
+    "recurrent_rfs.recurrent_step_probabilities",
+    "recurrent_rfs.recurrent_validity_update",
+    "transitions.allowed_next",
+    "targets.logsumexp"
+  ],
+  "source_commit": "6eb43b355333d07d72d7dffd836b654413702b04",
+  "worktree_dirty": true
+}

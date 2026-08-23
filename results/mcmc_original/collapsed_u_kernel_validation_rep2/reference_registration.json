@@ -1,0 +1,159 @@
+{
+  "registered_before_any_mcmc_comparison": true,
+  "quality_gates": {
+    "max_rqmc_standard_error": 0.001,
+    "max_half_width_95": 0.0025,
+    "min_relative_ess": 0.02,
+    "max_normalised_weight": 0.001,
+    "max_log_evidence_sd": 0.05
+  },
+  "superseded_gates": {
+    "max_replicate_h_total_variation": 0.003,
+    "max_replicate_relation_departure": 0.003
+  },
+  "nondegeneracy_criteria": {
+    "segmentation_max_probability_below": 0.9,
+    "segmentation_min_states_above_0.01": 3,
+    "induced_h_min_states_above_0.01": 3
+  },
+  "estimators": [
+    "conditional (Rao-Blackwellised, PRIMARY)",
+    "sampled (section 9 literal, reported alongside)"
+  ],
+  "checks": {
+    "max_rqmc_standard_error": {
+      "value": 0.0005667929455901159,
+      "threshold": 0.001,
+      "primary": true,
+      "pass": true
+    },
+    "max_half_width_95": {
+      "value": 0.0012080905663045393,
+      "threshold": 0.0025,
+      "primary": true,
+      "pass": true
+    },
+    "min_relative_ess": {
+      "value": 0.04386141741129308,
+      "threshold": 0.02,
+      "primary": false,
+      "comparison": ">=",
+      "pass": true
+    },
+    "max_normalised_weight": {
+      "value": 0.0003295848775089024,
+      "threshold": 0.001,
+      "primary": false,
+      "pass": true
+    },
+    "log_evidence_sd": {
+      "value": 0.0033823943089510656,
+      "threshold": 0.05,
+      "primary": false,
+      "pass": true
+    }
+  },
+  "superseded_checks": {
+    "max_replicate_h_total_variation": {
+      "value": 0.007839579315318427,
+      "threshold": 0.003,
+      "pass": false,
+      "status": "SUPERSEDED DESCRIPTIVE DIAGNOSTIC \u2014 not a precision measure and not a primary gate"
+    },
+    "max_replicate_relation_departure": {
+      "value": 0.0038914035610426723,
+      "threshold": 0.003,
+      "pass": false,
+      "status": "SUPERSEDED DESCRIPTIVE DIAGNOSTIC \u2014 not a precision measure and not a primary gate"
+    }
+  },
+  "nondegeneracy": {
+    "segmentation_max_probability": {
+      "value": 0.3377726041377495,
+      "threshold": 0.9,
+      "pass": true
+    },
+    "segmentation_states_above_0.01": {
+      "value": 14,
+      "threshold": 3,
+      "pass": true
+    },
+    "induced_h_states_above_0.01": {
+      "value": 13,
+      "per_skill": [
+        13,
+        17,
+        19
+      ],
+      "threshold": 3,
+      "pass": true
+    }
+  },
+  "primary_pass": true,
+  "all_active_pass": true,
+  "nondegenerate_pass": true,
+  "label_permutation_audit": {
+    "permutations_checked": 5,
+    "rows": [
+      {
+        "permutation": [
+          0,
+          2,
+          1
+        ],
+        "max_pi_departure": 0.19999999999999998,
+        "max_P_departure": 0.55,
+        "is_symmetry": false
+      },
+      {
+        "permutation": [
+          1,
+          0,
+          2
+        ],
+        "max_pi_departure": 0.3,
+        "max_P_departure": 0.6000000000000001,
+        "is_symmetry": false
+      },
+      {
+        "permutation": [
+          1,
+          2,
+          0
+        ],
+        "max_pi_departure": 0.5,
+        "max_P_departure": 0.10000000000000009,
+        "is_symmetry": false
+      },
+      {
+        "permutation": [
+          2,
+          0,
+          1
+        ],
+        "max_pi_departure": 0.5,
+        "max_P_departure": 0.10000000000000009,
+        "is_symmetry": false
+      },
+      {
+        "permutation": [
+          2,
+          1,
+          0
+        ],
+        "max_pi_departure": 0.5,
+        "max_P_departure": 0.5,
+        "is_symmetry": false
+      }
+    ],
+    "any_nontrivial_symmetry": false,
+    "min_departure_over_permutations": 0.5,
+    "conclusion": "no nontrivial relabelling is a symmetry of this target, so per-skill summaries are well posed and raw per-skill R-hat is meaningful"
+  },
+  "gate_rationale": {
+    "max_rqmc_standard_error": "rqmc_se = sd(replicate_estimates, ddof=1)/sqrt(R) is the uncertainty of the quantity the comparison consumes, the replicate mean. Independent scrambles make the per-replicate estimates iid, which licenses it.",
+    "max_half_width_95": "t(0.975, R-1) * rqmc_se. At 2.5e-3 the reference's own 95% uncertainty occupies at most a quarter of the 0.01 error budget it feeds.",
+    "superseded": "A maximum over replicates estimates the dispersion of a SINGLE replicate. It does not shrink as R grows and is not an uncertainty for the replicate mean. Superseded in Stage 6D1; retained here as a descriptive diagnostic whose failures are reported as failures.",
+    "estimator_choice": "The conditional (Rao-Blackwellised) estimator is primary: it uses the exact conditional p(S,z | theta) rather than one multinomial draw from it, so it estimates the same quantity with strictly lower variance. The section 9 sampled estimator is computed and gated alongside it."
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "chain_sweeps_at_resume": {
+    "cond0": 52000,
+    "cond1": 52000,
+    "cond2": 52000,
+    "cond3": 52000,
+    "marg0": 52000,
+    "marg1": 52000,
+    "marg2": 52000,
+    "marg3": 52000
+  },
+  "compute_lost": "at most the sweeps since each chain's last checkpoint; all eight were at exactly 50,000, a registered rung, so no retained draw was lost",
+  "continuation_fidelity": "each chain resumes from its stored RNG bit-generator state, so the continuation is draw-identical to an uninterrupted run",
+  "event": "orchestrator process interrupted; chains and gates intact",
+  "gates_already_evaluated": [
+    30000,
+    50000
+  ],
+  "interruptions": [
+    {
+      "at": "just after 'advancing to 75,000'",
+      "chains_at": 50000,
+      "lost": "no retained draw or gate; ~20 min compute",
+      "n": 1
+    },
+    {
+      "at": "during the resumed 75k segment",
+      "chains_at": 52000,
+      "lost": "no retained draw or gate; ~30 min compute",
+      "n": 2
+    }
+  ],
+  "last_evaluated_rung": 50000,
+  "launch_method_after_second_interruption": "the orchestrator is now started with subprocess start_new_session=True, so it runs in its own session and process group (verified PPID 1, PGID = its own pid) and is not reachable by signals aimed at the shell's process group, which is what ended the first two attempts",
+  "protocol_elements_changed": "none \u2014 arms, seeds, starts, scales, cadence, gate function, burn-in, thinning, ceiling and stopping rule are the frozen runner's own objects",
+  "reconstructed_consecutive_pass_counters": {
+    "cond": 0,
+    "marg": 0
+  },
+  "registration_restored_after_each_resume_entry": [
+    "5ea8726e1cd87eab0abc7287437c1cd429f008c4",
+    [
+      75000,
+      100000
+    ]
+  ],
+  "remaining_rungs": [
+    75000,
+    100000
+  ],
+  "why_the_ladder_is_not_re_entered_at_the_first_rung": "re-running an already-evaluated rung would recompute its gate over the draws retained since, and overwrite the recorded result; the registered history is preserved instead"
+}

@@ -1,0 +1,114 @@
+{
+  "registered_before_any_pilot_draw_existed": true,
+  "amended_before_any_formal_draw_existed": true,
+  "stage": "6E2 pilot",
+  "source_commit": "1f5e8a093124dbded1a75013297498ad34094a49",
+  "starting_scales": {
+    "U": 0.5,
+    "rho": 0.5,
+    "beta": 0.05109,
+    "omega": 0.18213,
+    "lambda_rep": 0.04155,
+    "lambda_back": 0.09472
+  },
+  "starting_scales_status": "the frozen Stage 6D2 scales, used as the pilot's CENTRE only. A target with latent (S, z) is a different target and carries no efficiency guarantee.",
+  "multiplier_grid": [
+    0.25,
+    0.5,
+    1.0,
+    2.0,
+    4.0,
+    8.0,
+    16.0,
+    32.0,
+    64.0
+  ],
+  "amendments": [
+    {
+      "id": 1,
+      "registered_before_any_stage6e2_formal_draw_existed": true,
+      "what_changed": "the candidate multiplier grid only, from [0.25, 0.5, 1.0, 2.0, 4.0, 8.0] to [0.25, 0.5, 1.0, 2.0, 4.0, 8.0, 16.0, 32.0, 64.0]",
+      "applies_to": [
+        "beta",
+        "omega",
+        "lambda_rep",
+        "lambda_back"
+      ],
+      "evidence": "all four scalar coordinates selected the grid's upper boundary x8, and lambda_rep and lambda_back were still inadmissible there (expected acceptance 0.653 and 0.661 against a 0.60 ceiling). Four coordinates pinned to the same edge is evidence that the search RANGE was truncated, not that the rule failed.",
+      "what_did_not_change": [
+        "admissible acceptance band",
+        "selection statistic (largest median expected ESJD)",
+        "tie-break",
+        "ESJD coordinates",
+        "permitted and forbidden information",
+        "proposal-count study and its selection",
+        "U and rho policy and their grid"
+      ],
+      "existing_rows": "preserved verbatim \u2014 pass 1 reruns the originally registered grid with its original seed, and the new candidates are measured in a second pass with their own registered seed, so adding candidates cannot move a number that was already recorded",
+      "extension_seed": 6053601,
+      "fallback_if_still_inadmissible_at_x64": "the previously registered nearest-band fallback; tuning then stops and the band is NOT widened"
+    }
+  ],
+  "original_multiplier_grid": [
+    0.25,
+    0.5,
+    1.0,
+    2.0,
+    4.0,
+    8.0
+  ],
+  "extended_multipliers": [
+    16.0,
+    32.0,
+    64.0
+  ],
+  "admissible_acceptance": [
+    0.2,
+    0.6
+  ],
+  "selection": "largest median expected ESJD among admissible candidates",
+  "tie_break": "multiplier closest to 1, then the smaller multiplier",
+  "esjd_coordinates": {
+    "beta": "log",
+    "omega": "identity",
+    "lambda_rep": "log",
+    "lambda_back": "log",
+    "rho": "logit"
+  },
+  "esjd_estimator": "expected ESJD, min(1, alpha) * (coordinate jump)^2, from one measured-and-discarded proposal per candidate per sweep",
+  "proposal_count_candidates": [
+    16,
+    32,
+    64,
+    128
+  ],
+  "proposal_count_multipliers": [
+    0.5,
+    1.0,
+    2.0,
+    4.0
+  ],
+  "proposal_count_selection": "largest boundary-Hamming movement per second",
+  "U_rho_policy": "keep the frozen Stage 6D definitions unless a pathology is demonstrated: base acceptance outside (0.05, 0.9)",
+  "permitted_pilot_information": [
+    "acceptance",
+    "ESJD",
+    "invalid-proposal rates",
+    "finite-target checks",
+    "recurrent replay checks",
+    "cache consistency",
+    "movement",
+    "wall time"
+  ],
+  "forbidden_pilot_information": [
+    "boundary F1",
+    "skill ARI",
+    "structural recovery",
+    "generating truth",
+    "held-out NLL",
+    "posterior means",
+    "credible intervals",
+    "candidate-run R-hat"
+  ],
+  "all_pilot_draws_discarded": true
+}

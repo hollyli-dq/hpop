@@ -1,0 +1,570 @@
+{
+  "proposal_count_study": {
+    "grid": [
+      {
+        "proposals_per_trace": 16,
+        "sweeps": 60,
+        "runtime_seconds": 18.076868457952514,
+        "seconds_per_sweep": 0.3012811409658752,
+        "boundary_hamming_per_sweep": 174.4,
+        "boundary_hamming_per_second": 578.8613234830835,
+        "label_changes_per_sweep": 649.8166666666667,
+        "mean_distinct_segmentations_per_trace": 43.27,
+        "acceptance_by_move": {
+          "relabel": 0.18228621656690805,
+          "split": 0.1283496118206862,
+          "merge": 0.1294166840894836,
+          "shift": 0.16846839412444298
+        },
+        "impossible_rate_by_move": {
+          "relabel": 0.0,
+          "split": 0.005593121295600635,
+          "merge": 0.24942504704160567,
+          "shift": 0.003424657534246575
+        }
+      },
+      {
+        "proposals_per_trace": 32,
+        "sweeps": 60,
+        "runtime_seconds": 28.17317683296278,
+        "seconds_per_sweep": 0.46955294721604635,
+        "boundary_hamming_per_sweep": 280.56666666666666,
+        "boundary_hamming_per_second": 597.5187001383572,
+        "label_changes_per_sweep": 841.4,
+        "mean_distinct_segmentations_per_trace": 49.87,
+        "acceptance_by_move": {
+          "relabel": 0.1635926390631535,
+          "split": 0.12638752430127306,
+          "merge": 0.1268170426065163,
+          "shift": 0.1680457256051008
+        },
+        "impossible_rate_by_move": {
+          "relabel": 0.0,
+          "split": 0.006563956769864331,
+          "merge": 0.2191311612364244,
+          "shift": 0.0022904071147060645
+        }
+      },
+      {
+        "proposals_per_trace": 64,
+        "sweeps": 60,
+        "runtime_seconds": 48.22884354204871,
+        "seconds_per_sweep": 0.8038140590341452,
+        "boundary_hamming_per_sweep": 357.98333333333335,
+        "boundary_hamming_per_second": 445.35589955154865,
+        "label_changes_per_sweep": 950.2166666666667,
+        "mean_distinct_segmentations_per_trace": 51.09,
+        "acceptance_by_move": {
+          "relabel": 0.1446636106383201,
+          "split": 0.11111807274208202,
+          "merge": 0.11095258427668371,
+          "shift": 0.14768733086565677
+        },
+        "impossible_rate_by_move": {
+          "relabel": 0.0,
+          "split": 0.008719442791057089,
+          "merge": 0.22158232923362112,
+          "shift": 0.0015967318838325713
+        }
+      },
+      {
+        "proposals_per_trace": 128,
+        "sweeps": 60,
+        "runtime_seconds": 87.69265754206572,
+        "seconds_per_sweep": 1.461544292367762,
+        "boundary_hamming_per_sweep": 446.3,
+        "boundary_hamming_per_second": 305.361939648764,
+        "label_changes_per_sweep": 1034.35,
+        "mean_distinct_segmentations_per_trace": 51.56,
+        "acceptance_by_move": {
+          "relabel": 0.12699208912018894,
+          "split": 0.09922866074075615,
+          "merge": 0.09947128532360984,
+          "shift": 0.1363343382888034
+        },
+        "impossible_rate_by_move": {
+          "relabel": 0.0,
+          "split": 0.007380515231739856,
+          "merge": 0.23802578460737076,
+          "shift": 0.0024742696746023495
+        }
+      }
+    ],
+    "selected_proposals_per_trace": 32,
+    "selection_rule": "largest boundary-Hamming movement per SECOND \u2014 movement and computational efficiency only, exactly as section 13 requires. No recovery quantity, no truth, no R-hat.",
+    "note": "movement per sweep necessarily increases with the proposal count; movement per second is what decides, because a sweep is not a fixed unit of compute."
+  },
+  "scalar_grid": {
+    "beta": {
+      "grid": [
+        {
+          "multiplier": 0.25,
+          "scale": 0.0127725,
+          "expected_acceptance": 0.9498084380505446,
+          "median_expected_esjd": 5.8107560557060125e-05,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 0.5,
+          "scale": 0.025545,
+          "expected_acceptance": 0.9448419181284271,
+          "median_expected_esjd": 0.00027975446268982645,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 1.0,
+          "scale": 0.05109,
+          "expected_acceptance": 0.9215931833793573,
+          "median_expected_esjd": 0.0009543836807706923,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 2.0,
+          "scale": 0.10218,
+          "expected_acceptance": 0.818539018891083,
+          "median_expected_esjd": 0.0030521536150755297,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 4.0,
+          "scale": 0.20436,
+          "expected_acceptance": 0.7689688605346192,
+          "median_expected_esjd": 0.010055448614358743,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 8.0,
+          "scale": 0.40872,
+          "expected_acceptance": 0.597237957517927,
+          "median_expected_esjd": 0.019669111761719198,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": true
+        },
+        {
+          "multiplier": 16.0,
+          "scale": 0.81744,
+          "expected_acceptance": 0.07228810421744526,
+          "median_expected_esjd": 1.6018516344173333e-43,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 32.0,
+          "scale": 1.63488,
+          "expected_acceptance": 0.0324654441464415,
+          "median_expected_esjd": 8.915711052957828e-121,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 64.0,
+          "scale": 3.26976,
+          "expected_acceptance": 0.012732985396911695,
+          "median_expected_esjd": 1.0897629766433427e-256,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": false
+        }
+      ],
+      "selected_multiplier": 8.0,
+      "selected_scale": 0.40872,
+      "selection_reason": "largest median expected ESJD among admissible",
+      "any_admissible": true
+    },
+    "omega": {
+      "grid": [
+        {
+          "multiplier": 0.25,
+          "scale": 0.0455325,
+          "expected_acceptance": 0.9736631807410714,
+          "median_expected_esjd": 0.0010468194734343612,
+          "esjd_coordinate": "identity",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 0.5,
+          "scale": 0.091065,
+          "expected_acceptance": 0.9479708015857361,
+          "median_expected_esjd": 0.00342874529388723,
+          "esjd_coordinate": "identity",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 1.0,
+          "scale": 0.18213,
+          "expected_acceptance": 0.9221345032434993,
+          "median_expected_esjd": 0.012002268682827371,
+          "esjd_coordinate": "identity",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 2.0,
+          "scale": 0.36426,
+          "expected_acceptance": 0.8644311687954133,
+          "median_expected_esjd": 0.03538135194491637,
+          "esjd_coordinate": "identity",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 4.0,
+          "scale": 0.72852,
+          "expected_acceptance": 0.7230859332238816,
+          "median_expected_esjd": 0.08775639981992905,
+          "esjd_coordinate": "identity",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 8.0,
+          "scale": 1.45704,
+          "expected_acceptance": 0.5618324670148543,
+          "median_expected_esjd": 0.1755108430396538,
+          "esjd_coordinate": "identity",
+          "invalid_proposals": 0,
+          "admissible": true
+        },
+        {
+          "multiplier": 16.0,
+          "scale": 2.91408,
+          "expected_acceptance": 0.3304228586597658,
+          "median_expected_esjd": 0.08488935437261735,
+          "esjd_coordinate": "identity",
+          "invalid_proposals": 0,
+          "admissible": true
+        },
+        {
+          "multiplier": 32.0,
+          "scale": 5.82816,
+          "expected_acceptance": 0.17459689654033106,
+          "median_expected_esjd": 0.0031955601809412894,
+          "esjd_coordinate": "identity",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 64.0,
+          "scale": 11.65632,
+          "expected_acceptance": 0.06621775038710531,
+          "median_expected_esjd": 5.422076145140652e-09,
+          "esjd_coordinate": "identity",
+          "invalid_proposals": 0,
+          "admissible": false
+        }
+      ],
+      "selected_multiplier": 8.0,
+      "selected_scale": 1.45704,
+      "selection_reason": "largest median expected ESJD among admissible",
+      "any_admissible": true
+    },
+    "lambda_rep": {
+      "grid": [
+        {
+          "multiplier": 0.25,
+          "scale": 0.0103875,
+          "expected_acceptance": 0.9448451212506853,
+          "median_expected_esjd": 4.937437448208795e-05,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 0.5,
+          "scale": 0.020775,
+          "expected_acceptance": 0.9022087008222397,
+          "median_expected_esjd": 0.0001627724318331176,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 1.0,
+          "scale": 0.04155,
+          "expected_acceptance": 0.8587248778422617,
+          "median_expected_esjd": 0.0006505765708348785,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 2.0,
+          "scale": 0.0831,
+          "expected_acceptance": 0.8029948804947813,
+          "median_expected_esjd": 0.0017631170798050378,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 4.0,
+          "scale": 0.1662,
+          "expected_acceptance": 0.72818979565682,
+          "median_expected_esjd": 0.005347180449695439,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 8.0,
+          "scale": 0.3324,
+          "expected_acceptance": 0.6529630300017307,
+          "median_expected_esjd": 0.010875768181677643,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 16.0,
+          "scale": 0.6648,
+          "expected_acceptance": 0.3442466488397098,
+          "median_expected_esjd": 0.0005826976034177601,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": true
+        },
+        {
+          "multiplier": 32.0,
+          "scale": 1.3296,
+          "expected_acceptance": 0.26644407427949396,
+          "median_expected_esjd": 6.752310217622582e-07,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": true
+        },
+        {
+          "multiplier": 64.0,
+          "scale": 2.6592,
+          "expected_acceptance": 0.1782824908984363,
+          "median_expected_esjd": 2.877900962322861e-14,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": false
+        }
+      ],
+      "selected_multiplier": 16.0,
+      "selected_scale": 0.6648,
+      "selection_reason": "largest median expected ESJD among admissible",
+      "any_admissible": true
+    },
+    "lambda_back": {
+      "grid": [
+        {
+          "multiplier": 0.25,
+          "scale": 0.02368,
+          "expected_acceptance": 0.9807672747866172,
+          "median_expected_esjd": 0.0002722497282091379,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 0.5,
+          "scale": 0.04736,
+          "expected_acceptance": 0.9659973977970289,
+          "median_expected_esjd": 0.001197796824689738,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 1.0,
+          "scale": 0.09472,
+          "expected_acceptance": 0.9456383609556428,
+          "median_expected_esjd": 0.0036016005997906676,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 2.0,
+          "scale": 0.18944,
+          "expected_acceptance": 0.8961887985374233,
+          "median_expected_esjd": 0.012108987630206628,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 4.0,
+          "scale": 0.37888,
+          "expected_acceptance": 0.7836480332803277,
+          "median_expected_esjd": 0.031235027712275903,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 8.0,
+          "scale": 0.75776,
+          "expected_acceptance": 0.6609591754159854,
+          "median_expected_esjd": 0.0744708830045452,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": false
+        },
+        {
+          "multiplier": 16.0,
+          "scale": 1.51552,
+          "expected_acceptance": 0.3011138046497873,
+          "median_expected_esjd": 0.018887107857136994,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 0,
+          "admissible": true
+        },
+        {
+          "multiplier": 32.0,
+          "scale": 3.03104,
+          "expected_acceptance": 0.1473975874204561,
+          "median_expected_esjd": 0.0005830306076692561,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 2,
+          "admissible": false
+        },
+        {
+          "multiplier": 64.0,
+          "scale": 6.06208,
+          "expected_acceptance": 0.08512064131132617,
+          "median_expected_esjd": 2.6886282682921807e-07,
+          "esjd_coordinate": "log",
+          "invalid_proposals": 22,
+          "admissible": false
+        }
+      ],
+      "selected_multiplier": 16.0,
+      "selected_scale": 1.51552,
+      "selection_reason": "largest median expected ESJD among admissible",
+      "any_admissible": true
+    }
+  },
+  "U_rho_pathology_check": {
+    "rho": {
+      "grid": [
+        {
+          "multiplier": 0.25,
+          "expected_acceptance": 0.9613948709033739,
+          "median_expected_esjd": 0.006838777133941437
+        },
+        {
+          "multiplier": 0.5,
+          "expected_acceptance": 0.9154604494329959,
+          "median_expected_esjd": 0.03282799027477634
+        },
+        {
+          "multiplier": 1.0,
+          "expected_acceptance": 0.8642896603205247,
+          "median_expected_esjd": 0.08101742031292002
+        },
+        {
+          "multiplier": 2.0,
+          "expected_acceptance": 0.6914854501645183,
+          "median_expected_esjd": 0.2360949453718328
+        },
+        {
+          "multiplier": 4.0,
+          "expected_acceptance": 0.567368246571252,
+          "median_expected_esjd": 0.4158248182328276
+        },
+        {
+          "multiplier": 8.0,
+          "expected_acceptance": 0.33507350488757903,
+          "median_expected_esjd": 0.293314728430661
+        }
+      ],
+      "base_expected_acceptance": 0.8642896603205247,
+      "pathology_band": [
+        0.05,
+        0.9
+      ],
+      "pathology_declared": false,
+      "action": "keep the frozen Stage 6D definition unchanged"
+    },
+    "U": {
+      "grid": [
+        {
+          "multiplier": 0.25,
+          "expected_acceptance": 0.7620110088451167,
+          "median_expected_esjd": 0.013527499149180364
+        },
+        {
+          "multiplier": 0.5,
+          "expected_acceptance": 0.5685248573500372,
+          "median_expected_esjd": 0.02202541478607456
+        },
+        {
+          "multiplier": 1.0,
+          "expected_acceptance": 0.33706662108538654,
+          "median_expected_esjd": 7.355777590147067e-12
+        },
+        {
+          "multiplier": 2.0,
+          "expected_acceptance": 0.17359001009650693,
+          "median_expected_esjd": 6.266084457908715e-62
+        },
+        {
+          "multiplier": 4.0,
+          "expected_acceptance": 0.04888229805983624,
+          "median_expected_esjd": 9.416173416176923e-142
+        },
+        {
+          "multiplier": 8.0,
+          "expected_acceptance": 0.01782919564972407,
+          "median_expected_esjd": 9.183177161595182e-145
+        }
+      ],
+      "base_expected_acceptance": 0.33706662108538654,
+      "pathology_band": [
+        0.05,
+        0.9
+      ],
+      "pathology_declared": false,
+      "action": "keep the frozen Stage 6D definition unchanged"
+    }
+  },
+  "selected_scales": {
+    "U": 0.5,
+    "rho": 0.5,
+    "beta": 0.40872,
+    "omega": 1.45704,
+    "lambda_rep": 0.6648,
+    "lambda_back": 1.51552
+  },
+  "selected_proposals_per_trace": 32,
+  "base_acceptance_observed": {
+    "U": 0.3373333333333333,
+    "rho": 0.885,
+    "beta": 0.915,
+    "omega": 0.9125,
+    "lambda_rep": 0.8525,
+    "lambda_back": 0.9475
+  },
+  "all_targets_finite": true,
+  "pilot_sweeps": 400,
+  "pilot_runtime_seconds": 241.7903580419952,
+  "all_pilot_draws_discarded": true,
+  "joint_confirmation_summary": {
+    "all_targets_finite": true,
+    "every_segmentation_legal": true,
+    "block_table_matches_registered_scorer": true,
+    "grouped_and_per_block_evaluators_agree": true,
+    "boundaries_moved": true,
+    "every_trace_visited_more_than_one_segmentation": true,
+    "every_move_type_proposed": true,
+    "every_move_type_accepted": true
+  }
+}

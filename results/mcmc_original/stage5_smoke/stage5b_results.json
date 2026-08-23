@@ -1,0 +1,1050 @@
+{
+  "per_trace": [
+    {
+      "index": 0,
+      "length": 16,
+      "group": "natural",
+      "n_tilings": 8,
+      "n_cut_patterns": 1,
+      "true_cuts": [
+        4,
+        6,
+        8,
+        10,
+        14
+      ],
+      "true_path": [
+        3,
+        1,
+        2,
+        1,
+        3,
+        0
+      ],
+      "boundary_posterior": {
+        "4": 1.0,
+        "6": 1.0,
+        "8": 1.0,
+        "10": 1.0,
+        "14": 1.0
+      },
+      "boundary_posterior_by_chain": [
+        {
+          "4": 1.0,
+          "6": 1.0,
+          "8": 1.0,
+          "10": 1.0,
+          "14": 1.0
+        },
+        {
+          "4": 1.0,
+          "6": 1.0,
+          "8": 1.0,
+          "10": 1.0,
+          "14": 1.0
+        }
+      ],
+      "predicted_cuts": [
+        4,
+        6,
+        8,
+        10,
+        14
+      ],
+      "label_posterior": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.67425,
+          0.32575,
+          0.0,
+          0.0
+        ],
+        [
+          0.67425,
+          0.32575,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.85825,
+          0.14175,
+          0.0,
+          0.0
+        ],
+        [
+          0.85825,
+          0.14175,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.64075,
+          0.35925,
+          0.0,
+          0.0
+        ],
+        [
+          0.64075,
+          0.35925,
+          0.0,
+          0.0
+        ]
+      ],
+      "posterior_mode_labels": [
+        3,
+        3,
+        3,
+        3,
+        0,
+        0,
+        2,
+        2,
+        0,
+        0,
+        3,
+        3,
+        3,
+        3,
+        0,
+        0
+      ],
+      "best_segmentation": [
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          4,
+          6,
+          0
+        ],
+        [
+          6,
+          8,
+          2
+        ],
+        [
+          8,
+          10,
+          0
+        ],
+        [
+          10,
+          14,
+          3
+        ],
+        [
+          14,
+          16,
+          0
+        ]
+      ],
+      "best_log_target": -20.77404568424139,
+      "top_paths": [
+        {
+          "path": [
+            3,
+            0,
+            2,
+            0,
+            3,
+            0
+          ],
+          "probability": 0.3665
+        },
+        {
+          "path": [
+            3,
+            0,
+            2,
+            0,
+            3,
+            1
+          ],
+          "probability": 0.2215
+        },
+        {
+          "path": [
+            3,
+            1,
+            2,
+            0,
+            3,
+            0
+          ],
+          "probability": 0.18
+        }
+      ],
+      "mean_prob_true_cuts": 1.0,
+      "mean_prob_false_cuts": 0.0,
+      "mean_prob_true_skill": 0.76353125,
+      "segment_count_ess": 4000.0,
+      "n_samples": 4000,
+      "true_log_target": -23.190298212558126,
+      "posterior_prefers_non_true": true
+    },
+    {
+      "index": 1,
+      "length": 12,
+      "group": "natural",
+      "n_tilings": 6,
+      "n_cut_patterns": 2,
+      "true_cuts": [
+        2,
+        4,
+        6,
+        10
+      ],
+      "true_path": [
+        1,
+        2,
+        0,
+        3,
+        2
+      ],
+      "boundary_posterior": {
+        "2": 0.90025,
+        "4": 1.0,
+        "6": 1.0,
+        "10": 1.0
+      },
+      "boundary_posterior_by_chain": [
+        {
+          "2": 0.906,
+          "4": 1.0,
+          "6": 1.0,
+          "10": 1.0
+        },
+        {
+          "2": 0.8945,
+          "4": 1.0,
+          "6": 1.0,
+          "10": 1.0
+        }
+      ],
+      "predicted_cuts": [
+        2,
+        4,
+        6,
+        10
+      ],
+      "label_posterior": [
+        [
+          0.6045,
+          0.29575,
+          0.0,
+          0.09975
+        ],
+        [
+          0.6045,
+          0.29575,
+          0.0,
+          0.09975
+        ],
+        [
+          0.0,
+          0.0,
+          0.90025,
+          0.09975
+        ],
+        [
+          0.0,
+          0.0,
+          0.90025,
+          0.09975
+        ],
+        [
+          0.82175,
+          0.17825,
+          0.0,
+          0.0
+        ],
+        [
+          0.82175,
+          0.17825,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "posterior_mode_labels": [
+        0,
+        0,
+        2,
+        2,
+        0,
+        0,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2
+      ],
+      "best_segmentation": [
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          4,
+          2
+        ],
+        [
+          4,
+          6,
+          0
+        ],
+        [
+          6,
+          10,
+          3
+        ],
+        [
+          10,
+          12,
+          2
+        ]
+      ],
+      "best_log_target": -18.504527839958914,
+      "top_paths": [
+        {
+          "path": [
+            0,
+            2,
+            0,
+            3,
+            2
+          ],
+          "probability": 0.51875
+        },
+        {
+          "path": [
+            1,
+            2,
+            0,
+            3,
+            2
+          ],
+          "probability": 0.24575
+        },
+        {
+          "path": [
+            0,
+            2,
+            1,
+            3,
+            2
+          ],
+          "probability": 0.08575
+        }
+      ],
+      "mean_prob_true_cuts": 0.9750624999999999,
+      "mean_prob_false_cuts": 0.0,
+      "mean_prob_true_skill": 0.8362916666666665,
+      "segment_count_ess": 1048.253517200568,
+      "n_samples": 4000,
+      "true_log_target": -19.241350084021523,
+      "posterior_prefers_non_true": true
+    },
+    {
+      "index": 2,
+      "length": 14,
+      "group": "ambiguous",
+      "n_tilings": 10,
+      "n_cut_patterns": 4,
+      "true_cuts": [
+        4,
+        6,
+        10,
+        12
+      ],
+      "true_path": [
+        3,
+        2,
+        3,
+        0,
+        2
+      ],
+      "boundary_posterior": {
+        "4": 1.0,
+        "6": 1.0,
+        "8": 0.27025,
+        "10": 1.0,
+        "12": 0.97575
+      },
+      "boundary_posterior_by_chain": [
+        {
+          "4": 1.0,
+          "6": 1.0,
+          "8": 0.282,
+          "10": 1.0,
+          "12": 0.978
+        },
+        {
+          "4": 1.0,
+          "6": 1.0,
+          "8": 0.2585,
+          "10": 1.0,
+          "12": 0.9735
+        }
+      ],
+      "predicted_cuts": [
+        4,
+        6,
+        10,
+        12
+      ],
+      "label_posterior": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.24575,
+          0.0245,
+          0.0,
+          0.72975
+        ],
+        [
+          0.24575,
+          0.0245,
+          0.0,
+          0.72975
+        ],
+        [
+          0.0,
+          0.0,
+          0.27025,
+          0.72975
+        ],
+        [
+          0.0,
+          0.0,
+          0.27025,
+          0.72975
+        ],
+        [
+          0.7215,
+          0.25425,
+          0.0,
+          0.02425
+        ],
+        [
+          0.7215,
+          0.25425,
+          0.0,
+          0.02425
+        ],
+        [
+          0.0,
+          0.0,
+          0.97575,
+          0.02425
+        ],
+        [
+          0.0,
+          0.0,
+          0.97575,
+          0.02425
+        ]
+      ],
+      "posterior_mode_labels": [
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        0,
+        0,
+        2,
+        2
+      ],
+      "best_segmentation": [
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          4,
+          6,
+          2
+        ],
+        [
+          6,
+          10,
+          3
+        ],
+        [
+          10,
+          12,
+          0
+        ],
+        [
+          12,
+          14,
+          2
+        ]
+      ],
+      "best_log_target": -18.2256000136489,
+      "top_paths": [
+        {
+          "path": [
+            3,
+            2,
+            3,
+            0,
+            2
+          ],
+          "probability": 0.50425
+        },
+        {
+          "path": [
+            3,
+            2,
+            3,
+            1,
+            2
+          ],
+          "probability": 0.2255
+        },
+        {
+          "path": [
+            3,
+            2,
+            0,
+            2,
+            0,
+            2
+          ],
+          "probability": 0.19825
+        }
+      ],
+      "mean_prob_true_cuts": 0.9939375,
+      "mean_prob_false_cuts": 0.030027777777777778,
+      "mean_prob_true_skill": 0.8795357142857142,
+      "segment_count_ess": 315.9421723079292,
+      "n_samples": 4000,
+      "true_log_target": -18.2256000136489,
+      "posterior_prefers_non_true": false
+    },
+    {
+      "index": 3,
+      "length": 14,
+      "group": "ambiguous",
+      "n_tilings": 10,
+      "n_cut_patterns": 4,
+      "true_cuts": [
+        4,
+        6,
+        8,
+        10,
+        12
+      ],
+      "true_path": [
+        3,
+        2,
+        1,
+        2,
+        0,
+        2
+      ],
+      "boundary_posterior": {
+        "4": 1.0,
+        "6": 1.0,
+        "8": 0.766,
+        "10": 1.0,
+        "12": 0.933
+      },
+      "boundary_posterior_by_chain": [
+        {
+          "4": 1.0,
+          "6": 1.0,
+          "8": 0.7595,
+          "10": 1.0,
+          "12": 0.93
+        },
+        {
+          "4": 1.0,
+          "6": 1.0,
+          "8": 0.7725,
+          "10": 1.0,
+          "12": 0.936
+        }
+      ],
+      "predicted_cuts": [
+        4,
+        6,
+        8,
+        10,
+        12
+      ],
+      "label_posterior": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.1095,
+          0.6565,
+          0.0,
+          0.234
+        ],
+        [
+          0.1095,
+          0.6565,
+          0.0,
+          0.234
+        ],
+        [
+          0.0,
+          0.0,
+          0.766,
+          0.234
+        ],
+        [
+          0.0,
+          0.0,
+          0.766,
+          0.234
+        ],
+        [
+          0.76825,
+          0.16475,
+          0.0,
+          0.067
+        ],
+        [
+          0.76825,
+          0.16475,
+          0.0,
+          0.067
+        ],
+        [
+          0.0,
+          0.0,
+          0.933,
+          0.067
+        ],
+        [
+          0.0,
+          0.0,
+          0.933,
+          0.067
+        ]
+      ],
+      "posterior_mode_labels": [
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2
+      ],
+      "best_segmentation": [
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          4,
+          6,
+          2
+        ],
+        [
+          6,
+          8,
+          1
+        ],
+        [
+          8,
+          10,
+          2
+        ],
+        [
+          10,
+          12,
+          0
+        ],
+        [
+          12,
+          14,
+          2
+        ]
+      ],
+      "best_log_target": -17.538407465101496,
+      "top_paths": [
+        {
+          "path": [
+            3,
+            2,
+            1,
+            2,
+            0,
+            2
+          ],
+          "probability": 0.526
+        },
+        {
+          "path": [
+            3,
+            2,
+            3,
+            0,
+            2
+          ],
+          "probability": 0.15625
+        },
+        {
+          "path": [
+            3,
+            2,
+            0,
+            2,
+            0,
+            2
+          ],
+          "probability": 0.086
+        }
+      ],
+      "mean_prob_true_cuts": 0.9398,
+      "mean_prob_false_cuts": 0.0,
+      "mean_prob_true_skill": 0.8748214285714286,
+      "segment_count_ess": 796.9193715654567,
+      "n_samples": 4000,
+      "true_log_target": -17.538407465101496,
+      "posterior_prefers_non_true": false
+    }
+  ],
+  "move_alpha_diagnostic": {
+    "relabel": {
+      "n_available_moves_examined": 58,
+      "max_log_alpha": 2.0361052281928664,
+      "n_with_log_alpha_ge_0": 29,
+      "median_log_alpha": 0.0,
+      "pct_impossible_target": 0.0
+    },
+    "split": {
+      "n_available_moves_examined": 20,
+      "max_log_alpha": 2.1171619731699565,
+      "n_with_log_alpha_ge_0": 9,
+      "median_log_alpha": -0.4579397557555982,
+      "pct_impossible_target": 0.0
+    },
+    "merge": {
+      "n_available_moves_examined": 68,
+      "max_log_alpha": 4.96879926227245,
+      "n_with_log_alpha_ge_0": 11,
+      "median_log_alpha": -1.0991093590735215,
+      "pct_impossible_target": 58.82352941176471
+    },
+    "shift": {
+      "n_available_moves_examined": 20,
+      "max_log_alpha": -5.853837450642497,
+      "n_with_log_alpha_ge_0": 0,
+      "median_log_alpha": -9.374295361504581,
+      "pct_impossible_target": 40.0
+    }
+  },
+  "identifiability": {
+    "n_traces_where_posterior_prefers_non_true": 2,
+    "n_traces": 4,
+    "mean_log_target_advantage": 1.5765373861896723,
+    "max_log_target_advantage": 2.416252528316736
+  },
+  "metrics": {
+    "boundary_overall": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "true_positive": 18,
+      "n_predicted": 18,
+      "n_truth": 18
+    },
+    "skill_overall": {
+      "occurrence_accuracy": 0.8928571428571429,
+      "adjusted_rand_index": 0.9081919781250497,
+      "exact_path_accuracy": 0.5,
+      "n_positions": 56,
+      "n_traces": 4,
+      "best_retained_path_accuracy": 0.5
+    },
+    "by_group": {
+      "natural": {
+        "boundary": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "true_positive": 9,
+          "n_predicted": 9,
+          "n_truth": 9
+        },
+        "n_traces": 2
+      },
+      "ambiguous": {
+        "boundary": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "true_positive": 9,
+          "n_predicted": 9,
+          "n_truth": 9
+        },
+        "n_traces": 2
+      }
+    },
+    "proposed_by_move": {
+      "relabel": 9988,
+      "split": 2823,
+      "merge": 9797,
+      "shift": 2893
+    },
+    "accepted_by_move": {
+      "relabel": 4912,
+      "split": 872,
+      "merge": 869,
+      "shift": 0
+    },
+    "acceptance_by_move": {
+      "relabel": 0.49179014817781336,
+      "split": 0.30889125044279137,
+      "merge": 0.08870062263958355,
+      "shift": 0.0
+    },
+    "log_target_ess_by_chain": [
+      252.49402087047739,
+      217.1124362778422
+    ],
+    "mean_prob_true_cuts": 0.9772,
+    "mean_prob_false_cuts": 0.0075069444444444446,
+    "mean_prob_true_skill": 0.8385450148809523,
+    "n_chains": 2,
+    "n_sweeps": 5000,
+    "burn_in": 1000,
+    "thin": 2
+  },
+  "chain_summaries": [
+    {
+      "proposed_by_move": {
+        "relabel": 4936,
+        "split": 1399,
+        "merge": 4959,
+        "shift": 1441
+      },
+      "accepted_by_move": {
+        "relabel": 2448,
+        "split": 439,
+        "merge": 438,
+        "shift": 0
+      },
+      "acceptance_by_move": {
+        "relabel": 0.4959481361426256,
+        "split": 0.31379556826304505,
+        "merge": 0.08832425892316999,
+        "shift": 0.0
+      },
+      "n_sweeps": 5000,
+      "burn_in": 1000,
+      "thin": 2
+    },
+    {
+      "proposed_by_move": {
+        "relabel": 5052,
+        "split": 1424,
+        "merge": 4838,
+        "shift": 1452
+      },
+      "accepted_by_move": {
+        "relabel": 2464,
+        "split": 433,
+        "merge": 431,
+        "shift": 0
+      },
+      "acceptance_by_move": {
+        "relabel": 0.48772763262074426,
+        "split": 0.30407303370786515,
+        "merge": 0.08908639933856966,
+        "shift": 0.0
+      },
+      "n_sweeps": 5000,
+      "burn_in": 1000,
+      "thin": 2
+    }
+  ]
+}

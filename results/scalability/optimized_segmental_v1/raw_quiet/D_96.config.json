@@ -1,0 +1,25 @@
+{
+  "A": 20,
+  "D_max": 96,
+  "D_min": 3,
+  "J": 192,
+  "K": 10,
+  "N": 16,
+  "axis": "D",
+  "groups": [
+    "build",
+    "primitives",
+    "cond",
+    "marg"
+  ],
+  "label": "D_96",
+  "length_mix": [],
+  "max_reps": 50,
+  "min_reps": 5,
+  "note": "",
+  "op_reps": [],
+  "regime": "full",
+  "seed": 20260822,
+  "timeout_s": 720,
+  "warmups": 3
+}

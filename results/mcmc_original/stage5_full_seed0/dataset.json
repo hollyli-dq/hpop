@@ -1,0 +1,4726 @@
+{
+  "config": {
+    "mode": "full",
+    "generator_seed": 0,
+    "beta": 1.5,
+    "epsilon": 0.05,
+    "delta_B": 0.5,
+    "rho_U": 0.25,
+    "latent_dim": 2,
+    "n_skills": 4,
+    "skill_names": [
+      "A",
+      "D",
+      "F",
+      "E"
+    ],
+    "cpa_supports": {
+      "A": [
+        0,
+        1
+      ],
+      "D": [
+        0,
+        1
+      ],
+      "F": [
+        2,
+        3
+      ],
+      "E": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "U_true": {
+      "A": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "D": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "F": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "E": [
+        [
+          2.0,
+          2.0
+        ],
+        [
+          3.0,
+          -1.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "P_true": [
+      [
+        0.0,
+        0.1,
+        0.75,
+        0.15
+      ],
+      [
+        0.1,
+        0.0,
+        0.7,
+        0.2
+      ],
+      [
+        0.55,
+        0.15,
+        0.0,
+        0.3
+      ],
+      [
+        0.35,
+        0.35,
+        0.3,
+        0.0
+      ]
+    ],
+    "pi_true": [
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "segments_per_trace": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "disallow_self_transitions": true
+  },
+  "stats": {
+    "mode": "full",
+    "generator_seed": 0,
+    "n_train": 40,
+    "n_train_requested": 40,
+    "n_train_extra_for_coverage": 0,
+    "n_test": 20,
+    "n_test_natural": 10,
+    "n_test_ambiguous": 10,
+    "generation_attempts": 60,
+    "rejected_traces": 0,
+    "instance_counts": {
+      "A": 43,
+      "D": 37,
+      "F": 60,
+      "E": 41
+    },
+    "transition_counts_train": [
+      [
+        0,
+        4,
+        22,
+        5
+      ],
+      [
+        1,
+        0,
+        21,
+        9
+      ],
+      [
+        17,
+        12,
+        0,
+        13
+      ],
+      [
+        16,
+        13,
+        8,
+        0
+      ]
+    ],
+    "outgoing_per_row": {
+      "A": 31,
+      "D": 31,
+      "F": 42,
+      "E": 37
+    },
+    "min_instances_required": 20,
+    "min_outgoing_required": 15,
+    "tilings_min": 1,
+    "tilings_max": 88,
+    "tilings_mean": 17.15,
+    "pct_ambiguous_overall": 96.66666666666667,
+    "pct_ambiguous_train": 97.5,
+    "cut_patterns_min": 1,
+    "cut_patterns_max": 15,
+    "cut_patterns_mean": 4.116666666666666,
+    "pct_boundary_ambiguous_overall": 70.0,
+    "trace_lengths": {
+      "min": 6,
+      "max": 16
+    }
+  },
+  "transition_true": [
+    [
+      0.0,
+      0.1,
+      0.75,
+      0.15
+    ],
+    [
+      0.1,
+      0.0,
+      0.7,
+      0.2
+    ],
+    [
+      0.55,
+      0.15,
+      0.0,
+      0.3
+    ],
+    [
+      0.35,
+      0.35,
+      0.3,
+      0.0
+    ]
+  ],
+  "skills": [
+    {
+      "cpa_labels": [
+        0,
+        1
+      ],
+      "u": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "beta": 1.5,
+      "epsilon": 0.05
+    },
+    {
+      "cpa_labels": [
+        0,
+        1
+      ],
+      "u": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "beta": 1.5,
+      "epsilon": 0.05
+    },
+    {
+      "cpa_labels": [
+        2,
+        3
+      ],
+      "u": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "beta": 1.5,
+      "epsilon": 0.05
+    },
+    {
+      "cpa_labels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "u": [
+        [
+          2.0,
+          2.0
+        ],
+        [
+          3.0,
+          -1.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "beta": 1.5,
+      "epsilon": 0.05
+    }
+  ],
+  "train": [
+    {
+      "observations": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        3,
+        1,
+        2,
+        2,
+        3,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          4,
+          0
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          6,
+          10,
+          3
+        ],
+        [
+          10,
+          12,
+          2
+        ],
+        [
+          12,
+          14,
+          1
+        ]
+      ],
+      "true_skill_path": [
+        1,
+        0,
+        1,
+        3,
+        2,
+        1
+      ],
+      "true_role_sequences": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3,
+          1,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 4,
+      "num_distinct_cut_patterns": 1
+    },
+    {
+      "observations": [
+        1,
+        0,
+        2,
+        3,
+        1,
+        0,
+        2,
+        3,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          4,
+          2
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          6,
+          8,
+          2
+        ],
+        [
+          8,
+          10,
+          0
+        ]
+      ],
+      "true_skill_path": [
+        0,
+        2,
+        1,
+        2,
+        0
+      ],
+      "true_role_sequences": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 26,
+      "num_distinct_cut_patterns": 6
+    },
+    {
+      "observations": [
+        0,
+        2,
+        1,
+        3,
+        2,
+        3,
+        0,
+        1,
+        2,
+        3
+      ],
+      "true_segmentation": [
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          4,
+          6,
+          2
+        ],
+        [
+          6,
+          8,
+          0
+        ],
+        [
+          8,
+          10,
+          2
+        ]
+      ],
+      "true_skill_path": [
+        3,
+        2,
+        0,
+        2
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          2,
+          1,
+          3
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 3,
+      "num_distinct_cut_patterns": 2
+    },
+    {
+      "observations": [
+        0,
+        1,
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        2,
+        3
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          6,
+          3
+        ],
+        [
+          6,
+          8,
+          0
+        ],
+        [
+          8,
+          10,
+          2
+        ]
+      ],
+      "true_skill_path": [
+        0,
+        3,
+        0,
+        2
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 12,
+      "num_distinct_cut_patterns": 4
+    },
+    {
+      "observations": [
+        0,
+        1,
+        0,
+        2,
+        3,
+        1,
+        1,
+        0,
+        2,
+        3,
+        1,
+        0,
+        0,
+        3,
+        2,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          6,
+          3
+        ],
+        [
+          6,
+          8,
+          1
+        ],
+        [
+          8,
+          10,
+          2
+        ],
+        [
+          10,
+          12,
+          1
+        ],
+        [
+          12,
+          16,
+          3
+        ]
+      ],
+      "true_skill_path": [
+        0,
+        3,
+        1,
+        2,
+        1,
+        3
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          3,
+          2,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 8,
+      "num_distinct_cut_patterns": 1
+    },
+    {
+      "observations": [
+        0,
+        1,
+        2,
+        3,
+        1,
+        0,
+        3,
+        2,
+        2,
+        3,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          4,
+          2
+        ],
+        [
+          4,
+          8,
+          3
+        ],
+        [
+          8,
+          10,
+          2
+        ],
+        [
+          10,
+          12,
+          0
+        ]
+      ],
+      "true_skill_path": [
+        0,
+        2,
+        3,
+        2,
+        0
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          3,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 12,
+      "num_distinct_cut_patterns": 4
+    },
+    {
+      "observations": [
+        1,
+        0,
+        0,
+        1,
+        3,
+        2,
+        0,
+        1,
+        2,
+        3
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          6,
+          3
+        ],
+        [
+          6,
+          8,
+          0
+        ],
+        [
+          8,
+          10,
+          2
+        ]
+      ],
+      "true_skill_path": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "true_role_sequences": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          3,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 12,
+      "num_distinct_cut_patterns": 4
+    },
+    {
+      "observations": [
+        0,
+        1,
+        2,
+        3,
+        0,
+        2,
+        3,
+        1,
+        1,
+        0,
+        2,
+        3
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          4,
+          2
+        ],
+        [
+          4,
+          8,
+          3
+        ],
+        [
+          8,
+          10,
+          1
+        ],
+        [
+          10,
+          12,
+          2
+        ]
+      ],
+      "true_skill_path": [
+        1,
+        2,
+        3,
+        1,
+        2
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 4,
+      "num_distinct_cut_patterns": 1
+    },
+    {
+      "observations": [
+        0,
+        3,
+        1,
+        2,
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        0,
+        3,
+        2,
+        1,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          6,
+          8,
+          2
+        ],
+        [
+          8,
+          10,
+          1
+        ],
+        [
+          10,
+          14,
+          3
+        ],
+        [
+          14,
+          16,
+          0
+        ]
+      ],
+      "true_skill_path": [
+        3,
+        1,
+        2,
+        1,
+        3,
+        0
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          3,
+          1,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 8,
+      "num_distinct_cut_patterns": 1
+    },
+    {
+      "observations": [
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        3,
+        0,
+        1,
+        2,
+        2,
+        3
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          4,
+          2
+        ],
+        [
+          4,
+          6,
+          0
+        ],
+        [
+          6,
+          10,
+          3
+        ],
+        [
+          10,
+          12,
+          2
+        ]
+      ],
+      "true_skill_path": [
+        1,
+        2,
+        0,
+        3,
+        2
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          3,
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 6,
+      "num_distinct_cut_patterns": 2
+    },
+    {
+      "observations": [
+        0,
+        3,
+        1,
+        2,
+        2,
+        3,
+        0,
+        1,
+        3,
+        2,
+        0,
+        1,
+        2,
+        3
+      ],
+      "true_segmentation": [
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          4,
+          6,
+          2
+        ],
+        [
+          6,
+          10,
+          3
+        ],
+        [
+          10,
+          12,
+          0
+        ],
+        [
+          12,
+          14,
+          2
+        ]
+      ],
+      "true_skill_path": [
+        3,
+        2,
+        3,
+        0,
+        2
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          3,
+          1,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          3,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 10,
+      "num_distinct_cut_patterns": 4
+    },
+    {
+      "observations": [
+        0,
+        2,
+        3,
+        1,
+        2,
+        3,
+        1,
+        0,
+        2,
+        3,
+        0,
+        1,
+        2,
+        3
+      ],
+      "true_segmentation": [
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          4,
+          6,
+          2
+        ],
+        [
+          6,
+          8,
+          1
+        ],
+        [
+          8,
+          10,
+          2
+        ],
+        [
+          10,
+          12,
+          0
+        ],
+        [
+          12,
+          14,
+          2
+        ]
+      ],
+      "true_skill_path": [
+        3,
+        2,
+        1,
+        2,
+        0,
+        2
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 10,
+      "num_distinct_cut_patterns": 4
+    },
+    {
+      "observations": [
+        0,
+        1,
+        2,
+        3,
+        2,
+        3,
+        0,
+        3,
+        1,
+        2
+      ],
+      "true_segmentation": [
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          4,
+          6,
+          2
+        ],
+        [
+          6,
+          10,
+          3
+        ]
+      ],
+      "true_skill_path": [
+        3,
+        2,
+        3
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3,
+          1,
+          2
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 1,
+      "num_distinct_cut_patterns": 1
+    },
+    {
+      "observations": [
+        1,
+        0,
+        2,
+        3,
+        3,
+        0,
+        2,
+        1,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          4,
+          2
+        ],
+        [
+          4,
+          8,
+          3
+        ],
+        [
+          8,
+          10,
+          0
+        ]
+      ],
+      "true_skill_path": [
+        1,
+        2,
+        3,
+        0
+      ],
+      "true_role_sequences": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          3,
+          0,
+          2,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 4,
+      "num_distinct_cut_patterns": 1
+    },
+    {
+      "observations": [
+        2,
+        3,
+        3,
+        1,
+        0,
+        2,
+        0,
+        1,
+        2,
+        3
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          6,
+          3
+        ],
+        [
+          6,
+          8,
+          0
+        ],
+        [
+          8,
+          10,
+          2
+        ]
+      ],
+      "true_skill_path": [
+        2,
+        3,
+        0,
+        2
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          3,
+          1,
+          0,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 2,
+      "num_distinct_cut_patterns": 1
+    },
+    {
+      "observations": [
+        0,
+        2,
+        1,
+        3,
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        3,
+        2
+      ],
+      "true_segmentation": [
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          4,
+          6,
+          0
+        ],
+        [
+          6,
+          8,
+          2
+        ],
+        [
+          8,
+          10,
+          0
+        ],
+        [
+          10,
+          12,
+          2
+        ]
+      ],
+      "true_skill_path": [
+        3,
+        0,
+        2,
+        0,
+        2
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          2,
+          1,
+          3
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 8,
+      "num_distinct_cut_patterns": 3
+    },
+    {
+      "observations": [
+        0,
+        3,
+        1,
+        2,
+        2,
+        3,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          4,
+          6,
+          2
+        ],
+        [
+          6,
+          8,
+          0
+        ]
+      ],
+      "true_skill_path": [
+        3,
+        2,
+        0
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          3,
+          1,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 2,
+      "num_distinct_cut_patterns": 1
+    },
+    {
+      "observations": [
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        2,
+        3
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          4,
+          2
+        ],
+        [
+          4,
+          6,
+          0
+        ],
+        [
+          6,
+          8,
+          2
+        ]
+      ],
+      "true_skill_path": [
+        0,
+        2,
+        0,
+        2
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 10,
+      "num_distinct_cut_patterns": 4
+    },
+    {
+      "observations": [
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        0,
+        2,
+        1,
+        3,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          4,
+          2
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          6,
+          10,
+          3
+        ],
+        [
+          10,
+          12,
+          1
+        ]
+      ],
+      "true_skill_path": [
+        0,
+        2,
+        1,
+        3,
+        1
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2,
+          1,
+          3
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 12,
+      "num_distinct_cut_patterns": 2
+    },
+    {
+      "observations": [
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        2,
+        3,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          6,
+          8,
+          2
+        ],
+        [
+          8,
+          12,
+          3
+        ],
+        [
+          12,
+          14,
+          0
+        ]
+      ],
+      "true_skill_path": [
+        3,
+        1,
+        2,
+        3,
+        0
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 88,
+      "num_distinct_cut_patterns": 13
+    },
+    {
+      "observations": [
+        2,
+        3,
+        0,
+        1,
+        2,
+        3,
+        1,
+        0,
+        3,
+        2,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          4,
+          0
+        ],
+        [
+          4,
+          6,
+          2
+        ],
+        [
+          6,
+          10,
+          3
+        ],
+        [
+          10,
+          12,
+          1
+        ]
+      ],
+      "true_skill_path": [
+        2,
+        0,
+        2,
+        3,
+        1
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          3,
+          2
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 34,
+      "num_distinct_cut_patterns": 9
+    },
+    {
+      "observations": [
+        2,
+        3,
+        0,
+        2,
+        1,
+        3,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          6,
+          3
+        ],
+        [
+          6,
+          8,
+          0
+        ]
+      ],
+      "true_skill_path": [
+        2,
+        3,
+        0
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2,
+          1,
+          3
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 2,
+      "num_distinct_cut_patterns": 1
+    },
+    {
+      "observations": [
+        0,
+        3,
+        2,
+        1,
+        0,
+        1,
+        2,
+        3,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          4,
+          6,
+          0
+        ],
+        [
+          6,
+          8,
+          2
+        ],
+        [
+          8,
+          10,
+          0
+        ]
+      ],
+      "true_skill_path": [
+        3,
+        0,
+        2,
+        0
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 6,
+      "num_distinct_cut_patterns": 2
+    },
+    {
+      "observations": [
+        1,
+        0,
+        2,
+        3,
+        0,
+        1,
+        0,
+        3,
+        2,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          4,
+          6,
+          0
+        ],
+        [
+          6,
+          10,
+          3
+        ]
+      ],
+      "true_skill_path": [
+        3,
+        0,
+        3
+      ],
+      "true_role_sequences": [
+        [
+          1,
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3,
+          2,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 6,
+      "num_distinct_cut_patterns": 2
+    },
+    {
+      "observations": [
+        2,
+        3,
+        0,
+        1,
+        2,
+        3
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          4,
+          0
+        ],
+        [
+          4,
+          6,
+          2
+        ]
+      ],
+      "true_skill_path": [
+        2,
+        0,
+        2
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 4,
+      "num_distinct_cut_patterns": 3
+    },
+    {
+      "observations": [
+        0,
+        2,
+        3,
+        1,
+        1,
+        0,
+        3,
+        2
+      ],
+      "true_segmentation": [
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          4,
+          6,
+          0
+        ],
+        [
+          6,
+          8,
+          2
+        ]
+      ],
+      "true_skill_path": [
+        3,
+        0,
+        2
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 2,
+      "num_distinct_cut_patterns": 1
+    },
+    {
+      "observations": [
+        0,
+        3,
+        1,
+        2,
+        1,
+        0,
+        2,
+        3,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          6,
+          8,
+          2
+        ],
+        [
+          8,
+          10,
+          0
+        ]
+      ],
+      "true_skill_path": [
+        3,
+        1,
+        2,
+        0
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          3,
+          1,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 6,
+      "num_distinct_cut_patterns": 2
+    },
+    {
+      "observations": [
+        2,
+        3,
+        1,
+        0,
+        2,
+        3,
+        0,
+        2,
+        3,
+        1,
+        0,
+        1,
+        2,
+        3
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          4,
+          1
+        ],
+        [
+          4,
+          6,
+          2
+        ],
+        [
+          6,
+          10,
+          3
+        ],
+        [
+          10,
+          12,
+          1
+        ],
+        [
+          12,
+          14,
+          2
+        ]
+      ],
+      "true_skill_path": [
+        2,
+        1,
+        2,
+        3,
+        1,
+        2
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 6,
+      "num_distinct_cut_patterns": 2
+    },
+    {
+      "observations": [
+        2,
+        3,
+        0,
+        1,
+        2,
+        3,
+        1,
+        0,
+        0,
+        1,
+        3,
+        2,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          4,
+          0
+        ],
+        [
+          4,
+          6,
+          2
+        ],
+        [
+          6,
+          8,
+          1
+        ],
+        [
+          8,
+          12,
+          3
+        ],
+        [
+          12,
+          14,
+          1
+        ]
+      ],
+      "true_skill_path": [
+        2,
+        0,
+        2,
+        1,
+        3,
+        1
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          3,
+          2
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 52,
+      "num_distinct_cut_patterns": 11
+    },
+    {
+      "observations": [
+        2,
+        3,
+        0,
+        1,
+        1,
+        0,
+        2,
+        3,
+        0,
+        2,
+        3,
+        1,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          4,
+          0
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          6,
+          8,
+          2
+        ],
+        [
+          8,
+          12,
+          3
+        ],
+        [
+          12,
+          14,
+          1
+        ]
+      ],
+      "true_skill_path": [
+        2,
+        0,
+        1,
+        2,
+        3,
+        1
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 8,
+      "num_distinct_cut_patterns": 2
+    },
+    {
+      "observations": [
+        2,
+        3,
+        0,
+        1,
+        2,
+        3
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          4,
+          1
+        ],
+        [
+          4,
+          6,
+          2
+        ]
+      ],
+      "true_skill_path": [
+        2,
+        1,
+        2
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 4,
+      "num_distinct_cut_patterns": 3
+    },
+    {
+      "observations": [
+        1,
+        0,
+        3,
+        2,
+        0,
+        1,
+        1,
+        0,
+        2,
+        3,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          4,
+          6,
+          0
+        ],
+        [
+          6,
+          8,
+          1
+        ],
+        [
+          8,
+          10,
+          2
+        ],
+        [
+          10,
+          12,
+          0
+        ]
+      ],
+      "true_skill_path": [
+        3,
+        0,
+        1,
+        2,
+        0
+      ],
+      "true_role_sequences": [
+        [
+          1,
+          0,
+          3,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 42,
+      "num_distinct_cut_patterns": 8
+    },
+    {
+      "observations": [
+        1,
+        0,
+        2,
+        3,
+        0,
+        1,
+        1,
+        0,
+        2,
+        3
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          4,
+          2
+        ],
+        [
+          4,
+          6,
+          0
+        ],
+        [
+          6,
+          8,
+          1
+        ],
+        [
+          8,
+          10,
+          2
+        ]
+      ],
+      "true_skill_path": [
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "true_role_sequences": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 16,
+      "num_distinct_cut_patterns": 5
+    },
+    {
+      "observations": [
+        0,
+        1,
+        2,
+        3,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          4,
+          2
+        ],
+        [
+          4,
+          6,
+          0
+        ]
+      ],
+      "true_skill_path": [
+        0,
+        2,
+        0
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 8,
+      "num_distinct_cut_patterns": 3
+    },
+    {
+      "observations": [
+        0,
+        1,
+        2,
+        3,
+        0,
+        2,
+        1,
+        3,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          4,
+          2
+        ],
+        [
+          4,
+          8,
+          3
+        ],
+        [
+          8,
+          10,
+          1
+        ]
+      ],
+      "true_skill_path": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2,
+          1,
+          3
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 4,
+      "num_distinct_cut_patterns": 1
+    },
+    {
+      "observations": [
+        2,
+        3,
+        1,
+        0,
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        2,
+        3
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          4,
+          1
+        ],
+        [
+          4,
+          8,
+          3
+        ],
+        [
+          8,
+          10,
+          0
+        ],
+        [
+          10,
+          12,
+          2
+        ]
+      ],
+      "true_skill_path": [
+        2,
+        1,
+        3,
+        0,
+        2
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 20,
+      "num_distinct_cut_patterns": 7
+    },
+    {
+      "observations": [
+        1,
+        0,
+        2,
+        3,
+        1,
+        0,
+        2,
+        3
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          4,
+          2
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          6,
+          8,
+          2
+        ]
+      ],
+      "true_skill_path": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "true_role_sequences": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 10,
+      "num_distinct_cut_patterns": 4
+    },
+    {
+      "observations": [
+        0,
+        1,
+        0,
+        3,
+        1,
+        2,
+        1,
+        0,
+        0,
+        3,
+        2,
+        1,
+        1,
+        0,
+        2,
+        3
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          6,
+          3
+        ],
+        [
+          6,
+          8,
+          1
+        ],
+        [
+          8,
+          12,
+          3
+        ],
+        [
+          12,
+          14,
+          1
+        ],
+        [
+          14,
+          16,
+          2
+        ]
+      ],
+      "true_skill_path": [
+        1,
+        3,
+        1,
+        3,
+        1,
+        2
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3,
+          1,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 8,
+      "num_distinct_cut_patterns": 1
+    },
+    {
+      "observations": [
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        2,
+        3,
+        0,
+        3,
+        1,
+        2
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          4,
+          2
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          6,
+          8,
+          2
+        ],
+        [
+          8,
+          12,
+          3
+        ]
+      ],
+      "true_skill_path": [
+        0,
+        2,
+        1,
+        2,
+        3
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3,
+          1,
+          2
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 8,
+      "num_distinct_cut_patterns": 3
+    },
+    {
+      "observations": [
+        0,
+        1,
+        3,
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        3,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          4,
+          6,
+          0
+        ],
+        [
+          6,
+          10,
+          3
+        ],
+        [
+          10,
+          12,
+          0
+        ]
+      ],
+      "true_skill_path": [
+        3,
+        0,
+        3,
+        0
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1,
+          3,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "train",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 42,
+      "num_distinct_cut_patterns": 8
+    }
+  ],
+  "test": [
+    {
+      "observations": [
+        1,
+        0,
+        3,
+        2,
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        2,
+        3,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          4,
+          6,
+          0
+        ],
+        [
+          6,
+          8,
+          2
+        ],
+        [
+          8,
+          10,
+          0
+        ],
+        [
+          10,
+          12,
+          2
+        ],
+        [
+          12,
+          14,
+          0
+        ]
+      ],
+      "true_skill_path": [
+        3,
+        0,
+        2,
+        0,
+        2,
+        0
+      ],
+      "true_role_sequences": [
+        [
+          1,
+          0,
+          3,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "test",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 88,
+      "num_distinct_cut_patterns": 13
+    },
+    {
+      "observations": [
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        2,
+        3
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          4,
+          2
+        ],
+        [
+          4,
+          6,
+          0
+        ],
+        [
+          6,
+          8,
+          2
+        ],
+        [
+          8,
+          12,
+          3
+        ]
+      ],
+      "true_skill_path": [
+        1,
+        2,
+        0,
+        2,
+        3
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "test",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 34,
+      "num_distinct_cut_patterns": 9
+    },
+    {
+      "observations": [
+        0,
+        1,
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        3,
+        2
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          4,
+          1
+        ],
+        [
+          4,
+          6,
+          2
+        ],
+        [
+          6,
+          10,
+          3
+        ]
+      ],
+      "true_skill_path": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          3,
+          2
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "test",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 12,
+      "num_distinct_cut_patterns": 4
+    },
+    {
+      "observations": [
+        0,
+        2,
+        1,
+        3,
+        1,
+        0,
+        0,
+        2,
+        3,
+        1,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          6,
+          10,
+          3
+        ],
+        [
+          10,
+          12,
+          0
+        ]
+      ],
+      "true_skill_path": [
+        3,
+        1,
+        3,
+        0
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          2,
+          1,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "test",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 4,
+      "num_distinct_cut_patterns": 1
+    },
+    {
+      "observations": [
+        2,
+        3,
+        0,
+        1,
+        2,
+        3,
+        2,
+        3,
+        0,
+        2,
+        1,
+        3
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          6,
+          3
+        ],
+        [
+          6,
+          8,
+          2
+        ],
+        [
+          8,
+          12,
+          3
+        ]
+      ],
+      "true_skill_path": [
+        2,
+        3,
+        2,
+        3
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2,
+          1,
+          3
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "test",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 1,
+      "num_distinct_cut_patterns": 1
+    },
+    {
+      "observations": [
+        0,
+        1,
+        2,
+        3,
+        1,
+        0,
+        0,
+        1,
+        3,
+        2,
+        0,
+        1,
+        0,
+        1,
+        3,
+        2
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          4,
+          2
+        ],
+        [
+          4,
+          6,
+          1
+        ],
+        [
+          6,
+          10,
+          3
+        ],
+        [
+          10,
+          12,
+          1
+        ],
+        [
+          12,
+          16,
+          3
+        ]
+      ],
+      "true_skill_path": [
+        1,
+        2,
+        1,
+        3,
+        1,
+        3
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          3,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          3,
+          2
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "test",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 84,
+      "num_distinct_cut_patterns": 13
+    },
+    {
+      "observations": [
+        0,
+        1,
+        3,
+        2,
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        2,
+        3,
+        2,
+        3
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          4,
+          2
+        ],
+        [
+          4,
+          6,
+          0
+        ],
+        [
+          6,
+          8,
+          2
+        ],
+        [
+          8,
+          12,
+          3
+        ],
+        [
+          12,
+          14,
+          2
+        ]
+      ],
+      "true_skill_path": [
+        0,
+        2,
+        0,
+        2,
+        3,
+        2
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "test",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 8,
+      "num_distinct_cut_patterns": 3
+    },
+    {
+      "observations": [
+        2,
+        3,
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        2,
+        3,
+        1,
+        0
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          4,
+          0
+        ],
+        [
+          4,
+          6,
+          2
+        ],
+        [
+          6,
+          8,
+          0
+        ],
+        [
+          8,
+          10,
+          2
+        ],
+        [
+          10,
+          12,
+          0
+        ]
+      ],
+      "true_skill_path": [
+        2,
+        0,
+        2,
+        0,
+        2,
+        0
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "test",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 34,
+      "num_distinct_cut_patterns": 9
+    },
+    {
+      "observations": [
+        2,
+        3,
+        0,
+        3,
+        2,
+        1,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          6,
+          3
+        ],
+        [
+          6,
+          8,
+          1
+        ]
+      ],
+      "true_skill_path": [
+        2,
+        3,
+        1
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "test",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 2,
+      "num_distinct_cut_patterns": 1
+    },
+    {
+      "observations": [
+        0,
+        2,
+        3,
+        1,
+        0,
+        1,
+        2,
+        3
+      ],
+      "true_segmentation": [
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          4,
+          6,
+          0
+        ],
+        [
+          6,
+          8,
+          2
+        ]
+      ],
+      "true_skill_path": [
+        3,
+        0,
+        2
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "test",
+      "ambiguity_group": "natural",
+      "num_support_compatible_tilings": 2,
+      "num_distinct_cut_patterns": 1
+    },
+    {
+      "observations": [
+        0,
+        1,
+        0,
+        1,
+        2,
+        3,
+        1,
+        0,
+        1,
+        0,
+        2,
+        3,
+        0,
+        1,
+        2,
+        3
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          6,
+          3
+        ],
+        [
+          6,
+          8,
+          1
+        ],
+        [
+          8,
+          12,
+          3
+        ],
+        [
+          12,
+          14,
+          1
+        ],
+        [
+          14,
+          16,
+          2
+        ]
+      ],
+      "true_skill_path": [
+        1,
+        3,
+        1,
+        3,
+        1,
+        2
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "test",
+      "ambiguity_group": "ambiguous",
+      "num_support_compatible_tilings": 64,
+      "num_distinct_cut_patterns": 11
+    },
+    {
+      "observations": [
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        2,
+        3
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          4,
+          2
+        ],
+        [
+          4,
+          6,
+          0
+        ],
+        [
+          6,
+          8,
+          2
+        ]
+      ],
+      "true_skill_path": [
+        0,
+        2,
+        0,
+        2
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "test",
+      "ambiguity_group": "ambiguous",
+      "num_support_compatible_tilings": 10,
+      "num_distinct_cut_patterns": 4
+    },
+    {
+      "observations": [
+        2,
+        3,
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        1,
+        0,
+        3,
+        2,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          6,
+          3
+        ],
+        [
+          6,
+          8,
+          0
+        ],
+        [
+          8,
+          12,
+          3
+        ],
+        [
+          12,
+          14,
+          0
+        ]
+      ],
+      "true_skill_path": [
+        2,
+        3,
+        0,
+        3,
+        0
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          3,
+          2
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "test",
+      "ambiguity_group": "ambiguous",
+      "num_support_compatible_tilings": 52,
+      "num_distinct_cut_patterns": 11
+    },
+    {
+      "observations": [
+        0,
+        2,
+        1,
+        3,
+        2,
+        3,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          4,
+          6,
+          2
+        ],
+        [
+          6,
+          8,
+          0
+        ]
+      ],
+      "true_skill_path": [
+        3,
+        2,
+        0
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          2,
+          1,
+          3
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "test",
+      "ambiguity_group": "ambiguous",
+      "num_support_compatible_tilings": 2,
+      "num_distinct_cut_patterns": 1
+    },
+    {
+      "observations": [
+        2,
+        3,
+        0,
+        1,
+        2,
+        3,
+        1,
+        0,
+        2,
+        3,
+        0,
+        1,
+        1,
+        0,
+        3,
+        2
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          6,
+          3
+        ],
+        [
+          6,
+          8,
+          1
+        ],
+        [
+          8,
+          10,
+          2
+        ],
+        [
+          10,
+          12,
+          0
+        ],
+        [
+          12,
+          16,
+          3
+        ]
+      ],
+      "true_skill_path": [
+        2,
+        3,
+        1,
+        2,
+        0,
+        3
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          3,
+          2
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "test",
+      "ambiguity_group": "ambiguous",
+      "num_support_compatible_tilings": 68,
+      "num_distinct_cut_patterns": 15
+    },
+    {
+      "observations": [
+        0,
+        3,
+        2,
+        1,
+        2,
+        3,
+        1,
+        0,
+        2,
+        3,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          4,
+          6,
+          2
+        ],
+        [
+          6,
+          8,
+          1
+        ],
+        [
+          8,
+          10,
+          2
+        ],
+        [
+          10,
+          12,
+          0
+        ]
+      ],
+      "true_skill_path": [
+        3,
+        2,
+        1,
+        2,
+        0
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "test",
+      "ambiguity_group": "ambiguous",
+      "num_support_compatible_tilings": 8,
+      "num_distinct_cut_patterns": 3
+    },
+    {
+      "observations": [
+        0,
+        1,
+        2,
+        3,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          4,
+          2
+        ],
+        [
+          4,
+          6,
+          0
+        ]
+      ],
+      "true_skill_path": [
+        1,
+        2,
+        0
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "test",
+      "ambiguity_group": "ambiguous",
+      "num_support_compatible_tilings": 8,
+      "num_distinct_cut_patterns": 3
+    },
+    {
+      "observations": [
+        2,
+        3,
+        0,
+        1,
+        2,
+        3
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          4,
+          0
+        ],
+        [
+          4,
+          6,
+          2
+        ]
+      ],
+      "true_skill_path": [
+        2,
+        0,
+        2
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "test",
+      "ambiguity_group": "ambiguous",
+      "num_support_compatible_tilings": 4,
+      "num_distinct_cut_patterns": 3
+    },
+    {
+      "observations": [
+        0,
+        2,
+        3,
+        1,
+        0,
+        1,
+        2,
+        3,
+        0,
+        2,
+        3,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          4,
+          6,
+          0
+        ],
+        [
+          6,
+          8,
+          2
+        ],
+        [
+          8,
+          12,
+          3
+        ]
+      ],
+      "true_skill_path": [
+        3,
+        0,
+        2,
+        3
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2,
+          3,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "test",
+      "ambiguity_group": "ambiguous",
+      "num_support_compatible_tilings": 2,
+      "num_distinct_cut_patterns": 1
+    },
+    {
+      "observations": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        3,
+        1,
+        0,
+        2,
+        3,
+        0,
+        1
+      ],
+      "true_segmentation": [
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          6,
+          3
+        ],
+        [
+          6,
+          8,
+          1
+        ],
+        [
+          8,
+          10,
+          2
+        ],
+        [
+          10,
+          12,
+          0
+        ]
+      ],
+      "true_skill_path": [
+        0,
+        3,
+        1,
+        2,
+        0
+      ],
+      "true_role_sequences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2,
+          1,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "generator_seed": 0,
+      "split": "test",
+      "ambiguity_group": "ambiguous",
+      "num_support_compatible_tilings": 12,
+      "num_distinct_cut_patterns": 2
+    }
+  ]
+}

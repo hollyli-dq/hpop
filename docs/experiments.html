@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>HPOP — experiments &amp; findings</title>
+<style>
+  :root{--bg:#0e1116;--panel:#161b22;--p2:#1c232c;--ink:#e6edf3;--mut:#9aa7b4;--line:#2b333d;--acc:#7c9cff;--acc2:#5fd0a8;--warn:#e3b341;--pink:#f78bb0;--bad:#f0776c;}
+  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  header{padding:30px 26px 18px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#11161d,#0e1116)}
+  h1{margin:0;font-size:25px} h1 .d{color:var(--acc)} .sub{color:var(--mut);font-size:13px;margin-top:7px}
+  .wrap{max-width:1080px;margin:0 auto;padding:24px 20px 64px} section{margin:28px 0}
+  h2{font-size:12px;text-transform:uppercase;letter-spacing:1.4px;color:var(--mut);margin:0 0 12px;font-weight:700}
+  h3{font-size:13.5px;margin:18px 0 6px;color:var(--ink)}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+  a{color:var(--acc);text-decoration:none} a:hover{text-decoration:underline}
+  .lead{font-size:16px;line-height:1.6} .lead b{color:var(--acc2)}
+  .pill{display:inline-block;padding:1px 8px;border-radius:20px;border:1px solid var(--line);font-size:11px;white-space:nowrap}
+  .done{color:var(--acc2);border-color:#2f5d4c} .todo{color:var(--warn);border-color:#5d4f25} .now{color:var(--acc);border-color:#33425e}
+  .neg{color:var(--bad);border-color:#6b3a35}
+  .stat{display:inline-block;margin-right:26px;margin-bottom:6px} .stat b{font-size:22px;color:var(--acc);display:block} .stat span{color:var(--mut);font-size:12px}
+  .stat.g b{color:var(--acc2)} .stat.r b{color:var(--bad)}
+  table{width:100%;border-collapse:collapse;font-size:13px} td,th{border-bottom:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+  th{color:var(--mut);text-transform:uppercase;font-size:10.5px;letter-spacing:.5px}
+  td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+  tr.hi td{background:#141e2b} tr.hi td:first-child{border-left:2px solid var(--acc)}
+  tr.dim td{color:var(--mut)}
+  code{background:#0b0e13;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:12px}
+  pre{background:#0b0e13;border:1px solid var(--line);border-radius:8px;padding:10px 13px;overflow:auto;font-size:11.5px;line-height:1.5;color:#cdd6df}
+  .eq{background:#0b0e13;border:1px solid var(--line);border-left:3px solid var(--pink);border-radius:8px;padding:9px 13px;font-size:13px;margin:8px 0;overflow:auto}
+  .banner{background:#101a14;border:1px solid #2f5d4c;color:var(--acc2);border-radius:10px;padding:11px 15px;font-size:13px;margin:14px 0}
+  .warnbox{background:#1d1512;border:1px solid #6b3a35;color:#f2b8b1;border-radius:10px;padding:11px 15px;font-size:13px;margin:14px 0}
+  .warnbox b{color:var(--bad)}
+  .find{background:var(--p2);border:1px solid var(--line);border-left:3px solid var(--warn);border-radius:9px;padding:12px 15px;margin:10px 0}
+  .find .t{font-weight:700;font-size:13.5px;margin-bottom:4px} .find .x{font-size:13px;color:#cdd6df}
+  .find .tst{font-size:11.5px;color:var(--mut);margin-top:6px}
+  ul{margin:6px 0 0;padding-left:20px} li{margin:4px 0}
+  .bar{display:inline-block;height:9px;border-radius:5px;background:var(--acc);vertical-align:middle}
+  .bar.g{background:var(--acc2)} .bar.r{background:var(--bad)}
+  .foot{color:var(--mut);font-size:12px;margin-top:30px;border-top:1px solid var(--line);padding-top:14px}
+  .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px}
+</style></head>
+<body>
+<header>
+  <h1>HPOP<span class="d">.</span> &nbsp;Experiments &amp; findings</h1>
+  <div class="sub">First executable test of the recurrent frontier likelihood + merge-only semi-Markov segmentation &nbsp;·&nbsp;
+  4 experiments · 52 tests · <a href="experiments.md">markdown write-up</a> · <a href="index.html">← dashboard</a></div>
+</header>
+<div class="wrap">
+
+  <div class="banner">
+    Before this work <code>src/hpop/inference/</code> held only the flat, non-recurrent, hard-poset BPOP likelihood —
+    <b>none of the manuscript's new claims could be run.</b> Both new components are now implemented, tested against
+    brute-force enumeration, and evaluated on synthetic ground truth and the real SWE-rebench pilot.
+  </div>
+
+  <!-- ============================================================ -->
+  <section><h2>Data sources &amp; experimental setup <span style="text-transform:none;letter-spacing:0;color:var(--mut)">— read this before the numbers</span></h2><div class="panel">
+
+    <div class="warnbox">
+      <b>The real-data CPA labels are silver, not gold.</b> <code>pilot100.sequences.jsonl</code> was produced by
+      <code>hpop.annotate.rule_apply</code> (annotator tag <code>rule_apply_seed-v0</code>) — a <b>deterministic
+      rule-based</b> stand-in for the LLM open-coding, mapping each event to a seed CPA from tool name + command
+      keywords + failure context + one bit of state. All 5,012 occurrences are <code>MATCH_EXISTING</code> at a constant
+      <code>confidence = 0.75</code>; no LLM annotation, no human adjudication, no <code>PROPOSE_NEW</code>, no
+      <code>ABSTAIN</code>. This <b>biases the real-data comparison towards the bigram</b>: a deterministic
+      tool→label rule makes local transitions unusually predictable. It does not erase the negative result, but the
+      experiment must be rerun on LLM-annotated CPAs before the conclusion is final.
+    </div>
+
+    <div class="two">
+      <div>
+        <h3 style="margin-top:0">Real data — SWE-rebench pilot</h3>
+        <table>
+          <tr><td>Upstream corpus</td><td><code>nebius/SWE-rebench-openhands-trajectories</code></td></tr>
+          <tr><td>Sampled pilot</td><td>100 trajectories · 87 repositories · 50 resolved / 50 unresolved</td></tr>
+          <tr><td>Annotation</td><td>rule-based silver (<code>rule_apply_seed-v0</code>) against
+            <code>rules/cpa_library_seed.json</code></td></tr>
+          <tr><td><b>CPA vocabulary (nodes)</b></td><td class="n"><b>16</b> types (the <i>seed</i> library, not the
+            induced 29/32-CPA dictionary used elsewhere in this repo)</td></tr>
+          <tr><td>Total occurrences</td><td class="n">5,012 &nbsp;<span style="color:var(--mut)">(mean 50.1 / trace, range 23–89)</span></td></tr>
+          <tr><td>Repeated occurrences</td><td class="n">74% of occurrences per trace repeat an earlier label</td></tr>
+          <tr><td>Split</td><td><b>repository-disjoint</b>, seed 0 — train 68 traj / 60 repos / 3,316 occ;
+            test 32 traj / 27 <i>unseen</i> repos / <b>1,696 occ</b></td></tr>
+          <tr><td>Seed segmentation</td><td>maximal oversegmentation — 1 seed per occurrence, so J = trace length
+            (~50) and merge-only is vacuous</td></tr>
+        </table>
+      </div>
+      <div>
+        <h3 style="margin-top:0">Synthetic data — known ground truth</h3>
+        <table>
+          <tr><td>Generator</td><td><code>src/hpop/synth/generator.py</code>, 5 seeds × 40 traces</td></tr>
+          <tr><td><b>CPA vocabulary (nodes)</b></td><td class="n"><b>12</b> types</td></tr>
+          <tr><td>Ground-truth skills</td><td class="n">K = 4 per seed (20 total) · <b>3–5 role nodes</b> each
+            (mean 4.2) · mean 3.5 cover edges each</td></tr>
+          <tr><td>Global structure</td><td>type-level DAG over the 4 skills (1–4 edges)</td></tr>
+          <tr><td>Corpus size</td><td class="n">200 traces · <b>6,922 occurrences</b> · 900 skill instances</td></tr>
+          <tr><td>Per trace</td><td>3–6 skill instances · ~40 occurrences · ~16 LLM seed segments</td></tr>
+          <tr><td>Repeats</td><td>39% of within-instance occurrences are re-executions</td></tr>
+          <tr><td>Split</td><td>28 train / 12 test traces per seed</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <h3>Model configuration — identical across every method compared</h3>
+    <table>
+      <tr><th>Setting</th><th class="n">Synthetic (①②④)</th><th class="n">Real pilot (③)</th><th>Meaning</th></tr>
+      <tr><td><code>V</code></td><td class="n">12</td><td class="n">16</td><td>nodes in each local partial order</td></tr>
+      <tr><td><code>K_max</code></td><td class="n">6</td><td class="n">10</td><td>library slots (truncation)</td></tr>
+      <tr><td><code>K₊</code> inferred</td><td class="n">≈5 (true 4)</td><td class="n"><b>9 active</b>, 17 learned edges</td><td>slots above 1% expected usage</td></tr>
+      <tr><td><code>D_max</code></td><td class="n">8</td><td class="n">12</td><td>max seeds merged into one instance</td></tr>
+      <tr><td><code>lam_seg</code></td><td class="n">1.0</td><td class="n">3.0</td><td>per-instance penalty (swept on real data)</td></tr>
+      <tr><td>EM iterations</td><td class="n">12</td><td class="n">18</td><td>exact E-step + M-step</td></tr>
+      <tr><td colspan="4" style="color:var(--mut)">Fixed throughout: <code>beta=1.5</code>, <code>lam_rep=1.5</code>,
+        <code>lam_back=0.5</code>, <code>omega=2.5</code> (σ(ω)=0.92), <code>eps=0.02</code>,
+        <code>alpha=1.0</code>, <code>lam_edge=0.8</code>, <code>edge_threshold=0.90</code>,
+        <code>min_support=0.25</code>. Ablations change exactly one flag: <code>use_order=False</code> → HSMM,
+        <code>use_recurrence=False</code> → σ(ω)=0.</td></tr>
+    </table>
+
+    <h3>The four experiments, as run</h3>
+    <table>
+      <tr><th class="n">#</th><th>Experiment</th><th>Data</th><th class="n">Scale</th><th>Answers</th></tr>
+      <tr><td class="n">①</td><td>Synthetic recovery</td><td>synthetic, ground truth</td><td class="n">5 seeds × 40 traces</td><td>Can it recover boundaries, assignments, local + global order?</td></tr>
+      <tr><td class="n">②</td><td>Initialization audit</td><td>synthetic, seed recall swept</td><td class="n">3 seeds × 30 traces × 5 recall levels</td><td>When does merge-only break?</td></tr>
+      <tr><td class="n">③</td><td>Real transfer + data efficiency</td><td>SWE-rebench pilot (silver CPAs)</td><td class="n">100 traj, repo-disjoint, 4 train sizes</td><td>Does it predict held-out traces on unseen repos?</td></tr>
+      <tr><td class="n">④</td><td>Reorder invariance</td><td>synthetic, ground-truth incomparability</td><td class="n">6 seeds × 40 traces · 441 valid + 978 invalid swaps</td><td>Is it invariant to legal reorderings but not violations?</td></tr>
+    </table>
+    <div style="color:var(--mut);font-size:12.5px;margin-top:10px">
+      All error bars are ±95% CI across independent generator seeds (not across traces). Every method in a given table
+      sees the <b>same</b> held-out representation, so NLL is comparable; <code>HPOP, oracle boundaries</code> gets true
+      boundaries at <i>training</i> time only.
+    </div>
+  </div></section>
+
+  <section><h2>Headline</h2><div class="panel">
+    <div style="margin-bottom:14px">
+      <div class="stat g"><b>0.921</b><span>skill ARI, joint HPOP (synthetic)</span></div>
+      <div class="stat g"><b>0.848</b><span>local edge F1</span></div>
+      <div class="stat g"><b>+0.17</b><span>edge F1 from the recurrent state</span></div>
+      <div class="stat r"><b>+0.35</b><span>nats/occ <i>behind</i> a bigram (real data)</span></div>
+      <div class="stat r"><b>−0.013</b><span>reorder discrimination vs bigram</span></div>
+    </div>
+    <div class="lead">
+      On synthetic data with known ground truth <b>the model works and both new components earn their place</b>.
+      On real SWE-rebench traces HPOP beats everything in its own family but <b style="color:var(--bad)">loses to a plain
+      bigram</b>, and it does not beat a bigram at rejecting illegal reorderings either. The plan in
+      <code>sec:experiments</code> to headline next-occurrence likelihood against n-gram baselines will not survive
+      contact with these numbers. <b style="color:var(--warn)">Caveat that matters:</b> the real-data CPAs are
+      <b>rule-based silver labels</b>, which biases that comparison toward the bigram — see the setup section directly
+      below.
+    </div>
+  </div></section>
+
+  <!-- ============================================================ -->
+  <section><h2>① Synthetic recovery — fills <code>tab:synthetic</code></h2><div class="panel">
+    <div style="color:var(--mut);font-size:12.5px;margin-bottom:10px">
+      5 seeds × 40 traces (28 train / 12 test), 4 true skills, 12 CPA types, K<sub>max</sub>=6, D<sub>max</sub>=8, 12 EM iterations.
+      <b style="color:var(--ink)">39% of occurrences inside a skill instance are re-executions</b>, so the corpus genuinely
+      exercises the recurrent likelihood. Mean ± 95% CI over seeds.
+    </div>
+    <table>
+      <tr><th>Method</th><th class="n">Skill ARI ↑</th><th class="n">Boundary F1 ↑</th><th class="n">Local edge F1 ↑</th><th class="n">NLL/occ ↓</th><th class="n">|K₊−K| ↓</th></tr>
+      <tr><td>HSMM <span style="color:var(--mut)">(segmentation, no order)</span></td><td class="n">0.800 ±.054</td><td class="n">0.831 ±.068</td><td class="n">0.000</td><td class="n">1.661 ±.024</td><td class="n">1.80</td></tr>
+      <tr class="dim"><td>Flat poset (K=1, no segmentation)</td><td class="n">0.000</td><td class="n">0.000</td><td class="n">—</td><td class="n">2.207 ±.126</td><td class="n">3.00</td></tr>
+      <tr><td>HPOP, <i>oracle</i> boundaries</td><td class="n">0.948 ±.037</td><td class="n">0.911 ±.052</td><td class="n">0.875 ±.092</td><td class="n">1.397 ±.099</td><td class="n">0.60</td></tr>
+      <tr class="hi"><td><b>HPOP, joint</b></td><td class="n"><b>0.921 ±.058</b></td><td class="n"><b>0.891 ±.067</b></td><td class="n"><b>0.848 ±.072</b></td><td class="n"><b>1.399 ±.089</b></td><td class="n">1.20</td></tr>
+      <tr><td>HPOP, <i>no recurrence</i> (ablation)</td><td class="n">0.876 ±.015</td><td class="n">0.870 ±.025</td><td class="n">0.679 ±.101</td><td class="n">1.511 ±.060</td><td class="n">1.20</td></tr>
+    </table>
+    <ul style="margin-top:14px">
+      <li><b>Merge-only segmentation is nearly free.</b> Joint inference reaches 97% of the oracle-boundary ARI
+      (0.921 vs 0.948) at the same held-out NLL — when seed boundary recall is full.</li>
+      <li><b>The recurrent validity state is what buys the local order.</b> Removing invalidation costs
+      <b style="color:var(--acc2)">0.17 local edge F1</b> (0.848 → 0.679) and 0.11 nats. Without it every re-execution is
+      pure repeat cost, so the estimator cannot tell a dependency from a loop artefact.</li>
+      <li><b>Order and segmentation carry distinct information.</b> HSMM matches HPOP on boundaries — composition alone
+      segments well — but recovers no order and is 0.26 nats worse.</li>
+      <li><span class="pill todo">caveat</span> Global edge F1 is <b>underpowered</b> (CI ±0.36): with 4 skills the true
+      global DAG often has 1–2 edges, so one miss moves F1 by 0.5. Do not report that column without a denser global
+      structure or more skills.</li>
+    </ul>
+  </div></section>
+
+  <!-- ============================================================ -->
+  <section><h2>② Merge-only initialization audit — the check the paper asks for</h2><div class="panel">
+    <div style="color:var(--mut);font-size:12.5px;margin-bottom:10px">
+      A true boundary absent from the LLM seed set is unrecoverable <i>by construction</i>. Sweeping simulated seed
+      boundary recall, 3 seeds × 30 traces.
+    </div>
+    <table>
+      <tr><th class="n">target</th><th class="n">seed recall (ceiling)</th><th class="n">model recall</th><th></th><th class="n">Boundary F1</th><th class="n">Skill ARI</th><th class="n">Local edge F1</th><th class="n">NLL/occ</th></tr>
+      <tr><td class="n">1.00</td><td class="n">1.000</td><td class="n">0.906</td><td><span class="bar g" style="width:91px"></span></td><td class="n">0.889</td><td class="n">0.940</td><td class="n">0.886</td><td class="n">1.364</td></tr>
+      <tr><td class="n">0.90</td><td class="n">0.957</td><td class="n">0.896</td><td><span class="bar g" style="width:90px"></span></td><td class="n">0.886</td><td class="n">0.915</td><td class="n">0.901</td><td class="n">1.411</td></tr>
+      <tr><td class="n">0.75</td><td class="n">0.781</td><td class="n">0.710</td><td><span class="bar" style="width:71px"></span></td><td class="n">0.724</td><td class="n">0.821</td><td class="n">0.712</td><td class="n">1.579</td></tr>
+      <tr><td class="n">0.50</td><td class="n">0.545</td><td class="n">0.347</td><td><span class="bar r" style="width:35px"></span></td><td class="n">0.358</td><td class="n">0.592</td><td class="n">0.542</td><td class="n">1.686</td></tr>
+      <tr><td class="n">0.25</td><td class="n">0.304</td><td class="n">0.179</td><td><span class="bar r" style="width:18px"></span></td><td class="n">0.184</td><td class="n">0.568</td><td class="n">0.362</td><td class="n">1.783</td></tr>
+    </table>
+    <div style="margin-top:12px;font-size:13.5px">
+      The model tracks the analytic ceiling down to ~0.78 seed recall, then falls <i>below</i> it: missing boundaries do
+      not merely cap segmentation, they corrupt the skills learned from the oversized blocks, which then degrades the
+      segmentation of everything else. <b style="color:var(--acc2)">Practical threshold ≈ 0.9 seed boundary recall</b> —
+      below it the merge-only restriction must be relaxed or the prompt made more conservative.
+    </div>
+  </div></section>
+
+  <!-- ============================================================ -->
+  <section><h2>③ Real SWE-rebench pilot — repository-disjoint transfer</h2><div class="panel">
+    <div style="color:var(--mut);font-size:12.5px;margin-bottom:10px">
+      100 OpenHands trajectories with <b style="color:var(--warn)">rule-based silver CPA labels</b> (see setup), 16 CPA
+      types, mean length 50. <b style="color:var(--ink)">74% of occurrences per trajectory repeat a label seen
+      earlier.</b> 68 train trajectories / 60 repos → 32 test trajectories / 27 <i>unseen</i> repos (1,696 held-out
+      occurrences). Seeds = one per occurrence (maximal oversegmentation), so the merge-only restriction is vacuous and
+      the model is isolated from seeding error.
+    </div>
+    <table>
+      <tr><th>Model</th><th class="n">NLL/occ ↓</th><th></th><th class="n">vs uniform</th><th class="n">vs bigram</th></tr>
+      <tr class="dim"><td>Uniform over 16 CPAs</td><td class="n">2.773</td><td><span class="bar r" style="width:139px"></span></td><td class="n">0.000</td><td class="n">−1.093</td></tr>
+      <tr class="dim"><td>Unigram</td><td class="n">2.350</td><td><span class="bar r" style="width:118px"></span></td><td class="n">0.423</td><td class="n">−0.670</td></tr>
+      <tr class="hi"><td><b>Bigram (add-0.5)</b> <span class="pill neg">best</span></td><td class="n"><b>1.680</b></td><td><span class="bar g" style="width:84px"></span></td><td class="n">1.093</td><td class="n">0.000</td></tr>
+      <tr><td>Flat poset (K=1)</td><td class="n">2.553</td><td><span class="bar r" style="width:128px"></span></td><td class="n">0.220</td><td class="n">−0.873</td></tr>
+      <tr><td>HSMM (composition only)</td><td class="n">2.128</td><td><span class="bar" style="width:106px"></span></td><td class="n">0.644</td><td class="n">−0.449</td></tr>
+      <tr><td>HPOP, no recurrence</td><td class="n">2.087</td><td><span class="bar" style="width:104px"></span></td><td class="n">0.686</td><td class="n">−0.407</td></tr>
+      <tr><td><b>HPOP</b></td><td class="n"><b>2.030</b></td><td><span class="bar" style="width:102px"></span></td><td class="n">0.743</td><td class="n" style="color:var(--bad)">−0.350</td></tr>
+    </table>
+
+    <div class="warnbox">
+      <b>Negative result, and it is robust.</b> HPOP orders correctly against everything in its own family — beating the
+      flat poset by 0.52 nats, composition-only HSMM by 0.10, its own no-recurrence ablation by 0.06 — but a plain
+      add-0.5 <b>bigram beats it by 0.35 nats</b>. Swept λ<sub>seg</sub> ∈ {0.25, 1, 3, 6}, K<sub>max</sub> ∈ {8, 10},
+      D<sub>max</sub> ∈ {10, 12}, 12/18 EM iterations — the ordering never changed. Not under-training, not a
+      hyperparameter artefact.
+    </div>
+
+    <h3>The "structure wins when data is scarce" defence does not hold either</h3>
+    <div style="color:var(--mut);font-size:12.5px;margin-bottom:8px">Same repo-disjoint test set, training set subsampled.</div>
+    <table>
+      <tr><th class="n">train traj</th><th class="n">unigram</th><th class="n">bigram</th><th class="n">HSMM</th><th class="n">HPOP no-rec</th><th class="n">HPOP</th><th class="n">HPOP − bigram</th></tr>
+      <tr><td class="n">8</td><td class="n">2.361</td><td class="n">1.832</td><td class="n">2.168</td><td class="n">2.164</td><td class="n">2.166</td><td class="n" style="color:var(--bad)">+0.333</td></tr>
+      <tr><td class="n">16</td><td class="n">2.354</td><td class="n">1.754</td><td class="n">2.124</td><td class="n">2.093</td><td class="n">2.086</td><td class="n" style="color:var(--bad)">+0.332</td></tr>
+      <tr><td class="n">32</td><td class="n">2.346</td><td class="n">1.703</td><td class="n">2.089</td><td class="n">2.061</td><td class="n">2.059</td><td class="n" style="color:var(--bad)">+0.357</td></tr>
+      <tr><td class="n">68 (all)</td><td class="n">2.350</td><td class="n">1.680</td><td class="n">2.128</td><td class="n">2.087</td><td class="n">2.030</td><td class="n" style="color:var(--bad)">+0.350</td></tr>
+    </table>
+    <div style="margin-top:10px;font-size:13.5px">
+      Both models improve with data and <b>the gap stays at ~0.34 nats throughout</b>. The bigram's advantage is
+      representational, not a large-sample effect: with 16 CPA types the transition table is cheap to estimate, and a
+      partial order deliberately throws that information away. Inside a skill, <code>log F̃ ≈ 0</code> wherever the poset
+      has no edge, so with sparse structure the step distribution collapses towards a per-skill unigram with a mild
+      validity adjustment.
+    </div>
+
+    <h3>But the learned library is real, and repair loops are everywhere</h3>
+    <div style="color:var(--mut);font-size:12.5px;margin-bottom:8px">
+      Decoded held-out instances average 6.9 CPAs and
+      <b style="color:var(--acc2)">75.7% of them re-execute a role</b> — strong support for the repeated-execution
+      motivation, even though it does not close the predictive gap. K<sub>+</sub> = 9 active of K<sub>max</sub> = 10.
+    </div>
+    <table>
+      <tr><th class="n">Skill</th><th class="n">Usage</th><th>Composition (top roles)</th><th>Learned cover edges</th></tr>
+      <tr><td class="n">7</td><td class="n">18.9%</td><td>WRITE_TEST, RUN_TEST_SUITE, VERIFY_FIX, REPRODUCE_ISSUE</td><td>WRITE_TEST → VERIFY_FIX → REPRODUCE_ISSUE</td></tr>
+      <tr><td class="n">9</td><td class="n">16.9%</td><td>READ_SOURCE, LOCATE_CODE, DIAGNOSE_FAILURE, EXPLORE_REPOSITORY</td><td style="color:var(--mut)">— (correctly order-free)</td></tr>
+      <tr><td class="n">5</td><td class="n">16.8%</td><td>VERIFY_FIX, REPRODUCE_ISSUE, EDIT_SOURCE, RUN_TEST_SUITE</td><td>EDIT_SOURCE → VERIFY_FIX → {REPRODUCE_ISSUE, RUN_TEST_SUITE}</td></tr>
+      <tr><td class="n">4</td><td class="n">16.3%</td><td>RUN_TEST_SUITE, READ_SOURCE, DIAGNOSE_FAILURE, REPRODUCE_ISSUE</td><td>READ_SOURCE → RUN_TEST_SUITE; EXPLORE_REPOSITORY → {REPRODUCE_ISSUE, DIAGNOSE_FAILURE}</td></tr>
+      <tr><td class="n">8</td><td class="n">12.4%</td><td>VERIFY_FIX, WRITE_REPRODUCTION_SCRIPT, READ_SOURCE, EDIT_SOURCE</td><td>WRITE_REPRODUCTION_SCRIPT → VERIFY_FIX</td></tr>
+      <tr><td class="n">2</td><td class="n">7.0%</td><td>SUBMIT_SOLUTION, CLEANUP_ARTIFACTS, REPRODUCE_ISSUE, RUN_TEST_SUITE</td><td>CLEANUP_ARTIFACTS → SUBMIT_SOLUTION</td></tr>
+    </table>
+    <div style="margin-top:10px;font-size:13.5px">
+      <code>EDIT_SOURCE → VERIFY_FIX</code>, <code>WRITE_TEST → VERIFY_FIX</code>,
+      <code>WRITE_REPRODUCTION_SCRIPT → VERIFY_FIX</code> and <code>CLEANUP_ARTIFACTS → SUBMIT_SOLUTION</code> are
+      genuine procedural dependencies recovered <b>without supervision</b> — and skill 9 is correctly left order-free,
+      since searching and reading during localization really are interchangeable.
+    </div>
+  </div></section>
+
+  <!--DAG_FIGURES-->
+
+<style>
+  .daggrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:12px;margin-top:12px}
+  .dagcard{background:#12171e;border:1px solid #2b333d;border-radius:11px;padding:12px 14px;overflow-x:auto}
+  .dagh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px;font-size:13px}
+  .dagh .usage{color:#9aa7b4;font-size:11.5px}
+  .daglegend{display:flex;flex-wrap:wrap;gap:18px;margin-top:12px;font-size:12px;color:#9aa7b4;align-items:center}
+  .daglegend span{display:inline-flex;align-items:center;gap:7px}
+  .daglegend svg{display:block}
+</style>
+
+  <section><h2>Learned structure — what the partial orders actually look like</h2><div class="panel">
+
+    <h3 style="margin-top:0">A · Skill library learned from the real SWE-rebench pilot</h3>
+    <div style="color:var(--mut);font-size:12.5px">
+      Every DAG below is the local partial order HPOP learned for one library slot, drawn straight from
+      <code>data/experiments/real_pilot.json</code>. Nodes are CPA roles, edges are learned cover relations
+      (<i>must precede</i>); anything not connected is inferred to be <b>incomparable</b> — executable in either order.
+      No supervision: the annotator supplies CPA labels only, never dependencies.
+    </div>
+    <div class="daggrid"><div class="dagcard"><div class="dagh"><b>skill 7</b><span class="usage">18.9% of instances</span></div><svg viewBox="0 0 404 138" width="404" height="138" style="min-width:404px;display:block" role="img" aria-label="partial order"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#6b7785"/></marker><marker id="ahg" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#5fd0a8"/></marker><marker id="ahr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#f0776c"/></marker><marker id="ahw" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e3b341"/></marker></defs><text x="12" y="135" fill="#9aa7b4" font-size="10.5">3 learned cover edges</text><path d="M240 27 C276 27 276 27 313 27" fill="none" stroke="#6b7785" stroke-width="1.6" stroke-dasharray="none" marker-end="url(#ah)"/><path d="M90 27 C126 27 126 27 161 27" fill="none" stroke="#6b7785" stroke-width="1.6" stroke-dasharray="none" marker-end="url(#ah)"/><path d="M90 27 C202 27 202 27 313 27" fill="none" stroke="#6b7785" stroke-width="1.6" stroke-dasharray="none" marker-end="url(#ah)"/><rect x="12" y="12" width="78" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="51" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">WRITE_TEST</text><rect x="12" y="82" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="101" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">RUN_TESTS</text><rect x="164" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="202" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">VERIFY</text><rect x="316" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="354" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">REPRODUCE</text></svg></div><div class="dagcard"><div class="dagh"><b>skill 9</b><span class="usage">16.9% of instances</span></div><svg viewBox="0 0 100 278" width="100" height="278" style="min-width:100px;display:block" role="img" aria-label="partial order"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#6b7785"/></marker><marker id="ahg" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#5fd0a8"/></marker><marker id="ahr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#f0776c"/></marker><marker id="ahw" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e3b341"/></marker></defs><text x="12" y="275" fill="#9aa7b4" font-size="10.5">no learned order — genuinely interchangeable</text><rect x="12" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">READ</text><rect x="12" y="82" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="101" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">LOCATE</text><rect x="12" y="152" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="171" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">DIAGNOSE</text><rect x="12" y="222" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="241" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">EXPLORE</text></svg></div><div class="dagcard"><div class="dagh"><b>skill 5</b><span class="usage">16.8% of instances</span></div><svg viewBox="0 0 404 138" width="404" height="138" style="min-width:404px;display:block" role="img" aria-label="partial order"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#6b7785"/></marker><marker id="ahg" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#5fd0a8"/></marker><marker id="ahr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#f0776c"/></marker><marker id="ahw" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e3b341"/></marker></defs><text x="12" y="135" fill="#9aa7b4" font-size="10.5">5 learned cover edges</text><path d="M240 27 C276 27 276 27 313 27" fill="none" stroke="#6b7785" stroke-width="1.6" stroke-dasharray="none" marker-end="url(#ah)"/><path d="M240 27 C276 27 276 97 313 97" fill="none" stroke="#6b7785" stroke-width="1.6" stroke-dasharray="none" marker-end="url(#ah)"/><path d="M88 27 C124 27 124 27 161 27" fill="none" stroke="#6b7785" stroke-width="1.6" stroke-dasharray="none" marker-end="url(#ah)"/><path d="M88 27 C200 27 200 27 313 27" fill="none" stroke="#6b7785" stroke-width="1.6" stroke-dasharray="none" marker-end="url(#ah)"/><path d="M88 27 C200 27 200 97 313 97" fill="none" stroke="#6b7785" stroke-width="1.6" stroke-dasharray="none" marker-end="url(#ah)"/><rect x="12" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">EDIT</text><rect x="164" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="202" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">VERIFY</text><rect x="316" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="354" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">REPRODUCE</text><rect x="316" y="82" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="354" y="101" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">RUN_TESTS</text></svg></div><div class="dagcard"><div class="dagh"><b>skill 4</b><span class="usage">16.3% of instances</span></div><svg viewBox="0 0 252 208" width="252" height="208" style="min-width:252px;display:block" role="img" aria-label="partial order"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#6b7785"/></marker><marker id="ahg" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#5fd0a8"/></marker><marker id="ahr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#f0776c"/></marker><marker id="ahw" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e3b341"/></marker></defs><text x="12" y="205" fill="#9aa7b4" font-size="10.5">3 learned cover edges</text><path d="M88 27 C124 27 124 27 161 27" fill="none" stroke="#6b7785" stroke-width="1.6" stroke-dasharray="none" marker-end="url(#ah)"/><path d="M88 97 C124 97 124 97 161 97" fill="none" stroke="#6b7785" stroke-width="1.6" stroke-dasharray="none" marker-end="url(#ah)"/><path d="M88 97 C124 97 124 167 161 167" fill="none" stroke="#6b7785" stroke-width="1.6" stroke-dasharray="none" marker-end="url(#ah)"/><rect x="12" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">READ</text><rect x="12" y="82" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="101" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">EXPLORE</text><rect x="164" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="202" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">RUN_TESTS</text><rect x="164" y="82" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="202" y="101" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">REPRODUCE</text><rect x="164" y="152" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="202" y="171" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">DIAGNOSE</text></svg></div><div class="dagcard"><div class="dagh"><b>skill 8</b><span class="usage">12.4% of instances</span></div><svg viewBox="0 0 252 208" width="252" height="208" style="min-width:252px;display:block" role="img" aria-label="partial order"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#6b7785"/></marker><marker id="ahg" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#5fd0a8"/></marker><marker id="ahr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#f0776c"/></marker><marker id="ahw" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e3b341"/></marker></defs><text x="12" y="205" fill="#9aa7b4" font-size="10.5">1 learned cover edge</text><path d="M97 27 C129 27 129 27 161 27" fill="none" stroke="#6b7785" stroke-width="1.6" stroke-dasharray="none" marker-end="url(#ah)"/><rect x="12" y="12" width="85" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="54" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">WRITE_REPRO</text><rect x="12" y="82" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="101" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">READ</text><rect x="12" y="152" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="171" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">EDIT</text><rect x="164" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="202" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">VERIFY</text></svg></div><div class="dagcard"><div class="dagh"><b>skill 2</b><span class="usage">7.0% of instances</span></div><svg viewBox="0 0 252 208" width="252" height="208" style="min-width:252px;display:block" role="img" aria-label="partial order"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#6b7785"/></marker><marker id="ahg" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#5fd0a8"/></marker><marker id="ahr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#f0776c"/></marker><marker id="ahw" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e3b341"/></marker></defs><text x="12" y="205" fill="#9aa7b4" font-size="10.5">1 learned cover edge</text><path d="M88 27 C124 27 124 27 161 27" fill="none" stroke="#6b7785" stroke-width="1.6" stroke-dasharray="none" marker-end="url(#ah)"/><rect x="12" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">CLEANUP</text><rect x="12" y="82" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="101" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">REPRODUCE</text><rect x="12" y="152" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="171" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">RUN_TESTS</text><rect x="164" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="202" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">SUBMIT</text></svg></div><div class="dagcard"><div class="dagh"><b>skill 1</b><span class="usage">5.7% of instances</span></div><svg viewBox="0 0 252 278" width="252" height="278" style="min-width:252px;display:block" role="img" aria-label="partial order"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#6b7785"/></marker><marker id="ahg" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#5fd0a8"/></marker><marker id="ahr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#f0776c"/></marker><marker id="ahw" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e3b341"/></marker></defs><text x="12" y="275" fill="#9aa7b4" font-size="10.5">1 learned cover edge</text><path d="M97 27 C129 27 129 27 161 27" fill="none" stroke="#6b7785" stroke-width="1.6" stroke-dasharray="none" marker-end="url(#ah)"/><rect x="12" y="12" width="85" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="54" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">WRITE_REPRO</text><rect x="12" y="82" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="101" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">READ</text><rect x="12" y="152" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="171" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">LOCATE</text><rect x="12" y="222" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="241" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">REPRODUCE</text><rect x="164" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="202" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">VERIFY</text></svg></div><div class="dagcard"><div class="dagh"><b>skill 0</b><span class="usage">3.5% of instances</span></div><svg viewBox="0 0 252 208" width="252" height="208" style="min-width:252px;display:block" role="img" aria-label="partial order"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#6b7785"/></marker><marker id="ahg" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#5fd0a8"/></marker><marker id="ahr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#f0776c"/></marker><marker id="ahw" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e3b341"/></marker></defs><text x="12" y="205" fill="#9aa7b4" font-size="10.5">2 learned cover edges</text><path d="M88 27 C124 27 124 27 161 27" fill="none" stroke="#6b7785" stroke-width="1.6" stroke-dasharray="none" marker-end="url(#ah)"/><path d="M90 97 C126 97 126 27 161 27" fill="none" stroke="#6b7785" stroke-width="1.6" stroke-dasharray="none" marker-end="url(#ah)"/><rect x="12" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">VERIFY</text><rect x="12" y="82" width="78" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="51" y="101" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">WRITE_TEST</text><rect x="12" y="152" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="171" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">EDIT</text><rect x="164" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="202" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">DIAGNOSE</text></svg></div><div class="dagcard"><div class="dagh"><b>skill 3</b><span class="usage">2.4% of instances</span></div><svg viewBox="0 0 252 278" width="252" height="278" style="min-width:252px;display:block" role="img" aria-label="partial order"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#6b7785"/></marker><marker id="ahg" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#5fd0a8"/></marker><marker id="ahr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#f0776c"/></marker><marker id="ahw" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e3b341"/></marker></defs><text x="12" y="275" fill="#9aa7b4" font-size="10.5">1 learned cover edge</text><path d="M88 27 C124 27 124 27 161 27" fill="none" stroke="#6b7785" stroke-width="1.6" stroke-dasharray="none" marker-end="url(#ah)"/><rect x="12" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">RUN_TESTS</text><rect x="12" y="82" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="101" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">REVERT</text><rect x="12" y="152" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="171" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">REPRODUCE</text><rect x="12" y="222" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="241" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">INSPECT</text><rect x="164" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="202" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">SUBMIT</text></svg></div></div>
+
+    <h3>B · Ground truth vs recovered — what local edge F1 0.894 looks like</h3>
+    <div style="color:var(--mut);font-size:12.5px">
+      One synthetic seed, skills matched to ground truth by Hungarian assignment on occurrence labels. Each edge is
+      classified against the true poset. Line style carries the same information as colour, so the figure survives
+      greyscale and colour-vision deficiency.
+    </div>
+    <div class="daglegend"><span><svg width="34" height="10" aria-hidden="true"><path d="M1 5 H31" stroke="#5fd0a8" stroke-width="2" stroke-dasharray="none"/><path d="M27 1 L33 5 L27 9 z" fill="#5fd0a8"/></svg>recovered (solid)</span><span><svg width="34" height="10" aria-hidden="true"><path d="M1 5 H31" stroke="#f0776c" stroke-width="2" stroke-dasharray="5 4"/><path d="M27 1 L33 5 L27 9 z" fill="#f0776c"/></svg>missed (dashed)</span><span><svg width="34" height="10" aria-hidden="true"><path d="M1 5 H31" stroke="#e3b341" stroke-width="2" stroke-dasharray="1.5 3.5"/><path d="M27 1 L33 5 L27 9 z" fill="#e3b341"/></svg>spurious (dotted)</span></div>
+    <div class="daggrid"><div class="dagcard"><div class="dagh"><b>true skill 0</b><span class="usage">→ slot 3</span></div><svg viewBox="0 0 556 138" width="556" height="138" style="min-width:556px;display:block" role="img" aria-label="partial order"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#6b7785"/></marker><marker id="ahg" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#5fd0a8"/></marker><marker id="ahr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#f0776c"/></marker><marker id="ahw" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e3b341"/></marker></defs><text x="12" y="135" fill="#9aa7b4" font-size="10.5">4 recovered · 0 missed · 0 spurious</text><path d="M111 27 C136 27 136 27 161 27" fill="none" stroke="#5fd0a8" stroke-width="2.0" stroke-dasharray="none" marker-end="url(#ahg)"/><path d="M240 27 C276 27 276 27 313 27" fill="none" stroke="#5fd0a8" stroke-width="2.0" stroke-dasharray="none" marker-end="url(#ahg)"/><path d="M392 27 C428 27 428 27 465 27" fill="none" stroke="#5fd0a8" stroke-width="2.0" stroke-dasharray="none" marker-end="url(#ahg)"/><path d="M125 97 C219 97 219 27 313 27" fill="none" stroke="#5fd0a8" stroke-width="2.0" stroke-dasharray="none" marker-end="url(#ahg)"/><rect x="12" y="12" width="99" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="62" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">PLAN_APPROACH</text><rect x="12" y="82" width="113" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="68" y="101" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">INSPECT_FAILURE</text><rect x="164" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="202" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">REPRODUCE</text><rect x="316" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="354" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">RUN_TESTS</text><rect x="468" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="506" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">READ</text></svg></div><div class="dagcard"><div class="dagh"><b>true skill 1</b><span class="usage">→ slot 2</span></div><svg viewBox="0 0 404 138" width="404" height="138" style="min-width:404px;display:block" role="img" aria-label="partial order"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#6b7785"/></marker><marker id="ahg" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#5fd0a8"/></marker><marker id="ahr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#f0776c"/></marker><marker id="ahw" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e3b341"/></marker></defs><text x="12" y="135" fill="#9aa7b4" font-size="10.5">2 recovered · 1 missed · 0 spurious</text><path d="M88 27 C124 27 124 27 161 27" fill="none" stroke="#5fd0a8" stroke-width="2.0" stroke-dasharray="none" marker-end="url(#ahg)"/><path d="M111 97 C136 97 136 97 161 97" fill="none" stroke="#5fd0a8" stroke-width="2.0" stroke-dasharray="none" marker-end="url(#ahg)"/><path d="M284 27 C298 27 298 27 313 27" fill="none" stroke="#f0776c" stroke-width="2.0" stroke-dasharray="5 4" marker-end="url(#ahr)"/><rect x="12" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">RUN_TESTS</text><rect x="12" y="82" width="99" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="62" y="101" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">PLAN_APPROACH</text><rect x="164" y="12" width="120" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="224" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">SUMMARIZE_CHANGE</text><rect x="164" y="82" width="92" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="210" y="101" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">SUBMIT_PATCH</text><rect x="316" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="354" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">READ</text></svg></div><div class="dagcard"><div class="dagh"><b>true skill 2</b><span class="usage">→ slot 0</span></div><svg viewBox="0 0 593 68" width="593" height="68" style="min-width:593px;display:block" role="img" aria-label="partial order"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#6b7785"/></marker><marker id="ahg" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#5fd0a8"/></marker><marker id="ahr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#f0776c"/></marker><marker id="ahw" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e3b341"/></marker></defs><text x="12" y="65" fill="#9aa7b4" font-size="10.5">2 recovered · 1 missed · 1 spurious</text><path d="M88 27 C124 27 124 27 161 27" fill="none" stroke="#5fd0a8" stroke-width="2.0" stroke-dasharray="none" marker-end="url(#ahg)"/><path d="M242 27 C278 27 278 27 313 27" fill="none" stroke="#5fd0a8" stroke-width="2.0" stroke-dasharray="none" marker-end="url(#ahg)"/><path d="M392 27 C428 27 428 27 465 27" fill="none" stroke="#f0776c" stroke-width="2.0" stroke-dasharray="5 4" marker-end="url(#ahr)"/><path d="M242 27 C354 27 354 27 465 27" fill="none" stroke="#e3b341" stroke-width="2.0" stroke-dasharray="1.5 3.5" marker-end="url(#ahw)"/><rect x="12" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">RUN_TESTS</text><rect x="164" y="12" width="78" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="203" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">RUN_LINTER</text><rect x="316" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="354" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">REPRODUCE</text><rect x="468" y="12" width="113" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="524" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">INSPECT_FAILURE</text></svg></div><div class="dagcard"><div class="dagh"><b>true skill 3</b><span class="usage">→ slot 1</span></div><svg viewBox="0 0 252 138" width="252" height="138" style="min-width:252px;display:block" role="img" aria-label="partial order"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#6b7785"/></marker><marker id="ahg" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#5fd0a8"/></marker><marker id="ahr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#f0776c"/></marker><marker id="ahw" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e3b341"/></marker></defs><text x="12" y="135" fill="#9aa7b4" font-size="10.5">1 recovered · 0 missed · 0 spurious</text><path d="M90 27 C126 27 126 27 161 27" fill="none" stroke="#5fd0a8" stroke-width="2.0" stroke-dasharray="none" marker-end="url(#ahg)"/><rect x="12" y="12" width="78" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="51" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">WRITE_TEST</text><rect x="12" y="82" width="92" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="58" y="101" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">SUBMIT_PATCH</text><rect x="164" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="202" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">READ</text></svg></div></div>
+
+    <h3>C · Why the latent graph stays acyclic while execution repeats</h3>
+    <div style="color:var(--mut);font-size:12.5px">
+      The repair loop is <i>not</i> a cycle in the partial order. It is re-execution driven by the validity state
+      <code>q_t</code>: running an upstream role invalidates everything it dominates, and the stale roles must be
+      recomputed. This is the component whose removal costs 0.17 local edge F1 in experiment ①.
+    </div>
+    <div class="daggrid" style="grid-template-columns:minmax(300px,0.9fr) minmax(420px,1.6fr)">
+      <div class="dagcard"><svg viewBox="0 0 556 68" width="556" height="68" style="min-width:556px;display:block" role="img" aria-label="partial order"><defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#6b7785"/></marker><marker id="ahg" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#5fd0a8"/></marker><marker id="ahr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#f0776c"/></marker><marker id="ahw" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#e3b341"/></marker></defs><text x="12" y="65" fill="#9aa7b4" font-size="10.5">latent local partial order (acyclic)</text><path d="M88 27 C124 27 124 27 161 27" fill="none" stroke="#6b7785" stroke-width="1.6" stroke-dasharray="none" marker-end="url(#ah)"/><path d="M240 27 C276 27 276 27 313 27" fill="none" stroke="#6b7785" stroke-width="1.6" stroke-dasharray="none" marker-end="url(#ah)"/><path d="M392 27 C428 27 428 27 465 27" fill="none" stroke="#6b7785" stroke-width="1.6" stroke-dasharray="none" marker-end="url(#ah)"/><rect x="12" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="50" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">READ</text><rect x="164" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="202" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">EDIT</text><rect x="316" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="354" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">RUN_TESTS</text><rect x="468" y="12" width="76" height="30" rx="7" fill="#1c232c" stroke="#2b333d"/><text x="506" y="31" fill="#e6edf3" font-size="11" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">DIAGNOSE</text></svg></div>
+      <div class="dagcard"><svg viewBox="0 0 682 176" width="682" height="176" style="min-width:682px;display:block" role="img" aria-label="validity state over a repeated execution"><text x="0" y="14" fill="#e6edf3" font-size="12" font-weight="700">Validity state q_t over a repeated execution</text><text x="0" y="26" fill="#9aa7b4" font-size="10">step</text><text x="139" y="26" fill="#9aa7b4" font-size="10" text-anchor="middle">1</text><text x="201" y="26" fill="#9aa7b4" font-size="10" text-anchor="middle">2</text><text x="263" y="26" fill="#9aa7b4" font-size="10" text-anchor="middle">3</text><text x="325" y="26" fill="#9aa7b4" font-size="10" text-anchor="middle">4</text><text x="387" y="26" fill="#9aa7b4" font-size="10" text-anchor="middle">5</text><text x="449" y="26" fill="#9aa7b4" font-size="10" text-anchor="middle">6</text><text x="511" y="26" fill="#9aa7b4" font-size="10" text-anchor="middle">7</text><text x="573" y="26" fill="#9aa7b4" font-size="10" text-anchor="middle">8</text><text x="635" y="26" fill="#9aa7b4" font-size="10" text-anchor="middle">9</text><text x="100" y="49" fill="#e6edf3" font-size="10.5" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">READ</text><rect x="112" y="37" width="54" height="16" rx="4" fill="#5fd0a8" fill-opacity="1.00" stroke="#7c9cff" stroke-width="2"/><text x="139" y="49" fill="#0e1116" font-size="9.5" font-weight="700" text-anchor="middle">RUN</text><rect x="174" y="37" width="54" height="16" rx="4" fill="#5fd0a8" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><rect x="236" y="37" width="54" height="16" rx="4" fill="#5fd0a8" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><rect x="298" y="37" width="54" height="16" rx="4" fill="#5fd0a8" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><rect x="360" y="37" width="54" height="16" rx="4" fill="#5fd0a8" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><rect x="422" y="37" width="54" height="16" rx="4" fill="#5fd0a8" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><rect x="484" y="37" width="54" height="16" rx="4" fill="#5fd0a8" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><rect x="546" y="37" width="54" height="16" rx="4" fill="#5fd0a8" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><rect x="608" y="37" width="54" height="16" rx="4" fill="#5fd0a8" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><text x="100" y="71" fill="#e6edf3" font-size="10.5" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">EDIT</text><rect x="112" y="59" width="54" height="16" rx="4" fill="#1c232c" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><rect x="174" y="59" width="54" height="16" rx="4" fill="#5fd0a8" fill-opacity="1.00" stroke="#7c9cff" stroke-width="2"/><text x="201" y="71" fill="#0e1116" font-size="9.5" font-weight="700" text-anchor="middle">RUN</text><rect x="236" y="59" width="54" height="16" rx="4" fill="#5fd0a8" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><rect x="298" y="59" width="54" height="16" rx="4" fill="#5fd0a8" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><rect x="360" y="59" width="54" height="16" rx="4" fill="#5fd0a8" fill-opacity="1.00" stroke="#7c9cff" stroke-width="2"/><text x="387" y="71" fill="#0e1116" font-size="9.5" font-weight="700" text-anchor="middle">RUN</text><rect x="422" y="59" width="54" height="16" rx="4" fill="#5fd0a8" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><rect x="484" y="59" width="54" height="16" rx="4" fill="#5fd0a8" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><rect x="546" y="59" width="54" height="16" rx="4" fill="#5fd0a8" fill-opacity="1.00" stroke="#7c9cff" stroke-width="2"/><text x="573" y="71" fill="#0e1116" font-size="9.5" font-weight="700" text-anchor="middle">RUN</text><rect x="608" y="59" width="54" height="16" rx="4" fill="#5fd0a8" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><text x="100" y="93" fill="#e6edf3" font-size="10.5" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">RUN_TESTS</text><rect x="112" y="81" width="54" height="16" rx="4" fill="#1c232c" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><rect x="174" y="81" width="54" height="16" rx="4" fill="#1c232c" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><rect x="236" y="81" width="54" height="16" rx="4" fill="#5fd0a8" fill-opacity="1.00" stroke="#7c9cff" stroke-width="2"/><text x="263" y="93" fill="#0e1116" font-size="9.5" font-weight="700" text-anchor="middle">RUN</text><rect x="298" y="81" width="54" height="16" rx="4" fill="#5fd0a8" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><rect x="360" y="81" width="54" height="16" rx="4" fill="#1c232c" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><rect x="422" y="81" width="54" height="16" rx="4" fill="#5fd0a8" fill-opacity="1.00" stroke="#7c9cff" stroke-width="2"/><text x="449" y="93" fill="#0e1116" font-size="9.5" font-weight="700" text-anchor="middle">RUN</text><rect x="484" y="81" width="54" height="16" rx="4" fill="#5fd0a8" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><rect x="546" y="81" width="54" height="16" rx="4" fill="#1c232c" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><rect x="608" y="81" width="54" height="16" rx="4" fill="#5fd0a8" fill-opacity="1.00" stroke="#7c9cff" stroke-width="2"/><text x="635" y="93" fill="#0e1116" font-size="9.5" font-weight="700" text-anchor="middle">RUN</text><text x="100" y="115" fill="#e6edf3" font-size="10.5" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">DIAGNOSE</text><rect x="112" y="103" width="54" height="16" rx="4" fill="#1c232c" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><rect x="174" y="103" width="54" height="16" rx="4" fill="#1c232c" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><rect x="236" y="103" width="54" height="16" rx="4" fill="#1c232c" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><rect x="298" y="103" width="54" height="16" rx="4" fill="#5fd0a8" fill-opacity="1.00" stroke="#7c9cff" stroke-width="2"/><text x="325" y="115" fill="#0e1116" font-size="9.5" font-weight="700" text-anchor="middle">RUN</text><rect x="360" y="103" width="54" height="16" rx="4" fill="#1c232c" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><rect x="422" y="103" width="54" height="16" rx="4" fill="#1c232c" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><rect x="484" y="103" width="54" height="16" rx="4" fill="#5fd0a8" fill-opacity="1.00" stroke="#7c9cff" stroke-width="2"/><text x="511" y="115" fill="#0e1116" font-size="9.5" font-weight="700" text-anchor="middle">RUN</text><rect x="546" y="103" width="54" height="16" rx="4" fill="#1c232c" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><rect x="608" y="103" width="54" height="16" rx="4" fill="#1c232c" fill-opacity="1.00" stroke="#2b333d" stroke-width="1"/><text x="0" y="148" fill="#9aa7b4" font-size="10.5">RUN = executed at this step · solid = output valid · faded = stale after invalidation · empty = never produced</text><text x="0" y="164" fill="#9aa7b4" font-size="10.5">Steps 5–9 re-execute EDIT → RUN_TESTS → DIAGNOSE. The latent order stays acyclic; only the execution recurs.</text></svg></div>
+    </div>
+    <div class="warnbox" style="margin-top:14px">
+      <b>What this figure also exposes.</b> Under the manuscript's <code>J̃ = D<sub>U</sub>·σ(ω)</code>, invalidation
+      flows only <i>forward</i> along precedence — so the jump back to <code>EDIT</code> at step 5 is
+      <b>never predicted</b>, only charged λ<sub>rep</sub>. A failed test cannot invalidate the edit that preceded it.
+      That is finding (b), and this is what it looks like.
+    </div>
+  </div></section>
+  <!--/DAG_FIGURES-->
+
+  <!-- ============================================================ -->
+  <section><h2>④ Invariance to legal reorderings — the claim that <i>should</i> favour partial orders</h2><div class="panel">
+    <div style="color:var(--mut);font-size:12.5px;margin-bottom:10px">
+      Next-occurrence likelihood rewards memorizing the serialization the agent happened to use. The claim that motivates
+      partial orders is different: two executions differing only in the order of <i>incomparable</i> actions are the same
+      program. Tested non-circularly — incomparability read from the <b style="color:var(--ink)">ground-truth</b> local
+      posets, never from the fitted model. 6 seeds × 40 traces, all available swaps.
+    </div>
+    <table>
+      <tr><th>Model</th><th class="n">valid swap ΔNLL <span style="text-transform:none">(want ≈ 0)</span></th><th class="n">invalid swap ΔNLL <span style="text-transform:none">(want &gt; 0)</span></th><th class="n">discrimination</th></tr>
+      <tr><td>Bigram</td><td class="n">0.0014 ±.0064</td><td class="n">0.1042 ±.0159</td><td class="n"><b>0.1028 ±.0148</b></td></tr>
+      <tr class="dim"><td>HSMM <span style="color:var(--mut)">(no order)</span></td><td class="n">−0.0005 ±.0009</td><td class="n">0.0007 ±.0008</td><td class="n">0.0012 ±.0005</td></tr>
+      <tr><td>HPOP</td><td class="n">0.0004 ±.0005</td><td class="n">0.0905 ±.0144</td><td class="n">0.0901 ±.0146</td></tr>
+    </table>
+    <div style="color:var(--mut);font-size:12.5px;margin-top:8px">
+      Paired per-seed differences vs bigram: valid-swap cost −0.0010 ± 0.0063 (no difference), discrimination
+      −0.0127 ± 0.0127 (HPOP marginally <i>worse</i>).
+    </div>
+    <div class="warnbox">
+      <b>The hypothesis that HPOP wins here is not supported.</b> HPOP <i>is</i> invariant to legal reorderings —
+      0.0004 ± 0.0005 nats, indistinguishable from zero and 5× more tightly concentrated across seeds than the bigram —
+      and it strongly rejects dependency violations. But the bigram does about as well: with 12 CPA types and enough
+      traces it simply observes incomparable pairs in both orders and learns both transitions.
+    </div>
+    <div class="banner">
+      The one unambiguous result: <b>HSMM discrimination collapses to 0.001</b>. With segmentation and composition but no
+      order, violation-sensitivity vanishes entirely — confirming that the <b>partial order</b>, not the skill
+      segmentation, is what makes HPOP sensitive to broken dependencies.
+    </div>
+  </div></section>
+
+  <!-- ============================================================ -->
+  <section><h2>Seven issues found in the manuscript</h2><div class="panel">
+    <div style="color:var(--mut);font-size:12.5px;margin-bottom:4px">Each came out of implementing the equations as written; each is backed by a test.</div>
+
+    <div class="find"><div class="t">(b) Invalidation cannot start a repair loop &nbsp;<span class="pill neg">most important</span></div>
+      <div class="x"><code>J̃(z,x) = D<sub>U</sub>(z,x)·σ(ω<sub>zx</sub>)</code> is masked by precedence, so invalidation
+      only flows <i>forward</i>. A <b>failed test can therefore never invalidate the edit that preceded it</b> — the very
+      edit–test–repair cycle the section is motivated by. Under the model the loop's <i>restart</i> is an unexplained
+      move charged λ<sub>rep</sub>; only the recompute cascade after it is explained. In software traces the trigger is
+      observable (the test's exit status), so the fix is to condition invalidation, or λ<sub>rep</sub>, on the observed
+      outcome of the preceding occurrence.</div>
+      <div class="tst">test_invalidation_only_flows_along_precedence</div></div>
+
+    <div class="find"><div class="t">(a) Eq. (recurrent-step-likelihood) has no noise floor</div>
+      <div class="x">With a hard precedence matrix — or any relaxed <code>D<sub>U</sub></code> saturating at 1 —
+      <code>F̃<sup>RFS</sup>(x)</code> is exactly 0 whenever a predecessor is stale, so an order-violating observation has
+      probability 0 and the log-likelihood is <code>−inf</code>. BPOP avoids this with an ε trembling-hand term; the
+      recurrent likelihood as written drops it.</div>
+      <div class="tst">test_eps_zero_gives_violations_zero_probability</div></div>
+
+    <div class="find"><div class="t">(c) λ<sub>rep</sub> is not a local repeat cost</div>
+      <div class="x">It penalizes <i>every</i> currently-valid item at every step, not just the one that repeats. Raising
+      it suppresses all valid competitors and can therefore <b>increase</b> the likelihood of a trace containing repeats
+      — verified on a 5-step trace where λ<sub>rep</sub>=4 scores higher than λ<sub>rep</sub>=0. It is a global reshaping
+      of the step distribution and should not be interpreted, or identified, as "the cost of repeating".</div>
+      <div class="tst">test_repeat_cost_does_not_lower_whole_sequence_likelihood</div></div>
+
+    <div class="find"><div class="t">(d) The ELBO's segmentation prior is unnormalized</div>
+      <div class="x">Eq. (structured-segmentation-elbo) carries <code>Σ<sub>l</sub>[log π<sub>z_l</sub> − λ<sub>seg</sub>]</code>
+      without dividing by its partition function over the seed lattice, so the implied prior does not sum to 1 and raw
+      <code>log Z</code> is not a likelihood. Still a usable training objective, but held-out numbers are not comparable
+      across models or λ<sub>seg</sub> settings. The implementation reports
+      <code>log p(x) = log Z(score) − log Z(prior)</code>, the exact marginal likelihood.</div>
+      <div class="tst">test_uniform_model_gives_exact_uniform_likelihood (recovers −T·log V exactly) · test_likelihood_is_invariant_to_the_segment_penalty</div></div>
+
+    <div class="find"><div class="t">(e) The amortized inference network is unnecessary — this <i>strengthens</i> the paper</div>
+      <div class="x">Both the model and the variational family in Eq. (structured-semi-markov-posterior) are semi-Markov
+      over the same merge-only lattice, so setting <code>η<sub>φ</sub>(a,b,k) = ℓ<sub>n</sub>(a,b,k)</code> makes
+      <code>q<sub>φ</sub></code> the <b>exact</b> conditional posterior in <code>O(J·D<sub>max</sub>·K²)</code>. Drop the
+      inference network and its hyperparameters and claim an exact structured E-step. (As written, <code>ℓ<sub>n</sub></code>
+      is defined and then never connected to <code>η<sub>φ</sub></code> — this closes that gap.)</div></div>
+
+    <div class="find"><div class="t">(f) The per-skill weight has no composition term</div>
+      <div class="x">Fig. (overview) describes each skill by "a CPA-composition distribution <i>and</i> a revisitable
+      local partial order", but Eq. (recurrent-unnormalized-weight) contains only order terms. Two skills over disjoint
+      CPA sets are then distinguished only through order structure, which is weak — EM from <code>θ=0</code> gives a
+      near-uniform emission model and a flat segmentation posterior. Composition alone already gets HSMM to 0.80 ARI, so
+      this term does much of the identification work and belongs in the equations.</div></div>
+
+    <div class="find"><div class="t">(g) K = 1 is degenerate under Assumption (ass:no-self-transition)</div>
+      <div class="x">With a single skill slot the no-adjacent-same-label rule makes every multi-segment tiling illegal,
+      so a trace longer than D<sub>max</sub> seeds has probability zero. Harmless in practice; worth a footnote.</div>
+      <div class="tst">test_single_skill_cannot_tile_more_than_D_max_seeds</div></div>
+  </div></section>
+
+  <!-- ============================================================ -->
+  <section><h2>What to claim instead</h2><div class="panel lead">
+    <ul>
+      <li><b>Keep:</b> structure recovery under known ground truth (experiment ①), the recurrence ablation, the
+      initialization audit (②), compression against order-free and flat models, and the interpretable reusable library
+      recovered without supervision (③).</li>
+      <li><b>Drop or reframe:</b> held-out next-occurrence likelihood as a headline metric, and n-gram models as the
+      baseline to beat. On this evidence HPOP loses both that comparison and the reorder-invariance comparison.</li>
+      <li><b>Or fix the model:</b> add a local sequential component alongside the partial order — e.g. a per-skill
+      transition term restricted to the frontier-feasible set — which keeps the order semantics while recovering what
+      the bigram exploits.</li>
+    </ul>
+  </div></section>
+
+  <section><h2>Correctness &amp; reproduction</h2><div class="panel">
+    <div class="two">
+      <div>
+        <h3 style="margin-top:0">Verified against brute force</h3>
+        <ul style="font-size:13px">
+          <li>Semi-Markov log-partition, <i>all</i> segment marginals, Viterbi path and value match exhaustive
+          enumeration of every legal (composition, labelling) pair to <code>1e-9</code>, over six lattice shapes.</li>
+          <li>Marginals sum to exactly 1 over blocks covering each seed position; closed-form entropy
+          <code>H = log Z − E<sub>q</sub>[score]</code> matches the enumerated entropy.</li>
+          <li>Eq. (frontier-equivalence) checked directly: with invalidation off,
+          <code>{x : F<sup>RFS</sup>(x)=1, q(x)=0}</code> equals the BPOP frontier at every step.</li>
+          <li>Analytic θ gradient matches finite differences; batched library likelihood matches the single-skill
+          implementation to <code>1e-9</code>.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="margin-top:0">Run it</h3>
+<pre>PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -v
+# 52 tests, OK
+
+PYTHONPATH=src .venv/bin/python scripts/exp_synthetic_recovery.py \
+    --seeds 5 --traces 40 --iters 12
+PYTHONPATH=src .venv/bin/python scripts/exp_boundary_recall.py \
+    --seeds 3 --traces 30 --iters 12
+PYTHONPATH=src .venv/bin/python scripts/exp_order_invariance.py \
+    --seeds 6 --traces 40 --swaps-per-trace 25
+PYTHONPATH=src .venv/bin/python scripts/exp_real_pilot.py \
+    --lam-seg 3.0 --iters 18 --K-max 10 --D-max 12</pre>
+        <div style="font-size:12.5px;color:var(--mut);margin-top:8px">
+          Raw JSON + the LaTeX <code>tab:synthetic</code> land in <code>data/experiments/</code>.
+        </div>
+      </div>
+    </div>
+  </div></section>
+
+  <section><h2>Scope &amp; limitations of this study</h2><div class="panel">
+    <ul style="font-size:13.5px">
+      <li><b style="color:var(--bad)">The real-data CPA layer is silver.</b> Labels come from a deterministic rule
+      annotator, not the LLM open-coding the manuscript specifies and not human adjudication — constant confidence 0.75,
+      zero <code>PROPOSE_NEW</code>/<code>ABSTAIN</code>, and the 16-type <i>seed</i> library rather than the induced
+      dictionary. Rule-derived labels have artificially regular local transitions, so experiment ③ is
+      <b>biased in the bigram's favour by an unknown amount</b>. Rerunning it on LLM-annotated CPAs is the single most
+      important follow-up before the negative result is treated as settled.</li>
+      <li>Real-data results are a <b>single repository-disjoint split</b> (split seed 0) of 100 trajectories; no
+      error bars across splits. Synthetic results have 5–6 independent seeds.</li>
+      <li>The generator is deliberately <b>not</b> the fitted model — repair loops fire exogenously from verification
+      failures (see finding (b)), so recovery numbers are measured <i>under model mismatch</i>, not in a well-specified
+      setting.</li>
+      <li>Structure estimation uses a weighted first-occurrence pairwise-consensus initializer plus likelihood-guided
+      pruning under the cover-edge penalty — <b>not</b> the reparameterized-gradient optimization of the relaxed
+      <code>D<sub>U</sub></code> the manuscript describes (no autodiff available in this environment). The relaxed
+      likelihood itself is implemented and tested; only its gradient-based <i>fitting</i> is substituted.</li>
+      <li>The global order is estimated at the <b>skill-type</b> level, not the instance level. The recurrent likelihood
+      already represents repeated instances of a type without cycles, which suggests the instance-level poset may be
+      avoidable — worth a direct comparison before the paper commits.</li>
+      <li>Held-out NLL conditions on the seed boundaries, which are observed input for every method compared.</li>
+    </ul>
+  </div></section>
+
+  <div class="foot">
+    Generated from <code>data/experiments/*.json</code> · full write-up in <a href="experiments.md">docs/experiments.md</a> ·
+    code in <code>src/hpop/inference/{recurrent,semi_markov,hpop}.py</code>, <code>src/hpop/synth/</code>,
+    <code>src/hpop/eval/</code>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+{
+  "gates": {
+    "induced_h_total_variation": {
+      "value": 0.006654316078648934,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "max_relation_marginal_error": {
+      "value": 0.006283806266841552,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "mixed_reference_envelope": {
+      "value": 0.0069879838245734405,
+      "threshold": 0.01082780446092557,
+      "pass": true
+    },
+    "rho_rhat": {
+      "value": 1.0007827008631154,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "beta_rhat": {
+      "value": 1.0020702395191214,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "omega_rhat": {
+      "value": 1.0120509765969885,
+      "threshold": 1.01,
+      "pass": false
+    },
+    "lambda_rep_rhat": {
+      "value": 1.0033683403680937,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "lambda_back_rhat": {
+      "value": 1.0044299547217026,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "log_posterior_rhat": {
+      "value": 1.000972436008155,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "relation_count_rhat": {
+      "value": 1.0001922435385788,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "uncertain_relation_rhat": {
+      "value": 1.0003101297188555,
+      "threshold": 1.01,
+      "pass": true
+    }
+  },
+  "mixed": {
+    "statistic": "energy distance on [closure indicators, invariant U summaries, standardised scalars]",
+    "observed": 0.0069879838245734405,
+    "envelope": 0.01082780446092557,
+    "envelope_quantile": 0.99,
+    "null_mean": 0.004982063680162496,
+    "null_sd": 0.0016758251155776693,
+    "n_replicates": 40,
+    "n_mcmc": 2000,
+    "n_reference": 2000,
+    "n_coordinates": 13,
+    "dropped_constant_coordinates": 5,
+    "z_score": 1.1969746280592586,
+    "pass": true
+  },
+  "retained_draws_pooled": 90000,
+  "note": "the reference was frozen before these chains ran"
+}

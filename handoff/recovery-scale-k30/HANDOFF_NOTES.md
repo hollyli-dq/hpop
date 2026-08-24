@@ -1,10 +1,10 @@
 # Handoff notes — read before running the prompt
 
 This package contains the code, not the history. Everything below was checked against the
-source repository rather than assumed. **Three blockers** remain between this package and a run of
-`prompt/PROMPT_RECOVERY_SCALE_K30.md`, plus one design issue that is not a blocker but
-will change how the result must be read. A fourth — the Section 1 git check — is already
-resolved by an amendment to the prompt, recorded below for audit.
+source repository rather than assumed. **All four blockers are resolved.** What remains before a run is the Section 8 corpus
+generator, and one design issue that is not a blocker but will change how the result
+must be read. Each resolution is recorded below with its verification, so the claim can
+be checked rather than taken.
 
 ---
 
@@ -50,65 +50,87 @@ If the full history is ever wanted on the target machine anyway, `git bundle cre
 hpop.bundle --all` transferred by disk or scp carries it with every hash intact and no
 GitHub limit involved. That option remains available and changes nothing here.
 
-## Blocker 2 — the model does not support A != m
+## Blocker 2 — RESOLVED: the CPA-vocabulary layer is implemented
 
-This is the largest item and it is modelling work, not configuration.
+`src/hpop/mcmc_cpa/` supplies what the registered model could not express. A skill `k` owns
+an **injective** role map `ell_k : {0..m-1} -> {0..A-1}`; an observed CPA is translated to
+that skill's role index before the recurrent arithmetic runs, and a block containing any
+CPA outside the skill's support scores `-inf`, because that skill cannot have produced it.
 
-Section 3 asks for `A = 50` with `role support size m_k = 10`, and Section 7 asks for
-injective role maps with distinct CPA supports. **The shipped inference path cannot express
-that.** The evidence, not inference:
+`hpop.mcmc_original` is untouched. The translation happens before the sealed arithmetic.
 
-- `recurrent_segmentation.py:135` — the scorer reads observed trace symbols **directly** as
-  row indices into `u_by_skill[skill]`, which is `(K, m, d)`. There is no per-skill map.
-- `matched_synthetic_generator.py:433` raises
-  `AssertionError("the production scorer requires identity role maps")`.
-- `matched_synthetic_generator.py:165,203` construct `role_maps` as the identity, always.
-- The confirmatory corpus that this machinery produced used `A = m = 5`.
+| file | what it does |
+| --- | --- |
+| `role_maps.py` | injective per-skill maps, inverse lookup, deterministic sampling with pairwise-distinct supports, overlap matrix |
+| `block_tables.py` | `CPABlockScoreTable`, the dense `(J, J+1, K)` builder with translation and the support mask |
+| `nested_library.py` | the `K_max = 30` master library, its permutation, and the nested ladder prefixes |
 
-`role_maps` exists in the truth dataclass and is serialised into `truth_SEALED.json`, but it
-is a placeholder: nothing consumes it at scoring time.
+### Why the likelihood needs no correction
 
-**What implementing it involves.** A CPA symbol in `0..A-1` must be translated through skill
-`k`'s inverse role map before indexing `u_by_skill[k]`, and any candidate block containing a
-CPA outside skill `k`'s support must score `-inf`. The clean way is a **new block-table
-builder** that does the translation while filling the table — `mcmc_original` stays sealed
-and untouched. The generator needs the matching change: each segment emits CPAs drawn from
-its skill's support.
+`ell_k` is injective, so an observed CPA determines its role uniquely and the density over
+CPAs is the density over roles — no Jacobian, no renormalisation. The `epsilon / m` uniform
+component stays over `m` rather than `A`: it is a slip among the roles the skill *has*, not
+among every action in the world.
 
-Two consequences to think about before committing to the design:
+### Verification
 
-1. With `m_k = 10` of `A = 50` and random supports, most candidate blocks will be `-inf` for
-   most skills. That is the mechanism that makes skills identifiable — it is the point of the
-   design — but it changes the candidate geometry completely from anything measured so far,
-   so the runtime projections in `RUNTIME_NOTES.md` do not transfer.
-2. A new table builder needs its **own** parity gate against a reference implementation
-   before it can be trusted. The existing gate covers the existing builder only.
+The load-bearing check is that with the identity map at `A = m` the new builder reduces
+**bitwise** to the sealed `BlockScoreTable` — `max |diff| = 0.000e+00`, `array_equal` true.
+Anything less would mean the layer had changed the arithmetic rather than only what feeds
+it. Under non-identity maps every in-support score matches the sealed per-block scorer on
+the relabelled trace to `7.1e-15`, and every out-of-support block is verified `-inf`.
 
----
+`assert_matches_sealed_scorer` performs that comparison and should be run at the start of
+the study, as its own parity gate, alongside the forward-recursion gate.
 
-## Blocker 3 — three hard-coded `3`s in the terminal gate
+### What this changes about cost
 
-`scripts/confirmatory_terminal_gate.py`, `library_ids()`, lines 86–91:
+With `m = 10` of `A = 50`, a block survives for a skill only if all its CPAs fall in that
+skill's ten. On a corpus emitted from the supports the measured live fraction is about
+**0.19** — roughly a fivefold reduction in the candidate set. Good for identifiability and
+for speed, but it means **runtime measured under `A = m` does not transfer**. Recalibrate
+per Section 11 rather than extrapolating from the scalability study.
 
-    per_skill = width // 3
-    blocks = relation_indicators.reshape(n, 3, per_skill)
-    key = b"".join(sorted(np.packbits(blocks[i, k]).tobytes() for k in range(3)))
+## Blocker 3 — RESOLVED: the terminal gate reads K from the chain
 
-`K` must be read from the chain metadata. Small and mechanical, but the gate will silently
-mis-reshape at any `K != 3` rather than fail loudly, so fix it before the first run.
+`library_ids` took the number of skills as a literal `3`. That was the dangerous kind of
+bug: `reshape(n, 3, width // 3)` *succeeds* whenever the width divides by three, and at
+`K = 30, m = 10` the width is `30*10*9 = 2700`, which does. It would have produced a
+confident, wrong library identifier rather than an error.
 
-`scripts/confirmatory_heldout_nll.py` similarly imports `N_SKILLS` / `N_ROLES` from the
-frozen constants (lines 58, 102, 109, 288) and needs the same treatment.
+It now takes `n_skills` explicitly, read from the chain's own `u_draws` of shape
+`(draws, K, m, d)` via `skills_in()`, and raises when the width is not divisible. Two
+existing tests that relied on the implicit `3` were updated to pass it, and a new test
+pins that there is no silent fallback.
 
----
+`confirmatory_heldout_nll.py` had the same defect through its `N_SKILLS` / `N_ROLES`
+imports and reads both from the chain now.
 
-## Blocker 4 — the nested master library is new code
+## Blocker 4 — RESOLVED: the nested master library
 
-Section 5 (one `K_max = 30` master library per replicate, one fixed permutation, nested
-prefixes `K=3 ⊂ 5 ⊂ 10 ⊂ 20 ⊂ 30`) has no implementation here. Sections 7 and 8
-(admissibility over 30 skills, per-skill coverage bands) are likewise new.
+`nested_library.draw_master_library(replicate)` draws one admissible `K_max = 30` library
+per replicate under Section 7's criteria 1–7, applies the registered permutation once, and
+exposes each rung as a prefix. Nesting is verified across utilities, role maps and closures
+together, and the rungs are checked to be strictly increasing sets.
 
----
+Nesting is what stops library *size* being confounded with library *difficulty*: with
+independent draws, a poor `K = 30` result could be thirty skills being hard or *those*
+thirty being hard. The K=3 rung is literally three of the K=30 rung.
+
+`pi` and `P` are deliberately **not** nested — they are drawn per rung from the registered
+prior with their own seeds, because a `K = 30` transition matrix truncated to its first
+three rows and columns is not a draw from the `K = 3` prior.
+
+The consequence for reading the ladder: the rungs are not independent, so it is a
+within-replicate comparison and the two replicates carry the between-truth variation. With
+exactly two, report both points and their range, never a Gaussian interval through two
+numbers.
+
+### Still to do before launch
+
+The corpus generator (Section 8) is not written: emitting traces from each skill's support
+under `pi`/`P`, and the per-skill coverage bands. The pieces it needs — role maps, nested
+library, the scoring layer — are all in place and tested.
 
 ## Not a blocker: the permutation-invariance you might expect to be a problem is already solved
 

@@ -1,8 +1,9 @@
 # Handoff notes — read before running the prompt
 
 This package contains the code, not the history. Everything below was checked against the
-source repository rather than assumed. **All four blockers are resolved.** What remains before a run is the Section 8 corpus
-generator, and one design issue that is not a blocker but will change how the result
+source repository rather than assumed. **All four blockers are resolved and the Section 8 corpus generator is written.** What
+remains are two preregistration criteria that cannot be met as written, and one design
+issue that is not a blocker but will change how the result
 must be read. Each resolution is recorded below with its verification, so the claim can
 be checked rather than taken.
 
@@ -149,6 +150,71 @@ is a separate thing and does need an assignment algorithm — use Hungarian / `s
 linear_sum_assignment`, `O(K^3)`, which is trivial at `K = 30`. Do not enumerate.
 
 ---
+
+## Two preregistration criteria cannot be met as written — decide before launch
+
+Both were found by running the generator, not by reading the prompt. Either would have
+stopped the study on the target machine after it had been booked for a week. Neither is a
+code defect, and neither is mine to fix: they are preregistration decisions.
+
+### 1. Criterion 12 — the `pi` band is unreachable at large K
+
+Section 7 asks every component of `pi` to lie in `[0.5/K, 1.5/K]`, drawn from the
+registered flat Dirichlet, with an attempt cap of 100. Measured acceptance:
+
+| K | P(pi in band) | P(stationary in band) | P(both) | expected attempts |
+| --- | --- | --- | --- | --- |
+| 3 | 0.178 | 0.781 | 0.137 | 7 |
+| 5 | 0.020 | 0.548 | 0.011 | 95 |
+| 10 | 0.0005 | 0.502 | not observed | ~2,000+ |
+| 20 | ~0 | 0.665 | not observed | — |
+| 30 | ~0 | 0.836 | not observed | — |
+
+Criterion 11, the stationary band, is **not** the problem. Criterion 12 is, and it becomes
+impossible somewhere between K = 5 and K = 10.
+
+`draw_pi_p` fails loudly with the measured rate rather than working around it. Three
+repairs, all preregistration changes:
+
+* widen the band so the event stays reachable — simplest, but changes what "balanced" means;
+* declare a concentrated Dirichlet as the generator — reachable, but the sampler assumes a
+  flat prior, so generator and inference prior would no longer match, and that must be
+  stated rather than absorbed;
+* sample the constrained conditional directly — exactly what the prompt says, no prior
+  change, but needs a sampler for the uniform distribution on a box-constrained simplex.
+
+The library deliberately does **not** pick one. Substituting a concentrated Dirichlet
+silently would change the generative prior invisibly, which is the worst of the three.
+
+### 2. The per-role coverage band is checked in the wrong place
+
+Section 8 asks that every one of a skill's ten roles appear at least five times in
+training, and puts that check in the corpus loop with 100 resampling attempts. But role
+frequency is set by `U`, not by the corpus draw. Under one fixed truth, across four corpus
+seeds:
+
+    skill 0, per-role counts:  [29, 53, 12,  4,  2, 222, 158, 41, 40, 32]
+                               [39, 36,  4,  5,  1, 191, 130, 39, 39, 36]
+                               [38, 48,  6,  2,  3, 201, 154, 39, 31, 39]
+                               [37, 34,  5,  8,  2, 208, 134, 48, 30, 33]
+
+The same roles starve every time. The first-step emission probabilities explain it:
+
+    [0.002, 0.095, 0.002, 0.002, 0.002, 0.889, 0.002, 0.002, 0.002, 0.002]
+
+a 445-fold spread, with the floor sitting exactly at `epsilon / m = 0.002`. Those roles fire
+**only** through the noise term — the partial order suppresses them structurally.
+**All 30 master skills** have at least one role below 0.01.
+
+So resampling corpora cannot satisfy this band, and raising the attempt cap cannot either.
+The criterion is a function of the truth, so it belongs in Section 7 master-truth
+admissibility, where a rejected draw is replaced. `generate_ladder_corpus` fails with that
+diagnosis attached rather than exhausting 100 futile attempts in silence.
+
+Whether to move the criterion, weaken it, or accept starved roles as a property of the
+generative model is a scientific decision. Note that accepting it has a consequence worth
+stating in the paper: a role that never fires cannot be recovered, so per-skill recovery is
+bounded above by role coverage before inference begins.
 
 ## Design issue: the structural-proposal budget falls as 1/K
 

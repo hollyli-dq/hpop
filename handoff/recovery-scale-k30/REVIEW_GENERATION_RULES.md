@@ -1,3 +1,9 @@
+> **SUPERSEDED — audit history only.**
+>
+> This file still contains withdrawn rules, kept so the errors stay visible rather than being quietly replaced. The current specification is `SCALABILITY_GENERATION_SPEC.md`. **Do not implement from this file.**
+
+---
+
 # Data generation and admissibility — for review
 
 Written so you can check the rules against what the code does, and mark up the two

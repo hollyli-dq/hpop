@@ -1,10 +1,26 @@
-"""One chain runner, two arms: full recurrent likelihood, and the support-only baseline.
+"""One chain runner, three arms, differing in exactly one thing each.
 
-The two arms must differ in **exactly one place** — the candidate block score — or the
-comparison means nothing. So there is one runner, and the arm is a single argument. The
-segmentation prior, the transition treatment, the data, the initialisation, the proposal
-schedule, the chain count, the sweep count and the RNG stream are shared by construction
-rather than by two implementations that were written to match.
+    support-only    the candidate block score knows only which CPAs a skill can emit
+    oracle-order    the full recurrent score, evaluated at the TRUE `U`, held fixed
+    learned-order   the full recurrent score, with `U` inferred
+
+The arms must differ in **exactly one place** — what the candidate block score knows — or
+the comparison means nothing. So there is one runner, and the arm is a single argument.
+The segmentation prior, the transition treatment, the data, the initialisation, the
+proposal schedule, the chain count, the sweep count and the RNG stream are shared by
+construction rather than by three implementations that were written to match.
+
+## What each contrast means
+
+    oracle-order  -  support-only     how much the AVAILABLE order information is worth
+    learned-order -  support-only     the REALISED end-to-end gain
+    oracle-order  -  learned-order    the INFERENCE gap
+
+The first is a diagnostic about information, not a bound: an inferred `U` is not obliged
+to be less useful than the true one at every finite sweep count, and averaging over the
+posterior is not the same operation as plugging in a point truth. The second is the number
+a practitioner actually gets. The third says how much of the available information the
+sampler is failing to extract, which is the one that says whether to work on inference.
 
 ## What the support-only arm is
 
@@ -17,6 +33,7 @@ positions, those terms sum to the constant `-J log m` for **every** segmentation
 labelling. It therefore cancels in every ratio the sampler forms, and `0` is the same model.
 
 ## Why structure recovery is not applicable to the baseline
+
 
 The support-only score does not read `U` at all. A `U` sampler run against it would be
 drawing from the prior with the data contributing nothing, so the baseline **does not move
@@ -37,12 +54,22 @@ from hpop.mcmc_original.types import Segment, Segmentation
 from hpop.mcmc_optimized.segmentation import ffbs_segmentation_draw
 
 from .block_tables import CPABlockScoreTable
+from .collapsed_u import CPACollapsedULikelihood, collapsed_u_mh_step_cpa
+from .crn import CommonRandomNumbers
+from .seeds import LadderSeeds
 from .support_baseline import SupportOnlyBlockScoreTable
 
-__all__ = ["FULL_RFS", "SUPPORT_ONLY", "run_ladder_chain", "ArmTables"]
+__all__ = ["ORACLE_ORDER", "LEARNED_ORDER", "SUPPORT_ONLY", "ARMS",
+           "run_ladder_chain", "ArmTables"]
 
-FULL_RFS = "full-rfs"
 SUPPORT_ONLY = "support-only"
+ORACLE_ORDER = "oracle-order"        # full recurrent score at the TRUE U, held fixed
+LEARNED_ORDER = "learned-order"      # full recurrent score, U inferred
+
+ARMS = (SUPPORT_ONLY, ORACLE_ORDER, LEARNED_ORDER)
+
+#: Arms whose candidate score reads `U` at all.
+_ORDER_ARMS = (ORACLE_ORDER, LEARNED_ORDER)
 
 
 class ArmTables:
@@ -57,7 +84,7 @@ class ArmTables:
         self.arm = arm
         self.model = model
         self.stale = False
-        if arm == FULL_RFS:
+        if arm in _ORDER_ARMS:
             self._table = CPABlockScoreTable(
                 traces=model.traces, epsilon=float(epsilon), role_maps=role_maps,
                 min_width=model.min_width, max_width=model.max_width)
@@ -92,8 +119,8 @@ class ArmTables:
             # dominant cost of a sweep to reproduce the array already held.
             self.stale = False
             return {"rebuilt": False, "reason": "table inputs unchanged since last build"}
-        info = self._table.refresh(state.u_by_skill, state.beta, state.omega,
-                                    state.lambda_rep, state.lambda_back)
+        info = self._table.refresh_changed(state.u_by_skill, state.beta, state.omega,
+                                           state.lambda_rep, state.lambda_back)
         self._built_at = np.array(state.u_by_skill, copy=True)
         self._built_key = key
         self.stale = False
@@ -105,7 +132,7 @@ class ArmTables:
     def tables_for(self, state: Stage6EState) -> list:
         if self.stale:
             raise AssertionError("candidate tables are stale")
-        if self.arm == FULL_RFS and not np.array_equal(self._built_at,
+        if self.arm in _ORDER_ARMS and not np.array_equal(self._built_at,
                                                        state.u_by_skill):
             raise AssertionError("candidate tables were built at a different U")
         return self._table.tables
@@ -126,22 +153,84 @@ def _initial_segmentation(length: int, index: int, n_skills: int,
     return Segmentation(tuple(segments))
 
 
+def _crn_for(crn, replicate: int, n_skills: int, chain: int, seed: int):
+    """The chain's common-random-number source.
+
+    `seed` sets the CRN **root**, not a position in a stream. Arms called with the same
+    seed therefore share every indexed generator -- which is the point -- while a
+    different seed gives a genuinely different chain. An explicitly supplied `crn` wins:
+    that caller has taken responsibility for the sharing.
+    """
+    if crn is not None:
+        return crn
+    return CommonRandomNumbers(int(replicate), int(n_skills), int(chain),
+                               seeds=LadderSeeds(root=int(seed)))
+
+
+def _dispersed_u_start(rng, u_truth) -> np.ndarray:
+    """A start drawn from the structural prior's scale, deliberately NOT the truth.
+
+    The learned-order arm exists to measure what inference recovers, so it must not be
+    handed the answer. Only the SHAPE of the truth is used.
+    """
+    return rng.standard_normal(size=np.asarray(u_truth).shape)
+
+
+class _LikelihoodTables:
+    """Adapts `CPACollapsedULikelihood` to the `tables_for` contract the FFBS expects.
+
+    The collapsed likelihood already owns the candidate table and keeps it at the current
+    `U`, so this neither rebuilds nor caches; it would be wrong for two objects to hold
+    opinions about which `U` the table describes.
+    """
+
+    __slots__ = ("likelihood", "stale")
+
+    def __init__(self, likelihood):
+        self.likelihood = likelihood
+        self.stale = False
+
+    def refresh(self, state) -> dict:
+        self.likelihood.refresh_to(state)
+        self.stale = False
+        return {"rebuilt": True, "reason": "learned-order: table follows the U kernel"}
+
+    def mark_stale(self) -> None:
+        self.stale = True
+
+    def tables_for(self, state) -> list:
+        if self.stale:
+            raise AssertionError("candidate tables are stale")
+        return self.likelihood.tables
+
+
 def run_ladder_chain(arm: str, model, role_maps, u_by_skill, chain: int, sweeps: int,
                      warmup: int, seed: int, epsilon: float = 0.02,
-                     fixed=None, thin: int = 5, record_every: int = 1) -> dict:
-    """One chain. `arm` is the ONLY thing that differs between the two conditions.
+                     fixed=None, thin: int = 5, record_every: int = 1,
+                     u_every: int = 1, u_moves: int = 1, u_scale: float = 0.5,
+                     u_start=None, rho: float | None = None, crn=None,
+                     replicate: int = 0) -> dict:
+    """One chain. `arm` is the ONLY thing that differs between the conditions.
 
-    `u_by_skill` is held fixed in both arms: this comparison is about what the block score
-    contributes to segmentation and skill labelling, so moving `U` in one arm and not the
-    other would confound it. The full arm therefore scores at the supplied `U` throughout,
-    and the baseline ignores `U` entirely.
+    `support-only` and `oracle-order` both hold `u_by_skill` fixed -- the first ignores it
+    entirely, the second scores at it throughout. That pair isolates what the block score
+    contributes to segmentation and skill labelling, with no `U` inference in either.
+
+    `learned-order` starts from `u_start` (a dispersed draw when not supplied, never the
+    truth) and moves `U` with the sealed collapsed row kernel, `u_moves` proposals every
+    `u_every` sweeps. `u_by_skill` is then the truth only for scoring recovery, never for
+    initialisation -- passing the truth as the start would make the arm an oracle wearing
+    a different name.
     """
     from hpop.mcmc_original.full_latent_constants import (FIXED_BETA, FIXED_LAMBDA_BACK,
                                                           FIXED_LAMBDA_REP, FIXED_OMEGA,
                                                           FIXED_RHO_0)
 
-    rng = np.random.default_rng(int(seed))
     n_skills = int(model.n_skills)
+    crn = _crn_for(crn, replicate, n_skills, chain, seed)
+    # Initialisation draws from its own indexed stream, so it cannot be shifted by
+    # anything an arm does later.
+    rng = crn.rng("init", 0)
 
     pi = rng.dirichlet(np.ones(n_skills))
     from hpop.mcmc_original.transitions import sample_transition_matrix
@@ -157,19 +246,41 @@ def run_ladder_chain(arm: str, model, role_maps, u_by_skill, chain: int, sweeps:
         lambda_rep=float(FIXED_LAMBDA_REP), lambda_back=float(FIXED_LAMBDA_BACK),
         pi=pi, transition=transition)
 
-    tables = ArmTables(arm, model, role_maps, epsilon)
+    if arm == LEARNED_ORDER:
+        if u_start is None:
+            u_start = _dispersed_u_start(rng, np.asarray(u_by_skill, dtype=float))
+        state.u_by_skill = np.asarray(u_start, dtype=float, copy=True)
+        if rho is not None:
+            state.rho = float(rho)
+        likelihood = CPACollapsedULikelihood(model, role_maps, epsilon)
+        likelihood.refresh_to(state)
+        tables = _LikelihoodTables(likelihood)
+    else:
+        likelihood = None
+        tables = ArmTables(arm, model, role_maps, epsilon)
+
     began = time.perf_counter()
-    kept = {"labels": [], "n_segments": [], "boundaries": []}
+    kept = {"labels": [], "n_segments": [], "boundaries": [], "u": []}
     moved = 0
+    u_proposed = u_accepted = u_invalid = 0
 
     for sweep in range(int(sweeps)):
         validate_pi_p(state, model)
+        if arm == LEARNED_ORDER and int(u_every) > 0 and sweep % int(u_every) == 0:
+            for proposal in range(int(u_moves)):
+                record = collapsed_u_mh_step_cpa(state, likelihood,
+                                                 crn.rng("u", sweep, proposal),
+                                                 float(u_scale))
+                u_proposed += 1
+                u_accepted += int(record["accepted"])
+                u_invalid += int(record["invalid"])
         tables.refresh(state)
-        draw = ffbs_segmentation_draw(model, state, tables, rng)
+        draw = ffbs_segmentation_draw(model, state, tables,
+                                      crn.rng("ffbs", sweep))
         state.segmentations = tuple(segmentation_of(key) for key in draw["keys"])
         tables.mark_stale()
         validate_paths(state, model)
-        gibbs_pi_p(state, model, rng)
+        gibbs_pi_p(state, model, crn.rng("pi_p", sweep))
         moved += int(draw["movement"]["states_changed"])
 
         if sweep >= int(warmup) and (sweep - int(warmup)) % int(thin) == 0:
@@ -179,6 +290,8 @@ def run_ladder_chain(arm: str, model, role_maps, u_by_skill, chain: int, sweeps:
                                        for seg in state.segmentations])
             kept["boundaries"].append([[int(s.end) for s in seg.segments[:-1]]
                                        for seg in state.segmentations])
+            if arm == LEARNED_ORDER:
+                kept["u"].append(np.asarray(state.u_by_skill, dtype=float).tolist())
         state.iteration += 1
 
     return {
@@ -187,8 +300,16 @@ def run_ladder_chain(arm: str, model, role_maps, u_by_skill, chain: int, sweeps:
         "retained_draws": len(kept["labels"]),
         "seconds": time.perf_counter() - began,
         "ffbs_states_changed_total": moved,
-        "structure_recovery": "NOT APPLICABLE" if arm == SUPPORT_ONLY else "available",
-        "u_held_fixed": True,
+        "structure_recovery": ("NOT APPLICABLE" if arm == SUPPORT_ONLY
+                               else "fixed at truth" if arm == ORACLE_ORDER
+                               else "available"),
+        "u_held_fixed": arm != LEARNED_ORDER,
+        "crn": crn.provenance(),
+        "crn_generators_issued": crn.generators_issued,
+        "u_proposed": u_proposed,
+        "u_accepted": u_accepted,
+        "u_invalid": u_invalid,
+        "u_acceptance_rate": (u_accepted / u_proposed) if u_proposed else None,
         "draws": kept,
         "final_pi": state.pi.tolist(),
         "final_transition": state.transition.tolist(),

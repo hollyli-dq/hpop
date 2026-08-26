@@ -397,7 +397,8 @@ def role_exposure(u_by_skill, params, widths=(3, 12), samples: int = 400,
 def generate_ladder_corpus(library, k: int, replicate: int, trace_length: int = 96,
                            params: RecurrentRFSParameters | None = None,
                            delta_b: float = 0.15, min_width: int = 3, max_width: int = 12,
-                           bands: CoverageBands | None = None) -> LadderCorpus:
+                           bands: CoverageBands | None = None,
+                           master_transitions=None) -> LadderCorpus:
     """One rung's corpus: `N_train = 5 x K`, `N_test = 2 x K`, **generated exactly once**.
 
     ## There is no acceptance loop, and there must not be one
@@ -415,6 +416,18 @@ def generate_ladder_corpus(library, k: int, replicate: int, trace_length: int = 
     Every coverage quantity is therefore **measured and reported, never enforced**. The
     same applies to searching for a truth seed that yields agreeable realised counts: that
     is the same bias reached by a different route.
+
+    ## `(pi, P)` comes from the shared-Gamma coupling
+
+    `master_transitions` carries one `Gamma(1,1)` master weight matrix per replicate; this
+    rung's `P` is its restriction-and-renormalisation to the first `k` skills and `pi` is
+    `nu(P)`. Passing `None` derives it from `library.permutation`, which is deterministic
+    given the replicate, so every rung of a replicate is cut from the same master `G`.
+
+    That master draw is accepted or rejected **jointly across all rungs**, so this rung's
+    `P` is not an unconditional flat-Dirichlet draw: it is conditioned on every rung of the
+    same master clearing the stationary band. See `gamma_coupling` for why the acceptance
+    has to be joint and what the conditioning costs.
     """
     from hpop.mcmc_original.recurrent_scalar_posterior import TRUE_VALUES
 
@@ -432,7 +445,11 @@ def generate_ladder_corpus(library, k: int, replicate: int, trace_length: int = 
              "train_corpus": 6_520_000 + 100 * k + replicate,
              "heldout_corpus": 6_530_000 + 100 * k + replicate}
 
-    pi, transition = draw_pi_p(k, seeds["pi_p"])
+    if master_transitions is None:
+        from .gamma_coupling import draw_master_transitions
+        master_transitions = draw_master_transitions(
+            replicate, library.permutation, k_max=library.k_max)
+    pi, transition = master_transitions.pi_p(k)
     n_train, n_test = 5 * k, 2 * k
     tables = width_sampling_tables(trace_length, delta_b, min_width, max_width)
 
@@ -460,5 +477,6 @@ def generate_ladder_corpus(library, k: int, replicate: int, trace_length: int = 
         "NOTE": "these are reported, not enforced; the corpus was generated exactly once "
                 "and was never rejected on realised counts",
     }
+    coverage["transition_coupling"] = master_transitions.provenance()
     return LadderCorpus(k, replicate, train, heldout, role_maps, pi, transition,
                         coverage, seeds, [{"generated_once": True}])

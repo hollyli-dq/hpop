@@ -12,12 +12,12 @@ import numpy as np
 import pytest
 
 from hpop.mcmc_cpa.corpus import generate_ladder_corpus
-from hpop.mcmc_cpa.ladder_runner import (FULL_RFS, SUPPORT_ONLY, ArmTables,
+from hpop.mcmc_cpa.ladder_runner import (ORACLE_ORDER, SUPPORT_ONLY, ArmTables,
                                          run_ladder_chain)
 from hpop.mcmc_cpa.nested_library import draw_master_library
 from hpop.mcmc_original.stage6e_state import Stage6EModel
 
-ARMS = (FULL_RFS, SUPPORT_ONLY)
+ARMS = (ORACLE_ORDER, SUPPORT_ONLY)
 
 
 class _FakeState:
@@ -56,14 +56,14 @@ def _run(rung, arm, **kw):
 def test_both_arms_share_their_initial_state(rung):
     """Zero sweeps exposes the initialisation alone. It must not depend on the arm."""
     runs = {arm: _run(rung, arm, sweeps=0, warmup=0) for arm in ARMS}
-    assert runs[FULL_RFS]["final_pi"] == runs[SUPPORT_ONLY]["final_pi"]
-    assert runs[FULL_RFS]["final_transition"] == runs[SUPPORT_ONLY]["final_transition"]
+    assert runs[ORACLE_ORDER]["final_pi"] == runs[SUPPORT_ONLY]["final_pi"]
+    assert runs[ORACLE_ORDER]["final_transition"] == runs[SUPPORT_ONLY]["final_transition"]
 
 
 def test_both_arms_retain_the_same_number_of_draws(rung):
     """Same sweep/warmup/thin schedule, so the recording schedule cannot differ."""
     runs = {arm: _run(rung, arm) for arm in ARMS}
-    assert runs[FULL_RFS]["retained_draws"] == runs[SUPPORT_ONLY]["retained_draws"] == 2
+    assert runs[ORACLE_ORDER]["retained_draws"] == runs[SUPPORT_ONLY]["retained_draws"] == 2
 
 
 def test_each_arm_is_deterministic_given_its_seed(rung):
@@ -76,8 +76,8 @@ def test_each_arm_is_deterministic_given_its_seed(rung):
 def test_the_seed_actually_moves_the_chain(rung):
     """Guards against a runner that ignores its seed and would make the arms agree
     for the wrong reason."""
-    assert (_run(rung, FULL_RFS, seed=1)["draws"]["labels"]
-            != _run(rung, FULL_RFS, seed=999)["draws"]["labels"])
+    assert (_run(rung, ORACLE_ORDER, seed=1)["draws"]["labels"]
+            != _run(rung, ORACLE_ORDER, seed=999)["draws"]["labels"])
 
 
 def test_u_is_held_fixed_in_both_arms(rung):
@@ -94,7 +94,7 @@ def test_u_is_held_fixed_in_both_arms(rung):
 def test_the_arms_do_not_produce_the_same_chain(rung):
     """Identical everywhere else, so if the block score did nothing the arms would be
     indistinguishable and the baseline would be measuring nothing."""
-    assert (_run(rung, FULL_RFS)["draws"]["labels"]
+    assert (_run(rung, ORACLE_ORDER)["draws"]["labels"]
             != _run(rung, SUPPORT_ONLY)["draws"]["labels"])
 
 
@@ -116,7 +116,7 @@ def test_support_only_never_claims_structure_recovery(rung):
     """Its score does not read `U`, so any `U` estimate it reported would be a prior draw
     dressed up as a posterior."""
     assert _run(rung, SUPPORT_ONLY)["structure_recovery"] == "NOT APPLICABLE"
-    assert _run(rung, FULL_RFS)["structure_recovery"] == "available"
+    assert _run(rung, ORACLE_ORDER)["structure_recovery"] == "fixed at truth"
 
 
 def test_support_only_labels_are_always_support_feasible(rung):
@@ -139,7 +139,7 @@ def test_stale_tables_are_refused_before_they_can_be_used(rung):
     """The full arm scores at a particular `U`; serving a table built at another one
     would silently break the likelihood."""
     _, model, role_maps, u_by_skill = rung
-    adapter = ArmTables(FULL_RFS, model, role_maps, 0.02)
+    adapter = ArmTables(ORACLE_ORDER, model, role_maps, 0.02)
     state = _FakeState(u_by_skill)
     adapter.refresh(state)
     adapter.tables_for(state)
@@ -150,7 +150,7 @@ def test_stale_tables_are_refused_before_they_can_be_used(rung):
 
 def test_the_full_arm_refuses_a_table_built_at_a_different_u(rung):
     _, model, role_maps, u_by_skill = rung
-    adapter = ArmTables(FULL_RFS, model, role_maps, 0.02)
+    adapter = ArmTables(ORACLE_ORDER, model, role_maps, 0.02)
     adapter.refresh(_FakeState(u_by_skill))
     moved = np.asarray(u_by_skill, dtype=float).copy()
     moved[0] = -moved[0]
@@ -171,12 +171,12 @@ def test_the_memo_returns_a_bit_identical_table(rung):
     _, model, role_maps, u_by_skill = rung
     state = _FakeState(u_by_skill)
 
-    memoised = ArmTables(FULL_RFS, model, role_maps, 0.02)
+    memoised = ArmTables(ORACLE_ORDER, model, role_maps, 0.02)
     assert memoised.refresh(state)["rebuilt"] is True
     assert memoised.refresh(state)["rebuilt"] is False, "second refresh should hit the memo"
     reused = [np.array(t, copy=True) for t in memoised.tables_for(state)]
 
-    forced = ArmTables(FULL_RFS, model, role_maps, 0.02)
+    forced = ArmTables(ORACLE_ORDER, model, role_maps, 0.02)
     forced.refresh(state)
     forced._built_key = None                      # defeat the memo
     assert forced.refresh(state)["rebuilt"] is True
@@ -191,7 +191,7 @@ def test_the_memo_misses_when_any_of_its_inputs_moves(rung):
     """A memo that held on through a parameter change would silently score at the wrong
     `U`, which is exactly the failure `tables_for` exists to catch."""
     _, model, role_maps, u_by_skill = rung
-    adapter = ArmTables(FULL_RFS, model, role_maps, 0.02)
+    adapter = ArmTables(ORACLE_ORDER, model, role_maps, 0.02)
     adapter.refresh(_FakeState(u_by_skill))
 
     moved_u = np.asarray(u_by_skill, dtype=float).copy()
@@ -207,7 +207,7 @@ def test_the_memo_misses_when_any_of_its_inputs_moves(rung):
 def test_the_memo_does_not_change_the_chain(rung):
     """End-to-end: the draws must not depend on whether the table was rebuilt."""
     _, model, role_maps, u_by_skill = rung
-    with_memo = run_ladder_chain(FULL_RFS, model, role_maps, u_by_skill, chain=0,
+    with_memo = run_ladder_chain(ORACLE_ORDER, model, role_maps, u_by_skill, chain=0,
                                  sweeps=6, warmup=2, seed=4242, thin=2)
 
     import hpop.mcmc_cpa.ladder_runner as runner_module
@@ -219,7 +219,7 @@ def test_the_memo_does_not_change_the_chain(rung):
 
     ArmTables.refresh = always_rebuild
     try:
-        without_memo = run_ladder_chain(FULL_RFS, model, role_maps, u_by_skill, chain=0,
+        without_memo = run_ladder_chain(ORACLE_ORDER, model, role_maps, u_by_skill, chain=0,
                                         sweeps=6, warmup=2, seed=4242, thin=2)
     finally:
         ArmTables.refresh = original
@@ -228,3 +228,40 @@ def test_the_memo_does_not_change_the_chain(rung):
     assert with_memo["draws"]["boundaries"] == without_memo["draws"]["boundaries"]
     assert with_memo["ffbs_states_changed_total"] == \
         without_memo["ffbs_states_changed_total"]
+
+
+# ---------------------------------------------- `seed` sets the CRN root, and must do both jobs
+def test_the_seed_is_the_crn_root_so_arms_still_share_streams(rung):
+    """`seed` has two jobs that pull against each other, and both must hold.
+
+    It has to make a different chain when it changes -- otherwise it is an inert argument
+    that silently ignores the caller -- while arms called with the SAME seed must still
+    share every indexed generator, or the whole common-random-number discipline is gone.
+    Routing it into the CRN root satisfies both; routing it into a sequential generator
+    would satisfy neither.
+    """
+    from hpop.mcmc_cpa.crn import crn_alignment_report
+    from hpop.mcmc_cpa.ladder_runner import _crn_for
+
+    _, model, role_maps, _ = rung
+    same_a = _crn_for(None, 0, model.n_skills, 0, 4242)
+    same_b = _crn_for(None, 0, model.n_skills, 0, 4242)
+    assert crn_alignment_report(same_a, same_b, sweeps=6, draws=4)["aligned"]
+
+    different = _crn_for(None, 0, model.n_skills, 0, 777)
+    assert not crn_alignment_report(same_a, different, sweeps=6, draws=4)["aligned"]
+
+
+def test_an_explicit_crn_overrides_the_seed(rung):
+    """A caller that supplies a CRN is taking responsibility for the sharing; the seed
+    must not quietly build a second, different namespace behind it."""
+    from hpop.mcmc_cpa.crn import CommonRandomNumbers
+
+    _, model, role_maps, u_by_skill = rung
+    supplied = CommonRandomNumbers(0, model.n_skills, 0)
+    a = run_ladder_chain(ORACLE_ORDER, model, role_maps, u_by_skill, chain=0, sweeps=4,
+                         warmup=0, seed=1, thin=1, crn=supplied)
+    b = run_ladder_chain(ORACLE_ORDER, model, role_maps, u_by_skill, chain=0, sweeps=4,
+                         warmup=0, seed=999999, thin=1,
+                         crn=CommonRandomNumbers(0, model.n_skills, 0))
+    assert a["draws"]["labels"] == b["draws"]["labels"]

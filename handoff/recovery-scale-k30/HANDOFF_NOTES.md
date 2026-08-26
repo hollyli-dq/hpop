@@ -237,6 +237,16 @@ per chain:
 **Each row gets ten times fewer proposals at K=30 than at K=3.** With acceptance near the
 pilot target of 0.40, that is roughly 7 accepted moves per row over the entire K=30 run.
 
+**This was confirmed empirically by the three-arm smoke, at a much smaller budget.** The
+`learned-order` arm at 100 sweeps with one proposal per sweep gets 3.33 / 1.00 / 0.33
+attempts per `U` row at `K = 3 / 10 / 30` — the same `1/K` collapse, two orders of
+magnitude further down. Its recovery duly falls apart at `K = 30`, and its advantage over
+the baseline changes sign between two random-stream realisations at `K = 3` and `K = 10`.
+That is this design issue showing up as a measurement, and it is the reason
+`SCALABILITY_GENERATION_SPEC.md` §7.1.2 marks the learned column unquotable rather than
+reporting it as a finding about inference. Whatever is decided for the production
+schedules below applies equally to the learned arm's `U` budget.
+
 So "recovery degrades with K" and "each row received 10× less structural mixing effort" are
 confounded, and the figures cannot separate them. This is exactly the confound the data-side
 design was built to avoid, reappearing on the sampler side.
@@ -284,13 +294,15 @@ the figure or the caption so no reader can misattribute the trend.
 
 ## The support-only baseline is now in the package
 
-`src/hpop/mcmc_cpa/ladder_runner.py` runs both conditions. It is **one** runner, and the
-arm is a single argument — `FULL_RFS` or `SUPPORT_ONLY`. That is deliberate: two runners
-written to match each other drift, and a comparison whose arms differ anywhere except the
-candidate block score is not evidence about the block score. Data, initialisation, RNG
-stream, segmentation prior, transition treatment and sweep schedule are shared by
-construction. `tests/k_ladder/test_ladder_runner.py` pins this down, including that zero
-sweeps gives both arms the identical initial state.
+`src/hpop/mcmc_cpa/ladder_runner.py` runs all three conditions. It is **one** runner, and
+the arm is a single argument — `SUPPORT_ONLY`, `ORACLE_ORDER` or `LEARNED_ORDER`. That is
+deliberate: runners written to match each other drift, and a comparison whose arms differ
+anywhere except what the candidate block score knows is not evidence about the block
+score. Data, initialisation, RNG stream, segmentation prior, transition treatment and
+sweep schedule are shared by construction. `tests/k_ladder/test_ladder_runner.py` pins
+this down, including that zero sweeps gives the arms an identical initial state — though
+see the common-random-numbers section below for why that check is nowhere near
+sufficient on its own.
 
 The baseline's score is `0` for a block every one of whose CPAs lies in the candidate
 skill's support and `-inf` otherwise. A uniform-within-support emission would add
@@ -320,18 +332,107 @@ This does not help the production ladder as much as it helps the smoke test, bec
 
 ### What the smoke run says, and what it does not
 
-See `SCALABILITY_GENERATION_SPEC.md` §7.1 for the table. The full likelihood beats the
-baseline at `K = 3, 10, 30`, and its margin grows with `K`, which is the direction the
-corrected ambiguity table predicts.
+See `SCALABILITY_GENERATION_SPEC.md` §7.1 for the table, **re-run on the shared-Gamma
+coupled corpora** — the coupling changes every corpus, so any pre-coupling number is void.
+The oracle-order arm beats the baseline at `K = 3, 10, 30`. **The largest observed gap is
+at `K = 30`** (+0.1565 boundary F1, +0.0924 skill accuracy); no trend in `K` is claimed.
+At `K = 30` the baseline shows a substantial, approximately nine-percentage-point
+degradation in skill accuracy against the oracle arm.
 
-**The full arm scores at the true `U`.** The gap is therefore an upper bound on what the
-recurrent likelihood contributes in the real setting where `U` is inferred — necessary for
-the model to be worth its cost, not sufficient. One chain, one replicate, 100 sweeps: a
-sanity check, not a result.
+**Do not quote the `learned-order` column.** The smoke was run under two independent
+common-random-number roots, identical otherwise. `oracle − support` moved by at most 0.017
+and never changed sign; `learned − support` **changed sign at two of three rungs**. At 100
+sweeps with one `U` proposal per sweep the arm gets 3.33 / 1.00 / 0.33 proposals per `U`
+row at `K = 3 / 10 / 30`, so at `K = 30` it is reporting a barely-moved dispersed draw. It
+needs a `U` burn-in budget scaled to `K·m` and a per-rung pilot for `u_scale` before it
+means anything. It is also the concrete demonstration that `oracle − support` is not an
+upper bound on `learned − support`: under a bound framing a negative realised gain would
+be unsayable.
 
-## Still open before production
+---
 
-**Gamma coupling.** Skills are nested across rungs; transition environments are not. Shared
-`Gamma(1,1)` weights would pair them with the marginal unchanged. This is a design choice
-and it has not been made. It should be settled before production replicates, because it
-changes what "the same skill at a larger `K`" means.
+## Shared-Gamma coupling (adopted; the ladder is jointly conditioned)
+
+One master `G_ij ~ iid Gamma(1,1)` off-diagonal per replicate, the master skill
+permutation applied to **both** axes, and every rung cut out by restriction and
+renormalisation:
+
+    P^(K)_ii = 0,   P^(K)_ij = G_ij / sum_{h < K, h != i} G_ih,   pi^(K) = nu(P^(K))
+
+Two properties are why this construction and not another. The Gamma representation of the
+Dirichlet means each rung's rows are still exactly `Dirichlet_{K-1}(1,...,1)` before
+conditioning, so the registered per-rung marginal is not traded away for the coupling. And
+`P^(K)_ij / P^(K)_il = G_ij / G_il` for old `i, j, l` whatever `K` is, so growing the
+ladder dilutes every old destination by one common normaliser and reorders nothing. Both
+are tested, the second exhaustively over all old triples.
+
+**The band is applied jointly.** All five rungs are built from one master `G` and the whole
+draw is accepted or rejected together. Redrawing a single failing rung would replace its
+`G` rows and destroy the coupling, so it is not done, and a test asserts every accepted
+rung reduces to the one accepted `g`. State this wherever the ladder is described: **the
+final ladder is jointly conditioned across rungs.** No rung is an unconditional
+flat-Dirichlet draw; each is conditioned on *every* rung of the same master clearing the
+band. That is stronger than per-rung acceptance and not interchangeable with it.
+
+Measured on replicate 0: joint acceptance **0.20** (about five attempts), against per-rung
+rates 0.772, 0.592, 0.498, 0.699, 0.865 whose product would be 0.138 — the rungs' band
+events are positively correlated under a shared `G`. Both the rate and the attempt count
+are recorded in every corpus's `coverage["transition_coupling"]`.
+
+## Three arms, and what each contrast means
+
+    support-only     the block score knows only which CPAs a skill can emit
+    oracle-order     the full recurrent score at the TRUE U, held fixed
+    learned-order    the full recurrent score, U inferred from a dispersed start
+
+    oracle  - support     how much the AVAILABLE order information is worth
+    learned - support     the REALISED end-to-end gain
+    oracle  - learned     the INFERENCE gap
+
+The first is a diagnostic about information, **not a bound**. The third is the one that
+says whether to spend effort on inference rather than on the model.
+
+`learned-order` uses the sealed row proposal, the sealed structural prior and the sealed
+forward recursion; the only new part is `CPACollapsedULikelihood`, which computes the same
+collapsed quantity over the CPA candidate table because the registered
+`CollapsedULikelihood` builds `FastBlockScoreTable` and so assumes `A = m`.
+
+## `table_source="fast"` is now settled, and it is exact
+
+`CPABlockScoreTable.refresh_changed` rebuilds only the skills whose `U` actually moved.
+`scripts/k_ladder/fast_exact_parity_gate.py` compares it against the all-skills rebuild at
+`K = 3, 10, 20, 30` on finite masks, entrywise scores, one-skill `U`-update deltas, MH
+log-ratios and accept/reject trajectories under a shared uniform. Exactness is the pass
+rule; `max_abs_difference` is reported for context and is never the criterion.
+
+**A trap worth knowing.** The candidate score reads `U` *only* through the induced
+precedence relation — every quantity in the builder derives from
+`all(u[:,None,:] > u[None,:,:], axis=2)` and none from the coordinates. So a small random
+nudge often leaves a skill's whole score column bit-identical, and a parity check built
+from such moves compares unchanged arrays and passes while testing nothing. The gate
+counts how many proposals actually moved a column and refuses to return PASS on too few;
+the mutation tests negate a skill's `U` rather than nudging it. A monotone rescale of `U`
+is asserted to give bitwise-identical scores, which is the same property stated as a
+model invariant.
+
+## Common random numbers are addressed by index, not by stream position
+
+Identical initial states are necessary and nowhere near sufficient. Two arms drawing from
+one sequential `Generator` share only a *prefix*: the moment one accepts a move the other
+rejects, or draws one more segment and consumes one more uniform, the streams slip and
+every later comparison is confounded by different randomness as well as a different model.
+
+`hpop.mcmc_cpa.crn.CommonRandomNumbers` derives every generator from
+`(replicate, K, chain, sweep, move type, proposal index)` through `SeedSequence.spawn_key`,
+so a generator depends only on where it sits in the design and never on how much
+randomness an arm consumed earlier. Tests drive one arm's CRN hard, then check it still
+hands out the same numbers as an untouched one at every index, and check the two arms
+share the FFBS uniforms sweep by sweep *after* they have demonstrably diverged.
+
+**The residual, stated rather than assumed.** `ffbs_segmentation_draw` loops over traces
+against one generator and a trace's consumption depends on how many segments it draws, so
+**within a single sweep** traces after the first can still misalign between arms. Fixing
+that would mean editing the sealed backend. What the index scheme does guarantee is that
+misalignment **cannot propagate across sweeps or across move types**, because each starts
+from an index-derived stream. `crn_alignment_report` measures alignment rather than
+assuming it.

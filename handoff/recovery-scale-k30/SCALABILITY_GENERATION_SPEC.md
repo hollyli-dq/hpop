@@ -193,54 +193,118 @@ shared likelihood family and reusable parity tests — **not** statistical compa
    would be a prior draw.
 2. ~~A short `K = 3` / `K = 30` end-to-end smoke run~~ — **done**, extended to
    `K ∈ {3, 10, 30}`; see §7.1.
-3. **Gamma coupling** — skills are nested across rungs, transition environments are not.
-   Shared `Gamma(1,1)` weights would pair them with the marginal unchanged. A design
-   choice, **still open**, to be made before production replicates.
+3. ~~**Gamma coupling**~~ — **adopted and frozen**; see §8.
 
 ### 7.1 Smoke result (not a result — a sanity check)
 
-`scripts/k_ladder/smoke_full_vs_support.py`, one chain, one corpus replicate, 100 sweeps,
-50 warm-up, thin 5, library seed 0. `U` held fixed in both arms.
+`scripts/k_ladder/smoke_three_arms.py`, one chain, one corpus replicate, 100 sweeps, 50
+warm-up, thin 5, library seed 0, **on shared-Gamma coupled corpora** (§8). `U` is fixed in
+`support-only` and `oracle-order`; `learned-order` starts dispersed and infers it.
 
 | `K` | arm | s | boundary F1 | skill acc | FFBS states changed |
 | --- | --- | --- | --- | --- | --- |
-| 3 | full-RFS | 0.9 | 0.9059 | 0.9748 | 1200 |
-| 3 | support-only | 0.8 | 0.7867 | 0.9426 | 1481 |
-| 10 | full-RFS | 3.5 | 0.9508 | 0.9852 | 2274 |
-| 10 | support-only | 3.0 | 0.8333 | 0.9449 | 4540 |
-| 30 | full-RFS | 31.5 | 0.9436 | 0.9875 | 8446 |
-| 30 | support-only | 26.6 | 0.7838 | 0.8875 | 14721 |
+| 3 | support-only | 0.8 | 0.7919 | 0.9404 | 1442 |
+| 3 | oracle-order | 0.8 | 0.9020 | 0.9619 | 1152 |
+| 3 | learned-order | 21.2 | 0.8197 | 0.9307 | 809 |
+| 10 | support-only | 2.8 | 0.8020 | 0.9339 | 4771 |
+| 10 | oracle-order | 3.2 | 0.9523 | 0.9889 | 2379 |
+| 10 | learned-order | 92.9 | 0.7557 | 0.9029 | 4228 |
+| 30 | support-only | 23.6 | 0.7937 | 0.8947 | 14610 |
+| 30 | oracle-order | 28.1 | 0.9502 | 0.9871 | 7879 |
+| 30 | learned-order | 533.2 | 0.6780 | 0.7796 | 13383 |
+
+**available order information** (`oracle − support`)
 
 | `K` | Δ boundary F1 | Δ skill accuracy |
 | --- | --- | --- |
-| 3 | +0.1191 | +0.0322 |
-| 10 | +0.1175 | +0.0402 |
-| 30 | +0.1598 | +0.0999 |
+| 3 | +0.1102 | +0.0215 |
+| 10 | +0.1503 | +0.0550 |
+| 30 | +0.1565 | +0.0924 |
 
-Statistics are exactly reproducible from the recorded seeds; only the `s` column moves between runs.
+**realised end-to-end gain** (`learned − support`)
 
-The full likelihood wins at every rung, and its margin **grows with `K`** — which is what
-the corrected ambiguity table in §6 predicts: `E[C_b]` rises 0.040 → 0.419 across the
-ladder, so support membership alone discriminates progressively worse while the recurrent
-score does not degrade. The baseline's FFBS movement is roughly double the full arm's at
-every rung, consistent with a flatter score wandering among support-feasible labellings.
+| `K` | Δ boundary F1 | Δ skill accuracy |
+| --- | --- | --- |
+| 3 | +0.0278 | -0.0097 |
+| 10 | -0.0464 | -0.0311 |
+| 30 | -0.1157 | -0.1151 |
 
-**Read this as a floor, not as the headline.** Three caveats, all recorded in the run's
-JSON:
+**inference gap** (`oracle − learned`)
+
+| `K` | Δ boundary F1 | Δ skill accuracy |
+| --- | --- | --- |
+| 3 | +0.0824 | +0.0312 |
+| 10 | +0.1966 | +0.0861 |
+| 30 | +0.2722 | +0.2075 |
+
+Statistics are exactly reproducible from the recorded seeds; only the `s` column moves.
+
+### 7.1.1 Which of these numbers survives a change of random stream
+
+This smoke was run twice under two independent common-random-number roots, identical in
+every other respect. Comparing them is a crude `n = 2` stability check, and it separates
+the columns sharply (boundary F1):
+
+| contrast | `K` | run A | run B | \|diff\| | sign |
+| --- | --- | --- | --- | --- | --- |
+| oracle − support | 3 | +0.0934 | +0.1102 | 0.0168 | same |
+| oracle − support | 10 | +0.1577 | +0.1503 | 0.0074 | same |
+| oracle − support | 30 | +0.1588 | +0.1565 | 0.0023 | same |
+| learned − support | 3 | −0.0331 | +0.0278 | 0.0609 | **flips** |
+| learned − support | 10 | +0.0283 | −0.0464 | 0.0747 | **flips** |
+| learned − support | 30 | −0.1365 | −0.1157 | 0.0208 | same |
+| oracle − learned | 3 | +0.1265 | +0.0824 | 0.0441 | same |
+| oracle − learned | 10 | +0.1295 | +0.1966 | 0.0671 | same |
+| oracle − learned | 30 | +0.2953 | +0.2722 | 0.0231 | same |
+
+`oracle − support` moves by at most 0.017 and never changes sign — the one contrast this
+smoke can support. **`learned − support` changes sign at two of three rungs.** It is not a
+small effect measured imprecisely; at this budget it is noise, demonstrated by measurement
+rather than argued from first principles.
+
+### 7.1.2 Why the learned arm is noise here, and must not be quoted
+
+The arm runs and moves `U`, but its `U` budget is far too small for it to have learned
+anything. At 100 sweeps with one proposal per sweep:
+
+| `K` | `U` rows (`K·m`) | `U` proposals | proposals per row |
+| --- | --- | --- | --- |
+| 3 | 30 | 100 | 3.33 |
+| 10 | 100 | 100 | 1.00 |
+| 30 | 300 | 100 | 0.33 |
+
+At `K = 30` that is one proposal per three rows, so the arm reports a barely-moved
+dispersed draw. A wrong `U` actively misleads segmentation where agnostic support
+membership does not, which is why the contrast can go **negative** at all.
+
+This is the concrete reason the preregistration must not call `oracle − support` an upper
+bound on `learned − support`. Under a bound framing a negative realised gain is
+unsayable; here it is simply what happened, in both realisations at `K = 30`.
+
+**Production consequence.** `learned-order` needs a `U` burn-in budget scaled to `K·m`
+rather than a fixed sweep count, and `u_scale` (currently 0.5, untuned) needs its own
+efficiency-only pilot per rung — proposal scales do not transfer between corpora. Neither
+is set. Until both are, the production ladder should report `oracle − support` and treat
+the learned arm as **unvalidated**.
+
+### 7.1.3 Caveats that apply to the whole table
 
 - One chain, one replicate, 100 sweeps. Nowhere near a posterior.
-- The full arm scores at the **true** `U`. Both arms get ground-truth side information of
-  their own kind — the baseline the true supports, the full arm the true supports *and*
-  the true within-skill order — so the gap is an **upper bound** on what the recurrent
-  likelihood contributes once `U` must be inferred. A gap here is necessary for the full
-  model to be worth its cost, not sufficient.
-- Structure recovery is absent by construction, not by omission.
+- `oracle-order` scores at the **true** `U`. Each arm gets ground-truth side information
+  of its own kind — the baseline the true supports, the oracle arm the true supports *and*
+  the true within-skill order. `oracle − support` is therefore an **oracle information
+  diagnostic**: what the available order information is worth to a sampler handed it. It
+  is **not** a strict upper bound on `learned − support`; §7.1.1 is the demonstration.
+- Structure recovery is reported for `learned-order` only: `support-only` never reads `U`
+  and `oracle-order` is handed it.
+- These corpora are **jointly conditioned across rungs** (§8.3), so the numbers are not
+  comparable with any pre-coupling run.
 
-### 7.2 The gap tracks the predicted ambiguity
+### 7.2 The gap is consistent with the predicted ambiguity
 
-`expected_compatible_wrong_skills` is a closed form derived from the support combinatorics
-alone — it never sees a chain. It says how many *wrong* skills can accommodate a block of
-`d` distinct CPAs (`m = 10`, `A = 50`):
+`expected_compatible_wrong_skills` is closed-form support combinatorics and never sees a
+chain. It gives the expected number of *wrong* skills that can accommodate a block of `d`
+distinct CPAs (`m = 10`, `A = 50`):
 
 | `K` | `d = 2` | `d = 3` | `d = 4` | `d = 5` |
 | --- | --- | --- | --- | --- |
@@ -248,12 +312,149 @@ alone — it never sees a chain. It says how many *wrong* skills can accommodate
 | 10 | 0.3306 | 0.0551 | 0.0082 | 0.0011 |
 | 30 | 1.0653 | 0.1776 | 0.0264 | 0.0034 |
 
-It grows roughly as `K - 1`. The measured arms move the way that predicts: the full arm's
-skill accuracy is flat to slightly rising across the ladder (0.9748, 0.9852, 0.9875) while
-the baseline's falls away at `K = 30` (0.9426, 0.9449, 0.8875), so the gap widens.
+It grows roughly as `K − 1`. The measured arms are consistent with that direction: the
+oracle arm's skill accuracy is 0.9619, 0.9889, 0.9871 across the ladder while the
+baseline's is 0.9404, 0.9339, 0.8947, the substantial degradation appearing at `K = 30`.
 
-Two cautions on reading it. The baseline is **not monotone** — `K = 3` sits 0.002 below
-`K = 10`, a difference far inside single-chain noise, and no monotonicity is claimed here
-or anywhere else. And this is a consistency check between a prediction and one chain per
-rung, not a validation of either: it would have caught a baseline that improved with `K`,
-which is the failure it was run to exclude.
+Three cautions. Neither series is monotone, and no monotonicity in `K` is claimed here or
+anywhere else. The largest observed gap is at `K = 30`; that is a statement about three
+points, not a trend. And this is a consistency check between a prediction and one chain per
+rung, not a validation of either — what it was run to exclude is a baseline that *improved*
+with `K`, and it would have caught that.
+
+---
+
+## 8. Shared-Gamma coupling (adopted)
+
+Skills are nested across the ladder; until this was adopted, transition environments were
+not. Each rung drew its own `P` independently, so "the same skill at a larger `K`" shared
+its emissions and shared nothing about how it was reached or left — and a trend across the
+ladder mixed two causes that could not be separated afterwards: more skills to confuse,
+and a different transition environment.
+
+### 8.1 The construction
+
+For each replicate draw one master directed weight matrix
+
+    G_ij ~ iid Gamma(1, 1),   i != j,   i, j < K_max
+
+apply the master skill permutation to **both** axes, and cut each rung out by restriction
+and renormalisation:
+
+    P^(K)_ii = 0
+    P^(K)_ij = G_ij / sum_{h < K, h != i} G_ih          i != j,  i, j < K
+    pi^(K)   = nu(P^(K))
+
+### 8.2 Why this construction
+
+**The per-rung law is untouched.** For `G_ij` iid `Gamma(1,1)` the normalised vector
+`(G_ij / sum_h G_ih)_{h != i}` is exactly `Dirichlet_{K-1}(1, ..., 1)` — the Gamma
+representation of the Dirichlet. Each rung's rows keep precisely the registered
+flat-Dirichlet marginal *before* admissibility conditioning; the coupling costs nothing in
+the marginal model. Tested two ways: a one-sample KS test against the exact `Beta(1, K-2)`
+coordinate marginal, and a two-sample KS test against the registered
+`sample_transition_matrix` itself. Mutation-checked — the same test rejects `Gamma(2,1)`
+at `p = 3e-43` and `Gamma(0.5,1)` at `p = 1e-52`.
+
+**Relative preferences among old skills survive.** For destinations `j, l` both present at
+the smaller rung,
+
+    P^(K)_ij / P^(K)_il = G_ij / G_il
+
+independent of `K`. Growing the ladder dilutes every old destination by one common
+normaliser — the row total — and reorders nothing. Tested over all old triples at every
+rung, and separately that the dilution factor is common within a row.
+
+### 8.3 The conditioning is joint, and that must be stated
+
+The stationary-occupancy band is applied to **all five rungs at once**: one master `G` is
+drawn, every rung is built from it, and the whole draw is accepted or rejected together.
+Rejecting and redrawing a single failing rung would replace that rung's `G` rows with
+fresh ones and destroy exactly the coupling this exists to create, so it is not done, and
+a test asserts every accepted rung reduces to the one accepted `g`.
+
+**The final ladder is jointly conditioned across rungs.** No rung's transition matrix is a
+draw from the unconditional flat-Dirichlet law; each is a draw from that law conditioned on
+the event that *every* rung of the same master satisfies the band. This is stronger and
+different conditioning than per-rung acceptance, and the two are not interchangeable. Any
+statement about the ladder's transition law must carry it.
+
+### 8.4 Measured joint acceptance
+
+Replicate 0, 1000 trials, `K_LADDER = (3, 5, 10, 20, 30)`:
+
+| rung | own band rate |
+| --- | --- |
+| 3 | 0.772 |
+| 5 | 0.592 |
+| 10 | 0.498 |
+| 20 | 0.699 |
+| 30 | 0.865 |
+
+Product if independent: 0.138. **Measured joint rate: 0.200** — about five attempts. The
+band events are positively correlated under a shared `G`, so joint conditioning costs less
+than independence would suggest. The rate, the attempt count and every rejection's failing
+rungs are recorded in each corpus's `coverage["transition_coupling"]`; nothing is tuned on
+them.
+
+---
+
+## 9. Three arms
+
+    support-only     the block score knows only which CPAs a skill can emit
+    oracle-order     the full recurrent score at the TRUE U, held fixed
+    learned-order    the full recurrent score, U inferred from a dispersed start
+
+| contrast | reads as |
+| --- | --- |
+| `oracle − support` | how much the **available order information** is worth |
+| `learned − support` | the **realised end-to-end gain** |
+| `oracle − learned` | the **inference gap** |
+
+`oracle − support` is an **oracle information diagnostic, not a bound**. An inferred `U` is
+not obliged to be less useful than the true one at every finite sweep count, and averaging
+over a posterior is not the same operation as plugging in a point truth. `learned − support`
+is the number a practitioner gets. `oracle − learned` is the one that says whether effort
+belongs in inference or in the model.
+
+Structure recovery is reported for `learned-order` only: `support-only` never reads `U`,
+and `oracle-order` is handed it.
+
+---
+
+## 10. `table_source="fast"` — exact, and gated
+
+`CPABlockScoreTable.refresh_changed` rebuilds only the skills whose `U` moved, a factor of
+`K` on the dominant cost. `scripts/k_ladder/fast_exact_parity_gate.py` compares it against
+the all-skills rebuild at `K = 3, 10, 20, 30` on finite masks, entrywise scores, one-skill
+`U`-update deltas, MH log-ratios, and accept/reject trajectories under a shared uniform.
+**Exactness is the pass rule**; `max_abs_difference` is reported for context and is never
+the criterion. A single mismatch is a production blocker.
+
+**A trap the gate had to be hardened against.** The candidate score reads `U` *only*
+through the induced precedence relation. A small random nudge therefore often leaves a
+skill's entire score column bit-identical, so a parity check made of such moves compares
+unchanged arrays and passes while testing nothing. The gate now counts how many proposals
+actually moved a column and refuses to pass on too few; the mutation tests reverse a
+skill's order rather than nudging it. Stated as a model invariant: a monotone rescale of
+`U` is the same latent poset and gives bitwise-identical candidate scores.
+
+---
+
+## 11. Common random numbers
+
+Identical initial states are necessary and nowhere near sufficient. Two arms drawing from
+one sequential generator share only a prefix; once one accepts a move the other rejects,
+the streams slip and every later difference confounds randomness with model.
+
+Every generator is derived from `(replicate, K, chain, sweep, move type, proposal index)`
+through `SeedSequence.spawn_key`, so it depends on where it sits in the design and never on
+consumption. Tests drive one arm's CRN hard and check it still matches an untouched one at
+every index, and check both arms share the FFBS uniforms sweep by sweep *after* they have
+demonstrably diverged.
+
+**Residual.** `ffbs_segmentation_draw` loops over traces against one generator and a
+trace's consumption depends on how many segments it draws, so within a single sweep traces
+after the first can still misalign. Fixing it means editing the sealed backend. The
+guarantee is that misalignment **cannot propagate across sweeps or move types**;
+`crn_alignment_report` measures it rather than assuming it.

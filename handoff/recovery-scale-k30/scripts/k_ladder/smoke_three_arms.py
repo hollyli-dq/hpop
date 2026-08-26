@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Short full-RFS versus support-only smoke comparison at selected rungs.
+"""Short three-arm smoke comparison at selected rungs.
 
 This is the pre-production check the review asked for: before any sweep is launched, show
 end-to-end that the recurrent likelihood actually buys something over knowing only which
@@ -9,19 +9,26 @@ baseline that is broken, trivially equal, or accidentally better.
 
 Both arms share their data, seeds, initialisation, sweep schedule and transition
 treatment; `hpop.mcmc_cpa.ladder_runner` is the single runner and the arm is one argument.
-`U` is held fixed in both, so this measures the block score's contribution to
-**segmentation and skill labelling** only. Structure recovery is not reported: the
-support-only score never reads `U`, so it has no `U` estimate to compare.
+Three arms, and three contrasts that mean different things:
 
-**The full arm is scored at the true `U`.** Both arms are handed ground-truth side
-information of their own kind — the baseline gets the true supports, the full arm gets the
-true supports *and* the true within-skill order. So the question this answers is "does
-knowing the order buy anything beyond knowing the support?", and the measured gap is an
-**upper bound** on what the recurrent likelihood contributes in the real setting, where
-`U` has to be inferred. A gap here is necessary for the full model to be worth its cost;
-it is not sufficient.
+    oracle-order  -  support-only     how much the AVAILABLE order information is worth
+    learned-order -  support-only     the REALISED end-to-end gain
+    oracle-order  -  learned-order    the INFERENCE gap
 
-    python scripts/k_ladder/smoke_full_vs_support.py --rungs 3 10 30 --sweeps 100
+`support-only` and `oracle-order` hold `U` fixed; `learned-order` starts away from the
+truth and infers it. Structure recovery is reported only for `learned-order`: the
+support-only score never reads `U`, and the oracle arm is handed it.
+
+**The oracle-order arm scores at the true `U`.** Each arm gets ground-truth side
+information of its own kind — the baseline the true supports, the oracle arm the true
+supports *and* the true within-skill order. So `oracle - support` is an **oracle
+information diagnostic**: what the order is worth to a sampler that is handed it. It is
+*not* a strict upper bound on `learned - support`. An inferred `U` is not obliged to be
+less useful than the true one at every finite sweep count, and averaging over a posterior
+is a different operation from plugging in a point truth. What the learned arm achieves is
+an empirical question, which is why it is an arm and not an argument.
+
+    python scripts/k_ladder/smoke_three_arms.py --rungs 3 10 30 --sweeps 100
 """
 
 from __future__ import annotations
@@ -38,12 +45,13 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
 from hpop.mcmc_cpa.corpus import generate_ladder_corpus              # noqa: E402
-from hpop.mcmc_cpa.ladder_runner import (FULL_RFS, SUPPORT_ONLY,     # noqa: E402
+from hpop.mcmc_cpa.ladder_runner import (ARMS, LEARNED_ORDER,           # noqa: E402
+                                         ORACLE_ORDER, SUPPORT_ONLY,
                                          run_ladder_chain)
 from hpop.mcmc_cpa.nested_library import draw_master_library         # noqa: E402
 from hpop.mcmc_original.stage6e_state import Stage6EModel            # noqa: E402
 
-ARMS = (FULL_RFS, SUPPORT_ONLY)
+ARM_ORDER = (SUPPORT_ONLY, ORACLE_ORDER, LEARNED_ORDER)
 
 
 def truth_of(corpus, split="train"):
@@ -109,7 +117,7 @@ def main() -> int:
     parser.add_argument("--corpus-replicate", type=int, default=0)
     parser.add_argument("--epsilon", type=float, default=0.02)
     parser.add_argument("--out", type=Path,
-                        default=ROOT / "results" / "k_ladder" / "smoke_full_vs_support.json")
+                        default=ROOT / "results" / "k_ladder" / "smoke_three_arms.json")
     args = parser.parse_args()
 
     library, library_meta = draw_master_library(args.library_seed)
@@ -129,7 +137,7 @@ def main() -> int:
             n_skills=n_skills, n_roles=library.n_roles, min_width=3, max_width=12,
             infer_pi_P=True, eta_initial=1.0, eta_transition=1.0)
 
-        for arm in ARMS:
+        for arm in ARM_ORDER:
             began = time.perf_counter()
             result = run_ladder_chain(arm, model, role_maps, u_by_skill, chain=0,
                                       sweeps=args.sweeps, warmup=args.warmup,
@@ -152,28 +160,38 @@ def main() -> int:
                   f"{metrics['skill_accuracy']:>10.4f} "
                   f"{result['ffbs_states_changed_total']:>8}")
 
+    CONTRASTS = (
+        ("available order information", ORACLE_ORDER, SUPPORT_ONLY),
+        ("realised end-to-end gain", LEARNED_ORDER, SUPPORT_ONLY),
+        ("inference gap", ORACLE_ORDER, LEARNED_ORDER),
+    )
     print()
-    print(f"{'K':>4} {'Δ boundary F1':>15} {'Δ skill acc':>13}   (full − support-only)")
+    print(f"{'contrast':>28} {'K':>4} {'d boundary F1':>15} {'d skill acc':>13}")
+    print("-" * 64)
     verdict = []
-    for n_skills in args.rungs:
-        full = next(r for r in records if r["K"] == n_skills and r["arm"] == FULL_RFS)
-        base = next(r for r in records if r["K"] == n_skills and r["arm"] == SUPPORT_ONLY)
-        delta_f1 = full["boundary_f1"] - base["boundary_f1"]
-        delta_acc = full["skill_accuracy"] - base["skill_accuracy"]
-        rows.append({"K": n_skills, "delta_boundary_f1": delta_f1,
-                     "delta_skill_accuracy": delta_acc})
-        verdict.append(delta_f1 > 0 and delta_acc > 0)
-        print(f"{n_skills:>4} {delta_f1:>15.4f} {delta_acc:>13.4f}")
+    for label, left, right in CONTRASTS:
+        for n_skills in args.rungs:
+            a = next(r for r in records if r["K"] == n_skills and r["arm"] == left)
+            b = next(r for r in records if r["K"] == n_skills and r["arm"] == right)
+            delta_f1 = a["boundary_f1"] - b["boundary_f1"]
+            delta_acc = a["skill_accuracy"] - b["skill_accuracy"]
+            rows.append({"contrast": label, "left": left, "right": right,
+                         "K": n_skills, "delta_boundary_f1": delta_f1,
+                         "delta_skill_accuracy": delta_acc})
+            if left == ORACLE_ORDER and right == SUPPORT_ONLY:
+                verdict.append(delta_f1 > 0 and delta_acc > 0)
+            print(f"{label:>28} {n_skills:>4} {delta_f1:>15.4f} {delta_acc:>13.4f}")
 
     print()
     if all(verdict):
-        print("SMOKE: the recurrent likelihood beats support-only at every rung tested.")
+        print("SMOKE: oracle-order beats support-only at every rung tested.")
     else:
-        print("SMOKE: NOT every rung favours the full likelihood — investigate before "
-              "launching production sweeps.")
+        print("SMOKE: NOT every rung favours oracle-order over support-only — "
+              "investigate before\n       launching production sweeps.")
     print("NOTE: one chain, one replicate, few sweeps. Not a result; a sanity check.")
-    print("NOTE: the full arm scores at the TRUE U, so these gaps are an UPPER BOUND on "
-          "its\n      advantage once U must be inferred.")
+    print("NOTE: oracle-order scores at the TRUE U. `oracle - support` is an ORACLE "
+          "INFORMATION\n      DIAGNOSTIC, not a bound on `learned - support`.")
+    print("NOTE: no trend in K is claimed. Report the largest observed gap and its rung.")
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps({
@@ -183,11 +201,14 @@ def main() -> int:
         "runs": records,
         "deltas": rows,
         "all_rungs_favour_full": bool(all(verdict)),
-        "caveat": ("Smoke test only: one chain, one corpus replicate, few sweeps. U is "
-                   "held fixed at the TRUTH in the full arm, so the measured gap is an "
-                   "UPPER BOUND on the recurrent likelihood's advantage when U must be "
-                   "inferred. Structure recovery is not applicable to the support-only "
-                   "arm because its score does not read U."),
+        "caveat": ("Smoke test only: one chain, one corpus replicate, few sweeps. "
+                   "oracle-order scores at the TRUE U, so oracle-minus-support is an "
+                   "ORACLE INFORMATION DIAGNOSTIC -- what the available order "
+                   "information is worth to a sampler handed it -- and NOT a strict "
+                   "upper bound on learned-minus-support. Structure recovery is not "
+                   "applicable to support-only because its score does not read U. No "
+                   "trend in K is claimed; report the largest observed gap and its "
+                   "rung."),
     }, indent=2, default=str))
     print(f"\nwrote {args.out}")
     return 0

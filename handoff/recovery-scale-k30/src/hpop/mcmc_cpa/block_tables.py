@@ -53,6 +53,9 @@ class CPABlockScoreTable:
         self.max_width = int(max_width)
         self.version = 0
         self.refresh_calls = 0
+        self.skill_rebuilds = 0
+        self._built_u = None
+        self._built_params = None
 
         for n, trace in enumerate(self.traces):
             if trace and (min(trace) < 0 or max(trace) >= role_maps.n_cpa):
@@ -76,6 +79,7 @@ class CPABlockScoreTable:
             offset += len(rows)
         self.n_blocks = offset
         self._table = np.full((self.n_skills, offset), -np.inf)
+        self._live = np.zeros(self.n_skills, dtype=np.int64)
 
         self.tables = [np.full((len(t), len(t) + 1, self.n_skills), -np.inf)
                        for t in self.traces]
@@ -96,20 +100,19 @@ class CPABlockScoreTable:
         return out
 
     # ------------------------------------------------------------- the only writer
-    def refresh(self, u_by_skill, beta: float, omega: float, lambda_rep: float,
-                lambda_back: float) -> dict:
-        u_by_skill = np.asarray(u_by_skill, dtype=float)
-        if u_by_skill.shape[:2] != (self.n_skills, self.n_roles):
-            raise ValueError(
-                f"u_by_skill must be (K={self.n_skills}, m={self.n_roles}, d), got "
-                f"{u_by_skill.shape}; U is per-skill over its OWN roles, not over the "
-                f"{self.role_maps.n_cpa}-symbol vocabulary")
-        kappa = 1.0 / (1.0 + np.exp(-float(omega)))
-        self._table.fill(-np.inf)
-        live = np.zeros(self.n_skills, dtype=np.int64)
+    def _build_skill(self, skill: int, u, beta: float, omega: float, lambda_rep: float,
+                     lambda_back: float) -> int:
+        """Recompute exactly one skill's row of `_table`. Returns its live-block count.
 
-        for skill in range(self.n_skills):
-            u = u_by_skill[skill]
+        The whole arithmetic of the candidate score lives here and nowhere else, so the
+        all-skills path and the skill-local path cannot drift apart: they are the same
+        code called over different index sets, not two implementations kept in step.
+        """
+        kappa = 1.0 / (1.0 + np.exp(-float(omega)))
+        self._table[skill].fill(-np.inf)
+        live_here = 0
+        if True:
+            u = np.asarray(u, dtype=float)
             m = u.shape[0]
             precedence = np.all(u[:, None, :] > u[None, :, :], axis=2)
             succ = precedence.astype(float)
@@ -126,7 +129,7 @@ class CPABlockScoreTable:
                     continue
                 roles = roles[in_support]
                 n = roles.shape[0]
-                live[skill] += n
+                live_here += n
 
                 q = np.zeros((n, m))
                 total = np.zeros(n)
@@ -158,19 +161,73 @@ class CPABlockScoreTable:
 
                 target = np.flatnonzero(in_support) + offset
                 self._table[skill, target] = total
+        return live_here
+
+    def refresh(self, u_by_skill, beta: float, omega: float, lambda_rep: float,
+                lambda_back: float, skills=None) -> dict:
+        """Rebuild the candidate table. `skills=None` rebuilds every skill.
+
+        Passing an explicit `skills` rebuilds only those columns and leaves the rest
+        exactly as they were. That is sound only because a skill's score column depends on
+        `U[skill]` alone -- the roles, the buckets and the corpus are fixed at
+        construction, and `beta`, `omega`, `lambda_rep`, `lambda_back` are shared. When
+        any shared parameter moves, every column must be rebuilt; `refresh_changed` is the
+        caller that gets that decision right, and this method trusts what it is told.
+        """
+        u_by_skill = np.asarray(u_by_skill, dtype=float)
+        if u_by_skill.shape[:2] != (self.n_skills, self.n_roles):
+            raise ValueError(
+                f"u_by_skill must be (K={self.n_skills}, m={self.n_roles}, d), got "
+                f"{u_by_skill.shape}; U is per-skill over its OWN roles, not over the "
+                f"{self.role_maps.n_cpa}-symbol vocabulary")
+        if skills is None:
+            rebuilt = list(range(self.n_skills))
+        else:
+            rebuilt = sorted({int(k) for k in skills})
+            if rebuilt and (rebuilt[0] < 0 or rebuilt[-1] >= self.n_skills):
+                raise ValueError(f"skills out of range for K={self.n_skills}: {rebuilt}")
+
+        for skill in rebuilt:
+            self._live[skill] = self._build_skill(skill, u_by_skill[skill], beta, omega,
+                                                  lambda_rep, lambda_back)
 
         for n, (rows, a_ix, b_ix) in enumerate(self._index):
-            for skill in range(self.n_skills):
+            for skill in rebuilt:
                 self.tables[n][a_ix, b_ix, skill] = self._table[skill, rows]
 
+        self._built_u = np.array(u_by_skill, copy=True)
+        self._built_params = (float(beta), float(omega), float(lambda_rep),
+                              float(lambda_back))
         self.version += 1
         self.refresh_calls += 1
+        self.skill_rebuilds += len(rebuilt)
+        live = self._live
         total_candidates = self.n_blocks * self.n_skills
         return {"live_blocks_per_skill": live.tolist(),
                 "live_block_skill_pairs": int(live.sum()),
                 "candidate_block_skill_pairs": int(total_candidates),
+                "rebuilt_skills": rebuilt,
                 "live_fraction": float(live.sum() / total_candidates)
                 if total_candidates else 0.0}
+
+    def refresh_changed(self, u_by_skill, beta: float, omega: float, lambda_rep: float,
+                        lambda_back: float) -> dict:
+        """Rebuild only the skills whose `U` actually moved. Exact, not approximate.
+
+        A skill's column is a deterministic function of `U[skill]` and the four shared
+        parameters. If a shared parameter moved, every column is stale and this rebuilds
+        all of them; otherwise it rebuilds precisely the skills whose `U` differs, bit for
+        bit, from the `U` the table was last built at. There is no tolerance and no
+        heuristic here -- a column is either built at the current inputs or it is not.
+        """
+        u_by_skill = np.asarray(u_by_skill, dtype=float)
+        params = (float(beta), float(omega), float(lambda_rep), float(lambda_back))
+        if (self._built_u is None or self._built_params != params
+                or self._built_u.shape != u_by_skill.shape):
+            return self.refresh(u_by_skill, *params, skills=None)
+        moved = [k for k in range(self.n_skills)
+                 if not np.array_equal(self._built_u[k], u_by_skill[k])]
+        return self.refresh(u_by_skill, *params, skills=moved)
 
     # ------------------------------------------------------------------------ lookup
     def score(self, trace: int, start: int, end: int, skill: int) -> float:

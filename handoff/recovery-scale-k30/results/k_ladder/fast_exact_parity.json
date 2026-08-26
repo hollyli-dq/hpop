@@ -1,0 +1,193 @@
+{
+  "schema": "k-ladder-fast-exact-parity/1.0.0",
+  "settings": {
+    "rungs": [
+      3,
+      10,
+      20,
+      30
+    ],
+    "moves": 25,
+    "sweeps": 20,
+    "scale": 1.5,
+    "epsilon": 0.02,
+    "replicate": 0,
+    "library_seed": 0,
+    "seed": 770001,
+    "out": "/Users/dongqing/hpop-handoff/hpop-recovery-scale-k30/results/k_ladder/fast_exact_parity.json"
+  },
+  "rungs": [
+    {
+      "K": 3,
+      "n_traces": 15,
+      "moves": 25,
+      "order_changing_moves": 24,
+      "mean_skills_rebuilt_by_fast": 1.0,
+      "skills_rebuilt_by_exact": 3,
+      "checks": [
+        {
+          "check": "u_update_deltas",
+          "passed": true,
+          "n": 25
+        },
+        {
+          "check": "mh_acceptance_ratios",
+          "passed": true,
+          "n": 25
+        },
+        {
+          "check": "accept_reject_trajectory",
+          "passed": true,
+          "n": 25,
+          "disagreements": []
+        },
+        {
+          "check": "entrywise_scores",
+          "passed": true,
+          "detail": "25 moves x 15 traces, bitwise identical"
+        },
+        {
+          "check": "skill_local_invalidation",
+          "passed": true,
+          "detail": "fast rebuilt exactly one skill on every one of 25 moves"
+        },
+        {
+          "check": "moves_actually_changed_a_column",
+          "passed": true,
+          "detail": "24/25 proposals changed the moved skill's score column (need >= 5); the rest left `U`'s induced order unchanged and so compared unchanged arrays"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "K": 10,
+      "n_traces": 50,
+      "moves": 25,
+      "order_changing_moves": 23,
+      "mean_skills_rebuilt_by_fast": 1.0,
+      "skills_rebuilt_by_exact": 10,
+      "checks": [
+        {
+          "check": "u_update_deltas",
+          "passed": true,
+          "n": 25
+        },
+        {
+          "check": "mh_acceptance_ratios",
+          "passed": true,
+          "n": 25
+        },
+        {
+          "check": "accept_reject_trajectory",
+          "passed": true,
+          "n": 25,
+          "disagreements": []
+        },
+        {
+          "check": "entrywise_scores",
+          "passed": true,
+          "detail": "25 moves x 50 traces, bitwise identical"
+        },
+        {
+          "check": "skill_local_invalidation",
+          "passed": true,
+          "detail": "fast rebuilt exactly one skill on every one of 25 moves"
+        },
+        {
+          "check": "moves_actually_changed_a_column",
+          "passed": true,
+          "detail": "23/25 proposals changed the moved skill's score column (need >= 5); the rest left `U`'s induced order unchanged and so compared unchanged arrays"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "K": 20,
+      "n_traces": 100,
+      "moves": 25,
+      "order_changing_moves": 22,
+      "mean_skills_rebuilt_by_fast": 1.0,
+      "skills_rebuilt_by_exact": 20,
+      "checks": [
+        {
+          "check": "u_update_deltas",
+          "passed": true,
+          "n": 25
+        },
+        {
+          "check": "mh_acceptance_ratios",
+          "passed": true,
+          "n": 25
+        },
+        {
+          "check": "accept_reject_trajectory",
+          "passed": true,
+          "n": 25,
+          "disagreements": []
+        },
+        {
+          "check": "entrywise_scores",
+          "passed": true,
+          "detail": "25 moves x 100 traces, bitwise identical"
+        },
+        {
+          "check": "skill_local_invalidation",
+          "passed": true,
+          "detail": "fast rebuilt exactly one skill on every one of 25 moves"
+        },
+        {
+          "check": "moves_actually_changed_a_column",
+          "passed": true,
+          "detail": "22/25 proposals changed the moved skill's score column (need >= 5); the rest left `U`'s induced order unchanged and so compared unchanged arrays"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "K": 30,
+      "n_traces": 150,
+      "moves": 25,
+      "order_changing_moves": 22,
+      "mean_skills_rebuilt_by_fast": 1.0,
+      "skills_rebuilt_by_exact": 30,
+      "checks": [
+        {
+          "check": "u_update_deltas",
+          "passed": true,
+          "n": 25
+        },
+        {
+          "check": "mh_acceptance_ratios",
+          "passed": true,
+          "n": 25
+        },
+        {
+          "check": "accept_reject_trajectory",
+          "passed": true,
+          "n": 25,
+          "disagreements": []
+        },
+        {
+          "check": "entrywise_scores",
+          "passed": true,
+          "detail": "25 moves x 150 traces, bitwise identical"
+        },
+        {
+          "check": "skill_local_invalidation",
+          "passed": true,
+          "detail": "fast rebuilt exactly one skill on every one of 25 moves"
+        },
+        {
+          "check": "moves_actually_changed_a_column",
+          "passed": true,
+          "detail": "22/25 proposals changed the moved skill's score column (need >= 5); the rest left `U`'s induced order unchanged and so compared unchanged arrays"
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "all_passed": true,
+  "verdict": "PASS",
+  "seconds": 725.7764342080045,
+  "note": "Exactness is the pass rule: finite masks identical, scores bitwise identical, U-update deltas identical, MH log-ratios identical, and accept/reject trajectories identical under a shared uniform. max_abs_difference is reported for context and is never the criterion."
+}

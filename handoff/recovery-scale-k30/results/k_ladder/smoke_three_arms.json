@@ -1,0 +1,229 @@
+{
+  "schema": "k-ladder-smoke/1.0.0",
+  "settings": {
+    "rungs": [
+      3,
+      10,
+      30
+    ],
+    "sweeps": 100,
+    "warmup": 50,
+    "thin": 5,
+    "library_seed": 0,
+    "corpus_replicate": 0,
+    "epsilon": 0.02,
+    "out": "/Users/dongqing/hpop-handoff/hpop-recovery-scale-k30/results/k_ladder/smoke_three_arms.json"
+  },
+  "library": [
+    {
+      "attempt": 0,
+      "seed": 6500001,
+      "accepted": true,
+      "rejection_reasons": []
+    }
+  ],
+  "runs": [
+    {
+      "K": 3,
+      "arm": "support-only",
+      "seconds": 0.7634610419918317,
+      "wall_seconds": 0.8165877499850467,
+      "retained_draws": 10,
+      "ffbs_states_changed_total": 1442,
+      "structure_recovery": "NOT APPLICABLE",
+      "u_held_fixed": true,
+      "boundary_precision": 0.7993697478991597,
+      "boundary_recall": 0.7845360824742268,
+      "boundary_f1": 0.7918834547346513,
+      "skill_accuracy": 0.9404166666666667
+    },
+    {
+      "K": 3,
+      "arm": "oracle-order",
+      "seconds": 0.8280959590047132,
+      "wall_seconds": 0.8431347080040723,
+      "retained_draws": 10,
+      "ffbs_states_changed_total": 1152,
+      "structure_recovery": "fixed at truth",
+      "u_held_fixed": true,
+      "boundary_precision": 0.904613789528253,
+      "boundary_recall": 0.8994845360824743,
+      "boundary_f1": 0.9020418712845697,
+      "skill_accuracy": 0.9619444444444445
+    },
+    {
+      "K": 3,
+      "arm": "learned-order",
+      "seconds": 21.216997833980713,
+      "wall_seconds": 21.290506625024136,
+      "retained_draws": 10,
+      "ffbs_states_changed_total": 809,
+      "structure_recovery": "available",
+      "u_held_fixed": false,
+      "boundary_precision": 0.7992164544564153,
+      "boundary_recall": 0.8412371134020619,
+      "boundary_f1": 0.8196885986941236,
+      "skill_accuracy": 0.9306944444444445
+    },
+    {
+      "K": 10,
+      "arm": "support-only",
+      "seconds": 2.7503341250121593,
+      "wall_seconds": 2.9346460409869906,
+      "retained_draws": 10,
+      "ffbs_states_changed_total": 4771,
+      "structure_recovery": "NOT APPLICABLE",
+      "u_held_fixed": true,
+      "boundary_precision": 0.798458981719293,
+      "boundary_recall": 0.805640243902439,
+      "boundary_f1": 0.8020335382047196,
+      "skill_accuracy": 0.9339375
+    },
+    {
+      "K": 10,
+      "arm": "oracle-order",
+      "seconds": 3.247134334000293,
+      "wall_seconds": 3.3266031249950174,
+      "retained_draws": 10,
+      "ffbs_states_changed_total": 2379,
+      "structure_recovery": "fixed at truth",
+      "u_held_fixed": true,
+      "boundary_precision": 0.9531226141395633,
+      "boundary_recall": 0.9515243902439025,
+      "boundary_f1": 0.9523228316423831,
+      "skill_accuracy": 0.9889375
+    },
+    {
+      "K": 10,
+      "arm": "learned-order",
+      "seconds": 92.88353141699918,
+      "wall_seconds": 93.50964108400512,
+      "retained_draws": 10,
+      "ffbs_states_changed_total": 4228,
+      "structure_recovery": "available",
+      "u_held_fixed": false,
+      "boundary_precision": 0.7250315170191903,
+      "boundary_recall": 0.7890243902439025,
+      "boundary_f1": 0.7556755967588874,
+      "skill_accuracy": 0.9028541666666666
+    },
+    {
+      "K": 30,
+      "arm": "support-only",
+      "seconds": 23.577968833997147,
+      "wall_seconds": 24.18503849999979,
+      "retained_draws": 10,
+      "ffbs_states_changed_total": 14610,
+      "structure_recovery": "NOT APPLICABLE",
+      "u_held_fixed": true,
+      "boundary_precision": 0.7959391379573558,
+      "boundary_recall": 0.7915485829959514,
+      "boundary_f1": 0.7937377889421736,
+      "skill_accuracy": 0.8946875
+    },
+    {
+      "K": 30,
+      "arm": "oracle-order",
+      "seconds": 28.121446125005605,
+      "wall_seconds": 28.620011666993378,
+      "retained_draws": 10,
+      "ffbs_states_changed_total": 7879,
+      "structure_recovery": "fixed at truth",
+      "u_held_fixed": true,
+      "boundary_precision": 0.9505722678010736,
+      "boundary_recall": 0.9498987854251012,
+      "boundary_f1": 0.9502354072799069,
+      "skill_accuracy": 0.9871180555555555
+    },
+    {
+      "K": 30,
+      "arm": "learned-order",
+      "seconds": 533.1717178749968,
+      "wall_seconds": 538.1393815829942,
+      "retained_draws": 10,
+      "ffbs_states_changed_total": 13383,
+      "structure_recovery": "available",
+      "u_held_fixed": false,
+      "boundary_precision": 0.6056769775866874,
+      "boundary_recall": 0.7699392712550607,
+      "boundary_f1": 0.6780008467211837,
+      "skill_accuracy": 0.7796041666666667
+    }
+  ],
+  "deltas": [
+    {
+      "contrast": "available order information",
+      "left": "oracle-order",
+      "right": "support-only",
+      "K": 3,
+      "delta_boundary_f1": 0.11015841654991843,
+      "delta_skill_accuracy": 0.021527777777777812
+    },
+    {
+      "contrast": "available order information",
+      "left": "oracle-order",
+      "right": "support-only",
+      "K": 10,
+      "delta_boundary_f1": 0.1502892934376635,
+      "delta_skill_accuracy": 0.05500000000000005
+    },
+    {
+      "contrast": "available order information",
+      "left": "oracle-order",
+      "right": "support-only",
+      "K": 30,
+      "delta_boundary_f1": 0.15649761833773324,
+      "delta_skill_accuracy": 0.09243055555555557
+    },
+    {
+      "contrast": "realised end-to-end gain",
+      "left": "learned-order",
+      "right": "support-only",
+      "K": 3,
+      "delta_boundary_f1": 0.02780514395947231,
+      "delta_skill_accuracy": -0.009722222222222188
+    },
+    {
+      "contrast": "realised end-to-end gain",
+      "left": "learned-order",
+      "right": "support-only",
+      "K": 10,
+      "delta_boundary_f1": -0.04635794144583216,
+      "delta_skill_accuracy": -0.03108333333333335
+    },
+    {
+      "contrast": "realised end-to-end gain",
+      "left": "learned-order",
+      "right": "support-only",
+      "K": 30,
+      "delta_boundary_f1": -0.11573694222098996,
+      "delta_skill_accuracy": -0.11508333333333332
+    },
+    {
+      "contrast": "inference gap",
+      "left": "oracle-order",
+      "right": "learned-order",
+      "K": 3,
+      "delta_boundary_f1": 0.08235327259044611,
+      "delta_skill_accuracy": 0.03125
+    },
+    {
+      "contrast": "inference gap",
+      "left": "oracle-order",
+      "right": "learned-order",
+      "K": 10,
+      "delta_boundary_f1": 0.19664723488349567,
+      "delta_skill_accuracy": 0.0860833333333334
+    },
+    {
+      "contrast": "inference gap",
+      "left": "oracle-order",
+      "right": "learned-order",
+      "K": 30,
+      "delta_boundary_f1": 0.2722345605587232,
+      "delta_skill_accuracy": 0.2075138888888889
+    }
+  ],
+  "all_rungs_favour_full": true,
+  "caveat": "Smoke test only: one chain, one corpus replicate, few sweeps. oracle-order scores at the TRUE U, so oracle-minus-support is an ORACLE INFORMATION DIAGNOSTIC -- what the available order information is worth to a sampler handed it -- and NOT a strict upper bound on learned-minus-support. Structure recovery is not applicable to support-only because its score does not read U. No trend in K is claimed; report the largest observed gap and its rung."
+}

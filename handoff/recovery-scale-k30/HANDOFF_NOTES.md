@@ -279,3 +279,59 @@ the figure or the caption so no reader can misattribute the trend.
   change. **The numerics of that substitution were never verified** — `assert_sources_agree`
   exists for exactly this check. At `K=30` the potential saving is larger still, so it is
   worth an hour before committing to a week.
+
+---
+
+## The support-only baseline is now in the package
+
+`src/hpop/mcmc_cpa/ladder_runner.py` runs both conditions. It is **one** runner, and the
+arm is a single argument — `FULL_RFS` or `SUPPORT_ONLY`. That is deliberate: two runners
+written to match each other drift, and a comparison whose arms differ anywhere except the
+candidate block score is not evidence about the block score. Data, initialisation, RNG
+stream, segmentation prior, transition treatment and sweep schedule are shared by
+construction. `tests/k_ladder/test_ladder_runner.py` pins this down, including that zero
+sweeps gives both arms the identical initial state.
+
+The baseline's score is `0` for a block every one of whose CPAs lies in the candidate
+skill's support and `-inf` otherwise. A uniform-within-support emission would add
+`-w log m` per block, which sums to the constant `-J log m` over every segmentation of a
+trace and therefore cancels in every ratio the sampler forms — so `0` *is* the
+uniform-within-support model, not an approximation to it.
+
+**It reports `structure_recovery = "NOT APPLICABLE"`.** Its score never reads `U`, so a
+`U` sampler run against it would draw from the prior with the data contributing nothing.
+Putting that beside a data-informed posterior as if the two were comparable structure
+estimates would be misleading, so the baseline declines to produce one. Compare the arms
+on **segmentation and skill labelling only**.
+
+### One optimisation, verified not to change anything
+
+`ArmTables.refresh` memoises the full arm's candidate table on exactly the five inputs
+`CPABlockScoreTable.refresh` reads (`u_by_skill`, `beta`, `omega`, `lambda_rep`,
+`lambda_back`). With `U` held fixed the table is constant, and rebuilding it each sweep
+was spending the dominant cost of a sweep to reproduce an array already in hand: `K=10`
+went 58.5 s → 3.6 s, `K=30` from over ten minutes to 31.4 s. Three tests guard it — the
+memoised and force-rebuilt tables are asserted bit-identical, the memo is asserted to miss
+when any one of the five moves, and a full chain is asserted to produce identical draws
+with the memo disabled. The pre-memo run's numbers were reproduced to the last digit.
+
+This does not help the production ladder as much as it helps the smoke test, because there
+`U` moves and the rebuild is real work. It matters wherever a chain holds `U` fixed.
+
+### What the smoke run says, and what it does not
+
+See `SCALABILITY_GENERATION_SPEC.md` §7.1 for the table. The full likelihood beats the
+baseline at `K = 3, 10, 30`, and its margin grows with `K`, which is the direction the
+corrected ambiguity table predicts.
+
+**The full arm scores at the true `U`.** The gap is therefore an upper bound on what the
+recurrent likelihood contributes in the real setting where `U` is inferred — necessary for
+the model to be worth its cost, not sufficient. One chain, one replicate, 100 sweeps: a
+sanity check, not a result.
+
+## Still open before production
+
+**Gamma coupling.** Skills are nested across rungs; transition environments are not. Shared
+`Gamma(1,1)` weights would pair them with the marginal unchanged. This is a design choice
+and it has not been made. It should be settled before production replicates, because it
+changes what "the same skill at a larger `K`" means.

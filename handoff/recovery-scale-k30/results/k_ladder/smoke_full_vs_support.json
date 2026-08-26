@@ -1,0 +1,130 @@
+{
+  "schema": "k-ladder-smoke/1.0.0",
+  "settings": {
+    "rungs": [
+      3,
+      10,
+      30
+    ],
+    "sweeps": 100,
+    "warmup": 50,
+    "thin": 5,
+    "library_seed": 0,
+    "corpus_replicate": 0,
+    "epsilon": 0.02,
+    "out": "/Users/dongqing/hpop-handoff/hpop-recovery-scale-k30/results/k_ladder/smoke_full_vs_support.json"
+  },
+  "library": [
+    {
+      "attempt": 0,
+      "seed": 6500001,
+      "accepted": true,
+      "rejection_reasons": []
+    }
+  ],
+  "runs": [
+    {
+      "K": 3,
+      "arm": "full-rfs",
+      "seconds": 0.8991590419900604,
+      "wall_seconds": 0.9153744589712005,
+      "retained_draws": 10,
+      "ffbs_states_changed_total": 1200,
+      "structure_recovery": "available",
+      "u_held_fixed": true,
+      "boundary_precision": 0.9065565307176046,
+      "boundary_recall": 0.9051546391752577,
+      "boundary_f1": 0.9058550425586794,
+      "skill_accuracy": 0.9747916666666666
+    },
+    {
+      "K": 3,
+      "arm": "support-only",
+      "seconds": 0.7890738749993034,
+      "wall_seconds": 0.8455312910082284,
+      "retained_draws": 10,
+      "ffbs_states_changed_total": 1481,
+      "structure_recovery": "NOT APPLICABLE",
+      "u_held_fixed": true,
+      "boundary_precision": 0.7900207900207901,
+      "boundary_recall": 0.7835051546391752,
+      "boundary_f1": 0.7867494824016563,
+      "skill_accuracy": 0.9426388888888889
+    },
+    {
+      "K": 10,
+      "arm": "full-rfs",
+      "seconds": 3.5166436670115218,
+      "wall_seconds": 3.6071697500010487,
+      "retained_draws": 10,
+      "ffbs_states_changed_total": 2274,
+      "structure_recovery": "available",
+      "u_held_fixed": true,
+      "boundary_precision": 0.9527089072543617,
+      "boundary_recall": 0.9489329268292683,
+      "boundary_f1": 0.9508171681686268,
+      "skill_accuracy": 0.9851666666666666
+    },
+    {
+      "K": 10,
+      "arm": "support-only",
+      "seconds": 2.98954329197295,
+      "wall_seconds": 3.1724678330065217,
+      "retained_draws": 10,
+      "ffbs_states_changed_total": 4540,
+      "structure_recovery": "NOT APPLICABLE",
+      "u_held_fixed": true,
+      "boundary_precision": 0.8347865993575034,
+      "boundary_recall": 0.831859756097561,
+      "boundary_f1": 0.8333206077727724,
+      "skill_accuracy": 0.9449375
+    },
+    {
+      "K": 30,
+      "arm": "full-rfs",
+      "seconds": 31.45156504199258,
+      "wall_seconds": 32.04063716600649,
+      "retained_draws": 10,
+      "ffbs_states_changed_total": 8446,
+      "structure_recovery": "available",
+      "u_held_fixed": true,
+      "boundary_precision": 0.9424533064109036,
+      "boundary_recall": 0.944838056680162,
+      "boundary_f1": 0.9436441748799597,
+      "skill_accuracy": 0.9874791666666667
+    },
+    {
+      "K": 30,
+      "arm": "support-only",
+      "seconds": 26.617377583985217,
+      "wall_seconds": 27.221870750014205,
+      "retained_draws": 10,
+      "ffbs_states_changed_total": 14721,
+      "structure_recovery": "NOT APPLICABLE",
+      "u_held_fixed": true,
+      "boundary_precision": 0.7835254854368932,
+      "boundary_recall": 0.78415991902834,
+      "boundary_f1": 0.7838425738567381,
+      "skill_accuracy": 0.8875416666666667
+    }
+  ],
+  "deltas": [
+    {
+      "K": 3,
+      "delta_boundary_f1": 0.11910556015702312,
+      "delta_skill_accuracy": 0.0321527777777777
+    },
+    {
+      "K": 10,
+      "delta_boundary_f1": 0.11749656039585443,
+      "delta_skill_accuracy": 0.04022916666666665
+    },
+    {
+      "K": 30,
+      "delta_boundary_f1": 0.1598016010232216,
+      "delta_skill_accuracy": 0.09993750000000001
+    }
+  ],
+  "all_rungs_favour_full": true,
+  "caveat": "Smoke test only: one chain, one corpus replicate, few sweeps. U is held fixed at the TRUTH in the full arm, so the measured gap is an UPPER BOUND on the recurrent likelihood's advantage when U must be inferred. Structure recovery is not applicable to the support-only arm because its score does not read U."
+}

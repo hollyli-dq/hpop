@@ -5,16 +5,25 @@ Section 2 preflight has a definite thing to compare against rather than a guess.
 
 ## Expected
 
-    pytest tests -q     ->     1531 passed, 63 skipped, 0 failed     (~16 min, 1 thread)
+    pytest tests -q     ->     1671 passed, 63 skipped, 0 failed     (~16 min, 1 thread)
 
     python verify_environment.py     ->     RESULT: READY
 
 Anything else is a real problem. In particular **any failure is a real failure** — the
 tests that cannot run here are skipped by name, not left to fail.
 
+1734 tests are collected: 1595 from the source repository's suite, of which 63 skip, plus
+139 in `tests/k_ladder/` for the code this package adds, all of which run.
+
+| | collected | passed | skipped |
+|---|---|---|---|
+| source-repository suite | 1595 | 1532 | 63 |
+| `tests/k_ladder/` | 139 | 139 | 0 |
+| **total** | **1734** | **1671** | **63** |
+
 ## Verified against the source repository
 
-The same suite in the source repository, which has the historical artifacts:
+The same source-repository suite there, which has the historical artifacts:
 
     1594 passed, 0 failed
 

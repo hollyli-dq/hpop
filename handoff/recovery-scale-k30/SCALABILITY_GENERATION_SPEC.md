@@ -184,10 +184,76 @@ shared likelihood family and reusable parity tests — **not** statistical compa
 
 ## 7. Outstanding before production
 
-1. **Support-only inference baseline** — identical segmentation prior, transition
-   treatment, data, initialisation, proposal schedule, chains and sweeps; report
-   segmentation and skill-label recovery; structure recovery **not applicable**.
-2. **Gamma coupling** — skills are nested across rungs, transition environments are not.
+1. ~~**Support-only inference baseline**~~ — **done**. `hpop.mcmc_cpa.ladder_runner` is a
+   single runner whose `arm` argument is the only difference between the two conditions,
+   so the segmentation prior, transition treatment, data, initialisation, proposal
+   schedule, sweep schedule and RNG stream are shared by construction rather than by two
+   implementations written to match. Structure recovery is reported as
+   `"NOT APPLICABLE"` for the baseline: its score never reads `U`, so any `U` it produced
+   would be a prior draw.
+2. ~~A short `K = 3` / `K = 30` end-to-end smoke run~~ — **done**, extended to
+   `K ∈ {3, 10, 30}`; see §7.1.
+3. **Gamma coupling** — skills are nested across rungs, transition environments are not.
    Shared `Gamma(1,1)` weights would pair them with the marginal unchanged. A design
-   choice, to be made before production replicates.
-3. A short `K = 3` / `K = 30` end-to-end smoke run before any long sweep.
+   choice, **still open**, to be made before production replicates.
+
+### 7.1 Smoke result (not a result — a sanity check)
+
+`scripts/k_ladder/smoke_full_vs_support.py`, one chain, one corpus replicate, 100 sweeps,
+50 warm-up, thin 5, library seed 0. `U` held fixed in both arms.
+
+| `K` | arm | s | boundary F1 | skill acc | FFBS states changed |
+| --- | --- | --- | --- | --- | --- |
+| 3 | full-RFS | 0.9 | 0.9059 | 0.9748 | 1200 |
+| 3 | support-only | 0.8 | 0.7867 | 0.9426 | 1481 |
+| 10 | full-RFS | 3.5 | 0.9508 | 0.9852 | 2274 |
+| 10 | support-only | 3.0 | 0.8333 | 0.9449 | 4540 |
+| 30 | full-RFS | 31.5 | 0.9436 | 0.9875 | 8446 |
+| 30 | support-only | 26.6 | 0.7838 | 0.8875 | 14721 |
+
+| `K` | Δ boundary F1 | Δ skill accuracy |
+| --- | --- | --- |
+| 3 | +0.1191 | +0.0322 |
+| 10 | +0.1175 | +0.0402 |
+| 30 | +0.1598 | +0.0999 |
+
+Statistics are exactly reproducible from the recorded seeds; only the `s` column moves between runs.
+
+The full likelihood wins at every rung, and its margin **grows with `K`** — which is what
+the corrected ambiguity table in §6 predicts: `E[C_b]` rises 0.040 → 0.419 across the
+ladder, so support membership alone discriminates progressively worse while the recurrent
+score does not degrade. The baseline's FFBS movement is roughly double the full arm's at
+every rung, consistent with a flatter score wandering among support-feasible labellings.
+
+**Read this as a floor, not as the headline.** Three caveats, all recorded in the run's
+JSON:
+
+- One chain, one replicate, 100 sweeps. Nowhere near a posterior.
+- The full arm scores at the **true** `U`. Both arms get ground-truth side information of
+  their own kind — the baseline the true supports, the full arm the true supports *and*
+  the true within-skill order — so the gap is an **upper bound** on what the recurrent
+  likelihood contributes once `U` must be inferred. A gap here is necessary for the full
+  model to be worth its cost, not sufficient.
+- Structure recovery is absent by construction, not by omission.
+
+### 7.2 The gap tracks the predicted ambiguity
+
+`expected_compatible_wrong_skills` is a closed form derived from the support combinatorics
+alone — it never sees a chain. It says how many *wrong* skills can accommodate a block of
+`d` distinct CPAs (`m = 10`, `A = 50`):
+
+| `K` | `d = 2` | `d = 3` | `d = 4` | `d = 5` |
+| --- | --- | --- | --- | --- |
+| 3 | 0.0735 | 0.0122 | 0.0018 | 0.0002 |
+| 10 | 0.3306 | 0.0551 | 0.0082 | 0.0011 |
+| 30 | 1.0653 | 0.1776 | 0.0264 | 0.0034 |
+
+It grows roughly as `K - 1`. The measured arms move the way that predicts: the full arm's
+skill accuracy is flat to slightly rising across the ladder (0.9748, 0.9852, 0.9875) while
+the baseline's falls away at `K = 30` (0.9426, 0.9449, 0.8875), so the gap widens.
+
+Two cautions on reading it. The baseline is **not monotone** — `K = 3` sits 0.002 below
+`K = 10`, a difference far inside single-chain noise, and no monotonicity is claimed here
+or anywhere else. And this is a consistency check between a prediction and one chain per
+rung, not a validation of either: it would have caught a baseline that improved with `K`,
+which is the failure it was run to exclude.

@@ -7,3 +7,4 @@ results/**/chains/
 results/**/checkpoints/
 *.npz
 !tests/**/*.npz
+.pytest_cache/

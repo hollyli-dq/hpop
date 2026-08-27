@@ -17,10 +17,20 @@ communication between machines.
 ```bash
 git clone https://github.com/hollyli-dq/hpop.git
 cd hpop
-git checkout <PILOT_TAG>          # Holly will give you the exact tag
+git checkout k30-learned-pilot-v1        # a tag, so everyone gets identical code
 cd handoff/recovery-scale-k30
 pip install -r requirements.txt
 ```
+
+Check you are where you think you are:
+
+```bash
+git describe --tags        # k30-learned-pilot-v1
+git status --porcelain     # must print NOTHING
+```
+
+A dirty working tree is recorded in every output file and blocks the analysis, so
+resolve it before running rather than after.
 
 **All four machines must be on the same tag.** The collection step refuses to merge output
 produced by different commits, and it is right to: two code versions is not one

@@ -11,6 +11,7 @@
     "requirements.txt": "0325548d3c6f9b721989641a4cc6af5aa843e98d91a6dc3d8e5ac3611de9de7c",
     "results/k_ladder/fast_exact_parity.json": "a3d700a43e1960c51aa15767c8776342d7af13f3d8dd102f36c08102415c820d",
     "results/k_ladder/smoke_three_arms.json": "446ae83787cfe4b46ec34a9d229314c76cbe3043677d766fce1aadf883752a42",
+    "results/k_ladder/timing_probe.json": "e51e0990be46bdc73af68461b791ad7ab9fafc01418587cb45f585e8273507a7",
     "scripts/_midrun_vendored_registered.py": "4f64f2859e8c14ece20bf2314a334e943a6ff76fca1ad993002c2756e38239ee",
     "scripts/analyze_full_latent_midrun.py": "c842ca4cd81bfa664bd8c6020da95365d9b0124c5f418d889b8d8d9ab1ae4b2c",
     "scripts/annotation_consistency.py": "f7c38494e6e65ca270e0e1c6e2942d12c11edb48b35474133b380a7014236ce5",
@@ -51,6 +52,7 @@
     "scripts/iter_induct.py": "2ac401a7883140443e94c8dadd17da4ac5ca672f907800cc6d75487d0b22ce0d",
     "scripts/k_ladder/fast_exact_parity_gate.py": "e6ff267b0a98158d6527574e60f9f0a60817367627bf1c6501c6086eca598ebd",
     "scripts/k_ladder/smoke_three_arms.py": "691bf1e683cd9677fd047e6f5bf5bd8b160b17d17ddf278b6652438e60a66dff",
+    "scripts/k_ladder/timing_probe.py": "c0b92448bb2cb0e683242724bcfe36a8d48eaa9ce086b50cf8c2c2eee17d28b1",
     "scripts/optimized_backend_bench.py": "d20fbdd986d9a1f0025a1ee77100b03172ee7690943e5e7524aaa2a206ff4df6",
     "scripts/optimized_backend_parity.py": "62a349aef59834f7580e0fad4b32307b55e76961c4e5897b5d83355667293474",
     "scripts/plot_three_levels.py": "d1a039f34b9071b6732e4d1dd89df565f28c925c11cf0fd30cd20382d353d6e9",
@@ -325,9 +327,9 @@
   },
   "frozen_specification": "SCALABILITY_GENERATION_SPEC.md (schema 1.0.0); REVIEW_GENERATION_RULES.md is SUPERSEDED audit history",
   "manifest_scope": "Every git-tracked file except SOURCE_INTEGRITY.json itself. Transient caches (.pytest_cache/, __pycache__/) are excluded: they change on every test run, and listing them would make the integrity gate fail the moment Section 2's suite is run.",
-  "n_files": 321,
+  "n_files": 323,
   "new_code_added_by_this_package": {
-    "scripts/k_ladder/": "Pre-production three-arm smoke comparison, and the fast/exact table parity gate.",
+    "scripts/k_ladder/": "Pre-production three-arm smoke comparison, the fast/exact table parity gate, and the on-target timing probe that the schedule A/B choice must be made from.",
     "src/hpop/mcmc_cpa/": "CPA-vocabulary layer, nested library, shared-Gamma transition coupling, ladder corpus generator, support-only baseline, CPA collapsed-U likelihood, index-addressed common random numbers, and the three-arm ladder runner. NOT part of the sealed backend. Verified to reduce bitwise to BlockScoreTable under the identity role map.",
     "tests/k_ladder/": "189 tests: CPA layer, nested library, K-general gate, corpus generator, shared-Gamma coupling, support-only baseline, fast/exact table parity, common random numbers, three-arm ladder runner, exhaustive MC validation"
   },

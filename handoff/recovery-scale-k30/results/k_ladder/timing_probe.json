@@ -1,0 +1,48 @@
+{
+  "schema": "k-ladder-timing-probe/1.0.0",
+  "settings": {
+    "rungs": [
+      3,
+      10
+    ],
+    "sweeps": 5,
+    "ladder": [
+      3,
+      5,
+      10,
+      20,
+      30
+    ],
+    "schedule_a": 50000,
+    "schedule_b": 40000,
+    "replicates": 2,
+    "chains": 4,
+    "cores": [
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "budget_hours": 132.0,
+    "fallback_budget_hours": 144.0,
+    "library_seed": 0,
+    "replicate": 0,
+    "out": "/Users/dongqing/hpop-handoff/hpop-recovery-scale-k30/results/k_ladder/timing_probe.json"
+  },
+  "measured_seconds_per_sweep": {
+    "3": {
+      "support-only": 0.018019149999599905,
+      "oracle-order": 0.02268694998929277,
+      "learned-order": 0.0652004250092432
+    },
+    "10": {
+      "support-only": 0.06644434159388765,
+      "oracle-order": 0.1570815667975694,
+      "learned-order": 0.3343811833998188
+    }
+  },
+  "peak_rss_gib": 0.24175643920898438,
+  "platform": "darwin",
+  "note": "Per-sweep cost depends on core speed, BLAS and memory bandwidth. Run this on the machine that will do the work; a projection carried from another machine is not evidence about this one."
+}

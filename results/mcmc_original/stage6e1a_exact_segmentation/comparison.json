@@ -1,0 +1,333 @@
+{
+  "gates": {
+    "log_evidence_independent_agreement": {
+      "value": 8.881784197001252e-16,
+      "threshold": 1e-10,
+      "pass": true
+    },
+    "enumerated_weight_equals_direct_target": {
+      "value": 3.552713678800501e-15,
+      "threshold": 1e-12,
+      "pass": true
+    },
+    "fast_kernel_matches_reference_kernel": {
+      "value": 0.0,
+      "threshold": 1e-15,
+      "pass": true
+    },
+    "kernel_support_equals_enumerated_support": {
+      "value": 21,
+      "threshold": 21,
+      "pass": true
+    },
+    "nondegenerate_max_probability": {
+      "value": 0.47475758455150635,
+      "threshold": 0.9,
+      "pass": true
+    },
+    "nondegenerate_state_count": {
+      "value": 7,
+      "threshold": 3,
+      "pass": true
+    },
+    "retained_draws": {
+      "value": 380000,
+      "threshold": 100000,
+      "pass": true
+    },
+    "path_total_variation": {
+      "value": 0.0014704498043723745,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "max_boundary_marginal_error": {
+      "value": 0.00028386996194035286,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "max_occurrence_label_marginal_error": {
+      "value": 0.001065734285746689,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "max_labelled_segment_marginal_error": {
+      "value": 0.000992902405123397,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "segment_count_total_variation": {
+      "value": 6.775929372793144e-05,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "max_expected_transition_count_error": {
+      "value": 0.00011092366016450528,
+      "threshold": 0.01,
+      "pass": true
+    }
+  },
+  "all_pass": true,
+  "log_evidence_enumerated": -7.939698706439894,
+  "log_evidence_forward_recursion": -7.939698706439893,
+  "n_enumerated_states": 21,
+  "n_retained_total": 380000,
+  "n_retained_per_chain": [
+    95000,
+    95000,
+    95000,
+    95000
+  ],
+  "path_total_variation_pooled": 0.0014704498043723745,
+  "path_total_variation_per_chain": [
+    0.00278221099467169,
+    0.004929908157832357,
+    0.003609834253632798,
+    0.0017023152183893546
+  ],
+  "max_boundary_marginal_error": 0.00028386996194035286,
+  "max_occurrence_label_marginal_error": 0.001065734285746689,
+  "max_labelled_segment_marginal_error": 0.000992902405123397,
+  "segment_count_total_variation": 6.775929372793144e-05,
+  "max_expected_transition_count_error": 0.00011092366016450528,
+  "exact_boundary_marginals": [
+    0.0,
+    0.0,
+    0.02346572257114434,
+    0.0355628173303614,
+    0.018201069225819058,
+    0.0,
+    0.0
+  ],
+  "mcmc_boundary_marginals": [
+    0.0,
+    0.0,
+    0.023602631578947368,
+    0.03527894736842105,
+    0.018415789473684212,
+    0.0,
+    0.0
+  ],
+  "exact_segment_count_distribution": [
+    0.0,
+    0.9227703908726754,
+    0.07722960912732481,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "mcmc_segment_count_distribution": [
+    0.0,
+    0.9227026315789474,
+    0.07729736842105263,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "exact_expected_transition_counts": [
+    [
+      0.0,
+      0.03523118160299339,
+      2.1048455589004673e-07
+    ],
+    [
+      1.9572206446945704e-08,
+      0.0,
+      1.9572206446945704e-08
+    ],
+    [
+      2.641767024005985e-07,
+      0.041997913718660226,
+      0.0
+    ]
+  ],
+  "mcmc_expected_transition_counts": [
+    [
+      0.0,
+      0.0353421052631579,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.04195526315789473,
+      0.0
+    ]
+  ],
+  "top_states": [
+    {
+      "key": [
+        [
+          8,
+          2
+        ]
+      ],
+      "exact": 0.47475758455150635,
+      "mcmc": 0.4754,
+      "absolute_error": 0.0006424154484936384
+    },
+    {
+      "key": [
+        [
+          8,
+          0
+        ]
+      ],
+      "exact": 0.42064027082617605,
+      "mcmc": 0.41964736842105266,
+      "absolute_error": 0.000992902405123397
+    },
+    {
+      "key": [
+        [
+          8,
+          1
+        ]
+      ],
+      "exact": 0.02737253549499305,
+      "mcmc": 0.02765526315789474,
+      "absolute_error": 0.0002827276629016884
+    },
+    {
+      "key": [
+        [
+          4,
+          2
+        ],
+        [
+          8,
+          1
+        ]
+      ],
+      "exact": 0.022162309398394614,
+      "mcmc": 0.021757894736842105,
+      "absolute_error": 0.00040441466155250946
+    },
+    {
+      "key": [
+        [
+          3,
+          0
+        ],
+        [
+          8,
+          1
+        ]
+      ],
+      "exact": 0.013737011701272088,
+      "mcmc": 0.0138,
+      "absolute_error": 6.298829872791213e-05
+    },
+    {
+      "key": [
+        [
+          4,
+          0
+        ],
+        [
+          8,
+          1
+        ]
+      ],
+      "exact": 0.013400498338116948,
+      "mcmc": 0.013521052631578948,
+      "absolute_error": 0.00012055429346199964
+    },
+    {
+      "key": [
+        [
+          5,
+          2
+        ],
+        [
+          8,
+          1
+        ]
+      ],
+      "exact": 0.010106893626267873,
+      "mcmc": 0.010394736842105264,
+      "absolute_error": 0.0002878432158373908
+    },
+    {
+      "key": [
+        [
+          3,
+          2
+        ],
+        [
+          8,
+          1
+        ]
+      ],
+      "exact": 0.009728710693997744,
+      "mcmc": 0.009802631578947368,
+      "absolute_error": 7.392088494962389e-05
+    },
+    {
+      "key": [
+        [
+          5,
+          0
+        ],
+        [
+          8,
+          1
+        ]
+      ],
+      "exact": 0.008093671563604353,
+      "mcmc": 0.008021052631578948,
+      "absolute_error": 7.261893202540476e-05
+    },
+    {
+      "key": [
+        [
+          5,
+          2
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      "exact": 2.5843544427369225e-07,
+      "mcmc": 0.0,
+      "absolute_error": 2.5843544427369225e-07
+    }
+  ],
+  "acceptance_by_move": {
+    "relabel": {
+      "proposed": 400499,
+      "accepted": 202939,
+      "impossible": 0,
+      "acceptance_rate": 0.5067153725727155
+    },
+    "split": {
+      "proposed": 400068,
+      "accepted": 24265,
+      "impossible": 30755,
+      "acceptance_rate": 0.06065218912784827
+    },
+    "merge": {
+      "proposed": 399974,
+      "accepted": 24269,
+      "impossible": 368936,
+      "acceptance_rate": 0.060676443968857977
+    },
+    "shift": {
+      "proposed": 399459,
+      "accepted": 7900,
+      "impossible": 368570,
+      "acceptance_rate": 0.019776748051739977
+    }
+  },
+  "runtime_seconds": 23.09508087602444
+}

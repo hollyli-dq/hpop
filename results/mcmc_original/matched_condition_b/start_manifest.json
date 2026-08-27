@@ -1,0 +1,67 @@
+{
+  "distinct": true,
+  "initialized_at_truth": false,
+  "initialized_from_prior_chain_endpoints": false,
+  "none_equals_truth": true,
+  "relation_counts": [
+    [
+      7,
+      7,
+      8
+    ],
+    [
+      10,
+      10,
+      8
+    ],
+    [
+      7,
+      6,
+      3
+    ],
+    [
+      7,
+      4,
+      7
+    ]
+  ],
+  "start_h_hashes": [
+    [
+      "16036a9175724a4e",
+      "7010b9180fb42e19",
+      "285ca50d2b026862"
+    ],
+    [
+      "428d36d2c9220451",
+      "89e3e63ad534d9ec",
+      "8eacdab396080bb5"
+    ],
+    [
+      "781674ccf7a0c54f",
+      "317afc28f21e979a",
+      "4a42b5ed5268d450"
+    ],
+    [
+      "99bef7b614e14cad",
+      "d8e9b6d27844e19b",
+      "0f0160ff70b7d0a5"
+    ]
+  ],
+  "start_scales": [
+    0.5,
+    1.0,
+    2.0,
+    3.0
+  ],
+  "start_seeds": [
+    6202101,
+    6202102,
+    6202103,
+    6202104
+  ],
+  "truth_h_hashes": [
+    "19904293250fd25b",
+    "0340aaa796edc90b",
+    "2959d0db1011ccc1"
+  ]
+}

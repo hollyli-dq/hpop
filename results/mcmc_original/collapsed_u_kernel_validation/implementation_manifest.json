@@ -1,0 +1,27 @@
+{
+  "commit": "24739d802a3fc78caa56590c0d74a29ac15f7317",
+  "new_files": {
+    "src/hpop/mcmc_original/collapsed_u_likelihood.py": "8efc9bee86ead719a625b3d9f5371cc2dabe4957e777b61f2cfddf4798e35199",
+    "src/hpop/mcmc_original/collapsed_u_kernel.py": "cbd769d46a940e70d48ad916510eb092e19a6cf9f18bac99d6d15e442c564557",
+    "scripts/collapsed_u_mixed_reference.py": "31336a83c4bbfc106b972e456cdef91720488626555480e13c243df9de29d0c7",
+    "scripts/collapsed_u_kernel_validation.py": "429772f5449026f59bcc0ad789cadf97252edacbb477f83129ada06cab8f0190",
+    "tests/mcmc_original/test_collapsed_u_kernel.py": "dceda8449635a2ba423362f91ea4914c132aedc442c3380c5c52207ebdfd85ed",
+    "tests/mcmc_original/test_collapsed_u_ordering.py": "c04a556a37bdd229d029cf952a81792ccecd6dabf7d6ab00126550a56b814965",
+    "tests/mcmc_original/test_collapsed_u_reference.py": "db0ec62572800b58309b261a635290f7a0e43e1b52d8c8ce0931833998468b7c",
+    "tests/mcmc_original/test_collapsed_u_resume.py": "59b8161a3ece9575fc563407a0901a64b096a80da293820d91b3ffd384329a13"
+  },
+  "validated_modules_untouched": {
+    "src/hpop/mcmc_original/semi_markov_ffbs.py": true,
+    "src/hpop/mcmc_original/sampler_u.py": true,
+    "src/hpop/mcmc_original/recurrent_joint_ffbs_mcmc.py": true,
+    "src/hpop/mcmc_original/stage6e_sampler.py": true,
+    "src/hpop/mcmc_original/fast_block_tables.py": true,
+    "src/hpop/mcmc_original/recurrent_segmentation.py": true,
+    "src/hpop/mcmc_original/stage6c_frozen.py": true
+  },
+  "all_untouched": true,
+  "integration": "composition by call in collapsed_u_kernel.py only; recurrent_joint_ffbs_mcmc.py, stage6e_sampler.py, semi_markov_ffbs.py and sampler_u.py have empty diffs",
+  "preexisting_modifications_not_from_this_task": {
+    "scripts/stage7b_compare_local_vs_ffbs.py": "modified 2026-08-14 23:06 by the prior session (the Step 7B2 comparison protocol, authored mid-run); untouched by this task"
+  }
+}

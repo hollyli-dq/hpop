@@ -1,0 +1,44 @@
+{
+  "protocol": "alternating inside one process; medians over 6 interleaved repeats",
+  "sweep_before_everything": {
+    "median_seconds": 1.6862764170509763,
+    "min_seconds": 1.6465788749046624,
+    "n": 6
+  },
+  "sweep_with_fast_path_only": {
+    "median_seconds": 1.5349023750168271,
+    "min_seconds": 1.5047956659691408,
+    "n": 6
+  },
+  "sweep_after_everything": {
+    "median_seconds": 1.3749863745179027,
+    "min_seconds": 1.341390790999867,
+    "n": 6
+  },
+  "block_table_before": {
+    "median_seconds": 0.21437447948846966,
+    "min_seconds": 0.2116895419312641,
+    "n": 6
+  },
+  "block_table_after": {
+    "median_seconds": 0.04010700003709644,
+    "min_seconds": 0.039089250029064715,
+    "n": 6
+  },
+  "block_table_speedup": 5.345063936225268,
+  "sweep_speedup": 1.2263950016539023,
+  "table_parity_max_absolute_difference": 0.0,
+  "fast_table_stats": {
+    "refreshes": 6,
+    "skill_columns_built": 18,
+    "skill_columns_reused": 0,
+    "reuse_fraction": 0.0,
+    "n_candidates": 25490,
+    "n_starts": 2999,
+    "candidate_steps_per_skill": 31488,
+    "width_bucketed_candidate_steps_per_skill": 182925,
+    "arithmetic_reduction": 5.809355945121951,
+    "n_traces": 100,
+    "n_skills": 3
+  }
+}

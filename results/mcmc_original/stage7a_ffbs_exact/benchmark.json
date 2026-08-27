@@ -1,0 +1,202 @@
+{
+  "what": "FFBS cost decomposition: fixed chart construction vs per-draw cost",
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "single_threaded": true,
+  "model": {
+    "K": 3,
+    "m_roles": 3,
+    "epsilon": 0.02,
+    "delta_B": 0.15,
+    "min_width": 3,
+    "max_width": 12,
+    "scalars": {
+      "beta": 1.5,
+      "omega": 1.7346,
+      "lambda_rep": 0.8,
+      "lambda_back": 0.25
+    }
+  },
+  "seed": 7072101,
+  "traces_per_length": 3,
+  "draws_per_trace": 200,
+  "rows": [
+    {
+      "J": 8,
+      "traces": [
+        {
+          "J": 8,
+          "n_legal_blocks": 63,
+          "block_table_seconds": 0.012050457997247577,
+          "chart_seconds": 0.0021564170019701123,
+          "fixed_cost_seconds": 0.014206874999217689,
+          "one_backward_draw_seconds": 3.935020533390343e-05,
+          "draws_amortising_the_fixed_cost": 361.03687080324585,
+          "mean_blocks_per_draw": 1.095,
+          "log_normalizer": -10.258358990628057
+        },
+        {
+          "J": 8,
+          "n_legal_blocks": 63,
+          "block_table_seconds": 0.014901874936185777,
+          "chart_seconds": 0.002398999989964068,
+          "fixed_cost_seconds": 0.017300874926149845,
+          "one_backward_draw_seconds": 4.300749977119267e-05,
+          "draws_amortising_the_fixed_cost": 402.2757662778234,
+          "mean_blocks_per_draw": 1.15,
+          "log_normalizer": -11.440247736553184
+        },
+        {
+          "J": 8,
+          "n_legal_blocks": 63,
+          "block_table_seconds": 0.009286290965974331,
+          "chart_seconds": 0.002840000088326633,
+          "fixed_cost_seconds": 0.012126291054300964,
+          "one_backward_draw_seconds": 4.6587079996243116e-05,
+          "draws_amortising_the_fixed_cost": 260.29300516964906,
+          "mean_blocks_per_draw": 1.005,
+          "log_normalizer": -11.710174076429238
+        }
+      ],
+      "median_block_table_seconds": 0.012050457997247577,
+      "median_chart_seconds": 0.002398999989964068,
+      "median_one_backward_draw_seconds": 4.300749977119267e-05,
+      "median_draws_amortising_the_fixed_cost": 361.03687080324585,
+      "median_blocks_per_draw": 1.095,
+      "n_legal_blocks": 63
+    },
+    {
+      "J": 24,
+      "traces": [
+        {
+          "J": 24,
+          "n_legal_blocks": 525,
+          "block_table_seconds": 0.10427508293651044,
+          "chart_seconds": 0.005817416938953102,
+          "fixed_cost_seconds": 0.11009249987546355,
+          "one_backward_draw_seconds": 0.00013291708019096403,
+          "draws_amortising_the_fixed_cost": 828.2795538187563,
+          "mean_blocks_per_draw": 3.885,
+          "log_normalizer": -27.729860247440563
+        },
+        {
+          "J": 24,
+          "n_legal_blocks": 525,
+          "block_table_seconds": 0.16709999996237457,
+          "chart_seconds": 0.00845912506338209,
+          "fixed_cost_seconds": 0.17555912502575666,
+          "one_backward_draw_seconds": 0.00010396270488854497,
+          "draws_amortising_the_fixed_cost": 1688.674079940185,
+          "mean_blocks_per_draw": 3.56,
+          "log_normalizer": -28.115121941884695
+        },
+        {
+          "J": 24,
+          "n_legal_blocks": 525,
+          "block_table_seconds": 0.1013610839145258,
+          "chart_seconds": 0.008815084001980722,
+          "fixed_cost_seconds": 0.11017616791650653,
+          "one_backward_draw_seconds": 0.00011687542020808905,
+          "draws_amortising_the_fixed_cost": 942.6804003814067,
+          "mean_blocks_per_draw": 3.34,
+          "log_normalizer": -30.835466519039233
+        }
+      ],
+      "median_block_table_seconds": 0.10427508293651044,
+      "median_chart_seconds": 0.00845912506338209,
+      "median_one_backward_draw_seconds": 0.00011687542020808905,
+      "median_draws_amortising_the_fixed_cost": 942.6804003814067,
+      "median_blocks_per_draw": 3.56,
+      "n_legal_blocks": 525
+    },
+    {
+      "J": 48,
+      "traces": [
+        {
+          "J": 48,
+          "n_legal_blocks": 1245,
+          "block_table_seconds": 0.24318066705018282,
+          "chart_seconds": 0.013414000044576824,
+          "fixed_cost_seconds": 0.25659466709475964,
+          "one_backward_draw_seconds": 0.00019299520994536578,
+          "draws_amortising_the_fixed_cost": 1329.5390448674762,
+          "mean_blocks_per_draw": 6.67,
+          "log_normalizer": -56.36904824382843
+        },
+        {
+          "J": 48,
+          "n_legal_blocks": 1245,
+          "block_table_seconds": 0.25281079101841897,
+          "chart_seconds": 0.02080545900389552,
+          "fixed_cost_seconds": 0.2736162500223145,
+          "one_backward_draw_seconds": 0.00023278771026525647,
+          "draws_amortising_the_fixed_cost": 1175.3895844008896,
+          "mean_blocks_per_draw": 6.715,
+          "log_normalizer": -57.0516696245646
+        },
+        {
+          "J": 48,
+          "n_legal_blocks": 1245,
+          "block_table_seconds": 0.2741144159808755,
+          "chart_seconds": 0.01196324999909848,
+          "fixed_cost_seconds": 0.28607766597997397,
+          "one_backward_draw_seconds": 0.00022379916976206004,
+          "draws_amortising_the_fixed_cost": 1278.2784953318974,
+          "mean_blocks_per_draw": 7.18,
+          "log_normalizer": -58.916309544921226
+        }
+      ],
+      "median_block_table_seconds": 0.25281079101841897,
+      "median_chart_seconds": 0.013414000044576824,
+      "median_one_backward_draw_seconds": 0.00022379916976206004,
+      "median_draws_amortising_the_fixed_cost": 1278.2784953318974,
+      "median_blocks_per_draw": 6.715,
+      "n_legal_blocks": 1245
+    },
+    {
+      "J": 96,
+      "traces": [
+        {
+          "J": 96,
+          "n_legal_blocks": 2685,
+          "block_table_seconds": 0.5826019159285352,
+          "chart_seconds": 0.03293658304028213,
+          "fixed_cost_seconds": 0.6155384989688173,
+          "one_backward_draw_seconds": 0.00046004812465980647,
+          "draws_amortising_the_fixed_cost": 1337.9871930224515,
+          "mean_blocks_per_draw": 13.43,
+          "log_normalizer": -116.41271247860607
+        },
+        {
+          "J": 96,
+          "n_legal_blocks": 2685,
+          "block_table_seconds": 0.5840744159650058,
+          "chart_seconds": 0.03175104199908674,
+          "fixed_cost_seconds": 0.6158254579640925,
+          "one_backward_draw_seconds": 0.00044534395507071165,
+          "draws_amortising_the_fixed_cost": 1382.808615570659,
+          "mean_blocks_per_draw": 13.21,
+          "log_normalizer": -119.10911693773025
+        },
+        {
+          "J": 96,
+          "n_legal_blocks": 2685,
+          "block_table_seconds": 0.6005136250751093,
+          "chart_seconds": 0.027587917051278055,
+          "fixed_cost_seconds": 0.6281015421263874,
+          "one_backward_draw_seconds": 0.0004206729150610045,
+          "draws_amortising_the_fixed_cost": 1493.0876689204065,
+          "mean_blocks_per_draw": 12.68,
+          "log_normalizer": -119.46248043413242
+        }
+      ],
+      "median_block_table_seconds": 0.5840744159650058,
+      "median_chart_seconds": 0.03175104199908674,
+      "median_one_backward_draw_seconds": 0.00044534395507071165,
+      "median_draws_amortising_the_fixed_cost": 1382.808615570659,
+      "median_blocks_per_draw": 13.21,
+      "n_legal_blocks": 2685
+    }
+  ],
+  "caveat": "synthetic traces drawn uniformly over roles, not the Stage 6E2 corpus; these are cost measurements only and no gate depends on them"
+}

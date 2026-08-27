@@ -1,0 +1,93 @@
+% ---------------------------------------------------------------------------
+% paper/drafts/result_transition_paragraphs.tex
+% Short connective paragraphs between the results sections.
+% Draft fragment. NOT included in the main paper.
+% Each block is independently usable; keep only the ones the final section
+% ordering needs. NONE of these asserts a pending outcome.
+% ---------------------------------------------------------------------------
+
+% --- Method -> matched-synthetic results -----------------------------------
+\newcommand{\TransitionMethodToMatched}{%
+Everything so far has been an argument about what the model and its sampler are
+supposed to do. The matched-synthetic study asks whether they do it, under a
+generator that implements the inference target exactly rather than
+approximately: the same normalised segmentation prior, the same per-block
+recurrent reset, the same zero-diagonal transition law. That match is itself a
+validated artifact, so a recovery failure on this corpus would be a statement
+about identifiability rather than about a generator/inference mismatch.%
+}
+
+% --- Condition A -> Condition B --------------------------------------------
+\newcommand{\TransitionAToB}{%
+Condition~A establishes path identifiability under oracle structures: with the
+reusable structures and global parameters held at truth, the exact posterior
+over skill-instance boundaries and labels is sharply informative and well
+calibrated. Condition~B inverts the conditioning and establishes
+reusable-structure identifiability under oracle paths: with the skill-instance
+segmentation and labels held at truth, four chains started from four distinct
+wrong structures all concentrate on the generating structure.%
+}
+
+% --- Conditions A and B -> Condition C -------------------------------------
+\newcommand{\TransitionABToC}{%
+Taken together, the two conditions isolate what is left to test. Neither
+component is unidentifiable on its own, so the open question is not whether the
+data carry information about paths or about structures, but whether the joint
+posterior over both can be explored when neither is observed --- a question
+about posterior coupling and sampler geometry rather than about component
+identifiability. Condition~C runs exactly that experiment, with both $(S,z)$ and
+$H$ latent, in two arms that target the same posterior: a conditional arm and a
+path-marginal arm.%
+}
+
+% --- Condition C -> external ------------------------------------------------
+\newcommand{\TransitionCToExternal}{%
+The matched study evaluates HPOP inference under controlled truth, where every
+latent quantity has a known answer and the generator is the model. That is the
+right setting for identifiability and for sampler validation, and the wrong
+setting for generalisation: a model can be perfectly recoverable on data drawn
+from itself and still describe nothing outside it. The external experiments
+therefore ask a different question --- whether the representation transfers to
+data the model did not generate.%
+}
+
+% --- Matched -> TaskBench (usable if Condition C is not yet in the paper) ---
+\newcommand{\TransitionMatchedToTaskbench}{%
+The matched study evaluates HPOP inference under controlled truth; TaskBench
+evaluates whether the static partial-order representation generalises beyond
+internally generated data. The two answer different questions and neither
+substitutes for the other: TaskBench supplies real external task structure but
+no latent segmentation, so it can test the partial-order component and nothing
+above it.%
+}
+
+% --- TaskBench -> tau^3-Retail ---------------------------------------------
+\newcommand{\TransitionTaskbenchToTauThree}{%
+TaskBench validates only the static component, because its orderings are
+enumerated from gold graphs rather than observed and it contains no repeated
+skill instances or repair behaviour. $\tau^3$-Retail provides the trajectory
+structure that a full-hierarchy external pilot needs: real agent tool sequences,
+a repeated-CPA fraction above $0.9$, both successful and failed runs, and a
+task-disjoint split. It provides no gold segmentation or gold partial order, so
+it is evaluated predictively rather than by structural recovery.%
+}
+
+% --- Scope reminder, usable as a standalone limitations lead-in -------------
+\newcommand{\TransitionScopeReminder}{%
+Two of our experimental settings speak to HPOP as a whole and two speak to parts
+of it. The matched-synthetic conditions test the full generative model under
+controlled truth; the collapsed-$U$ validation tests the sampler that makes
+joint inference tractable. TaskBench tests only the static partial-order
+component on external data, and the $\tau^3$-Retail package is at present a
+validated corpus rather than a result. We keep those scopes separate throughout,
+and Table~\ref{tab:claim-scope} states for each experiment what is established
+and what is not.%
+}
+
+% ---------------------------------------------------------------------------
+% NOTE TO AUTHOR (delete before submission):
+%  - \TransitionABToC describes what Condition C ASKS. It must not be edited
+%    into a claim about what Condition C FOUND until a frozen artifact exists.
+%  - \TransitionTaskbenchToTauThree describes the corpus only. Do not append a
+%    predictive claim to it.
+% ---------------------------------------------------------------------------

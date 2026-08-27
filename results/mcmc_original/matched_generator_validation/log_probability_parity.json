@@ -1,0 +1,52 @@
+{
+  "all_likelihoods_finite": true,
+  "corpus_seed": 730001,
+  "gate": 1e-10,
+  "generator_decomposition": "log p(S | J, delta_B) [normalized, exact DP] + log p(z | pi, P) + sum_l scalar-accumulated log p_RFS",
+  "inference_decomposition": "targets.log_boundary_prior - log C_J [independent combinatorial reference] + targets.log_path_prior + RecurrentBlockScorer.score (vectorized batch path)",
+  "max_abs_complete_data_log_prob_difference": 1.4210854715202004e-14,
+  "n_traces": 52,
+  "tiny_logz": {
+    "corpus_seed": 730002,
+    "gate": 1e-10,
+    "max_abs_error": 1.7763568394002505e-15,
+    "rows": [
+      {
+        "J": 6,
+        "abs_error": 8.881784197001252e-16,
+        "log_Z_enumeration": -7.5466608644145,
+        "log_Z_forward": -7.546660864414501
+      },
+      {
+        "J": 7,
+        "abs_error": 1.7763568394002505e-15,
+        "log_Z_enumeration": -10.325640341418516,
+        "log_Z_forward": -10.325640341418515
+      },
+      {
+        "J": 10,
+        "abs_error": 0.0,
+        "log_Z_enumeration": -13.146488829073311,
+        "log_Z_forward": -13.146488829073311
+      },
+      {
+        "J": 6,
+        "abs_error": 0.0,
+        "log_Z_enumeration": -9.309556407772078,
+        "log_Z_forward": -9.309556407772078
+      },
+      {
+        "J": 7,
+        "abs_error": 1.7763568394002505e-15,
+        "log_Z_enumeration": -10.85889173738443,
+        "log_Z_forward": -10.858891737384432
+      },
+      {
+        "J": 10,
+        "abs_error": 1.7763568394002505e-15,
+        "log_Z_enumeration": -13.42423294861821,
+        "log_Z_forward": -13.424232948618208
+      }
+    ]
+  }
+}

@@ -1,0 +1,358 @@
+{
+  "scalars": {
+    "rho": {
+      "mean": 0.43194296242029884,
+      "sd": 0.26876498549470007,
+      "sd_across_replicates": 0.0006425069307502981
+    },
+    "beta": {
+      "mean": 0.8756407334107463,
+      "sd": 0.5856628170453089,
+      "sd_across_replicates": 0.0013682666535857215
+    },
+    "omega": {
+      "mean": -0.3472873194918442,
+      "sd": 1.9916862505044102,
+      "sd_across_replicates": 0.0044764594964171785
+    },
+    "lambda_rep": {
+      "mean": 1.2894986607722068,
+      "sd": 0.6381156893317947,
+      "sd_across_replicates": 0.001535697270847455
+    },
+    "lambda_back": {
+      "mean": 0.8985406812100204,
+      "sd": 0.627233623829873,
+      "sd_across_replicates": 0.0017230677571359195
+    }
+  },
+  "log_evidence": {
+    "mean": -15.247028617891512,
+    "sd": 0.001854321210190724,
+    "range": 0.006752927898459049,
+    "values": [
+      -15.247716848996115,
+      -15.248965749793202,
+      -15.246820166276223,
+      -15.246583604811525,
+      -15.24501552649708,
+      -15.249269065521224,
+      -15.247572921375616,
+      -15.249188996245923,
+      -15.248142436499105,
+      -15.246189640554231,
+      -15.242987353059497,
+      -15.247625495161802,
+      -15.249740280957957,
+      -15.24917623383476,
+      -15.24793086827143,
+      -15.246567054817724,
+      -15.246046387579327,
+      -15.243192495059345,
+      -15.243402717117071,
+      -15.243691667719169,
+      -15.247590267969073,
+      -15.246160555370317,
+      -15.247235924679751,
+      -15.246063284489846,
+      -15.24843090151117,
+      -15.24601110695961,
+      -15.248174193270133,
+      -15.24845498917798,
+      -15.247360912782774,
+      -15.249324812398068,
+      -15.245979440178417,
+      -15.248303873592905
+    ]
+  },
+  "per_replicate": [
+    {
+      "seed": 6040001,
+      "n_points": 524288,
+      "log_evidence": -15.247716848996115,
+      "ess": 42575.329163141425,
+      "relative_ess": 0.08120599587085996,
+      "max_normalised_weight": 8.454396182719029e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040002,
+      "n_points": 524288,
+      "log_evidence": -15.248965749793202,
+      "ess": 42545.84746178491,
+      "relative_ess": 0.08114976398808463,
+      "max_normalised_weight": 8.831608153529735e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040003,
+      "n_points": 524288,
+      "log_evidence": -15.246820166276223,
+      "ess": 42551.253407378936,
+      "relative_ess": 0.08116007501102245,
+      "max_normalised_weight": 8.870505296914999e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040004,
+      "n_points": 524288,
+      "log_evidence": -15.246583604811525,
+      "ess": 42484.31071601212,
+      "relative_ess": 0.08103239196016716,
+      "max_normalised_weight": 8.626037135389289e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040005,
+      "n_points": 524288,
+      "log_evidence": -15.24501552649708,
+      "ess": 42636.8519372083,
+      "relative_ess": 0.08132334124986325,
+      "max_normalised_weight": 8.964332390997627e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040006,
+      "n_points": 524288,
+      "log_evidence": -15.249269065521224,
+      "ess": 42525.008626893,
+      "relative_ess": 0.08111001706484414,
+      "max_normalised_weight": 8.722086515800135e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040007,
+      "n_points": 524288,
+      "log_evidence": -15.247572921375616,
+      "ess": 42606.54123873562,
+      "relative_ess": 0.08126552818057178,
+      "max_normalised_weight": 8.641391997568278e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040008,
+      "n_points": 524288,
+      "log_evidence": -15.249188996245923,
+      "ess": 42583.37481373597,
+      "relative_ess": 0.08122134173152155,
+      "max_normalised_weight": 8.489575745257742e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040009,
+      "n_points": 524288,
+      "log_evidence": -15.248142436499105,
+      "ess": 42618.49174814967,
+      "relative_ess": 0.08128832196836408,
+      "max_normalised_weight": 8.907317851395655e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040010,
+      "n_points": 524288,
+      "log_evidence": -15.246189640554231,
+      "ess": 42507.892808649754,
+      "relative_ess": 0.08107737123231841,
+      "max_normalised_weight": 8.57305964329205e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040011,
+      "n_points": 524288,
+      "log_evidence": -15.242987353059497,
+      "ess": 42689.222462708225,
+      "relative_ess": 0.0814232301000752,
+      "max_normalised_weight": 8.291429019588783e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040012,
+      "n_points": 524288,
+      "log_evidence": -15.247625495161802,
+      "ess": 42581.15178184154,
+      "relative_ess": 0.081217101634677,
+      "max_normalised_weight": 8.291584479462887e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040013,
+      "n_points": 524288,
+      "log_evidence": -15.249740280957957,
+      "ess": 42469.33817307151,
+      "relative_ess": 0.08100383410085966,
+      "max_normalised_weight": 8.690468078812827e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040014,
+      "n_points": 524288,
+      "log_evidence": -15.24917623383476,
+      "ess": 42496.087977768,
+      "relative_ess": 0.08105485530427552,
+      "max_normalised_weight": 8.622316476319993e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040015,
+      "n_points": 524288,
+      "log_evidence": -15.24793086827143,
+      "ess": 42530.11927813547,
+      "relative_ess": 0.08111976485850424,
+      "max_normalised_weight": 8.5263113778587e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040016,
+      "n_points": 524288,
+      "log_evidence": -15.246567054817724,
+      "ess": 42486.93935447603,
+      "relative_ess": 0.08103740569014746,
+      "max_normalised_weight": 9.06120449563668e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040017,
+      "n_points": 524288,
+      "log_evidence": -15.246046387579327,
+      "ess": 42720.19040888567,
+      "relative_ess": 0.08148229676987775,
+      "max_normalised_weight": 8.765660721616184e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040018,
+      "n_points": 524288,
+      "log_evidence": -15.243192495059345,
+      "ess": 42597.8295878021,
+      "relative_ess": 0.0812489120250742,
+      "max_normalised_weight": 8.616181879383634e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040019,
+      "n_points": 524288,
+      "log_evidence": -15.243402717117071,
+      "ess": 42587.811434539915,
+      "relative_ess": 0.08122980391414626,
+      "max_normalised_weight": 8.402245345148762e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040020,
+      "n_points": 524288,
+      "log_evidence": -15.243691667719169,
+      "ess": 42508.42825183267,
+      "relative_ess": 0.0810783925091413,
+      "max_normalised_weight": 8.859653830064802e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040021,
+      "n_points": 524288,
+      "log_evidence": -15.247590267969073,
+      "ess": 42603.239100364124,
+      "relative_ess": 0.08125922985146355,
+      "max_normalised_weight": 8.592539803018085e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040022,
+      "n_points": 524288,
+      "log_evidence": -15.246160555370317,
+      "ess": 42593.34048293129,
+      "relative_ess": 0.08124034973703631,
+      "max_normalised_weight": 8.578456199263635e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040023,
+      "n_points": 524288,
+      "log_evidence": -15.247235924679751,
+      "ess": 42584.07325967099,
+      "relative_ess": 0.08122267391142081,
+      "max_normalised_weight": 9.212407737473824e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040024,
+      "n_points": 524288,
+      "log_evidence": -15.246063284489846,
+      "ess": 42786.53278848018,
+      "relative_ess": 0.08160883481689488,
+      "max_normalised_weight": 8.441703661112861e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040025,
+      "n_points": 524288,
+      "log_evidence": -15.24843090151117,
+      "ess": 42656.950086330566,
+      "relative_ess": 0.08136167542711366,
+      "max_normalised_weight": 9.014513373194179e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040026,
+      "n_points": 524288,
+      "log_evidence": -15.24601110695961,
+      "ess": 42536.103694552185,
+      "relative_ess": 0.08113117922697484,
+      "max_normalised_weight": 8.344370759441708e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040027,
+      "n_points": 524288,
+      "log_evidence": -15.248174193270133,
+      "ess": 42611.08239449984,
+      "relative_ess": 0.08127418974781006,
+      "max_normalised_weight": 8.640970633216288e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040028,
+      "n_points": 524288,
+      "log_evidence": -15.24845498917798,
+      "ess": 42582.07145002154,
+      "relative_ess": 0.08121885576252277,
+      "max_normalised_weight": 8.41706145615949e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040029,
+      "n_points": 524288,
+      "log_evidence": -15.247360912782774,
+      "ess": 42691.160799655976,
+      "relative_ess": 0.08142692718440242,
+      "max_normalised_weight": 8.727060887931823e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040030,
+      "n_points": 524288,
+      "log_evidence": -15.249324812398068,
+      "ess": 42650.32032801759,
+      "relative_ess": 0.08134903016665952,
+      "max_normalised_weight": 8.804492954102595e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040031,
+      "n_points": 524288,
+      "log_evidence": -15.245979440178417,
+      "ess": 42549.68608401677,
+      "relative_ess": 0.08115708557895045,
+      "max_normalised_weight": 8.378718039039658e-05,
+      "n_induced_h_states": 19
+    },
+    {
+      "seed": 6040032,
+      "n_points": 524288,
+      "log_evidence": -15.248303873592905,
+      "ess": 42403.20658029762,
+      "relative_ess": 0.08087769809779667,
+      "max_normalised_weight": 8.484478971444556e-05,
+      "n_induced_h_states": 19
+    }
+  ]
+}

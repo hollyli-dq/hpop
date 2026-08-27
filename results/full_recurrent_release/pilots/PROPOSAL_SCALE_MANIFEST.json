@@ -1,0 +1,107 @@
+{
+  "adjustment": {
+    "beta": {
+      "acceptance": 0.88,
+      "adjusted": true,
+      "posterior_spread_in_proposal_coordinate": 0.14886078311360587,
+      "scale": 0.35428866381038193
+    },
+    "lambda_back": {
+      "acceptance": 0.94,
+      "adjusted": true,
+      "posterior_spread_in_proposal_coordinate": 0.2755892647141839,
+      "scale": 0.6559024500197576
+    },
+    "lambda_rep": {
+      "acceptance": 0.9533333333333334,
+      "adjusted": true,
+      "posterior_spread_in_proposal_coordinate": 0.323147709921848,
+      "scale": 0.7690915496139982
+    },
+    "omega": {
+      "acceptance": 0.8533333333333334,
+      "adjusted": true,
+      "posterior_spread_in_proposal_coordinate": 1.6712690580256773,
+      "scale": 3.977620358101112
+    }
+  },
+  "all_in_band": false,
+  "all_pilot_draws_discarded": true,
+  "base_scales_registered_stage6d": {
+    "beta": 0.05109,
+    "lambda_back": 0.09472,
+    "lambda_rep": 0.04155,
+    "omega": 0.18213
+  },
+  "in_band": {
+    "beta": false,
+    "lambda_back": false,
+    "lambda_rep": false,
+    "omega": false
+  },
+  "pilot_1": {
+    "finite_log_target_throughout": true,
+    "ms_per_sweep": 181.15075791666945,
+    "scalar_acceptance": {
+      "beta": 0.88,
+      "lambda_back": 0.94,
+      "lambda_rep": 0.9533333333333334,
+      "omega": 0.8533333333333334
+    },
+    "seconds": 54.34522737500083,
+    "sweeps": 300,
+    "u_marginal": {
+      "acceptance": 0.4,
+      "accepted": 12,
+      "h_changing_accepted": 5,
+      "invalid": 0,
+      "invalid_rate": 0.0,
+      "proposed": 30
+    }
+  },
+  "pilot_2": {
+    "finite_log_target_throughout": true,
+    "ms_per_sweep": 167.50129583335365,
+    "scalar_acceptance": {
+      "beta": 0.6766666666666666,
+      "lambda_back": 0.6466666666666666,
+      "lambda_rep": 0.7066666666666667,
+      "omega": 0.18333333333333332
+    },
+    "seconds": 50.250388750006096,
+    "sweeps": 300,
+    "u_marginal": {
+      "acceptance": 0.5,
+      "accepted": 15,
+      "h_changing_accepted": 8,
+      "invalid": 0,
+      "invalid_rate": 0.0,
+      "proposed": 30
+    }
+  },
+  "pilot_seed": 6318001,
+  "pilot_start_seed": 6318101,
+  "quantities_used": [
+    "scalar acceptance",
+    "U acceptance",
+    "invalid rate",
+    "finite log target",
+    "runtime",
+    "H-changing movement (liveness, reported only)"
+  ],
+  "rule": "recurrent_scalar_mcmc.tune_proposal_scale: acceptance window (0.20, 0.55), at most one adjustment, scale set from the pilot's own posterior spread in the proposal coordinate x 2.38",
+  "selected_scales": {
+    "beta": 0.35428866381038193,
+    "lambda_back": 0.6559024500197576,
+    "lambda_rep": 0.7690915496139982,
+    "omega": 3.977620358101112
+  },
+  "structural_scale_path_marginal": 0.5,
+  "sweeps_per_pilot": 300,
+  "truth_free": true,
+  "u_row_scale": 0.5,
+  "window": [
+    0.2,
+    0.55
+  ]
+}

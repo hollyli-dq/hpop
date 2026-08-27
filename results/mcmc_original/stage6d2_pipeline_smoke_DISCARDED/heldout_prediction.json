@@ -1,0 +1,12 @@
+{
+  "n_blocks": 200,
+  "n_steps": 4000,
+  "predictive_draws_used": 400,
+  "posterior_predictive_log_score_per_step": -1.2433172884725787,
+  "log_score_at_the_generating_truth": -1.2431608051298682,
+  "log_score_at_the_posterior_mean": -1.4217892061666721,
+  "log_score_at_the_prior_mean_with_true_U": -1.325226311731775,
+  "per_block_predictive_min": -1.706684421802273,
+  "per_block_predictive_max": -1.0460442034104267,
+  "note": "secondary reporting only; not used to choose a proposal scale, a prior or a threshold. The prior-mean row is a floor, not a competitor."
+}

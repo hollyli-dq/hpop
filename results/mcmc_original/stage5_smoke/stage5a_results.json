@@ -1,0 +1,812 @@
+{
+  "transitions": {
+    "counts": [
+      [
+        0,
+        1,
+        5,
+        2
+      ],
+      [
+        1,
+        0,
+        4,
+        3
+      ],
+      [
+        3,
+        3,
+        0,
+        2
+      ],
+      [
+        2,
+        2,
+        3,
+        0
+      ]
+    ],
+    "outgoing_per_row": {
+      "A": 8,
+      "D": 8,
+      "F": 8,
+      "E": 7
+    },
+    "rows": {
+      "A": {
+        "allowed_next": [
+          "D",
+          "F",
+          "E"
+        ],
+        "counts": [
+          1,
+          5,
+          2
+        ],
+        "alpha": [
+          2.0,
+          6.0,
+          3.0
+        ],
+        "posterior_mean": [
+          0.18181818181818182,
+          0.5454545454545454,
+          0.2727272727272727
+        ],
+        "true": [
+          0.1,
+          0.75,
+          0.15
+        ],
+        "ci95_low": [
+          0.024740209867816797,
+          0.26679846557260456,
+          0.06629570936495499
+        ],
+        "ci95_high": [
+          0.4509211620491885,
+          0.8149470172329287,
+          0.5531511545470879
+        ]
+      },
+      "D": {
+        "allowed_next": [
+          "A",
+          "F",
+          "E"
+        ],
+        "counts": [
+          1,
+          4,
+          3
+        ],
+        "alpha": [
+          2.0,
+          5.0,
+          4.0
+        ],
+        "posterior_mean": [
+          0.18181818181818182,
+          0.45454545454545453,
+          0.36363636363636365
+        ],
+        "true": [
+          0.1,
+          0.7,
+          0.2
+        ],
+        "ci95_low": [
+          0.024862987443149746,
+          0.1896353196445333,
+          0.12068962314636847
+        ],
+        "ci95_high": [
+          0.44738351230572515,
+          0.7362223825227592,
+          0.6551876774114535
+        ]
+      },
+      "F": {
+        "allowed_next": [
+          "A",
+          "D",
+          "E"
+        ],
+        "counts": [
+          3,
+          3,
+          2
+        ],
+        "alpha": [
+          4.0,
+          4.0,
+          3.0
+        ],
+        "posterior_mean": [
+          0.36363636363636365,
+          0.36363636363636365,
+          0.2727272727272727
+        ],
+        "true": [
+          0.55,
+          0.15,
+          0.3
+        ],
+        "ci95_low": [
+          0.11930755448952839,
+          0.12120529230901154,
+          0.06675569506011376
+        ],
+        "ci95_high": [
+          0.6506023381370725,
+          0.6538559910670035,
+          0.5563158710492115
+        ]
+      },
+      "E": {
+        "allowed_next": [
+          "A",
+          "D",
+          "F"
+        ],
+        "counts": [
+          2,
+          2,
+          3
+        ],
+        "alpha": [
+          3.0,
+          3.0,
+          4.0
+        ],
+        "posterior_mean": [
+          0.3,
+          0.3,
+          0.4
+        ],
+        "true": [
+          0.35,
+          0.35,
+          0.3
+        ],
+        "ci95_low": [
+          0.07510837115108214,
+          0.0735855076928646,
+          0.13584993571587703
+        ],
+        "ci95_high": [
+          0.6009878928641608,
+          0.6029216367370422,
+          0.7007556145612115
+        ]
+      }
+    },
+    "posterior_mean": [
+      [
+        0.0,
+        0.18181818181818182,
+        0.5454545454545454,
+        0.2727272727272727
+      ],
+      [
+        0.18181818181818182,
+        0.0,
+        0.45454545454545453,
+        0.36363636363636365
+      ],
+      [
+        0.36363636363636365,
+        0.36363636363636365,
+        0.0,
+        0.2727272727272727
+      ],
+      [
+        0.3,
+        0.3,
+        0.4,
+        0.0
+      ]
+    ],
+    "metrics": {
+      "mae_allowed_entries": 0.1272727272727273,
+      "max_abs_error": 0.24545454545454543,
+      "row_kl_true_given_posterior": [
+        0.08938104814999583,
+        0.1228965912711903,
+        0.12333534396776004,
+        0.02160085414354654
+      ],
+      "mean_row_kl": 0.08930345938312317
+    }
+  },
+  "orders": {
+    "A": {
+      "skill_index": 0,
+      "n_executions": 10,
+      "n_distinct_permutations": 2,
+      "permutation_counts": [
+        9,
+        1
+      ],
+      "acceptance_by_chain": [
+        0.4669,
+        0.4688
+      ],
+      "relation_posterior_by_chain": [
+        [
+          [
+            0.0,
+            0.9275
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.949
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ]
+      ],
+      "log_posterior_rhat": 0.9998796149364475,
+      "log_posterior_ess_by_chain": [
+        299.032322694872,
+        341.4049618596841
+      ],
+      "log_posterior_mean_by_chain": [
+        -9.734221287547697,
+        -9.727402231095018
+      ],
+      "n_saved_per_chain": 2000,
+      "distinct_order_regions_visited": 3,
+      "n_roles": 2,
+      "true_ordered_pairs": [
+        [
+          0,
+          1
+        ]
+      ],
+      "predicted_ordered_pairs": [
+        [
+          0,
+          1
+        ]
+      ],
+      "n_inferred_comparable": 1,
+      "ordered": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "true_positive": 1,
+        "n_predicted": 1,
+        "n_truth": 1,
+        "vacuous": false
+      },
+      "incomparable": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "true_positive": 0,
+        "n_predicted": 0,
+        "n_truth": 0,
+        "vacuous": true
+      },
+      "_predicted_ordered_set": [
+        [
+          0,
+          1
+        ]
+      ],
+      "_true_ordered_set": [
+        [
+          0,
+          1
+        ]
+      ],
+      "_predicted_incomparable_set": [],
+      "_true_incomparable_set": [],
+      "probability_true_pairs": {
+        "0>1": 0.93825
+      },
+      "probability_reverse_pairs": {
+        "1>0": 0.0
+      },
+      "relation_probability": [
+        [
+          0.0,
+          0.93825
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "D": {
+      "skill_index": 1,
+      "n_executions": 9,
+      "n_distinct_permutations": 2,
+      "permutation_counts": [
+        3,
+        6
+      ],
+      "acceptance_by_chain": [
+        0.4207,
+        0.4344
+      ],
+      "relation_posterior_by_chain": [
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.006,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.002,
+            0.0
+          ]
+        ]
+      ],
+      "log_posterior_rhat": 1.001138932260505,
+      "log_posterior_ess_by_chain": [
+        242.62576836649757,
+        215.25906776473082
+      ],
+      "log_posterior_mean_by_chain": [
+        -11.977896489657132,
+        -12.08663568319093
+      ],
+      "n_saved_per_chain": 2000,
+      "distinct_order_regions_visited": 3,
+      "n_roles": 2,
+      "true_ordered_pairs": [],
+      "predicted_ordered_pairs": [],
+      "n_inferred_comparable": 0,
+      "ordered": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "true_positive": 0,
+        "n_predicted": 0,
+        "n_truth": 0,
+        "vacuous": true
+      },
+      "incomparable": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "true_positive": 1,
+        "n_predicted": 1,
+        "n_truth": 1,
+        "vacuous": false
+      },
+      "_predicted_ordered_set": [],
+      "_true_ordered_set": [],
+      "_predicted_incomparable_set": [
+        [
+          0,
+          1
+        ]
+      ],
+      "_true_incomparable_set": [
+        [
+          0,
+          1
+        ]
+      ],
+      "probability_true_pairs": {},
+      "probability_reverse_pairs": {},
+      "relation_probability": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.004,
+          0.0
+        ]
+      ]
+    },
+    "F": {
+      "skill_index": 2,
+      "n_executions": 12,
+      "n_distinct_permutations": 1,
+      "permutation_counts": [
+        12,
+        0
+      ],
+      "acceptance_by_chain": [
+        0.4757,
+        0.4466
+      ],
+      "relation_posterior_by_chain": [
+        [
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.9995
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ]
+      ],
+      "log_posterior_rhat": 1.0115784764045945,
+      "log_posterior_ess_by_chain": [
+        295.799212529777,
+        332.4614167007229
+      ],
+      "log_posterior_mean_by_chain": [
+        -6.050667393360244,
+        -5.75614359934491
+      ],
+      "n_saved_per_chain": 2000,
+      "distinct_order_regions_visited": 3,
+      "n_roles": 2,
+      "true_ordered_pairs": [
+        [
+          0,
+          1
+        ]
+      ],
+      "predicted_ordered_pairs": [
+        [
+          0,
+          1
+        ]
+      ],
+      "n_inferred_comparable": 1,
+      "ordered": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "true_positive": 1,
+        "n_predicted": 1,
+        "n_truth": 1,
+        "vacuous": false
+      },
+      "incomparable": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "true_positive": 0,
+        "n_predicted": 0,
+        "n_truth": 0,
+        "vacuous": true
+      },
+      "_predicted_ordered_set": [
+        [
+          0,
+          1
+        ]
+      ],
+      "_true_ordered_set": [
+        [
+          0,
+          1
+        ]
+      ],
+      "_predicted_incomparable_set": [],
+      "_true_incomparable_set": [],
+      "probability_true_pairs": {
+        "0>1": 0.99975
+      },
+      "probability_reverse_pairs": {
+        "1>0": 0.0
+      },
+      "relation_probability": [
+        [
+          0.0,
+          0.99975
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "E": {
+      "skill_index": 3,
+      "n_executions": 8,
+      "n_distinct_permutations": 7,
+      "permutation_counts": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "acceptance_by_chain": [
+        0.2998,
+        0.2984
+      ],
+      "relation_posterior_by_chain": [
+        [
+          [
+            0.0,
+            0.38,
+            0.895,
+            0.917
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.3945,
+            0.878,
+            0.912
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      ],
+      "log_posterior_rhat": 0.9999294778945687,
+      "log_posterior_ess_by_chain": [
+        162.19821935438682,
+        179.01313036096627
+      ],
+      "log_posterior_mean_by_chain": [
+        -28.792399675493566,
+        -28.758367943179408
+      ],
+      "n_saved_per_chain": 2000,
+      "distinct_order_regions_visited": 111,
+      "n_roles": 4,
+      "true_ordered_pairs": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "predicted_ordered_pairs": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "n_inferred_comparable": 2,
+      "ordered": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "true_positive": 2,
+        "n_predicted": 2,
+        "n_truth": 2,
+        "vacuous": false
+      },
+      "incomparable": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "true_positive": 4,
+        "n_predicted": 4,
+        "n_truth": 4,
+        "vacuous": false
+      },
+      "_predicted_ordered_set": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "_true_ordered_set": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "_predicted_incomparable_set": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "_true_incomparable_set": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "probability_true_pairs": {
+        "0>2": 0.8865,
+        "0>3": 0.9145
+      },
+      "probability_reverse_pairs": {
+        "2>0": 0.0,
+        "3>0": 0.0
+      },
+      "relation_probability": [
+        [
+          0.0,
+          0.38725,
+          0.8865,
+          0.9145
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    }
+  },
+  "summary": {
+    "macro_ordered_f1": 1.0,
+    "macro_incomparable_f1": 1.0,
+    "micro_ordered": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "true_positive": 4,
+      "n_predicted": 4,
+      "n_truth": 4,
+      "vacuous": false
+    },
+    "micro_incomparable": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "true_positive": 5,
+      "n_predicted": 5,
+      "n_truth": 5,
+      "vacuous": false
+    },
+    "n_skills_with_a_vacuous_f1": 3,
+    "ordered_f1_by_skill": {
+      "A": 1.0,
+      "D": 1.0,
+      "F": 1.0,
+      "E": 1.0
+    },
+    "incomparable_f1_by_skill": {
+      "A": 1.0,
+      "D": 1.0,
+      "F": 1.0,
+      "E": 1.0
+    },
+    "transition_mae": 0.1272727272727273,
+    "transition_mean_row_kl": 0.08930345938312317,
+    "acceptance_min": 0.2984,
+    "acceptance_max": 0.4757,
+    "sigma_u": 0.8,
+    "n_chains": 2,
+    "n_iterations": 5000,
+    "burn_in": 1000,
+    "thin": 2,
+    "sigma_u_initial": 0.8,
+    "sigma_u_final": 0.8,
+    "pilot_adjustment_applied": false
+  }
+}

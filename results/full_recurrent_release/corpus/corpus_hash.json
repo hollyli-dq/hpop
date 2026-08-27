@@ -1,0 +1,6 @@
+{
+  "corpus_hash_sha256": "d569071e2a09e57ce6860aeac524c05affd9d27efb025f95ea6fda0bc1cbcce9",
+  "heldout_npz_sha256": "397ce069696958844427ed291cb802ab729be9bd4230837201d1473e6c6efe23",
+  "train_npz_sha256": "a5e278f2b3f883635b268f0c8b6927baf2b20fc8690db1e73276cb77a12bdb26",
+  "truth_hash_sha256": "0853e2fdd0ddd4aa1b91b786ec71a9b1bdb9c2c0b1f0057be4d9aa556a73ddc9"
+}

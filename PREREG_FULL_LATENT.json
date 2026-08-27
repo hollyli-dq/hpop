@@ -1,0 +1,179 @@
+{
+  "condition": "FULL-LATENT — unanchored joint HPOP hierarchy learning",
+  "status": "PRE-REGISTERED; a zero-checkpoint preliminary prefix was discarded before any gate or retained formal draw, and the corrected formal launch remains pending",
+  "scientific_question": "When skill identities are learned jointly rather than externally anchored, does exact path marginalization enable reliable recovery of the reusable partial-order library, segmentation, skill co-clustering, and transition dynamics?",
+  "context": "This experiment was designed after Condition C/C' revealed that fixed asymmetric pi*,P* create an anchored structure-to-index assignment problem. Unlike C/C', FULL-LATENT tests the unanchored matched finite-Markov HPOP hierarchy by inferring pi and P jointly with S,z,U and evaluating the posterior modulo global skill-label permutation.",
+  "authoritative_model": {
+    "name": "Stage6E matched finite-Markov specialization",
+    "source": "src/hpop/mcmc_original/stage6e_frozen.py",
+    "reason": "This is the model used by the frozen matched synthetic corpus and Conditions A/B/C/C'. Generic CRP/GEM prose elsewhere in the repository is not used for this finite K=3 formal corpus.",
+    "K": 3,
+    "roles_per_skill": 5,
+    "latent_dimension": 2,
+    "self_transitions_allowed": false,
+    "terminal_transition": false
+  },
+  "target_distribution": "p(S,z,U,pi,P | X, rho_0=0.5, beta=1.5, omega=1.7346010553881064, lambda_rep=0.8, lambda_back=0.25, delta_B=0.15, epsilon=0.02)",
+  "inferred_variables": [
+    "S: trace segmentations",
+    "z: segment skill identities",
+    "U: three latent structural coordinate matrices",
+    "pi: initial-skill distribution",
+    "P: zero-diagonal skill transition matrix"
+  ],
+  "fixed_variables": {
+    "rho_0": {
+      "value": 0.5,
+      "note": "The supplied corpus has rho*=null. This is the registered Condition-B/C isolation value, not a claimed generating rho."
+    },
+    "beta": 1.5,
+    "omega": 1.7346010553881064,
+    "lambda_rep": 0.8,
+    "lambda_back": 0.25,
+    "delta_B": 0.15,
+    "epsilon": 0.02,
+    "min_block_width": 3,
+    "max_block_width": 12
+  },
+  "priors": {
+    "U": "Existing Stage6C row-iid Gaussian p(U_k|rho_0), unchanged.",
+    "pi": "Dirichlet(1,1,1), the existing Stage6E ETA_INITIAL=1 prior.",
+    "P": "Independently for every h, P[h, -h] ~ Dirichlet(1,1), with P[h,h]=0 exactly; this is the existing Stage6E ETA_TRANSITION=1 prior."
+  },
+  "pi_P_updates": {
+    "pi": "pi | S,z ~ Dirichlet(1 + initial_counts)",
+    "P": "P[h,-h] | S,z ~ Dirichlet(1 + transition_counts[h,-h]); P[h,h]=0 exactly",
+    "order": "P then pi, matching the existing frozen Stage6E implementation; their independent conditionals use the same freshly sampled paths.",
+    "validation": "Before every forward/FFBS/marginal call and after every Gibbs update, require positive pi simplex, positive off-diagonal P rows summing to one, and exact zero diagonal."
+  },
+  "data": {
+    "corpus_directory": "results/mcmc_original/matched_synthetic_formal_corpus",
+    "generator_commit": "8ca828153e8e263bf4ea4823e45a53fa454037ad",
+    "corpus_commit": "b199374baaf3f795ce5ee6dca16b7478bd07a3b9",
+    "corpus_hash_sha256": "dd280a4a09896154e167f388edd401a9119ba398167c09404aba5f7743e58ec2",
+    "train_npz_sha256": "717b77a4cff740c7811c9becb6e43af68d286dcc1c6c6ba6feb475208fef6541",
+    "heldout_npz_sha256": "4d586fc5e26ec356cdb00d496a64be9d1071ee8ef9d112ab89d1246c46bee23f",
+    "truth_hash_sha256": "fc41538fd44d170df8d0a6401f0c6e6b49d52418c487e22f9e4f45ee047f903e",
+    "split": "100 frozen training traces (25 each of J=24,32,40,48) and 45 frozen held-out traces (12,11,11,11); observed CPA arrays only are loaded online.",
+    "truth_seal": "The runner loads only named observed CPA arrays. A fresh-process import probe forbids legacy generator/truth modules before every formal launch; it never opens truth_manifest.json or hidden NPZ fields. Terminal recovery is a separate explicit-unseal program."
+  },
+  "arms": {
+    "FULL-COND": "At the common structural cadence, one uniformly selected (skill,row) Gaussian U proposal is scored against the current explicit (S,z) complete-path likelihood plus p(U|rho_0).",
+    "FULL-MARG": "At that same cadence, the identical proposal is scored by sum_n log Z_n(U; current pi,P) plus p(U|rho_0). It never reads stored S,z before FFBS."
+  },
+  "kernel_schedule": {
+    "structural_proposal": "One uniform skill and one uniform row; existing symmetric propose_row family; common scale 0.5 (the parent registered Stage6C generic row scale).",
+    "structural_cadence": "every 10 absolute sweeps in both arms; there are no ordinary conditional U row sweeps in either arm.",
+    "FULL-COND": [
+      "conditional U MH",
+      "exact all-trace FFBS refresh of S,z at current U,pi,P",
+      "P Gibbs from refreshed paths",
+      "pi Gibbs from refreshed paths"
+    ],
+    "FULL-MARG": [
+      "path-marginal U MH",
+      "exact all-trace FFBS refresh of S,z at current U,pi,P",
+      "P Gibbs from refreshed paths",
+      "pi Gibbs from refreshed paths"
+    ],
+    "validity_argument": "For fixed pi,P, the marginal U MH leaves p(U|X,pi,P) invariant and reads no paths. Exact FFBS then draws p(S,z|U,pi,P,X), restoring the joint target before P/pi Gibbs read the refreshed paths. Conditional U MH instead leaves p(U|S,z,X,pi,P) invariant; the following FFBS and Gibbs transitions are ordinary exact conditional kernels. Thus both composed kernels preserve the same target."
+  },
+  "fairness": {
+    "same_between_arms": [
+      "data",
+      "prior",
+      "fixed nuisance coordinates",
+      "U proposal family/scale/skill-row selection/cadence/opportunity count",
+      "initial states",
+      "FFBS",
+      "pi/P Gibbs updates",
+      "retained-draw schedule",
+      "checkpoint ladder"
+    ],
+    "only_difference": "The likelihood term used to score the one structural U proposal.",
+    "no_additive_C_schedule": "The prior C-MARG additive schedule is expressly not reused."
+  },
+  "starts": {
+    "U": {
+      "construction": "Existing dispersed wrong-structure Gaussian construction at rho_0=0.5; no truth alignment.",
+      "seeds": [6204101, 6204102, 6204103, 6204104],
+      "scales": [0.5, 1.0, 2.0, 3.0]
+    },
+    "S_z": "A deterministic legal tiling with cyclic labels; exact FFBS replaces it on sweep one. It is shared exactly across paired arms and has no truth input.",
+    "pi_P": {
+      "construction": "Independent legal prior draws using pi~Dirichlet(1,1,1) and each P[h,-h]~Dirichlet(1,1), with no true pi/P input.",
+      "seeds": [6206101, 6206102, 6206103, 6206104]
+    },
+    "pairing": "For each index 0..3, FULL-COND and FULL-MARG start from byte-identical U,S,z,pi,P states. No Condition C/C' terminal state is used."
+  },
+  "chain_seeds": {
+    "FULL-COND": [6206201, 6206202, 6206203, 6206204],
+    "FULL-MARG": [6206211, 6206212, 6206213, 6206214]
+  },
+  "convergence": {
+    "implementation": "Existing rank-normalized split-R-hat, bulk ESS, and tail ESS implementation.",
+    "burn_in": 10000,
+    "thinning": 5,
+    "checkpoints": [30000, 50000, 75000, 100000],
+    "rhat_threshold": 1.01,
+    "ess_thresholds": {
+      "log_target_bulk": 1000,
+      "log_target_tail": 500,
+      "total_relations_bulk": 1000,
+      "all_remaining_invariant_probe_or_structural_summary_bulk": 500
+    },
+    "movement_requirement": "Every chain must have at least one accepted H-changing structural move.",
+    "stopping_rule": "Each arm stops after two consecutive PASS checkpoints; the ceiling is 100000 sweeps and is never extended.",
+    "summaries": [
+      "log target",
+      "total relations and sorted per-skill relation counts",
+      "total segments, mean segments per trace, mean and SD segment length",
+      "32 deterministic corpus-hash-selected boundary indicators and dataset aggregates",
+      "64 deterministic corpus-hash-selected co-skill and same-segment indicators",
+      "sorted pi, pi entropy, pi L2 norm",
+      "P Frobenius norm, trace(P^2), trace(P^3), sorted row entropies, sorted stationary probabilities"
+    ],
+    "permutation_rule": "Every formal gate summary is verified against every one of the 3!=6 simultaneous label permutations. Raw skill-index-specific R-hat is not used."
+  },
+  "checkpoint_resume": {
+    "every_sweeps": 2000,
+    "must_preserve": [
+      "RNG state",
+      "U",
+      "S,z",
+      "pi",
+      "P",
+      "retained draws",
+      "online boundary/co-skill accumulators",
+      "diagnostics",
+      "movement and partial-collapse ordering counters"
+    ]
+  },
+  "terminal_recovery": {
+    "unseal_rule": "Only after both arms are terminal under the registered stopping rule or the registered ceiling; no recovery or held-out tuning during sampling.",
+    "alignment": "Hungarian assignment on per-skill transitive-closure Hamming cost; enumerate the six tied optima only to choose the lexicographically smallest mapping. Apply that one learned-to-truth mapping to H, pi, both axes of P, and z.",
+    "outcomes": [
+      "exact unordered library recovery and retained-draw probability",
+      "per-skill/aggregate closure F1 and normalized closure Hamming",
+      "boundary Brier plus fixed-threshold (0.5) precision/recall/F1",
+      "fixed-pair co-skill Brier and pairwise F1",
+      "aligned pi L1/TV/RMSE",
+      "aligned off-diagonal P RMSE, Frobenius error, and row TV",
+      "held-out posterior-predictive NLL per occurrence"
+    ],
+    "heldout_nll": "For each retained posterior draw and each of the frozen 45 held-out traces, exact forward DP gives log Z_n; subtract log C_J(delta_B), then use per-trace log-mean-exp across posterior draws. Primary NLL/occurrence is -sum_n log mean_d p(x_n|theta_d) / total held-out occurrences."
+  },
+  "prelaunch_integrity_amendment": {
+    "scientific_registration_changed": false,
+    "discarded_attempt_record": "results/mcmc_original/matched_full_latent/DISCARDED_precheckpoint_attempt.json",
+    "reason": "The initial zero-checkpoint prefix exposed two implementation/provenance defects before any formal gate: duplicate gate evaluation could double-count a checkpoint on resume, and a historical frozen-model import transitively loaded legacy generator truth.",
+    "corrections_before_valid_formal_launch": [
+      "Gate records certify their exact checkpoint iteration, are atomic, are never recomputed on resume, and a later checkpoint cannot backfill a missing earlier gate.",
+      "Formal runtime is import-sealed in a fresh subprocess; historical generator imports are lazy and outside the live sampler path.",
+      "Retained U is exact float64 under checkpoint schema 2 so terminal closures and held-out forwards represent sampled draws exactly.",
+      "The terminal-only recovery driver, shared Hungarian alignment, held-out calculation, and unseal guard are frozen before the valid formal launch."
+    ],
+    "disposition": "The discarded prefix contributes no checkpoint, retained draw, gate, convergence result, recovery result, or scientific conclusion. Starts, priors, target, kernel schedules, thresholds, data, and no-rescue rule are unchanged."
+  },
+  "no_rescue_rule": "No global skill-swap, transposition, 3-cycle, arbitrary permutation, tempering, rescue kernel, data change, K change, nuisance-parameter inference, post-launch proposal tuning, threshold modification, truth-informed start, or held-out-based tuning will be added after launch."
+}

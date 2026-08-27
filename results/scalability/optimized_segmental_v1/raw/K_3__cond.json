@@ -1,0 +1,300 @@
+{
+  "censored": false,
+  "config": {
+    "A": 20,
+    "D_max": 12,
+    "D_min": 3,
+    "J": 128,
+    "K": 3,
+    "N": 32,
+    "axis": "K",
+    "groups": [
+      "build",
+      "primitives",
+      "cond",
+      "marg"
+    ],
+    "label": "K_3",
+    "length_mix": [],
+    "max_reps": 50,
+    "min_reps": 15,
+    "note": "",
+    "op_reps": [],
+    "regime": "full",
+    "seed": 20260822,
+    "timeout_s": 720,
+    "warmups": 3
+  },
+  "config_id": "K/N32_J128_K3_A20_D12_full_s20260822",
+  "counters": {
+    "emission_cache_hits": 18,
+    "emission_rebuilds": 20,
+    "forward_batched_groups": 38,
+    "forward_batched_traces": 1216,
+    "forward_factorised_calls": 0,
+    "forward_inline_calls": 0,
+    "forward_reference_calls": 0
+  },
+  "extras": {},
+  "flags": {
+    "batched_forward": true,
+    "emission_hash_cache": true,
+    "factorised_forward": true,
+    "inline_logsumexp": true
+  },
+  "forward_work": {
+    "forward_duration_reductions": 115680,
+    "forward_states": 12288,
+    "forward_total_reductions": 152544,
+    "forward_transition_reductions": 36864
+  },
+  "geometry": {
+    "legal_blocks_per_trace_mean": 1215.0,
+    "legal_blocks_times_skills": 116640,
+    "legal_blocks_total": 38880,
+    "n_legal_widths": 10,
+    "trace_occurrences": 4096
+  },
+  "group": "cond",
+  "group_build_seconds": 0.28966262500034645,
+  "invariants": {
+    "all_invariants_pass": true,
+    "plain_P_diagonal_exactly_zero": true,
+    "plain_P_rows_sum_to_one": true,
+    "plain_components_finite": true,
+    "plain_kernel_order": [
+      "FFBS",
+      "pi_P"
+    ],
+    "plain_log_target": -19905.703631996028,
+    "plain_scheduled_structural": false,
+    "structural_P_diagonal_exactly_zero": true,
+    "structural_P_rows_sum_to_one": true,
+    "structural_components_finite": true,
+    "structural_kernel_order": [
+      "conditional_U",
+      "FFBS",
+      "pi_P"
+    ],
+    "structural_log_target": -19945.867984973673,
+    "structural_move_accepted": false,
+    "structural_move_attempted": true,
+    "structural_move_invalid": false,
+    "structural_scheduled_structural": true
+  },
+  "loadavg_after": [
+    1.62255859375,
+    2.05615234375,
+    3.61962890625
+  ],
+  "loadavg_before": [
+    1.736328125,
+    2.0927734375,
+    3.65087890625
+  ],
+  "operations": {
+    "cond_plain": {
+      "cpu": {
+        "ci_hi": 0.03575999999999979,
+        "ci_lo": 0.035480999999999874,
+        "ci_relative_half_width": 0.003905375139976413,
+        "iqr": 0.00030700000000027927,
+        "max": 0.03587600000000002,
+        "mean": 0.035623866666666795,
+        "median": 0.03572000000000042,
+        "min": 0.035248000000001056,
+        "n": 15,
+        "p90": 0.03582319999999974,
+        "q25": 0.03545499999999979,
+        "q75": 0.03576200000000007
+      },
+      "cpu_raw": [
+        0.03575700000000026,
+        0.03576400000000035,
+        0.03576800000000002,
+        0.03572000000000042,
+        0.03585999999999956,
+        0.03542899999999971,
+        0.03526900000000044,
+        0.03575999999999979,
+        0.035480999999999874,
+        0.035353999999999886,
+        0.035248000000001056,
+        0.03572699999999962,
+        0.03571600000000075,
+        0.03562900000000013,
+        0.03587600000000002
+      ],
+      "wall": {
+        "ci_hi": 0.03582079099942348,
+        "ci_lo": 0.03555070900256396,
+        "ci_relative_half_width": 0.0037780223075810217,
+        "iqr": 0.0002948954988823971,
+        "max": 0.03589674999966519,
+        "mean": 0.03565577780051778,
+        "median": 0.035743832999287406,
+        "min": 0.03524716600077227,
+        "n": 15,
+        "p90": 0.03586441700099385,
+        "q25": 0.03551516700099455,
+        "q75": 0.03581006249987695
+      },
+      "wall_raw": [
+        0.03582079099942348,
+        0.03578600000037113,
+        0.0358284169997205,
+        0.03573145800328348,
+        0.035888417001842754,
+        0.03555070900256396,
+        0.035268416002509184,
+        0.03579933400033042,
+        0.03547962499942514,
+        0.035403833997406764,
+        0.03524716600077227,
+        0.035743832999287406,
+        0.03574579199994332,
+        0.03564612500122166,
+        0.03589674999966519
+      ]
+    },
+    "cond_structural": {
+      "cpu": {
+        "ci_hi": 0.4747029999999999,
+        "ci_lo": 0.47326599999999974,
+        "ci_relative_half_width": 0.0015158259827553777,
+        "iqr": 0.0011925000000005959,
+        "max": 0.49810799999999844,
+        "mean": 0.47670273333333313,
+        "median": 0.47399900000000006,
+        "min": 0.4705300000000001,
+        "n": 15,
+        "p90": 0.4875989999999998,
+        "q25": 0.47349499999999933,
+        "q75": 0.47468749999999993
+      },
+      "cpu_raw": [
+        0.495533,
+        0.474672,
+        0.471336,
+        0.47399900000000006,
+        0.47326599999999974,
+        0.4747029999999999,
+        0.4756979999999995,
+        0.47388799999999964,
+        0.4741610000000005,
+        0.4739300000000011,
+        0.47296099999999974,
+        0.49810799999999844,
+        0.4705300000000001,
+        0.47403199999999934,
+        0.4737239999999989
+      ],
+      "wall": {
+        "ci_hi": 0.47506062500178814,
+        "ci_lo": 0.4733945420011878,
+        "ci_relative_half_width": 0.0017560180516286296,
+        "iqr": 0.0013605414987978293,
+        "max": 0.5041872920010064,
+        "mean": 0.47783441946667154,
+        "median": 0.474392332998832,
+        "min": 0.47079637500064564,
+        "n": 15,
+        "p90": 0.4920203418005258,
+        "q25": 0.47367427100107307,
+        "q75": 0.4750348124998709
+      },
+      "wall_raw": [
+        0.5027988750007353,
+        0.47500899999795365,
+        0.47144041700084927,
+        0.47440774999995483,
+        0.4733945420011878,
+        0.47506062500178814,
+        0.47585254200021154,
+        0.47418666599696735,
+        0.474392332998832,
+        0.4742747499985853,
+        0.47321875000125146,
+        0.5041872920010064,
+        0.47079637500064564,
+        0.474542374999146,
+        0.47395400000095833
+      ]
+    }
+  },
+  "peak_rss_at_process_start_bytes": 110714880,
+  "peak_rss_bytes": 314429440,
+  "predicted_memory": {
+    "alpha_chart_bytes": 99072,
+    "batched_alpha_r_bytes": 198144,
+    "batched_stack_bytes_worst_class": 12681216,
+    "dense_block_table_bytes": 12681216,
+    "dense_block_table_bytes_all_copies": 25362432,
+    "dense_copies_live_in_this_group": 2,
+    "fast_cumulative_bytes": 1161216,
+    "group": "cond",
+    "predicted_arrays_total_bytes": 39502080,
+    "predicted_process_rss_bytes": 270188800,
+    "projected_banded_bytes_NOT_IMPLEMENTED": 967680,
+    "projected_banded_saving_ratio_NOT_IMPLEMENTED": 13.104761904761904
+  },
+  "preflight": {
+    "allowed": true,
+    "available_bytes": 6263291904,
+    "cap_bytes": 6442450944,
+    "predicted_rss_bytes": 270188800,
+    "reasons": []
+  },
+  "process_cpu_seconds_total": 11.286824,
+  "reduced_repetitions": false,
+  "repetition_plan": {
+    "cond_plain": {
+      "max_reps": 50,
+      "min_reps": 15,
+      "warmups": 3
+    },
+    "cond_structural": {
+      "max_reps": 50,
+      "min_reps": 15,
+      "warmups": 3
+    }
+  },
+  "reps_completed": 15,
+  "reps_completed_per_operation": {
+    "cond_plain": 15,
+    "cond_structural": 15
+  },
+  "role_graph": {
+    "max_predecessors_per_role": 16,
+    "mean_predecessors_per_role": 4.1000000000000005,
+    "mean_relation_density": 0.21578947368421053,
+    "n_roles": 20,
+    "n_skills": 3,
+    "relation_density_per_skill": [
+      0.18157894736842106,
+      0.2578947368421053,
+      0.20789473684210527
+    ],
+    "relations_per_skill": [
+      69,
+      98,
+      79
+    ]
+  },
+  "setup_seconds": 0.002232999999250751,
+  "status": "ok",
+  "swap": {
+    "available": true,
+    "available_bytes": 6154911744,
+    "raw": "total = 3072.00M  used = 1563.38M  free = 1508.62M  (encrypted)",
+    "swapins": 1781572.0,
+    "swapouts": 2238774.0,
+    "used_mb": 1563.38
+  },
+  "wall_seconds_total": 10.571135997772217,
+  "warmups": 3,
+  "warmups_completed": {
+    "cond_plain": 3,
+    "cond_structural": 3
+  }
+}

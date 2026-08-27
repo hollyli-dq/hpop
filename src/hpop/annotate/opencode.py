@@ -17,8 +17,10 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import concurrent.futures as cf
 import json
 import os
+import threading
 
 from hpop.annotate.opencode_schema import CPA_ANNOTATION_SCHEMA
 
@@ -90,12 +92,37 @@ unique. Repeated CPA labels are explicitly allowed. Conform exactly to the respo
 
 
 def _frozen_library_block(library, version):
+    """Render the frozen library for APPLY mode.
+
+    Carries the `distinguish` note and `phase` for every entry, not just name::definition. The
+    distinguish notes are half the codebook: RUN_TEST_SUITE / REPRODUCE_ISSUE / VERIFY_FIX can be the
+    SAME pytest command, individuated only by proximate goal and position relative to the edit. Without
+    them a matcher cannot separate those CPAs and PROPOSE_NEW is inflated by a prompt artifact rather
+    than a real gap in the library.
+    """
     if not library:
         return ""
-    lines = ["FROZEN CPA LIBRARY (version {}):".format(version)]
+    by_phase = {}
     for c in library:
-        lines.append("  - {} :: {}".format(c.get("name") or c.get("canonical_label") or c.get("id"),
-                                            c.get("definition", "")))
+        by_phase.setdefault(c.get("phase") or "UNSPECIFIED", []).append(c)
+    lines = [
+        "FROZEN CPA LIBRARY (version {}) — {} CPAs across {} phases.".format(
+            version, len(library), len(by_phase)),
+        "Each CPA realizes exactly ONE phase and is individuated WITHIN that phase by its proximate",
+        "goal. Match on the definition AND the distinguish note, never on the label wording alone.",
+        "The same shell command may realize different CPAs depending on its proximate goal and its",
+        "position relative to an edit — use the distinguish notes to decide.",
+        "",
+    ]
+    for phase, entries in by_phase.items():
+        lines.append("PHASE {} ({}):".format(phase, entries[0].get("level") or "?"))
+        for c in entries:
+            name = c.get("name") or c.get("canonical_label") or c.get("id")
+            lines.append("  - {}".format(name))
+            lines.append("      definition:  {}".format(c.get("definition", "")))
+            if c.get("distinguish"):
+                lines.append("      distinguish: {}".format(c["distinguish"]))
+        lines.append("")
     return "\n".join(lines)
 
 
@@ -117,6 +144,10 @@ def build_user_message(trace, mode, library, library_version):
         }
         # expose edit content so the annotator can tell a real fix from a debug print / a test
         if tool == "str_replace_editor":
+            # for the editor, `command` above is only the sub-command ("view"/"create"/...). The path
+            # is what separates READ_SOURCE / READ_DOCUMENTATION / EXPLORE_REPOSITORY — send it.
+            if a.get("path"):
+                ev["path"] = str(a["path"])[:200]
             if a.get("file_text"):
                 ev["created_content"] = a["file_text"][:350]
             elif a.get("new_str") is not None:
@@ -169,6 +200,10 @@ def main(argv=None):
     ap.add_argument("--library-version", default=None)
     ap.add_argument("--annotator", default="llm_config_A")
     ap.add_argument("--limit", type=int, default=None)
+    ap.add_argument("--concurrency", type=int, default=6,
+                    help="parallel in-flight annotations (sync mode); SDK retries 429/5xx itself")
+    ap.add_argument("--resume", action="store_true",
+                    help="skip trace_ids already present in <output>.jsonl and append")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args(argv)
 
@@ -176,6 +211,18 @@ def main(argv=None):
     traces = list(iter_traces(args.input))
     if args.limit is not None:
         traces = traces[: args.limit]
+
+    done = set()
+    if args.resume and os.path.exists(args.output + ".jsonl"):
+        with open(args.output + ".jsonl", encoding="utf-8") as f:
+            for line in f:
+                if line.strip():
+                    try:
+                        done.add(json.loads(line).get("_instance_id"))
+                    except Exception:
+                        pass  # tolerate a torn final line from an interrupted run
+        traces = [t for t in traces if t.get("trace_id") not in done]
+        print("resume: {} already annotated, {} remaining".format(len(done), len(traces)))
 
     if args.dry_run:
         print("=" * 80 + "\nMODE: {} | library size {} | version {}\n".format(args.mode, len(library), args.library_version) + "=" * 80)
@@ -192,33 +239,52 @@ def main(argv=None):
     client = anthropic.Anthropic()
 
     os.makedirs(os.path.dirname(os.path.abspath(args.output)) or ".", exist_ok=True)
-    ff = open(args.output + ".jsonl", "w", encoding="utf-8")
-    fc = open(args.output + ".cpa_instances.jsonl", "w", encoding="utf-8")
-    n_t = n_i = n_new = n_rev = 0
+    mode = "a" if (args.resume and done) else "w"
+    ff = open(args.output + ".jsonl", mode, encoding="utf-8")
+    fc = open(args.output + ".cpa_instances.jsonl", mode, encoding="utf-8")
+    n_t = n_i = n_new = n_rev = n_err = 0
+    lock = threading.Lock()
+
+    def work(t):
+        """Annotate one trace. Returns (trace, annotation) or (trace, exception)."""
+        try:
+            return t, annotate_trace(client, t, args.mode, library, args.library_version)
+        except Exception as exc:
+            return t, exc
+
     try:
-        for k, t in enumerate(traces, 1):
-            tid = t.get("trace_id")
-            try:
-                ann = annotate_trace(client, t, args.mode, library, args.library_version)
-            except Exception as exc:
-                print("  [{}/{}] {} ERROR: {}".format(k, len(traces), tid, exc)); continue
-            ann["_instance_id"] = tid; ann["_repo"] = t.get("repo"); ann["_annotator"] = args.annotator
-            ff.write(json.dumps(ann, ensure_ascii=False) + "\n")
-            for c in ann.get("cpa_instances", []):
-                rec = dict(c, trajectory_id=ann.get("trajectory_id"), instance_id=tid,
-                           repo=t.get("repo"), annotator=args.annotator)
-                fc.write(json.dumps(rec, ensure_ascii=False) + "\n")
-            inst = ann.get("cpa_instances", [])
-            nn = sum(1 for c in inst if c.get("decision") == "PROPOSE_NEW")
-            nr = sum(1 for c in inst if c.get("review_required"))
-            n_t += 1; n_i += len(inst); n_new += nn; n_rev += nr
-            qc = ann.get("quality_checks", {})
-            print("  [{}/{}] {}  cpa={} new={} review={} skill_inferred={}".format(
-                k, len(traces), tid, len(inst), nn, nr, qc.get("skill_labels_inferred")))
+        with cf.ThreadPoolExecutor(max_workers=args.concurrency) as pool:
+            futures = [pool.submit(work, t) for t in traces]
+            for k, fut in enumerate(cf.as_completed(futures), 1):
+                t, ann = fut.result()
+                tid = t.get("trace_id")
+                if isinstance(ann, Exception):
+                    n_err += 1
+                    print("  [{}/{}] {} ERROR: {}".format(k, len(traces), tid, str(ann)[:120]))
+                    continue
+                ann["_instance_id"] = tid; ann["_repo"] = t.get("repo")
+                ann["_resolved"] = t.get("resolved"); ann["_annotator"] = args.annotator
+                inst = ann.get("cpa_instances", [])
+                nn = sum(1 for c in inst if c.get("decision") == "PROPOSE_NEW")
+                nr = sum(1 for c in inst if c.get("review_required"))
+                # one writer at a time: threads share the two file handles
+                with lock:
+                    ff.write(json.dumps(ann, ensure_ascii=False) + "\n"); ff.flush()
+                    for c in inst:
+                        rec = dict(c, trajectory_id=ann.get("trajectory_id"), instance_id=tid,
+                                   repo=t.get("repo"), annotator=args.annotator)
+                        fc.write(json.dumps(rec, ensure_ascii=False) + "\n")
+                    fc.flush()
+                    n_t += 1; n_i += len(inst); n_new += nn; n_rev += nr
+                qc = ann.get("quality_checks", {})
+                print("  [{}/{}] {}  cpa={} new={} review={} skill_inferred={}".format(
+                    k, len(traces), tid, len(inst), nn, nr, qc.get("skill_labels_inferred")))
     finally:
         ff.close(); fc.close()
-    print("\nwrote {} trajectories, {} CPA occurrences ({} new, {} review) -> {}.jsonl + .cpa_instances.jsonl".format(
-        n_t, n_i, n_new, n_rev, args.output))
+    print("\nwrote {} trajectories, {} CPA occurrences ({} new, {} review), {} errors -> {}.jsonl "
+          "+ .cpa_instances.jsonl".format(n_t, n_i, n_new, n_rev, n_err, args.output))
+    if n_err:
+        print("re-run with --resume to retry only the {} failed trajectories.".format(n_err))
 
 
 if __name__ == "__main__":

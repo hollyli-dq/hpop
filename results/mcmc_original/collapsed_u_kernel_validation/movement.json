@@ -1,0 +1,98 @@
+{
+  "per_chain": [
+    {
+      "chain": 0,
+      "every": 10,
+      "attempted": 60000,
+      "valid": 60000,
+      "h_changed": 20448,
+      "accepted": 38173,
+      "accepted_h_changed": 10239,
+      "fraction_h_changed": 0.3408,
+      "fraction_accepted": 0.6362166666666667,
+      "mean_eval_seconds": 0.012580569691370086,
+      "p95_eval_seconds": 0.019081326796731437,
+      "distinct_h_states_retained": 3711,
+      "h_changes_between_retained_draws": 46927,
+      "relation_count_lag1_autocorrelation": 0.39831067863161473,
+      "relation_count_ess_lag1_estimate": 20654.270804786738
+    },
+    {
+      "chain": 1,
+      "every": 10,
+      "attempted": 60000,
+      "valid": 60000,
+      "h_changed": 20487,
+      "accepted": 38234,
+      "accepted_h_changed": 10361,
+      "fraction_h_changed": 0.34145,
+      "fraction_accepted": 0.6372333333333333,
+      "mean_eval_seconds": 0.012621914444382614,
+      "p95_eval_seconds": 0.019190439594240143,
+      "distinct_h_states_retained": 3653,
+      "h_changes_between_retained_draws": 46852,
+      "relation_count_lag1_autocorrelation": 0.3923704246128992,
+      "relation_count_ess_lag1_estimate": 20947.169735158306
+    },
+    {
+      "chain": 2,
+      "every": 10,
+      "attempted": 60000,
+      "valid": 60000,
+      "h_changed": 20684,
+      "accepted": 38324,
+      "accepted_h_changed": 10483,
+      "fraction_h_changed": 0.34473333333333334,
+      "fraction_accepted": 0.6387333333333334,
+      "mean_eval_seconds": 0.012578786325239828,
+      "p95_eval_seconds": 0.019002228842145995,
+      "distinct_h_states_retained": 3749,
+      "h_changes_between_retained_draws": 46950,
+      "relation_count_lag1_autocorrelation": 0.3939730427535085,
+      "relation_count_ess_lag1_estimate": 20867.90278983563
+    },
+    {
+      "chain": 3,
+      "every": 10,
+      "attempted": 60000,
+      "valid": 60000,
+      "h_changed": 20356,
+      "accepted": 38303,
+      "accepted_h_changed": 10288,
+      "fraction_h_changed": 0.33926666666666666,
+      "fraction_accepted": 0.6383833333333333,
+      "mean_eval_seconds": 0.012740831538284692,
+      "p95_eval_seconds": 0.019213181256054652,
+      "distinct_h_states_retained": 3727,
+      "h_changes_between_retained_draws": 46879,
+      "relation_count_lag1_autocorrelation": 0.4064737688794327,
+      "relation_count_ess_lag1_estimate": 20255.805493255113
+    }
+  ],
+  "baseline_7b1": {
+    "movement": [
+      {
+        "boundary_hamming": 768628,
+        "label_changes": 3198798,
+        "states_changed": 733430
+      },
+      {
+        "boundary_hamming": 772470,
+        "label_changes": 3207707,
+        "states_changed": 735985
+      },
+      {
+        "boundary_hamming": 773629,
+        "label_changes": 3215615,
+        "states_changed": 736627
+      },
+      {
+        "boundary_hamming": 771461,
+        "label_changes": 3220726,
+        "states_changed": 736766
+      }
+    ],
+    "worst_rhat": 1.003246067209239,
+    "note": "descriptive only; correctness is judged by the gates, not by movement"
+  }
+}

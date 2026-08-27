@@ -1,0 +1,104 @@
+{
+  "all": {
+    "boundary_brier": {
+      "absolute_reduction": 0.0567550891940459,
+      "posterior": 0.051592689377131226,
+      "prior": 0.10834777857117713,
+      "relative_reduction": 0.5238232840811006
+    },
+    "boundary_nll": {
+      "absolute_reduction": 0.19666360275151243,
+      "posterior": 0.16624502759677987,
+      "prior": 0.3629086303482923,
+      "relative_reduction": 0.5419094127432835
+    },
+    "occurrence_nll": {
+      "absolute_reduction": 0.8408799038890613,
+      "posterior": 0.2495564386214098,
+      "prior": 1.090436342510471,
+      "relative_reduction": 0.7711407544920363
+    },
+    "occurrence_prob_true": {
+      "posterior": 0.8543039847317346,
+      "prior": 0.3394771437242977
+    },
+    "path_entropy_reduction_nats": {
+      "max": 17.37030790510578,
+      "mean": 10.538095182822582,
+      "median": 10.213045658090827,
+      "min": 5.074776920435486,
+      "n": 145,
+      "q05": 6.531374102904774,
+      "q95": 15.388885251324878,
+      "sd": 2.9396420504144665
+    }
+  },
+  "heldout": {
+    "boundary_brier": {
+      "absolute_reduction": 0.061407982629181006,
+      "posterior": 0.047669046980818953,
+      "prior": 0.10907702960999996,
+      "relative_reduction": 0.5629781343399476
+    },
+    "boundary_nll": {
+      "absolute_reduction": 0.21430964213681195,
+      "posterior": 0.1504270946855817,
+      "prior": 0.36473673682239366,
+      "relative_reduction": 0.5875735030254677
+    },
+    "occurrence_nll": {
+      "absolute_reduction": 0.8537381951880159,
+      "posterior": 0.23604357043835456,
+      "prior": 1.0897817656263704,
+      "relative_reduction": 0.7834028996597456
+    },
+    "occurrence_prob_true": {
+      "posterior": 0.8551366934680062,
+      "prior": 0.33977750516954497
+    },
+    "path_entropy_reduction_nats": {
+      "max": 17.37030790510578,
+      "mean": 10.428119240634661,
+      "median": 9.931416534651241,
+      "min": 5.661870695774883,
+      "n": 45,
+      "q05": 6.787407550205854,
+      "q95": 15.464308183245157,
+      "sd": 3.0508857772284994
+    }
+  },
+  "train": {
+    "boundary_brier": {
+      "absolute_reduction": 0.054677239925726956,
+      "posterior": 0.05334487596725582,
+      "prior": 0.10802211589298277,
+      "relative_reduction": 0.5061670887829632
+    },
+    "boundary_nll": {
+      "absolute_reduction": 0.1887833857345916,
+      "posterior": 0.17330886449398067,
+      "prior": 0.3620922502285723,
+      "relative_reduction": 0.5213682027588862
+    },
+    "occurrence_nll": {
+      "absolute_reduction": 0.8351365337755281,
+      "posterior": 0.2555921864098412,
+      "prior": 1.0907287201853693,
+      "relative_reduction": 0.7656684181137146
+    },
+    "occurrence_prob_true": {
+      "posterior": 0.8539320414961998,
+      "prior": 0.3393429822787539
+    },
+    "path_entropy_reduction_nats": {
+      "max": 16.925866637737332,
+      "mean": 10.587584356807145,
+      "median": 10.315479087033928,
+      "min": 5.074776920435486,
+      "n": 100,
+      "q05": 6.4448533712570475,
+      "q95": 15.096576910104357,
+      "sd": 2.9025213326439996
+    }
+  }
+}

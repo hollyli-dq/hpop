@@ -1,0 +1,84 @@
+{
+  "backend_commit": "564995efd056d7d33984f0ca1532386e6140ea0c",
+  "corpus_hash_sha256": "3e3aa6533bd7951f9b2ed1dfa050e9d07f1b2e96b0e3914e044010130e9acdfa",
+  "file_sha256": {
+    "results/mcmc_optimized/confirmatory_corpus/config.json": "ef8da42b3162ed59dd429c7c3c46d7fb1a518a09a868464ace475bc61a626612",
+    "results/mcmc_optimized/confirmatory_corpus/corpus_hash.json": "574523024420800a352fb26a3a5edb9ec1592e3f09e81c6d62600f6e226db159",
+    "results/mcmc_optimized/confirmatory_corpus/heldout_traces.npz": "2698bce19236ca9ebc4590cc0a9852eb7c61aa97487b4dddd08672601d28f0c7",
+    "results/mcmc_optimized/confirmatory_corpus/probes_manifest.json": "d40bf396ec5c00248e859d70dff0978da3f15d628e22743650b673854f241d7a",
+    "results/mcmc_optimized/confirmatory_corpus/starts_manifest.json": "dbe3ebcf89d86a785d2372b9b771e5a02c62f4dd39f3e548711adb87f4106ec1",
+    "results/mcmc_optimized/confirmatory_corpus/train_traces.npz": "e05a46013b398072614d11c40a8891e9afedb780b76db2e07e6200cdf69ad04e",
+    "results/mcmc_optimized/confirmatory_corpus/truth_SEAL.json": "a1754519cf482ca7281917c6e16f155f860287c269d8107c4779200aaee9d5a6",
+    "results/mcmc_optimized/confirmatory_corpus/truth_SEALED.json": "39c2f3443460a5cd29bbf6ad44153f714bcbe673aafd6870dfec55ed7d1a77ed",
+    "results/mcmc_optimized/confirmatory_prereg/PREREG_CONFIRMATORY.md": "89b41293f8946d355c9085f3d99a3d72225dd2e0148fd1dba5f9284b235d07d1",
+    "results/mcmc_optimized/confirmatory_run/chains/full_cond_0.npz": "37f80aaac2d333366b5714dd2bc3fc34e88f0de309cd079adeb75b7eb0a3d7e1",
+    "results/mcmc_optimized/confirmatory_run/chains/full_cond_1.npz": "1ea6fd1ab0f7716aed6cdeb3e23b3c3e1773585bd09ebd18b47d22c765260d6d",
+    "results/mcmc_optimized/confirmatory_run/chains/full_cond_2.npz": "de02db0814246f77ab60329bad9f2dafdfaadeeac888891bbe422cce990e47ef",
+    "results/mcmc_optimized/confirmatory_run/chains/full_cond_3.npz": "fb2c053acd7005b3e66e92fa981c4154eb3d2529c967da25222d3a728db40b81",
+    "results/mcmc_optimized/confirmatory_run/chains/full_marg_0.npz": "d4985f528bc0290413cee4478292513b439596d32d70dc8fb929745324e67c5b",
+    "results/mcmc_optimized/confirmatory_run/chains/full_marg_1.npz": "1d433b92fb88dbb9a059f7a687b05393a005c73d81c999e62fde502e19679cf8",
+    "results/mcmc_optimized/confirmatory_run/chains/full_marg_2.npz": "a6a828ae59869b22ba96a9774b3e70bfb12ad76289a2f07e28e3952f22f4c24c",
+    "results/mcmc_optimized/confirmatory_run/chains/full_marg_3.npz": "fea656040b39e9b8aba96e6023675cc20aefadf68a207f48d8e8654667787872",
+    "results/mcmc_optimized/confirmatory_run/launch_record.json": "a50c1fcbacf80f89d95acfacf9f9f179141eda2bb73aeee0091ffab29cf13906",
+    "results/mcmc_optimized/confirmatory_run/preconditions/full_cond_0.json": "7a570e326420860a006a6b7cdd88fbd0ff721c31c01ecc2994e956bffc47cecc",
+    "results/mcmc_optimized/confirmatory_run/preconditions/full_cond_1.json": "2e7c62fd8f8bb5a1dbf1aeac6330009314cbb797e25fa6ddfbbee8c8bf4c9c53",
+    "results/mcmc_optimized/confirmatory_run/preconditions/full_cond_2.json": "a7a4b0b177c6f06f5167526ca2dbc3cdcfaf4acd43e9815739cfb61ab294c8a0",
+    "results/mcmc_optimized/confirmatory_run/preconditions/full_cond_3.json": "bd8ad65d31637ff404b8af19d837a13bef8e83baf57213994f1d50a6484fda8b",
+    "results/mcmc_optimized/confirmatory_run/preconditions/full_marg_0.json": "c8970890076f685a5d44102d3ae0ea28d0a3ce60f5966b10746017be156d5963",
+    "results/mcmc_optimized/confirmatory_run/preconditions/full_marg_1.json": "5f9c679d6c81798aa0684beaf0f0752bc48933481762aa2ac5b2fe9ec8e33b83",
+    "results/mcmc_optimized/confirmatory_run/preconditions/full_marg_2.json": "52f4f39121feaf6b9f0ee037cb0b7e8c3ce870919663be95e74d4eacbf3ed566",
+    "results/mcmc_optimized/confirmatory_run/preconditions/full_marg_3.json": "8d4c02b987448262bb13cf311700dd43eee2eef9c218c3a18c1a63c8e37b47fe",
+    "results/mcmc_optimized/confirmatory_run/run_summary.json": "437b8acbd4fab55393e236e99df34e19cbd130ca399d9160b616521483a937ed",
+    "results/mcmc_optimized/confirmatory_run/terminal_gate/gate_audit.json": "a27dba7778117e9830680d8866953b04866ca05574579a37b46cd4136e5a4d80",
+    "results/mcmc_optimized/confirmatory_run/terminal_gate/terminal_gate.json": "eeb148652f2b4f266aebbee8890624a97ff2e96e38509e943e935f3291ff41b9",
+    "scripts/confirmatory_gate_audit.py": "ba80c7c31a3c3958afa3cc1452bad9d603afb157a058af7966b5bf37ec0e2d61",
+    "scripts/confirmatory_terminal_gate.py": "049ea7d3c7a3b8cdb52c7bb652859225acf3e1df2cc9f099694e46712471c160",
+    "scripts/generate_confirmatory_corpus.py": "db3c2bbb42d7d505fa1ee6746a5c20bcbabd6a1e331fcdc7ecaaa7b5944ffb75",
+    "scripts/run_confirmatory_full_latent.py": "c519c66dfe20bc42c105bf4a9baf4f977a2bcee1e469bb66e351b8f6bf0a6364",
+    "tests/mcmc_optimized/test_terminal_gate_degeneracy.py": "e61879a1e6271203655b7c350fcb00d8138b96276734effa0ffc1715b9b34e34"
+  },
+  "formal_verdicts": {
+    "FULL-COND": "FAIL",
+    "FULL-MARG": "FAIL"
+  },
+  "frozen_at_utc": "2026-08-23T10:36:03Z",
+  "gate_implementation_timing": "The terminal gate implementation was written AFTER sampling terminated (2026-08-23T02:12:54Z) and BEFORE truth was unsealed. It was not available during sampling and could not have influenced it. Truth remained sealed throughout gate development, execution and this audit; no gate quantity uses truth. The gate's decision rules were fixed in the preregistration commit 8f99dd58, made before the run was launched.",
+  "head_at_freeze": "fe47d9141b2be87a1fb01d22eff93627716bdfb3",
+  "independent_reproduction": {
+    "independently_reproduced": true,
+    "method": "independent from-scratch Vehtari et al. (2021); the gate uses the repository's registered stage6b_mcmc_diagnostics",
+    "per_arm": {
+      "FULL-COND": {
+        "arm_verdict_agrees": true,
+        "audit_is_more_conservative": true,
+        "audit_verdict": "FAIL",
+        "branch_agreement": "179/179",
+        "gate_verdict": "FAIL",
+        "max_relative_difference": {
+          "bulk_ess": 0.6973050408318868,
+          "rhat": 1.9366814367740987e-16,
+          "tail_ess": 0.6973050408318552
+        },
+        "pass_fail_agreement": "173/179"
+      },
+      "FULL-MARG": {
+        "arm_verdict_agrees": true,
+        "audit_is_more_conservative": true,
+        "audit_verdict": "FAIL",
+        "branch_agreement": "179/179",
+        "gate_verdict": "FAIL",
+        "max_relative_difference": {
+          "bulk_ess": 0.44991008407798133,
+          "rhat": 0.0,
+          "tail_ess": 0.17991100025316625
+        },
+        "pass_fail_agreement": "179/179"
+      }
+    }
+  },
+  "prereg_commit": "8f99dd582e172b5dd253cae1bd74d65c96972f93",
+  "runner_commit": "fe47d9141b2be87a1fb01d22eff93627716bdfb3",
+  "truth_hash_sha256": "effccc91114d9647f87859aaa7ee219e3bc664bb41d2c6389844ea64346a5e8e",
+  "truth_sealed_at_freeze": true,
+  "verdicts_are_final": "Neither verdict may be amended or reclassified."
+}

@@ -1,0 +1,59 @@
+{
+  "block_count_distribution": {
+    "10": 1,
+    "2": 2,
+    "3": 19,
+    "4": 26,
+    "5": 32,
+    "6": 24,
+    "7": 27,
+    "8": 9,
+    "9": 5
+  },
+  "block_width_distribution": {
+    "10": 60,
+    "11": 42,
+    "12": 48,
+    "3": 124,
+    "4": 103,
+    "5": 96,
+    "6": 83,
+    "7": 96,
+    "8": 61,
+    "9": 72
+  },
+  "note": "descriptive only; the corpus is frozen regardless of these values (registered rule)",
+  "repeat_occurrence_frequency": 0.5120967741935484,
+  "total_true_blocks": {
+    "all": 785,
+    "heldout": 244,
+    "train": 541
+  },
+  "trace_length_counts": {
+    "heldout": {
+      "24": 12,
+      "32": 11,
+      "40": 11,
+      "48": 11
+    },
+    "train": {
+      "24": 25,
+      "32": 25,
+      "40": 25,
+      "48": 25
+    }
+  },
+  "true_skill_frequencies": {
+    "0": 0.3821656050955414,
+    "1": 0.30445859872611464,
+    "2": 0.31337579617834393
+  },
+  "true_transition_frequencies": {
+    "0->1": 167,
+    "0->2": 80,
+    "1->0": 62,
+    "1->2": 131,
+    "2->0": 163,
+    "2->1": 37
+  }
+}

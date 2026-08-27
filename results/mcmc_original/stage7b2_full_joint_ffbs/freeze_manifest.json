@@ -1,0 +1,243 @@
+{
+  "stage": "7B2",
+  "frozen_at": "2026-08-14T10:27:31+0100",
+  "source_commit": "2ea872421ff7b790948e5a89105866ff25738b86",
+  "stage6e_config_hash": "d98897a181b6809a17dd572ca175da7846a6924b8429b9c7337a939686a6da44",
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "target": {
+    "coordinates": [
+      "S",
+      "z",
+      "U",
+      "rho",
+      "beta",
+      "omega",
+      "lambda_rep",
+      "lambda_back",
+      "pi",
+      "P"
+    ],
+    "posterior": "the Stage 6E unknown-boundary posterior, unchanged",
+    "priors": "unchanged: Gaussian latent U with the full rho-dependent determinant, rho prior, four scalar priors, boundary prior, initial-skill prior, Stage 3 transition model with P[h,h] = 0 and no terminal transition",
+    "fixed": {
+      "epsilon": 0.02,
+      "delta_B": 0.15,
+      "min_width": 3,
+      "max_width": 12
+    }
+  },
+  "only_algorithmic_difference": "LocalMoveKernel(S, z) -> exact FFBS(S, z)",
+  "corpus": {
+    "baseline_corpus_hash": "02be246edf9bd4f4148efa3a3e269afa10b21df53173c7273b5a4deb9e30c941",
+    "rebuilt_corpus_hash": "02be246edf9bd4f4148efa3a3e269afa10b21df53173c7273b5a4deb9e30c941",
+    "match": true,
+    "n_train_traces": 100,
+    "n_heldout_traces": 45,
+    "baseline_n_train": 100,
+    "baseline_n_heldout": 45,
+    "trace_length": {
+      "mean": 31.99,
+      "min": 16,
+      "max": 52
+    },
+    "regenerated_not_copied": true,
+    "hidden_truth_use": "evaluation only, exactly as the baseline records",
+    "pass": true
+  },
+  "starting_states": {
+    "construction": "the Stage 6E2 dispersed-start constructor, reused",
+    "start_seeds": [
+      6053301,
+      6053302,
+      6053303,
+      6053304
+    ],
+    "n_chains": 4,
+    "hashes": [
+      "2af82dbf8bfc0faf172410e9ca33f9b5be742447913acfd985b127fad19182c1",
+      "bb3e512ff69aceb9e598f380fdb0f907a37553110f55c4eafb565584a39e42d3",
+      "9b2c3ad5d5dc713076a6d780818b618fb8fbeba6a97043889f8c4873fd81fe32",
+      "7bc9c2344d6a445caeaf0f04eb55e98b75516d70754bb76db81abf14f77f6fc1"
+    ],
+    "summaries": [
+      {
+        "chain": 0,
+        "rho": 0.1,
+        "beta": 0.6,
+        "omega": -1.0,
+        "lambda_rep": 0.3,
+        "lambda_back": 0.8,
+        "segment_counts": [
+          16,
+          12,
+          12,
+          11,
+          16
+        ],
+        "total_segments": 1036
+      },
+      {
+        "chain": 1,
+        "rho": 0.35,
+        "beta": 1.1,
+        "omega": 0.6,
+        "lambda_rep": 0.9,
+        "lambda_back": 0.2,
+        "segment_counts": [
+          4,
+          4,
+          3,
+          3,
+          4
+        ],
+        "total_segments": 314
+      },
+      {
+        "chain": 2,
+        "rho": 0.6,
+        "beta": 2.2,
+        "omega": 2.4,
+        "lambda_rep": 1.6,
+        "lambda_back": 1.2,
+        "segment_counts": [
+          7,
+          6,
+          5,
+          6,
+          8
+        ],
+        "total_segments": 491
+      },
+      {
+        "chain": 3,
+        "rho": 0.85,
+        "beta": 3.0,
+        "omega": 3.8,
+        "lambda_rep": 2.4,
+        "lambda_back": 0.06,
+        "segment_counts": [
+          7,
+          6,
+          6,
+          6,
+          7
+        ],
+        "total_segments": 494
+      }
+    ],
+    "baseline_chain_seeds": [
+      6053201,
+      6053202,
+      6053203,
+      6053204
+    ],
+    "step7b2_chain_seeds": [
+      7063201,
+      7063202,
+      7063203,
+      7063204
+    ],
+    "seeds_are_new": true,
+    "not_initialised_from_a_baseline_endpoint": true
+  },
+  "kernels": {
+    "proposal_scales": {
+      "U": 0.5,
+      "rho": 0.5,
+      "beta": 0.40872,
+      "omega": 1.45704,
+      "lambda_rep": 0.6648,
+      "lambda_back": 1.51552
+    },
+    "proposal_scales_match_baseline": true,
+    "retuned": false,
+    "retune_note": "the primary comparison uses the baseline's scales unchanged; if global acceptance becomes pathological under FFBS that is a finding to report, not a reason to retune before the comparison",
+    "baseline_proposals_per_trace": 32,
+    "ffbs_proposals_per_trace": "one exact Gibbs draw",
+    "only_change": "the (S, z) transition kernel",
+    "shared_kernels": [
+      "pi/P conjugate update",
+      "U row proposal",
+      "rho logit walk",
+      "beta",
+      "omega",
+      "lambda_rep",
+      "lambda_back"
+    ],
+    "sweep_order": [
+      "(S,z)",
+      "(pi,P)",
+      "U",
+      "rho",
+      "beta",
+      "omega",
+      "lambda_rep",
+      "lambda_back"
+    ]
+  },
+  "schedule": {
+    "n_chains": 4,
+    "sweeps": 50000,
+    "burn_in": 15000,
+    "thin": 5,
+    "chain_seeds": [
+      7063201,
+      7063202,
+      7063203,
+      7063204
+    ],
+    "checkpoint_every": 500,
+    "checkpoint_path": "/Users/dongqing/Desktop/hpop-step7/results/mcmc_original/stage7b2_full_joint_ffbs/checkpoints",
+    "table_source": "fast",
+    "matches_baseline_first_formal_block": true
+  },
+  "movement_diagnostics": {
+    "recorded_every_sweep": [
+      "h_hash",
+      "relation_total",
+      "boundary_hamming",
+      "label_changes",
+      "states_changed",
+      "co_clustering",
+      "log_target"
+    ],
+    "used_to_steer_the_run": false,
+    "rule": "recorded for analysis only; the registered run is not altered or stopped on the basis of what they show"
+  },
+  "not_tuned_using": [
+    "Stage 6E recovery",
+    "current Local-chain modes",
+    "the truth",
+    "held-out NLL",
+    "intermediate FFBS R-hat"
+  ],
+  "launch_authorisation": {
+    "launched_while_the_baseline_is_still_running": true,
+    "instruction": "explicit: start the formal Step 7B2 chains in parallel with the still-running Stage 6E2 LocalMoveKernel baseline",
+    "baseline_state_at_launch": {
+      "frozen": false,
+      "ladder_reached": 75000,
+      "registered_ladder": [
+        50000,
+        75000,
+        100000,
+        125000,
+        150000
+      ],
+      "reasons_it_is_not_frozen": [
+        "the registered continuation ladder is at 75,000 of 150,000 sweeps; the decision point has not been reached",
+        "a stage6e2_formal_chains.py process is running right now",
+        "baseline artifacts written within the last 1800s: ['ladder_check_75k.json', 'mode_diagnostics_75k.json']"
+      ]
+    },
+    "comparison_rule": "the final scientific comparison uses the FROZEN FINAL Stage 6E2 baseline. The current intermediate rung must not be compared against or selected, and no baseline chain artifact is read by this run."
+  },
+  "source_sha256": {
+    "semi_markov_ffbs.py": "8150bb8235eb159d5e2f08ada7c698c383f4c7fd31f3b882e218b207dd135486",
+    "recurrent_joint_ffbs_mcmc.py": "6b5952414e85ebbc253bd22e0b4195efcfc7f474bf30e41cc5cb143687e8694a",
+    "fast_block_tables.py": "7b91a074fe42a600fbe4ab37f18d012e10906f673d1ab9a83e019e77b65fdfcc",
+    "stage6e_sampler.py": "2903ad58dff37bc0b0cb3cbdd4c4e76cefe1df73bc7330d852892deae72704f6",
+    "stage7b_diagnostics.py": "77a78e65d0a5c5b72375c83c81367b7e33d2465edd3c16d11f7a242a96f8e328"
+  }
+}

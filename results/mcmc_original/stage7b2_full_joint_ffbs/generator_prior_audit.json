@@ -1,0 +1,180 @@
+{
+  "what": "segmentation-prior mismatch between the Stage 6E2 synthetic generator and the registered inference target",
+  "discovered_at": "2026-08-14T10:39:13+0100",
+  "audit_commit": "2ea872421ff7b790948e5a89105866ff25738b86",
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "audit_occurred_after_corpus_freeze": true,
+  "corpus_was_changed_by_this_audit": false,
+  "corpus_hash": "02be246edf9bd4f4148efa3a3e269afa10b21df53173c7273b5a4deb9e30c941",
+  "corpus_hash_matches_running_experiments": true,
+  "generator_source": {
+    "file": "src/hpop/mcmc_original/stage6e_corpus.py",
+    "sha256": "2681f9c627a41ab53fde6e7ec86259767928f47df7100cc83645eaa5b2ed2843",
+    "function": "_generate_trace",
+    "lines": {
+      "block_count": "193: n_blocks = int(rng.choice(BLOCKS_PER_TRACE)) -> L ~ Uniform{4,5,6}",
+      "initial_skill": "195: rng.choice(N_SKILLS, p=PI_TRUE) -> z_1 ~ pi",
+      "transition": "197: rng.choice(N_SKILLS, p=P_TRUE[path[-1]]) -> z_l ~ P[z_{l-1}, .]; P_TRUE diagonal is exactly 0 (lines 80-82), so adjacent blocks cannot share a skill",
+      "width": "201: rng.choice(widths_support, p=width_p) with width_p from width_distribution (118-129)",
+      "q0_reset": "204: q = np.zeros(u.shape[0]) -- q_0 = 0 for EVERY block",
+      "emission": "206/209: recurrent_step_probabilities / recurrent_validity_update",
+      "no_terminal_boundary": "212: true_boundaries = ends[:-1]"
+    }
+  },
+  "agrees_with_the_registered_model": [
+    "z_1 ~ pi",
+    "z_l ~ P[z_{l-1}, .]",
+    "P[h, h] = 0, no adjacent repeats",
+    "no terminal transition",
+    "q_0 = 0 reset for every block",
+    "per-block width factor p(w) proportional to (1-delta_B)^(w-1) on [3, 12]"
+  ],
+  "disagrees_with_the_registered_model": [
+    "the number of blocks: the generator draws L ~ Uniform{4,5,6} instead of letting the boundary prior determine it"
+  ],
+  "inference": {
+    "p_S_given_J": "proportional to delta_B^(L-1) (1-delta_B)^(J-L)",
+    "P_hh": 0,
+    "terminal_transition": false,
+    "widths": [
+      3,
+      12
+    ],
+    "delta_B": 0.15
+  },
+  "generator": {
+    "p_S_given_J": "proportional to Z^(-L) (1-delta_B)^(J-L), L in {4,5,6}",
+    "L_law": "Uniform{4,5,6}",
+    "width_law": "normalised (1-delta_B)^(w-1) on [3, 12]"
+  },
+  "normalizer": {
+    "Z": 3.8683882857588516,
+    "one_over_delta_B": 6.666666666666667,
+    "equal": false
+  },
+  "relative_weight": {
+    "delta_B_times_Z": 0.5802582428638278,
+    "interpretation": "each additional block is downweighted by 0.5803 under inference relative to the generator; the inference prior therefore prefers fewer, longer segments"
+  },
+  "support_mismatch": {
+    "generator_L": [
+      4,
+      5,
+      6
+    ],
+    "inference_L": "broader, J-dependent: every L with a legal composition of J into widths in [3, 12]"
+  },
+  "examples": {
+    "24": {
+      "inference_p_L": {
+        "2": 0.0321,
+        "3": 0.4129,
+        "4": 0.4143,
+        "5": 0.1259,
+        "6": 0.0144
+      },
+      "generator_p_L": {
+        "4": 0.6147,
+        "5": 0.3221,
+        "6": 0.0633
+      },
+      "inference_mean_L": 3.679030599887795,
+      "generator_mean_L": 4.448637468434778
+    },
+    "31": {
+      "inference_p_L": {
+        "3": 0.0679,
+        "4": 0.3766,
+        "5": 0.3822,
+        "6": 0.1463,
+        "7": 0.0251,
+        "8": 0.0019
+      },
+      "generator_p_L": {
+        "4": 0.2563,
+        "5": 0.4481,
+        "6": 0.2956
+      },
+      "inference_mean_L": 4.689934850458744,
+      "generator_mean_L": 5.039366625571192
+    }
+  },
+  "corpus_facts": {
+    "n_train_traces": 100,
+    "true_total_blocks": 510,
+    "observed_L_counts": {
+      "4": 26,
+      "5": 38,
+      "6": 36
+    },
+    "trace_length": {
+      "min": 16,
+      "max": 52,
+      "mean": 31.99
+    },
+    "width_law": [
+      0.18677028949235094,
+      0.1587547460684983,
+      0.13494153415822355,
+      0.11470030403449002,
+      0.09749525842931651,
+      0.08287096966491903,
+      0.07044032421518118,
+      0.059874275582904,
+      0.050893134245468395,
+      0.043259164108648135
+    ],
+    "observed_width_frequencies": [
+      0.19411764705882353,
+      0.1411764705882353,
+      0.13529411764705881,
+      0.11960784313725491,
+      0.08823529411764706,
+      0.08823529411764706,
+      0.07254901960784314,
+      0.06274509803921569,
+      0.049019607843137254,
+      0.049019607843137254
+    ],
+    "max_width_deviation_from_law": 0.017578275480263
+  },
+  "prior_pull_on_this_corpus": {
+    "prior_expected_total_blocks_under_inference": 483.6603926245674,
+    "prior_expected_total_blocks_under_generator": 506.41316363203015,
+    "generating_truth_total_blocks": 510,
+    "prior_deficit_vs_truth": -26.339607375432593,
+    "note": "the expected block count under each prior, evaluated at each trace's own J and summed. This is what the PRIOR ALONE pulls toward before any data enters; it is not a prediction of any chain's posterior and no chain output is used to compute it."
+  },
+  "impact": {
+    "sampler_correctness": "unaffected -- Stage 6E1A, Stage 6E1B, Step 7A and Step 7B1 compare a sampler against an exact or independent computation of the SAME posterior given the data; where the data came from is irrelevant to those claims",
+    "local_vs_ffbs_comparison": "unaffected -- same frozen corpus, same posterior, only the segmentation kernel differs, so a structural-locking difference between the two kernels remains a valid conclusion",
+    "synthetic_recovery": "MISSPECIFIED -- Stage 6E2 is a recovery experiment under a documented segmentation-prior misspecification. Boundary F1, boundary precision/recall, segment-count recovery and skill ARI remain real observations, but must not be read as 'what is recoverable under a well-specified synthetic model'",
+    "nominal_coverage": "not interpretable as well-specified coverage -- the generating truth is not a draw from the inference prior, so credible-interval coverage carries no nominal guarantee"
+  },
+  "direction": "the mismatch pushes inference toward fewer, longer segments, which is the direction of under-segmentation. It is quantified above as a prior effect only. No baseline recovery statistic is embedded here: the Stage 6E2 baseline is still advancing its registered ladder and its intermediate rung must not be quoted as a result.",
+  "not_claimed": [
+    "that this explains all of the observed low boundary F1",
+    "that this causes the observed structural locking",
+    "that any corpus should be regenerated now"
+  ],
+  "recommended_follow_up": {
+    "what": "a small matched-generator sensitivity control, AFTER Stage 6E2 and Step 7B2 finish",
+    "generator_A": "the current corpus: L ~ Uniform{4,5,6}",
+    "generator_B": "L and widths drawn from the registered p(S | delta_B)",
+    "held_fixed": [
+      "U",
+      "the four scalars",
+      "pi",
+      "P",
+      "a comparable trace count"
+    ],
+    "read_out": [
+      "boundary count bias",
+      "boundary F1",
+      "relation locking",
+      "ARI"
+    ],
+    "logic": "if boundary recovery improves markedly under B, part of the Stage 6E2 difficulty is misspecification; if structural locking persists, that is stronger evidence it is inference geometry rather than generator mismatch"
+  }
+}

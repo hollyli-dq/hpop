@@ -1,0 +1,23 @@
+{
+  "caffeinate_pid": 34121,
+  "command": [
+    "caffeinate",
+    "-dimsu",
+    "/Users/dongqing/Desktop/hpop/.venv/bin/python3",
+    "/Users/dongqing/Desktop/hpop-scalability/scripts/scalability/run_autopilot.py",
+    "--deadline-epoch",
+    "1787467200",
+    "--out",
+    "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1",
+    "--phase",
+    "quiet"
+  ],
+  "cwd": "/Users/dongqing/Desktop/hpop-scalability",
+  "deadline_epoch": 1787467200.0,
+  "deadline_local": "2026-08-23 07:40:00",
+  "launched_at_utc": "2026-08-23T03:11:24Z",
+  "phase": "quiet",
+  "session_leader": true,
+  "stderr": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/logs/autopilot_quiet_20260823T041124.err",
+  "stdout": "/Users/dongqing/Desktop/hpop-scalability/results/scalability/optimized_segmental_v1/logs/autopilot_quiet_20260823T041124.out"
+}

@@ -1,0 +1,189 @@
+{
+  "corpus_hash": "02be246edf9bd4f4148efa3a3e269afa10b21df53173c7273b5a4deb9e30c941",
+  "checkpoints": {
+    "7b2_ffbs:0": {
+      "experiment": "7b2_ffbs",
+      "chain": 0,
+      "source": "/Users/dongqing/Desktop/hpop-step7/results/mcmc_original/stage7b2_full_joint_ffbs/checkpoints/chain0_checkpoint.json",
+      "copied_to": "/Users/dongqing/Desktop/hpop-step7/results/mcmc_original/collapsed_u_expanded_audit/checkpoint_copies/7b2_ffbs_chain0_chain_checkpoint.json",
+      "sha256": "f10dbda5b758441f281afc8bde330d4d0914ad05bc9969ad03110ec4a6d0099a",
+      "sweep": 44500,
+      "induced_h_hash": "2f6454332ec1e3af",
+      "induced_h_canonical_hash": "78b96e483832cef8",
+      "total_relation_count": 9,
+      "relations_per_skill": [
+        1,
+        3,
+        5
+      ],
+      "segmentation_count": 502,
+      "checkpoint_log_target": -5877.762837108911,
+      "rho": 0.18336552925662256,
+      "beta": 0.9230607992070908,
+      "omega": 4.210327059619302,
+      "lambda_rep": 0.02303951597294222,
+      "lambda_back": 0.05174688561787259
+    },
+    "7b2_ffbs:1": {
+      "experiment": "7b2_ffbs",
+      "chain": 1,
+      "source": "/Users/dongqing/Desktop/hpop-step7/results/mcmc_original/stage7b2_full_joint_ffbs/checkpoints/chain1_checkpoint.json",
+      "copied_to": "/Users/dongqing/Desktop/hpop-step7/results/mcmc_original/collapsed_u_expanded_audit/checkpoint_copies/7b2_ffbs_chain1_chain_checkpoint.json",
+      "sha256": "d2a6a0e0c5cbc3954054e4a2488882485194954cca20616125ec6a55b2e0cfea",
+      "sweep": 45000,
+      "induced_h_hash": "085e3d8c1288fa71",
+      "induced_h_canonical_hash": "9a660e641b2e6153",
+      "total_relation_count": 12,
+      "relations_per_skill": [
+        5,
+        5,
+        2
+      ],
+      "segmentation_count": 479,
+      "checkpoint_log_target": -5554.592932092647,
+      "rho": 0.36583691887472036,
+      "beta": 1.455159432973712,
+      "omega": 2.125810348766209,
+      "lambda_rep": 0.3371526246193979,
+      "lambda_back": 0.28978378789299253
+    },
+    "7b2_ffbs:2": {
+      "experiment": "7b2_ffbs",
+      "chain": 2,
+      "source": "/Users/dongqing/Desktop/hpop-step7/results/mcmc_original/stage7b2_full_joint_ffbs/checkpoints/chain2_checkpoint.json",
+      "copied_to": "/Users/dongqing/Desktop/hpop-step7/results/mcmc_original/collapsed_u_expanded_audit/checkpoint_copies/7b2_ffbs_chain2_chain_checkpoint.json",
+      "sha256": "5bfc9f3545f9a38294fc9ae35b813a426a1e9f05de04c1ebfe11f5a155b0ce37",
+      "sweep": 44500,
+      "induced_h_hash": "988422dc6c3f9f86",
+      "induced_h_canonical_hash": "988422dc6c3f9f86",
+      "total_relation_count": 9,
+      "relations_per_skill": [
+        3,
+        3,
+        3
+      ],
+      "segmentation_count": 492,
+      "checkpoint_log_target": -5753.7227054315135,
+      "rho": 0.0695039075042299,
+      "beta": 1.1590002219679518,
+      "omega": 2.1519742601606544,
+      "lambda_rep": 0.1979461888286518,
+      "lambda_back": 0.27713862524247684
+    },
+    "7b2_ffbs:3": {
+      "experiment": "7b2_ffbs",
+      "chain": 3,
+      "source": "/Users/dongqing/Desktop/hpop-step7/results/mcmc_original/stage7b2_full_joint_ffbs/checkpoints/chain3_checkpoint.json",
+      "copied_to": "/Users/dongqing/Desktop/hpop-step7/results/mcmc_original/collapsed_u_expanded_audit/checkpoint_copies/7b2_ffbs_chain3_chain_checkpoint.json",
+      "sha256": "d86df8db8f936d1293d540df5d2a1c7db142bf3dfb0685b0b8b3cd4e1ecc2ef5",
+      "sweep": 44500,
+      "induced_h_hash": "d1d3542bd16ef85a",
+      "induced_h_canonical_hash": "f08954e56c6be1d8",
+      "total_relation_count": 15,
+      "relations_per_skill": [
+        3,
+        5,
+        7
+      ],
+      "segmentation_count": 496,
+      "checkpoint_log_target": -5494.586120693194,
+      "rho": 0.18030990189401297,
+      "beta": 1.8882528185217464,
+      "omega": 0.33815655968862046,
+      "lambda_rep": 0.375913965280847,
+      "lambda_back": 0.5809653361984232
+    },
+    "6e2_local:0": {
+      "experiment": "6e2_local",
+      "chain": 0,
+      "source": "/Users/dongqing/Desktop/hpop-stage6e/results/mcmc_original/stage6e2_unknown_boundary_full_seed0/unknown_checkpoints/chain0_checkpoint.json",
+      "copied_to": "/Users/dongqing/Desktop/hpop-step7/results/mcmc_original/collapsed_u_expanded_audit/checkpoint_copies/6e2_local_chain0_chain_checkpoint.json",
+      "sha256": "ba69c44a6700182e978465bb75bf7792dd0ce2f8939860d390e21b11043c632d",
+      "sweep": 150000,
+      "induced_h_hash": "9dfcea27f9f4a1cf",
+      "induced_h_canonical_hash": "cf4234451eb40dbd",
+      "total_relation_count": 8,
+      "relations_per_skill": [
+        2,
+        3,
+        3
+      ],
+      "segmentation_count": 490,
+      "checkpoint_log_target": -5841.742171552553,
+      "rho": 0.04354519211350878,
+      "beta": 1.438413601845311,
+      "omega": 2.7295380512238596,
+      "lambda_rep": 0.040824977884502726,
+      "lambda_back": 0.13557405243598403
+    },
+    "6e2_local:1": {
+      "experiment": "6e2_local",
+      "chain": 1,
+      "source": "/Users/dongqing/Desktop/hpop-stage6e/results/mcmc_original/stage6e2_unknown_boundary_full_seed0/unknown_checkpoints/chain1_checkpoint.json",
+      "copied_to": "/Users/dongqing/Desktop/hpop-step7/results/mcmc_original/collapsed_u_expanded_audit/checkpoint_copies/6e2_local_chain1_chain_checkpoint.json",
+      "sha256": "33fe7d761b60ec0838d624cbf816b3d1659a643e466df55ba1f401fc92d6e5b3",
+      "sweep": 150000,
+      "induced_h_hash": "723ef45c48727fa2",
+      "induced_h_canonical_hash": "976d3e1e704077da",
+      "total_relation_count": 9,
+      "relations_per_skill": [
+        2,
+        5,
+        2
+      ],
+      "segmentation_count": 493,
+      "checkpoint_log_target": -5736.548453516216,
+      "rho": 0.05306877955871805,
+      "beta": 1.5742528844453534,
+      "omega": 1.8960108045295474,
+      "lambda_rep": 0.4083599580782578,
+      "lambda_back": 0.23844778857954746
+    },
+    "6e2_local:2": {
+      "experiment": "6e2_local",
+      "chain": 2,
+      "source": "/Users/dongqing/Desktop/hpop-stage6e/results/mcmc_original/stage6e2_unknown_boundary_full_seed0/unknown_checkpoints/chain2_checkpoint.json",
+      "copied_to": "/Users/dongqing/Desktop/hpop-step7/results/mcmc_original/collapsed_u_expanded_audit/checkpoint_copies/6e2_local_chain2_chain_checkpoint.json",
+      "sha256": "224dba53ce3073cfc7339fd8a677999e4b8ff31ba80b04fcacb93b95daf4efb5",
+      "sweep": 150000,
+      "induced_h_hash": "b62b567a3a86121a",
+      "induced_h_canonical_hash": "b62b567a3a86121a",
+      "total_relation_count": 8,
+      "relations_per_skill": [
+        4,
+        2,
+        2
+      ],
+      "segmentation_count": 485,
+      "checkpoint_log_target": -5753.170563540399,
+      "rho": 0.013316780153579585,
+      "beta": 1.585739080812372,
+      "omega": 3.834089850927653,
+      "lambda_rep": 0.2650085972735471,
+      "lambda_back": 0.6947616956023532
+    },
+    "6e2_local:3": {
+      "experiment": "6e2_local",
+      "chain": 3,
+      "source": "/Users/dongqing/Desktop/hpop-stage6e/results/mcmc_original/stage6e2_unknown_boundary_full_seed0/unknown_checkpoints/chain3_checkpoint.json",
+      "copied_to": "/Users/dongqing/Desktop/hpop-step7/results/mcmc_original/collapsed_u_expanded_audit/checkpoint_copies/6e2_local_chain3_chain_checkpoint.json",
+      "sha256": "eb9556359cfbe397b2496e5b539594c6261225fce0ecf11e831c4b5e7a4bac96",
+      "sweep": 150000,
+      "induced_h_hash": "41817b21110ffd91",
+      "induced_h_canonical_hash": "fdb0cc9baff8b2a9",
+      "total_relation_count": 13,
+      "relations_per_skill": [
+        3,
+        4,
+        6
+      ],
+      "segmentation_count": 506,
+      "checkpoint_log_target": -5523.253698081007,
+      "rho": 0.39747423545408306,
+      "beta": 1.33978799709279,
+      "omega": 4.329791728382638,
+      "lambda_rep": 0.2466672151721342,
+      "lambda_back": 0.47435641698567466
+    }
+  }
+}

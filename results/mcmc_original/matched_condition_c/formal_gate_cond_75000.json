@@ -1,0 +1,257 @@
+{
+  "checks": {
+    "accepted_h_changes_per_chain": [
+      24,
+      18,
+      22,
+      20
+    ],
+    "chains_with_zero_accepted_h_changes": 0,
+    "log_target_bulk_ess": 5.417878065901997,
+    "log_target_tail_ess": 11.671148692380122,
+    "max_rhat": Infinity,
+    "n_uncertain_relations": 30,
+    "total_relations_bulk_ess": 4.156323498446118,
+    "uncertain_max_rhat": Infinity,
+    "uncertain_min_bulk_ess": 0.0
+  },
+  "pass": false,
+  "summaries": {
+    "log_prior": {
+      "bulk_ess": 6053.754717592908,
+      "degenerate": null,
+      "rhat": 1.0004831841990591,
+      "tail_ess": 12239.227804802193
+    },
+    "log_target": {
+      "bulk_ess": 5.417878065901997,
+      "degenerate": null,
+      "rhat": 2.076836575979191,
+      "tail_ess": 11.671148692380122
+    },
+    "relations_skill0": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "relations_skill1": {
+      "bulk_ess": 4.130905057674548,
+      "degenerate": null,
+      "rhat": 5.734160550048476,
+      "tail_ess": 4.002463054187192
+    },
+    "relations_skill2": {
+      "bulk_ess": 4.791437975385579,
+      "degenerate": null,
+      "rhat": 2.7283290860421,
+      "tail_ess": 4.5776771496842406
+    },
+    "sorted_relations_rank0": {
+      "bulk_ess": 4.212322664524702,
+      "degenerate": null,
+      "rhat": 5538031321888863.0,
+      "tail_ess": 4.002463054187192
+    },
+    "sorted_relations_rank1": {
+      "bulk_ess": 4.446895667279301,
+      "degenerate": null,
+      "rhat": 3.218811470872359,
+      "tail_ess": 4.446895667279301
+    },
+    "sorted_relations_rank2": {
+      "bulk_ess": 15.336184494135153,
+      "degenerate": null,
+      "rhat": 1.1948732154569595,
+      "tail_ess": 266.96250755326406
+    },
+    "total_relations": {
+      "bulk_ess": 4.156323498446118,
+      "degenerate": null,
+      "rhat": 5.268927089332659,
+      "tail_ess": 4.002463054187192
+    }
+  },
+  "uncertain": {
+    "1": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "11": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "15": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "16": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "17": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "18": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "19": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "2": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "24": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "25": {
+      "bulk_ess": 4.446895667279301,
+      "degenerate": null,
+      "rhat": 3.218811470872359,
+      "tail_ess": 4.446895667279301
+    },
+    "27": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "28": {
+      "bulk_ess": 4.312013482789776,
+      "degenerate": null,
+      "rhat": 3.7650844464635393,
+      "tail_ess": 4.312013482789776
+    },
+    "3": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "30": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "31": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "36": {
+      "bulk_ess": 4.329515542289482,
+      "degenerate": null,
+      "rhat": 3.670382232729251,
+      "tail_ess": 4.329515542289482
+    },
+    "37": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "39": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "40": {
+      "bulk_ess": 5.808494128427641,
+      "degenerate": null,
+      "rhat": 1.8292650608480392,
+      "tail_ess": 5.808494128427641
+    },
+    "41": {
+      "bulk_ess": 5.057903207134667,
+      "degenerate": null,
+      "rhat": 2.2599115356663475,
+      "tail_ess": 5.057903207134667
+    },
+    "42": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "43": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "51": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "55": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "56": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "57": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "58": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "59": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "6": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "7": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    }
+  }
+}

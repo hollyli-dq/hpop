@@ -1,0 +1,328 @@
+{
+  "checks": {
+    "max_rqmc_standard_error": {
+      "value": 0.0007913337164058761,
+      "threshold": 0.001,
+      "pass": true,
+      "primary": true
+    },
+    "max_structural_half_width_95": {
+      "value": 0.0005325587386499631,
+      "threshold": 0.0025,
+      "pass": true,
+      "primary": true
+    },
+    "max_replicate_h_total_variation": {
+      "value": 0.003528510495484878,
+      "threshold": 0.003,
+      "pass": false,
+      "primary": false
+    },
+    "max_replicate_relation_departure": {
+      "value": 0.0022929673211831147,
+      "threshold": 0.003,
+      "pass": true,
+      "primary": false
+    },
+    "min_relative_ess": {
+      "value": 0.08087769809779667,
+      "threshold": 0.02,
+      "pass": true,
+      "primary": false
+    },
+    "max_normalised_weight": {
+      "value": 9.212407737473824e-05,
+      "threshold": 0.001,
+      "pass": true,
+      "primary": false
+    },
+    "log_evidence_sd": {
+      "value": 0.001854321210190724,
+      "threshold": 0.05,
+      "pass": true,
+      "primary": false
+    }
+  },
+  "all_pass": false,
+  "primary_pass": true,
+  "gate_rationale": {
+    "max_rqmc_standard_error": "rqmc_se = sd(replicate_estimates, ddof=1)/sqrt(R) is the uncertainty of the quantity the comparison consumes, the replicate mean. Independent scrambles make the per-replicate estimates iid, which licenses the formula.",
+    "max_structural_half_width_95": "t(0.975, R-1) * rqmc_se. At 2.5e-3 the reference's own 95% uncertainty occupies at most 25% of the 0.01 total-variation and relation-marginal error budget it feeds, leaving the remaining 75% to detect a genuine sampler defect.",
+    "max_replicate_h_total_variation": "Retained as a DIAGNOSTIC of replicate exchangeability, not as a precision measure. Set at 3e-3, which is what a per-replicate dispersion can plausibly reach at this ESS; it is deliberately not derived from the observed 1.7e-3.",
+    "max_replicate_relation_departure": "As above, for the relation marginals."
+  },
+  "superseded_gates": {
+    "max_h_probability_spread": 0.001,
+    "max_relation_marginal_spread": 0.001,
+    "observed_at_2_18": {
+      "h": 0.001704,
+      "relation": 0.001734
+    },
+    "observed_at_2_19": {
+      "h": 0.001727,
+      "relation": 0.001544
+    },
+    "why_mis_specified": "The maximum absolute departure across R independent scrambles estimates the dispersion of a SINGLE replicate. It is not an estimator of the uncertainty of the averaged reference, which is what the downstream comparison actually uses, and it has no reason to decrease as R or N grow \u2014 the maximum of a fixed number of draws from a tightening distribution shrinks only as fast as that distribution, and the max over 8 values is itself a high-variance statistic. Observation bore this out: doubling N from 2^18 to 2^19 left the maximum essentially unchanged (1.704e-3 -> 1.727e-3) while the log-evidence standard deviation fell as expected. The gate was therefore measuring the wrong quantity, not detecting an inadequate reference.",
+    "superseded_before_any_mcmc_comparison": true
+  },
+  "superseded_checks_on_this_run": {
+    "max_h_probability_spread": {
+      "value": 0.0034623804491589194,
+      "threshold": 0.001,
+      "pass": false
+    },
+    "max_relation_marginal_spread": {
+      "value": 0.0022929673211831147,
+      "threshold": 0.001,
+      "pass": false
+    }
+  },
+  "provenance": [
+    "The original max-replicate-spread gate (1e-3) failed at 2^18 and 2^19 BEFORE any Stage 6D1 production MCMC comparison was run.",
+    "The corrected gate is derived from estimator uncertainty (rqmc_se and its 95% half-width) and from the downstream 0.01 error budget.",
+    "No MCMC result was inspected, computed or used to select the new thresholds; the Stage 6D1 production comparison had not been run when they were registered.",
+    "The observed 0.0017 replicate spread was NOT adopted as the new threshold; the secondary dispersion gate is 3e-3, chosen from what a per-replicate dispersion can reach at this ESS rather than from the observation."
+  ],
+  "combined": {
+    "n_replicates": 32,
+    "precision": {
+      "h_probability": {
+        "max_standard_error": 0.0002611204841973142,
+        "max_half_width_95": 0.0005325587386499631,
+        "n_replicates": 32,
+        "t_multiplier": 2.039513446396408
+      },
+      "relation_marginal": {
+        "max_standard_error": 0.00018185327409121513,
+        "max_half_width_95": 0.0003708921977802448
+      },
+      "scalar_means": {
+        "max_standard_error": 0.0007913337164058761,
+        "max_half_width_95": 0.0016139357551966263
+      },
+      "h_probability_se": [
+        0.0002611204841973142,
+        4.2442411061179635e-18,
+        0.00018185413640265334,
+        1.398512220785506e-08,
+        9.527418626760126e-09,
+        4.760571744607727e-13,
+        3.842536028329922e-05,
+        2.1707658455108726e-07,
+        5.066699007063204e-12,
+        5.7530476491874486e-06,
+        3.2536976868543132e-18,
+        1.1396634716813991e-05,
+        1.5353936218293e-12,
+        3.1651036704646268e-18,
+        1.3453162416257015e-07,
+        8.220819086908052e-07,
+        7.789109191618745e-10,
+        1.7289739511687505e-09,
+        0.00013130767406283725
+      ],
+      "h_probability_half_width_95": [
+        0.0005325587386499631,
+        8.656186805675951e-18,
+        0.00037089395647601803,
+        2.8522844792417418e-08,
+        1.9431298398724878e-08,
+        9.709250085662268e-13,
+        7.836903898041526e-05,
+        4.427306130897493e-07,
+        1.0333600753748735e-11,
+        1.1733418038277047e-05,
+        6.6359601828482614e-18,
+        2.324358974861026e-05,
+        3.131455937232139e-12,
+        6.4552714951512324e-18,
+        2.7437905644510974e-07,
+        1.6766471068141214e-06,
+        1.5885992931756287e-09,
+        3.5262656218777935e-09,
+        0.0002678037668661935
+      ],
+      "relation_marginal_se": [
+        0.0,
+        2.531108283377347e-07,
+        0.00018185327409121513,
+        1.3330367203000004e-05,
+        0.0,
+        0.00013181530119359025,
+        1.0233004327699517e-08,
+        5.538777428141047e-12,
+        0.0
+      ],
+      "max_structural_half_width_95": 0.0005325587386499631,
+      "definition": "rqmc_se = sd(replicate_estimates, ddof=1)/sqrt(R); the half-width is t(0.975, R-1) * rqmc_se"
+    },
+    "replicate_dispersion": {
+      "max_h_total_variation_from_mean": 0.003528510495484878,
+      "per_replicate_h_total_variation": [
+        0.0010910141719941394,
+        0.00044389666572005075,
+        0.0015134183034019365,
+        0.00042515919980333895,
+        0.0008481965673305065,
+        0.001656330610640623,
+        0.001865811083190543,
+        0.0008984794847340429,
+        0.0012510832125149204,
+        0.001149450268744087,
+        0.001691722040260183,
+        0.0018343836852101802,
+        0.0023223937908795934,
+        0.0014418849556049442,
+        0.002121533447788348,
+        0.00029623917501160916,
+        0.0005472030599913645,
+        0.00202823368224234,
+        0.001624040859728275,
+        0.002004314433127011,
+        0.0008621055675791551,
+        0.0006870576437179876,
+        0.002048275790317784,
+        0.0034520542899376867,
+        0.001112281006074287,
+        0.0014376014272255732,
+        0.0005907356786457205,
+        0.0011172145636814852,
+        0.0022467655511610985,
+        0.0012087234329968188,
+        0.003528510495484878,
+        0.0011419707783247226
+      ],
+      "max_relation_departure_from_mean": 0.0022929673211831147
+    },
+    "log_evidence": {
+      "mean": -15.247028617891512,
+      "sd": 0.001854321210190724,
+      "range": 0.006752927898459049,
+      "values": [
+        -15.247716848996115,
+        -15.248965749793202,
+        -15.246820166276223,
+        -15.246583604811525,
+        -15.24501552649708,
+        -15.249269065521224,
+        -15.247572921375616,
+        -15.249188996245923,
+        -15.248142436499105,
+        -15.246189640554231,
+        -15.242987353059497,
+        -15.247625495161802,
+        -15.249740280957957,
+        -15.24917623383476,
+        -15.24793086827143,
+        -15.246567054817724,
+        -15.246046387579327,
+        -15.243192495059345,
+        -15.243402717117071,
+        -15.243691667719169,
+        -15.247590267969073,
+        -15.246160555370317,
+        -15.247235924679751,
+        -15.246063284489846,
+        -15.24843090151117,
+        -15.24601110695961,
+        -15.248174193270133,
+        -15.24845498917798,
+        -15.247360912782774,
+        -15.249324812398068,
+        -15.245979440178417,
+        -15.248303873592905
+      ]
+    },
+    "ess": {
+      "min": 42403.20658029762,
+      "mean": 42579.680865049675,
+      "values": [
+        42575.329163141425,
+        42545.84746178491,
+        42551.253407378936,
+        42484.31071601212,
+        42636.8519372083,
+        42525.008626893,
+        42606.54123873562,
+        42583.37481373597,
+        42618.49174814967,
+        42507.892808649754,
+        42689.222462708225,
+        42581.15178184154,
+        42469.33817307151,
+        42496.087977768,
+        42530.11927813547,
+        42486.93935447603,
+        42720.19040888567,
+        42597.8295878021,
+        42587.811434539915,
+        42508.42825183267,
+        42603.239100364124,
+        42593.34048293129,
+        42584.07325967099,
+        42786.53278848018,
+        42656.950086330566,
+        42536.103694552185,
+        42611.08239449984,
+        42582.07145002154,
+        42691.160799655976,
+        42650.32032801759,
+        42549.68608401677,
+        42403.20658029762
+      ]
+    },
+    "relative_ess": {
+      "min": 0.08087769809779667,
+      "mean": 0.08121429608354507
+    },
+    "max_normalised_weight": {
+      "max": 9.212407737473824e-05,
+      "mean": 8.65137940912989e-05
+    },
+    "scalar_spread": {
+      "rho": {
+        "mean_of_means": 0.43194296242029884,
+        "sd_across_replicates": 0.0006425069307502981,
+        "range": 0.0025596689441345633,
+        "mean_of_sds": 0.26876498549470007
+      },
+      "beta": {
+        "mean_of_means": 0.8756407334107463,
+        "sd_across_replicates": 0.0013682666535857215,
+        "range": 0.005731480428903146,
+        "mean_of_sds": 0.5856628170453089
+      },
+      "omega": {
+        "mean_of_means": -0.3472873194918442,
+        "sd_across_replicates": 0.0044764594964171785,
+        "range": 0.017472311421113773,
+        "mean_of_sds": 1.9916862505044102
+      },
+      "lambda_rep": {
+        "mean_of_means": 1.2894986607722068,
+        "sd_across_replicates": 0.001535697270847455,
+        "range": 0.006875777477460376,
+        "mean_of_sds": 0.6381156893317947
+      },
+      "lambda_back": {
+        "mean_of_means": 0.8985406812100204,
+        "sd_across_replicates": 0.0017230677571359195,
+        "range": 0.006231280087224622,
+        "mean_of_sds": 0.627233623829873
+      }
+    },
+    "max_h_probability_spread": 0.0034623804491589194,
+    "max_relation_marginal_spread": 0.0022929673211831147
+  },
+  "runtime_seconds": 1947.594520249986,
+  "fallback_rule": "If the primary precision gates fail, increase R from 8 to 32 \u2014 more independent scrambles reduce sd/sqrt(R), the standard error of the averaged reference. Do NOT expect, or wait for, the maximum replicate range to shrink; that statistic is not what the gate measures. Invoke the section 10.2 mixture-importance fallback only if ESS, maximum weight, replicate dispersion or the revised precision gates remain inadequate after the R = 32 run. Never select whichever replicate agrees best with MCMC.",
+  "secondary_gate_addendum": {
+    "observation": "max_replicate_h_total_variation rose from 0.001796 at R=8 to 0.003529 at R=32 and now exceeds its 3e-3 threshold, while every primary precision gate improved by the predicted factor of sqrt(4).",
+    "diagnosis": "The secondary dispersion gate is ITSELF a maximum over replicates and therefore inherits the same defect that retired the original 1e-3 gate. Taking a maximum over 32 draws instead of 8 samples further into the tail, so the statistic grows with R even though the reference is strictly more precise. Its 3e-3 threshold was implicitly tied to R=8 and is not comparable across R.",
+    "action_taken": "None. The threshold has NOT been raised to accommodate the observation, and the diagnostic is reported as FAILED. It is labelled a diagnostic of replicate exchangeability rather than a precision measure in the registration, and the decision to proceed rests on the primary precision gates, which pass.",
+    "why_this_is_not_evidence_of_a_worse_reference": "The quantity the comparison consumes is the replicate MEAN. Its uncertainty is rqmc_se = 0.000791 with a 95% half-width of 0.000533 on structural probabilities, i.e. about 5% of the 0.01 downstream budget. Per-replicate dispersion is a property of N, which did not change.",
+    "recommended_correction_for_a_future_stage": "Replace the max-over-replicates dispersion diagnostic with an R-invariant one, e.g. the pooled per-replicate standard deviation, or a max compared against an explicitly R-dependent expected-maximum reference."
+  },
+  "frozen": true,
+  "frozen_note": "Reference frozen at R=32, N=2^19 after the primary precision gates passed. No Stage 6D1 production MCMC comparison had been run at the time of freezing."
+}

@@ -1,0 +1,371 @@
+{
+  "corpus_hash_sha256": "81d6393e45870ff7e2ec1e65d272eacab61c7075a6e3fbe9b4dd07818885a3b3",
+  "generator": {
+    "branch": "mcmc-original-latent-poset",
+    "generator_file_sha256": "7b7ee6956448dd29f8860b587b3cffee92de2c51bd2d3dc976f3efdc63721948",
+    "generator_version": "1.0.0",
+    "segmentation_prior_file_sha256": "4e44b7955c649b773ce9c9f22e39dd005356daa2bccfac1dd1a7cda28564a757",
+    "source_commit": "6eb43b355333d07d72d7dffd836b654413702b04"
+  },
+  "hidden_truth_used_only_for_evaluation": {
+    "fields": [
+      "hidden_truth.widths",
+      "hidden_truth.boundaries",
+      "hidden_truth.labels",
+      "hidden_truth.role_blocks",
+      "hidden_truth.log_seg_prior",
+      "hidden_truth.log_label_prior",
+      "hidden_truth.block_log_likelihoods",
+      "truth (entire object)"
+    ]
+  },
+  "observed_fields_available_to_inference": {
+    "description": "per trace: split, trace_index, length J, and the CPA occurrence sequence x^(n) under 'observed'. Nothing else.",
+    "fields": [
+      "split",
+      "trace_index",
+      "length",
+      "observed.cpa"
+    ]
+  },
+  "seeds": {
+    "child_stream_scheme": "numpy SeedSequence(entropy=master_seed, spawn_key=(split_code, trace_index, component[, block_index])); components: 0=segmentation, 1=labels, 2+block streams",
+    "master_seed": 6100001,
+    "split_codes": {
+      "heldout": 1,
+      "train": 0
+    }
+  },
+  "split_assignment": {
+    "heldout": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "level": "trace",
+    "train": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ]
+  },
+  "trace_lengths": {
+    "heldout": [
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32
+    ],
+    "train": [
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48,
+      24,
+      32,
+      40,
+      48
+    ]
+  },
+  "truth": {
+    "delta_b": 0.15,
+    "epsilon": 0.02,
+    "h_by_skill": [
+      [
+        [
+          0,
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          0
+        ]
+      ]
+    ],
+    "h_hashes": [
+      "942b806efae10c261911835af577de14439386e2f7b3cef68255fea5e5861e06",
+      "aad4482089bcdf722d7f73f9cec87a517e9d0c7b9f18ac3428ca9d6ed85bffaf",
+      "de9ea2a22977c4ebe80b9196ce60a07994eabb535c042d5225bad917f8771c5a"
+    ],
+    "latent_dim": 2,
+    "max_width": 12,
+    "min_width": 3,
+    "mode": "supplied",
+    "n_roles": 5,
+    "n_skills": 3,
+    "pi": [
+      0.5,
+      0.3,
+      0.2
+    ],
+    "rho": null,
+    "role_maps": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    ],
+    "scalars": {
+      "beta": 1.5,
+      "lambda_back": 0.25,
+      "lambda_rep": 0.8,
+      "omega": 1.7346010553881064
+    },
+    "transition": [
+      [
+        0.0,
+        0.65,
+        0.35
+      ],
+      [
+        0.3,
+        0.0,
+        0.7
+      ],
+      [
+        0.75,
+        0.25,
+        0.0
+      ]
+    ],
+    "u_by_skill": [
+      [
+        [
+          4.0,
+          4.0
+        ],
+        [
+          0.0,
+          5.0
+        ],
+        [
+          3.0,
+          3.0
+        ],
+        [
+          2.0,
+          2.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          4.0,
+          4.0
+        ],
+        [
+          3.0,
+          3.0
+        ],
+        [
+          0.0,
+          5.0
+        ],
+        [
+          2.0,
+          2.0
+        ]
+      ],
+      [
+        [
+          3.0,
+          0.0
+        ],
+        [
+          0.0,
+          3.0
+        ],
+        [
+          2.0,
+          2.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          4.0,
+          4.0
+        ]
+      ]
+    ]
+  },
+  "truth_validation": {
+    "latent_dim": 2,
+    "n_roles": 5,
+    "n_skills": 3,
+    "orders_are_strict_partial_orders": true,
+    "pi_sums_to_one": true,
+    "role_maps_injective": true,
+    "scalars_in_support": true,
+    "transition_diagonal_exactly_zero": true,
+    "transition_rows_normalized": true
+  }
+}

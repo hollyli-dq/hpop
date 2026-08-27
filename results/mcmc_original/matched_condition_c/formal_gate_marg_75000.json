@@ -1,0 +1,185 @@
+{
+  "checks": {
+    "accepted_h_changes_per_chain": [
+      24,
+      22,
+      23,
+      35
+    ],
+    "chains_with_zero_accepted_h_changes": 0,
+    "log_target_bulk_ess": 7.059998844683857,
+    "log_target_tail_ess": 24.95474094147927,
+    "max_rhat": Infinity,
+    "n_uncertain_relations": 18,
+    "total_relations_bulk_ess": 52000.0,
+    "uncertain_max_rhat": Infinity,
+    "uncertain_min_bulk_ess": 0.0
+  },
+  "pass": false,
+  "summaries": {
+    "log_prior": {
+      "bulk_ess": 5889.888304274352,
+      "degenerate": null,
+      "rhat": 1.0011858801190132,
+      "tail_ess": 12927.926529264847
+    },
+    "log_target": {
+      "bulk_ess": 7.059998844683857,
+      "degenerate": null,
+      "rhat": 1.5277092465045012,
+      "tail_ess": 24.95474094147927
+    },
+    "relations_skill0": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "relations_skill1": {
+      "bulk_ess": 52000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 52000.0
+    },
+    "relations_skill2": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "sorted_relations_rank0": {
+      "bulk_ess": 52000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 52000.0
+    },
+    "sorted_relations_rank1": {
+      "bulk_ess": 52000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 52000.0
+    },
+    "sorted_relations_rank2": {
+      "bulk_ess": 52000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 52000.0
+    },
+    "total_relations": {
+      "bulk_ess": 52000.0,
+      "degenerate": "constant",
+      "rhat": 1.0,
+      "tail_ess": 52000.0
+    }
+  },
+  "uncertain": {
+    "1": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "11": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "15": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "16": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "17": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "18": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "19": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "2": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "3": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "41": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "42": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "43": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "51": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "55": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "56": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "57": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "58": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "59": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    }
+  }
+}

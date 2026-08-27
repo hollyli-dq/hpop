@@ -1,0 +1,14 @@
+{
+  "stage": "7B2-optimisation",
+  "source_commit": "cacc1634b14ef0f4cbc54d22824cd43e76f6c4ac",
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "corpus_hash": "02be246edf9bd4f4148efa3a3e269afa10b21df53173c7273b5a4deb9e30c941",
+  "targets": {
+    "primary_seconds_per_sweep": 1.2,
+    "preferred": 1.0,
+    "stretch": 0.8,
+    "note": "engineering targets, not correctness gates"
+  },
+  "measured_under_contention": true
+}

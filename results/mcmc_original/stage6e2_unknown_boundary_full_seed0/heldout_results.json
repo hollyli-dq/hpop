@@ -1,0 +1,156 @@
+{
+  "unknown_boundary_posterior_predictive": {
+    "nll_per_trace": 48.20712115821296,
+    "nll_per_occurrence": 1.5584198650284364,
+    "total_log_predictive": -2169.3204521195835,
+    "predictive_interval_per_trace": {
+      "q025": 25.465454875740214,
+      "median": 48.10023995172687,
+      "q975": 82.2073329001295
+    },
+    "n_draws": 200,
+    "runtime_seconds": 115.54451808299928
+  },
+  "true_parameter_oracle": {
+    "nll_per_trace": 46.10891258270587,
+    "nll_per_occurrence": 1.4905898464236813,
+    "total_log_predictive": -2074.9010662217643
+  },
+  "modal_h_representative_draw": null,
+  "negative_control_h_of_mean_U": {
+    "nll_per_trace": 61.20606839218846,
+    "nll_per_occurrence": 1.9786444523336788,
+    "total_log_predictive": -2754.273077648481,
+    "status": "LABELLED NEGATIVE CONTROL. h(E[U]) is not a valid plug-in: averaging U inside an order cell can collapse incomparabilities, so the induced order of the mean is not the mean of the induced orders. Reported to size that failure, never as a result.",
+    "induced_orders_of_mean_U": [
+      [
+        [
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          true,
+          false,
+          false,
+          true,
+          false
+        ],
+        [
+          true,
+          true,
+          false,
+          true,
+          false
+        ],
+        [
+          true,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          true,
+          true,
+          false,
+          true,
+          false
+        ]
+      ],
+      [
+        [
+          false,
+          false,
+          false,
+          true,
+          false
+        ],
+        [
+          true,
+          false,
+          false,
+          true,
+          false
+        ],
+        [
+          false,
+          false,
+          false,
+          true,
+          false
+        ],
+        [
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          true,
+          true,
+          false,
+          true,
+          false
+        ]
+      ],
+      [
+        [
+          false,
+          true,
+          false,
+          true,
+          true
+        ],
+        [
+          false,
+          false,
+          false,
+          true,
+          true
+        ],
+        [
+          false,
+          true,
+          false,
+          true,
+          true
+        ],
+        [
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false,
+          true,
+          false
+        ]
+      ]
+    ]
+  },
+  "oracle_boundary_control": {
+    "nll_per_trace": 46.17206730808764,
+    "nll_per_occurrence": 1.4926314862528332,
+    "total_log_predictive": -2077.743028863944,
+    "predictive_interval_per_trace": {
+      "q025": 25.44193125040359,
+      "median": 45.33991037848999,
+      "q975": 77.47518606678686
+    },
+    "n_draws": 200
+  },
+  "gap_from_oracle_boundary_control": {
+    "nll_per_occurrence": 0.06578837877560328,
+    "nll_per_trace": 2.0350538501253226,
+    "fraction_of_traces_favouring_unknown_boundary": 0.13333333333333333,
+    "note": "both marginalise (S, z) on the held-out traces, because held-out boundaries are unknown to both. The control's advantage is entirely in the TRAINING posterior it carries."
+  }
+}

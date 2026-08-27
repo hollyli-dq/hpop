@@ -1,0 +1,89 @@
+{
+  "registered_before_the_pilot_ran": true,
+  "authorisation": {
+    "authorised_after_observing": {
+      "beta": {
+        "acceptance": 0.974,
+        "bulk_ess": 349
+      },
+      "lambda_rep": {
+        "acceptance": 0.972,
+        "bulk_ess": 528
+      },
+      "lambda_back": {
+        "acceptance": 0.958,
+        "bulk_ess": 1143
+      }
+    },
+    "context": "The corrected Stage 6D1 formal run remained FAIL on beta R-hat 1.01334 at the 100,000-sweep ceiling. These acceptance and ESS diagnostics are the separately recorded efficiency evidence that authorised this pilot.",
+    "previous_failed_attempts_preserved_unmodified": [
+      "stage6d1_joint_mcmc_FAILED_attempt0_50k",
+      "stage6d1_joint_mcmc_FAILED_attempt1",
+      "stage6d1_joint_mcmc (omega-retuned attempt, superseded by the final rerun)"
+    ],
+    "not_relabelled_as_pilots": true
+  },
+  "coordinates_tuned_in_sweep_order": [
+    "beta",
+    "lambda_rep",
+    "lambda_back"
+  ],
+  "coordinates_frozen_untouched": {
+    "U": 0.5,
+    "rho": 0.5,
+    "omega": 5.82816,
+    "omega_multiplier": 32
+  },
+  "multipliers": [
+    2,
+    4,
+    8,
+    16,
+    32,
+    64
+  ],
+  "admissible_acceptance": [
+    0.25,
+    0.6
+  ],
+  "preferred_acceptance": [
+    0.4,
+    0.5
+  ],
+  "selection_rule": "largest median ESJD among admissible; ties to the smaller multiplier",
+  "esjd_space": {
+    "beta": "log",
+    "lambda_rep": "log",
+    "lambda_back": "log"
+  },
+  "esjd_note": "log-scale kernels use squared movement in log parameter space",
+  "sequential_rule": "each coordinate is frozen at its selection before the next is tuned; later coordinates keep their old scales until their turn",
+  "chains": 4,
+  "sweeps": 4000,
+  "discarded_warm_up": 1000,
+  "base_seed": 90000001,
+  "joint_confirmation_band": [
+    0.2,
+    0.65
+  ],
+  "permitted_statistics": [
+    "acceptance",
+    "ESJD",
+    "finite-target checks",
+    "invalid-proposal counts",
+    "recurrent replay checks",
+    "rejection/cache consistency"
+  ],
+  "forbidden_and_not_computed": [
+    "reference means",
+    "reference quantiles",
+    "KS distances",
+    "energy distance",
+    "induced-H TV",
+    "relation errors",
+    "generating truth",
+    "recovery metrics",
+    "R-hat from candidate pilot runs"
+  ],
+  "all_pilot_draws_discarded": true
+}

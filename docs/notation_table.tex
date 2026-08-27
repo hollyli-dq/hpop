@@ -1,0 +1,100 @@
+% -----------------------------------------------------------------------------
+% HPOP notation table.  \input{notation_table} from the main paper.
+% Requires: amsmath, amssymb, bm, booktabs, tabularx  (all already in the preamble).
+% Symbols marked with a dagger are NOT in the current manuscript; they were added
+% while implementing the equations and are documented in docs/experiments.md.
+% -----------------------------------------------------------------------------
+\providecommand{\Aset}{\mathcal A}
+\providecommand{\Hset}{\mathcal H}
+\providecommand{\Mset}{\mathcal M}
+\providecommand{\Pset}{\mathcal P}
+\providecommand{\Pred}{\operatorname{Pred}}
+\providecommand{\RFS}{\operatorname{RFS}}
+\providecommand{\dg}{$^{\dagger}$}
+
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{@{}l l X@{}}
+\toprule
+\textbf{Symbol} & \textbf{Type / range} & \textbf{Meaning} \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{(a) Observation layer --- fixed upstream, not learned}}\\
+$\Aset$ & finite set, $|\Aset|=V$ & frozen CPA vocabulary; also the node set of every local partial order \\
+$c^{(n)}_t$ & $\in\Aset$ & the $t$th CPA \emph{occurrence} of trace $n$; $c_i=c_j$ does \emph{not} imply $o_i=o_j$ \\
+$\bm c^{(n)}$ & $\Aset^{T_n}$ & the observed occurrence sequence, $T_n$ occurrences \\
+$o^{(n)}_t$\dg & $\{\textsc{success},\textsc{failure},\textsc{unknown}\}$ & observed outcome of occurrence $t$; consumed by failure-conditioned invalidation \\
+$h_i$ & $\in\Pset$ & coarse phase hint (nine phases); an annotation scaffold, never used in the likelihood \\
+\addlinespace
+\multicolumn{3}{@{}l}{\textit{(b) Seed segmentation and the merge-only lattice}}\\
+$\widetilde B_n$ & $0=\tilde b_0<\cdots<\tilde b_{J_n}=T_n$ & LLM seed boundaries; the \emph{only} admissible skill boundaries \\
+$x^{(n)}_j$ & subsequence of $\bm c^{(n)}$ & the $j$th seed segment, $j=1,\dots,J_n$ \\
+$x^{(n)}_{a:b}$ & $x_a\oplus\cdots\oplus x_b$ & candidate block: a run of adjacent seeds ($\oplus$ = concatenation) \\
+$D_{\max}$ & $\in\mathbb N$ & cap on seeds merged into one instance; computational only \\
+$s^{(n)}_\ell$ & $0=s_0<\cdots<s_{L_n}=J_n$ & retained seed boundaries, i.e.\ the learned segmentation \\
+$\sigma^{(n)}_\ell$ & block of CPAs & the $\ell$th learned skill \emph{instance} \\
+$\delta^{(n)}_\ell$ & $s_\ell-s_{\ell-1}$ & number of \emph{seeds} merged into instance $\ell$ \\
+$d^{(n)}_\ell$ & $\tilde b_{s_\ell}-\tilde b_{s_{\ell-1}}$ & number of \emph{CPA occurrences} in instance $\ell$ (neither equals the template size) \\
+$z^{(n)}_\ell$ & $\in\{1,\dots,K_{\max}\}$ & skill type assigned to instance $\ell$; $z_\ell\neq z_{\ell+1}$ by convention \\
+$B_n,Z_n$ & --- & the latent segmentation and its label sequence for trace $n$ \\
+\addlinespace
+\multicolumn{3}{@{}l}{\textit{(c) Skill library}}\\
+$\Hset_{\max}$ & $\{H_1,\dots,H_{K_{\max}}\}$ & truncated library; $K_{\max}$ fixes dimension, not the used size \\
+$H_k$ & $(U_k,\theta_k)$\dg & skill type $k$: a local partial order plus a composition profile \\
+$\bm\pi$ & $\Delta^{K_{\max}-1}$ & skill-use frequencies, $\bm\pi\sim\mathrm{Dir}(\alpha/K_{\max},\dots)$ \\
+$\alpha$ & $>0$ & Dirichlet concentration; small $\alpha$ favours reuse over library growth \\
+$N_k$ & $\ge 0$ & expected posterior usage of slot $k$ \\
+$\mathcal K_+,K_+$ & $\{k:N_k>\epsilon_{\mathrm{use}}\}$ & the \emph{active} library and its size (inferred, unlike $K_{\max}$) \\
+$\widetilde K_+$ & $\sum_k[1-e^{-N_k/\tau_{\mathrm{act}}}]$ & differentiable soft count of active skills \\
+\addlinespace
+\multicolumn{3}{@{}l}{\textit{(d) Local partial order and recurrent execution}}\\
+$\Mset$, $M$ & node set, $|\Mset|=M$ & CPA roles of one skill template \\
+$h_U$ & $(\Mset,\succ_U)$ & the latent \emph{acyclic} local partial order \\
+$U$ & $\mathbb R^{M\times K}$ & latent embedding; $z\succ_U x$ iff $U_z$ dominates $U_x$ in every dimension \\
+$D_U(z,x)$ & $[0,1]$ & relaxed precedence score, ``$z$ must precede $x$''; hard case $\mathbf 1[z\succ_U x]$ \\
+$\Pred_U(x)$ & $\{z:z\succ_U x\}$ & predecessors of $x$ \\
+$y_{1:T}$ & $\Mset^T$ & observed \emph{repeated} execution; $T$ may exceed $M$ \\
+$q_t(x)$ & $[0,1]$ & validity state: is the latest result of role $x$ still valid at step $t$ \\
+$\omega_{zx}$ & $\mathbb R$ & invalidation logit; $\sigma(\omega)$ is the invalidation rate \\
+$\widetilde J_\omega(z,x)$ & $D_U(z,x)\sigma(\omega_{zx})$ & invalidation, masked by precedence so it flows \emph{forward} only \\
+$\widetilde J^{\mathrm{fail}}(y,z)$\dg & $D_U(z,y)\sigma(\omega)$ & \emph{backward} invalidation, fired only when $o_t=\textsc{failure}$ \\
+$\widetilde F^{\RFS}_t(x)$ & $\prod_{z}[1-D_U(z,x)(1-q_{t-1}(z))]$ & recurrent frontier: is every predecessor of $x$ currently valid \\
+$\widetilde S^{\RFS}_t(x)$ & $\sum_z D_U(x,z)(1-q_{t-1}(z))$ & stale downstream work $x$ would unblock \\
+$\widetilde Q^{\RFS}_t(x)$ & $\log(1+\widetilde S^{\RFS}_t)$ & successor utility \\
+$C^{\mathrm{rep}}_t(x)$ & $q_{t-1}(x)$ & repeat cost: re-running a role whose output is still valid \\
+$C^{\mathrm{back}}_t(x)$ & $\sum_z\widetilde J_\omega(x,z)q_{t-1}(z)$ & backward-jump cost: valid descendants this move would stale \\
+$\beta$ & $\ge 0$ & successor-utility temperature \\
+$\lambda_{\mathrm{rep}},\lambda_{\mathrm{back}}$ & $\ge 0$ & weights on the repeat and backward-jump costs \\
+$\theta_k$\dg & $\mathbb R^{V}$ & composition logits of skill $k$; $\theta=0$ recovers the manuscript weight \\
+$\lambda_{\mathrm{comp}},\lambda_{\mathrm{po}}$\dg & $\ge 0$ & weights separating the composition and order halves of $\log\widetilde W_t$ \\
+$\epsilon$\dg & $[0,1)$ & trembling-hand floor; without it an order violation has probability $0$ \\
+$\eta,P_k(x\mid y_{t-1})$\dg & $\ge0$, $\Delta^{V-1}$ & optional frontier-restricted transition term (HPOP+Seq) \\
+$\widetilde W_t(x)$ & $>0$ & unnormalised step weight; $\widetilde p_{\RFS}(y_t\!=\!x)=\widetilde W_t(x)/\sum_v\widetilde W_t(v)$ \\
+\addlinespace
+\multicolumn{3}{@{}l}{\textit{(e) Priors, penalties and inference}}\\
+$\ell_n(a,b,k)$ & $\mathbb R$ & expected generative segment score of block $a{:}b$ under skill $k$ \\
+$\lambda_{\mathrm{seg}}$ & $\ge 0$ & per-instance penalty; \emph{unnormalised}, so raw $\log Z$ is not a likelihood \\
+$p_{\mathrm{dur}}(d),\;\mathrm T_{hk},\;\rho_k$\dg & $\Delta$'s & duration, transition and start distributions replacing $\lambda_{\mathrm{seg}}$ \\
+$\lambda_{\mathrm{edge}}$\dg & $\ge0$ & cover-edge complexity penalty in the structure search \\
+$\lambda_K,\tau_{\mathrm{act}}$ & $\ge 0$ & weight and temperature of the active-library cost \\
+$\eta_{\phi,n}(a,b,k)$ & $\mathbb R$ & inference-network potential; setting $\eta=\ell_n$ makes $q_\phi$ \emph{exact} \\
+$q_\phi(B_n,Z_n)$ & --- & structured semi-Markov variational posterior \\
+$A_{n,j}(k)$ & $\mathbb R$ & forward log-mass over the first $j$ seeds, ending in a $k$-block \\
+$\mathcal Z_{\phi,n}$ & $>0$ & lattice partition function \\
+$\mu_n(a,b,k)$ & $[0,1]$ & exact segment marginal: block $a{:}b$ is one instance of skill $k$ \\
+$\xi_n(h,k)$\dg & $\ge0$ & expected $h$-block $\to$ $k$-block transitions (needed to fit $\mathrm T$) \\
+$\mathcal L_{\mathrm{seg}}$ & $\mathbb R$ & the segmentation ELBO \\
+\bottomrule
+\end{tabularx}
+\caption{Notation. Groups (a)--(b) are observed or fixed upstream; (c)--(d) are the learned skill
+library; (e) governs inference and regularisation. Symbols marked \dg\ are not in the current
+manuscript: they were introduced while implementing the equations---the composition term $\theta_k$
+that Fig.~\ref{fig:overview} promises but the weight omits, the noise floor $\epsilon$ without which
+an order violation has zero probability, the normalised duration/transition prior that replaces the
+unnormalised $\lambda_{\mathrm{seg}}$ factor, the outcome $o_t$ and backward invalidation
+$\widetilde J^{\mathrm{fail}}$ needed for a failed test to invalidate the edit preceding it, and the
+optional sequential term.}
+\label{tab:notation}
+\end{table}

@@ -1,0 +1,32 @@
+{
+  "registered_before_any_continuation_result_was_examined": true,
+  "source_commit": "1ac8bef1e02284485c504f533a6833681556c0e2",
+  "purpose": "Decide IN ADVANCE how a continued-but-still-failing run is to be described, so the choice between 'needs longer chains' and 'structurally multimodal' is not made after seeing which is more convenient.",
+  "registered_section_14_ladder": [
+    50000,
+    75000,
+    100000,
+    125000,
+    150000
+  ],
+  "structural_locking_criteria": {
+    "A_frozen_structure": "per-skill and total relation counts have ~zero WITHIN-chain variance in two or more chains (threshold: within-chain sd < 0.01 over the retained draws)",
+    "B_disagreeing_structure": "the chains' mean total relation counts differ by more than 1.0",
+    "C_log_posterior_gap": "the spread of mean invariant log posterior across chains exceeds 20 nats",
+    "conjunction": "A and B and C together"
+  },
+  "verdict_if_criteria_hold_at_150000": {
+    "stage_6e2_convergence": "FAIL",
+    "stage_6e2_identifiability": "MULTIMODAL",
+    "diagnosis": "(S, z)--U structural locking: the segmentation is stuck given U and U is stuck given the segmentation, so the pair occupies a joint absorbing mode. This is a property of the LOCAL move kernel on this posterior, not a sampler-correctness defect -- correctness was established exactly in Stage 6E1A (log Z to 8.9e-16) and Stage 6E1B (18/18 gates).",
+    "explicitly_not": "'the chains merely need to be longer'. Once A, B and C hold at the registered maximum, describing the result as insufficient run length would be a claim the evidence contradicts: a coordinate with zero within-chain variance over 100,000+ sweeps is not drifting slowly, it is not moving."
+  },
+  "what_this_licenses": "a motivation for Step 7, stated as a hypothesis to be tested rather than a guarantee: replacing the local (S, z) moves with an exact blocked semi-Markov FFBS draw, (S, z)^new ~ p(S, z | U, Theta, X), can jump between segmentation basins in one step. Whether that INDIRECTLY frees U -- which FFBS does not update -- is the open question Step 7 must answer, and must not be assumed.",
+  "what_this_does_not_license": [
+    "reinterpreting Stage 6E sampler correctness, which is established independently",
+    "retuning proposals, changing the target, or altering a recovery gate",
+    "importing FFBS into Stage 6E2, whose registered algorithm is the local move kernel",
+    "interpreting the Stage 6E2 recovery numbers, which stay uninterpreted while the chains have not converged"
+  ],
+  "recovery_status": "Boundary F1 0.268, skill ARI 0.270, lambda_rep truth outside its interval and all other recovery quantities are COMPUTED BUT NOT INTERPRETED. They characterise the modes the chains happen to occupy, not the posterior. In particular they are NOT evidence that the model recovers structure poorly, because the pooled posterior approximation is not trustworthy."
+}

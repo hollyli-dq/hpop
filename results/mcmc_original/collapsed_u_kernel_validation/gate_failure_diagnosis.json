@@ -1,0 +1,51 @@
+{
+  "failed_gate": "mixed_multivariate_reference_statistic",
+  "observed": 0.005139,
+  "envelope_99pct_iid_null": 0.004522,
+  "null_mean": 0.00353,
+  "null_sd": 0.000564,
+  "z_score": 2.86,
+  "baselines_same_gate": {
+    "6e1b_local": {
+      "observed": 0.003989,
+      "z": 0.81
+    },
+    "7b1_ffbs": {
+      "observed": 0.002879,
+      "z": -1.15
+    }
+  },
+  "what_is_clean": {
+    "distributional_gates": "all 7 pass with >= 2x margin (segmentation TV 0.0047, H TV 0.0052, relation 0.0028, boundary 0.0013, labels 0.0026, counts 0.0014 vs 0.01)",
+    "rhat_gates": "all 11 pass; worst 1.0035 vs 1.01",
+    "scalar_means": "gaps <= 0.014 reference SD \u2014 smaller than both passing baselines; sd ratios 0.98-1.01",
+    "closure_marginals": "worst cell gap 0.0119 vs 7B1's 0.0120; mean 0.00286 vs 0.00274",
+    "dependence_structure": "max correlation deviation from reference: scalar-scalar 0.037, scalar-closure 0.036 (7B1: 0.021 / 0.041); ~1.7 SE at ESS ~2000",
+    "ess_profile": "identical to 7B1 (beta 2122 vs 1945, lambda_rep 1311 vs 1302, closures 31k-58k vs 31k-53k)"
+  },
+  "localization": {
+    "group_energy_z": {
+      "closures": 1.32,
+      "count_total": -0.99,
+      "scalars": 2.06
+    },
+    "note": "the exceedance concentrates in the scalar block, 0.7% over its own group envelope, with scalar marginals and cross-correlations clean"
+  },
+  "subsample_offsets": {
+    "observed": [
+      0.004959,
+      0.005047,
+      0.004824,
+      0.005151,
+      0.004143,
+      0.005325
+    ],
+    "envelope": 0.004489,
+    "over": 5,
+    "under": 1,
+    "note": "persistently slightly high across correlated offsets, not one unlucky realization"
+  },
+  "known_conservatism": "the envelope is the 99th percentile of an IID null (both samples resampled from the reference); a correct but autocorrelated chain (scalar ESS 1300-3400 vs n=4000) has a wider true sampling distribution, so nominal 1% is an underestimate of the false-alarm rate for ANY correct sampler here",
+  "unresolved": "with identical ESS to 7B1, the gap between z=-1.15 (7B1) and z=+2.86 (ours) is either realization luck under the wider true spread, or a residual discrepancy below the resolution of every marginal and dependence diagnostic. Distinguishing these requires new draws (independent-seed replication or a longer run), which is outside this task's registered stop condition",
+  "preregistered_consequence": "COLLAPSED-U KERNEL NOT YET VALIDATED \u2014 STOP"
+}

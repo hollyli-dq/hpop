@@ -1,0 +1,43 @@
+{
+  "gates": {
+    "full_u_total_variation": {
+      "value": 1.2244881679067542e-118,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "max_relation_marginal_error": {
+      "value": 2.4489763358135083e-118,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "rho_rhat": {
+      "value": 1.006625481860156,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "mixed_reference_envelope": {
+      "value": 0.0012597086107328792,
+      "threshold": 0.0029969429321132597,
+      "pass": true
+    }
+  },
+  "mixed": {
+    "statistic": "energy distance on reference-standardised [closure indicators, scalars]",
+    "observed": 0.0012597086107328792,
+    "envelope": 0.0029969429321132597,
+    "envelope_quantile": 0.99,
+    "null_mean": 0.0008316999313930873,
+    "null_sd": 0.0007338541578722826,
+    "null_max": 0.0032845470854170333,
+    "n_replicates": 40,
+    "n_mcmc": 2000,
+    "n_reference": 2000,
+    "n_coordinates": 1,
+    "dropped_constant_coordinates": 25,
+    "z_score": 0.5832339774169149,
+    "pass": true
+  },
+  "retained_draws_pooled": 12000,
+  "reference_draws": 20000,
+  "note": "the reference was frozen before these chains ran and was not adjusted afterwards"
+}

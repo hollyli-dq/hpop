@@ -1,0 +1,12 @@
+{
+  "arm": "FULL-MARG",
+  "index": 0,
+  "production_library_constant": true,
+  "production_library_counts": {
+    "d72975bc6f6cbaf5": 20000
+  },
+  "seed": 6306211,
+  "start_library": "e20bed13325a7aac",
+  "warmup_h_accepts": 34,
+  "warmup_h_accepts_at_least_one": true
+}

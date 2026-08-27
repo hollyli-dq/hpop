@@ -1,0 +1,80 @@
+{
+  "A": 50,
+  "D_max": 12,
+  "D_min": 3,
+  "J": 200,
+  "K": 20,
+  "N": 100,
+  "axis": "optional_target_seed2",
+  "groups": [
+    "build",
+    "primitives",
+    "cond",
+    "marg"
+  ],
+  "label": "optional_target_seed2",
+  "length_mix": [],
+  "max_reps": 200,
+  "min_reps": 5,
+  "note": "Section 17.1: the target operating point under a second deterministic data seed, on a machine that has since gone idle. Corroboration of the primary, not a new measurement.",
+  "op_reps": [
+    [
+      "cond_plain",
+      50,
+      200,
+      200
+    ],
+    [
+      "marg_plain",
+      50,
+      200,
+      200
+    ],
+    [
+      "cond_structural",
+      2,
+      5,
+      20
+    ],
+    [
+      "marg_structural",
+      2,
+      5,
+      20
+    ],
+    [
+      "emission_build",
+      2,
+      5,
+      15
+    ],
+    [
+      "emission_cache_hit",
+      3,
+      15,
+      50
+    ],
+    [
+      "forward_batched",
+      3,
+      15,
+      50
+    ],
+    [
+      "backward_sample",
+      3,
+      15,
+      50
+    ],
+    [
+      "ffbs_complete",
+      3,
+      15,
+      50
+    ]
+  ],
+  "regime": "sparse",
+  "seed": 20260823,
+  "timeout_s": 1800,
+  "warmups": 50
+}

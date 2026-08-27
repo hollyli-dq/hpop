@@ -1,0 +1,80 @@
+[
+  {
+    "sweep": 150000,
+    "verdict": "INCONCLUSIVE",
+    "components": {
+      "A_frozen_gates": false,
+      "B_primary_energy": false,
+      "C_sensitivity_agrees": false,
+      "D_rhat": false,
+      "E_ess": false,
+      "F_structural_movement": true,
+      "G_hard_checks": true
+    }
+  },
+  {
+    "sweep": 200000,
+    "verdict": "FAIL",
+    "components": {
+      "A_frozen_gates": false,
+      "B_primary_energy": true,
+      "C_sensitivity_agrees": true,
+      "D_rhat": false,
+      "E_ess": false,
+      "F_structural_movement": true,
+      "G_hard_checks": true
+    }
+  },
+  {
+    "sweep": 250000,
+    "verdict": "FAIL",
+    "components": {
+      "A_frozen_gates": false,
+      "B_primary_energy": true,
+      "C_sensitivity_agrees": true,
+      "D_rhat": false,
+      "E_ess": false,
+      "F_structural_movement": true,
+      "G_hard_checks": true
+    }
+  },
+  {
+    "sweep": 300000,
+    "verdict": "FAIL",
+    "components": {
+      "A_frozen_gates": false,
+      "B_primary_energy": true,
+      "C_sensitivity_agrees": true,
+      "D_rhat": false,
+      "E_ess": false,
+      "F_structural_movement": true,
+      "G_hard_checks": true
+    }
+  },
+  {
+    "sweep": 400000,
+    "verdict": "PASS",
+    "components": {
+      "A_frozen_gates": true,
+      "B_primary_energy": true,
+      "C_sensitivity_agrees": true,
+      "D_rhat": true,
+      "E_ess": true,
+      "F_structural_movement": true,
+      "G_hard_checks": true
+    }
+  },
+  {
+    "sweep": 500000,
+    "verdict": "PASS",
+    "components": {
+      "A_frozen_gates": true,
+      "B_primary_energy": true,
+      "C_sensitivity_agrees": true,
+      "D_rhat": true,
+      "E_ess": true,
+      "F_structural_movement": true,
+      "G_hard_checks": true
+    }
+  }
+]

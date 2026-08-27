@@ -1,0 +1,91 @@
+% Updated validation-status table.  Every entry below was read from the frozen
+% artefacts under results/mcmc_original/ (gate JSONs, final_verdict.json,
+% readonly_midrun_truth_analysis) at commit 3f99926.
+% NOTE: rows 10C onward are NOT passes.  If you have no \OPEN macro, the plain
+% text used here compiles as-is.
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}p{0.10\textwidth}p{0.25\textwidth}Xp{0.14\textwidth}@{}}
+\toprule
+\textbf{Stage} & \textbf{Question} & \textbf{Current conclusion} & \textbf{Status} \\
+\midrule
+\multicolumn{4}{@{}l}{\textit{(a) Machinery and single-coordinate correctness}}\\
+0--3 & Are path enumeration, local segmentation moves, composition baselines,
+and transitions implemented correctly? & Tiny exact targets and local-kernel
+checks establish the early path machinery. & \PASS \\
+4--5 & Does the product-order representation and latent-$U$ sampler target the
+intended static partial-order posterior? & Static likelihood and latent-$U$
+reference checks pass. & \PASS \\
+6 & Is recurrent execution correct under the same acyclic $H=h(U)$? & Generator,
+likelihood, scalar, and oracle-block parity checks pass. & \PASS \\
+6D & Does the oracle-block joint sampler recover structure and recurrent
+parameters? & Convergence, structure recovery, scalar coverage, and held-out
+checks pass. & \PASS \\
+6E & What happens when boundaries and labels are also unknown? & The ordinary
+full-joint sampler is correct but structurally multimodal; extending local chains
+does not solve the locking. & Diagnostic \\
+7 & Does exact global FFBS of $(S,z)$ solve the full-joint locking? & FFBS targets
+the same posterior, but FFBS alone does not release $U/H$ from its structural
+mode. & Correctness \PASS; hypothesis falsified \\
+8 & Does marginalizing $(S,z)$ during $U$ proposals restore structural movement
+without changing the target? & Exact finite-state and mixed-reference validation
+pass; the dependence-aware run passes all registered gates at two consecutive
+checkpoints. & \PASS \\
+9 & Does the synthetic generator exactly match the inference model? & All 15
+registered generator gates pass; the old $L\sim\mathrm{Uniform}\{4,5,6\}$
+mechanism is excluded. & \PASS \\
+\addlinespace
+\multicolumn{4}{@{}l}{\textit{(b) Matched-model recovery ladder}}\\
+10A & Can paths be recovered when structure is known? & Path strongly
+identifiable: boundary AUROC $0.96$ (held-out $0.97$), ECE $0.008$, mean
+per-trace ARI $0.75$, occurrence NLL $-77\%$ vs.\ prior. & \PASS \\
+10B & Can structure be recovered when paths are known? & Structure strongly
+identifiable under oracle paths: per-skill closure $F_1=1.00$ on all three
+skills; held-out NLL $1.08$ vs.\ $1.75$ (antichain) and $4.04$ (total order).
+& \PASS \\
+10C & Can the joint posterior over $(S,z,U)$ be sampled with $\pi,P$ fixed? &
+Structural multimodality persists: chains accept $H$-changes ($18$--$24$ each)
+yet relation $\hat R$ diverges and relation bulk ESS $\approx 4$ at $30$k,
+$50$k and $75$k sweeps. & Gates not passed \\
+10C$'$ & Do label-swap moves release the structural locking? & They do not.
+At $30$k the conditional arm reaches $\hat R_{\max}=54$ and the marginal arm
+retains a divergent invariant, so swap augmentation alone is insufficient.
+& Gates not passed \\
+\addlinespace
+\multicolumn{4}{@{}l}{\textit{(c) Full latent model ($\pi,P$ also inferred)}}\\
+11 & Does path-marginal structure updating recover the library when nothing is
+held fixed? & Both arms reached $30$k sweeps and neither passed the registered
+truth-free gate. A read-only mid-run diagnostic (truth unsealed on PI
+instruction; no setting changed) shows the two arms separating sharply: the
+path-marginal arm's dominant library equals the truth in $4/4$ chains
+(closure $F_1=1.000$, Hamming $0$) against $0/4$ for the conditional arm
+($F_1=0.737$), with lower boundary Brier ($0.054$ vs.\ $0.077$) and $\pi$
+error ($0.057$ vs.\ $0.122$). Both arms target the same posterior; the
+difference is mixing. & Recovery evidence; convergence \textbf{not}
+established \\
+\addlinespace
+\multicolumn{4}{@{}l}{\textit{(d) External corpora and cost}}\\
+Task\-Bench & Does the partial-order component generalize outside the synthetic
+generator? & Yes, on the frozen Multimedia DAG benchmark: $132/132$ chains
+converged ($\hat R\le1.01$); test closure $F_1$ $0.45\!\to\!0.68\!\to\!0.90$ with
+one, two and four observations. The Bayesian advantage is calibration and
+held-out NLL, not point $F_1$, which the intersection baseline wins at low data.
+& \PASS (Outcome~2) \\
+$\tau^3$-Retail & Does the full model fit a real tool-use corpus? & A
+development-only smoke fit did not converge ($\hat R$ $2.42\!\to\!2.02$ through
+$60$k sweeps, at ceiling). & Not converged \\
+Scalability & What does the segmental backend cost as $J,K,N,D,A$ grow? &
+Measured and frozen on the optimized backend; paper figures complete.
+& \PASS \\
+Screening & Are other public agent corpora usable? & TRAJECT-Bench excluded
+(pseudo-replication); AppWorld excluded only on its 12-CPA vocabulary cap.
+& Documented \\
+\bottomrule
+\end{tabularx}
+\caption{Current validation status. Stages 0--9 establish correctness of the
+machinery; the matched ladder (10A--10C$'$) separates what is identifiable from
+what is reachable by the sampler; stage~11 reports the first evidence that
+path-marginal structure updates recover the library when nothing is held fixed.}
+\label{tab:status}
+\end{table}

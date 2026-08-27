@@ -1,0 +1,60 @@
+{
+  "gates": {
+    "log_z_vs_independent_enumeration": {
+      "value": 8.881784197001252e-16,
+      "threshold": 1e-10,
+      "pass": true
+    },
+    "dp_marginals_vs_enumeration": {
+      "value": 5.551115123125783e-16,
+      "threshold": 1e-10,
+      "pass": true
+    },
+    "ffbs_draws_completed": {
+      "value": 100000,
+      "threshold": 100000,
+      "pass": true
+    },
+    "ffbs_full_path_total_variation": {
+      "value": 0.00238809835717739,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "ffbs_max_boundary_marginal_error": {
+      "value": 0.0006389307741809409,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "ffbs_max_occurrence_label_marginal_error": {
+      "value": 0.0023878146082687013,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "recurrent_candidate_q0_reset": {
+      "value": 0.0,
+      "threshold": 0.0,
+      "pass": true
+    },
+    "evaluation_order_invariance": {
+      "value": 0.0,
+      "threshold": 0.0,
+      "pass": true
+    },
+    "cached_equals_uncached_block_table": {
+      "value": 0.0,
+      "threshold": 0.0,
+      "pass": true
+    },
+    "local_move_kernel_reproduces_frozen_frequencies": {
+      "value": 0.0,
+      "threshold": 1e-12,
+      "pass": true
+    },
+    "local_move_kernel_and_ffbs_agree_with_the_same_exact_posterior": {
+      "value": 0.00238809835717739,
+      "threshold": 0.01,
+      "pass": true
+    }
+  },
+  "all_pass": true
+}

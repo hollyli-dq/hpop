@@ -1,0 +1,75 @@
+{
+  "stage": "6E0",
+  "parity_all_passed": true,
+  "smoke_all_passed": true,
+  "all_passed": true,
+  "failed_checks": [],
+  "n_sweeps": 120,
+  "proposed": {
+    "relabel": 120,
+    "split": 114,
+    "merge": 127,
+    "shift": 119
+  },
+  "accepted": {
+    "relabel": 17,
+    "split": 8,
+    "merge": 9,
+    "shift": 8
+  },
+  "acceptance": {
+    "relabel": 0.14166666666666666,
+    "split": 0.07017543859649122,
+    "merge": 0.07086614173228346,
+    "shift": 0.06722689075630252
+  },
+  "final_segment_counts": [
+    3,
+    3,
+    2,
+    3
+  ],
+  "full_replay_calls": 14652,
+  "cached_calls": 5819,
+  "cache_size": 31,
+  "cache_version": 1240,
+  "cache_key_fields": [
+    "version(-> U_by_skill, beta, omega, lambda_rep, lambda_back, epsilon)",
+    "trace",
+    "start",
+    "end",
+    "skill"
+  ],
+  "log_target_range": [
+    -317.1126408055945,
+    -179.62512467652616
+  ],
+  "checks": {
+    "relabel_proposed": true,
+    "relabel_accepted_and_rejected": true,
+    "split_proposed": true,
+    "split_accepted_and_rejected": true,
+    "merge_proposed": true,
+    "merge_accepted_and_rejected": true,
+    "shift_proposed": true,
+    "shift_accepted_and_rejected": true,
+    "boundaries_moved": true,
+    "labels_moved": true,
+    "U_moved": true,
+    "rho_moved": true,
+    "pi_moved": true,
+    "P_moved": true,
+    "beta_moved": true,
+    "omega_moved": true,
+    "lambda_rep_moved": true,
+    "lambda_back_moved": true,
+    "q_zero_reset_for_every_block": true,
+    "no_nans": true,
+    "cached_equals_fresh_replay": true,
+    "score_order_invariant": true,
+    "rejection_safe": true,
+    "every_segmentation_legal": true,
+    "save_load": true,
+    "deterministic_resume": true
+  }
+}

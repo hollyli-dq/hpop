@@ -1,0 +1,118 @@
+{
+  "joint": {
+    "max_false_relation_marginal_overall": 0.0,
+    "min_true_relation_marginal_overall": 1.0,
+    "n_distinct_tuples": 1,
+    "n_pooled_draws": 32000,
+    "true_tuple_posterior": 1.0,
+    "true_tuple_rank": 1
+  },
+  "per_skill": [
+    {
+      "closure": {
+        "exact": true,
+        "f1": 1.0,
+        "hamming": 0,
+        "n_true_pairs": 6,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "h_entropy_nats": -0.0,
+      "incomparable": {
+        "f1": 1.0,
+        "n_true_incomparable": 4,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "max_false_relation_marginal": 0.0,
+      "min_true_relation_marginal": 1.0,
+      "modal_h_equals_truth": true,
+      "modal_h_hash": "19904293250fd25b",
+      "modal_h_posterior": 1.0,
+      "n_distinct_states": 1,
+      "n_states_above_1pct": 1,
+      "skill": 0,
+      "thresholded_matrix_is_valid_poset": true,
+      "transitive_reduction": {
+        "exact": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "true_h_hash": "19904293250fd25b",
+      "true_h_posterior": 1.0,
+      "true_h_rank": 1
+    },
+    {
+      "closure": {
+        "exact": true,
+        "f1": 1.0,
+        "hamming": 0,
+        "n_true_pairs": 6,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "h_entropy_nats": -0.0,
+      "incomparable": {
+        "f1": 1.0,
+        "n_true_incomparable": 4,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "max_false_relation_marginal": 0.0,
+      "min_true_relation_marginal": 1.0,
+      "modal_h_equals_truth": true,
+      "modal_h_hash": "0340aaa796edc90b",
+      "modal_h_posterior": 1.0,
+      "n_distinct_states": 1,
+      "n_states_above_1pct": 1,
+      "skill": 1,
+      "thresholded_matrix_is_valid_poset": true,
+      "transitive_reduction": {
+        "exact": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "true_h_hash": "0340aaa796edc90b",
+      "true_h_posterior": 1.0,
+      "true_h_rank": 1
+    },
+    {
+      "closure": {
+        "exact": true,
+        "f1": 1.0,
+        "hamming": 0,
+        "n_true_pairs": 5,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "h_entropy_nats": -0.0,
+      "incomparable": {
+        "f1": 1.0,
+        "n_true_incomparable": 5,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "max_false_relation_marginal": 0.0,
+      "min_true_relation_marginal": 1.0,
+      "modal_h_equals_truth": true,
+      "modal_h_hash": "2959d0db1011ccc1",
+      "modal_h_posterior": 1.0,
+      "n_distinct_states": 1,
+      "n_states_above_1pct": 1,
+      "skill": 2,
+      "thresholded_matrix_is_valid_poset": true,
+      "transitive_reduction": {
+        "exact": true,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "true_h_hash": "2959d0db1011ccc1",
+      "true_h_posterior": 1.0,
+      "true_h_rank": 1
+    }
+  ],
+  "threshold": 0.5
+}

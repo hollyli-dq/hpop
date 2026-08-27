@@ -1,0 +1,14 @@
+{
+  "arm": "FULL-COND",
+  "index": 2,
+  "production_library_constant": false,
+  "production_library_counts": {
+    "9f368b8ffb2b4090": 3755,
+    "b0ad82d1cbfa14f1": 15645,
+    "ca9703e030dda38c": 600
+  },
+  "seed": 6306203,
+  "start_library": "a5eae8ebbc1e72c2",
+  "warmup_h_accepts": 18,
+  "warmup_h_accepts_at_least_one": true
+}

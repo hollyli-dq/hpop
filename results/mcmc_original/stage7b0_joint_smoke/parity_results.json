@@ -1,0 +1,105 @@
+{
+  "conditional_parity": {
+    "n_states": 24,
+    "n_comparisons": 48,
+    "max_log_z_absolute_error": 3.552713678800501e-15,
+    "max_conditional_total_variation": 1.7931348680194636e-15,
+    "threshold_log_z": 1e-10,
+    "threshold_tv": 1e-12,
+    "examples": [
+      {
+        "state": 0,
+        "trace": 0,
+        "log_z_ffbs": -9.671790879747263,
+        "log_z_enumerated": -9.671790879747261,
+        "absolute_error": 1.7763568394002505e-15,
+        "conditional_tv": 8.000963642372894e-16
+      },
+      {
+        "state": 0,
+        "trace": 1,
+        "log_z_ffbs": -8.287416750840851,
+        "log_z_enumerated": -8.287416750840851,
+        "absolute_error": 0.0,
+        "conditional_tv": 1.0408340855860843e-17
+      },
+      {
+        "state": 1,
+        "trace": 0,
+        "log_z_ffbs": -8.334292657746625,
+        "log_z_enumerated": -8.334292657746625,
+        "absolute_error": 0.0,
+        "conditional_tv": 0.0
+      },
+      {
+        "state": 1,
+        "trace": 1,
+        "log_z_ffbs": -9.688626327455054,
+        "log_z_enumerated": -9.688626327455054,
+        "absolute_error": 0.0,
+        "conditional_tv": 1.6046192152785466e-16
+      },
+      {
+        "state": 2,
+        "trace": 0,
+        "log_z_ffbs": -10.735687299227846,
+        "log_z_enumerated": -10.735687299227848,
+        "absolute_error": 1.7763568394002505e-15,
+        "conditional_tv": 8.842824569176434e-16
+      },
+      {
+        "state": 2,
+        "trace": 1,
+        "log_z_ffbs": -16.921628930246555,
+        "log_z_enumerated": -16.92162893024656,
+        "absolute_error": 3.552713678800501e-15,
+        "conditional_tv": 1.777137251893054e-15
+      }
+    ],
+    "pass": true
+  },
+  "global_target_parity": {
+    "n_states": 24,
+    "max_absolute_difference": 1.4210854715202004e-14,
+    "threshold": 1e-09,
+    "examples": [
+      {
+        "state": 0,
+        "direct": -64.08195139681241,
+        "sweep_decomposition": -64.08195139681241,
+        "absolute_difference": 0.0
+      },
+      {
+        "state": 1,
+        "direct": -60.52187776070854,
+        "sweep_decomposition": -60.52187776070854,
+        "absolute_difference": 0.0
+      },
+      {
+        "state": 2,
+        "direct": -83.0145745332467,
+        "sweep_decomposition": -83.0145745332467,
+        "absolute_difference": 0.0
+      }
+    ],
+    "pass": true
+  },
+  "kernel_parity": {
+    "n_states": 8,
+    "max_absolute_difference": {
+      "u": 0.0,
+      "rho": 0.0,
+      "log_target": 0.0,
+      "pi": 0.0,
+      "transition": 0.0,
+      "beta": 0.0,
+      "omega": 0.0,
+      "lambda_rep": 0.0,
+      "lambda_back": 0.0
+    },
+    "worst_over_all_coordinates": 0.0,
+    "pass": true,
+    "note": "bit-identical is required, not approximate: the Step 7B sweep calls the Stage 6E sweep for every phase after (S, z)"
+  },
+  "all_pass": true
+}

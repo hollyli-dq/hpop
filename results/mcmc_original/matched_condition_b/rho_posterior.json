@@ -1,0 +1,5 @@
+{
+  "note": "registered correction: the supplied-truth corpus records rho* = null, so rho is fixed and no rho-recovery claim is made; a separate prior-draw calibration experiment (rho* ~ p(rho), U* ~ p(U|rho*)) may later evaluate rho and is explicitly out of scope here",
+  "rho_fixed_at": 0.5,
+  "rho_inferred": false
+}

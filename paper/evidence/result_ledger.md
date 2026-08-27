@@ -1,0 +1,377 @@
+# HPOP numerical result ledger
+
+Machine-readable twin: `paper/evidence/result_ledger.csv` (identical content, generated together).
+
+**Values are UNROUNDED** exactly as stored in the frozen artifact. LaTeX drafts round to three decimals; 
+the ledger is the authority when the two appear to disagree.
+
+Every row names its artifact path, its JSON field and the commit that froze it. 
+Artifact paths are repository-relative: `results/mcmc_original/...` resolve on `condition-c-integration`, 
+`results/external/taskbench_*` on `taskbench-static-poset-fit` (10d4bf4), 
+`results/external/tau3_*` on `tau3-retail-hpop-pilot-data` (8100fc2).
+
+
+**Oracle-conditional warning.** Condition B held-out NLL is scored with held-out oracle `S*, z*`. 
+It is NOT the same quantity as a marginal held-out NLL and must never be tabulated in the same column as one.
+
+
+## Condition A — path identifiability under oracle structures
+
+| condition | split | model | metric | value | uncertainty / CI | unit | source artifact | source field | commit | notes |
+|---|---|---|---|---|---|---|---|---|---|---|
+| oracle_structures_and_parameters | all | exact_semi_markov_posterior | boundary_brier | 0.051592689377131226 |  | probability_score | results/mcmc_original/matched_condition_a/boundary_metrics.json | posterior.all.brier | b199374 | lower is better |
+| oracle_structures_and_parameters | all | prior | boundary_brier | 0.10834777857117713 |  | probability_score | results/mcmc_original/matched_condition_a/boundary_metrics.json | prior.all.brier | b199374 | prior reference |
+| oracle_structures_and_parameters | all | exact_semi_markov_posterior | boundary_brier_relative_reduction_vs_prior | 0.5238232840811006 |  | fraction | results/mcmc_original/matched_condition_a/prior_vs_posterior.json | all.boundary_brier.relative_reduction | b199374 | preregistered strong gate >= 0.40 |
+| oracle_structures_and_parameters | all | exact_semi_markov_posterior | boundary_nll | 0.16624502759677987 |  | nats_per_gap | results/mcmc_original/matched_condition_a/boundary_metrics.json | posterior.all.nll | b199374 |  |
+| oracle_structures_and_parameters | all | prior | boundary_nll | 0.3629086303482923 |  | nats_per_gap | results/mcmc_original/matched_condition_a/boundary_metrics.json | prior.all.nll | b199374 |  |
+| oracle_structures_and_parameters | all | exact_semi_markov_posterior | boundary_nll_relative_reduction_vs_prior | 0.5419094127432835 |  | fraction | results/mcmc_original/matched_condition_a/prior_vs_posterior.json | all.boundary_nll.relative_reduction | b199374 |  |
+| oracle_structures_and_parameters | all | exact_semi_markov_posterior | boundary_auroc | 0.9560829047026905 |  | auroc | results/mcmc_original/matched_condition_a/boundary_metrics.json | posterior.all.auroc | b199374 | preregistered strong gate >= 0.85 |
+| oracle_structures_and_parameters | heldout | exact_semi_markov_posterior | boundary_auroc | 0.9659293535124301 |  | auroc | results/mcmc_original/matched_condition_a/boundary_metrics.json | posterior.heldout.auroc | b199374 | preregistered strong gate >= 0.80 |
+| oracle_structures_and_parameters | train | exact_semi_markov_posterior | boundary_auroc | 0.9515803706248763 |  | auroc | results/mcmc_original/matched_condition_a/boundary_metrics.json | posterior.train.auroc | b199374 |  |
+| oracle_structures_and_parameters | all | prior | boundary_auroc | 0.5787032981008365 |  | auroc | results/mcmc_original/matched_condition_a/boundary_metrics.json | prior.all.auroc | b199374 |  |
+| oracle_structures_and_parameters | all | exact_semi_markov_posterior | boundary_auprc | 0.7928530797371494 |  | auprc | results/mcmc_original/matched_condition_a/boundary_metrics.json | posterior.all.auprc | b199374 | base rate 640/5063 |
+| oracle_structures_and_parameters | all | prior | boundary_auprc | 0.1501104001129517 |  | auprc | results/mcmc_original/matched_condition_a/boundary_metrics.json | prior.all.auprc | b199374 |  |
+| oracle_structures_and_parameters | all | exact_semi_markov_posterior | boundary_ece | 0.008365688996015938 |  | calibration_error | results/mcmc_original/matched_condition_a/boundary_metrics.json | posterior.all.ece | b199374 | 10 bins; preregistered strong gate <= 0.05 |
+| oracle_structures_and_parameters | all | exact_semi_markov_posterior | boundary_precision_at_0.5 | 0.781563126252505 |  | precision | results/mcmc_original/matched_condition_a/boundary_metrics.json | posterior.all.threshold_0.5.precision | b199374 | threshold fixed never tuned |
+| oracle_structures_and_parameters | all | exact_semi_markov_posterior | boundary_recall_at_0.5 | 0.609375 |  | recall | results/mcmc_original/matched_condition_a/boundary_metrics.json | posterior.all.threshold_0.5.recall | b199374 |  |
+| oracle_structures_and_parameters | all | exact_semi_markov_posterior | boundary_f1_at_0.5 | 0.6848112379280069 |  | f1 | results/mcmc_original/matched_condition_a/boundary_metrics.json | posterior.all.threshold_0.5.f1 | b199374 |  |
+| oracle_structures_and_parameters | heldout | exact_semi_markov_posterior | boundary_f1_at_0.5 | 0.7127071823204421 |  | f1 | results/mcmc_original/matched_condition_a/boundary_metrics.json | posterior.heldout.threshold_0.5.f1 | b199374 |  |
+| oracle_structures_and_parameters | all | prior | boundary_f1_at_0.5 | 0.0 |  | f1 | results/mcmc_original/matched_condition_a/boundary_metrics.json | prior.all.threshold_0.5.f1 | b199374 | prior never exceeds 0.5 so precision is NaN |
+| oracle_structures_and_parameters | J=24 | exact_semi_markov_posterior | boundary_auroc | 0.9729718543046357 |  | auroc | results/mcmc_original/matched_condition_a/boundary_metrics.json | posterior.J=24.auroc | b199374 | length-stratified |
+| oracle_structures_and_parameters | J=32 | exact_semi_markov_posterior | boundary_auroc | 0.9427746098439376 |  | auroc | results/mcmc_original/matched_condition_a/boundary_metrics.json | posterior.J=32.auroc | b199374 | length-stratified |
+| oracle_structures_and_parameters | J=40 | exact_semi_markov_posterior | boundary_auroc | 0.9566539578794481 |  | auroc | results/mcmc_original/matched_condition_a/boundary_metrics.json | posterior.J=40.auroc | b199374 | length-stratified |
+| oracle_structures_and_parameters | J=48 | exact_semi_markov_posterior | boundary_auroc | 0.9548641069887834 |  | auroc | results/mcmc_original/matched_condition_a/boundary_metrics.json | posterior.J=48.auroc | b199374 | length-stratified |
+| oracle_structures_and_parameters | all | exact_semi_markov_posterior | occurrence_modal_accuracy | 0.8984254992319508 |  | accuracy | results/mcmc_original/matched_condition_a/label_metrics.json | posterior.all.modal_accuracy | b199374 | preregistered strong gate >= 0.80 |
+| oracle_structures_and_parameters | all | prior | occurrence_modal_accuracy | 0.3838325652841782 |  | accuracy | results/mcmc_original/matched_condition_a/label_metrics.json | prior.all.modal_accuracy | b199374 |  |
+| oracle_structures_and_parameters | all | exact_semi_markov_posterior | mean_posterior_prob_true_label | 0.8543039847317346 |  | probability | results/mcmc_original/matched_condition_a/label_metrics.json | posterior.all.mean_posterior_prob_true_label | b199374 | preregistered strong gate >= 0.70 |
+| oracle_structures_and_parameters | all | prior | mean_posterior_prob_true_label | 0.3394771437242977 |  | probability | results/mcmc_original/matched_condition_a/label_metrics.json | prior.all.mean_posterior_prob_true_label | b199374 |  |
+| oracle_structures_and_parameters | all | exact_semi_markov_posterior | occurrence_nll_relative_reduction_vs_prior | 0.7711407544920363 |  | fraction | results/mcmc_original/matched_condition_a/prior_vs_posterior.json | all.occurrence_nll.relative_reduction | b199374 |  |
+| oracle_structures_and_parameters | all | exact_semi_markov_posterior | mean_per_trace_ari | 0.7470713137246066 | sd 0.19539261378481043 | ari | results/mcmc_original/matched_condition_a/label_metrics.json | posterior.all.per_trace_ari.mean | b199374 | n=145; preregistered strong gate >= 0.50 |
+| oracle_structures_and_parameters | heldout | exact_semi_markov_posterior | mean_per_trace_ari | 0.7542957524639323 | sd 0.20774651285389917 | ari | results/mcmc_original/matched_condition_a/label_metrics.json | posterior.heldout.per_trace_ari.mean | b199374 | n=45 |
+| oracle_structures_and_parameters | all | prior | mean_per_trace_ari | 0.13062161860750338 | sd 0.17210429598761554 | ari | results/mcmc_original/matched_condition_a/label_metrics.json | prior.all.per_trace_ari.mean | b199374 |  |
+| oracle_structures_and_parameters | all | exact_semi_markov_posterior | mean_per_trace_nmi | 0.7659762136725261 | sd 0.17167183356485585 | nmi | results/mcmc_original/matched_condition_a/label_metrics.json | posterior.all.per_trace_nmi.mean | b199374 |  |
+| oracle_structures_and_parameters | all | exact_semi_markov_posterior | map_segment_count_accuracy | 0.7034482758620689 |  | accuracy | results/mcmc_original/matched_condition_a/segment_count_posteriors_summary.json | map_accuracy | b199374 | preregistered strong gate >= 0.60 |
+| oracle_structures_and_parameters | heldout | exact_semi_markov_posterior | map_segment_count_accuracy | 0.7777777777777778 |  | accuracy | results/mcmc_original/matched_condition_a/segment_count_posteriors_summary.json | map_accuracy_heldout | b199374 |  |
+| oracle_structures_and_parameters | train | exact_semi_markov_posterior | map_segment_count_accuracy | 0.67 |  | accuracy | results/mcmc_original/matched_condition_a/segment_count_posteriors_summary.json | map_accuracy_train | b199374 |  |
+| oracle_structures_and_parameters | all | exact_semi_markov_posterior | mean_abs_error_expected_L | 0.4392165336849849 | sd 0.443433331141714 | segments | results/mcmc_original/matched_condition_a/segment_count_posteriors_summary.json | posterior_mean_abs_error.mean | b199374 |  |
+| oracle_structures_and_parameters | all | exact_semi_markov_posterior | mean_p_true_L | 0.6018681133305441 | sd 0.2889456847701533 | probability | results/mcmc_original/matched_condition_a/segment_count_posteriors_summary.json | p_true_L.mean | b199374 | prior mean 0.30115371844178274 |
+| oracle_structures_and_parameters | all | exact_semi_markov_posterior | map_exact_path_recovery_rate | 0.20689655172413793 |  | fraction | results/mcmc_original/matched_condition_a/joint_path_metrics.json | all.map_exact_recovery_rate | b199374 | strong-gate disjunct NOT met on this branch (needs >= 0.25) |
+| oracle_structures_and_parameters | J=24 | exact_semi_markov_posterior | map_exact_path_recovery_rate | 0.32432432432432434 |  | fraction | results/mcmc_original/matched_condition_a/joint_path_metrics.json | J=24.map_exact_recovery_rate | b199374 | length-stratified |
+| oracle_structures_and_parameters | J=32 | exact_semi_markov_posterior | map_exact_path_recovery_rate | 0.25 |  | fraction | results/mcmc_original/matched_condition_a/joint_path_metrics.json | J=32.map_exact_recovery_rate | b199374 | length-stratified |
+| oracle_structures_and_parameters | J=48 | exact_semi_markov_posterior | map_exact_path_recovery_rate | 0.08333333333333333 |  | fraction | results/mcmc_original/matched_condition_a/joint_path_metrics.json | J=48.map_exact_recovery_rate | b199374 | length-stratified |
+| oracle_structures_and_parameters | all | exact_semi_markov_posterior | median_true_path_posterior | 0.04791247353270877 |  | probability | results/mcmc_original/matched_condition_a/joint_path_metrics.json | all.true_path_prob.median | b199374 | strong-gate disjunct MET (>= 0.02) |
+| oracle_structures_and_parameters | heldout | exact_semi_markov_posterior | median_true_path_posterior | 0.05549770759018307 |  | probability | results/mcmc_original/matched_condition_a/joint_path_metrics.json | heldout.true_path_prob.median | b199374 |  |
+| oracle_structures_and_parameters | all | exact_semi_markov_posterior | mean_map_boundary_f1 | 0.6825977470805057 | sd 0.2356610311118062 | f1 | results/mcmc_original/matched_condition_a/joint_path_metrics.json | all.map_boundary_f1.mean | b199374 | per-trace MAP path |
+| oracle_structures_and_parameters | all | exact_semi_markov_posterior | mean_map_occurrence_accuracy | 0.8920545977011494 | sd 0.10160003052021281 | accuracy | results/mcmc_original/matched_condition_a/joint_path_metrics.json | all.map_occ_accuracy.mean | b199374 |  |
+| oracle_structures_and_parameters | all | exact_semi_markov_posterior | mean_posterior_path_entropy | 3.4828085770657005 | sd 1.496655960521103 | nats | results/mcmc_original/matched_condition_a/joint_path_metrics.json | all.posterior_entropy.mean | b199374 |  |
+| oracle_structures_and_parameters | all | exact_semi_markov_posterior | mean_path_entropy_reduction_vs_prior | 10.538095182822582 | sd 2.9396420504144665 | nats | results/mcmc_original/matched_condition_a/prior_vs_posterior.json | all.path_entropy_reduction_nats.mean | b199374 | implied prior entropy 14.021 nats |
+| exactness_gate | tiny | exact_dp | log_z_dp_vs_enumeration_max_error | 1.7763568394002505e-15 |  | abs_error | results/mcmc_original/matched_condition_a/correctness.json | tiny_gates.log_z_dp_vs_enum.worst | b199374 | gate 1e-10 |
+| exactness_gate | tiny | exact_dp | path_probability_max_error | 2.3314683517128287e-15 |  | abs_error | results/mcmc_original/matched_condition_a/correctness.json | tiny_gates.path_probability_max_error.worst | b199374 | gate 1e-10 |
+| exactness_gate | tiny | exact_dp | boundary_marginal_max_error | 1.6653345369377348e-15 |  | abs_error | results/mcmc_original/matched_condition_a/correctness.json | tiny_gates.boundary_marginal_max_error.worst | b199374 | gate 1e-10 |
+| exactness_gate | tiny | exact_dp | occurrence_label_marginal_max_error | 2.55351295663786e-15 |  | abs_error | results/mcmc_original/matched_condition_a/correctness.json | tiny_gates.occurrence_label_max_error.worst | b199374 | gate 1e-10 |
+| exactness_gate | tiny | ffbs | path_total_variation_vs_exact | 0.002159842111454096 |  | tv | results/mcmc_original/matched_condition_a/correctness.json | tiny_gates.ffbs_path_tv.worst | b199374 | gate 0.01; 200000 draws per trace |
+| exactness_gate | all | ffbs | illegal_draws | 0 |  | count | results/mcmc_original/matched_condition_a/correctness.json | marginal_consistency.ffbs_illegal_draws | b199374 | 725000 total draws |
+| runtime | all | exact_plus_ffbs | wall_seconds_total | 89.07022475000122 |  | seconds | results/mcmc_original/matched_condition_a/runtime.json | wall_seconds_total | b199374 | no MCMC |
+| runtime | all | ffbs | draws_per_second | 15571.038509622273 |  | draws_per_second | results/mcmc_original/matched_condition_a/runtime.json | ffbs_draws_per_second | b199374 |  |
+
+## Condition B — structure identifiability under oracle paths
+
+| condition | split | model | metric | value | uncertainty / CI | unit | source artifact | source field | commit | notes |
+|---|---|---|---|---|---|---|---|---|---|---|
+| oracle_paths | train | row_mh_over_u | per_skill_closure_f1_skill0 | 1.0 |  | f1 | results/mcmc_original/matched_condition_b/structure_recovery.json | per_skill[0].closure.f1 | 34873d8 | threshold 0.5; 6 true pairs |
+| oracle_paths | train | row_mh_over_u | per_skill_closure_f1_skill1 | 1.0 |  | f1 | results/mcmc_original/matched_condition_b/structure_recovery.json | per_skill[1].closure.f1 | 34873d8 | 6 true pairs |
+| oracle_paths | train | row_mh_over_u | per_skill_closure_f1_skill2 | 1.0 |  | f1 | results/mcmc_original/matched_condition_b/structure_recovery.json | per_skill[2].closure.f1 | 34873d8 | 5 true pairs |
+| oracle_paths | train | row_mh_over_u | per_skill_incomparable_f1_skill0 | 1.0 |  | f1 | results/mcmc_original/matched_condition_b/structure_recovery.json | per_skill[0].incomparable.f1 | 34873d8 | 4 true incomparable pairs |
+| oracle_paths | train | row_mh_over_u | per_skill_incomparable_f1_skill1 | 1.0 |  | f1 | results/mcmc_original/matched_condition_b/structure_recovery.json | per_skill[1].incomparable.f1 | 34873d8 | 4 true incomparable pairs |
+| oracle_paths | train | row_mh_over_u | per_skill_incomparable_f1_skill2 | 1.0 |  | f1 | results/mcmc_original/matched_condition_b/structure_recovery.json | per_skill[2].incomparable.f1 | 34873d8 | 5 true incomparable pairs |
+| oracle_paths | train | row_mh_over_u | per_skill_transitive_reduction_f1_all | 1.0 |  | f1 | results/mcmc_original/matched_condition_b/structure_recovery.json | per_skill[*].transitive_reduction.f1 | 34873d8 | identical for all three skills |
+| oracle_paths | train | row_mh_over_u | closure_hamming_distance_all_skills | 0 |  | edges | results/mcmc_original/matched_condition_b/structure_recovery.json | per_skill[*].closure.hamming | 34873d8 | exact closure recovery on all three skills |
+| oracle_paths | train | row_mh_over_u | posterior_probability_of_true_h_per_skill | 1.0 |  | probability | results/mcmc_original/matched_condition_b/structure_recovery.json | per_skill[*].true_h_posterior | 34873d8 | rank 1 for every skill |
+| oracle_paths | train | row_mh_over_u | joint_true_tuple_posterior | 1.0 |  | probability | results/mcmc_original/matched_condition_b/structure_recovery.json | joint.true_tuple_posterior | 34873d8 | 32000 pooled draws; 1 distinct tuple |
+| oracle_paths | train | row_mh_over_u | min_true_relation_marginal | 1.0 |  | probability | results/mcmc_original/matched_condition_b/structure_recovery.json | joint.min_true_relation_marginal_overall | 34873d8 | strong gate >= 0.5 |
+| oracle_paths | train | row_mh_over_u | max_false_relation_marginal | 0.0 |  | probability | results/mcmc_original/matched_condition_b/structure_recovery.json | joint.max_false_relation_marginal_overall | 34873d8 | strong gate < 0.5 |
+| oracle_paths | heldout | row_mh_over_u | heldout_oracle_path_nll_per_occurrence_posterior_mean | 1.0772457251104506 | posterior sd 2.2204807445330054e-16 | nats_per_occurrence | results/mcmc_original/matched_condition_b/heldout_oracle_path_nll.json | posterior_mean_of_nll_per_occ | 34873d8 | ORACLE-CONDITIONAL: scored with held-out S* z* |
+| oracle_paths | heldout | generating_truth | heldout_oracle_path_nll_per_occurrence | 1.0772457251104504 |  | nats_per_occurrence | results/mcmc_original/matched_condition_b/heldout_oracle_path_nll.json | generating_truth_nll_per_occ | 34873d8 | ORACLE-CONDITIONAL |
+| oracle_paths | heldout | antichain_baseline | heldout_oracle_path_nll_per_occurrence | 1.752798804531374 |  | nats_per_occurrence | results/mcmc_original/matched_condition_b/heldout_oracle_path_nll.json | antichain_baseline_nll_per_occ | 34873d8 | ORACLE-CONDITIONAL |
+| oracle_paths | heldout | total_order_baseline | heldout_oracle_path_nll_per_occurrence | 4.039845037465676 |  | nats_per_occurrence | results/mcmc_original/matched_condition_b/heldout_oracle_path_nll.json | total_order_baseline_nll_per_occ | 34873d8 | ORACLE-CONDITIONAL |
+| convergence | train | row_mh_over_u | max_rhat | 1.0008652603065602 |  | rhat | results/mcmc_original/matched_condition_b/convergence.json | final_gate_checks.max_rhat | 34873d8 | gate 1.01 |
+| convergence | train | row_mh_over_u | log_posterior_bulk_ess | 3674.75168838125 |  | ess | results/mcmc_original/matched_condition_b/convergence.json | final_gate_checks.log_posterior_bulk_ess | 34873d8 | floor 1000 |
+| convergence | train | row_mh_over_u | log_posterior_tail_ess | 7634.523637355105 |  | ess | results/mcmc_original/matched_condition_b/convergence.json | final_gate_checks.log_posterior_tail_ess | 34873d8 | floor 500 |
+| convergence | train | row_mh_over_u | total_relations_bulk_ess | 32000.0 |  | ess | results/mcmc_original/matched_condition_b/convergence.json | final_gate_checks.total_relations_bulk_ess | 34873d8 | degenerate-constant rule applies |
+| convergence | train | row_mh_over_u | max_rhat_at_checkpoint_30000 | 1.000454355774406 |  | rhat | results/mcmc_original/matched_condition_b/convergence.json | checkpoint_log[0].checks.max_rhat | 34873d8 | first of two consecutive passes |
+| convergence | train | row_mh_over_u | stopped_at_sweeps | 50000 |  | sweeps | results/mcmc_original/matched_condition_b/convergence.json | stopped_at | 34873d8 | ceiling was 100000 |
+| movement | train | row_mh_over_u | accepted_h_changes_chain0 | 25 |  | count | results/mcmc_original/matched_condition_b/structural_movement.json | chain0.h_change_accepted | 34873d8 | all before the 10000-sweep burn-in ended |
+| movement | train | row_mh_over_u | accepted_h_changes_chain1 | 30 |  | count | results/mcmc_original/matched_condition_b/structural_movement.json | chain1.h_change_accepted | 34873d8 |  |
+| movement | train | row_mh_over_u | accepted_h_changes_chain2 | 31 |  | count | results/mcmc_original/matched_condition_b/structural_movement.json | chain2.h_change_accepted | 34873d8 |  |
+| movement | train | row_mh_over_u | accepted_h_changes_chain3 | 24 |  | count | results/mcmc_original/matched_condition_b/structural_movement.json | chain3.h_change_accepted | 34873d8 |  |
+| movement | train | row_mh_over_u | retained_h_changes_all_chains | 0 |  | count | results/mcmc_original/matched_condition_b/structural_movement.json | chain*.retained_h_changes | 34873d8 | posterior concentration not a frozen chain |
+| movement | train | row_mh_over_u | sweep_of_first_h_change_all_chains | 1 |  | sweep | results/mcmc_original/matched_condition_b/structural_movement.json | chain*.first_h_change_sweep | 34873d8 |  |
+| pilot | development | row_mh_over_u | selected_sigma_u | 0.5 |  | scale | results/mcmc_original/matched_condition_b/selected_scales.json | sigma_u | 34873d8 | max ESJD within acceptance band 0.2-0.6 |
+| pilot | development | row_mh_over_u | acceptance_at_selected_scale | 0.3141666666666667 |  | fraction | results/mcmc_original/matched_condition_b/selected_scales.json | acceptance | 34873d8 | all pilot draws discarded |
+| pilot | development | row_mh_over_u | esjd_per_proposal_at_selected_scale | 0.07732430970709793 |  | esjd | results/mcmc_original/matched_condition_b/selected_scales.json | esjd_per_proposal | 34873d8 |  |
+| runtime | train | row_mh_over_u | wall_seconds_total | 203.31245254099485 |  | seconds | results/mcmc_original/matched_condition_b/runtime.json | wall_seconds_total | 34873d8 | 4 chains x 50000 sweeps |
+| runtime | train | row_mh_over_u | structural_ess_per_second | 181.56165638678493 |  | ess_per_second | results/mcmc_original/matched_condition_b/runtime.json | structural_ess_per_second | 34873d8 |  |
+| correctness | train | row_mh_over_u | target_parity_max_complete_target_discrepancy | 9.094947017729282e-13 |  | abs_error | results/mcmc_original/matched_condition_b/correctness.json | target_parity.max_complete_target_discrepancy | 34873d8 | gate 1e-10; 21 points |
+| correctness | prior_only | row_mh_over_u | prior_reference_relation_marginal_max_abs_diff | 0.015855000000000008 |  | abs_diff | results/mcmc_original/matched_condition_b/correctness.json | prior_reference_check.relation_marginal_max_abs_diff | 34873d8 | gate 0.02 vs 200000 iid prior draws |
+
+## Condition C — joint path/structure inference (PENDING)
+
+| condition | split | model | metric | value | uncertainty / CI | unit | source artifact | source field | commit | notes |
+|---|---|---|---|---|---|---|---|---|---|---|
+| COND_and_MARG | n/a | n/a | all_metrics | PENDING |  |  |  |  |  | no frozen result artifact exists; run live at extraction time |
+
+## Collapsed-U kernel — correctness, historical failures, calibration
+
+| condition | split | model | metric | value | uncertainty / CI | unit | source artifact | source field | commit | notes |
+|---|---|---|---|---|---|---|---|---|---|---|
+| tiny_exact_reference | n/a | collapsed_mh_then_immediate_ffbs | stationarity_deviation_linf | 2.220446049250313e-16 |  | abs_deviation | results/mcmc_original/collapsed_u_kernel_validation/tiny_exact_reference.json | correct_ordering_stationarity_deviation_L_inf | 58f005e | tolerance 1e-12; 16-state space |
+| tiny_exact_reference | n/a | stale_path_ordering_negative_control | stationarity_deviation_linf | 0.002914536053672201 |  | abs_deviation | results/mcmc_original/collapsed_u_kernel_validation/tiny_exact_reference.json | stale_path_ordering_deviation_L_inf | 58f005e | detection floor 1e-4; control PASSES by breaking stationarity |
+| parity | n/a | collapsed_likelihood | audit_scorer_parity_max_abs | 0.0 |  | abs_error | results/mcmc_original/collapsed_u_kernel_validation/correctness.json | audit_scorer_parity_max_abs | 58f005e | tolerance 1e-10 |
+| parity | n/a | collapsed_likelihood | enumeration_parity_max_abs | 0.0 |  | abs_error | results/mcmc_original/collapsed_u_kernel_validation/correctness.json | enumeration_parity_max_abs | 58f005e |  |
+| parity | n/a | collapsed_likelihood | incremental_vs_full_rebuild_abs | 0.0 |  | abs_error | results/mcmc_original/collapsed_u_kernel_validation/correctness.json | incremental_vs_full_rebuild_abs | 58f005e |  |
+| parity | n/a | collapsed_mh | hastings_quadratic_form_asymmetry | 0.0 |  | abs_error | results/mcmc_original/collapsed_u_kernel_validation/correctness.json | hastings_quadratic_form_asymmetry | 58f005e | symmetric proposal |
+| run1_mixed_reference_HISTORICAL_FAIL | n/a | collapsed_kernel | mixed_multivariate_energy_statistic | 0.005139473105523429 | z 2.855022458500177 | energy | results/mcmc_original/collapsed_u_kernel_validation/mixed_reference_comparison.json | gates.mixed_multivariate_reference_statistic.value | 58f005e | FAIL vs envelope 0.004522256615497353; 17/18 gates PASS; verdict stands as FAIL |
+| run1_mixed_reference_HISTORICAL_FAIL | n/a | collapsed_kernel | segmentation_total_variation | 0.004734243509692589 |  | tv | results/mcmc_original/collapsed_u_kernel_validation/mixed_reference_comparison.json | gates.segmentation_total_variation.value | 58f005e | PASS gate 0.01 |
+| run1_mixed_reference_HISTORICAL_FAIL | n/a | collapsed_kernel | worst_rhat | 1.0034944802621257 |  | rhat | results/mcmc_original/collapsed_u_kernel_validation/mixed_reference_comparison.json | worst_rhat | 58f005e | PASS gate 1.01 |
+| rep2_mixed_reference_HISTORICAL_FAIL | n/a | collapsed_kernel | mixed_multivariate_energy_statistic | 0.006777466426885148 | z 5.759871639422952 | energy | results/mcmc_original/collapsed_u_kernel_validation_rep2/mixed_reference_comparison.json | gates.mixed_multivariate_reference_statistic.value | 58f005e | FAIL vs envelope 0.004522256615497353; independent seeds; verdict stands as FAIL |
+| rep2_mixed_reference_HISTORICAL_FAIL | n/a | collapsed_kernel | worst_rhat | 1.0098167606365054 |  | rhat | results/mcmc_original/collapsed_u_kernel_validation_rep2/mixed_reference_comparison.json | worst_rhat | 58f005e | lambda_rep; PASS gate 1.01 |
+| dependence_calibration | n/a | dependence_aware_statistic | chains_exceeding_z_2.33_at_all_block_lengths | 0 |  | count | results/mcmc_original/collapsed_u_dependence_calibration/report.md | summary table | 58f005e | block lengths 2/5/10; 150 circular moving-block replicates |
+| start0_probe | n/a | collapsed_kernel | historical_frozen_gate_observed | 0.003718 |  | energy | results/mcmc_original/collapsed_u_start0_probe/report.md | historical frozen gate | 738fe00 | PASS vs frozen envelope 0.004522; NOT the decision statistic |
+
+## Collapsed-U kernel — sequential final validation (VALIDATED)
+
+| condition | split | model | metric | value | uncertainty / CI | unit | source artifact | source field | commit | notes |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 500k_checkpoint | n/a | collapsed_kernel | segmentation_total_variation | 0.006816568171176516 |  | tv | results/mcmc_original/collapsed_u_efficient_final_validation/checkpoint_500k.json | frozen_gates.segmentation_total_variation.value | 58f005e | gate 0.01 |
+| 500k_checkpoint | n/a | collapsed_kernel | segmentation_total_variation_vs_sampled_estimator | 0.006960503238811221 |  | tv | results/mcmc_original/collapsed_u_efficient_final_validation/checkpoint_500k.json | frozen_gates.segmentation_total_variation_vs_sampled_estimator.value | 58f005e | gate 0.01 |
+| 500k_checkpoint | n/a | collapsed_kernel | max_boundary_marginal_error | 0.001725010916062697 |  | abs_error | results/mcmc_original/collapsed_u_efficient_final_validation/checkpoint_500k.json | frozen_gates.max_boundary_marginal_error.value | 58f005e | gate 0.01 |
+| 500k_checkpoint | n/a | collapsed_kernel | max_occurrence_label_marginal_error | 0.004987616760370128 |  | abs_error | results/mcmc_original/collapsed_u_efficient_final_validation/checkpoint_500k.json | frozen_gates.max_occurrence_label_marginal_error.value | 58f005e | gate 0.01 |
+| 500k_checkpoint | n/a | collapsed_kernel | induced_h_total_variation | 0.00731683133182089 |  | tv | results/mcmc_original/collapsed_u_efficient_final_validation/checkpoint_500k.json | frozen_gates.induced_h_total_variation.value | 58f005e | gate 0.01 |
+| 500k_checkpoint | n/a | collapsed_kernel | max_relation_marginal_error | 0.005312068834721351 |  | abs_error | results/mcmc_original/collapsed_u_efficient_final_validation/checkpoint_500k.json | frozen_gates.max_relation_marginal_error.value | 58f005e | gate 0.01 |
+| 500k_checkpoint | n/a | collapsed_kernel | segment_count_total_variation | 0.0021313477191181596 |  | tv | results/mcmc_original/collapsed_u_efficient_final_validation/checkpoint_500k.json | frozen_gates.segment_count_total_variation.value | 58f005e | gate 0.01 |
+| 500k_checkpoint | n/a | collapsed_kernel | dependence_aware_balanced_energy_z_block2 | 0.9112001745731595 |  | z | results/mcmc_original/collapsed_u_efficient_final_validation/checkpoint_500k.json | primary_balanced_gate.by_length.2.z | 58f005e | PRIMARY gate; cutoff 2.33 |
+| 500k_checkpoint | n/a | collapsed_kernel | dependence_aware_balanced_energy_z_block4 | 0.8294357456251388 |  | z | results/mcmc_original/collapsed_u_efficient_final_validation/checkpoint_500k.json | primary_balanced_gate.by_length.4.z | 58f005e | sensitivity block length; cutoff 2.33 |
+| 500k_checkpoint | n/a | collapsed_kernel | historical_energy_gate_descriptive_only | 0.003653199692099207 |  | energy | results/mcmc_original/collapsed_u_efficient_final_validation/checkpoint_500k.json | historical_energy_gate_descriptive.value | 58f005e | DESCRIPTIVE ONLY vs 0.004522256615497353; not a decision statistic |
+| 500k_checkpoint | n/a | collapsed_kernel | worst_rhat | 1.0050750065777194 |  | rhat | results/mcmc_original/collapsed_u_efficient_final_validation/checkpoint_500k.json | worst_rhat | 58f005e | lambda_rep; gate 1.01 |
+| 500k_checkpoint | n/a | collapsed_kernel | lambda_rep_bulk_ess | 1075.8889213843468 |  | ess | results/mcmc_original/collapsed_u_efficient_final_validation/checkpoint_500k.json | ess.lambda_rep.bulk | 58f005e | floor lowered to 600 by user decision before launch |
+| 500k_checkpoint | n/a | collapsed_kernel | beta_bulk_ess | 1833.8467511929264 |  | ess | results/mcmc_original/collapsed_u_efficient_final_validation/checkpoint_500k.json | ess.beta.bulk | 58f005e | floor 1000 |
+| 500k_checkpoint | n/a | collapsed_kernel | relation_count_bulk_ess | 24711.82943749084 |  | ess | results/mcmc_original/collapsed_u_efficient_final_validation/checkpoint_500k.json | ess.relation_count.bulk | 58f005e | floor 1000 |
+| 500k_checkpoint | n/a | collapsed_kernel | co_clustering_bulk_ess | 96885.60864914584 |  | ess | results/mcmc_original/collapsed_u_efficient_final_validation/checkpoint_500k.json | ess.co_clustering.bulk | 58f005e | floor 1000 |
+| 500k_checkpoint | n/a | collapsed_kernel | cross_h_fraction_chain0 | 0.34535 |  | fraction | results/mcmc_original/collapsed_u_efficient_final_validation/checkpoint_500k.json | structural_movement.0.cross_h_fraction | 58f005e | 40000 collapsed attempts per chain |
+| 500k_checkpoint | n/a | collapsed_kernel | accepted_cross_h_chain0 | 7011 |  | count | results/mcmc_original/collapsed_u_efficient_final_validation/checkpoint_500k.json | structural_movement.0.accepted_cross_h | 58f005e |  |
+| 500k_checkpoint | n/a | collapsed_kernel | distinct_induced_h_states_chain0 | 3605 |  | count | results/mcmc_original/collapsed_u_efficient_final_validation/checkpoint_500k.json | structural_movement.0.distinct_h_states | 58f005e | chains 1-3: 3558 / 3569 / 3545 |
+| sequential_protocol | n/a | collapsed_kernel | total_wall_seconds | 9071.290779667004 |  | seconds | results/mcmc_original/collapsed_u_efficient_final_validation/final_verdict.json | total_wall_seconds | 58f005e | stopped at 500000 sweeps |
+
+## Collapsed-U proposal audits (C0/C1)
+
+| condition | split | model | metric | value | uncertainty / CI | unit | source artifact | source field | commit | notes |
+|---|---|---|---|---|---|---|---|---|---|---|
+| c1_pooled | n/a | conditional_u_proposal | median_cross_h_delta_log_likelihood | -225.75222015611564 |  | nats | results/mcmc_original/collapsed_u_expanded_audit/pooled_summary.json | all.median_d_ll_conditional | 58f005e | 2400 cross-H proposals over 8 frozen chains |
+| c1_pooled | n/a | collapsed_u_proposal | median_cross_h_delta_log_likelihood | -69.30124255553966 |  | nats | results/mcmc_original/collapsed_u_expanded_audit/pooled_summary.json | all.median_d_ll_collapsed | 58f005e |  |
+| c1_pooled | n/a | collapsed_u_proposal | median_barrier_reduction | 131.74510192860413 |  | nats | results/mcmc_original/collapsed_u_expanded_audit/pooled_summary.json | all.median_barrier_reduction | 58f005e |  |
+| c1_pooled | n/a | collapsed_u_proposal | mean_cross_h_acceptance | 0.07228743270661536 |  | probability | results/mcmc_original/collapsed_u_expanded_audit/pooled_summary.json | all.mean_alpha_collapsed | 58f005e | conditional-U comparator 2.05e-14 in the C0 audit |
+
+## Step 7B2 — exact FFBS without the collapsed move (negative result)
+
+| condition | split | model | metric | value | uncertainty / CI | unit | source artifact | source field | commit | notes |
+|---|---|---|---|---|---|---|---|---|---|---|
+| structural_movement | n/a | exact_global_ffbs_no_collapsed_move | accepted_h_changes_per_chain | 0;0;0;1 |  | count | results/mcmc_original/stage7b2_full_joint_ffbs/structural_movement.json | per_chain[*].h_changes | 061e1f6 | 34000 retained sweeps per chain; NEGATIVE result retained |
+| structural_movement | n/a | exact_global_ffbs_no_collapsed_move | boundary_hamming_per_sweep_chain0 | 546.7048235294118 |  | hamming | results/mcmc_original/stage7b2_full_joint_ffbs/structural_movement.json | per_chain[0].boundary_hamming_per_sweep | 061e1f6 | segmentation moves freely while H is frozen |
+
+## Matched synthetic generator validation
+
+| condition | split | model | metric | value | uncertainty / CI | unit | source artifact | source field | commit | notes |
+|---|---|---|---|---|---|---|---|---|---|---|
+| gate | n/a | exact_dp_segmentation_prior | dp_normalizer_vs_enumeration_and_reference_max_abs_log_error | 8.881784197001252e-16 |  | abs_error | results/mcmc_original/matched_generator_validation/exact_normalizers.json | normalizers.48.abs_error_dp_vs_reference | 8ca8281 | gate 1e-12; worst over J in {6 7 10 24 32 40 48} |
+| gate | n/a | generator | empirical_p_L_given_J_tv_J24 | 0.0022743311945959636 | binomial se <= 0.00158 | tv | results/mcmc_original/matched_generator_validation/segment_count_parity.json | 24.tv | 8ca8281 | gate 0.01; 100000 samples |
+| gate | n/a | generator | empirical_p_L_given_J_tv_J32 | 0.001822677795406983 | binomial se <= 0.00158 | tv | results/mcmc_original/matched_generator_validation/segment_count_parity.json | 32.tv | 8ca8281 | gate 0.01 |
+| gate | n/a | generator | empirical_p_L_given_J_tv_J40 | 0.005357286870642232 | binomial se <= 0.00158 | tv | results/mcmc_original/matched_generator_validation/segment_count_parity.json | 40.tv | 8ca8281 | gate 0.01; worst J |
+| gate | n/a | generator | empirical_p_L_given_J_tv_J48 | 0.0018801835468371252 | binomial se <= 0.00158 | tv | results/mcmc_original/matched_generator_validation/segment_count_parity.json | 48.tv | 8ca8281 | gate 0.01 |
+| gate | n/a | generator | empirical_boundary_marginal_max_abs_error_J24 | 0.0029041418615612102 | max binomial se 0.0012852833587838372 | abs_error | results/mcmc_original/matched_generator_validation/boundary_marginal_parity.json | 24.max_abs_error | 8ca8281 | gate 0.01 |
+| gate | n/a | generator | empirical_boundary_marginal_max_abs_error_J48 | 0.0034856329216697846 | max binomial se 0.0011990245456583693 | abs_error | results/mcmc_original/matched_generator_validation/boundary_marginal_parity.json | 48.max_abs_error | 8ca8281 | gate 0.01; worst J |
+| gate | n/a | generator_vs_inference_scorer | complete_data_log_probability_parity_max_abs | 1.421e-14 |  | abs_error | results/mcmc_original/matched_generator_validation/report.md | registered gates table | 8ca8281 | gate 1e-10 |
+| gate | n/a | generator | recurrent_q0_reset_and_block_independence_max_error | 3.552713678800501e-15 |  | abs_error | results/mcmc_original/matched_generator_validation/report.md | registered gates table | 8ca8281 | gate 1e-10 |
+| gate | n/a | generator | tiny_full_state_tv | 0.002034 |  | tv | results/mcmc_original/matched_generator_validation/report.md | registered gates table | 8ca8281 | gate 0.01; 200000 samples per J in {6 7 10} |
+| gate | n/a | generator | illegal_segmentation_count | 0 |  | count | results/mcmc_original/matched_generator_validation/segment_count_parity.json | *.support_violations | 8ca8281 | gate 0; 400000 total samples |
+| gate | n/a | generator | self_transition_count | 0 |  | count | results/mcmc_original/matched_generator_validation/report.md | registered gates table | 8ca8281 | gate 0 |
+| negative_control | n/a | old_block_count_mechanism | tv_vs_matched_prior | 0.20380677223505697 |  | tv | results/mcmc_original/matched_generator_validation/negative_controls.json | old_block_count_mechanism.tv_vs_model | 8ca8281 | detected; registered gate 0.01 |
+| negative_control | n/a | recurrent_state_leakage | max_abs_log_prob_discrepancy | 21.185931590946467 |  | nats | results/mcmc_original/matched_generator_validation/negative_controls.json | recurrent_state_leakage.max_abs_log_prob_discrepancy | 8ca8281 | detected; registered gate 1e-10 |
+| negative_control | n/a | terminal_block_delta_factor | abs_error_faulty_vs_enumeration | 1.8971199848858813 |  | nats | results/mcmc_original/matched_generator_validation/negative_controls.json | terminal_block_delta_factor.abs_error_faulty_vs_enumeration | 8ca8281 | detected; correct route error 0.0 |
+
+## Matched synthetic formal corpus (frozen)
+
+| condition | split | model | metric | value | uncertainty / CI | unit | source artifact | source field | commit | notes |
+|---|---|---|---|---|---|---|---|---|---|---|
+| setup | train | n/a | n_train_traces | 100 |  | count | results/mcmc_original/matched_synthetic_formal_corpus/corpus_summary.json | trace_length_counts.train | b199374 | 25 each at J = 24 32 40 48 |
+| setup | heldout | n/a | n_heldout_traces | 45 |  | count | results/mcmc_original/matched_synthetic_formal_corpus/corpus_summary.json | trace_length_counts.heldout | b199374 | counts 12/11/11/11 |
+| setup | all | n/a | total_true_blocks | 785 |  | count | results/mcmc_original/matched_synthetic_formal_corpus/corpus_summary.json | total_true_blocks.all | b199374 | train 541 heldout 244 |
+| setup | all | n/a | repeat_occurrence_frequency | 0.5120967741935484 |  | fraction | results/mcmc_original/matched_synthetic_formal_corpus/corpus_summary.json | repeat_occurrence_frequency | b199374 |  |
+
+## TaskBench Multimedia poset benchmark construction
+
+| condition | split | model | metric | value | uncertainty / CI | unit | source artifact | source field | commit | notes |
+|---|---|---|---|---|---|---|---|---|---|---|
+| construction | n/a | n/a | total_multimedia_records | 5555 |  | count | results/external/taskbench_multimedia_poset_benchmark/graph_statistics.json | counts.total_multimedia_records | e6afb17 | README reports 565 DAG; released data.json holds 550 |
+| construction | n/a | n/a | marked_dag_by_taskbench | 550 |  | count | results/external/taskbench_multimedia_poset_benchmark/graph_statistics.json | counts.marked_dag_by_taskbench | e6afb17 |  |
+| construction | n/a | n/a | parsed_valid_dag_samples | 529 |  | count | results/external/taskbench_multimedia_poset_benchmark/graph_statistics.json | counts.parsed_valid_dag_samples(independently_acyclic) | e6afb17 | independently verified acyclic |
+| construction | n/a | n/a | eligible_pool | 388 |  | count | results/external/taskbench_multimedia_poset_benchmark/graph_statistics.json | counts.eligible_pool | e6afb17 |  |
+| construction | n/a | n/a | primary_selected_graphs | 48 |  | count | results/external/taskbench_multimedia_poset_benchmark/graph_statistics.json | counts.primary_selected | e6afb17 | entire eligible primary pool; target was 300; criteria NOT loosened |
+| construction | development | n/a | dev_graphs | 11 |  | count | results/external/taskbench_multimedia_poset_benchmark/development_split.json | n | e6afb17 |  |
+| construction | test | n/a | test_graphs | 37 |  | count | results/external/taskbench_multimedia_poset_benchmark/test_split.json | n | e6afb17 |  |
+| construction | n/a | n/a | condition_graph_counts_ONE_TWO_FOUR | 48;48;36 |  | count | results/external/taskbench_multimedia_poset_benchmark/graph_statistics.json | condition_graph_counts | e6afb17 | selection level; test-level counts are 37/37/26 |
+| construction | train | n/a | total_train_rows | 132 |  | count | results/external/taskbench_multimedia_poset_benchmark/graph_statistics.json | total_train_rows | e6afb17 |  |
+| construction | test | n/a | total_test_legal_orders | 588 |  | count | results/external/taskbench_multimedia_poset_benchmark/graph_statistics.json | total_test_legal_orders | e6afb17 |  |
+| construction | test | n/a | total_illegal_orders | 588 |  | count | results/external/taskbench_multimedia_poset_benchmark/graph_statistics.json | total_illegal_orders | e6afb17 | single_violation 318 multi_violation 270 |
+
+## TaskBench static partial-order experiment
+
+| condition | split | model | metric | value | uncertainty / CI | unit | source artifact | source field | commit | notes |
+|---|---|---|---|---|---|---|---|---|---|---|
+| ONE | test | first_total_order | closure_f1 | 0.6526040290746173 | [0.6104742117977411, 0.6959503250679722] | f1 | results/external/taskbench_static_poset/main_table.json | ONE.first_total_order.closure_f1 | 10d4bf4 | n_graphs 37 |
+| ONE | test | first_total_order | incomparable_f1 | 0.0 | [0.0, 0.0] | f1 | results/external/taskbench_static_poset/main_table.json | ONE.first_total_order.incomparable_f1 | 10d4bf4 |  |
+| ONE | test | first_total_order | relation_brier | 0.2503861003861004 | [0.225997425997426, 0.2742599742599743] | brier | results/external/taskbench_static_poset/main_table.json | ONE.first_total_order.brier | 10d4bf4 |  |
+| ONE | test | first_total_order | legal_nll_per_node | 1.6702061802888235 | [1.5347210800178375, 1.8017345491202215] | nats_per_node | results/external/taskbench_static_poset/main_table.json | ONE.first_total_order.legal_nll_per_node | 10d4bf4 |  |
+| ONE | test | first_total_order | illegal_nll_per_node | 2.5139842584559675 | [2.3857566417265743, 2.634901507604419] | nats_per_node | results/external/taskbench_static_poset/main_table.json | ONE.first_total_order.illegal_nll_per_node | 10d4bf4 |  |
+| ONE | test | first_total_order | auroc | 0.8346320342333401 | [0.7933754361447772, 0.8737127504893384] | auroc | results/external/taskbench_static_poset/main_table.json | ONE.first_total_order.auroc | 10d4bf4 |  |
+| ONE | test | first_total_order | pairwise_acc | 0.7965669443917696 | [0.7494678916543034, 0.841145618789498] | accuracy | results/external/taskbench_static_poset/main_table.json | ONE.first_total_order.pairwise_acc | 10d4bf4 |  |
+| ONE | test | antichain | closure_f1 | 0.0 | [0.0, 0.0] | f1 | results/external/taskbench_static_poset/main_table.json | ONE.antichain.closure_f1 | 10d4bf4 |  |
+| ONE | test | antichain | incomparable_f1 | 0.6531479426216269 | [0.6066224618198301, 0.6974521087021087] | f1 | results/external/taskbench_static_poset/main_table.json | ONE.antichain.incomparable_f1 | 10d4bf4 |  |
+| ONE | test | antichain | relation_brier | 0.24961389961389957 | [0.22580276705276703, 0.2743243243243243] | brier | results/external/taskbench_static_poset/main_table.json | ONE.antichain.brier | 10d4bf4 |  |
+| ONE | test | antichain | legal_nll_per_node | 0.8864154254513797 | [0.8480645801267895, 0.9282583241210197] | nats_per_node | results/external/taskbench_static_poset/main_table.json | ONE.antichain.legal_nll_per_node | 10d4bf4 |  |
+| ONE | test | antichain | illegal_nll_per_node | 0.8864154254513797 | [0.8487116442040187, 0.9272300755975099] | nats_per_node | results/external/taskbench_static_poset/main_table.json | ONE.antichain.illegal_nll_per_node | 10d4bf4 | identical to legal by construction |
+| ONE | test | antichain | auroc | 0.5 | [0.5, 0.5] | auroc | results/external/taskbench_static_poset/main_table.json | ONE.antichain.auroc | 10d4bf4 |  |
+| ONE | test | antichain | pairwise_acc | 0.0 | [0.0, 0.0] | accuracy | results/external/taskbench_static_poset/main_table.json | ONE.antichain.pairwise_acc | 10d4bf4 |  |
+| ONE | test | intersection | closure_f1 | 0.6526040290746173 | [0.609684670346435, 0.6953628774952304] | f1 | results/external/taskbench_static_poset/main_table.json | ONE.intersection.closure_f1 | 10d4bf4 | equals first-total-order by construction at ONE |
+| ONE | test | intersection | incomparable_f1 | 0.0 | [0.0, 0.0] | f1 | results/external/taskbench_static_poset/main_table.json | ONE.intersection.incomparable_f1 | 10d4bf4 |  |
+| ONE | test | intersection | relation_brier | 0.2503861003861004 | [0.22567567567567567, 0.2742599742599742] | brier | results/external/taskbench_static_poset/main_table.json | ONE.intersection.brier | 10d4bf4 |  |
+| ONE | test | intersection | legal_nll_per_node | 1.6702061802888235 | [1.538597464198977, 1.8057343556146483] | nats_per_node | results/external/taskbench_static_poset/main_table.json | ONE.intersection.legal_nll_per_node | 10d4bf4 |  |
+| ONE | test | intersection | illegal_nll_per_node | 2.5139842584559675 | [2.387012992311285, 2.639341026270283] | nats_per_node | results/external/taskbench_static_poset/main_table.json | ONE.intersection.illegal_nll_per_node | 10d4bf4 |  |
+| ONE | test | intersection | auroc | 0.8346320342333401 | [0.7917723307126873, 0.8738078743457405] | auroc | results/external/taskbench_static_poset/main_table.json | ONE.intersection.auroc | 10d4bf4 |  |
+| ONE | test | intersection | pairwise_acc | 0.7965669443917696 | [0.7492132193366037, 0.8408695799366556] | accuracy | results/external/taskbench_static_poset/main_table.json | ONE.intersection.pairwise_acc | 10d4bf4 |  |
+| ONE | test | bayes | closure_f1 | 0.47734643214519373 | [0.39607045802866236, 0.5540764024974552] | f1 | results/external/taskbench_static_poset/main_table.json | ONE.bayes.closure_f1 | 10d4bf4 |  |
+| ONE | test | bayes | incomparable_f1 | 0.5333906157435571 | [0.47288989693401456, 0.5930128317628319] | f1 | results/external/taskbench_static_poset/main_table.json | ONE.bayes.incomparable_f1 | 10d4bf4 |  |
+| ONE | test | bayes | relation_brier | 0.1287064619883276 | [0.12238282697817236, 0.1352801490631033] | brier | results/external/taskbench_static_poset/main_table.json | ONE.bayes.brier | 10d4bf4 | best fitted |
+| ONE | test | bayes | legal_nll_per_node | 0.7376588108006363 | [0.7116372735123607, 0.7642661056189273] | nats_per_node | results/external/taskbench_static_poset/main_table.json | ONE.bayes.legal_nll_per_node | 10d4bf4 | best fitted |
+| ONE | test | bayes | illegal_nll_per_node | 1.0428512770088112 | [1.0082779012677165, 1.07632092699528] | nats_per_node | results/external/taskbench_static_poset/main_table.json | ONE.bayes.illegal_nll_per_node | 10d4bf4 |  |
+| ONE | test | bayes | auroc | 0.8425191239819917 | [0.8075306688573739, 0.8765839831625019] | auroc | results/external/taskbench_static_poset/main_table.json | ONE.bayes.auroc | 10d4bf4 | delta vs intersection CI covers 0 |
+| ONE | test | bayes | pairwise_acc | 0.8425191239819917 | [0.8071826175818723, 0.8766616864381671] | accuracy | results/external/taskbench_static_poset/main_table.json | ONE.bayes.pairwise_acc | 10d4bf4 |  |
+| ONE | test | gold_oracle | closure_f1 | 1.0 | [1.0, 1.0] | f1 | results/external/taskbench_static_poset/main_table.json | ONE.gold_oracle.closure_f1 | 10d4bf4 | ORACLE not a fitted model |
+| ONE | test | gold_oracle | incomparable_f1 | 1.0 | [1.0, 1.0] | f1 | results/external/taskbench_static_poset/main_table.json | ONE.gold_oracle.incomparable_f1 | 10d4bf4 | ORACLE |
+| ONE | test | gold_oracle | relation_brier | 0.0 | [0.0, 0.0] | brier | results/external/taskbench_static_poset/main_table.json | ONE.gold_oracle.brier | 10d4bf4 | ORACLE |
+| ONE | test | gold_oracle | legal_nll_per_node | 0.4229001463683318 | [0.3975511401973267, 0.44759532586602674] | nats_per_node | results/external/taskbench_static_poset/main_table.json | ONE.gold_oracle.legal_nll_per_node | 10d4bf4 | ORACLE |
+| ONE | test | gold_oracle | illegal_nll_per_node | 1.9464266152663559 | [1.8582375354092058, 2.026616830787066] | nats_per_node | results/external/taskbench_static_poset/main_table.json | ONE.gold_oracle.illegal_nll_per_node | 10d4bf4 | ORACLE |
+| ONE | test | gold_oracle | auroc | 1.0 | [1.0, 1.0] | auroc | results/external/taskbench_static_poset/main_table.json | ONE.gold_oracle.auroc | 10d4bf4 | ORACLE |
+| TWO | test | first_total_order | closure_f1 | 0.6526040290746173 | [0.610001522722111, 0.6950546172604996] | f1 | results/external/taskbench_static_poset/main_table.json | TWO.first_total_order.closure_f1 | 10d4bf4 | n_graphs 37 |
+| TWO | test | first_total_order | incomparable_f1 | 0.0 | [0.0, 0.0] | f1 | results/external/taskbench_static_poset/main_table.json | TWO.first_total_order.incomparable_f1 | 10d4bf4 |  |
+| TWO | test | first_total_order | relation_brier | 0.2503861003861004 | [0.22599742599742595, 0.2743243243243243] | brier | results/external/taskbench_static_poset/main_table.json | TWO.first_total_order.brier | 10d4bf4 |  |
+| TWO | test | first_total_order | legal_nll_per_node | 1.6276434930060937 | [1.5140061381573922, 1.7395300567322485] | nats_per_node | results/external/taskbench_static_poset/main_table.json | TWO.first_total_order.legal_nll_per_node | 10d4bf4 |  |
+| TWO | test | first_total_order | illegal_nll_per_node | 2.585281021371321 | [2.447809640132543, 2.717378378060775] | nats_per_node | results/external/taskbench_static_poset/main_table.json | TWO.first_total_order.illegal_nll_per_node | 10d4bf4 |  |
+| TWO | test | first_total_order | auroc | 0.8547818651985318 | [0.8109010051718385, 0.894801311728395] | auroc | results/external/taskbench_static_poset/main_table.json | TWO.first_total_order.auroc | 10d4bf4 | DISCREPANCY: report.md prints 0.818 here which is the pairwise_acc value |
+| TWO | test | first_total_order | pairwise_acc | 0.8177552552552552 | [0.7687682474140809, 0.8639691775108441] | accuracy | results/external/taskbench_static_poset/main_table.json | TWO.first_total_order.pairwise_acc | 10d4bf4 |  |
+| TWO | test | antichain | closure_f1 | 0.0 | [0.0, 0.0] | f1 | results/external/taskbench_static_poset/main_table.json | TWO.antichain.closure_f1 | 10d4bf4 |  |
+| TWO | test | antichain | incomparable_f1 | 0.6531479426216269 | [0.6084590504327346, 0.6979041613910035] | f1 | results/external/taskbench_static_poset/main_table.json | TWO.antichain.incomparable_f1 | 10d4bf4 |  |
+| TWO | test | antichain | relation_brier | 0.24961389961389957 | [0.22528957528957527, 0.27438867438867437] | brier | results/external/taskbench_static_poset/main_table.json | TWO.antichain.brier | 10d4bf4 |  |
+| TWO | test | antichain | legal_nll_per_node | 0.8864154254513797 | [0.8493587082812479, 0.9272342892302905] | nats_per_node | results/external/taskbench_static_poset/main_table.json | TWO.antichain.legal_nll_per_node | 10d4bf4 |  |
+| TWO | test | antichain | illegal_nll_per_node | 0.8864154254513797 | [0.849190162970029, 0.9278771396747392] | nats_per_node | results/external/taskbench_static_poset/main_table.json | TWO.antichain.illegal_nll_per_node | 10d4bf4 |  |
+| TWO | test | antichain | auroc | 0.5 | [0.5, 0.5] | auroc | results/external/taskbench_static_poset/main_table.json | TWO.antichain.auroc | 10d4bf4 |  |
+| TWO | test | antichain | pairwise_acc | 0.0 | [0.0, 0.0] | accuracy | results/external/taskbench_static_poset/main_table.json | TWO.antichain.pairwise_acc | 10d4bf4 |  |
+| TWO | test | intersection | closure_f1 | 0.8175880207507137 | [0.7687301157849895, 0.8649156134478716] | f1 | results/external/taskbench_static_poset/main_table.json | TWO.intersection.closure_f1 | 10d4bf4 | best fitted on point closure |
+| TWO | test | intersection | incomparable_f1 | 0.6803556803556804 | [0.6071241371241372, 0.7540210015210016] | f1 | results/external/taskbench_static_poset/main_table.json | TWO.intersection.incomparable_f1 | 10d4bf4 | delta vs bayes CI covers 0 |
+| TWO | test | intersection | relation_brier | 0.1099099099099099 | [0.08288288288288288, 0.13783783783783782] | brier | results/external/taskbench_static_poset/main_table.json | TWO.intersection.brier | 10d4bf4 |  |
+| TWO | test | intersection | legal_nll_per_node | 1.020264819186509 | [0.876046581464271, 1.1689421217480238] | nats_per_node | results/external/taskbench_static_poset/main_table.json | TWO.intersection.legal_nll_per_node | 10d4bf4 |  |
+| TWO | test | intersection | illegal_nll_per_node | 2.2339244696623264 | [2.0852571589776883, 2.373736411884321] | nats_per_node | results/external/taskbench_static_poset/main_table.json | TWO.intersection.illegal_nll_per_node | 10d4bf4 |  |
+| TWO | test | intersection | auroc | 0.9098369202535869 | [0.8645311978645313, 0.9491061373873875] | auroc | results/external/taskbench_static_poset/main_table.json | TWO.intersection.auroc | 10d4bf4 | delta vs bayes CI covers 0 |
+| TWO | test | intersection | pairwise_acc | 0.8845824991658325 | [0.8333534054888222, 0.9299930138471805] | accuracy | results/external/taskbench_static_poset/main_table.json | TWO.intersection.pairwise_acc | 10d4bf4 |  |
+| TWO | test | bayes | closure_f1 | 0.7059004841613536 | [0.6414649940736898, 0.7624422439096352] | f1 | results/external/taskbench_static_poset/main_table.json | TWO.bayes.closure_f1 | 10d4bf4 |  |
+| TWO | test | bayes | incomparable_f1 | 0.6367608209713473 | [0.5774036724694619, 0.6971696696696696] | f1 | results/external/taskbench_static_poset/main_table.json | TWO.bayes.incomparable_f1 | 10d4bf4 |  |
+| TWO | test | bayes | relation_brier | 0.08556360924904496 | [0.07538194601835255, 0.09534530371642848] | brier | results/external/taskbench_static_poset/main_table.json | TWO.bayes.brier | 10d4bf4 | best fitted |
+| TWO | test | bayes | legal_nll_per_node | 0.6853141717185864 | [0.6539206943196201, 0.7164865345334954] | nats_per_node | results/external/taskbench_static_poset/main_table.json | TWO.bayes.legal_nll_per_node | 10d4bf4 | best fitted |
+| TWO | test | bayes | illegal_nll_per_node | 1.1302853241393318 | [1.0771597892155353, 1.1813075172862213] | nats_per_node | results/external/taskbench_static_poset/main_table.json | TWO.bayes.illegal_nll_per_node | 10d4bf4 |  |
+| TWO | test | bayes | auroc | 0.8740459209209209 | [0.8326603947697697, 0.9125547422422423] | auroc | results/external/taskbench_static_poset/main_table.json | TWO.bayes.auroc | 10d4bf4 |  |
+| TWO | test | bayes | pairwise_acc | 0.8740459209209209 | [0.8322693787537537, 0.9118653810060061] | accuracy | results/external/taskbench_static_poset/main_table.json | TWO.bayes.pairwise_acc | 10d4bf4 |  |
+| TWO | test | gold_oracle | legal_nll_per_node | 0.418076626724762 | [0.39095568703380634, 0.44424777366295004] | nats_per_node | results/external/taskbench_static_poset/main_table.json | TWO.gold_oracle.legal_nll_per_node | 10d4bf4 | ORACLE |
+| TWO | test | gold_oracle | illegal_nll_per_node | 2.06372808591322 | [1.9587357916410635, 2.1662796597251797] | nats_per_node | results/external/taskbench_static_poset/main_table.json | TWO.gold_oracle.illegal_nll_per_node | 10d4bf4 | ORACLE |
+| FOUR | test | first_total_order | closure_f1 | 0.6019083480621942 | [0.556959706959707, 0.6480476734803657] | f1 | results/external/taskbench_static_poset/main_table.json | FOUR.first_total_order.closure_f1 | 10d4bf4 | n_graphs 26 |
+| FOUR | test | first_total_order | incomparable_f1 | 0.0 | [0.0, 0.0] | f1 | results/external/taskbench_static_poset/main_table.json | FOUR.first_total_order.incomparable_f1 | 10d4bf4 |  |
+| FOUR | test | first_total_order | relation_brier | 0.2793956043956044 | [0.25366300366300365, 0.3032051282051281] | brier | results/external/taskbench_static_poset/main_table.json | FOUR.first_total_order.brier | 10d4bf4 |  |
+| FOUR | test | first_total_order | legal_nll_per_node | 1.9532280934336725 | [1.7611795855377332, 2.1838967376312586] | nats_per_node | results/external/taskbench_static_poset/main_table.json | FOUR.first_total_order.legal_nll_per_node | 10d4bf4 |  |
+| FOUR | test | first_total_order | illegal_nll_per_node | 2.782155125310727 | [2.604396505699128, 2.963364366580917] | nats_per_node | results/external/taskbench_static_poset/main_table.json | FOUR.first_total_order.illegal_nll_per_node | 10d4bf4 |  |
+| FOUR | test | first_total_order | auroc | 0.7920255742521368 | [0.7093182425213675, 0.8680165347889957] | auroc | results/external/taskbench_static_poset/main_table.json | FOUR.first_total_order.auroc | 10d4bf4 |  |
+| FOUR | test | first_total_order | pairwise_acc | 0.7265791933760684 | [0.6084898337339744, 0.8317307692307693] | accuracy | results/external/taskbench_static_poset/main_table.json | FOUR.first_total_order.pairwise_acc | 10d4bf4 |  |
+| FOUR | test | antichain | closure_f1 | 0.0 | [0.0, 0.0] | f1 | results/external/taskbench_static_poset/main_table.json | FOUR.antichain.closure_f1 | 10d4bf4 |  |
+| FOUR | test | antichain | incomparable_f1 | 0.7075862733757472 | [0.6625145797185271, 0.7493589743589746] | f1 | results/external/taskbench_static_poset/main_table.json | FOUR.antichain.incomparable_f1 | 10d4bf4 |  |
+| FOUR | test | antichain | relation_brier | 0.22060439560439557 | [0.1969757326007326, 0.24569597069597068] | brier | results/external/taskbench_static_poset/main_table.json | FOUR.antichain.brier | 10d4bf4 |  |
+| FOUR | test | antichain | legal_nll_per_node | 0.8760686519748577 | [0.8286819206216679, 0.9297240329807177] | nats_per_node | results/external/taskbench_static_poset/main_table.json | FOUR.antichain.legal_nll_per_node | 10d4bf4 |  |
+| FOUR | test | antichain | illegal_nll_per_node | 0.8760686519748577 | [0.8293628896348362, 0.9294841800378291] | nats_per_node | results/external/taskbench_static_poset/main_table.json | FOUR.antichain.illegal_nll_per_node | 10d4bf4 |  |
+| FOUR | test | antichain | auroc | 0.5 | [0.5, 0.5] | auroc | results/external/taskbench_static_poset/main_table.json | FOUR.antichain.auroc | 10d4bf4 |  |
+| FOUR | test | antichain | pairwise_acc | 0.0 | [0.0, 0.0] | accuracy | results/external/taskbench_static_poset/main_table.json | FOUR.antichain.pairwise_acc | 10d4bf4 |  |
+| FOUR | test | intersection | closure_f1 | 0.9064685314685315 | [0.8680069930069931, 0.9437150349650348] | f1 | results/external/taskbench_static_poset/main_table.json | FOUR.intersection.closure_f1 | 10d4bf4 | delta vs bayes -0.004 CI [-0.010 0.000] 24/26 exact ties |
+| FOUR | test | intersection | incomparable_f1 | 0.898901098901099 | [0.8480769230769231, 0.9423076923076923] | f1 | results/external/taskbench_static_poset/main_table.json | FOUR.intersection.incomparable_f1 | 10d4bf4 | delta vs bayes CI covers 0 |
+| FOUR | test | intersection | relation_brier | 0.04523809523809523 | [0.026923076923076925, 0.06383012820512816] | brier | results/external/taskbench_static_poset/main_table.json | FOUR.intersection.brier | 10d4bf4 | delta vs bayes CI covers 0 |
+| FOUR | test | intersection | legal_nll_per_node | 0.7687975319587042 | [0.6465621366293106, 0.8996059995328846] | nats_per_node | results/external/taskbench_static_poset/main_table.json | FOUR.intersection.legal_nll_per_node | 10d4bf4 |  |
+| FOUR | test | intersection | illegal_nll_per_node | 2.2329936795026097 | [2.105034592251683, 2.359543041806011] | nats_per_node | results/external/taskbench_static_poset/main_table.json | FOUR.intersection.illegal_nll_per_node | 10d4bf4 |  |
+| FOUR | test | intersection | auroc | 0.9855268429487178 | [0.9670973557692307, 0.9990985576923077] | auroc | results/external/taskbench_static_poset/main_table.json | FOUR.intersection.auroc | 10d4bf4 | delta vs bayes CI covers 0 |
+| FOUR | test | intersection | pairwise_acc | 0.9850761217948717 | [0.9675480769230769, 0.9987980769230769] | accuracy | results/external/taskbench_static_poset/main_table.json | FOUR.intersection.pairwise_acc | 10d4bf4 |  |
+| FOUR | test | bayes | closure_f1 | 0.9024725274725275 | [0.864010989010989, 0.9406593406593406] | f1 | results/external/taskbench_static_poset/main_table.json | FOUR.bayes.closure_f1 | 10d4bf4 |  |
+| FOUR | test | bayes | incomparable_f1 | 0.8924908424908425 | [0.8388278388278388, 0.9399313186813187] | f1 | results/external/taskbench_static_poset/main_table.json | FOUR.bayes.incomparable_f1 | 10d4bf4 |  |
+| FOUR | test | bayes | relation_brier | 0.04145883570037295 | [0.02889058516300684, 0.05438982530312251] | brier | results/external/taskbench_static_poset/main_table.json | FOUR.bayes.brier | 10d4bf4 | best fitted mean but delta vs intersection CI covers 0 |
+| FOUR | test | bayes | legal_nll_per_node | 0.6424067402051075 | [0.5904780169927468, 0.6958082356457503] | nats_per_node | results/external/taskbench_static_poset/main_table.json | FOUR.bayes.legal_nll_per_node | 10d4bf4 | best fitted; delta vs intersection CI excludes 0 |
+| FOUR | test | bayes | illegal_nll_per_node | 1.3628942158085207 | [1.2726806109020756, 1.4460987704987223] | nats_per_node | results/external/taskbench_static_poset/main_table.json | FOUR.bayes.illegal_nll_per_node | 10d4bf4 | intersection assigns illegal orders lower probability |
+| FOUR | test | bayes | auroc | 0.9754774305555555 | [0.9490351228632478, 0.9966613247863247] | auroc | results/external/taskbench_static_poset/main_table.json | FOUR.bayes.auroc | 10d4bf4 |  |
+| FOUR | test | bayes | pairwise_acc | 0.9754774305555555 | [0.9487680288461539, 0.9966613247863247] | accuracy | results/external/taskbench_static_poset/main_table.json | FOUR.bayes.pairwise_acc | 10d4bf4 |  |
+| FOUR | test | gold_oracle | legal_nll_per_node | 0.47601728686084044 | [0.4516444420035001, 0.5002099123758617] | nats_per_node | results/external/taskbench_static_poset/main_table.json | FOUR.gold_oracle.legal_nll_per_node | 10d4bf4 | ORACLE |
+| FOUR | test | gold_oracle | illegal_nll_per_node | 2.1120155362410173 | [1.9997115753461452, 2.222208967150292] | nats_per_node | results/external/taskbench_static_poset/main_table.json | FOUR.gold_oracle.illegal_nll_per_node | 10d4bf4 | ORACLE |
+| paired_curve | test | bayes | closure_f1_ONE | 0.45221199112601823 |  | f1 | results/external/taskbench_static_poset/test/condition_curves.json | models.bayes.closure_f1.means.ONE | 10d4bf4 | 26 paired graphs |
+| paired_curve | test | bayes | closure_f1_TWO | 0.6766003784398433 |  | f1 | results/external/taskbench_static_poset/test/condition_curves.json | models.bayes.closure_f1.means.TWO | 10d4bf4 | 26 paired graphs |
+| paired_curve | test | bayes | closure_f1_FOUR | 0.9024725274725275 |  | f1 | results/external/taskbench_static_poset/test/condition_curves.json | models.bayes.closure_f1.means.FOUR | 10d4bf4 | 26 paired graphs |
+| paired_curve | test | bayes | closure_f1_FOUR_minus_ONE | 0.45026053634650925 | [0.35574907589896276, 0.5524819059773811] | f1 | results/external/taskbench_static_poset/test/condition_curves.json | models.bayes.closure_f1.FOUR_minus_ONE | 10d4bf4 | CI excludes 0 |
+| paired_curve | test | bayes | incomparable_f1_FOUR_minus_ONE | 0.32690815971358955 | [0.25635182031392434, 0.40009170976082736] | f1 | results/external/taskbench_static_poset/test/condition_curves.json | models.bayes.incomparable_f1.FOUR_minus_ONE | 10d4bf4 | CI excludes 0 |
+| paired_curve | test | bayes | brier_FOUR_minus_ONE | -0.08810786886884257 | [-0.1010357758318616, -0.07506617779787375] | brier | results/external/taskbench_static_poset/test/condition_curves.json | models.bayes.brier.FOUR_minus_ONE | 10d4bf4 | CI excludes 0 |
+| paired_curve | test | bayes | legal_nll_per_node_FOUR_minus_ONE | -0.11607313177286041 | [-0.16498152952361242, -0.0631980296242881] | nats_per_node | results/external/taskbench_static_poset/test/condition_curves.json | models.bayes.legal_nll_per_node.FOUR_minus_ONE | 10d4bf4 | CI excludes 0 |
+| paired_curve | test | bayes | auroc_FOUR_minus_ONE | 0.13975577121366142 | [0.09237665001871055, 0.18818037909761254] | auroc | results/external/taskbench_static_poset/test/condition_curves.json | models.bayes.auroc.FOUR_minus_ONE | 10d4bf4 | CI excludes 0 |
+| paired_vs_intersection | test | bayes_minus_intersection | closure_f1_ONE | -0.17525759692942353 | [-0.24636388805506448, -0.10375541782662527] | f1 | results/external/taskbench_static_poset/test/paired_bootstrap.json | ONE.bayes_vs_intersection.closure_f1 | 10d4bf4 | intersection ahead; 25 losses 9 ties 3 wins |
+| paired_vs_intersection | test | bayes_minus_intersection | closure_f1_TWO | -0.11168753658935988 | [-0.18221956376514584, -0.05478445055917009] | f1 | results/external/taskbench_static_poset/test/paired_bootstrap.json | TWO.bayes_vs_intersection.closure_f1 | 10d4bf4 | intersection ahead |
+| paired_vs_intersection | test | bayes_minus_intersection | closure_f1_FOUR | -0.003996003996003989 | [-0.009990009990009973, 0.0] | f1 | results/external/taskbench_static_poset/test/paired_bootstrap.json | FOUR.bayes_vs_intersection.closure_f1 | 10d4bf4 | 24/26 exact ties |
+| paired_vs_intersection | test | bayes_minus_intersection | incomparable_f1_ONE | 0.5333906157435571 | [0.4723261798261797, 0.5928119742825625] | f1 | results/external/taskbench_static_poset/test/paired_bootstrap.json | ONE.bayes_vs_intersection.incomparable_f1 | 10d4bf4 | 37/37 wins |
+| paired_vs_intersection | test | bayes_minus_intersection | brier_ONE | -0.12167963839777278 | [-0.1444986688426708, -0.09810154571290038] | brier | results/external/taskbench_static_poset/test/paired_bootstrap.json | ONE.bayes_vs_intersection.brier | 10d4bf4 | 36/37 wins |
+| paired_vs_intersection | test | bayes_minus_intersection | brier_TWO | -0.024346300660864947 | [-0.04408016917769173, -0.005008044064461459] | brier | results/external/taskbench_static_poset/test/paired_bootstrap.json | TWO.bayes_vs_intersection.brier | 10d4bf4 |  |
+| paired_vs_intersection | test | bayes_minus_intersection | brier_FOUR | -0.0037792595377222926 | [-0.010885803827428714, 0.0028657435941361054] | brier | results/external/taskbench_static_poset/test/paired_bootstrap.json | FOUR.bayes_vs_intersection.brier | 10d4bf4 | CI covers 0 - tied |
+| paired_vs_intersection | test | bayes_minus_intersection | legal_nll_per_node_ONE | -0.9325473694881875 | [-1.0564011417461439, -0.8102898793518678] | nats_per_node | results/external/taskbench_static_poset/test/paired_bootstrap.json | ONE.bayes_vs_intersection.legal_nll_per_node | 10d4bf4 | 37/37 wins |
+| paired_vs_intersection | test | bayes_minus_intersection | legal_nll_per_node_TWO | -0.33495064746792264 | [-0.4578683945300128, -0.2175500348516241] | nats_per_node | results/external/taskbench_static_poset/test/paired_bootstrap.json | TWO.bayes_vs_intersection.legal_nll_per_node | 10d4bf4 | 29/37 wins |
+| paired_vs_intersection | test | bayes_minus_intersection | legal_nll_per_node_FOUR | -0.12639079175359663 | [-0.20809955458648094, -0.05041428043760351] | nats_per_node | results/external/taskbench_static_poset/test/paired_bootstrap.json | FOUR.bayes_vs_intersection.legal_nll_per_node | 10d4bf4 | CI excludes 0 |
+| paired_vs_intersection | test | bayes_minus_intersection | auroc_ONE | 0.007887089748651549 | [-0.03882519384986491, 0.05531210231739926] | auroc | results/external/taskbench_static_poset/test/paired_bootstrap.json | ONE.bayes_vs_intersection.auroc | 10d4bf4 | CI covers 0 |
+| paired_vs_intersection | test | bayes_minus_intersection | auroc_TWO | -0.035790999332666 | [-0.07947543898064732, 0.005000834167500819] | auroc | results/external/taskbench_static_poset/test/paired_bootstrap.json | TWO.bayes_vs_intersection.auroc | 10d4bf4 | CI covers 0 |
+| paired_vs_intersection | test | bayes_minus_intersection | auroc_FOUR | -0.010049412393162392 | [-0.031817574786324784, 0.002437232905982907] | auroc | results/external/taskbench_static_poset/test/paired_bootstrap.json | FOUR.bayes_vs_intersection.auroc | 10d4bf4 | CI covers 0 |
+| convergence | all | bayes | convergence_rate | 1.0 |  | fraction | results/external/taskbench_static_poset/convergence_summary.json | convergence_rate | 10d4bf4 | 132/132 fits |
+| runtime | all | bayes | wall_time_s | 1583.5684173339978 |  | seconds | results/external/taskbench_static_poset/runtime.json | wall_time_s | 10d4bf4 | 8 workers |
+| runtime | all | bayes | total_fit_cpu_s | 12285.482162372966 |  | seconds | results/external/taskbench_static_poset/runtime.json | total_fit_cpu_s | 10d4bf4 | mean 93.07183456343157 s per fit |
+| runtime | all | bayes | mean_ess_per_s | 36.341091948284976 |  | ess_per_second | results/external/taskbench_static_poset/runtime.json | mean_ess_per_s | 10d4bf4 |  |
+
+## tau^3-Retail full-HPOP pilot dataset (setup only)
+
+| condition | split | model | metric | value | uncertainty / CI | unit | source artifact | source field | commit | notes |
+|---|---|---|---|---|---|---|---|---|---|---|
+| setup | full_pool | n/a | n_trajectories_extracted | 456 |  | count | results/external/tau3_retail_audit/extraction_summary.json | n_trajectories | 8100fc2 | 114 official tasks x 4 trials |
+| setup | full_pool | n/a | n_tool_occurrences_extracted | 3444 |  | count | results/external/tau3_retail_audit/extraction_summary.json | extracted_occurrence_count | 8100fc2 | equals raw_tool_call_count |
+| setup | selected | n/a | n_task_ids | 30 |  | count | results/external/tau3_retail_hpop_pilot/corpus_summary.json | n_tasks | 8100fc2 | subset return_exchange_cancel |
+| setup | selected | n/a | n_trajectories | 119 |  | count | results/external/tau3_retail_hpop_pilot/corpus_summary.json | n_trajectories | 8100fc2 |  |
+| setup | train | n/a | n_trajectories | 79 |  | count | results/external/tau3_retail_hpop_pilot/split_manifest.json | trajectory_counts.train | 8100fc2 | 20 task IDs |
+| setup | development | n/a | n_trajectories | 20 |  | count | results/external/tau3_retail_hpop_pilot/split_manifest.json | trajectory_counts.development | 8100fc2 | 5 task IDs |
+| setup | test | n/a | n_trajectories | 20 |  | count | results/external/tau3_retail_hpop_pilot/split_manifest.json | trajectory_counts.test | 8100fc2 | 5 task IDs; SEALED - file never opened |
+| setup | selected | n/a | cpa_vocabulary_size | 8 |  | count | results/external/tau3_retail_hpop_pilot/tool_vocabulary.json | n_tools | 8100fc2 | exact official tool names; identity role map |
+| setup | selected | n/a | median_trace_length | 7 |  | occurrences | results/external/tau3_retail_hpop_pilot/corpus_summary.json | median_length | 8100fc2 |  |
+| setup | selected | n/a | repeated_cpa_fraction | 0.9244 |  | fraction | results/external/tau3_retail_hpop_pilot/corpus_summary.json | repeated_cpa_fraction | 8100fc2 | NOT 0.87; see extraction_report discrepancy D5 |
+| setup | selected | n/a | n_successful_trajectories | 103 |  | count | results/external/tau3_retail_hpop_pilot/corpus_summary.json | n_successful | 8100fc2 |  |
+| setup | selected | n/a | n_failed_trajectories | 16 |  | count | results/external/tau3_retail_hpop_pilot/corpus_summary.json | n_failed | 8100fc2 |  |
+| setup | excluded | n/a | n_excluded_rows | 337 |  | count | results/external/tau3_retail_hpop_pilot/corpus_summary.json | n_excluded_rows | 8100fc2 | 232 not-in-subset 96 task-not-selected 9 out-of-vocabulary |
+
+## tau^3-Retail development smoke fit (PENDING)
+
+| condition | split | model | metric | value | uncertainty / CI | unit | source artifact | source field | commit | notes |
+|---|---|---|---|---|---|---|---|---|---|---|
+| development | development | full_hpop | all_metrics | PENDING |  |  |  |  |  | no frozen result artifact exists; run live at extraction time |
+
+---
+
+Total ledger rows: 291.
+

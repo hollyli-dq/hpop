@@ -1,0 +1,7 @@
+{
+  "corpus_hash_sha256": "3e3aa6533bd7951f9b2ed1dfa050e9d07f1b2e96b0e3914e044010130e9acdfa",
+  "hash_covers": "canonical JSON of config + truth + all traces (observed and hidden); no timestamps, no paths",
+  "heldout_npz_sha256": "2698bce19236ca9ebc4590cc0a9852eb7c61aa97487b4dddd08672601d28f0c7",
+  "train_npz_sha256": "e05a46013b398072614d11c40a8891e9afedb780b76db2e07e6200cdf69ad04e",
+  "truth_hash_sha256": "effccc91114d9647f87859aaa7ee219e3bc664bb41d2c6389844ea64346a5e8e"
+}

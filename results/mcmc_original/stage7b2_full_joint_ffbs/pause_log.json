@@ -1,0 +1,11 @@
+{
+  "pauses": [
+    {
+      "stopped_at": "2026-08-14T23:06:03+0100",
+      "resumed_at": "2026-08-15T00:05:31+0100",
+      "at_sweep": 25000,
+      "reason": "machine on battery (95%, ~3h16m runway); paused so the un-recoverable Stage 6E2 block (finish ~02:10) outlives the battery; agreed with peer session hpop-f7"
+    }
+  ],
+  "why": "SIGSTOP intervals; process clocks (time.perf_counter) keep running while stopped, so per-chain runtime_seconds and any s/sweep rate derived from it must subtract these intervals"
+}

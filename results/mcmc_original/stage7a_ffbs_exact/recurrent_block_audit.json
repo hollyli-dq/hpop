@@ -1,0 +1,112 @@
+{
+  "q0_reset_per_candidate_block": {
+    "rule": "every candidate block is replayed from q_0 = 0; no recurrent state crosses a candidate",
+    "audits": [
+      {
+        "block_a": [
+          0,
+          3,
+          0
+        ],
+        "block_b": [
+          3,
+          8,
+          1
+        ],
+        "score_a_first": -1.2662322827727865,
+        "score_b": -6.297134897399003,
+        "score_a_again": -1.2662322827727865,
+        "difference": 0.0,
+        "bit_identical": true,
+        "pass": true
+      },
+      {
+        "block_a": [
+          0,
+          4,
+          2
+        ],
+        "block_b": [
+          4,
+          8,
+          0
+        ],
+        "score_a_first": -2.2209431919024127,
+        "score_b": -20.042541176385022,
+        "score_a_again": -2.2209431919024127,
+        "difference": 0.0,
+        "bit_identical": true,
+        "pass": true
+      },
+      {
+        "block_a": [
+          2,
+          6,
+          1
+        ],
+        "block_b": [
+          0,
+          8,
+          2
+        ],
+        "score_a_first": -3.7452332183083783,
+        "score_b": -6.448404864819499,
+        "score_a_again": -3.7452332183083783,
+        "difference": 0.0,
+        "bit_identical": true,
+        "pass": true
+      },
+      {
+        "block_a": [
+          0,
+          8,
+          0
+        ],
+        "block_b": [
+          0,
+          3,
+          0
+        ],
+        "score_a_first": -6.569431185444998,
+        "score_b": -1.2662322827727865,
+        "score_a_again": -6.569431185444998,
+        "difference": 0.0,
+        "bit_identical": true,
+        "pass": true
+      }
+    ],
+    "pass": true
+  },
+  "evaluation_order_invariance": {
+    "orders": [
+      "by_start",
+      "by_width",
+      "by_skill_then_start",
+      "reverse_by_start"
+    ],
+    "max_absolute_difference": 0.0,
+    "identical": true,
+    "pass": true,
+    "n_finite_entries": 63
+  },
+  "table_matches_uncached_replay": {
+    "blocks_checked": 63,
+    "max_absolute_difference": 0.0,
+    "tolerance": 0.0,
+    "pass": true
+  },
+  "cached_vs_uncached": {
+    "identical_to_uncached": true,
+    "max_absolute_difference": 0.0,
+    "scorer_full_replay_calls": 453,
+    "scorer_cached_calls": 63
+  },
+  "table_shape": [
+    8,
+    9,
+    3
+  ],
+  "n_finite_entries": 63,
+  "n_forbidden_entries": 153,
+  "build_seconds": 0.008539124974049628
+}

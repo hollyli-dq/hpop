@@ -1,0 +1,12 @@
+{
+  "antichain_baseline_nll_per_occ": 1.752798804531374,
+  "generating_truth_nll_per_occ": 1.0772457251104504,
+  "modal_h_nll_per_occ": 1.0772457251104504,
+  "n_heldout_traces": 45,
+  "n_occurrences": 1608,
+  "posterior_mean_of_nll_per_occ": 1.0772457251104506,
+  "posterior_nll_sd": 2.2204807445330054e-16,
+  "posterior_predictive_nll_per_occ": 1.0772457251104506,
+  "scored_with": "held-out oracle S*, z* (no boundary or label inference)",
+  "total_order_baseline_nll_per_occ": 4.039845037465676
+}

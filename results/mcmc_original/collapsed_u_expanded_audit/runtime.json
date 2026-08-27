@@ -1,0 +1,31 @@
+{
+  "n_collapsed_evaluations": 2464,
+  "median_eval_seconds": 1.0481589164992329,
+  "p95_eval_seconds": 1.1584496503441186,
+  "total_wall_seconds": 2722.402459500001,
+  "peak_rss_bytes": 164683776,
+  "observed_formal_sweep_seconds_7b2": 1.375,
+  "naive_replacement_estimate": {
+    "description": "replace all 15 production U proposals per sweep with collapsed scoring (descriptive only, NOT implemented)",
+    "added_seconds_per_sweep": 15.722383747488493,
+    "added_hours_per_50k_sweeps": 218.36644093734017,
+    "slowdown_factor_vs_observed_7b2_sweep": 11.43446090726436
+  },
+  "occasional_collapsed_proposal_estimate": {
+    "every_1_sweeps": {
+      "added_seconds_per_sweep": 1.0481589164992329,
+      "added_hours_per_50k_sweeps": 14.557762729156012,
+      "relative_overhead_vs_observed_7b2_sweep": 0.762297393817624
+    },
+    "every_5_sweeps": {
+      "added_seconds_per_sweep": 0.20963178329984658,
+      "added_hours_per_50k_sweeps": 2.9115525458312024,
+      "relative_overhead_vs_observed_7b2_sweep": 0.15245947876352478
+    },
+    "every_10_sweeps": {
+      "added_seconds_per_sweep": 0.10481589164992329,
+      "added_hours_per_50k_sweeps": 1.4557762729156012,
+      "relative_overhead_vs_observed_7b2_sweep": 0.07622973938176239
+    }
+  }
+}

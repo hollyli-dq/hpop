@@ -1,0 +1,110 @@
+{
+  "arms": {
+    "C-COND-SWAP": {
+      "collapsed_every": 0,
+      "seeds": [
+        6205001,
+        6205002,
+        6205003,
+        6205004
+      ],
+      "swap_every": 50
+    },
+    "C-MARG-SWAP": {
+      "collapsed_every": 10,
+      "seeds": [
+        6205011,
+        6205012,
+        6205013,
+        6205014
+      ],
+      "swap_every": 50
+    }
+  },
+  "burn_in": 10000,
+  "checkpoints": [
+    30000,
+    50000,
+    75000,
+    100000
+  ],
+  "condition_c_terminal_commit": "c693d85174ea84d57a0e7b6221373f761f633192",
+  "cprime_preregistration_commit": "9b8e590",
+  "cprime_runner_commit": "ed63b55",
+  "external_benchmarks_touched": false,
+  "guard_note": "the frozen launch guard tests for matched_condition_c/formal_verdict.json, which the runner writes only at natural end-of-ladder termination. Condition C was terminated manually at 75k, so that file was written by the termination process instead, recording the same terminal verdict and pointing at the authoritative artifact. The frozen runner was NOT modified.",
+  "initialized_from_condition_c_checkpoint": false,
+  "launch_command": "PYTHONPATH=src .venv/bin/python scripts/run_matched_condition_c_prime_formal.py --protocol condition-c-prime-v1 --launch-formal",
+  "launch_method": "subprocess start_new_session=True (own session/process group, PPID 1) so the interactive shell lifecycle cannot kill the formal run",
+  "launched_at": "2026-08-20T11:32:04.741794",
+  "orchestrator_pid": 15677,
+  "prerequisites_all_pass": true,
+  "recorded_at_commit": "c693d85174ea84d57a0e7b6221373f761f633192",
+  "recovery_sealed": true,
+  "starts": [
+    {
+      "H": [
+        "2547688c23ea8649",
+        "0928eac4f6d9e682",
+        "1b96a33aada30f82"
+      ],
+      "index": 0,
+      "scale": 0.5,
+      "seed": 6204101,
+      "u_sha256": "2f7afc9789aaa63c2039d707ff080618287f2d3000991b86f20868e9f1ba7713"
+    },
+    {
+      "H": [
+        "78b6e13f7f0095f2",
+        "7c49e2dd918a8f62",
+        "296e62df4373edb5"
+      ],
+      "index": 1,
+      "scale": 1.0,
+      "seed": 6204102,
+      "u_sha256": "95ecbd982d6982b81e421754dbe839b620324e2b4c56e4e6ab4610f82e9cc5a9"
+    },
+    {
+      "H": [
+        "3fa2f8d57931cdc8",
+        "a923b0b0530157d3",
+        "93cc01ca119a8c67"
+      ],
+      "index": 2,
+      "scale": 2.0,
+      "seed": 6204103,
+      "u_sha256": "2a8416132d4f153da52174b3dc4b27562ba846c2b02e53675584c355e4131424"
+    },
+    {
+      "H": [
+        "7ddf6b55a26648a5",
+        "58ee187f69dd2a05",
+        "4a0aa858099d19c7"
+      ],
+      "index": 3,
+      "scale": 3.0,
+      "seed": 6204104,
+      "u_sha256": "ab7938ed4d5e7e3c004af38228ccfc670609daf1d67bfa7e43071de890bcd4f4"
+    }
+  ],
+  "target_parity_all_pass": true,
+  "target_parity_detail": {
+    "burn_in": true,
+    "checkpoints": true,
+    "collapsed_cadence": true,
+    "corpus_hash": true,
+    "scheduled_scale": true,
+    "shared_sources_unchanged_since_c_launch": true,
+    "starts": true,
+    "thin": true,
+    "truth_hash": true,
+    "u_scale": true
+  },
+  "thin": 5,
+  "transition_ordering": [
+    "scheduled global skill transposition (swap_every = 50)",
+    "collapsed U move if scheduled (arm's collapsed_every) \u2014 provably never reads the stored (S, z)",
+    "exact FFBS refresh of ALL (S, z)",
+    "conditional U row sweep (first path-dependent transition)"
+  ]
+}

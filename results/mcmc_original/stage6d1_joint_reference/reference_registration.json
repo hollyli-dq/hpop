@@ -1,0 +1,129 @@
+{
+  "registered_before_any_mcmc_comparison": true,
+  "model": {
+    "m_rows": 3,
+    "d_latent_columns": 2,
+    "n_skills": 1,
+    "n_assessors": 0,
+    "n_blocks": 3,
+    "T": 5,
+    "epsilon": 0.02,
+    "u_true": [
+      [
+        2.0,
+        2.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ],
+    "truth": {
+      "beta": 1.5,
+      "omega": 1.7346,
+      "lambda_rep": 0.8,
+      "lambda_back": 0.25
+    },
+    "qmc_dimension": 11,
+    "sizing_rationale": "dimensions chosen for reference quality before any MCMC comparison existed: 30 blocks x T=8 gave relative ESS 0.005 with a max weight of 0.10, which section 10.2 forbids accepting; 3 blocks x T=5 gives relative ESS 0.081 and leaves the induced-H posterior genuinely uncertain"
+  },
+  "qmc": {
+    "sequence": "scrambled Sobol",
+    "n_replicates": 32,
+    "n_points_per_replicate": 524288,
+    "seeds": [
+      6040001,
+      6040002,
+      6040003,
+      6040004,
+      6040005,
+      6040006,
+      6040007,
+      6040008,
+      6040009,
+      6040010,
+      6040011,
+      6040012,
+      6040013,
+      6040014,
+      6040015,
+      6040016,
+      6040017,
+      6040018,
+      6040019,
+      6040020,
+      6040021,
+      6040022,
+      6040023,
+      6040024,
+      6040025,
+      6040026,
+      6040027,
+      6040028,
+      6040029,
+      6040030,
+      6040031,
+      6040032
+    ],
+    "coordinates": [
+      "rho",
+      "z_U[0,0]",
+      "z_U[0,1]",
+      "z_U[1,0]",
+      "z_U[1,1]",
+      "z_U[2,0]",
+      "z_U[2,1]",
+      "beta",
+      "omega",
+      "lambda_rep",
+      "lambda_back"
+    ],
+    "transforms": {
+      "rho": "exact prior inverse CDF: Beta(1,1) truncated at 0.995 renormalised == Uniform(0, 0.995)",
+      "U": "non-centred: U = Z L(rho)^T with L L^T = Sigma_rho",
+      "beta/lambda_rep/lambda_back": "Gamma(shape 2, rate 2) inverse CDF",
+      "omega": "Normal(0, 2^2) inverse CDF"
+    },
+    "weight": "w = p_RFS(x | state); the proposal IS the joint prior, so no prior density remains in the weight"
+  },
+  "quality_gates": {
+    "max_rqmc_standard_error": 0.001,
+    "max_structural_half_width_95": 0.0025,
+    "max_replicate_h_total_variation": 0.003,
+    "max_replicate_relation_departure": 0.003,
+    "min_relative_ess": 0.02,
+    "max_normalised_weight": 0.001,
+    "max_log_evidence_sd": 0.05
+  },
+  "gate_rationale": {
+    "max_rqmc_standard_error": "rqmc_se = sd(replicate_estimates, ddof=1)/sqrt(R) is the uncertainty of the quantity the comparison consumes, the replicate mean. Independent scrambles make the per-replicate estimates iid, which licenses the formula.",
+    "max_structural_half_width_95": "t(0.975, R-1) * rqmc_se. At 2.5e-3 the reference's own 95% uncertainty occupies at most 25% of the 0.01 total-variation and relation-marginal error budget it feeds, leaving the remaining 75% to detect a genuine sampler defect.",
+    "max_replicate_h_total_variation": "Retained as a DIAGNOSTIC of replicate exchangeability, not as a precision measure. Set at 3e-3, which is what a per-replicate dispersion can plausibly reach at this ESS; it is deliberately not derived from the observed 1.7e-3.",
+    "max_replicate_relation_departure": "As above, for the relation marginals."
+  },
+  "superseded_gates": {
+    "max_h_probability_spread": 0.001,
+    "max_relation_marginal_spread": 0.001,
+    "observed_at_2_18": {
+      "h": 0.001704,
+      "relation": 0.001734
+    },
+    "observed_at_2_19": {
+      "h": 0.001727,
+      "relation": 0.001544
+    },
+    "why_mis_specified": "The maximum absolute departure across R independent scrambles estimates the dispersion of a SINGLE replicate. It is not an estimator of the uncertainty of the averaged reference, which is what the downstream comparison actually uses, and it has no reason to decrease as R or N grow \u2014 the maximum of a fixed number of draws from a tightening distribution shrinks only as fast as that distribution, and the max over 8 values is itself a high-variance statistic. Observation bore this out: doubling N from 2^18 to 2^19 left the maximum essentially unchanged (1.704e-3 -> 1.727e-3) while the log-evidence standard deviation fell as expected. The gate was therefore measuring the wrong quantity, not detecting an inadequate reference.",
+    "superseded_before_any_mcmc_comparison": true
+  },
+  "provenance": [
+    "The original max-replicate-spread gate (1e-3) failed at 2^18 and 2^19 BEFORE any Stage 6D1 production MCMC comparison was run.",
+    "The corrected gate is derived from estimator uncertainty (rqmc_se and its 95% half-width) and from the downstream 0.01 error budget.",
+    "No MCMC result was inspected, computed or used to select the new thresholds; the Stage 6D1 production comparison had not been run when they were registered.",
+    "The observed 0.0017 replicate spread was NOT adopted as the new threshold; the secondary dispersion gate is 3e-3, chosen from what a per-replicate dispersion can reach at this ESS rather than from the observation."
+  ],
+  "fallback_rule": "If the primary precision gates fail, increase R from 8 to 32 \u2014 more independent scrambles reduce sd/sqrt(R), the standard error of the averaged reference. Do NOT expect, or wait for, the maximum replicate range to shrink; that statistic is not what the gate measures. Invoke the section 10.2 mixture-importance fallback only if ESS, maximum weight, replicate dispersion or the revised precision gates remain inadequate after the R = 32 run. Never select whichever replicate agrees best with MCMC."
+}

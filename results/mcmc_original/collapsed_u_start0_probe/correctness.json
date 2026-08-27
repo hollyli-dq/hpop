@@ -1,0 +1,55 @@
+{
+  "registration": {
+    "collapsed_u_kernel.py": "430048ef84030fcfbc347def2a774c51fefdef14ee17409eea90ddefaf15e214",
+    "collapsed_u_kernel_at_formal_runs": "cbd769d46a940e70d48ad916510eb092e19a6cf9f18bac99d6d15e442c564557",
+    "collapsed_u_kernel_changed_since_formal_runs": true,
+    "change_disclosure": "the only change is an optional movement_tracker parameter added to run_collapsed_u_chain after rep2 launched (None in this probe and in both formal runs' call pattern); collapsed_u_mh_step, collapsed_ffbs_sweep_once and the likelihood are untouched; every=0 bitwise parity and resume determinism tests pass against the current source",
+    "collapsed_u_likelihood.py": "8efc9bee86ead719a625b3d9f5371cc2dabe4957e777b61f2cfddf4798e35199",
+    "collapsed_u_likelihood_matches_formal_runs": true,
+    "semi_markov_ffbs.py": "8150bb8235eb159d5e2f08ada7c698c383f4c7fd31f3b882e218b207dd135486",
+    "sampler_u.py": "7324f3c853c32ed048eeffbbf97e68ad7efa0f68ee72919068b958394f595999"
+  },
+  "cadence_check": true,
+  "all_chains_identical_start": true,
+  "chains_differ_only_in_seeds": [
+    8155001,
+    8155002,
+    8155003,
+    8155004
+  ],
+  "retained_counts": [
+    48000,
+    48000,
+    48000,
+    48000
+  ],
+  "resume_determinism": {
+    "sweeps": 2000,
+    "checkpoint_at": 1000,
+    "seed": 8155900,
+    "bit_identical": true,
+    "pass": true
+  },
+  "collapsed_counters": {
+    "0": {
+      "proposed": 60000,
+      "accepted": 38130,
+      "invalid": 0
+    },
+    "1": {
+      "proposed": 60000,
+      "accepted": 38278,
+      "invalid": 0
+    },
+    "2": {
+      "proposed": 60000,
+      "accepted": 38239,
+      "invalid": 0
+    },
+    "3": {
+      "proposed": 60000,
+      "accepted": 37977,
+      "invalid": 0
+    }
+  }
+}

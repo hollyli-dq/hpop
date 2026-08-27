@@ -1,0 +1,63 @@
+{
+  "n_posets": 4231,
+  "map_poset": 4002,
+  "map_probability": 1.0,
+  "true_poset_index": 4002,
+  "true_poset_probability": 1.0,
+  "true_poset_rank": 1,
+  "map_is_true_poset": true,
+  "top5": [
+    {
+      "index": 4002,
+      "probability": 1.0,
+      "relations": 6
+    },
+    {
+      "index": 4109,
+      "probability": 2.4489763358135083e-118,
+      "relations": 7
+    },
+    {
+      "index": 4108,
+      "probability": 1.2203968925e-313,
+      "relations": 8
+    },
+    {
+      "index": 0,
+      "probability": 0.0,
+      "relations": 10
+    },
+    {
+      "index": 2821,
+      "probability": 0.0,
+      "relations": 8
+    }
+  ],
+  "rho": {
+    "mean": 0.3252519980234956,
+    "sd": 0.2197535720178793,
+    "median": 0.29404019975193985,
+    "q025": 0.014667632107882602,
+    "q975": 0.7918894950513183
+  },
+  "relation_marginal_min": 0.0,
+  "relation_marginal_max": 1.0,
+  "coverage": {
+    "rho": {
+      "grid_lo": 0.001,
+      "grid_hi": 0.994,
+      "n_points": 81,
+      "spacing": 0.012412499999999998,
+      "integrates_to": 1.0000000000000002,
+      "outer_boundary_mass_fraction": 0.02272939855954346,
+      "prior_truncation_point": 0.995
+    }
+  },
+  "refinement": {
+    "rho_mean_fine": 0.3252519980234956,
+    "rho_mean_coarse": 0.32508509963948357,
+    "rho_mean_abs_change": 0.0001668983840120153,
+    "rho_sd_abs_change": 1.182087779941221e-05,
+    "poset_probability_max_abs_change": 6.98860522931153e-122
+  }
+}

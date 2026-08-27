@@ -130,12 +130,20 @@ def _get(url, tries=5):
     return None
 
 
-def sample(n_res, n_unres, page=2, max_pages=400, start_offset=0, exclude=None):
+def sample(n_res, n_unres, page=2, max_pages=400, start_offset=0, exclude=None, exclude_repos=None):
+    """Sequential scan from `start_offset`, greedily filling a resolved/unresolved quota.
+
+    `exclude_repos` drops any trace whose repo is in the set — this is what makes a REPO-DISJOINT
+    held-out split possible. trace_id-level `exclude` is not sufficient: the pilot 500 covers 334
+    repos, and a held-out trace from a pilot repo is not held out in any meaningful sense (the
+    dictionary was shaped by that repo's conventions).
+    """
     import time
     enc = urllib.parse.quote(DATASET, safe="")
     base = "https://datasets-server.huggingface.co/rows"
     res, unres, seen = [], [], set(exclude or ())
-    offset = start_offset
+    bad_repos = set(exclude_repos or ())
+    offset, n_repo_skipped = start_offset, 0
     for _ in range(max_pages):
         if len(res) >= n_res and len(unres) >= n_unres:
             break
@@ -154,6 +162,9 @@ def sample(n_res, n_unres, page=2, max_pages=400, start_offset=0, exclude=None):
                 continue
             if tr["trace_id"] in seen or tr["num_action_tokens"] < 4:
                 continue
+            if tr["repo"] in bad_repos:
+                n_repo_skipped += 1
+                continue
             seen.add(tr["trace_id"])
             if tr["resolved"] and len(res) < n_res:
                 res.append(tr)
@@ -162,8 +173,15 @@ def sample(n_res, n_unres, page=2, max_pages=400, start_offset=0, exclude=None):
         offset += page
         time.sleep(0.5)
         if (offset // page) % 10 == 0:
-            print("  ...scanned offset {} | resolved {}/{} unresolved {}/{} | repos {}".format(
-                offset, len(res), n_res, len(unres), n_unres, len({t['repo'] for t in res + unres})))
+            print("  ...scanned offset {} | resolved {}/{} unresolved {}/{} | repos {} | repo-skipped {}".format(
+                offset, len(res), n_res, len(unres), n_unres,
+                len({t['repo'] for t in res + unres}), n_repo_skipped))
+    if bad_repos:
+        print("  repo-disjointness: skipped {} traces from {} excluded repos".format(
+            n_repo_skipped, len(bad_repos)))
+    if len(res) < n_res or len(unres) < n_unres:
+        print("  WARNING: quota not filled (resolved {}/{}, unresolved {}/{}) — raise --max-pages "
+              "or --start-offset".format(len(res), n_res, len(unres), n_unres))
     return res + unres
 
 
@@ -173,19 +191,37 @@ def main(argv=None):
     ap.add_argument("--unresolved", type=int, default=50)
     ap.add_argument("--output", required=True)
     ap.add_argument("--start-offset", type=int, default=0)
-    ap.add_argument("--exclude", default=None, help="jsonl of already-sampled traces (skip their trace_ids)")
+    ap.add_argument("--max-pages", type=int, default=400)
+    ap.add_argument("--exclude", nargs="*", default=None,
+                    help="jsonl file(s) of already-sampled traces (skip their trace_ids)")
+    ap.add_argument("--exclude-repos", nargs="*", default=None,
+                    help="jsonl file(s) whose `repo` values define a repo blocklist (repo-disjoint split)")
     args = ap.parse_args(argv)
 
     exclude = set()
-    if args.exclude and os.path.exists(args.exclude):
-        for l in open(args.exclude):
-            if l.strip():
-                exclude.add(json.loads(l).get("trace_id"))
+    for path in (args.exclude or []):
+        if os.path.exists(path):
+            for l in open(path):
+                if l.strip():
+                    exclude.add(json.loads(l).get("trace_id"))
+    if exclude:
         print("excluding {} already-sampled instances".format(len(exclude)))
+
+    exclude_repos = set()
+    for path in (args.exclude_repos or []):
+        if os.path.exists(path):
+            for l in open(path):
+                if l.strip():
+                    r = json.loads(l).get("repo")
+                    if r:
+                        exclude_repos.add(r)
+    if exclude_repos:
+        print("excluding {} repos (repo-disjoint split)".format(len(exclude_repos)))
 
     print("sampling {} resolved + {} unresolved from {} (start offset {}) ...".format(
         args.resolved, args.unresolved, DATASET, args.start_offset))
-    traces = sample(args.resolved, args.unresolved, start_offset=args.start_offset, exclude=exclude)
+    traces = sample(args.resolved, args.unresolved, start_offset=args.start_offset,
+                    max_pages=args.max_pages, exclude=exclude, exclude_repos=exclude_repos)
     os.makedirs(os.path.dirname(os.path.abspath(args.output)) or ".", exist_ok=True)
     with open(args.output, "w", encoding="utf-8") as f:
         for t in traces:

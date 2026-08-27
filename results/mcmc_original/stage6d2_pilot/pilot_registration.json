@@ -1,0 +1,90 @@
+{
+  "registered_before_the_pilot_ran": true,
+  "purpose": "choose proposal scales for the Stage 6D2 formal run on the frozen 500-block corpus, using efficiency information only",
+  "why_stage6d1_scales_are_not_reused": "the Stage 6D1 corrections (16-32x) were tuned on a 3-block T=5 reference model whose posterior is deliberately broad; the Stage 6D2 posterior is much tighter, so those multipliers are expected to be far too large. The registered Stage 6B scales are equally unverified here because they were tuned with U fixed at the truth and the other scalars held fixed.",
+  "coordinates_tuned_in_sweep_order": [
+    "U",
+    "rho",
+    "beta",
+    "omega",
+    "lambda_rep",
+    "lambda_back"
+  ],
+  "coordinates_frozen_untouched": [],
+  "why_U_and_rho_are_in_scope": "Stage 6D1 froze U and rho by explicit instruction. No such instruction covers Stage 6D2, and the corpus is ~167x larger, which changes the U acceptance regime directly: a U row move is scored against 500 blocks of likelihood rather than 3.",
+  "multipliers": [
+    "1/32",
+    "1/16",
+    "1/8",
+    "1/4",
+    "1/2",
+    "1",
+    "2",
+    "4",
+    "8",
+    "16"
+  ],
+  "multiplier_grid_is_symmetric_about_1": true,
+  "base_scales": {
+    "U": 0.5,
+    "rho": 0.5,
+    "beta": 0.05109,
+    "omega": 0.18213,
+    "lambda_rep": 0.04155,
+    "lambda_back": 0.09472
+  },
+  "admissible_acceptance": [
+    0.25,
+    0.6
+  ],
+  "preferred_acceptance": [
+    0.4,
+    0.5
+  ],
+  "selection_rule": "largest median ESJD among admissible; ties to the smaller multiplier",
+  "esjd_space": {
+    "U": "identity",
+    "rho": "logit",
+    "beta": "log",
+    "omega": "identity",
+    "lambda_rep": "log",
+    "lambda_back": "log"
+  },
+  "esjd_note": "U uses squared Frobenius movement of the whole matrix over a sweep; rho uses squared movement of logit(rho); the log-scale scalars use squared movement of log(x). Raw-space ESJD on a log-scale kernel biases selection toward oversized scales.",
+  "sequential_rule": "each coordinate is frozen at its selection before the next is tuned; later coordinates keep their base scales until their turn",
+  "grid_extension_rule": {
+    "allowed_once": true,
+    "factor": 8,
+    "direction": "toward larger scales if every median acceptance exceeds the admissible band, toward smaller scales if every median acceptance falls below it",
+    "registered_before_running": true
+  },
+  "chains": 4,
+  "sweeps": 4000,
+  "discarded_warm_up": 1000,
+  "base_seed": 90200001,
+  "seed_rule": "PILOT_BASE_SEED + SEED_STRIDE[coordinate] + 1000 * grid_index + chain",
+  "joint_confirmation_band": [
+    0.2,
+    0.65
+  ],
+  "starts": "the registered Stage 6D2 formal starts, imported from scripts/stage6d_oracle_joint_mcmc.chain_start",
+  "evaluator_omega_seed": 0.0,
+  "permitted_statistics": [
+    "acceptance",
+    "ESJD",
+    "finite-target checks",
+    "invalid-proposal counts",
+    "recurrent replay counts",
+    "rejection/cache consistency"
+  ],
+  "forbidden_and_not_computed": [
+    "the generating truth and U_TRUE",
+    "held-out likelihood",
+    "any reference or reference summary",
+    "recovery metrics",
+    "induced-H total variation",
+    "relation-marginal errors",
+    "R-hat or ESS from candidate pilot runs"
+  ],
+  "all_pilot_draws_discarded": true
+}

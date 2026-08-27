@@ -1,0 +1,139 @@
+{
+  "active_variables": [
+    "U_1",
+    "U_2",
+    "U_3"
+  ],
+  "burn_in": 10000,
+  "ceiling": 100000,
+  "checkpoints": [
+    30000,
+    50000,
+    75000,
+    100000
+  ],
+  "condition": "B \u2014 structure identifiability under oracle paths",
+  "condition_a_verdict": "PATH STRONGLY IDENTIFIABLE",
+  "corpus_hash_sha256": "dd280a4a09896154e167f388edd401a9119ba398167c09404aba5f7743e58ec2",
+  "correction_applied": "rho FIXED at rho_0 (formal corpus records rho* = null); no rho recovery or coverage gate; a later prior-draw calibration experiment may evaluate rho and is NOT part of this task",
+  "degenerate_summary_rule": "a summary constant within every chain AND equal across chains passes trivially (R-hat := 1, ESS := n_retained); constant within chains but unequal across chains is an automatic R-hat failure",
+  "ess_floors": {
+    "log_posterior_bulk": 1000.0,
+    "log_posterior_tail": 500.0,
+    "total_relations_bulk": 1000.0,
+    "uncertain_relation_bulk": 500.0
+  },
+  "fixed_variables": {
+    "P": "P*",
+    "S": "S* (oracle)",
+    "beta": 1.5,
+    "delta_B": 0.15,
+    "epsilon": 0.02,
+    "lambda_back": 0.25,
+    "lambda_rep": 0.8,
+    "omega": 1.7346010553881064,
+    "pi": "pi*",
+    "rho": 0.5,
+    "z": "z* (oracle)"
+  },
+  "formal_seeds": [
+    6202001,
+    6202002,
+    6202003,
+    6202004
+  ],
+  "movement_rule": "a chain with zero accepted H changes cannot receive a convergence PASS",
+  "no_moves": [
+    "FFBS",
+    "local segmentation",
+    "collapsed-U",
+    "pi/P",
+    "recurrent scalars",
+    "rho"
+  ],
+  "parent_commit": "b199374baaf3f795ce5ee6dca16b7478bd07a3b9",
+  "pilot": {
+    "acceptance_band": [
+      0.2,
+      0.6
+    ],
+    "base_scale": 0.5,
+    "chains": 2,
+    "grid_multipliers": [
+      0.25,
+      0.5,
+      1.0,
+      2.0,
+      4.0,
+      8.0
+    ],
+    "may_inspect": [
+      "acceptance",
+      "ESJD",
+      "runtime",
+      "H-change frequency",
+      "numerical health"
+    ],
+    "must_not_inspect": [
+      "truth recovery",
+      "relation F1",
+      "Hamming to H*",
+      "coverage",
+      "held-out likelihood",
+      "formal R-hat"
+    ],
+    "seeds": [
+      6202201,
+      6202202
+    ],
+    "selection_rule": "acceptance in band -> max ESJD; else closest to band, band never widened",
+    "start_seeds": [
+      6202211,
+      6202212
+    ],
+    "sweeps_per_scale": 3000
+  },
+  "point_estimate_rule": "posterior modal canonical H per skill (pre-registered; the 0.5-thresholded relation matrix is reported secondarily with a validity check)",
+  "proposal_family": "sampler_u.propose_row symmetric Gaussian row walk; MH on Delta log p(U_k|rho_0) + Delta oracle-block log likelihood (u_row_sweep arithmetic)",
+  "rhat_gate": 1.01,
+  "rho_0": 0.5,
+  "rho_0_rationale": "near the registered rho prior median (Uniform(0, 0.995) -> 0.4975); positive-definite Sigma with moderate column coupling; frozen before any draw",
+  "start_scales": [
+    0.5,
+    1.0,
+    2.0,
+    3.0
+  ],
+  "start_seeds": [
+    6202101,
+    6202102,
+    6202103,
+    6202104
+  ],
+  "stopping_rule": "two consecutive checkpoint passes; never extend beyond the ceiling automatically",
+  "thin": 5,
+  "threshold": 0.5,
+  "truth_hash_sha256": "fc41538fd44d170df8d0a6401f0c6e6b49d52418c487e22f9e4f45ee047f903e",
+  "u_recovery_note": "raw entrywise U error is NOT a target; latent coordinates are exchangeable and the likelihood reads U only through h(U)",
+  "uncertain_relation_band": [
+    0.05,
+    0.95
+  ],
+  "verdict_rule": {
+    "not_converged": "any convergence gate unmet after the 100k ceiling -> 'CONDITION B INFERENCE NOT CONVERGED \u2014 NO RECOVERY CLAIM'",
+    "not_identifiable_if_any": {
+      "heldout": "posterior-mean NLL/occ worse than the antichain baseline",
+      "mean_closure_f1": "< 0.60"
+    },
+    "otherwise": "STRUCTURE PARTIALLY IDENTIFIABLE UNDER ORACLE PATHS",
+    "strong_requires_all": {
+      "convergence": "two consecutive checkpoint passes",
+      "heldout": "posterior-mean NLL/occ <= antichain and <= total-order baselines AND within 0.05 nats/occ of generating truth",
+      "max_false_relation_marginal": "< 0.5",
+      "min_true_relation_marginal": ">= 0.5",
+      "modal_h_equals_truth": "for >= 2 of 3 skills",
+      "per_skill_closure_f1": ">= 0.90 for every skill (threshold 0.5)",
+      "per_skill_incomparable_f1": ">= 0.80 for every skill"
+    }
+  }
+}

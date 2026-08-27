@@ -1,0 +1,104 @@
+{
+  "date": "2026-08-10",
+  "git_branch": "mcmc-original-latent-poset",
+  "git_commit": "08e2cb6deeec1634d6c91667368b736a5427f2e0",
+  "dirty": true,
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "n_skills": 4,
+  "latent_dim": 2,
+  "fixed_K": 2,
+  "noise_option": "log_successors_queue_jump",
+  "beta": 1.5,
+  "epsilon": 0.05,
+  "delta_B": 0.5,
+  "generator_seed": 0,
+  "vendored_sampler": "src/hpop/vendored/po_inference_agent (commit 7b998ab3)",
+  "U_true": {
+    "A": [
+      [
+        1.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "D": [
+      [
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ],
+    "F": [
+      [
+        1.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "E": [
+      [
+        2.0,
+        2.0
+      ],
+      [
+        3.0,
+        -1.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "P_true": [
+    [
+      0.0,
+      0.1,
+      0.75,
+      0.15
+    ],
+    [
+      0.1,
+      0.0,
+      0.7,
+      0.2
+    ],
+    [
+      0.55,
+      0.15,
+      0.0,
+      0.3
+    ],
+    [
+      0.35,
+      0.35,
+      0.3,
+      0.0
+    ]
+  ],
+  "corpus": {
+    "n_train": 40,
+    "n_train_extra": 0,
+    "n_test": 20,
+    "instance_counts": {
+      "A": 43,
+      "D": 37,
+      "F": 60,
+      "E": 41
+    }
+  }
+}

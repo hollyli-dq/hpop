@@ -1,0 +1,28 @@
+{
+  "kind": "NONCONFIRMATORY observed-prefix smoke; no truth recovery",
+  "n_traces": 4,
+  "pass": true,
+  "results": {
+    "FULL-COND": {
+      "P_moved": true,
+      "exact_save_resume": true,
+      "marginal_attempts_equal_refreshes": true,
+      "no_nan": true,
+      "paths_moved": true,
+      "pi_moved": true,
+      "structural_accepts": 14,
+      "structural_attempts": 20
+    },
+    "FULL-MARG": {
+      "P_moved": true,
+      "exact_save_resume": true,
+      "marginal_attempts_equal_refreshes": true,
+      "no_nan": true,
+      "paths_moved": true,
+      "pi_moved": true,
+      "structural_accepts": 12,
+      "structural_attempts": 20
+    }
+  },
+  "sweeps": 20
+}

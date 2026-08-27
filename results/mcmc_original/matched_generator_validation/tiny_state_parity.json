@@ -1,0 +1,161 @@
+{
+  "10": {
+    "all_expected_states_visited": true,
+    "max_state_probability_error": 0.0011045971978984603,
+    "n_samples": 200000,
+    "n_states": 9,
+    "samples_outside_legal_support": 0,
+    "seed": 710010,
+    "states": [
+      {
+        "count": 3143,
+        "empirical": 0.015715,
+        "exact": 0.015761821366024525,
+        "state": [
+          3,
+          3,
+          4
+        ]
+      },
+      {
+        "count": 3076,
+        "empirical": 0.01538,
+        "exact": 0.015761821366024525,
+        "state": [
+          3,
+          4,
+          3
+        ]
+      },
+      {
+        "count": 17801,
+        "empirical": 0.089005,
+        "exact": 0.08931698774080561,
+        "state": [
+          3,
+          7
+        ]
+      },
+      {
+        "count": 3122,
+        "empirical": 0.01561,
+        "exact": 0.015761821366024525,
+        "state": [
+          4,
+          3,
+          3
+        ]
+      },
+      {
+        "count": 18004,
+        "empirical": 0.09002,
+        "exact": 0.08931698774080561,
+        "state": [
+          4,
+          6
+        ]
+      },
+      {
+        "count": 17856,
+        "empirical": 0.08928,
+        "exact": 0.08931698774080561,
+        "state": [
+          5,
+          5
+        ]
+      },
+      {
+        "count": 18029,
+        "empirical": 0.090145,
+        "exact": 0.08931698774080561,
+        "state": [
+          6,
+          4
+        ]
+      },
+      {
+        "count": 17964,
+        "empirical": 0.08982,
+        "exact": 0.08931698774080561,
+        "state": [
+          7,
+          3
+        ]
+      },
+      {
+        "count": 101005,
+        "empirical": 0.505025,
+        "exact": 0.5061295971978984,
+        "state": [
+          10
+        ]
+      }
+    ],
+    "tv": 0.0020340367775832143
+  },
+  "6": {
+    "all_expected_states_visited": true,
+    "max_state_probability_error": 0.0006700000000000039,
+    "n_samples": 200000,
+    "n_states": 2,
+    "samples_outside_legal_support": 0,
+    "seed": 710006,
+    "states": [
+      {
+        "count": 30134,
+        "empirical": 0.15067,
+        "exact": 0.15,
+        "state": [
+          3,
+          3
+        ]
+      },
+      {
+        "count": 169866,
+        "empirical": 0.84933,
+        "exact": 0.85,
+        "state": [
+          6
+        ]
+      }
+    ],
+    "tv": 0.0006699999999999762
+  },
+  "7": {
+    "all_expected_states_visited": true,
+    "max_state_probability_error": 0.0008797826086955896,
+    "n_samples": 200000,
+    "n_states": 3,
+    "samples_outside_legal_support": 0,
+    "seed": 710007,
+    "states": [
+      {
+        "count": 26157,
+        "empirical": 0.130785,
+        "exact": 0.1304347826086956,
+        "state": [
+          3,
+          4
+        ]
+      },
+      {
+        "count": 25911,
+        "empirical": 0.129555,
+        "exact": 0.1304347826086956,
+        "state": [
+          4,
+          3
+        ]
+      },
+      {
+        "count": 147932,
+        "empirical": 0.73966,
+        "exact": 0.7391304347826086,
+        "state": [
+          7
+        ]
+      }
+    ],
+    "tv": 0.0008797826086956728
+  }
+}

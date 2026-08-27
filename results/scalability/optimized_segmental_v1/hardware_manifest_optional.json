@@ -1,0 +1,28 @@
+{
+  "cpu_model": "Apple M4",
+  "efficiency_cores": 6,
+  "loadavg_at_capture": [
+    1.36083984375,
+    1.37548828125,
+    1.53564453125
+  ],
+  "logical_cores": 10,
+  "machine": "x86_64",
+  "macos_version": "10.16",
+  "memory_cap_bytes": 6442450944,
+  "page_size_bytes": 4096,
+  "performance_cores": 4,
+  "physical_cores": 10,
+  "pmset_therm": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded",
+  "swap_at_capture": {
+    "available": true,
+    "available_bytes": 6411550720,
+    "raw": "total = 3072.00M  used = 1523.38M  free = 1548.62M  (encrypted)",
+    "swapins": 1783813.0,
+    "swapouts": 2238774.0,
+    "used_mb": 1523.38
+  },
+  "thermal_note": "Apple silicon exposes no per-core thermal counter to an unprivileged process; `pmset -g therm` is recorded instead and is empty on this platform when no thermal limit is active.",
+  "total_ram_bytes": 17179869184,
+  "total_ram_gib": 16.0
+}

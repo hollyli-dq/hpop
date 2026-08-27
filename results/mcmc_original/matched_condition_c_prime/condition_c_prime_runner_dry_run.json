@@ -1,0 +1,84 @@
+{
+  "chains_started": 0,
+  "condition_c_status": {
+    "classification": "CONDITION C TERMINATED AT 75k \u2014 FORMAL VERDICT: NOT CONVERGED",
+    "converged": {
+      "cond": false,
+      "marg": false
+    },
+    "live_orchestrator_processes": 0,
+    "live_spawn_workers": 8,
+    "may_launch": true,
+    "terminal_artifact": "results/mcmc_original/matched_condition_c/formal_verdict.json",
+    "terminal_artifact_exists": true
+  },
+  "frozen_configuration": {
+    "arms": {
+      "C-COND-SWAP": {
+        "collapsed_every": 0,
+        "seeds": [
+          6205001,
+          6205002,
+          6205003,
+          6205004
+        ],
+        "swap_every": 50
+      },
+      "C-MARG-SWAP": {
+        "collapsed_every": 10,
+        "seeds": [
+          6205011,
+          6205012,
+          6205013,
+          6205014
+        ],
+        "swap_every": 50
+      }
+    },
+    "burn_in": 10000,
+    "checkpoints": [
+      50000,
+      75000,
+      100000
+    ],
+    "convergence_gates": "the Condition-C gate function itself, imported and called \u2014 anchored per-skill summaries retained; NO permutation-invariant primary gate",
+    "ffbs_refresh_after_every_swap_attempt": true,
+    "ordering_provenance": "frozen in the C' preregistration ('the swap runs BEFORE the unchanged Condition-C sweep'); the conservative fallback ordering is unnecessary because no path-dependent operation can intervene between the swap and the refresh",
+    "preregistration_commit": "9b8e590",
+    "protocol_id": "condition-c-prime-v1",
+    "recovery_blinding": "hidden truth is sealed until the registered stopping condition is reached",
+    "rho_0": 0.5,
+    "scheduled_collapsed_scale": 1.0,
+    "stopping_rule": "per arm, PASS at two consecutive checkpoints; ceiling 100k never extended",
+    "thin": 5,
+    "transition_ordering": [
+      "scheduled global skill transposition (swap_every = 50)",
+      "collapsed U move if scheduled (arm's collapsed_every) \u2014 provably never reads the stored (S, z)",
+      "exact FFBS refresh of ALL (S, z)",
+      "conditional U row sweep (first path-dependent transition)"
+    ],
+    "u_scale": 0.5,
+    "within_segment_checkpoint_every": 2000
+  },
+  "invoked_at_utc": null,
+  "launch_command": "PYTHONPATH=src .venv/bin/python scripts/run_matched_condition_c_prime_formal.py --protocol condition-c-prime-v1 --launch-formal",
+  "launch_flags": {
+    "--launch-formal": true,
+    "--protocol": "condition-c-prime-v1",
+    "protocol_matches": true
+  },
+  "target_parity": {
+    "burn_in": true,
+    "checkpoints": false,
+    "collapsed_cadence": true,
+    "corpus_hash": true,
+    "scheduled_scale": true,
+    "shared_sources_unchanged_since_c_launch": true,
+    "starts": true,
+    "thin": true,
+    "truth_hash": true,
+    "u_scale": true
+  },
+  "target_parity_all_pass": false,
+  "would_launch": true
+}

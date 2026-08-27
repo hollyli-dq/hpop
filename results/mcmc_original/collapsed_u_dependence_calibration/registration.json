@@ -1,0 +1,43 @@
+{
+  "purpose": "dependence-aware recalibration of the per-chain energy z, existing draws only; no kernel change; no new production chains; historical verdicts unchanged; matched-synthetic stays paused",
+  "samples": {
+    "windows": {
+      "early": [
+        0,
+        16000
+      ],
+      "middle": [
+        16000,
+        32000
+      ],
+      "late": [
+        32000,
+        48000
+      ]
+    },
+    "stride": 8,
+    "n_rows": 2000,
+    "coordinates": "[closures, TOTAL segment count, scalars] for cross-run comparability (7B1/run1/rep2 store no per-draw per-trace counts)"
+  },
+  "block_length_rule": "L = ceil(max IACT of the contribution series psi_j over the four start[0] LATE windows); sensitivity {max(2, L//2), L, 2L}; conclusions must be stable across all three",
+  "bootstrap": {
+    "kind": "circular moving-block, full statistic recompute",
+    "replicates": 150,
+    "seed": 8156000
+  },
+  "null_centre": "mu0 = mean LATE-window statistic of the four validated 7B1 chains at the identical extraction (correct kernel, matched dependence); its own SE ~ SE_dep/2 is noted, not corrected",
+  "threshold": {
+    "clearly_over": 2.33,
+    "meaning": "one-sided 99%"
+  },
+  "controls": {
+    "A": "7B1 leave-one-out z per chain; pass if >= 3/4 within +-2.33 at every block length",
+    "B": "finite-state grid chain from the exact composed kernel; 4 test chains vs mu0 from 8 independent null chains; pass if >= 3/4 within +-2.33 at every length"
+  },
+  "verdicts_preregistered": {
+    "ARTIFACT SUPPORTED": "at ALL lengths <= 1 of 4 start[0] late z_dep > 2.33, both controls pass",
+    "REAL INTERACTION SUPPORTED": "at ALL lengths >= 3 of 4 start[0] late z_dep > 2.33, both controls pass",
+    "INCONCLUSIVE": "anything else \u2014 instability across lengths, 2/4 over, or any control failure; then review the dependent-sample two-sample test choice (spectral/HAC, batch means, dependent wild bootstrap) before anything else"
+  },
+  "context_only": "run1/rep2 chain-0 full-window z_dep and early/middle probe windows are reported for context at length L, never for the verdict"
+}

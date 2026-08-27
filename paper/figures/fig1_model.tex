@@ -1,0 +1,13 @@
+% Standalone wrapper: compiles fig1_model_inline.tex to a self-contained PDF.
+%   pdflatex fig1_model.tex   ->  fig1_model.pdf
+% The drawing itself lives in fig1_model_inline.tex -- one source of truth.
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage{mathptmx}                 % Times, to match the ICLR template
+\usepackage{amsmath,amssymb,bm}\providecommand{\vect}[1]{\bm{#1}}
+\usetikzlibrary{arrows.meta}
+\newdimen\figonedim
+\figonedim=5.5in                      % ICLR \textwidth
+\def\figonefixedwidth{}               % tells the inline file not to use \textwidth
+\begin{document}
+\input{fig1_model_inline}
+\end{document}

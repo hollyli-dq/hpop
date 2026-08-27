@@ -1,0 +1,49 @@
+{
+  "boundary_marginals": {
+    "gate": 0.05,
+    "max_abs_diff": 0.10833333333333339,
+    "pass": false
+  },
+  "collapsed_moves_in_marg_arm": {
+    "accepted": 696,
+    "h_accepted": 182,
+    "proposed": 1600
+  },
+  "corpus_seed": 6203100,
+  "log_target": {
+    "abs_diff": 2.0296370031669255,
+    "cond_mean": -187.15601312599208,
+    "ess": [
+      421.0043439476709,
+      360.4556009279648
+    ],
+    "gate": 1.5672880876658968,
+    "marg_mean": -185.12637612282515,
+    "pass": false
+  },
+  "n_traces": 10,
+  "occurrence_marginals": {
+    "gate": 0.05,
+    "max_abs_diff": 0.9996666666666667,
+    "pass": false
+  },
+  "pass": false,
+  "relation_count_mean": {
+    "abs_diff": 0.04133333333333411,
+    "cond": 18.047666666666668,
+    "gate": 0.5275303868221491,
+    "marg": 18.006333333333334,
+    "pass": true
+  },
+  "relation_marginals": {
+    "max_abs_diff": 0.996,
+    "max_gate": 0.7124993969925008,
+    "n_exceeding_gate": 20,
+    "pass": false
+  },
+  "retained_per_arm": 3000,
+  "seconds": {
+    "cond": 491.40617320800084,
+    "marg": 540.3001225829939
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "base_commit": "4ce1e114641804b76acc06c366af0b56609951ac",
+  "condition_c_sources_modified": false,
+  "experiment_provenance": "Condition C' is a PROSPECTIVELY FROZEN FOLLOW-UP experiment, designed after diagnosing the Condition C failure. Its protocol and runner were frozen (preregistration 9b8e590) before any Condition C' chain existed, but it was NOT preregistered before Condition C data were observed, and must not be described as if it were.",
+  "new_for_condition_c_prime": {
+    "condition_c_prime_chain": "ba5845206f8440bba01fa2d2b11e2b4e47ccdf9cf0dd9184464ba1e712c020c1",
+    "condition_c_prime_runner": "5f1511644851238aa783fadc8aaa8daf3644439218dd5cef519136d5db5143e3",
+    "skill_swap_kernel": "e16bfd7860797986a7a051f49c880a31f61f33096c15da3c0f934aa51235815f"
+  },
+  "no_chain_existed_when_frozen": true,
+  "preregistration_commit": "9b8e590",
+  "runner_commit": "recorded at commit time; see git log for this file",
+  "shared_with_condition_c": {
+    "collapsed_u_kernel": "430048ef84030fcfbc347def2a774c51fefdef14ee17409eea90ddefaf15e214",
+    "condition_c_composition": "13a19c4f19322740f63ef1947499434ed4d1ff6ec9c07580b21a1ca4f1e1ef1b",
+    "fast_block_tables": "7b91a074fe42a600fbe4ab37f18d012e10906f673d1ab9a83e019e77b65fdfcc",
+    "ffbs_joint_sampler": "6b5952414e85ebbc253bd22e0b4195efcfc7f474bf30e41cc5cb143687e8694a",
+    "formal_corpus_loader": "b954fbc346e6e5b5d22ce35ea934659460985cc4c2b42d95196d32211fb3e4ae",
+    "matched_generator": "7b7ee6956448dd29f8860b587b3cffee92de2c51bd2d3dc976f3efdc63721948",
+    "ordinary_u_row_kernel": "7324f3c853c32ed048eeffbbf97e68ad7efa0f68ee72919068b958394f595999",
+    "path_marginal_likelihood": "8efc9bee86ead719a625b3d9f5371cc2dabe4957e777b61f2cfddf4798e35199",
+    "recurrent_block_scorer": "0a1d1f53ac451ef4858236242abfa72696b58b131e45f10229bdf328847e2e3c",
+    "semi_markov_ffbs": "8150bb8235eb159d5e2f08ada7c698c383f4c7fd31f3b882e218b207dd135486"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "verdict": "rep2 FAILED the same single gate: mixed_multivariate 0.006777 vs envelope 0.004522 (z +5.88); other 17 gates PASS (worst R-hat 1.0098, lambda_rep)",
+  "two_run_conclusion": "two independent seed sets at z +2.86 and +5.88 rule out simple Monte Carlo luck at the pooled-gate level; per the preregistered rule the kernel is NOT validated and no larger run was launched",
+  "forensics": {
+    "gate_reads_chains_0_and_1_only": "the frozen estimator thins the chain-major pooled rows to 8000 and uses the FIRST 4000 \u2014 i.e. chains 0-1; true for 6E1B and 7B1 as well",
+    "per_chain_z_2000_rows_each": {
+      "run1": [
+        4.16,
+        1.43,
+        -0.21,
+        2.34
+      ],
+      "rep2": [
+        7.86,
+        1.47,
+        -0.16,
+        0.66
+      ],
+      "7b1": [
+        -0.73,
+        1.05,
+        1.23,
+        0.78
+      ]
+    },
+    "localization": "the failure is CHAIN 0 in both runs (same dispersed start, different seeds); our chains 1-3 (6 chains) are statistically indistinguishable from the passing 7B1 kernel's four",
+    "chain0_scalar_shifts": "rep2 c0: beta -0.137 refSD (~5 SE at its ESS), lambda_rep -0.174 refSD (~6 SE) \u2014 concentrated in the early retained blocks (slow low excursion), consistent with its near-failing lambda_rep R-hat 1.0098; run1 c0 means are clean yet z +4.16, so the statistic also reads joint/temporal structure",
+    "slow_wander_is_universal": "lambda_rep/beta block means wander comparably in ALL kernels' chains (ESS ~1300-2000 per 48k retained); the gate's iid-calibrated envelope does not account for this realization variance",
+    "stride_test": "the pooled exceedance vanishes (z +0.4/+0.2) when the MCMC rows are re-thinned to cover all 4 chains at double spacing, in both runs",
+    "everything_else_clean": "marginals, dependence structure (correlation parity vs reference at 7B1's level), ESS profile identical to 7B1, exact tiny-space stationarity 2.2e-16"
+  },
+  "unresolved": "why BOTH of our chain 0s (same start, different seeds) are the two most extreme z's out of 12 chains while 7B1's chain 0 is clean: either realization luck on a slowly-wandering coordinate the gate reads with only 2 chains, or a real start-region-linked interaction of the collapsed move with the scalar updates",
+  "recommended_next_probe_user_decides": "4 fresh-seed chains of the SAME kernel, ALL from dispersed start[0], registered length (~3 h wall): if their z's scatter like 7B1's the two failures were realization luck; if they land high consistently, the kernel mistreats that start's basin and the bug hunt is warranted",
+  "not_done": "no long run launched, no threshold touched, no gate re-rolled"
+}

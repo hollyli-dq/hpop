@@ -1,0 +1,97 @@
+{
+  "purpose": "distinguish H1 (start[0] transient amplified by the frozen unbalanced energy window) from H2 (basin-specific collapsed-U / scalar interaction)",
+  "parent_commit": "37e1d89d40a111373ac1342048bfcbff5cabc0b0",
+  "stage6e_config_hash": "d98897a181b6809a17dd572ca175da7846a6924b8429b9c7337a939686a6da44",
+  "target_script_sha256": "07391d6e2f910c1024ce88dc30bdd62ce4e2e78f29dd02b723664cf29612dd29",
+  "kernel_hashes": {
+    "collapsed_u_kernel.py": "430048ef84030fcfbc347def2a774c51fefdef14ee17409eea90ddefaf15e214",
+    "collapsed_u_kernel_at_formal_runs": "cbd769d46a940e70d48ad916510eb092e19a6cf9f18bac99d6d15e442c564557",
+    "collapsed_u_kernel_changed_since_formal_runs": true,
+    "change_disclosure": "the only change is an optional movement_tracker parameter added to run_collapsed_u_chain after rep2 launched (None in this probe and in both formal runs' call pattern); collapsed_u_mh_step, collapsed_ffbs_sweep_once and the likelihood are untouched; every=0 bitwise parity and resume determinism tests pass against the current source",
+    "collapsed_u_likelihood.py": "8efc9bee86ead719a625b3d9f5371cc2dabe4957e777b61f2cfddf4798e35199",
+    "collapsed_u_likelihood_matches_formal_runs": true,
+    "semi_markov_ffbs.py": "8150bb8235eb159d5e2f08ada7c698c383f4c7fd31f3b882e218b207dd135486",
+    "sampler_u.py": "7324f3c853c32ed048eeffbbf97e68ad7efa0f68ee72919068b958394f595999"
+  },
+  "frozen_reference_audit": {
+    "pass": true,
+    "max_drift": 0.0
+  },
+  "prior_run_hashes": {
+    "run1_joint_comparison": "3c60837dc9f8595510871c72637a25e977887b36528211faeab158031a3eb555",
+    "run1_chains": "c1b9dd4c0fcea9a4fbd3213798b38d453d9f1889f7a45e385a459a4e304bc759",
+    "rep2_joint_comparison": "378caea85865f19c2e0bb5a0f2a4788794ba55c3f6a68a6fb72f67a959b63caa",
+    "rep2_chains": "5671d656d2d34b8d8438c4fc4f7650ef57d8b6bef86abd8e37ba581334515051"
+  },
+  "start0_hash": "d06da59797412d634ae5791ddfef13fbd0221e50e7687106497d37863f9dbdd9",
+  "chain_seeds": [
+    8155001,
+    8155002,
+    8155003,
+    8155004
+  ],
+  "seeds_never_used_before": true,
+  "config": {
+    "n_chains": 4,
+    "sweeps": 600000,
+    "burn_in": 120000,
+    "thin": 10,
+    "retained_per_chain": 48000,
+    "collapsed_u_every": 10,
+    "proposal_scales": {
+      "U": 0.5,
+      "rho": 0.5,
+      "beta": 0.05109,
+      "omega": 0.18213,
+      "lambda_rep": 0.04155,
+      "lambda_back": 0.09472
+    },
+    "checkpoint_every": 25000,
+    "update_order": "collapsed U MH -> exact FFBS refresh of all (S,z) -> (pi/P fixed) -> conditional U rows -> rho -> beta -> omega -> lambda_rep -> lambda_back"
+  },
+  "windows_registered": {
+    "early": [
+      0,
+      16000
+    ],
+    "middle": [
+      16000,
+      32000
+    ],
+    "late": [
+      32000,
+      48000
+    ]
+  },
+  "extraction_rules_registered": {
+    "per_chain_energy": "2000 equally spaced draws per 16,000-draw window: stride 8, offset 0",
+    "chain_balanced_energy": "1000 equally spaced draws per chain per window (stride 16, offset 0), concatenated to 4,000 with equal chain contribution",
+    "coordinates": "the EXACT frozen-gate coordinates [closure indicators, per-trace segment counts, scalars]; the gate_failure_diagnosis per-chain numbers used a total-count approximation and are reported alongside for comparability, not for the verdict",
+    "envelope": "calibrate_energy_envelope, seed 5, 40 replicates \u2014 the frozen diagnostic's own",
+    "scalar_offsets": "offset_sd = (window mean - reference mean) / reference SD; offset_se = offset_sd * sqrt(window bulk ESS); verdict thresholds of 2 apply to offset_se; early-to-late contraction judged on median |offset_sd| across chains",
+    "tail_ess": "project tail_ess (5%/95% indicator ESS)"
+  },
+  "verdict_rules_preregistered": {
+    "A_transient": [
+      "late chain-balanced statistic inside its envelope",
+      "at most 1 of 4 late per-chain z > +2",
+      "median late per-chain z <= +1.5",
+      ">=3/4 chains late |beta offset_se| < 2",
+      ">=3/4 chains late |lambda_rep offset_se| < 2",
+      "median |beta offset_sd| decreases early->late",
+      "median |lambda_rep offset_sd| decreases early->late",
+      "no control scalar with >=3/4 same-direction late |offset_se| > 2",
+      "late ESS finite and structure still moving"
+    ],
+    "B_basin_interaction_any_of": [
+      ">=3/4 late per-chain z > +2 AND their median > +2",
+      "late chain-balanced statistic outside its envelope",
+      ">=3/4 chains same-direction late beta offset_se magnitude > 2",
+      ">=3/4 chains same-direction late lambda_rep offset_se magnitude > 2",
+      "median |offset_sd| does not shrink early->middle->late (late >= early) for beta or lambda_rep",
+      "joint same-direction beta+lambda_rep displacement (both offset_se magnitude > 2) in >=3/4 chains with clean controls"
+    ],
+    "C": "neither A nor B -> START-0 FOCUSED PROBE INCONCLUSIVE",
+    "note": "the historical frozen gate is reported unchanged and is NOT the decision statistic; run 1 and rep2 remain recorded failures regardless of this probe"
+  }
+}

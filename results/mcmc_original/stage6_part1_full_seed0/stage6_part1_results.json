@@ -1,0 +1,614 @@
+{
+  "deterministic": {
+    "feasibility_q0": [
+      1.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "stale_counts_q0": [
+      3,
+      0,
+      2,
+      1,
+      0
+    ],
+    "closure": [
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    "first_step_parity_max_diff": 0.0
+  },
+  "normalization": {
+    "rows": [
+      {
+        "m": 2,
+        "T": 4,
+        "n_sequences": 16,
+        "beta": 1.5,
+        "epsilon": 0.02,
+        "kappa": 0.85,
+        "lambda_rep": 0.8,
+        "lambda_back": 0.25,
+        "sum": 1.0000000000000002,
+        "abs_error": 2.220446049250313e-16
+      },
+      {
+        "m": 2,
+        "T": 4,
+        "n_sequences": 16,
+        "beta": 0.0,
+        "epsilon": 0.0,
+        "kappa": 0.5,
+        "lambda_rep": 0.0,
+        "lambda_back": 0.0,
+        "sum": 1.0000000000000002,
+        "abs_error": 2.220446049250313e-16
+      },
+      {
+        "m": 2,
+        "T": 4,
+        "n_sequences": 16,
+        "beta": 3.0,
+        "epsilon": 0.1,
+        "kappa": 0.99,
+        "lambda_rep": 2.0,
+        "lambda_back": 1.5,
+        "sum": 1.0000000000000002,
+        "abs_error": 2.220446049250313e-16
+      },
+      {
+        "m": 2,
+        "T": 4,
+        "n_sequences": 16,
+        "beta": 1.0,
+        "epsilon": 0.05,
+        "kappa": 0.01,
+        "lambda_rep": 0.0,
+        "lambda_back": 1.0,
+        "sum": 1.0,
+        "abs_error": 0.0
+      },
+      {
+        "m": 2,
+        "T": 4,
+        "n_sequences": 16,
+        "beta": 0.0,
+        "epsilon": 0.2,
+        "kappa": 0.999,
+        "lambda_rep": 0.0,
+        "lambda_back": 0.0,
+        "sum": 1.0000000000000002,
+        "abs_error": 2.220446049250313e-16
+      },
+      {
+        "m": 3,
+        "T": 3,
+        "n_sequences": 27,
+        "beta": 1.5,
+        "epsilon": 0.02,
+        "kappa": 0.85,
+        "lambda_rep": 0.8,
+        "lambda_back": 0.25,
+        "sum": 0.9999999999999999,
+        "abs_error": 1.1102230246251565e-16
+      },
+      {
+        "m": 3,
+        "T": 3,
+        "n_sequences": 27,
+        "beta": 0.0,
+        "epsilon": 0.0,
+        "kappa": 0.5,
+        "lambda_rep": 0.0,
+        "lambda_back": 0.0,
+        "sum": 0.9999999999999998,
+        "abs_error": 2.220446049250313e-16
+      },
+      {
+        "m": 3,
+        "T": 3,
+        "n_sequences": 27,
+        "beta": 3.0,
+        "epsilon": 0.1,
+        "kappa": 0.99,
+        "lambda_rep": 2.0,
+        "lambda_back": 1.5,
+        "sum": 0.9999999999999999,
+        "abs_error": 1.1102230246251565e-16
+      },
+      {
+        "m": 3,
+        "T": 3,
+        "n_sequences": 27,
+        "beta": 1.0,
+        "epsilon": 0.05,
+        "kappa": 0.01,
+        "lambda_rep": 0.0,
+        "lambda_back": 1.0,
+        "sum": 1.0,
+        "abs_error": 0.0
+      },
+      {
+        "m": 3,
+        "T": 3,
+        "n_sequences": 27,
+        "beta": 0.0,
+        "epsilon": 0.2,
+        "kappa": 0.999,
+        "lambda_rep": 0.0,
+        "lambda_back": 0.0,
+        "sum": 1.0,
+        "abs_error": 0.0
+      },
+      {
+        "m": 3,
+        "T": 4,
+        "n_sequences": 81,
+        "beta": 1.5,
+        "epsilon": 0.02,
+        "kappa": 0.85,
+        "lambda_rep": 0.8,
+        "lambda_back": 0.25,
+        "sum": 0.9999999999999999,
+        "abs_error": 1.1102230246251565e-16
+      },
+      {
+        "m": 3,
+        "T": 4,
+        "n_sequences": 81,
+        "beta": 0.0,
+        "epsilon": 0.0,
+        "kappa": 0.5,
+        "lambda_rep": 0.0,
+        "lambda_back": 0.0,
+        "sum": 1.0,
+        "abs_error": 0.0
+      },
+      {
+        "m": 3,
+        "T": 4,
+        "n_sequences": 81,
+        "beta": 3.0,
+        "epsilon": 0.1,
+        "kappa": 0.99,
+        "lambda_rep": 2.0,
+        "lambda_back": 1.5,
+        "sum": 0.9999999999999998,
+        "abs_error": 2.220446049250313e-16
+      },
+      {
+        "m": 3,
+        "T": 4,
+        "n_sequences": 81,
+        "beta": 1.0,
+        "epsilon": 0.05,
+        "kappa": 0.01,
+        "lambda_rep": 0.0,
+        "lambda_back": 1.0,
+        "sum": 0.9999999999999999,
+        "abs_error": 1.1102230246251565e-16
+      },
+      {
+        "m": 3,
+        "T": 4,
+        "n_sequences": 81,
+        "beta": 0.0,
+        "epsilon": 0.2,
+        "kappa": 0.999,
+        "lambda_rep": 0.0,
+        "lambda_back": 0.0,
+        "sum": 0.9999999999999998,
+        "abs_error": 2.220446049250313e-16
+      }
+    ],
+    "worst_abs_error": 2.220446049250313e-16
+  },
+  "parity": {
+    "n_blocks": 500,
+    "max_abs_log_likelihood_difference": 1.0658141036401503e-14,
+    "max_abs_q_difference": 0.0,
+    "max_abs_step_logp_difference": 0.0
+  },
+  "empirical": {
+    "n_samples": 100000,
+    "total_variation": 0.003598462686906339,
+    "max_abs_frequency_error": 0.0018820879168102433,
+    "table": [
+      {
+        "sequence": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "analytic": 0.17242197124117925,
+        "empirical": 0.17176
+      },
+      {
+        "sequence": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "analytic": 0.13632791208318976,
+        "empirical": 0.13821
+      },
+      {
+        "sequence": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "analytic": 0.10939700988521568,
+        "empirical": 0.11
+      },
+      {
+        "sequence": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "analytic": 0.13472052714644006,
+        "empirical": 0.13393
+      },
+      {
+        "sequence": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "analytic": 0.10803138383056632,
+        "empirical": 0.10879
+      },
+      {
+        "sequence": [
+          0,
+          1,
+          0,
+          1
+        ],
+        "analytic": 0.08786194574313272,
+        "empirical": 0.088
+      },
+      {
+        "sequence": [
+          0,
+          1,
+          1,
+          0
+        ],
+        "analytic": 0.10810715586245587,
+        "empirical": 0.10818
+      },
+      {
+        "sequence": [
+          0,
+          1,
+          1,
+          1
+        ],
+        "analytic": 0.13313209420782057,
+        "empirical": 0.13139
+      },
+      {
+        "sequence": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "analytic": 0.0030440086549992818,
+        "empirical": 0.00294
+      },
+      {
+        "sequence": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "analytic": 0.0024156499370010945,
+        "empirical": 0.00249
+      },
+      {
+        "sequence": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "analytic": 0.001989861436467292,
+        "empirical": 0.00176
+      },
+      {
+        "sequence": [
+          1,
+          0,
+          1,
+          1
+        ],
+        "analytic": 0.002450479971532338,
+        "empirical": 0.00252
+      },
+      {
+        "sequence": [
+          1,
+          1,
+          0,
+          0
+        ],
+        "analytic": 5.459658592000379e-05,
+        "empirical": 1e-05
+      },
+      {
+        "sequence": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "analytic": 4.4403414079996354e-05,
+        "empirical": 2e-05
+      },
+      {
+        "sequence": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "analytic": 9.900000000000007e-07,
+        "empirical": 0.0
+      },
+      {
+        "sequence": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "analytic": 1.0000000000000018e-08,
+        "empirical": 0.0
+      }
+    ]
+  },
+  "exposure": {
+    "total_steps": 10000,
+    "n_blocks": 500,
+    "valid_repeat": 7701,
+    "leaf_repeat": 2809,
+    "upstream_repeat": 4892,
+    "recomputation": 2167,
+    "by_role": {
+      "0": {
+        "valid_repeat": 2488,
+        "leaf_repeat": 366,
+        "upstream_repeat": 2122,
+        "recomputation": 0
+      },
+      "1": {
+        "valid_repeat": 592,
+        "leaf_repeat": 592,
+        "upstream_repeat": 0,
+        "recomputation": 0
+      },
+      "2": {
+        "valid_repeat": 2779,
+        "leaf_repeat": 650,
+        "upstream_repeat": 2129,
+        "recomputation": 1197
+      },
+      "3": {
+        "valid_repeat": 1503,
+        "leaf_repeat": 862,
+        "upstream_repeat": 641,
+        "recomputation": 811
+      },
+      "4": {
+        "valid_repeat": 339,
+        "leaf_repeat": 339,
+        "upstream_repeat": 0,
+        "recomputation": 159
+      }
+    },
+    "gate_exposure": [
+      [
+        0,
+        0,
+        2113,
+        1573,
+        646
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        2069,
+        877
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        609
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "gate_exposure_true_pairs": {
+      "0->2": 2113,
+      "0->3": 1573,
+      "0->4": 646,
+      "2->3": 2069,
+      "2->4": 877,
+      "3->4": 609
+    }
+  },
+  "curvature": {
+    "n_blocks": 500,
+    "by_parameter": {
+      "beta": {
+        "true_value": 1.5,
+        "delta": 0.1,
+        "kl_per_block": 0.009810642532461004,
+        "fisher_per_block": 1.9621285064922003,
+        "expected_posterior_sd": 0.03192649730171465,
+        "true_over_sd": 46.98291785110547
+      },
+      "lambda_rep": {
+        "true_value": 0.8,
+        "delta": 0.1,
+        "kl_per_block": 0.017917713578606657,
+        "fisher_per_block": 3.5835427157213307,
+        "expected_posterior_sd": 0.023624286728189427,
+        "true_over_sd": 33.86345624756614
+      },
+      "lambda_back": {
+        "true_value": 0.25,
+        "delta": 0.1,
+        "kl_per_block": 0.019502551504187508,
+        "fisher_per_block": 3.900510300837501,
+        "expected_posterior_sd": 0.022644059284885436,
+        "true_over_sd": 11.040423311683837
+      },
+      "omega": {
+        "true_value": 1.7346010553881064,
+        "delta": 0.1,
+        "kl_per_block": 0.0007408457513908004,
+        "fisher_per_block": 0.14816915027816005,
+        "expected_posterior_sd": 0.11618126549567095,
+        "true_over_sd": 14.930127056093562
+      }
+    },
+    "weakest_parameter": "lambda_back",
+    "weakest_true_over_sd": 11.040423311683837
+  },
+  "held_out": {
+    "n_blocks": 200,
+    "nll_true_parameters": 1.2431608051298684,
+    "variants": {
+      "wrong_antichain_U": {
+        "nll_true": 1.2431608051298684,
+        "nll_variant": 1.7055381585004268,
+        "paired_mean_difference": 0.4623773533705585,
+        "standard_error": 0.012540464208146824,
+        "median_difference": 0.45483023824963653,
+        "fraction_favouring_true": 0.995,
+        "true_model_better_on_average": true
+      },
+      "beta_0": {
+        "nll_true": 1.2431608051298684,
+        "nll_variant": 1.3828339438814714,
+        "paired_mean_difference": 0.1396731387516031,
+        "standard_error": 0.008366274287625191,
+        "median_difference": 0.13909903142517221,
+        "fraction_favouring_true": 0.885,
+        "true_model_better_on_average": true
+      },
+      "kappa_0.05": {
+        "nll_true": 1.2431608051298684,
+        "nll_variant": 1.3731989951547303,
+        "paired_mean_difference": 0.13003819002486205,
+        "standard_error": 0.004395417945063469,
+        "median_difference": 0.14032273381757865,
+        "fraction_favouring_true": 0.96,
+        "true_model_better_on_average": true
+      },
+      "lambda_rep_0": {
+        "nll_true": 1.2431608051298684,
+        "nll_variant": 1.301538128794458,
+        "paired_mean_difference": 0.058377323664589725,
+        "standard_error": 0.004651220939546784,
+        "median_difference": 0.06470598163567542,
+        "fraction_favouring_true": 0.815,
+        "true_model_better_on_average": true
+      },
+      "lambda_back_0": {
+        "nll_true": 1.2431608051298684,
+        "nll_variant": 1.252367790251415,
+        "paired_mean_difference": 0.009206985121546673,
+        "standard_error": 0.001977426183365514,
+        "median_difference": 0.002787590792272643,
+        "fraction_favouring_true": 0.57,
+        "true_model_better_on_average": true
+      },
+      "lambda_rep_and_back_0": {
+        "nll_true": 1.2431608051298684,
+        "nll_variant": 1.3214762798706707,
+        "paired_mean_difference": 0.07831547474080242,
+        "standard_error": 0.0055880449808365755,
+        "median_difference": 0.08086088848773643,
+        "fraction_favouring_true": 0.81,
+        "true_model_better_on_average": true
+      }
+    },
+    "hard_criterion_true_beats_antichain": true
+  },
+  "decisions": [
+    {
+      "stage": "Stage 6.0 deterministic recurrent equations",
+      "status": "PASS"
+    },
+    {
+      "stage": "Stage 6.0 fixed-length normalization",
+      "status": "PASS"
+    },
+    {
+      "stage": "Stage 6A generator-likelihood parity",
+      "status": "PASS"
+    },
+    {
+      "stage": "Stage 6.0 empirical frequency check",
+      "status": "PASS"
+    },
+    {
+      "stage": "Stage 6A exposure audit",
+      "status": "PASS"
+    },
+    {
+      "stage": "Stage 6A held-out: true beats wrong antichain U",
+      "status": "PASS"
+    }
+  ]
+}

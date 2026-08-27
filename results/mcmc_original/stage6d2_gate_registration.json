@@ -1,0 +1,154 @@
+{
+  "registered_before_any_stage6d2_draw_existed": true,
+  "stage": "6D2",
+  "stage6d_config_hash": "ebd5effd5b32e68aeb61df044bfbdcbef998c01955673ae1c077531be3d2ac73",
+  "source_commit": "0905a16b5bfdf1b7e52dc9a99954bc23453b10e4",
+  "why_no_reference_gate": "sampler correctness was established in Stage 6D1 against an independent scrambled-Sobol reference. No prior-importance reference is achievable on the 500-block corpus \u2014 that is why the Stage 6D1 model was made small \u2014 so Stage 6D2 gates convergence, parent consistency and recovery instead, and does not restate the correctness claim.",
+  "primary_gates": {
+    "convergence": {
+      "per_coordinate_rhat": {
+        "threshold": 1.01,
+        "comparison": "<="
+      },
+      "log_posterior_rhat": {
+        "threshold": 1.01,
+        "comparison": "<="
+      },
+      "relation_count_rhat": {
+        "threshold": 1.01,
+        "comparison": "<=",
+        "degenerate_counts_as_pass": true,
+        "why": "Stage 6C established that the induced-order posterior on this corpus is a point mass at the true order, so a constant relation-count trace is the expected finding. It is recorded as `degenerate`, never as an R-hat of 1.0, and the point mass is separately gated by the structural-recovery gate."
+      },
+      "uncertain_relation_rhat": {
+        "threshold": 1.01,
+        "comparison": "<=",
+        "not_applicable_if_no_relation_varies": true
+      },
+      "min_bulk_ess": {
+        "threshold": 1000,
+        "comparison": ">=",
+        "over": [
+          "rho",
+          "beta",
+          "omega",
+          "lambda_rep",
+          "lambda_back"
+        ]
+      },
+      "max_mcse_over_posterior_sd": {
+        "threshold": 0.05,
+        "comparison": "<="
+      },
+      "post_burn_in_acceptance_band": {
+        "band": [
+          0.2,
+          0.65
+        ],
+        "over": [
+          "U",
+          "rho",
+          "beta",
+          "omega",
+          "lambda_rep",
+          "lambda_back"
+        ],
+        "why": "the band the Stage 6D2 pilot's joint confirmation used; carried into the formal run unchanged"
+      }
+    },
+    "parent_consistency": {
+      "tolerance_in_parent_sd": 0.25,
+      "scalars_vs_stage6b3": [
+        "beta",
+        "omega",
+        "lambda_rep",
+        "lambda_back"
+      ],
+      "rho_vs_stage6c2": [
+        "rho"
+      ],
+      "structure_vs_stage6c2": {
+        "min_probability_of_the_stage6c2_map_order": 0.99
+      },
+      "why": "the recurrent likelihood reads U only through h(U). If the induced order is the same point mass Stage 6C found, the likelihood the scalars see is identical to Stage 6B3's, so the marginals must agree. Disagreement is U-beta, H-omega or rho-U confounding.",
+      "why_rho_belongs_to_the_6c2_comparison": "rho enters only p(U | rho) and the likelihood is constant inside an order cell, so conditional on the same point-mass order posterior the rho marginal does not depend on the scalars at all. Stage 6C2's rho marginal is therefore the right comparator even though Stage 6C2 fixed three of the scalars.",
+      "tolerance_justification": "with bulk ESS in the thousands the Monte Carlo error on a posterior mean is under 0.02 parent sd, so 0.25 sd is roughly a 12-sigma allowance and cannot be met by a genuinely shifted posterior",
+      "deliberately_not_a_gate": {
+        "beta_vs_stage6c2": "excluded before any Stage 6D2 draw existed. Stage 6C2 holds omega, lambda_rep and lambda_back at their registered values while Stage 6B3 and Stage 6D2 marginalise over them, and beta is correlated with those three: the two parents already disagree with each other by 0.40 Stage 6B3 sd (1.48097 against 1.49648), so no single Stage 6D2 value could satisfy a 0.25 sd gate against both. Requiring agreement with a differently conditioned posterior would be a gate on a quantity that is not supposed to be equal. The contrast is computed and reported instead, as a measurement of how much marginalising over the other three scalars moves beta."
+      }
+    },
+    "recovery": {
+      "structural": {
+        "closure_f1": 1.0,
+        "structural_hamming": 0,
+        "min_probability_of_the_true_order": 0.99
+      },
+      "scalars": {
+        "truth_inside_95_credible_interval": [
+          "beta",
+          "omega",
+          "lambda_rep",
+          "lambda_back"
+        ]
+      },
+      "rho": "NOT APPLICABLE \u2014 U_TRUE is hand specified in recurrent_synthetic.py, not drawn from p(U | rho), so no generating rho exists. This is permanent and is not a gate."
+    }
+  },
+  "reported_but_not_gated": {
+    "held_out_prediction": "\u00a717. Following the Stage 6B convention, held-out numbers are secondary reporting and never drive a decision \u2014 they are not used to choose a proposal scale, a prior or a threshold.",
+    "column_permutation_audit": "\u00a713. h(U) is the intersection of the column orderings and Sigma_rho is column-exchangeable, so the target is invariant under permuting the d columns. A large signed-contrast R-hat with a small invariant-summary R-hat is label switching, not non-convergence, so it cannot be a gate. The symmetry's footprint is reported instead.",
+    "entrywise_U_recovery": "not claimed anywhere in Stage 6D: the likelihood is piecewise constant in U and the target is column-exchangeable."
+  },
+  "continuation_rule": {
+    "initial": {
+      "chains": 4,
+      "sweeps": 30000,
+      "burn_in": 10000,
+      "thin": 5
+    },
+    "extend_in_blocks_of": 20000,
+    "ceiling": 100000,
+    "condition": "only if a primary convergence gate fails",
+    "determinism": "a continuation re-runs from the same per-chain seeds with a larger sweep count, which reproduces the earlier sweeps bit-identically; failed attempts are preserved unmodified in their own directories and named in continuation_history.json"
+  },
+  "parent_posteriors": {
+    "stage6b3": {
+      "beta": {
+        "mean": 1.4809712045457613,
+        "sd": 0.03913136531881718
+      },
+      "omega": {
+        "mean": 1.887305380323663,
+        "sd": 0.12951477881662946
+      },
+      "lambda_rep": {
+        "mean": 0.8058678554319068,
+        "sd": 0.02847042110946445
+      },
+      "lambda_back": {
+        "mean": 0.21881288362370088,
+        "sd": 0.024023270577332653
+      }
+    },
+    "stage6b3_note": "all four scalars free, U pinned at U_TRUE",
+    "stage6c2": {
+      "rho": {
+        "mean": 0.3230775352708466,
+        "sd": 0.22159214820600198
+      },
+      "beta": {
+        "mean": 1.4964836876886418,
+        "sd": 0.03170435295574903
+      }
+    },
+    "stage6c2_note": "U, rho and beta free; omega, lambda_rep and lambda_back fixed",
+    "stage6c2_structure": {
+      "true_poset_index": 4002,
+      "posterior_probability_of_true": 1.0,
+      "n_unique_states_visited": 1
+    }
+  },
+  "predictive_draws": 400,
+  "python": "3.13.2",
+  "numpy": "2.4.6"
+}

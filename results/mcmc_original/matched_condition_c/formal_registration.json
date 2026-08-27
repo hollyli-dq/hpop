@@ -1,0 +1,104 @@
+{
+  "arms": {
+    "cond": {
+      "every": 0,
+      "seeds": [
+        6204001,
+        6204002,
+        6204003,
+        6204004
+      ]
+    },
+    "marg": {
+      "every": 10,
+      "seeds": [
+        6204011,
+        6204012,
+        6204013,
+        6204014
+      ]
+    }
+  },
+  "burn_in": 10000,
+  "cadence": 10,
+  "checkpoints": [
+    30000,
+    50000,
+    75000,
+    100000
+  ],
+  "convergence_gates": "Condition B set: max R-hat <= 1.01 over {log_target, log_prior, total relations, per-skill and sorted counts, uncertain relations}; ESS floors 1000/500/1000/500; degenerate-summary rule; movement rule (zero accepted H changes cannot PASS)",
+  "corpus_hash_sha256": "dd280a4a09896154e167f388edd401a9119ba398167c09404aba5f7743e58ec2",
+  "no_recovery_inspection_between_checkpoints": true,
+  "paired_starts": {
+    "h_hashes": [
+      [
+        "2547688c23ea8649",
+        "0928eac4f6d9e682",
+        "1b96a33aada30f82"
+      ],
+      [
+        "78b6e13f7f0095f2",
+        "7c49e2dd918a8f62",
+        "296e62df4373edb5"
+      ],
+      [
+        "3fa2f8d57931cdc8",
+        "a923b0b0530157d3",
+        "93cc01ca119a8c67"
+      ],
+      [
+        "7ddf6b55a26648a5",
+        "58ee187f69dd2a05",
+        "4a0aa858099d19c7"
+      ]
+    ],
+    "pairing": "chain c of each arm starts from start c",
+    "scales": [
+      0.5,
+      1.0,
+      2.0,
+      3.0
+    ],
+    "seeds": [
+      6204101,
+      6204102,
+      6204103,
+      6204104
+    ],
+    "truth_h_hashes": [
+      "19904293250fd25b",
+      "0340aaa796edc90b",
+      "2959d0db1011ccc1"
+    ]
+  },
+  "parent_commit": "50eee50",
+  "primary_question": "Does path-marginal inference solve the joint (S,z)-U coupling problem?",
+  "primary_table_rows": [
+    "Boundary F1",
+    "Occurrence ARI",
+    "Closure F1",
+    "Held-out NLL",
+    "Accepted cross-H/hour",
+    "Structural ESS/sec",
+    "Wall clock"
+  ],
+  "recovery_metrics": "as the Condition-C prompt: closure/incomparable/reduction F1, boundary F1 at 0.5, occurrence ARI/NMI/accuracy, held-out oracle-path NLL, structural movement; primary 7-row table",
+  "scheduled_scale": 1.0,
+  "stopping_rule": "per arm: PASS at two consecutive checkpoints; ceiling 100k never extended",
+  "thin": 5,
+  "truth_hash_sha256": "fc41538fd44d170df8d0a6401f0c6e6b49d52418c487e22f9e4f45ee047f903e",
+  "u_scale": 0.5,
+  "verdict_rule": {
+    "if_marg_converged_and_recovers": {
+      "cond_converged_comparable": "closure F1 within 0.05 AND heldout NLL within 0.02 of C-MARG -> 'NO COUPLING BARRIER AT THIS SCALE \u2014 BOTH ARMS CONVERGE AND RECOVER'",
+      "cond_converged_worse": "'PATH-MARGINAL INFERENCE SUPERIOR \u2014 C-COND CONVERGES TO INFERIOR STRUCTURE'",
+      "cond_not_converged": "'JOINT COUPLING SOLVED BY PATH-MARGINAL INFERENCE \u2014 C-COND LOCKS, C-MARG CONVERGES'"
+    },
+    "marg_converged_no_recovery": "mean closure F1 < 0.60 -> 'STRUCTURE NOT IDENTIFIABLE UNDER JOINT INFERENCE'",
+    "marg_not_converged": "'PATH-MARGINAL ARM NOT CONVERGED \u2014 NO CLAIM'",
+    "marg_recovers_means": "mean closure F1 >= 0.90 AND heldout posterior-mean NLL/occ - truth NLL/occ <= 0.05",
+    "otherwise": "'PARTIAL \u2014 see report'"
+  },
+  "within_segment_checkpoint_every": 2000
+}

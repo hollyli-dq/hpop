@@ -1,0 +1,198 @@
+% =============================================================================
+% Main-paper inference figure --- editable, \input-able TikZ source.
+% One horizontal band: STEP 1 | STEP 2 | STEP 3a | STEP 3b.
+%
+% ---- main.tex preamble needs -------------------------------------------------
+%   \usepackage{tikz}
+%   \usetikzlibrary{arrows.meta}
+%   \usepackage{amsmath,amssymb}
+%
+% ---- main.tex body -----------------------------------------------------------
+%   \begin{figure*}[t]
+%     \centering
+%     \input{figures/fig_inference_inline}
+%     \input{figures/fig_inference_main_caption}
+%   \end{figure*}
+%
+% Everything is namespaced fig3.../f3... so nothing clashes with the paper.
+% =============================================================================
+
+% ---- palette (matches Figure 1) ---------------------------------------------
+\definecolor{figthreeblue}{HTML}{2E6FA7}
+\definecolor{figthreegreen}{HTML}{2E8B6B}
+\definecolor{figthreeorange}{HTML}{C06B2C}
+\definecolor{figthreeteal}{HTML}{3A7E86}
+\definecolor{figthreeink}{HTML}{262626}
+\definecolor{figthreesoft}{HTML}{8C8C8C}
+\definecolor{figthreegraye}{HTML}{C9C9C9}
+\definecolor{figthreegrayf}{HTML}{F5F5F5}
+\definecolor{figthreebluet}{HTML}{EFF4F9}
+\definecolor{figthreegreent}{HTML}{EFF6F1}
+\definecolor{figthreetealt}{HTML}{ECF3F4}
+
+\tikzset{
+  f3t/.style={font=\scriptsize,text=figthreeink,inner sep=1.2pt},
+  f3s/.style={font=\scriptsize,text=figthreesoft,inner sep=1.2pt},
+  f3i/.style={font=\scriptsize\itshape,text=figthreesoft,inner sep=1.2pt},
+  f3y/.style={font=\tiny,text=figthreesoft,inner sep=1.0pt},
+  f3head/.style={font=\footnotesize\bfseries,inner sep=1.2pt},
+  f3tag/.style={font=\scriptsize\bfseries,inner sep=1.2pt},
+  f3arrow/.style={line width=0.55pt,-{Straight Barb[length=1.3mm,width=1.3mm]}},
+  f3small/.style={line width=0.45pt,-{Straight Barb[length=1.0mm,width=1.0mm]}},
+}
+
+% header: step tag + title + short underline.  #1 x, #2 y, #3 colour, #4 tag, #5 title
+\newcommand{\figthreehdr}[5]{%
+  \node[f3tag,text=#3,anchor=west] at (#1,#2) {#4};
+  \node[f3head,text=#3,anchor=west] at ({#1+1.02},#2) {#5};
+  \draw[draw=#3,line width=0.8pt,line cap=round] (#1,{#2-0.26}) -- ({#1+0.55},{#2-0.26});}
+\newcommand{\figthreehdrs}[5]{% smaller title, for the tinted panels
+  \node[f3tag,text=#3,anchor=west] at (#1,#2) {#4};
+  \node[font=\scriptsize\bfseries,text=#3,anchor=west,inner sep=1.2pt] at ({#1+1.02},#2) {#5};
+  \draw[draw=#3,line width=0.8pt,line cap=round] (#1,{#2-0.26}) -- ({#1+0.55},{#2-0.26});}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (0.10,0.58) rectangle (13.92,5.48);
+
+% ======================= STEP 1 : score candidate blocks =====================
+\figthreehdr{0.22}{4.92}{figthreeink}{STEP 1}{Score blocks}
+
+% trace with position ruler
+\foreach \i in {1,...,8}{
+  \pgfmathsetmacro{\cx}{0.22+(\i-0.5)*0.356}
+  \node[f3y] at (\cx,4.44) {\i};
+  \draw[rounded corners=1pt,draw=figthreegraye,fill=figthreegrayf,line width=0.4pt]
+    ({0.22+(\i-1)*0.356+0.025},3.86) rectangle ({0.22+\i*0.356-0.025},4.28);
+  \node[f3t,font=\tiny] at (\cx,4.07) {$x_{\i}$};}
+
+% score table; the three cells the sampled path uses are filled in skill colour
+\node[f3s,font=\tiny] at (0.62,3.44) {blocks};
+\node[f3t] at (2.00,3.44) {$e_{n,k}(a,b)$};
+\foreach \j in {1,2,3}{\node[f3s,font=\tiny] at ({1.18+(\j-0.5)*0.54},3.04) {$k{=}\j$};}
+\draw[draw=figthreegraye,line width=0.4pt] (0.22,2.84) -- (2.86,2.84);
+% rows: y = 2.56, 2.18, 1.80, 1.42
+\node[f3t,text=figthreegreen,font=\tiny\bfseries]  at (0.62,2.56) {[1:2]};
+\node[f3t,text=figthreeblue,font=\tiny\bfseries]   at (0.62,2.18) {[3:5]};
+\node[f3s,font=\tiny]                              at (0.62,1.80) {[5:6]};
+\node[f3t,text=figthreeorange,font=\tiny\bfseries] at (0.62,1.42) {[6:8]};
+% row [1:2]
+\node[f3s,font=\tiny] at (1.45,2.56) {-1.20};
+\fill[rounded corners=1.5pt,figthreegreen] (1.74,2.40) rectangle (2.24,2.72);
+\node[f3t,text=white,font=\tiny\bfseries] at (1.99,2.56) {-0.30};
+\node[f3s,font=\tiny] at (2.53,2.56) {-2.10};
+% row [3:5]
+\fill[rounded corners=1.5pt,figthreeblue] (1.20,2.02) rectangle (1.70,2.34);
+\node[f3t,text=white,font=\tiny\bfseries] at (1.45,2.18) {-0.70};
+\node[f3s,font=\tiny] at (1.99,2.18) {-1.10};
+\node[f3s,font=\tiny] at (2.53,2.18) {-0.40};
+% row [5:6]
+\node[f3s,font=\tiny] at (1.45,1.80) {-1.50};
+\node[f3s,font=\tiny] at (1.99,1.80) {-0.20};
+\node[f3s,font=\tiny] at (2.53,1.80) {-1.00};
+% row [6:8]
+\node[f3s,font=\tiny] at (1.45,1.42) {-0.60};
+\node[f3s,font=\tiny] at (1.99,1.42) {-0.80};
+\fill[rounded corners=1.5pt,figthreeorange] (2.28,1.26) rectangle (2.78,1.58);
+\node[f3t,text=white,font=\tiny\bfseries] at (2.53,1.42) {-0.10};
+\draw[draw=figthreegraye,line width=0.4pt] (0.22,1.12) -- (2.86,1.12);
+
+% ======================== STEP 2 : forward DP ================================
+\figthreehdr{3.47}{4.92}{figthreeblue}{STEP 2}{Forward DP}
+\node[f3s] at (5.45,4.44) {$\alpha_n(j,k)$: mass ending at $j$ with skill $k$};
+
+% chart: rows = start,k1..k3, cols j = 0..8
+\foreach \j in {0,...,8}{
+  \node[f3y] at ({4.30+(\j+0.5)*0.347},4.06) {\j};}
+\foreach [count=\r from 0] \rl in {start,$k{=}1$,$k{=}2$,$k{=}3$}{
+  \pgfmathsetmacro{\ry}{3.70-\r*0.52}
+  \node[f3s,anchor=east] at (4.20,\ry) {\rl};
+  \foreach \j in {0,...,8}{
+    \draw[rounded corners=1pt,draw=figthreegraye,line width=0.35pt]
+      ({4.30+\j*0.347+0.022},{\ry-0.185}) rectangle ({4.30+(\j+1)*0.347-0.022},{\ry+0.185});}}
+\fill[rounded corners=1pt,figthreeblue]
+  ({4.30+0.022},{3.70-0.185}) rectangle ({4.30+0.347-0.022},{3.70+0.185});
+\node[f3t,text=white,font=\tiny] at ({4.30+0.5*0.347},3.70) {1};
+
+% the coloured example path: start ->[1:2] k2 ->[3:5] k1 ->[6:8] k3
+\draw[f3arrow,draw=figthreegreen,line width=0.75pt]
+  ({4.30+0.65*0.347},3.60) to[bend left=16]
+  node[pos=0.40,right=1.5pt,f3t,text=figthreegreen,font=\tiny\bfseries]{[1:2]}
+  ({4.30+2.35*0.347},2.78);
+\draw[f3arrow,draw=figthreeblue,line width=0.75pt]
+  ({4.30+2.65*0.347},2.74) to[bend left=22]
+  node[pos=0.5,above=1pt,f3t,text=figthreeblue,font=\tiny\bfseries]{[3:5]}
+  ({4.30+5.35*0.347},3.10);
+\draw[f3arrow,draw=figthreeorange,line width=0.75pt]
+  ({4.30+5.65*0.347},3.08) to[bend left=22]
+  node[pos=0.45,above right=0pt,f3t,text=figthreeorange,font=\tiny\bfseries]{[6:8]}
+  ({4.30+8.35*0.347},2.36);
+
+\node[f3i,font=\tiny\itshape] at (5.35,1.80) {arrows append blocks, weighted by $e_{n,k}(a,b)$};
+
+\draw[f3arrow,draw=figthreeblue] (5.62,1.66) -- (5.62,1.36);
+
+% output: the partition function, one line
+\fill[rounded corners=2pt,figthreebluet] (3.12,0.78) rectangle (13.60,1.30);
+\node[f3t,text=figthreeblue,anchor=west] at (3.32,1.04)
+  {$Z_n(U)=\sum_{S_n,z_n}p(S_n,z_n)\prod_{\ell}e_{n,z_\ell}(a_\ell,b_\ell)$};
+\node[f3i,anchor=east] at (13.40,1.04)
+  {total mass: the coloured path and all others};
+
+% STEP 1 -> STEP 2
+\draw[f3arrow,draw=figthreesoft,line width=0.7pt] (2.96,2.30) -- (3.42,2.30);
+
+% ==================== STEP 3a : sample a path (FFBS) =========================
+\fill[rounded corners=3pt,figthreegreent] (7.62,1.55) rectangle (10.52,5.42);
+\figthreehdrs{7.78}{4.92}{figthreegreen}{STEP 3a}{Sample a path}
+\node[f3i,align=center] at (9.07,4.30) {where do skill instances\\ begin and end?};
+
+% the sampled labelled segmentation (the coloured path of Step 2)
+\node[f3t,text=figthreegreen,font=\tiny\bfseries]  at (8.10,3.84) {$z{=}2$};
+\node[f3t,text=figthreeblue,font=\tiny\bfseries]   at (8.93,3.84) {$z{=}1$};
+\node[f3t,text=figthreeorange,font=\tiny\bfseries] at (9.92,3.84) {$z{=}3$};
+\foreach [count=\i from 1] \cc in {figthreegreen,figthreegreen,figthreeblue,figthreeblue,figthreeblue,figthreeorange,figthreeorange,figthreeorange}{
+  \fill[rounded corners=1pt,\cc]
+    ({7.78+(\i-1)*0.3325+0.022},3.22) rectangle ({7.78+\i*0.3325-0.022},3.62);
+  \node[f3t,text=white,font=\tiny] at ({7.78+(\i-0.5)*0.3325},3.42) {$x_{\i}$};}
+\node[f3y,font=\tiny\itshape] at (8.10,2.88) {drawn 3rd};
+\node[f3y,font=\tiny\itshape] at (8.93,2.88) {drawn 2nd};
+\node[f3y,font=\tiny\itshape] at (9.92,2.88) {drawn 1st};
+\draw[f3arrow,draw=figthreegreen] (10.38,2.48) -- (7.82,2.48);
+\node[f3t,text=figthreegreen,font=\tiny\itshape] at (9.07,2.16)
+  {backward FFBS: sampled right to left};
+
+% ================ STEP 3b : path-marginal structure update ===================
+\fill[rounded corners=3pt,figthreetealt] (10.64,1.55) rectangle (13.84,5.42);
+\figthreehdrs{10.80}{4.92}{figthreeteal}{STEP 3b}{Path-marginal}
+
+% propose: U -> U'
+\fill[rounded corners=1.5pt,white] (11.20,3.96) rectangle (11.72,4.36);
+\node[f3t,text=figthreeteal] at (11.46,4.16) {$U$};
+\fill[rounded corners=1.5pt,white] (12.72,3.96) rectangle (13.28,4.36);
+\node[f3t,text=figthreeteal] at (13.00,4.16) {$U'$};
+\draw[f3small,draw=figthreeteal] (11.78,4.16) -- (12.66,4.16);
+\node[f3i,font=\tiny\itshape] at (12.23,4.40) {propose};
+
+% evaluate both marginals with the Step-2 forward DP
+\draw[f3small,draw=figthreeteal] (11.46,3.90) -- (11.46,3.52);
+\draw[f3small,draw=figthreeteal] (13.02,3.90) -- (13.02,3.52);
+\node[f3y,align=center] at (12.23,3.70) {forward DP};
+\fill[rounded corners=1.5pt,white] (10.72,3.08) rectangle (12.20,3.48);
+\node[f3t,text=figthreeteal,inner sep=0.5pt] at (11.46,3.28) {$\sum_n \log Z_n(U)$};
+\fill[rounded corners=1.5pt,white] (12.26,3.08) rectangle (13.78,3.48);
+\node[f3t,text=figthreeteal,inner sep=0.5pt] at (13.02,3.28) {$\sum_n \log Z_n(U')$};
+
+% decide
+\draw[f3small,draw=figthreeteal] (11.46,3.02) to[bend right=12] (11.95,2.62);
+\draw[f3small,draw=figthreeteal] (13.02,3.02) to[bend left=12]  (12.51,2.62);
+\fill[rounded corners=1.5pt,figthreeteal] (11.28,2.18) rectangle (13.18,2.62);
+\node[f3t,text=white] at (12.23,2.40) {MH accept / reject};
+\node[f3i] at (12.23,1.88) {every segmentation votes};
+
+% ======================= fan-out from the forward DP =========================
+\draw[f3arrow,draw=figthreegreen,line width=0.8pt]
+  (7.32,3.05) to[bend left=14] (7.68,3.35);
+\draw[f3arrow,draw=figthreeteal,line width=0.8pt]
+  (10.72,1.34) to[bend right=8] (11.04,1.76);
+
+\end{tikzpicture}

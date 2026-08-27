@@ -1,0 +1,187 @@
+{
+  "structural": {
+    "true_poset_index": 4002,
+    "map_poset_index": 4002,
+    "map_is_true": true,
+    "posterior_probability_of_true": 1.0,
+    "posterior_rank_of_true": 1,
+    "map_probability": 1.0,
+    "n_unique_states_visited": 1,
+    "closure": {
+      "true_positive": 6,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "structural_hamming": 0
+    },
+    "reduction": {
+      "true_positive": 3,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "structural_hamming": 0
+    },
+    "min_true_relation_probability": 1.0,
+    "max_false_relation_probability": 0.0,
+    "posterior_mean_relation_matrix": [
+      [
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "true_relation_count": 6
+  },
+  "modes": {
+    "major_modes": [
+      4002
+    ],
+    "major_mode_probability": [
+      1.0
+    ],
+    "visits_by_chain": {
+      "4002": [
+        3000,
+        3000,
+        3000,
+        3000
+      ]
+    },
+    "transitions_between_major_modes": 0,
+    "n_unique_states_visited": 1
+  },
+  "scalars": {
+    "rho": {
+      "posterior_mean": 0.3230775352708466,
+      "posterior_sd": 0.22159214820600198,
+      "median": 0.28760501760709384,
+      "q025": 0.012038534261012198,
+      "q975": 0.8004333493684915,
+      "acceptance_total": 0.8538375,
+      "acceptance_post_burn_in": 0.85215,
+      "n_draws": 12000,
+      "rhat_bulk": 1.002862189993628,
+      "rhat_tail": 1.000671625173182,
+      "rhat": 1.002862189993628,
+      "degenerate": false,
+      "bulk_ess": 896.5989063996167,
+      "tail_ess": 1310.4057068710615,
+      "mcse": 0.00740040120743516,
+      "n_chains": 4,
+      "ks_distance_to_reference": 0.012398319987932116,
+      "reference_mean": 0.3252519980234956,
+      "reference_sd": 0.21975357201787926,
+      "mean_error": -0.002174462752648987,
+      "mean_error_in_reference_sd": -0.009895005267409584,
+      "true_value": null,
+      "recovery": "NOT APPLICABLE \u2014 no generating value exists"
+    },
+    "beta": {
+      "posterior_mean": 1.4964836876886418,
+      "posterior_sd": 0.03170435295574903,
+      "median": 1.4964821626448948,
+      "q025": 1.4339051368368438,
+      "q975": 1.5590775709362366,
+      "acceptance_total": 0.44008749999999996,
+      "acceptance_post_burn_in": 0.44055,
+      "n_draws": 12000,
+      "rhat_bulk": 0.9998881810728653,
+      "rhat_tail": 1.000004053682819,
+      "rhat": 1.000004053682819,
+      "degenerate": false,
+      "bulk_ess": 10005.773521899097,
+      "tail_ess": 10183.910191778785,
+      "mcse": 0.00031695204628109404,
+      "n_chains": 4,
+      "ks_distance_to_reference": 0.011244381140325332,
+      "reference_mean": 1.4960736908291867,
+      "reference_sd": 0.03188430684434604,
+      "mean_error": 0.00040999685945508624,
+      "mean_error_in_reference_sd": 0.012858892039165968,
+      "true_value": 1.5,
+      "truth_in_95_interval": true,
+      "posterior_mean_error": -0.003516312311358183,
+      "error_in_posterior_sd": -0.11090944881499502
+    },
+    "log_target": {
+      "posterior_mean": -12454.76550732557,
+      "rhat_bulk": 1.003516472696806,
+      "rhat_tail": 1.0010038008417228,
+      "rhat": 1.003516472696806,
+      "degenerate": false,
+      "bulk_ess": 1166.754312165847,
+      "tail_ess": 1819.2713947541777,
+      "mcse": 0.07070676268791619,
+      "n_draws": 12000,
+      "n_chains": 4
+    },
+    "acceptance": {
+      "total": {
+        "U": 0.3180725,
+        "rho": 0.8538375,
+        "beta": 0.44008749999999996
+      },
+      "post_burn_in": {
+        "U": 0.31690666666666667,
+        "rho": 0.85215,
+        "beta": 0.44055
+      },
+      "per_chain_post_burn_in": {
+        "0": {
+          "U": 0.3176,
+          "rho": 0.8532666666666666,
+          "beta": 0.4421333333333333
+        },
+        "1": {
+          "U": 0.32184,
+          "rho": 0.8486666666666667,
+          "beta": 0.44093333333333334
+        },
+        "2": {
+          "U": 0.3164666666666667,
+          "rho": 0.8548666666666667,
+          "beta": 0.4394
+        },
+        "3": {
+          "U": 0.31172,
+          "rho": 0.8518,
+          "beta": 0.4397333333333333
+        }
+      }
+    }
+  }
+}

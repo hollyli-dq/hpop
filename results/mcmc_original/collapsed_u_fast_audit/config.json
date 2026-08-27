@@ -1,0 +1,22 @@
+{
+  "question": "does FFBS-collapsing (S,z) shrink the cross-H likelihood barrier for the unchanged production U proposal?",
+  "u_scale": 0.5,
+  "audit_seed": 8151500,
+  "n_cross_per_chain": 50,
+  "n_same_h_controls": 8,
+  "chains": {
+    "7b2_ffbs": "/Users/dongqing/Desktop/hpop-step7/results/mcmc_original/stage7b2_full_joint_ffbs/checkpoints/chain0_checkpoint.json",
+    "6e2_local": "/Users/dongqing/Desktop/hpop-stage6e/results/mcmc_original/stage6e2_unknown_boundary_full_seed0/unknown_checkpoints/chain0_checkpoint.json"
+  },
+  "m_u_per_sweep": 15,
+  "sweeps_for_escape_estimate": 50000,
+  "r_cross_source": "frozen structural-locking audit (stage7b2_u_audit)",
+  "escape_rule_preregistered": {
+    "formula": "E = 50000 * M_U * r_cross * mean(alpha_coll | cross)",
+    "E < 1": "COLLAPSED-U NOT VIABLE \u2014 STOP",
+    "1 <= E < 10": "COLLAPSED-U MARGINAL \u2014 REVIEW",
+    "E >= 10": "COLLAPSED-U MECHANISM VIABLE \u2014 EXPAND AUDIT"
+  },
+  "parity_tolerance": 1e-10,
+  "proposal_selection": "first N cross-H proposals in deterministic (skill,row) cycle order under the registered seed; never filtered on acceptance probability"
+}

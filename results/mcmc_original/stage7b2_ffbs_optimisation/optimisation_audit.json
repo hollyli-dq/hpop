@@ -1,0 +1,35 @@
+{
+  "frozen_engine": {
+    "path": "src/hpop/mcmc_original/semi_markov_ffbs.py",
+    "sha256": "8150bb8235eb159d5e2f08ada7c698c383f4c7fd31f3b882e218b207dd135486",
+    "expected_sha256": "8150bb8235eb159d5e2f08ada7c698c383f4c7fd31f3b882e218b207dd135486",
+    "unchanged": true
+  },
+  "what_changed": [
+    "new src/hpop/mcmc_original/fast_block_tables.py: one recurrent trajectory per (trace, start) instead of one per candidate block, with every width read off a cumulative sum",
+    "candidate layout precomputed once per (traces, min_width, max_width) and cached; no Python tuples rebuilt per sweep",
+    "candidates sorted by descending remaining length so each step operates on a contiguous view rather than a masked array",
+    "dense per-trace tables allocated once and written in place",
+    "skill-local invalidation: U_k rebuilds only column k; the four global scalars rebuild all; rho, pi and P rebuild none",
+    "key_movement replaces two per-occurrence array constructions per trace per sweep with one linear walk",
+    "stage6e_sampler.segmentation_sweep gains the upstream zero-proposal fast path, skipping a target evaluation whose value is discarded"
+  ],
+  "what_did_not_change": [
+    "semi_markov_ffbs.py (byte-identical to the Step 7A checkpoint)",
+    "the posterior, the priors, the block likelihood, the FFBS recurrence, backward sampling, and every global MCMC kernel",
+    "min/max widths and the invalid-block support"
+  ],
+  "arithmetic": {
+    "refreshes": 6,
+    "skill_columns_built": 18,
+    "skill_columns_reused": 0,
+    "reuse_fraction": 0.0,
+    "n_candidates": 25490,
+    "n_starts": 2999,
+    "candidate_steps_per_skill": 31488,
+    "width_bucketed_candidate_steps_per_skill": 182925,
+    "arithmetic_reduction": 5.809355945121951,
+    "n_traces": 100,
+    "n_skills": 3
+  }
+}

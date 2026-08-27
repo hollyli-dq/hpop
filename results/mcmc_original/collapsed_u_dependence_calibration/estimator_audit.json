@@ -1,0 +1,7 @@
+{
+  "function": "stage6b_joint_diagnostics.energy_distance",
+  "form": "full all-pairs V-statistic: 2 E|X-Y| - E|X-X'| - E|Y-Y'|; chunked exact summation over every pair (self-pairs included at distance 0, an O(1/n) term identical on both sides of the calibration)",
+  "pairing": "no subsampling, no adjacent/fixed-lag pairing, no linear-time approximation; row ORDER does not enter the statistic \u2014 order matters only through upstream sample selection (the pooled first-4000 prefix in the frozen gate; strides here)",
+  "dependence_entry_point": "the Y-Y term: temporally close draws are spatially close, E|Y-Y'| is under-estimated, so the statistic is inflated for any CORRECT dependent chain; the Y-side of the cross term also carries the dependence into the sampling variance",
+  "frozen_envelope": "calibrate_energy_envelope permutes the reference pool and draws BOTH sides iid \u2014 the null carries no serial dependence, understating both mean and sd for MCMC input"
+}

@@ -1,0 +1,545 @@
+{
+  "deterministic": {
+    "feasibility_q0": [
+      1.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "stale_counts_q0": [
+      3,
+      0,
+      2,
+      1,
+      0
+    ],
+    "closure": [
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    "first_step_parity_max_diff": 0.0
+  },
+  "normalization": {
+    "rows": [
+      {
+        "m": 2,
+        "T": 4,
+        "n_sequences": 16,
+        "beta": 1.5,
+        "epsilon": 0.02,
+        "kappa": 0.85,
+        "lambda_rep": 0.8,
+        "lambda_back": 0.25,
+        "sum": 1.0000000000000002,
+        "abs_error": 2.220446049250313e-16
+      },
+      {
+        "m": 2,
+        "T": 4,
+        "n_sequences": 16,
+        "beta": 0.0,
+        "epsilon": 0.0,
+        "kappa": 0.5,
+        "lambda_rep": 0.0,
+        "lambda_back": 0.0,
+        "sum": 1.0000000000000002,
+        "abs_error": 2.220446049250313e-16
+      },
+      {
+        "m": 2,
+        "T": 4,
+        "n_sequences": 16,
+        "beta": 3.0,
+        "epsilon": 0.1,
+        "kappa": 0.99,
+        "lambda_rep": 2.0,
+        "lambda_back": 1.5,
+        "sum": 1.0000000000000002,
+        "abs_error": 2.220446049250313e-16
+      },
+      {
+        "m": 2,
+        "T": 4,
+        "n_sequences": 16,
+        "beta": 1.0,
+        "epsilon": 0.05,
+        "kappa": 0.01,
+        "lambda_rep": 0.0,
+        "lambda_back": 1.0,
+        "sum": 1.0,
+        "abs_error": 0.0
+      },
+      {
+        "m": 2,
+        "T": 4,
+        "n_sequences": 16,
+        "beta": 0.0,
+        "epsilon": 0.2,
+        "kappa": 0.999,
+        "lambda_rep": 0.0,
+        "lambda_back": 0.0,
+        "sum": 1.0000000000000002,
+        "abs_error": 2.220446049250313e-16
+      },
+      {
+        "m": 3,
+        "T": 3,
+        "n_sequences": 27,
+        "beta": 1.5,
+        "epsilon": 0.02,
+        "kappa": 0.85,
+        "lambda_rep": 0.8,
+        "lambda_back": 0.25,
+        "sum": 0.9999999999999999,
+        "abs_error": 1.1102230246251565e-16
+      },
+      {
+        "m": 3,
+        "T": 3,
+        "n_sequences": 27,
+        "beta": 0.0,
+        "epsilon": 0.0,
+        "kappa": 0.5,
+        "lambda_rep": 0.0,
+        "lambda_back": 0.0,
+        "sum": 0.9999999999999998,
+        "abs_error": 2.220446049250313e-16
+      },
+      {
+        "m": 3,
+        "T": 3,
+        "n_sequences": 27,
+        "beta": 3.0,
+        "epsilon": 0.1,
+        "kappa": 0.99,
+        "lambda_rep": 2.0,
+        "lambda_back": 1.5,
+        "sum": 0.9999999999999999,
+        "abs_error": 1.1102230246251565e-16
+      },
+      {
+        "m": 3,
+        "T": 3,
+        "n_sequences": 27,
+        "beta": 1.0,
+        "epsilon": 0.05,
+        "kappa": 0.01,
+        "lambda_rep": 0.0,
+        "lambda_back": 1.0,
+        "sum": 1.0,
+        "abs_error": 0.0
+      },
+      {
+        "m": 3,
+        "T": 3,
+        "n_sequences": 27,
+        "beta": 0.0,
+        "epsilon": 0.2,
+        "kappa": 0.999,
+        "lambda_rep": 0.0,
+        "lambda_back": 0.0,
+        "sum": 1.0,
+        "abs_error": 0.0
+      },
+      {
+        "m": 3,
+        "T": 4,
+        "n_sequences": 81,
+        "beta": 1.5,
+        "epsilon": 0.02,
+        "kappa": 0.85,
+        "lambda_rep": 0.8,
+        "lambda_back": 0.25,
+        "sum": 0.9999999999999999,
+        "abs_error": 1.1102230246251565e-16
+      },
+      {
+        "m": 3,
+        "T": 4,
+        "n_sequences": 81,
+        "beta": 0.0,
+        "epsilon": 0.0,
+        "kappa": 0.5,
+        "lambda_rep": 0.0,
+        "lambda_back": 0.0,
+        "sum": 1.0,
+        "abs_error": 0.0
+      },
+      {
+        "m": 3,
+        "T": 4,
+        "n_sequences": 81,
+        "beta": 3.0,
+        "epsilon": 0.1,
+        "kappa": 0.99,
+        "lambda_rep": 2.0,
+        "lambda_back": 1.5,
+        "sum": 0.9999999999999998,
+        "abs_error": 2.220446049250313e-16
+      },
+      {
+        "m": 3,
+        "T": 4,
+        "n_sequences": 81,
+        "beta": 1.0,
+        "epsilon": 0.05,
+        "kappa": 0.01,
+        "lambda_rep": 0.0,
+        "lambda_back": 1.0,
+        "sum": 0.9999999999999999,
+        "abs_error": 1.1102230246251565e-16
+      },
+      {
+        "m": 3,
+        "T": 4,
+        "n_sequences": 81,
+        "beta": 0.0,
+        "epsilon": 0.2,
+        "kappa": 0.999,
+        "lambda_rep": 0.0,
+        "lambda_back": 0.0,
+        "sum": 0.9999999999999998,
+        "abs_error": 2.220446049250313e-16
+      }
+    ],
+    "worst_abs_error": 2.220446049250313e-16
+  },
+  "parity": {
+    "n_blocks": 50,
+    "max_abs_log_likelihood_difference": 3.552713678800501e-15,
+    "max_abs_q_difference": 0.0,
+    "max_abs_step_logp_difference": 0.0
+  },
+  "empirical": {
+    "n_samples": 100000,
+    "total_variation": 0.003598462686906339,
+    "max_abs_frequency_error": 0.0018820879168102433,
+    "table": [
+      {
+        "sequence": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "analytic": 0.17242197124117925,
+        "empirical": 0.17176
+      },
+      {
+        "sequence": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "analytic": 0.13632791208318976,
+        "empirical": 0.13821
+      },
+      {
+        "sequence": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "analytic": 0.10939700988521568,
+        "empirical": 0.11
+      },
+      {
+        "sequence": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "analytic": 0.13472052714644006,
+        "empirical": 0.13393
+      },
+      {
+        "sequence": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "analytic": 0.10803138383056632,
+        "empirical": 0.10879
+      },
+      {
+        "sequence": [
+          0,
+          1,
+          0,
+          1
+        ],
+        "analytic": 0.08786194574313272,
+        "empirical": 0.088
+      },
+      {
+        "sequence": [
+          0,
+          1,
+          1,
+          0
+        ],
+        "analytic": 0.10810715586245587,
+        "empirical": 0.10818
+      },
+      {
+        "sequence": [
+          0,
+          1,
+          1,
+          1
+        ],
+        "analytic": 0.13313209420782057,
+        "empirical": 0.13139
+      },
+      {
+        "sequence": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "analytic": 0.0030440086549992818,
+        "empirical": 0.00294
+      },
+      {
+        "sequence": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "analytic": 0.0024156499370010945,
+        "empirical": 0.00249
+      },
+      {
+        "sequence": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "analytic": 0.001989861436467292,
+        "empirical": 0.00176
+      },
+      {
+        "sequence": [
+          1,
+          0,
+          1,
+          1
+        ],
+        "analytic": 0.002450479971532338,
+        "empirical": 0.00252
+      },
+      {
+        "sequence": [
+          1,
+          1,
+          0,
+          0
+        ],
+        "analytic": 5.459658592000379e-05,
+        "empirical": 1e-05
+      },
+      {
+        "sequence": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "analytic": 4.4403414079996354e-05,
+        "empirical": 2e-05
+      },
+      {
+        "sequence": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "analytic": 9.900000000000007e-07,
+        "empirical": 0.0
+      },
+      {
+        "sequence": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "analytic": 1.0000000000000018e-08,
+        "empirical": 0.0
+      }
+    ]
+  },
+  "exposure": {
+    "total_steps": 600,
+    "n_blocks": 50,
+    "valid_repeat": 385,
+    "leaf_repeat": 198,
+    "upstream_repeat": 187,
+    "recomputation": 96,
+    "by_role": {
+      "0": {
+        "valid_repeat": 115,
+        "leaf_repeat": 24,
+        "upstream_repeat": 91,
+        "recomputation": 0
+      },
+      "1": {
+        "valid_repeat": 37,
+        "leaf_repeat": 37,
+        "upstream_repeat": 0,
+        "recomputation": 0
+      },
+      "2": {
+        "valid_repeat": 138,
+        "leaf_repeat": 63,
+        "upstream_repeat": 75,
+        "recomputation": 54
+      },
+      "3": {
+        "valid_repeat": 81,
+        "leaf_repeat": 60,
+        "upstream_repeat": 21,
+        "recomputation": 35
+      },
+      "4": {
+        "valid_repeat": 14,
+        "leaf_repeat": 14,
+        "upstream_repeat": 0,
+        "recomputation": 7
+      }
+    },
+    "gate_exposure": [
+      [
+        0,
+        0,
+        89,
+        50,
+        14
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        78,
+        23
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        23
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "gate_exposure_true_pairs": {
+      "0->2": 89,
+      "0->3": 50,
+      "0->4": 14,
+      "2->3": 78,
+      "2->4": 23,
+      "3->4": 23
+    }
+  },
+  "curvature": {
+    "n_blocks": 50,
+    "by_parameter": {
+      "beta": {
+        "true_value": 1.5,
+        "delta": 0.1,
+        "kl_per_block": 0.0064064367421728,
+        "fisher_per_block": 1.28128734843456,
+        "expected_posterior_sd": 0.12493718856477493,
+        "true_over_sd": 12.006032929277179
+      },
+      "lambda_rep": {
+        "true_value": 0.8,
+        "delta": 0.1,
+        "kl_per_block": 0.010750723675672447,
+        "fisher_per_block": 2.150144735134489,
+        "expected_posterior_sd": 0.09644531820357471,
+        "true_over_sd": 8.294855726551466
+      },
+      "lambda_back": {
+        "true_value": 0.25,
+        "delta": 0.1,
+        "kl_per_block": 0.011573522402216341,
+        "fisher_per_block": 2.3147044804432677,
+        "expected_posterior_sd": 0.09295381563155578,
+        "true_over_sd": 2.6895076689582447
+      },
+      "omega": {
+        "true_value": 1.7346010553881064,
+        "delta": 0.1,
+        "kl_per_block": 0.00045236573607088104,
+        "fisher_per_block": 0.0904731472141762,
+        "expected_posterior_sd": 0.4701702533841002,
+        "true_over_sd": 3.68930412526767
+      }
+    },
+    "weakest_parameter": "lambda_back",
+    "weakest_true_over_sd": 2.6895076689582447
+  },
+  "decisions": [
+    {
+      "stage": "Stage 6.0 deterministic recurrent equations",
+      "status": "PASS"
+    },
+    {
+      "stage": "Stage 6.0 fixed-length normalization",
+      "status": "PASS"
+    },
+    {
+      "stage": "Stage 6A generator-likelihood parity",
+      "status": "PASS"
+    },
+    {
+      "stage": "Stage 6.0 empirical frequency check",
+      "status": "PASS"
+    }
+  ]
+}

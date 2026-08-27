@@ -1,0 +1,133 @@
+{
+  "config": {
+    "A": 50,
+    "D_max": 12,
+    "D_min": 3,
+    "J": 500,
+    "K": 20,
+    "N": 100,
+    "axis": "target_long",
+    "groups": [
+      "build",
+      "primitives"
+    ],
+    "label": "target_long_J500",
+    "length_mix": [],
+    "max_reps": 15,
+    "min_reps": 5,
+    "note": "primitives only; expected to fail the memory gate at N=100 and to be recorded as skipped rather than attempted",
+    "op_reps": [],
+    "regime": "sparse",
+    "seed": 20260822,
+    "timeout_s": 1800,
+    "warmups": 2
+  },
+  "forward_work": {
+    "forward_duration_reductions": 9850000,
+    "forward_states": 1000000,
+    "forward_total_reductions": 29850000,
+    "forward_transition_reductions": 20000000
+  },
+  "geometry": {
+    "legal_blocks_per_trace_mean": 4935.0,
+    "legal_blocks_times_skills": 9870000,
+    "legal_blocks_total": 493500,
+    "n_legal_widths": 10,
+    "trace_occurrences": 50000
+  },
+  "group": "primitives",
+  "loadavg_after": [
+    2.025390625,
+    1.7734375,
+    1.72216796875
+  ],
+  "loadavg_before": [
+    2.025390625,
+    1.7734375,
+    1.72216796875
+  ],
+  "predicted_memory": {
+    "alpha_chart_bytes": 8016000,
+    "batched_alpha_r_bytes": 16032000,
+    "batched_stack_bytes_worst_class": 4008000000,
+    "dense_block_table_bytes": 4008000000,
+    "dense_block_table_bytes_all_copies": 4008000000,
+    "dense_copies_live_in_this_group": 1,
+    "fast_cumulative_bytes": 95616000,
+    "group": "primitives",
+    "predicted_arrays_total_bytes": 8135664000,
+    "predicted_process_rss_bytes": 8366350720,
+    "projected_banded_bytes_NOT_IMPLEMENTED": 79680000,
+    "projected_banded_saving_ratio_NOT_IMPLEMENTED": 50.30120481927711
+  },
+  "preflight": {
+    "allowed": false,
+    "available_bytes": 7886848000,
+    "cap_bytes": 6442450944,
+    "predicted_rss_bytes": 8366350720,
+    "reasons": [
+      "predicted RSS 7.79 GiB exceeds the frozen cap 6.00 GiB",
+      "predicted RSS 7.79 GiB exceeds 80% of the 7.35 GiB currently reclaimable"
+    ]
+  },
+  "role_graph": {
+    "max_predecessors_per_role": 9,
+    "mean_predecessors_per_role": 0.4620000000000001,
+    "mean_relation_density": 0.009428571428571429,
+    "n_roles": 50,
+    "n_skills": 20,
+    "relation_density_per_skill": [
+      0.009795918367346938,
+      0.005714285714285714,
+      0.008979591836734694,
+      0.008571428571428572,
+      0.008571428571428572,
+      0.010612244897959184,
+      0.008979591836734694,
+      0.008979591836734694,
+      0.012244897959183673,
+      0.008571428571428572,
+      0.011020408163265306,
+      0.009795918367346938,
+      0.009795918367346938,
+      0.011020408163265306,
+      0.007755102040816327,
+      0.006530612244897959,
+      0.011020408163265306,
+      0.011020408163265306,
+      0.013469387755102041,
+      0.006122448979591836
+    ],
+    "relations_per_skill": [
+      24,
+      14,
+      22,
+      21,
+      21,
+      26,
+      22,
+      22,
+      30,
+      21,
+      27,
+      24,
+      24,
+      27,
+      19,
+      16,
+      27,
+      27,
+      33,
+      15
+    ]
+  },
+  "status": "skipped_memory_preflight",
+  "swap": {
+    "available": true,
+    "available_bytes": 7884144640,
+    "raw": "total = 3072.00M  used = 1523.38M  free = 1548.62M  (encrypted)",
+    "swapins": 1784050.0,
+    "swapouts": 2238774.0,
+    "used_mb": 1523.38
+  }
+}

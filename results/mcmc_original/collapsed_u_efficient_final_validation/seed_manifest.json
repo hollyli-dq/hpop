@@ -1,0 +1,14 @@
+{
+  "chain_seeds": [
+    8158001,
+    8158002,
+    8158003,
+    8158004
+  ],
+  "burnin_diagnostic_seeds": [
+    8158901,
+    8158902
+  ],
+  "evaluator_bootstrap_seed_base": 8158500,
+  "never_used_previously": true
+}

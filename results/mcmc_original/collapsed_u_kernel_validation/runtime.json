@@ -1,0 +1,23 @@
+{
+  "reference_problem": {
+    "ordinary_sweep_seconds": 0.02675819520751247,
+    "partially_collapsed_sweep_seconds_at_every_10": 0.02775605916747736,
+    "collapsed_event_seconds_mean": 0.01769736040077987,
+    "collapsed_event_seconds_p95": 0.022398968740890268,
+    "overhead_fraction_at_every_10": 0.03729190075139059,
+    "events_measured": 40
+  },
+  "full_corpus_read_only": {
+    "checkpoint": "/Users/dongqing/Desktop/hpop-step7/results/mcmc_original/stage7b2_full_joint_ffbs/checkpoints/chain0_checkpoint.json",
+    "sweep": 48500,
+    "collapsed_proposal_seconds": 1.7939589580055326,
+    "ffbs_refresh_all_traces_seconds": 2.1071349589910824,
+    "combined_collapsed_event_seconds": 3.901093916996615,
+    "note": "the FFBS refresh runs every sweep in the production sampler anyway; the marginal cost of a scheduled sweep is the collapsed proposal alone",
+    "overhead_estimate_every_10": {
+      "added_seconds_per_sweep": 0.17939589580055326,
+      "vs_observed_7b2_sweep_seconds": 1.375,
+      "relative_overhead": 0.13046974240040238
+    }
+  }
+}

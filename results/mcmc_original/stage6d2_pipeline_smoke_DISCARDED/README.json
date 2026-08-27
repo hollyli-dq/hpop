@@ -1,0 +1,11 @@
+{
+  "status": "DISCARDED \u2014 not a Stage 6D2 result and not a pilot",
+  "purpose": "600 sweeps, 100 burn-in, thin 5, four chains, at the REGISTERED (un-piloted) Stage 6B/6C scales. Run only to exercise the \u00a715/\u00a716/\u00a713/\u00a717 analysis code end to end so that the formal run's analysis would not fail on a code path bug after the chains had been paid for.",
+  "influenced_nothing": [
+    "no gate threshold: the Stage 6D2 gate registration was written before this ran",
+    "no proposal scale: the Stage 6D2 pilot was already running under its own registered selection rule, which is executed in code and was neither consulted nor adjusted in response to anything here",
+    "no prior, no start, no sweep count"
+  ],
+  "why_it_is_kept": "deleting it would hide that Stage 6D2 numbers were computed before the pilot finished. It is preserved and labelled instead.",
+  "convergence": "fails every convergence gate, as a 100-draw run must. That is not a finding about the sampler."
+}

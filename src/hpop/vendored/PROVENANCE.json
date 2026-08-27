@@ -1,0 +1,110 @@
+{
+  "vendored_from": {
+    "project": "/Users/dongqing/Desktop/po_inference_agent",
+    "git_commit": "7b998ab3362d0bbc5b2514adb950098b385b0058",
+    "git_branch": "codex-repo-cleanup-no-paper",
+    "source_working_tree_dirty_files": 17
+  },
+  "vendored_on": "2026-08-10",
+  "vendored_into": "src/hpop/vendored/po_inference_agent",
+  "modification": "NONE - files are byte-identical copies; verified by sha256 below",
+  "why": "hpop Stage 5 must reuse the verified partial-order MCMC (mcmc_simulation_po) rather than reimplement U/rho/beta updates. Vendored so hpop stays self-contained and the Stage-5 results remain reproducible if the source project moves.",
+  "entry_points": {
+    "sampler": "src/mcmc/hpo_po_hm_mcmc_k_optim.py :: mcmc_simulation_po",
+    "schedule": "src/mcmc/hpo_po_hm_mcmc_k_optim.py :: calculate_dimension_proportional_weights",
+    "compat_wrapper": "src/mcmc/hpo_po_hm_mcmc_k_optim.py :: mcmc_simulation_hpo_k_optim (NOT used by Stage 5)",
+    "likelihood": "src/utils/po_accelerator_nle_optimized.py :: HPO_LogLikelihoodCache_Optimized.calculate_log_likelihood_po_optimized",
+    "utils": "src/utils/po_fun.py :: BasicUtils, StatisticalUtils"
+  },
+  "drift_check": "python -m hpop.vendored.check_drift",
+  "files": {
+    "src/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_source": true
+    },
+    "src/mcmc/__init__.py": {
+      "sha256": "d8334600d223a06659aee1c5ee76bbabf7e7a92217ad686cb58f826ea4bc1378",
+      "matches_source": true
+    },
+    "src/mcmc/hpo_po_hm_mcmc_k_optim.py": {
+      "sha256": "08bf918f1112b16f5f2e317dfd6b37e7f690ee28c9917732d2cda95af05ab3f9",
+      "matches_source": true
+    },
+    "src/utils/__init__.py": {
+      "sha256": "399a792535effe70dfae0636885c1fbc5425145c60491ed423c42c7ddbe86f0c",
+      "matches_source": true
+    },
+    "src/utils/cloud_iac_coverage.py": {
+      "sha256": "ca029f0427aaf78e59307632febd2c138cf3a70724c6917232e18af7413740fb",
+      "matches_source": true
+    },
+    "src/utils/cloud_iac_dataset.py": {
+      "sha256": "7d330fe3e5bde9bd4e56a8c779bbb1140833e6113c0931516dbfd193dbce78d7",
+      "matches_source": true
+    },
+    "src/utils/hpo_model_evaluation.py": {
+      "sha256": "1b20b1fcc80dc414f98038c39d21685b22066dc99a160c1bfd6899585900df2e",
+      "matches_source": true
+    },
+    "src/utils/iac_cloud_data_processing.py": {
+      "sha256": "82fcafff5da7ab40c1aa4590c9ada453e49694243f083dd1b3407faffd842d90",
+      "matches_source": true
+    },
+    "src/utils/icml_visual.py": {
+      "sha256": "942570b267f9f6d1017bd8cd96a2124b848b8f65f089cf2d510efd8d85420aec",
+      "matches_source": true
+    },
+    "src/utils/keep_awake.py": {
+      "sha256": "52bbebee3452d1c0ef649d648f0c4ebddcdb20535a4d96fb16919df0f0f07f68",
+      "matches_source": true
+    },
+    "src/utils/linext_accelerator.py": {
+      "sha256": "f137f177cb97605ed27816620c232cbc3651e7d7f7ddfa9863599ddb27ab357e",
+      "matches_source": true
+    },
+    "src/utils/linext_direct.py": {
+      "sha256": "7bc8bdbf6bcb02d32113191ac8bd21f84f09d17f0e114b6c30c75bd0e175dc79",
+      "matches_source": true
+    },
+    "src/utils/numba_accelerated.py": {
+      "sha256": "33c3c06b0a002d09af2390fb017763f36b443bbbe36a3fd3164262bb5c203b2a",
+      "matches_source": true
+    },
+    "src/utils/po_accelerator_eta_accelerated.py": {
+      "sha256": "b7c0cd2de0b77ecfff44a144d48eaf4763836a2d25ca75716e5b562c533919d1",
+      "matches_source": true
+    },
+    "src/utils/po_accelerator_nle.py": {
+      "sha256": "d93523d28b2cd03be2bc81af0c484ce56f97eadf211ab4bbe83b47c524c46f61",
+      "matches_source": true
+    },
+    "src/utils/po_accelerator_nle_optimized.py": {
+      "sha256": "329677236e2d272a76ff27e63b569ca4685eb4be627719d846756f641a8f413a",
+      "matches_source": true
+    },
+    "src/utils/po_fun.py": {
+      "sha256": "b61f9957c3169c1b45759e1cdd845224f5040e744f3acea6f59a59f40293ae7c",
+      "matches_source": true
+    },
+    "src/utils/po_fun_plot.py": {
+      "sha256": "f069e8519df57195d075fc1820cd4b9bc57268263e102964eb7d6ac4bdf2f205",
+      "matches_source": true
+    },
+    "src/utils/result_paths.py": {
+      "sha256": "b08c331c602f87d10fc2470acb1719193e6f7ddefdc957c74722357882feb40f",
+      "matches_source": true
+    },
+    "src/utils/silence_cpp_output.py": {
+      "sha256": "4b50d836846863f0fc7e65d3cc2581677d3a5901a11a232bedf41aa7a26fe561",
+      "matches_source": true
+    },
+    "src/utils/sushi_data_loading.py": {
+      "sha256": "0274096c94d2da7232f1d783db0207b5bdb872b974548350579f9abfa8460bca",
+      "matches_source": true
+    },
+    "src/utils/wfcommons_loader.py": {
+      "sha256": "3f89033d572b11ae69c58ee2b4c448d01230e258eeb69b09f4f2b3f1207210bf",
+      "matches_source": true
+    }
+  }
+}

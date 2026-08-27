@@ -1,0 +1,41 @@
+{
+  "acceptance_band": [
+    0.2,
+    0.6
+  ],
+  "base_scale": 0.5,
+  "chains": 2,
+  "grid_multipliers": [
+    0.25,
+    0.5,
+    1.0,
+    2.0,
+    4.0,
+    8.0
+  ],
+  "may_inspect": [
+    "acceptance",
+    "ESJD",
+    "runtime",
+    "H-change frequency",
+    "numerical health"
+  ],
+  "must_not_inspect": [
+    "truth recovery",
+    "relation F1",
+    "Hamming to H*",
+    "coverage",
+    "held-out likelihood",
+    "formal R-hat"
+  ],
+  "seeds": [
+    6202201,
+    6202202
+  ],
+  "selection_rule": "acceptance in band -> max ESJD; else closest to band, band never widened",
+  "start_seeds": [
+    6202211,
+    6202212
+  ],
+  "sweeps_per_scale": 3000
+}

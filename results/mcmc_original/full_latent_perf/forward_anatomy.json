@@ -1,0 +1,393 @@
+{
+  "B_census": {
+    "J_values": {
+      "24": 25,
+      "32": 25,
+      "40": 25,
+      "48": 25
+    },
+    "K": 3,
+    "block_score_reads_total": 85500,
+    "calls": 10800,
+    "calls_predicted_J_times_K": 10800,
+    "distinct_b_k_visited": 144,
+    "each_b_k_visited_once": false,
+    "inner_a_h_pairs_predicted_JDK2": 256500,
+    "inner_a_h_pairs_total": 256500,
+    "max_width": 12,
+    "min_width": 3,
+    "n_roles": 5,
+    "n_traces": 100,
+    "options_per_call": {
+      "max": 20,
+      "mean": 15.0,
+      "median": 20.0,
+      "min": 0
+    },
+    "options_returned_total": 162000,
+    "pruned_fraction": 0.368421052631579,
+    "size_histogram": {
+      "0": 600,
+      "1": 900,
+      "11": 300,
+      "13": 300,
+      "15": 300,
+      "16": 300,
+      "18": 300,
+      "20": 6600,
+      "3": 300,
+      "5": 300,
+      "7": 300,
+      "9": 300
+    },
+    "start_position_visits_top10": [
+      [
+        1,
+        3000
+      ],
+      [
+        2,
+        3000
+      ],
+      [
+        3,
+        3000
+      ],
+      [
+        4,
+        3000
+      ],
+      [
+        5,
+        3000
+      ],
+      [
+        6,
+        3000
+      ],
+      [
+        7,
+        3000
+      ],
+      [
+        8,
+        3000
+      ],
+      [
+        9,
+        3000
+      ],
+      [
+        10,
+        3000
+      ]
+    ]
+  },
+  "B_scaling_in_K": {
+    "D": 12,
+    "J": 40,
+    "empirical_exponent_in_K": 1.4334134715672313,
+    "per_K": {
+      "10": {
+        "predicted_JDK2": 48000,
+        "predicted_JK2_plus_JDK": 8800,
+        "seconds": 0.1109783330002756
+      },
+      "20": {
+        "predicted_JDK2": 192000,
+        "predicted_JK2_plus_JDK": 25600,
+        "seconds": 0.28291733400010344
+      },
+      "3": {
+        "predicted_JDK2": 4320,
+        "predicted_JK2_plus_JDK": 1800,
+        "seconds": 0.019870000000082655
+      },
+      "5": {
+        "predicted_JDK2": 12000,
+        "predicted_JK2_plus_JDK": 3400,
+        "seconds": 0.03503429200009123
+      }
+    }
+  },
+  "C_logsumexp": {
+    "00_python_call_overhead": {
+      "total_s": 0.0002318749998266867,
+      "us_per_call": 0.038645833304447784
+    },
+    "01_max_only": {
+      "total_s": 0.013039417000072717,
+      "us_per_call": 2.173236166678786
+    },
+    "02_exp_only_allocating": {
+      "total_s": 0.004543875000308617,
+      "us_per_call": 0.7573125000514361
+    },
+    "03_sum_only": {
+      "total_s": 0.012107874999855994,
+      "us_per_call": 2.017979166642666
+    },
+    "10_inline_numpy": {
+      "total_s": 0.04667912500008242,
+      "us_per_call": 7.779854166680404
+    },
+    "11_inline_prealloc": {
+      "total_s": 0.04947295800002394,
+      "us_per_call": 8.24549300000399
+    },
+    "20_scipy_logsumexp": {
+      "total_s": 0.8580778340001416,
+      "us_per_call": 143.01297233335694
+    },
+    "max_abs_disagreement_inline": 1.4210854715202004e-14,
+    "max_abs_disagreement_prealloc": 1.4210854715202004e-14,
+    "mean_array_size": 15.819,
+    "n_arrays": 6000,
+    "split_us_per_call": {
+      "allocation_copy_inline_minus_prealloc": -0.46563883332358547,
+      "python_call_overhead": 0.038645833304447784,
+      "reduction_arithmetic_prealloc_minus_call": 8.206847166699541,
+      "scipy_array_api_shim_scipy_minus_inline": 135.23311816667655,
+      "scipy_total": 143.01297233335694
+    }
+  },
+  "F_attribution": {
+    "bucket_seconds": {
+      "allocation": 0.45158793900000005,
+      "arithmetic": 0.189008735,
+      "dispatch": 1.4628908820000002,
+      "interpreter": 0.8657765080000002,
+      "other": 0.9639965599999994
+    },
+    "bucket_share": {
+      "allocation": 0.11481261532594542,
+      "arithmetic": 0.04805395651808707,
+      "dispatch": 0.37192828592992827,
+      "interpreter": 0.22011674047664126,
+      "other": 0.24508840174939786
+    },
+    "top": [
+      {
+        "bucket": "interpreter",
+        "cumtime_s": 0.826511404,
+        "function": "semi_markov_ffbs.py:139(predecessor_terms)",
+        "ncalls": 10800,
+        "tottime_s": 0.6163234820000001
+      },
+      {
+        "bucket": "dispatch",
+        "cumtime_s": 1.877942481,
+        "function": "_logsumexp.py:201(_logsumexp)",
+        "ncalls": 10300,
+        "tottime_s": 0.5359863500000001
+      },
+      {
+        "bucket": "dispatch",
+        "cumtime_s": 2.992483726,
+        "function": "_logsumexp.py:15(logsumexp)",
+        "ncalls": 10300,
+        "tottime_s": 0.330998294
+      },
+      {
+        "bucket": "arithmetic",
+        "cumtime_s": 0.189008735,
+        "function": "~:0(<method 'reduce' of 'numpy.ufunc' objects>)",
+        "ncalls": 41900,
+        "tottime_s": 0.189008735
+      },
+      {
+        "bucket": "other",
+        "cumtime_s": 0.46222315700000005,
+        "function": "_at.py:224(_op)",
+        "ncalls": 20600,
+        "tottime_s": 0.177735586
+      },
+      {
+        "bucket": "interpreter",
+        "cumtime_s": 0.129403249,
+        "function": "~:0(<method 'append' of 'list' objects>)",
+        "ncalls": 516900,
+        "tottime_s": 0.129403249
+      },
+      {
+        "bucket": "dispatch",
+        "cumtime_s": 0.35477402900000005,
+        "function": "_array_api.py:544(xp_promote)",
+        "ncalls": 10300,
+        "tottime_s": 0.112440174
+      },
+      {
+        "bucket": "dispatch",
+        "cumtime_s": 0.311108794,
+        "function": "fromnumeric.py:66(_wrapreduction)",
+        "ncalls": 41200,
+        "tottime_s": 0.10815221300000001
+      },
+      {
+        "bucket": "interpreter",
+        "cumtime_s": 3.9325622030000003,
+        "function": "semi_markov_ffbs.py:188(forward)",
+        "ncalls": 100,
+        "tottime_s": 0.100602696
+      },
+      {
+        "bucket": "dispatch",
+        "cumtime_s": 0.26942759,
+        "function": "numerictypes.py:385(isdtype)",
+        "ncalls": 41200,
+        "tottime_s": 0.097706894
+      },
+      {
+        "bucket": "dispatch",
+        "cumtime_s": 0.12365674400000001,
+        "function": "numerictypes.py:372(_preprocess_dtype)",
+        "ncalls": 41200,
+        "tottime_s": 0.08061691600000001
+      },
+      {
+        "bucket": "other",
+        "cumtime_s": 0.073686839,
+        "function": "~:0(<built-in method builtins.isinstance>)",
+        "ncalls": 216300,
+        "tottime_s": 0.073686839
+      },
+      {
+        "bucket": "other",
+        "cumtime_s": 0.210287525,
+        "function": "_aliases.py:631(sign)",
+        "ncalls": 20600,
+        "tottime_s": 0.07268476800000001
+      },
+      {
+        "bucket": "allocation",
+        "cumtime_s": 0.126733272,
+        "function": "_array_api.py:497(xp_result_type)",
+        "ncalls": 10300,
+        "tottime_s": 0.066171689
+      },
+      {
+        "bucket": "allocation",
+        "cumtime_s": 0.065295816,
+        "function": "~:0(<built-in method numpy.asarray>)",
+        "ncalls": 32800,
+        "tottime_s": 0.065295816
+      },
+      {
+        "bucket": "dispatch",
+        "cumtime_s": 0.30245772800000004,
+        "function": "fromnumeric.py:2304(sum)",
+        "ncalls": 30900,
+        "tottime_s": 0.059229049000000006
+      },
+      {
+        "bucket": "allocation",
+        "cumtime_s": 0.065564617,
+        "function": "_helpers.py:149(is_torch_array)",
+        "ncalls": 61800,
+        "tottime_s": 0.058068774000000004
+      },
+      {
+        "bucket": "allocation",
+        "cumtime_s": 0.095587636,
+        "function": "_helpers.py:217(is_jax_array)",
+        "ncalls": 30900,
+        "tottime_s": 0.057934646000000006
+      },
+      {
+        "bucket": "dispatch",
+        "cumtime_s": 0.224755436,
+        "function": "_logsumexp.py:169(_elements_and_indices_with_max_real)",
+        "ncalls": 10300,
+        "tottime_s": 0.055112887000000006
+      },
+      {
+        "bucket": "other",
+        "cumtime_s": 0.09074480500000001,
+        "function": "numerictypes.py:475(issubdtype)",
+        "ncalls": 20600,
+        "tottime_s": 0.038056592
+      },
+      {
+        "bucket": "dispatch",
+        "cumtime_s": 0.13760275700000002,
+        "function": "_aliases.py:574(isdtype)",
+        "ncalls": 20600,
+        "tottime_s": 0.03731899
+      },
+      {
+        "bucket": "other",
+        "cumtime_s": 0.036861887,
+        "function": "~:0(<method 'update' of 'set' objects>)",
+        "ncalls": 41200,
+        "tottime_s": 0.036861887
+      },
+      {
+        "bucket": "allocation",
+        "cumtime_s": 0.042033096000000006,
+        "function": "_helpers.py:957(is_writeable_array)",
+        "ncalls": 20600,
+        "tottime_s": 0.036337304
+      },
+      {
+        "bucket": "other",
+        "cumtime_s": 0.032222703000000005,
+        "function": "~:0(<built-in method builtins.iter>)",
+        "ncalls": 41200,
+        "tottime_s": 0.032222703000000005
+      },
+      {
+        "bucket": "other",
+        "cumtime_s": 0.065097208,
+        "function": "_delegation.py:35(atleast_nd)",
+        "ncalls": 10300,
+        "tottime_s": 0.032211838
+      },
+      {
+        "bucket": "other",
+        "cumtime_s": 0.24228311400000002,
+        "function": "_internal.py:33(wrapped_f)",
+        "ncalls": 20600,
+        "tottime_s": 0.031995589000000005
+      },
+      {
+        "bucket": "dispatch",
+        "cumtime_s": 0.05083416,
+        "function": "_array_api.py:76(_asarray)",
+        "ncalls": 30900,
+        "tottime_s": 0.030521879000000002
+      },
+      {
+        "bucket": "allocation",
+        "cumtime_s": 0.033763567,
+        "function": "_helpers.py:72(_is_jax_zero_gradient_array)",
+        "ncalls": 30900,
+        "tottime_s": 0.030173386000000003
+      },
+      {
+        "bucket": "other",
+        "cumtime_s": 0.061091707,
+        "function": "_function_base_impl.py:363(iterable)",
+        "ncalls": 41200,
+        "tottime_s": 0.028869004
+      },
+      {
+        "bucket": "other",
+        "cumtime_s": 0.026624146,
+        "function": "~:0(<method 'reset' of '_contextvars.ContextVar' objects>)",
+        "ncalls": 20600,
+        "tottime_s": 0.026624146
+      }
+    ],
+    "total_self_time_s": 3.9332606240000003
+  },
+  "created_at_utc": "2026-08-22T16:20:47Z",
+  "forward_all_traces_seconds_best_of_3": 2.045653915999992,
+  "loadavg": [
+    19.103515625,
+    20.50341796875,
+    20.544921875
+  ],
+  "numpy_version": "2.4.6",
+  "scipy_version": "1.18.0",
+  "state_origin": "checkpoint:full_cond_0.npz"
+}

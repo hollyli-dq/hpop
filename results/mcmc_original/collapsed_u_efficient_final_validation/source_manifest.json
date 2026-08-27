@@ -1,0 +1,15 @@
+{
+  "commit": "738fe0066a0e24463e3d7eb4419ea2886fe196ca",
+  "stage6e_config_hash": "d98897a181b6809a17dd572ca175da7846a6924b8429b9c7337a939686a6da44",
+  "hashes": {
+    "src/hpop/mcmc_original/collapsed_u_kernel.py": "430048ef84030fcfbc347def2a774c51fefdef14ee17409eea90ddefaf15e214",
+    "src/hpop/mcmc_original/collapsed_u_likelihood.py": "8efc9bee86ead719a625b3d9f5371cc2dabe4957e777b61f2cfddf4798e35199",
+    "src/hpop/mcmc_original/semi_markov_ffbs.py": "8150bb8235eb159d5e2f08ada7c698c383f4c7fd31f3b882e218b207dd135486",
+    "src/hpop/mcmc_original/sampler_u.py": "7324f3c853c32ed048eeffbbf97e68ad7efa0f68ee72919068b958394f595999",
+    "src/hpop/mcmc_original/fast_block_tables.py": "7b91a074fe42a600fbe4ab37f18d012e10906f673d1ab9a83e019e77b65fdfcc",
+    "src/hpop/mcmc_original/recurrent_joint_ffbs_mcmc.py": "6b5952414e85ebbc253bd22e0b4195efcfc7f474bf30e41cc5cb143687e8694a",
+    "src/hpop/mcmc_original/stage6e_sampler.py": "2903ad58dff37bc0b0cb3cbdd4c4e76cefe1df73bc7330d852892deae72704f6",
+    "scripts/collapsed_u_efficient_gate.py": "b6c70140d9b415f69a9b582bb13a819c4bb78e5c295a76470e0496b7310cc6e6"
+  },
+  "evaluator_frozen_before_first_checkpoint": true
+}

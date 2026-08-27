@@ -1,0 +1,18 @@
+{
+  "n_blocks": 200,
+  "n_steps": 4000,
+  "predictive_draws_used": 400,
+  "posterior_predictive_log_score_per_step": -1.2433146936554562,
+  "log_score_at_the_generating_truth": -1.2431608051298682,
+  "log_score_at_the_posterior_mean_scalars_and_a_modal_order_draw": -1.2433115262987795,
+  "log_score_at_the_prior_mean_with_true_U": -1.325226311731775,
+  "per_block_predictive_min": -1.7068256829637432,
+  "per_block_predictive_max": -1.0460393210578647,
+  "entrywise_posterior_mean_U_is_not_a_valid_plug_in": {
+    "log_score": -2.0288296439214473,
+    "relations_induced_by_the_entrywise_mean": 10,
+    "relations_induced_by_a_modal_order_draw": 6,
+    "why": "averaging U entrywise across the posterior collapses the incomparabilities: every draw realises the same partial order, but their mean lands in a region where all coordinates are strictly ordered, so h(mean U) is a denser order than h(U) for any draw. The likelihood reads U only through h(U), so this plug-in scores a different model. It is reported as a negative control \u2014 a concrete demonstration of why entrywise U recovery is not claimed \u2014 and not as a competitor."
+  },
+  "note": "secondary reporting only; not used to choose a proposal scale, a prior or a threshold. The prior-mean row is a floor, not a competitor."
+}

@@ -1,0 +1,125 @@
+{
+  "unknown": [
+    {
+      "block": 1,
+      "sweeps_to": 50000,
+      "burn_in": 15000,
+      "thin": 5,
+      "resumed": true,
+      "kind": "crash recovery (same registered sweep count)",
+      "wall_seconds": 34566.951150000095,
+      "retained_pooled": 28000,
+      "scales": {
+        "U": 0.5,
+        "rho": 0.5,
+        "beta": 0.40872,
+        "omega": 1.45704,
+        "lambda_rep": 0.6648,
+        "lambda_back": 1.51552
+      },
+      "n_proposals_per_trace": 32,
+      "why": "crash recovery: the chains were interrupted and resumed from their last checkpoint to the SAME registered sweep count, with each chain's own RNG state restored. Not a continuation and not an extension."
+    },
+    {
+      "block": 2,
+      "sweeps_to": 75000,
+      "burn_in": 15000,
+      "thin": 5,
+      "resumed": true,
+      "kind": "section 14 continuation",
+      "wall_seconds": 26416.102708791965,
+      "retained_pooled": 20000,
+      "scales": {
+        "U": 0.5,
+        "rho": 0.5,
+        "beta": 0.40872,
+        "omega": 1.45704,
+        "lambda_rep": 0.6648,
+        "lambda_back": 1.51552
+      },
+      "n_proposals_per_trace": 32,
+      "why": "registered 25,000-sweep continuation after a convergence gate failed"
+    },
+    {
+      "block": 3,
+      "sweeps_to": 100000,
+      "burn_in": 15000,
+      "thin": 5,
+      "resumed": true,
+      "kind": "section 14 continuation",
+      "wall_seconds": 22541.17177870893,
+      "retained_pooled": 20000,
+      "scales": {
+        "U": 0.5,
+        "rho": 0.5,
+        "beta": 0.40872,
+        "omega": 1.45704,
+        "lambda_rep": 0.6648,
+        "lambda_back": 1.51552
+      },
+      "n_proposals_per_trace": 32,
+      "why": "registered 25,000-sweep continuation after a convergence gate failed"
+    },
+    {
+      "block": 4,
+      "sweeps_to": 125000,
+      "burn_in": 15000,
+      "thin": 5,
+      "resumed": true,
+      "kind": "section 14 continuation",
+      "wall_seconds": 26125.417116959,
+      "retained_pooled": 20000,
+      "scales": {
+        "U": 0.5,
+        "rho": 0.5,
+        "beta": 0.40872,
+        "omega": 1.45704,
+        "lambda_rep": 0.6648,
+        "lambda_back": 1.51552
+      },
+      "n_proposals_per_trace": 32,
+      "why": "registered 25,000-sweep continuation after a convergence gate failed"
+    },
+    {
+      "block": 5,
+      "sweeps_to": 150000,
+      "burn_in": 15000,
+      "thin": 5,
+      "resumed": true,
+      "kind": "section 14 continuation",
+      "wall_seconds": 34415.670835,
+      "retained_pooled": 20000,
+      "scales": {
+        "U": 0.5,
+        "rho": 0.5,
+        "beta": 0.40872,
+        "omega": 1.45704,
+        "lambda_rep": 0.6648,
+        "lambda_back": 1.51552
+      },
+      "n_proposals_per_trace": 32,
+      "why": "registered 25,000-sweep continuation after a convergence gate failed"
+    }
+  ],
+  "oracle": [
+    {
+      "block": 1,
+      "sweeps_to": 50000,
+      "burn_in": 15000,
+      "thin": 5,
+      "resumed": false,
+      "wall_seconds": 7742.859417375061,
+      "retained_pooled": 28000,
+      "scales": {
+        "U": 0.5,
+        "rho": 0.5,
+        "beta": 0.40872,
+        "omega": 1.45704,
+        "lambda_rep": 0.6648,
+        "lambda_back": 1.51552
+      },
+      "n_proposals_per_trace": 0,
+      "why": "initial registered run"
+    }
+  ]
+}

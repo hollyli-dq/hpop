@@ -1,0 +1,1940 @@
+{
+  "source_commit": "24739d802a3fc78caa56590c0d74a29ac15f7317",
+  "what_this_is": "a paired comparison of two transition kernels on one posterior; neither sampler's posterior is 'better' and none of these numbers says it is",
+  "stage7b1": {
+    "model": "the Stage 6E1B mixed model: 2 traces, J = 8, K = 3, pi and P fixed",
+    "reference": "the frozen Stage 6E1B mixed QMC + exact-enumeration reference",
+    "gate_comparison": {
+      "segmentation_total_variation": {
+        "ffbs": 0.0065959085129682375,
+        "local_move_kernel": 0.004605349601873157,
+        "threshold": 0.01,
+        "ffbs_pass": true,
+        "local_pass": true
+      },
+      "segmentation_total_variation_vs_sampled_estimator": {
+        "ffbs": 0.006442992913877066,
+        "local_move_kernel": 0.005416390249832974,
+        "threshold": 0.01,
+        "ffbs_pass": true,
+        "local_pass": true
+      },
+      "max_boundary_marginal_error": {
+        "ffbs": 0.0030483695669468736,
+        "local_move_kernel": 0.0015163057229615196,
+        "threshold": 0.01,
+        "ffbs_pass": true,
+        "local_pass": true
+      },
+      "max_occurrence_label_marginal_error": {
+        "ffbs": 0.005578470577125294,
+        "local_move_kernel": 0.0023641047354658884,
+        "threshold": 0.01,
+        "ffbs_pass": true,
+        "local_pass": true
+      },
+      "induced_h_total_variation": {
+        "ffbs": 0.007206842856575742,
+        "local_move_kernel": 0.005310317658387368,
+        "threshold": 0.01,
+        "ffbs_pass": true,
+        "local_pass": true
+      },
+      "max_relation_marginal_error": {
+        "ffbs": 0.0039006105013879577,
+        "local_move_kernel": 0.003879532975184785,
+        "threshold": 0.01,
+        "ffbs_pass": true,
+        "local_pass": true
+      },
+      "segment_count_total_variation": {
+        "ffbs": 0.002792932152944849,
+        "local_move_kernel": 0.0009101928470551246,
+        "threshold": 0.01,
+        "ffbs_pass": true,
+        "local_pass": true
+      },
+      "mixed_multivariate_reference_statistic": {
+        "ffbs": 0.002879019763661006,
+        "local_move_kernel": 0.003988790714935853,
+        "threshold": 0.004522256615497353,
+        "ffbs_pass": true,
+        "local_pass": true
+      },
+      "log_posterior_rhat": {
+        "ffbs": 1.0000754489440524,
+        "local_move_kernel": 1.0001201050351363,
+        "threshold": 1.01,
+        "ffbs_pass": true,
+        "local_pass": true
+      },
+      "n_segments_rhat": {
+        "ffbs": 1.0000151264907553,
+        "local_move_kernel": 1.0000367746372358,
+        "threshold": 1.01,
+        "ffbs_pass": true,
+        "local_pass": true
+      },
+      "relation_count_rhat": {
+        "ffbs": 1.0000616168656367,
+        "local_move_kernel": 1.0001446644793635,
+        "threshold": 1.01,
+        "ffbs_pass": true,
+        "local_pass": true
+      },
+      "selected_boundary_indicator_rhat": {
+        "ffbs": 1.000040553213827,
+        "local_move_kernel": 1.0000671808752921,
+        "threshold": 1.01,
+        "ffbs_pass": true,
+        "local_pass": true
+      },
+      "selected_relation_indicator_rhat": {
+        "ffbs": 1.0000084383188834,
+        "local_move_kernel": 1.0000169150268408,
+        "threshold": 1.01,
+        "ffbs_pass": true,
+        "local_pass": true
+      },
+      "rho_rhat": {
+        "ffbs": 1.0000707494332202,
+        "local_move_kernel": 1.000234457879457,
+        "threshold": 1.01,
+        "ffbs_pass": true,
+        "local_pass": true
+      },
+      "beta_rhat": {
+        "ffbs": 1.0018878623205312,
+        "local_move_kernel": 1.0025561250421307,
+        "threshold": 1.01,
+        "ffbs_pass": true,
+        "local_pass": true
+      },
+      "omega_rhat": {
+        "ffbs": 1.0003228816052674,
+        "local_move_kernel": 1.0013511147909597,
+        "threshold": 1.01,
+        "ffbs_pass": true,
+        "local_pass": true
+      },
+      "lambda_rep_rhat": {
+        "ffbs": 1.003246067209239,
+        "local_move_kernel": 1.0023670549425818,
+        "threshold": 1.01,
+        "ffbs_pass": true,
+        "local_pass": true
+      },
+      "lambda_back_rhat": {
+        "ffbs": 1.0013054867303661,
+        "local_move_kernel": 1.000631323622403,
+        "threshold": 1.01,
+        "ffbs_pass": true,
+        "local_pass": true
+      }
+    },
+    "both_pass_every_gate": true,
+    "equal_sweeps": {
+      "basis": "equal sweeps",
+      "rows": {
+        "wall_seconds": {
+          "local_move_kernel": 6467.178972917027,
+          "ffbs": 17144.07936324994
+        },
+        "sweeps": {
+          "local_move_kernel": 600000,
+          "ffbs": 600000
+        },
+        "log_posterior_rhat": {
+          "local_move_kernel": 1.0001201050351363,
+          "ffbs": 1.0000754489440524
+        },
+        "total_relation_count_rhat": {
+          "local_move_kernel": 1.0001446644793635,
+          "ffbs": 1.0000616168656367
+        },
+        "max_invariant_rhat": {
+          "local_move_kernel": 1.0025561250421307,
+          "ffbs": 1.003246067209239
+        },
+        "min_invariant_bulk_ess": {
+          "local_move_kernel": 1217.1012885076593,
+          "ffbs": 1302.1256480996283
+        },
+        "min_invariant_ess_per_second": {
+          "local_move_kernel": 0.18819663003058731,
+          "ffbs": 0.07595191439039098
+        },
+        "h_changes": {
+          "local_move_kernel": 187331,
+          "ffbs": 187478
+        },
+        "distinct_h_states": {
+          "local_move_kernel": 4658,
+          "ffbs": 4640
+        },
+        "structural_mode_transitions": {
+          "local_move_kernel": 187331,
+          "ffbs": 187478
+        },
+        "segment_count_ess": {
+          "local_move_kernel": 99665.51980270205,
+          "ffbs": 96256.97562641851
+        },
+        "co_clustering_ess": {
+          "local_move_kernel": null,
+          "ffbs": null
+        },
+        "beta_ess": {
+          "local_move_kernel": 1902.096173061357,
+          "ffbs": 1945.0921470962755
+        },
+        "omega_ess": {
+          "local_move_kernel": 3879.1021455113073,
+          "ffbs": 3838.8764340392286
+        },
+        "lambda_rep_ess": {
+          "local_move_kernel": 1217.1012885076593,
+          "ffbs": 1302.1256480996283
+        },
+        "lambda_back_ess": {
+          "local_move_kernel": 6047.993024616146,
+          "ffbs": 6249.436931599394
+        }
+      },
+      "missing": [
+        "co_clustering_ess"
+      ]
+    },
+    "equal_time": {
+      "basis": "equal wall clock",
+      "budget_seconds": 6467.178972917027,
+      "assumption": "ESS scales linearly with wall time within a run; valid past burn-in, optimistic near it",
+      "rows": {
+        "min_invariant_bulk_ess": {
+          "local_move_kernel": 1217.1012885076593,
+          "ffbs": 491.19462369833076
+        },
+        "segment_count_ess": {
+          "local_move_kernel": 99665.51980270205,
+          "ffbs": 36310.558040356234
+        },
+        "beta_ess": {
+          "local_move_kernel": 1902.096173061357,
+          "ffbs": 733.737797612625
+        },
+        "omega_ess": {
+          "local_move_kernel": 3879.1021455113073,
+          "ffbs": 1448.1209767999399
+        },
+        "lambda_rep_ess": {
+          "local_move_kernel": 1217.1012885076593,
+          "ffbs": 491.19462369833076
+        },
+        "lambda_back_ess": {
+          "local_move_kernel": 6047.993024616146,
+          "ffbs": 2357.445171611078
+        },
+        "co_clustering_ess": {
+          "local_move_kernel": null,
+          "ffbs": null
+        }
+      }
+    },
+    "local": {
+      "label": "LocalMoveKernel (Stage 6E1B, frozen)",
+      "path": "/Users/dongqing/Desktop/hpop-step7/results/mcmc_original/stage6e1b_mixed_reference/chains.npz",
+      "sha256": "85980a6b142851cc8ae3cadadc108553faf75946efe2496c5d7dae8624f05c54",
+      "wall_seconds": 6467.178972917027,
+      "cpu_seconds": 25805.736853498966,
+      "n_chains": 4,
+      "retained_per_chain": 48000,
+      "bulk_ess": {
+        "log_posterior": 24910.07265646176,
+        "total_segments": 99665.51980270205,
+        "total_relation_count": 30026.28140752394,
+        "rho": 18658.538814915246,
+        "beta": 1902.096173061357,
+        "omega": 3879.1021455113073,
+        "lambda_rep": 1217.1012885076593,
+        "lambda_back": 6047.993024616146
+      },
+      "rhat": {
+        "log_posterior": 1.0001201050351363,
+        "total_segments": 1.0000367746372358,
+        "total_relation_count": 1.0001446644793635,
+        "rho": 1.000234457879457,
+        "beta": 1.0025561250421307,
+        "omega": 1.0013511147909597,
+        "lambda_rep": 1.0023670549425818,
+        "lambda_back": 1.000631323622403
+      },
+      "lag1_autocorrelation": {
+        "log_posterior": 0.5759835173408685,
+        "total_segments": 0.09493390076341539,
+        "total_relation_count": 0.40256898118950374,
+        "rho": 0.751379459555626,
+        "beta": 0.9497267156665469,
+        "omega": 0.9620015201295377,
+        "lambda_rep": 0.976422524664911,
+        "lambda_back": 0.8953262656278064
+      },
+      "ess_per_second": {
+        "log_posterior": 3.8517679440725376,
+        "total_segments": 15.410972886335296,
+        "total_relation_count": 4.642871572484186,
+        "rho": 2.8851124876940424,
+        "beta": 0.2941152828809707,
+        "omega": 0.5998136377168537,
+        "lambda_rep": 0.18819663003058731,
+        "lambda_back": 0.9351825656818329
+      },
+      "min_bulk_ess": 1217.1012885076593,
+      "min_ess_per_second": 0.18819663003058731,
+      "max_rhat": 1.0025561250421307,
+      "structural_movement": {
+        "per_chain": [
+          {
+            "chain": 0,
+            "n_draws": 48000,
+            "distinct_states": 3737,
+            "changes": 46793,
+            "changes_per_1000_draws": 974.8541666666666,
+            "draws_to_first_change": 1,
+            "draws_to_leave_the_initial_state": 1,
+            "occupancy_top20": [
+              0.0056875,
+              0.005,
+              0.004854166666666666,
+              0.0037291666666666667,
+              0.0037083333333333334,
+              0.0035,
+              0.0032916666666666667,
+              0.0032916666666666667,
+              0.00325,
+              0.00325,
+              0.0031666666666666666,
+              0.0031041666666666665,
+              0.0030416666666666665,
+              0.0030416666666666665,
+              0.002916666666666667,
+              0.002895833333333333,
+              0.002875,
+              0.0027708333333333335,
+              0.0027708333333333335,
+              0.0027291666666666666
+            ],
+            "occupancy_tail_mass": 0.931125,
+            "modal_occupancy": 0.0056875,
+            "total_relation_count_mean": 5.881666666666667,
+            "total_relation_count_within_chain_sd": 1.6471350109129566,
+            "per_skill_relation_within_chain_sd": [
+              1.6471350109129566
+            ],
+            "distinct_total_relation_counts": 10
+          },
+          {
+            "chain": 1,
+            "n_draws": 48000,
+            "distinct_states": 3745,
+            "changes": 46866,
+            "changes_per_1000_draws": 976.375,
+            "draws_to_first_change": 1,
+            "draws_to_leave_the_initial_state": 1,
+            "occupancy_top20": [
+              0.005416666666666667,
+              0.0045625,
+              0.004145833333333333,
+              0.003895833333333333,
+              0.003625,
+              0.0035416666666666665,
+              0.003479166666666667,
+              0.0033125,
+              0.0032291666666666666,
+              0.0031666666666666666,
+              0.0030625,
+              0.0030625,
+              0.0030416666666666665,
+              0.002979166666666667,
+              0.0029375,
+              0.0029375,
+              0.002916666666666667,
+              0.0028541666666666667,
+              0.0027708333333333335,
+              0.0027708333333333335
+            ],
+            "occupancy_tail_mass": 0.9322916666666666,
+            "modal_occupancy": 0.005416666666666667,
+            "total_relation_count_mean": 5.913645833333334,
+            "total_relation_count_within_chain_sd": 1.6352990054192167,
+            "per_skill_relation_within_chain_sd": [
+              1.6352990054192167
+            ],
+            "distinct_total_relation_counts": 10
+          },
+          {
+            "chain": 2,
+            "n_draws": 48000,
+            "distinct_states": 3774,
+            "changes": 46867,
+            "changes_per_1000_draws": 976.3958333333334,
+            "draws_to_first_change": 1,
+            "draws_to_leave_the_initial_state": 1,
+            "occupancy_top20": [
+              0.004916666666666666,
+              0.004458333333333333,
+              0.003875,
+              0.0037916666666666667,
+              0.0036875,
+              0.0035208333333333333,
+              0.003395833333333333,
+              0.00325,
+              0.003125,
+              0.0031041666666666665,
+              0.0030833333333333333,
+              0.003,
+              0.0029375,
+              0.002895833333333333,
+              0.002875,
+              0.0027708333333333335,
+              0.00275,
+              0.0026875,
+              0.0026666666666666666,
+              0.0026666666666666666
+            ],
+            "occupancy_tail_mass": 0.9345416666666667,
+            "modal_occupancy": 0.004916666666666666,
+            "total_relation_count_mean": 5.9435625,
+            "total_relation_count_within_chain_sd": 1.6511286357006407,
+            "per_skill_relation_within_chain_sd": [
+              1.6511286357006407
+            ],
+            "distinct_total_relation_counts": 10
+          },
+          {
+            "chain": 3,
+            "n_draws": 48000,
+            "distinct_states": 3686,
+            "changes": 46805,
+            "changes_per_1000_draws": 975.1041666666666,
+            "draws_to_first_change": 1,
+            "draws_to_leave_the_initial_state": 1,
+            "occupancy_top20": [
+              0.005145833333333333,
+              0.004541666666666667,
+              0.004375,
+              0.0043125,
+              0.0034583333333333332,
+              0.003395833333333333,
+              0.0031875,
+              0.0031666666666666666,
+              0.0031458333333333334,
+              0.0031458333333333334,
+              0.003125,
+              0.0030625,
+              0.0030416666666666665,
+              0.002958333333333333,
+              0.0029375,
+              0.002875,
+              0.0028125,
+              0.0028125,
+              0.0028125,
+              0.0027708333333333335
+            ],
+            "occupancy_tail_mass": 0.9329166666666666,
+            "modal_occupancy": 0.005145833333333333,
+            "total_relation_count_mean": 5.9158125,
+            "total_relation_count_within_chain_sd": 1.6352336243734047,
+            "per_skill_relation_within_chain_sd": [
+              1.6352336243734047
+            ],
+            "distinct_total_relation_counts": 10
+          }
+        ],
+        "distinct_structural_states_pooled": 4658,
+        "total_structural_changes": 187331,
+        "chains_with_frozen_structure": 0,
+        "max_between_chain_relation_count_gap": 0.06189583333333282,
+        "criterion_A_frozen_structure": false,
+        "criterion_B_disagreeing_structure": false,
+        "criteria_note": "A and B are Stage 6E2's registered structural-locking criteria, reproduced here so the two samplers are judged by the same rule; criterion C is the invariant log-posterior spread and is computed by `invariant_summaries`"
+      },
+      "h_changes": 187331,
+      "distinct_h_states": 4658,
+      "structural_mode_transitions": 187331,
+      "segment_count_ess": 99665.51980270205,
+      "co_clustering_ess": null,
+      "beta_ess": 1902.096173061357,
+      "omega_ess": 3879.1021455113073,
+      "lambda_rep_ess": 1217.1012885076593,
+      "lambda_back_ess": 6047.993024616146,
+      "log_posterior_rhat": 1.0001201050351363,
+      "total_relation_count_rhat": 1.0001446644793635,
+      "max_invariant_rhat": 1.0025561250421307,
+      "min_invariant_bulk_ess": 1217.1012885076593,
+      "min_invariant_ess_per_second": 0.18819663003058731,
+      "sweeps": 600000
+    },
+    "ffbs": {
+      "label": "FFBS (Step 7B1)",
+      "path": "/Users/dongqing/Desktop/hpop-step7/results/mcmc_original/stage7b1_mixed_reference/chains.npz",
+      "sha256": "6e3479680698593c9f6c2245c40d56694e8d4ca66bb72126f3e7823f409c5914",
+      "wall_seconds": 17144.07936324994,
+      "cpu_seconds": 68266.54166524904,
+      "n_chains": 4,
+      "retained_per_chain": 48000,
+      "bulk_ess": {
+        "log_posterior": 27942.199979904533,
+        "total_segments": 96256.97562641851,
+        "total_relation_count": 30656.735451407836,
+        "rho": 20288.058434451887,
+        "beta": 1945.0921470962755,
+        "omega": 3838.8764340392286,
+        "lambda_rep": 1302.1256480996283,
+        "lambda_back": 6249.436931599394
+      },
+      "rhat": {
+        "log_posterior": 1.0000754489440524,
+        "total_segments": 1.0000151264907553,
+        "total_relation_count": 1.0000616168656367,
+        "rho": 1.0000707494332202,
+        "beta": 1.0018878623205312,
+        "omega": 1.0003228816052674,
+        "lambda_rep": 1.003246067209239,
+        "lambda_back": 1.0013054867303661
+      },
+      "lag1_autocorrelation": {
+        "log_posterior": 0.5756732903524131,
+        "total_segments": 0.08073144776230756,
+        "total_relation_count": 0.40227205123503584,
+        "rho": 0.7553690185808725,
+        "beta": 0.9495818028319348,
+        "omega": 0.9625550099746806,
+        "lambda_rep": 0.9766767399408763,
+        "lambda_back": 0.8908268298580756
+      },
+      "ess_per_second": {
+        "log_posterior": 1.6298454637232636,
+        "total_segments": 5.61458994600521,
+        "total_relation_count": 1.7881820774303947,
+        "rho": 1.183385704451496,
+        "beta": 0.11345561962725023,
+        "omega": 0.22391849411688133,
+        "lambda_rep": 0.07595191439039098,
+        "lambda_back": 0.36452449846888196
+      },
+      "min_bulk_ess": 1302.1256480996283,
+      "min_ess_per_second": 0.07595191439039098,
+      "max_rhat": 1.003246067209239,
+      "structural_movement": {
+        "per_chain": [
+          {
+            "chain": 0,
+            "n_draws": 48000,
+            "distinct_states": 3670,
+            "changes": 46884,
+            "changes_per_1000_draws": 976.75,
+            "draws_to_first_change": 1,
+            "draws_to_leave_the_initial_state": 1,
+            "occupancy_top20": [
+              0.005208333333333333,
+              0.004520833333333333,
+              0.0043125,
+              0.0038541666666666668,
+              0.0035416666666666665,
+              0.0034375,
+              0.0033333333333333335,
+              0.0030208333333333333,
+              0.002958333333333333,
+              0.002916666666666667,
+              0.002895833333333333,
+              0.0028333333333333335,
+              0.0028125,
+              0.0028125,
+              0.0027708333333333335,
+              0.00275,
+              0.0027291666666666666,
+              0.0027083333333333334,
+              0.0026875,
+              0.0026875
+            ],
+            "occupancy_tail_mass": 0.9352083333333333,
+            "modal_occupancy": 0.005208333333333333,
+            "total_relation_count_mean": 5.932916666666666,
+            "total_relation_count_within_chain_sd": 1.6454147087198003,
+            "per_skill_relation_within_chain_sd": [
+              1.6454147087198003
+            ],
+            "distinct_total_relation_counts": 10
+          },
+          {
+            "chain": 1,
+            "n_draws": 48000,
+            "distinct_states": 3747,
+            "changes": 46908,
+            "changes_per_1000_draws": 977.25,
+            "draws_to_first_change": 1,
+            "draws_to_leave_the_initial_state": 1,
+            "occupancy_top20": [
+              0.005291666666666667,
+              0.004333333333333333,
+              0.004020833333333334,
+              0.004,
+              0.0035208333333333333,
+              0.003416666666666667,
+              0.0031875,
+              0.0030833333333333333,
+              0.0030208333333333333,
+              0.003,
+              0.003,
+              0.002958333333333333,
+              0.0029375,
+              0.002875,
+              0.0027708333333333335,
+              0.0027708333333333335,
+              0.0026875,
+              0.0026458333333333334,
+              0.0026458333333333334,
+              0.002625
+            ],
+            "occupancy_tail_mass": 0.9352083333333333,
+            "modal_occupancy": 0.005291666666666667,
+            "total_relation_count_mean": 5.915854166666667,
+            "total_relation_count_within_chain_sd": 1.6293262263069461,
+            "per_skill_relation_within_chain_sd": [
+              1.6293262263069461
+            ],
+            "distinct_total_relation_counts": 10
+          },
+          {
+            "chain": 2,
+            "n_draws": 48000,
+            "distinct_states": 3740,
+            "changes": 46833,
+            "changes_per_1000_draws": 975.6875,
+            "draws_to_first_change": 1,
+            "draws_to_leave_the_initial_state": 1,
+            "occupancy_top20": [
+              0.0054375,
+              0.004479166666666667,
+              0.0044375,
+              0.0040625,
+              0.003395833333333333,
+              0.0033333333333333335,
+              0.0033333333333333335,
+              0.0032291666666666666,
+              0.0031666666666666666,
+              0.003125,
+              0.002979166666666667,
+              0.0029375,
+              0.002916666666666667,
+              0.002895833333333333,
+              0.0028125,
+              0.0027708333333333335,
+              0.00275,
+              0.0027291666666666666,
+              0.0027083333333333334,
+              0.0026041666666666665
+            ],
+            "occupancy_tail_mass": 0.9338958333333334,
+            "modal_occupancy": 0.0054375,
+            "total_relation_count_mean": 5.92525,
+            "total_relation_count_within_chain_sd": 1.633608388891803,
+            "per_skill_relation_within_chain_sd": [
+              1.633608388891803
+            ],
+            "distinct_total_relation_counts": 10
+          },
+          {
+            "chain": 3,
+            "n_draws": 48000,
+            "distinct_states": 3786,
+            "changes": 46853,
+            "changes_per_1000_draws": 976.1041666666666,
+            "draws_to_first_change": 1,
+            "draws_to_leave_the_initial_state": 1,
+            "occupancy_top20": [
+              0.004666666666666667,
+              0.0043125,
+              0.004145833333333333,
+              0.004,
+              0.003395833333333333,
+              0.0031458333333333334,
+              0.0030833333333333333,
+              0.0030416666666666665,
+              0.003,
+              0.0029375,
+              0.0029375,
+              0.002875,
+              0.0027708333333333335,
+              0.0027708333333333335,
+              0.0027708333333333335,
+              0.0027708333333333335,
+              0.00275,
+              0.0026458333333333334,
+              0.0026458333333333334,
+              0.002625
+            ],
+            "occupancy_tail_mass": 0.9367083333333334,
+            "modal_occupancy": 0.004666666666666667,
+            "total_relation_count_mean": 5.951145833333333,
+            "total_relation_count_within_chain_sd": 1.6459618905680444,
+            "per_skill_relation_within_chain_sd": [
+              1.6459618905680444
+            ],
+            "distinct_total_relation_counts": 10
+          }
+        ],
+        "distinct_structural_states_pooled": 4640,
+        "total_structural_changes": 187478,
+        "chains_with_frozen_structure": 0,
+        "max_between_chain_relation_count_gap": 0.03529166666666672,
+        "criterion_A_frozen_structure": false,
+        "criterion_B_disagreeing_structure": false,
+        "criteria_note": "A and B are Stage 6E2's registered structural-locking criteria, reproduced here so the two samplers are judged by the same rule; criterion C is the invariant log-posterior spread and is computed by `invariant_summaries`"
+      },
+      "h_changes": 187478,
+      "distinct_h_states": 4640,
+      "structural_mode_transitions": 187478,
+      "segment_count_ess": 96256.97562641851,
+      "co_clustering_ess": null,
+      "beta_ess": 1945.0921470962755,
+      "omega_ess": 3838.8764340392286,
+      "lambda_rep_ess": 1302.1256480996283,
+      "lambda_back_ess": 6249.436931599394,
+      "log_posterior_rhat": 1.0000754489440524,
+      "total_relation_count_rhat": 1.0000616168656367,
+      "max_invariant_rhat": 1.003246067209239,
+      "min_invariant_bulk_ess": 1302.1256480996283,
+      "min_invariant_ess_per_second": 0.07595191439039098,
+      "sweeps": 600000
+    },
+    "interpretation": "same target, different transition kernel"
+  },
+  "stage7b2": {
+    "protocol": {
+      "authored": "2026-08-14T22:05:00+0100",
+      "authored_while": "the FFBS chains were at ~sweep 22,500 of 50,000 and the Stage 6E2 baseline was mid-ladder at 100,000 (registered verdict CONTINUE); no comparison input existed",
+      "equal_sweep_basis": "the FFBS 50,000-sweep chains against the baseline's preserved first block `chains_block1_50k.npz` \u2014 identical schedule (burn-in 15,000, thin 5), identical reconstructed starts, new seeds, 7,000 retained draws per chain on both sides",
+      "equal_time_basis": "compare_equal_time against the FROZEN FINAL baseline, with the baseline wall clock the sum of its continuation blocks",
+      "ffbs_wall_estimator": "the interrupted run's true wall is unobservable, so the FFBS wall is (resumed-portion seconds per sweep) x 50,000; the resumed-portion wall is reported alongside and both sides ran under mutual contention, so cost rows are reported, never gated",
+      "verdict_rule": {
+        "criteria": "Stage 6E2's registered structural-locking criteria A, B, C, reproduced with identical thresholds and applied identically to both samplers' chains",
+        "escapes": "the FFBS kernel is said to ESCAPE the (S,z)-U structural locking iff the baseline's final chains satisfy the A-and-B-and-C conjunction and the FFBS chains do not",
+        "does_not_escape": "if the FFBS chains also satisfy the conjunction, the Step 7 hypothesis is falsified on this corpus and the report says so plainly \u2014 the freeze manifest predicted no improvement",
+        "otherwise": "any mixed outcome is reported criterion by criterion with no verdict word",
+        "interpretation_conditional_on": "the FFBS invariant-convergence worst R-hat; recovery stays uninterpreted for any sampler whose chains have not converged"
+      }
+    },
+    "ffbs": {
+      "label": "FFBS (Step 7B2)",
+      "path": "/Users/dongqing/Desktop/hpop-step7/results/mcmc_original/stage7b2_full_joint_ffbs/chains.npz",
+      "sha256": "2687c586f93dde14fdd8a1152cd4e08b6f61b64bd9cd9a65e87a81ecc5e502d5",
+      "wall_seconds": 95878.51662113972,
+      "wall_basis": "estimated: resumed-portion rate (1.918 s/sweep over 34,000 sweeps, 3568s of logged SIGSTOP pauses subtracted) x 50,000 sweeps; the pre-interruption wall is unobservable (power loss)",
+      "sweeps": 50000,
+      "n_chains": 4,
+      "retained_per_chain": 7000,
+      "invariant_convergence": {
+        "log_posterior": {
+          "rhat": 2.841085398555868,
+          "bulk_ess": 4.57971003493906,
+          "mean": -5679.2188933687485,
+          "sd": 160.13472532183425
+        },
+        "total_relation_count": {
+          "rhat": 2.9399716130923884e+16,
+          "bulk_ess": 4.004576659038902,
+          "mean": 11.25,
+          "sd": 2.487513013038396
+        },
+        "sorted_relation_counts": {
+          "rhat": 2.9399716130923884e+16,
+          "bulk_ess": 4.004576659038902,
+          "mean": 3.75,
+          "sd": 0.8291710043461319
+        },
+        "total_segments": {
+          "rhat": 1.0780798015048112,
+          "bulk_ess": 30.770457330339323,
+          "mean": 496.65785714285715,
+          "sd": 8.305882724044784
+        },
+        "sorted_pi": {
+          "rhat": 1.002969158846749,
+          "bulk_ess": 27218.815772677524,
+          "mean": 0.33333333334381615,
+          "sd": 5.993822366742841e-09
+        },
+        "transition_eigenvalue_moduli": {
+          "rhat": 1.6773241137244161,
+          "bulk_ess": 6.271660170790834,
+          "mean": 0.7278082609437513,
+          "sd": 0.052614846854610625
+        },
+        "transition_singular_values": {
+          "rhat": 1.638844001640433,
+          "bulk_ess": 6.459120135726484,
+          "mean": 0.7347940715049376,
+          "sd": 0.04988599489860346
+        },
+        "sorted_row_entropies": {
+          "rhat": 1.570005426191212,
+          "bulk_ess": 6.819642118298476,
+          "mean": 0.5980797845477558,
+          "sd": 0.06689446071474639
+        },
+        "co_clustering_mean": {
+          "rhat": 1.182914287571345,
+          "bulk_ess": 14.436324126155457,
+          "mean": 0.33312053571428574,
+          "sd": 0.058866782882014676
+        },
+        "rho": {
+          "rhat": 1.0356607001359086,
+          "bulk_ess": 106.61871051696981,
+          "mean": 0.17425460792245692,
+          "sd": 0.14360525096236598
+        },
+        "beta": {
+          "rhat": 2.6496502538152447,
+          "bulk_ess": 4.686131414842851,
+          "mean": 1.3581890087113173,
+          "sd": 0.3126681271438525
+        },
+        "omega": {
+          "rhat": 1.057479129954088,
+          "bulk_ess": 45.95077387484878,
+          "mean": 2.2737082814815137,
+          "sd": 1.1474796252203965
+        },
+        "lambda_rep": {
+          "rhat": 2.022656932516982,
+          "bulk_ess": 5.331253087808363,
+          "mean": 0.22823762497996206,
+          "sd": 0.1617468118021436
+        },
+        "lambda_back": {
+          "rhat": 1.4663136464889825,
+          "bulk_ess": 7.638129136680088,
+          "mean": 0.3638416596093664,
+          "sd": 0.15902552356229732
+        }
+      },
+      "bulk_ess": {
+        "log_posterior": 4.57971003493906,
+        "total_relation_count": 4.004576659038902,
+        "sorted_relation_counts": 4.004576659038902,
+        "total_segments": 30.770457330339323,
+        "sorted_pi": 27218.815772677524,
+        "transition_eigenvalue_moduli": 6.271660170790834,
+        "transition_singular_values": 6.459120135726484,
+        "sorted_row_entropies": 6.819642118298476,
+        "co_clustering_mean": 14.436324126155457,
+        "rho": 106.61871051696981,
+        "beta": 4.686131414842851,
+        "omega": 45.95077387484878,
+        "lambda_rep": 5.331253087808363,
+        "lambda_back": 7.638129136680088
+      },
+      "rhat": {
+        "log_posterior": 2.841085398555868,
+        "total_relation_count": 2.9399716130923884e+16,
+        "sorted_relation_counts": 2.9399716130923884e+16,
+        "total_segments": 1.0780798015048112,
+        "sorted_pi": 1.002969158846749,
+        "transition_eigenvalue_moduli": 1.6773241137244161,
+        "transition_singular_values": 1.638844001640433,
+        "sorted_row_entropies": 1.570005426191212,
+        "co_clustering_mean": 1.182914287571345,
+        "rho": 1.0356607001359086,
+        "beta": 2.6496502538152447,
+        "omega": 1.057479129954088,
+        "lambda_rep": 2.022656932516982,
+        "lambda_back": 1.4663136464889825
+      },
+      "lag1_autocorrelation": {
+        "log_posterior": 0.264488085855199,
+        "total_relation_count": 0.0,
+        "sorted_relation_counts": 0.0,
+        "total_segments": 0.036153757791351736,
+        "sorted_pi": 0.015329284195781842,
+        "transition_eigenvalue_moduli": 0.5450946138304548,
+        "transition_singular_values": 0.5612086078358165,
+        "sorted_row_entropies": 0.5243064364857564,
+        "co_clustering_mean": -0.0030901704202131427,
+        "rho": 0.6788796803538742,
+        "beta": 0.6526121682990214,
+        "omega": 0.4018355186477806,
+        "lambda_rep": 0.3461715092857188,
+        "lambda_back": 0.6302060294340287
+      },
+      "min_bulk_ess": 4.004576659038902,
+      "min_ess_per_second": 4.176719457251131e-05,
+      "max_rhat": 2.9399716130923884e+16,
+      "structural_movement": {
+        "per_chain": [
+          {
+            "chain": 0,
+            "n_draws": 7000,
+            "distinct_states": 1,
+            "changes": 0,
+            "changes_per_1000_draws": 0.0,
+            "draws_to_first_change": null,
+            "draws_to_leave_the_initial_state": null,
+            "occupancy_top20": [
+              1.0
+            ],
+            "occupancy_tail_mass": 0.0,
+            "modal_occupancy": 1.0,
+            "total_relation_count_mean": 9.0,
+            "total_relation_count_within_chain_sd": 0.0,
+            "per_skill_relation_within_chain_sd": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "distinct_total_relation_counts": 1
+          },
+          {
+            "chain": 1,
+            "n_draws": 7000,
+            "distinct_states": 1,
+            "changes": 0,
+            "changes_per_1000_draws": 0.0,
+            "draws_to_first_change": null,
+            "draws_to_leave_the_initial_state": null,
+            "occupancy_top20": [
+              1.0
+            ],
+            "occupancy_tail_mass": 0.0,
+            "modal_occupancy": 1.0,
+            "total_relation_count_mean": 12.0,
+            "total_relation_count_within_chain_sd": 0.0,
+            "per_skill_relation_within_chain_sd": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "distinct_total_relation_counts": 1
+          },
+          {
+            "chain": 2,
+            "n_draws": 7000,
+            "distinct_states": 1,
+            "changes": 0,
+            "changes_per_1000_draws": 0.0,
+            "draws_to_first_change": null,
+            "draws_to_leave_the_initial_state": null,
+            "occupancy_top20": [
+              1.0
+            ],
+            "occupancy_tail_mass": 0.0,
+            "modal_occupancy": 1.0,
+            "total_relation_count_mean": 9.0,
+            "total_relation_count_within_chain_sd": 0.0,
+            "per_skill_relation_within_chain_sd": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "distinct_total_relation_counts": 1
+          },
+          {
+            "chain": 3,
+            "n_draws": 7000,
+            "distinct_states": 2,
+            "changes": 1,
+            "changes_per_1000_draws": 0.14285714285714285,
+            "draws_to_first_change": 563,
+            "draws_to_leave_the_initial_state": 563,
+            "occupancy_top20": [
+              0.9195714285714286,
+              0.08042857142857143
+            ],
+            "occupancy_tail_mass": 0.0,
+            "modal_occupancy": 0.9195714285714286,
+            "total_relation_count_mean": 15.0,
+            "total_relation_count_within_chain_sd": 0.0,
+            "per_skill_relation_within_chain_sd": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "distinct_total_relation_counts": 1
+          }
+        ],
+        "distinct_structural_states_pooled": 5,
+        "total_structural_changes": 1,
+        "chains_with_frozen_structure": 4,
+        "max_between_chain_relation_count_gap": 6.0,
+        "criterion_A_frozen_structure": true,
+        "criterion_B_disagreeing_structure": true,
+        "criteria_note": "A and B are Stage 6E2's registered structural-locking criteria, reproduced here so the two samplers are judged by the same rule; criterion C is the invariant log-posterior spread and is computed by `invariant_summaries`"
+      },
+      "structural_locking": {
+        "A_frozen_structure": {
+          "criterion": "relation counts with within-chain sd < 0.01 in >= 2 chains",
+          "n_chains_frozen": 4,
+          "per_chain_min_within_sd": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "holds": true
+        },
+        "B_disagreeing_structure": {
+          "criterion": "spread of chain mean total relation count > 1.0",
+          "per_chain_mean_total_relations": [
+            9.0,
+            12.0,
+            9.0,
+            15.0
+          ],
+          "spread": 6.0,
+          "holds": true
+        },
+        "C_log_posterior_gap": {
+          "criterion": "spread of chain mean invariant log posterior > 20 nats",
+          "per_chain_mean_log_posterior": [
+            -5909.7860682792425,
+            -5597.633965237039,
+            -5725.44011205424,
+            -5484.015427904475
+          ],
+          "spread_nats": 425.77064037476794,
+          "holds": true
+        },
+        "conjunction_holds": true
+      },
+      "h_changes": 1,
+      "distinct_h_states": 5,
+      "structural_mode_transitions": 1,
+      "segment_count_ess": 30.770457330339323,
+      "co_clustering_ess": 14.436324126155457,
+      "beta_ess": 4.686131414842851,
+      "omega_ess": 45.95077387484878,
+      "lambda_rep_ess": 5.331253087808363,
+      "lambda_back_ess": 7.638129136680088,
+      "log_posterior_rhat": 2.841085398555868,
+      "total_relation_count_rhat": 2.9399716130923884e+16,
+      "max_invariant_rhat": 2.9399716130923884e+16,
+      "min_invariant_bulk_ess": 4.004576659038902,
+      "min_invariant_ess_per_second": 4.176719457251131e-05,
+      "invariant_convergence_file": {
+        "protocol": "permutation-invariant summaries only; no truth alignment anywhere in this path",
+        "threshold": 1.01,
+        "worst_rhat": 2.9399716130923884e+16,
+        "passes_registered_threshold": false,
+        "summaries": {
+          "log_posterior": {
+            "rhat": 2.841085398555868,
+            "bulk_ess": 4.57971003493906,
+            "mean": -5679.2188933687485,
+            "sd": 160.13472532183425
+          },
+          "total_relation_count": {
+            "rhat": 2.9399716130923884e+16,
+            "bulk_ess": 4.004576659038902,
+            "mean": 11.25,
+            "sd": 2.487513013038396
+          },
+          "sorted_relation_counts": {
+            "rhat": 2.9399716130923884e+16,
+            "bulk_ess": 4.004576659038902,
+            "mean": 3.75,
+            "sd": 0.8291710043461319
+          },
+          "total_segments": {
+            "rhat": 1.0780798015048112,
+            "bulk_ess": 30.770457330339323,
+            "mean": 496.65785714285715,
+            "sd": 8.305882724044784
+          },
+          "sorted_pi": {
+            "rhat": 1.002969158846749,
+            "bulk_ess": 27218.815772677524,
+            "mean": 0.33333333334381615,
+            "sd": 5.993822366742841e-09
+          },
+          "transition_eigenvalue_moduli": {
+            "rhat": 1.6773241137244161,
+            "bulk_ess": 6.271660170790834,
+            "mean": 0.7278082609437513,
+            "sd": 0.052614846854610625
+          },
+          "transition_singular_values": {
+            "rhat": 1.638844001640433,
+            "bulk_ess": 6.459120135726484,
+            "mean": 0.7347940715049376,
+            "sd": 0.04988599489860346
+          },
+          "sorted_row_entropies": {
+            "rhat": 1.570005426191212,
+            "bulk_ess": 6.819642118298476,
+            "mean": 0.5980797845477558,
+            "sd": 0.06689446071474639
+          },
+          "co_clustering_mean": {
+            "rhat": 1.182914287571345,
+            "bulk_ess": 14.436324126155457,
+            "mean": 0.33312053571428574,
+            "sd": 0.058866782882014676
+          },
+          "rho": {
+            "rhat": 1.0356607001359086,
+            "bulk_ess": 106.61871051696981,
+            "mean": 0.17425460792245692,
+            "sd": 0.14360525096236598
+          },
+          "beta": {
+            "rhat": 2.6496502538152447,
+            "bulk_ess": 4.686131414842851,
+            "mean": 1.3581890087113173,
+            "sd": 0.3126681271438525
+          },
+          "omega": {
+            "rhat": 1.057479129954088,
+            "bulk_ess": 45.95077387484878,
+            "mean": 2.2737082814815137,
+            "sd": 1.1474796252203965
+          },
+          "lambda_rep": {
+            "rhat": 2.022656932516982,
+            "bulk_ess": 5.331253087808363,
+            "mean": 0.22823762497996206,
+            "sd": 0.1617468118021436
+          },
+          "lambda_back": {
+            "rhat": 1.4663136464889825,
+            "bulk_ess": 7.638129136680088,
+            "mean": 0.3638416596093664,
+            "sd": 0.15902552356229732
+          }
+        }
+      }
+    },
+    "baseline_freeze": {
+      "frozen": true,
+      "reasons": [],
+      "ladder_reached": 150000,
+      "latest_check_sweeps": 150000,
+      "baseline_verdict": "FAIL / MULTIMODAL per interpretation_rule.json: (S,z)-U structural locking at the registered maximum",
+      "directory": "/Users/dongqing/Desktop/hpop-stage6e/results/mcmc_original/stage6e2_unknown_boundary_full_seed0",
+      "continuation_blocks": [
+        {
+          "block": 1,
+          "sweeps_to": 50000,
+          "burn_in": 15000,
+          "thin": 5,
+          "resumed": true,
+          "kind": "crash recovery (same registered sweep count)",
+          "wall_seconds": 34566.951150000095,
+          "retained_pooled": 28000,
+          "scales": {
+            "U": 0.5,
+            "rho": 0.5,
+            "beta": 0.40872,
+            "omega": 1.45704,
+            "lambda_rep": 0.6648,
+            "lambda_back": 1.51552
+          },
+          "n_proposals_per_trace": 32,
+          "why": "crash recovery: the chains were interrupted and resumed from their last checkpoint to the SAME registered sweep count, with each chain's own RNG state restored. Not a continuation and not an extension."
+        },
+        {
+          "block": 2,
+          "sweeps_to": 75000,
+          "burn_in": 15000,
+          "thin": 5,
+          "resumed": true,
+          "kind": "section 14 continuation",
+          "wall_seconds": 26416.102708791965,
+          "retained_pooled": 20000,
+          "scales": {
+            "U": 0.5,
+            "rho": 0.5,
+            "beta": 0.40872,
+            "omega": 1.45704,
+            "lambda_rep": 0.6648,
+            "lambda_back": 1.51552
+          },
+          "n_proposals_per_trace": 32,
+          "why": "registered 25,000-sweep continuation after a convergence gate failed"
+        },
+        {
+          "block": 3,
+          "sweeps_to": 100000,
+          "burn_in": 15000,
+          "thin": 5,
+          "resumed": true,
+          "kind": "section 14 continuation",
+          "wall_seconds": 22541.17177870893,
+          "retained_pooled": 20000,
+          "scales": {
+            "U": 0.5,
+            "rho": 0.5,
+            "beta": 0.40872,
+            "omega": 1.45704,
+            "lambda_rep": 0.6648,
+            "lambda_back": 1.51552
+          },
+          "n_proposals_per_trace": 32,
+          "why": "registered 25,000-sweep continuation after a convergence gate failed"
+        },
+        {
+          "block": 4,
+          "sweeps_to": 125000,
+          "burn_in": 15000,
+          "thin": 5,
+          "resumed": true,
+          "kind": "section 14 continuation",
+          "wall_seconds": 26125.417116959,
+          "retained_pooled": 20000,
+          "scales": {
+            "U": 0.5,
+            "rho": 0.5,
+            "beta": 0.40872,
+            "omega": 1.45704,
+            "lambda_rep": 0.6648,
+            "lambda_back": 1.51552
+          },
+          "n_proposals_per_trace": 32,
+          "why": "registered 25,000-sweep continuation after a convergence gate failed"
+        },
+        {
+          "block": 5,
+          "sweeps_to": 150000,
+          "burn_in": 15000,
+          "thin": 5,
+          "resumed": true,
+          "kind": "section 14 continuation",
+          "wall_seconds": 34415.670835,
+          "retained_pooled": 20000,
+          "scales": {
+            "U": 0.5,
+            "rho": 0.5,
+            "beta": 0.40872,
+            "omega": 1.45704,
+            "lambda_rep": 0.6648,
+            "lambda_back": 1.51552
+          },
+          "n_proposals_per_trace": 32,
+          "why": "registered 25,000-sweep continuation after a convergence gate failed"
+        }
+      ]
+    },
+    "baseline_git": {
+      "commit": "6eb43b355333d07d72d7dffd836b654413702b04",
+      "tag": "hpop-stage6e-unknown-boundaries-v1"
+    },
+    "resume_manifest_present": true,
+    "status": "COMPARED against the frozen baseline",
+    "local_block1": {
+      "label": "LocalMoveKernel (Stage 6E2, first 50k block)",
+      "path": "/Users/dongqing/Desktop/hpop-stage6e/results/mcmc_original/stage6e2_unknown_boundary_full_seed0/chains_block1_50k.npz",
+      "sha256": "288fd5ffde7272b0a47ef1bb8044a20fdf3a83e2c6c39687ce37ab1d990c82eb",
+      "wall_seconds": 34566.951150000095,
+      "wall_basis": "measured wall clock of the baseline's first formal block",
+      "sweeps": 50000,
+      "n_chains": 4,
+      "retained_per_chain": 7000,
+      "invariant_convergence": {
+        "log_posterior": {
+          "rhat": 2.7170421545201653,
+          "bulk_ess": 4.647105121829681,
+          "mean": -5722.185257187615,
+          "sd": 104.91846394148713
+        },
+        "total_relation_count": {
+          "rhat": 9.037476010958516,
+          "bulk_ess": 4.054463632960665,
+          "mean": 9.116071428571429,
+          "sd": 2.057104410292863
+        },
+        "sorted_relation_counts": {
+          "rhat": 9.037476010958516,
+          "bulk_ess": 4.054463632960665,
+          "mean": 3.0386904761904767,
+          "sd": 0.6857014700976208
+        },
+        "total_segments": {
+          "rhat": 1.0750985497048364,
+          "bulk_ess": 33.16837920510247,
+          "mean": 497.72621428571426,
+          "sd": 8.347456496152075
+        },
+        "sorted_pi": {
+          "rhat": 1.0073552717773502,
+          "bulk_ess": 27874.09150163368,
+          "mean": 0.3333333333000481,
+          "sd": 5.9686631002684885e-09
+        },
+        "transition_eigenvalue_moduli": {
+          "rhat": 1.4709465644430213,
+          "bulk_ess": 7.550762449320383,
+          "mean": 0.7403054613484266,
+          "sd": 0.04037586582829443
+        },
+        "transition_singular_values": {
+          "rhat": 1.2143839046964835,
+          "bulk_ess": 12.878789140980743,
+          "mean": 0.755206405120717,
+          "sd": 0.032073120731099525
+        },
+        "sorted_row_entropies": {
+          "rhat": 1.1794099161048894,
+          "bulk_ess": 14.878500927372833,
+          "mean": 0.5588861946909206,
+          "sd": 0.05146202176276487
+        },
+        "co_clustering_mean": {
+          "rhat": 1.0962302055797966,
+          "bulk_ess": 25.40995172560706,
+          "mean": 0.34356640625,
+          "sd": 0.05538047054782941
+        },
+        "rho": {
+          "rhat": 1.0150446840124823,
+          "bulk_ess": 846.728648046176,
+          "mean": 0.1436396803633148,
+          "sd": 0.12245343041518758
+        },
+        "beta": {
+          "rhat": 1.8065868262224354,
+          "bulk_ess": 5.837226333136729,
+          "mean": 1.4912850092739356,
+          "sd": 0.16383374564729775
+        },
+        "omega": {
+          "rhat": 1.0525197127268215,
+          "bulk_ess": 49.518440861462075,
+          "mean": 2.256960271282758,
+          "sd": 1.275842553776178
+        },
+        "lambda_rep": {
+          "rhat": 1.7675338015294368,
+          "bulk_ess": 5.940881897526823,
+          "mean": 0.20061332217205596,
+          "sd": 0.11254662669546282
+        },
+        "lambda_back": {
+          "rhat": 1.181846679280528,
+          "bulk_ess": 14.883856438171007,
+          "mean": 0.3922610017615998,
+          "sd": 0.163563374648714
+        }
+      },
+      "bulk_ess": {
+        "log_posterior": 4.647105121829681,
+        "total_relation_count": 4.054463632960665,
+        "sorted_relation_counts": 4.054463632960665,
+        "total_segments": 33.16837920510247,
+        "sorted_pi": 27874.09150163368,
+        "transition_eigenvalue_moduli": 7.550762449320383,
+        "transition_singular_values": 12.878789140980743,
+        "sorted_row_entropies": 14.878500927372833,
+        "co_clustering_mean": 25.40995172560706,
+        "rho": 846.728648046176,
+        "beta": 5.837226333136729,
+        "omega": 49.518440861462075,
+        "lambda_rep": 5.940881897526823,
+        "lambda_back": 14.883856438171007
+      },
+      "rhat": {
+        "log_posterior": 2.7170421545201653,
+        "total_relation_count": 9.037476010958516,
+        "sorted_relation_counts": 9.037476010958516,
+        "total_segments": 1.0750985497048364,
+        "sorted_pi": 1.0073552717773502,
+        "transition_eigenvalue_moduli": 1.4709465644430213,
+        "transition_singular_values": 1.2143839046964835,
+        "sorted_row_entropies": 1.1794099161048894,
+        "co_clustering_mean": 1.0962302055797966,
+        "rho": 1.0150446840124823,
+        "beta": 1.8065868262224354,
+        "omega": 1.0525197127268215,
+        "lambda_rep": 1.7675338015294368,
+        "lambda_back": 1.181846679280528
+      },
+      "lag1_autocorrelation": {
+        "log_posterior": 0.36303019148395,
+        "total_relation_count": 0.0,
+        "sorted_relation_counts": 0.0,
+        "total_segments": 0.1985543080015425,
+        "sorted_pi": 0.0034511335155715485,
+        "transition_eigenvalue_moduli": 0.31489842708390503,
+        "transition_singular_values": 0.4445266789304321,
+        "sorted_row_entropies": 0.43083402529895537,
+        "co_clustering_mean": 0.10046141730235515,
+        "rho": 0.6567609934348154,
+        "beta": 0.683463572396301,
+        "omega": 0.4323067286714942,
+        "lambda_rep": 0.3703304295179112,
+        "lambda_back": 0.41863477556066747
+      },
+      "min_bulk_ess": 4.054463632960665,
+      "min_ess_per_second": 0.00011729306456235305,
+      "max_rhat": 9.037476010958516,
+      "structural_movement": {
+        "per_chain": [
+          {
+            "chain": 0,
+            "n_draws": 7000,
+            "distinct_states": 1,
+            "changes": 0,
+            "changes_per_1000_draws": 0.0,
+            "draws_to_first_change": null,
+            "draws_to_leave_the_initial_state": null,
+            "occupancy_top20": [
+              1.0
+            ],
+            "occupancy_tail_mass": 0.0,
+            "modal_occupancy": 1.0,
+            "total_relation_count_mean": 8.0,
+            "total_relation_count_within_chain_sd": 0.0,
+            "per_skill_relation_within_chain_sd": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "distinct_total_relation_counts": 1
+          },
+          {
+            "chain": 1,
+            "n_draws": 7000,
+            "distinct_states": 1,
+            "changes": 0,
+            "changes_per_1000_draws": 0.0,
+            "draws_to_first_change": null,
+            "draws_to_leave_the_initial_state": null,
+            "occupancy_top20": [
+              1.0
+            ],
+            "occupancy_tail_mass": 0.0,
+            "modal_occupancy": 1.0,
+            "total_relation_count_mean": 9.0,
+            "total_relation_count_within_chain_sd": 0.0,
+            "per_skill_relation_within_chain_sd": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "distinct_total_relation_counts": 1
+          },
+          {
+            "chain": 2,
+            "n_draws": 7000,
+            "distinct_states": 2,
+            "changes": 1,
+            "changes_per_1000_draws": 0.14285714285714285,
+            "draws_to_first_change": 6811,
+            "draws_to_leave_the_initial_state": 6811,
+            "occupancy_top20": [
+              0.973,
+              0.027
+            ],
+            "occupancy_tail_mass": 0.0,
+            "modal_occupancy": 0.973,
+            "total_relation_count_mean": 7.027,
+            "total_relation_count_within_chain_sd": 0.16209489053088458,
+            "per_skill_relation_within_chain_sd": [
+              0.16209489053088458,
+              0.0,
+              0.0
+            ],
+            "distinct_total_relation_counts": 2
+          },
+          {
+            "chain": 3,
+            "n_draws": 7000,
+            "distinct_states": 2,
+            "changes": 1,
+            "changes_per_1000_draws": 0.14285714285714285,
+            "draws_to_first_change": 3939,
+            "draws_to_leave_the_initial_state": 3939,
+            "occupancy_top20": [
+              0.5627142857142857,
+              0.4372857142857143
+            ],
+            "occupancy_tail_mass": 0.0,
+            "modal_occupancy": 0.5627142857142857,
+            "total_relation_count_mean": 12.437285714285714,
+            "total_relation_count_within_chain_sd": 0.4960867623780621,
+            "per_skill_relation_within_chain_sd": [
+              0.0,
+              0.0,
+              0.4960867623780621
+            ],
+            "distinct_total_relation_counts": 2
+          }
+        ],
+        "distinct_structural_states_pooled": 6,
+        "total_structural_changes": 2,
+        "chains_with_frozen_structure": 2,
+        "max_between_chain_relation_count_gap": 5.410285714285714,
+        "criterion_A_frozen_structure": true,
+        "criterion_B_disagreeing_structure": true,
+        "criteria_note": "A and B are Stage 6E2's registered structural-locking criteria, reproduced here so the two samplers are judged by the same rule; criterion C is the invariant log-posterior spread and is computed by `invariant_summaries`"
+      },
+      "structural_locking": {
+        "A_frozen_structure": {
+          "criterion": "relation counts with within-chain sd < 0.01 in >= 2 chains",
+          "n_chains_frozen": 4,
+          "per_chain_min_within_sd": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "holds": true
+        },
+        "B_disagreeing_structure": {
+          "criterion": "spread of chain mean total relation count > 1.0",
+          "per_chain_mean_total_relations": [
+            8.0,
+            9.0,
+            7.027,
+            12.437285714285714
+          ],
+          "spread": 5.410285714285714,
+          "holds": true
+        },
+        "C_log_posterior_gap": {
+          "criterion": "spread of chain mean invariant log posterior > 20 nats",
+          "per_chain_mean_log_posterior": [
+            -5837.896551011109,
+            -5716.362956966917,
+            -5753.51010814893,
+            -5580.971412623507
+          ],
+          "spread_nats": 256.9251383876026,
+          "holds": true
+        },
+        "conjunction_holds": true
+      },
+      "h_changes": 2,
+      "distinct_h_states": 6,
+      "structural_mode_transitions": 2,
+      "segment_count_ess": 33.16837920510247,
+      "co_clustering_ess": 25.40995172560706,
+      "beta_ess": 5.837226333136729,
+      "omega_ess": 49.518440861462075,
+      "lambda_rep_ess": 5.940881897526823,
+      "lambda_back_ess": 14.883856438171007,
+      "log_posterior_rhat": 2.7170421545201653,
+      "total_relation_count_rhat": 9.037476010958516,
+      "max_invariant_rhat": 9.037476010958516,
+      "min_invariant_bulk_ess": 4.054463632960665,
+      "min_invariant_ess_per_second": 0.00011729306456235305
+    },
+    "local_final": {
+      "label": "LocalMoveKernel (Stage 6E2, frozen final, 150,000 sweeps)",
+      "path": "/Users/dongqing/Desktop/hpop-stage6e/results/mcmc_original/stage6e2_unknown_boundary_full_seed0/chains.npz",
+      "sha256": "3c0e56d4ed68b3fefef13439b0b8c23b9dfebf3137f3cdbf6943a41eee36d515",
+      "wall_seconds": 144065.31358945998,
+      "wall_basis": "sum of the continuation blocks' measured wall clocks",
+      "sweeps": 150000,
+      "n_chains": 4,
+      "retained_per_chain": 27000,
+      "invariant_convergence": {
+        "log_posterior": {
+          "rhat": 2.4842511649501495,
+          "bulk_ess": 4.782471060833552,
+          "mean": -5702.214252245232,
+          "sd": 125.35505548610278
+        },
+        "total_relation_count": {
+          "rhat": 4.289428495282682,
+          "bulk_ess": 4.334476469558134,
+          "mean": 9.400444444444444,
+          "sd": 2.067266607046635
+        },
+        "sorted_relation_counts": {
+          "rhat": 5.749247067738223,
+          "bulk_ess": 4.334476469558134,
+          "mean": 3.1334814814814815,
+          "sd": 0.6890888690155449
+        },
+        "total_segments": {
+          "rhat": 1.079194043954607,
+          "bulk_ess": 29.92444865923246,
+          "mean": 497.5661574074074,
+          "sd": 8.29872155153111
+        },
+        "sorted_pi": {
+          "rhat": 1.007259310346522,
+          "bulk_ess": 108264.14781526549,
+          "mean": 0.3333333333436917,
+          "sd": 5.9613931431080105e-09
+        },
+        "transition_eigenvalue_moduli": {
+          "rhat": 1.4819713354671553,
+          "bulk_ess": 7.399545973871229,
+          "mean": 0.7390487804706308,
+          "sd": 0.03974938516644289
+        },
+        "transition_singular_values": {
+          "rhat": 1.185247887263847,
+          "bulk_ess": 14.205478385387524,
+          "mean": 0.7528099808760349,
+          "sd": 0.03111835517830912
+        },
+        "sorted_row_entropies": {
+          "rhat": 1.157821633776596,
+          "bulk_ess": 16.17785540653292,
+          "mean": 0.5651012452653635,
+          "sd": 0.04932172850133511
+        },
+        "co_clustering_mean": {
+          "rhat": 1.0745965671357403,
+          "bulk_ess": 31.308216745949,
+          "mean": 0.3489982638888889,
+          "sd": 0.05438930381218831
+        },
+        "rho": {
+          "rhat": 1.0101543176086278,
+          "bulk_ess": 3139.266806486188,
+          "mean": 0.14723154425425142,
+          "sd": 0.12548604368477642
+        },
+        "beta": {
+          "rhat": 1.558891261262948,
+          "bulk_ess": 6.860812533728311,
+          "mean": 1.4922671665779117,
+          "sd": 0.1359621974273503
+        },
+        "omega": {
+          "rhat": 1.036483335246707,
+          "bulk_ess": 65.49112774733784,
+          "mean": 2.1267761985240536,
+          "sd": 1.2484973272225468
+        },
+        "lambda_rep": {
+          "rhat": 1.720688777187185,
+          "bulk_ess": 6.080199254044499,
+          "mean": 0.22958569585651592,
+          "sd": 0.12524354180237204
+        },
+        "lambda_back": {
+          "rhat": 1.140614692333124,
+          "bulk_ess": 18.22141314683287,
+          "mean": 0.4210826185807319,
+          "sd": 0.1677639409946296
+        }
+      },
+      "bulk_ess": {
+        "log_posterior": 4.782471060833552,
+        "total_relation_count": 4.334476469558134,
+        "sorted_relation_counts": 4.334476469558134,
+        "total_segments": 29.92444865923246,
+        "sorted_pi": 108264.14781526549,
+        "transition_eigenvalue_moduli": 7.399545973871229,
+        "transition_singular_values": 14.205478385387524,
+        "sorted_row_entropies": 16.17785540653292,
+        "co_clustering_mean": 31.308216745949,
+        "rho": 3139.266806486188,
+        "beta": 6.860812533728311,
+        "omega": 65.49112774733784,
+        "lambda_rep": 6.080199254044499,
+        "lambda_back": 18.22141314683287
+      },
+      "rhat": {
+        "log_posterior": 2.4842511649501495,
+        "total_relation_count": 4.289428495282682,
+        "sorted_relation_counts": 5.749247067738223,
+        "total_segments": 1.079194043954607,
+        "sorted_pi": 1.007259310346522,
+        "transition_eigenvalue_moduli": 1.4819713354671553,
+        "transition_singular_values": 1.185247887263847,
+        "sorted_row_entropies": 1.157821633776596,
+        "co_clustering_mean": 1.0745965671357403,
+        "rho": 1.0101543176086278,
+        "beta": 1.558891261262948,
+        "omega": 1.036483335246707,
+        "lambda_rep": 1.720688777187185,
+        "lambda_back": 1.140614692333124
+      },
+      "lag1_autocorrelation": {
+        "log_posterior": 0.3743105145791394,
+        "total_relation_count": 0.0,
+        "sorted_relation_counts": 0.0,
+        "total_segments": 0.19504655205696864,
+        "sorted_pi": -0.003988605156945404,
+        "transition_eigenvalue_moduli": 0.33143709021320406,
+        "transition_singular_values": 0.44167795854003733,
+        "sorted_row_entropies": 0.43332373493217324,
+        "co_clustering_mean": 0.1223729836522084,
+        "rho": 0.6597348643976497,
+        "beta": 0.6775259697654532,
+        "omega": 0.43203497907961586,
+        "lambda_rep": 0.3722854849410085,
+        "lambda_back": 0.4538665202066827
+      },
+      "min_bulk_ess": 4.334476469558134,
+      "min_ess_per_second": 3.0086884632827054e-05,
+      "max_rhat": 5.749247067738223,
+      "structural_movement": {
+        "per_chain": [
+          {
+            "chain": 0,
+            "n_draws": 27000,
+            "distinct_states": 1,
+            "changes": 0,
+            "changes_per_1000_draws": 0.0,
+            "draws_to_first_change": null,
+            "draws_to_leave_the_initial_state": null,
+            "occupancy_top20": [
+              1.0
+            ],
+            "occupancy_tail_mass": 0.0,
+            "modal_occupancy": 1.0,
+            "total_relation_count_mean": 8.0,
+            "total_relation_count_within_chain_sd": 0.0,
+            "per_skill_relation_within_chain_sd": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "distinct_total_relation_counts": 1
+          },
+          {
+            "chain": 1,
+            "n_draws": 27000,
+            "distinct_states": 2,
+            "changes": 2,
+            "changes_per_1000_draws": 0.07407407407407407,
+            "draws_to_first_change": 12234,
+            "draws_to_leave_the_initial_state": 12234,
+            "occupancy_top20": [
+              0.9999259259259259,
+              7.407407407407407e-05
+            ],
+            "occupancy_tail_mass": 0.0,
+            "modal_occupancy": 0.9999259259259259,
+            "total_relation_count_mean": 8.999925925925925,
+            "total_relation_count_within_chain_sd": 0.008606470268828843,
+            "per_skill_relation_within_chain_sd": [
+              0.0,
+              0.008606470268828843,
+              0.0
+            ],
+            "distinct_total_relation_counts": 2
+          },
+          {
+            "chain": 2,
+            "n_draws": 27000,
+            "distinct_states": 2,
+            "changes": 1,
+            "changes_per_1000_draws": 0.037037037037037035,
+            "draws_to_first_change": 6811,
+            "draws_to_leave_the_initial_state": 6811,
+            "occupancy_top20": [
+              0.7477407407407407,
+              0.25225925925925924
+            ],
+            "occupancy_tail_mass": 0.0,
+            "modal_occupancy": 0.7477407407407407,
+            "total_relation_count_mean": 7.747740740740741,
+            "total_relation_count_within_chain_sd": 0.43431729384116796,
+            "per_skill_relation_within_chain_sd": [
+              0.4343172938411678,
+              0.0,
+              0.0
+            ],
+            "distinct_total_relation_counts": 2
+          },
+          {
+            "chain": 3,
+            "n_draws": 27000,
+            "distinct_states": 2,
+            "changes": 1,
+            "changes_per_1000_draws": 0.037037037037037035,
+            "draws_to_first_change": 3939,
+            "draws_to_leave_the_initial_state": 3939,
+            "occupancy_top20": [
+              0.8541111111111112,
+              0.1458888888888889
+            ],
+            "occupancy_tail_mass": 0.0,
+            "modal_occupancy": 0.8541111111111112,
+            "total_relation_count_mean": 12.854111111111111,
+            "total_relation_count_within_chain_sd": 0.35300132601801293,
+            "per_skill_relation_within_chain_sd": [
+              0.0,
+              0.0,
+              0.35300132601801293
+            ],
+            "distinct_total_relation_counts": 2
+          }
+        ],
+        "distinct_structural_states_pooled": 7,
+        "total_structural_changes": 4,
+        "chains_with_frozen_structure": 2,
+        "max_between_chain_relation_count_gap": 5.10637037037037,
+        "criterion_A_frozen_structure": true,
+        "criterion_B_disagreeing_structure": true,
+        "criteria_note": "A and B are Stage 6E2's registered structural-locking criteria, reproduced here so the two samplers are judged by the same rule; criterion C is the invariant log-posterior spread and is computed by `invariant_summaries`"
+      },
+      "structural_locking": {
+        "A_frozen_structure": {
+          "criterion": "relation counts with within-chain sd < 0.01 in >= 2 chains",
+          "n_chains_frozen": 4,
+          "per_chain_min_within_sd": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "holds": true
+        },
+        "B_disagreeing_structure": {
+          "criterion": "spread of chain mean total relation count > 1.0",
+          "per_chain_mean_total_relations": [
+            8.0,
+            8.999925925925925,
+            7.747740740740741,
+            12.854111111111111
+          ],
+          "spread": 5.10637037037037,
+          "holds": true
+        },
+        "C_log_posterior_gap": {
+          "criterion": "spread of chain mean invariant log posterior > 20 nats",
+          "per_chain_mean_log_posterior": [
+            -5837.5102704043275,
+            -5716.836038592837,
+            -5743.3275810196865,
+            -5511.183118964073
+          ],
+          "spread_nats": 326.32715144025406,
+          "holds": true
+        },
+        "conjunction_holds": true
+      },
+      "h_changes": 4,
+      "distinct_h_states": 7,
+      "structural_mode_transitions": 4,
+      "segment_count_ess": 29.92444865923246,
+      "co_clustering_ess": 31.308216745949,
+      "beta_ess": 6.860812533728311,
+      "omega_ess": 65.49112774733784,
+      "lambda_rep_ess": 6.080199254044499,
+      "lambda_back_ess": 18.22141314683287,
+      "log_posterior_rhat": 2.4842511649501495,
+      "total_relation_count_rhat": 4.289428495282682,
+      "max_invariant_rhat": 5.749247067738223,
+      "min_invariant_bulk_ess": 4.334476469558134,
+      "min_invariant_ess_per_second": 3.0086884632827054e-05
+    },
+    "equal_sweeps": {
+      "basis": "equal sweeps",
+      "rows": {
+        "wall_seconds": {
+          "local_move_kernel": 34566.951150000095,
+          "ffbs": 95878.51662113972
+        },
+        "sweeps": {
+          "local_move_kernel": 50000,
+          "ffbs": 50000
+        },
+        "log_posterior_rhat": {
+          "local_move_kernel": 2.7170421545201653,
+          "ffbs": 2.841085398555868
+        },
+        "total_relation_count_rhat": {
+          "local_move_kernel": 9.037476010958516,
+          "ffbs": 2.9399716130923884e+16
+        },
+        "max_invariant_rhat": {
+          "local_move_kernel": 9.037476010958516,
+          "ffbs": 2.9399716130923884e+16
+        },
+        "min_invariant_bulk_ess": {
+          "local_move_kernel": 4.054463632960665,
+          "ffbs": 4.004576659038902
+        },
+        "min_invariant_ess_per_second": {
+          "local_move_kernel": 0.00011729306456235305,
+          "ffbs": 4.176719457251131e-05
+        },
+        "h_changes": {
+          "local_move_kernel": 2,
+          "ffbs": 1
+        },
+        "distinct_h_states": {
+          "local_move_kernel": 6,
+          "ffbs": 5
+        },
+        "structural_mode_transitions": {
+          "local_move_kernel": 2,
+          "ffbs": 1
+        },
+        "segment_count_ess": {
+          "local_move_kernel": 33.16837920510247,
+          "ffbs": 30.770457330339323
+        },
+        "co_clustering_ess": {
+          "local_move_kernel": 25.40995172560706,
+          "ffbs": 14.436324126155457
+        },
+        "beta_ess": {
+          "local_move_kernel": 5.837226333136729,
+          "ffbs": 4.686131414842851
+        },
+        "omega_ess": {
+          "local_move_kernel": 49.518440861462075,
+          "ffbs": 45.95077387484878
+        },
+        "lambda_rep_ess": {
+          "local_move_kernel": 5.940881897526823,
+          "ffbs": 5.331253087808363
+        },
+        "lambda_back_ess": {
+          "local_move_kernel": 14.883856438171007,
+          "ffbs": 7.638129136680088
+        }
+      },
+      "missing": []
+    },
+    "equal_time": {
+      "basis": "equal wall clock",
+      "budget_seconds": 95878.51662113972,
+      "assumption": "ESS scales linearly with wall time within a run; valid past burn-in, optimistic near it",
+      "rows": {
+        "min_invariant_bulk_ess": {
+          "local_move_kernel": 2.8846858683468217,
+          "ffbs": 4.004576659038902
+        },
+        "segment_count_ess": {
+          "local_move_kernel": 19.91535420058649,
+          "ffbs": 30.77045733033932
+        },
+        "beta_ess": {
+          "local_move_kernel": 4.566016011488552,
+          "ffbs": 4.686131414842851
+        },
+        "omega_ess": {
+          "local_move_kernel": 43.58573221972086,
+          "ffbs": 45.95077387484878
+        },
+        "lambda_rep_ess": {
+          "local_move_kernel": 4.046501345216222,
+          "ffbs": 5.331253087808363
+        },
+        "lambda_back_ess": {
+          "local_move_kernel": 12.126736267952602,
+          "ffbs": 7.638129136680088
+        },
+        "co_clustering_ess": {
+          "local_move_kernel": 20.836281162090433,
+          "ffbs": 14.436324126155457
+        }
+      }
+    },
+    "structural_locking_verdict": "FFBS DOES NOT ESCAPE the (S,z)-U structural locking: its chains satisfy the same registered conjunction as the baseline's. Falsified, precisely stated: the hypothesis that exact global FFBS updates of (S,z) ALONE resolve the full-joint structural locking. FFBS itself did what it was validated to do \u2014 exact conditional sampling of (S,z) (Step 7A), small-reference posterior correctness (Step 7B1), the same target as the LocalMoveKernel \u2014 and better (S,z) mixing simply does not propagate to U/H structural mixing, as the freeze manifest anticipated it might not",
+    "baseline_verdict": "FAIL / MULTIMODAL per interpretation_rule.json: (S,z)-U structural locking at the registered maximum",
+    "ffbs_worst_invariant_rhat": 2.9399716130923884e+16,
+    "recovery_note": "recovery stays uninterpreted for any sampler whose chains have not converged, exactly as the baseline's interpretation rule registers"
+  }
+}

@@ -73,11 +73,30 @@ PYTHONPATH=src .venv/bin/python -m hpop.annotate.opencode --input data/interim/s
 ## Model primitives + tests
 ```bash
 PYTHONPATH=src .venv/bin/python scripts/inference_demo.py        # frontier-softmax + new-skill penalty demo
-PYTHONPATH=src .venv/bin/python -m unittest tests.test_inference -v   # 13 sanity tests
+PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -v # 52 tests
 ```
-`src/hpop/inference/` = the BPOP frontier-softmax likelihood (`likelihood.py`), latent-U posets
-(`poset.py`), and the CRP/Ewens new-skill penalty (`library.py`). The hierarchical MCMC learning loop
-is the model author's part.
+`src/hpop/inference/` holds the BPOP primitives — frontier-softmax likelihood (`likelihood.py`),
+latent-U posets (`poset.py`), CRP/Ewens new-skill penalty (`library.py`) — plus the HPOP model:
+
+| Module | What it is |
+|--------|------------|
+| `recurrent.py` | Recurrent relaxed frontier likelihood: validity state `q_t`, invalidation `J = D·σ(ω)`, repeat/backward-jump costs. Lets a CPA role be re-executed while the latent order stays acyclic. |
+| `semi_markov.py` | Merge-only semi-Markov lattice over LLM seed segments: exact forward-backward, segment marginals, Viterbi, `z_l ≠ z_{l+1}` constraint. Verified against brute-force enumeration. |
+| `hpop.py` | Variational EM over the lattice + a library of local partial orders; exact structured E-step, normalized held-out likelihood. |
+| `../synth/generator.py` | Synthetic corpora with ground-truth skills, global DAG, repair loops, and controllable LLM-seed boundary recall. |
+
+## Experiments
+```bash
+PYTHONPATH=src .venv/bin/python scripts/exp_synthetic_recovery.py --seeds 5 --traces 40  # structure recovery vs baselines
+PYTHONPATH=src .venv/bin/python scripts/exp_boundary_recall.py    --seeds 3 --traces 30  # merge-only initialization audit
+PYTHONPATH=src .venv/bin/python scripts/exp_order_invariance.py   --seeds 6 --traces 40  # legal-reorder invariance vs bigram
+PYTHONPATH=src .venv/bin/python scripts/exp_real_pilot.py                                # SWE-rebench pilot, repo-disjoint
+```
+Results land in `data/experiments/`. The write-up — setup, four result tables, learned-DAG figures,
+and what the runs say the paper should change — is **[`docs/experiments.html`](docs/experiments.html)**
+(also linked from the dashboard) with a plain-text twin in [`docs/experiments.md`](docs/experiments.md).
+Figures are regenerated from the result JSON by
+`PYTHONPATH=src .venv/bin/python scripts/render_dags.py`.
 
 ## Layout
 | Path | Holds |

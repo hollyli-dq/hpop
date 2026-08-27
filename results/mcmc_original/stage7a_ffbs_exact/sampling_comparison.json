@@ -1,0 +1,88 @@
+{
+  "n_draws": 100000,
+  "seed": 7071001,
+  "seconds": 3.504705625004135,
+  "errors_vs_exact": {
+    "full_path_total_variation": 0.00238809835717739,
+    "max_boundary_marginal_error": 0.0006389307741809409,
+    "max_occurrence_label_marginal_error": 0.0023878146082687013,
+    "max_labelled_segment_marginal_error": 0.0023875845515063387,
+    "max_unlabelled_segment_marginal_error": 0.001450390872675511,
+    "segment_count_total_variation": 0.0014503908726753514,
+    "max_expected_transition_count_error": 0.0007320862813397777,
+    "boundary_marginals": [
+      0.0,
+      0.0,
+      0.023809999999999998,
+      0.03603,
+      0.01884,
+      0.0,
+      0.0
+    ],
+    "segment_count_distribution": [
+      0.0,
+      0.9213199999999999,
+      0.07868,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "expected_transition_counts": [
+      [
+        0.0,
+        0.03595,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.042730000000000004,
+        0.0
+      ]
+    ]
+  },
+  "exact_boundary_marginals": [
+    0.0,
+    0.0,
+    0.02346572257114434,
+    0.0355628173303614,
+    0.018201069225819058,
+    0.0,
+    0.0
+  ],
+  "exact_segment_count_distribution": [
+    0.0,
+    0.9227703908726754,
+    0.07722960912732481,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "exact_expected_transition_counts": [
+    [
+      0.0,
+      0.03523118160299339,
+      2.1048455589004673e-07
+    ],
+    [
+      1.9572206446945704e-08,
+      0.0,
+      1.9572206446945704e-08
+    ],
+    [
+      2.641767024005985e-07,
+      0.041997913718660226,
+      0.0
+    ]
+  ]
+}

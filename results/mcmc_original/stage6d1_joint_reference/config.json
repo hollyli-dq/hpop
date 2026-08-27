@@ -1,0 +1,188 @@
+{
+  "source_commit": "3f9aebdb3fdf4c2d096ca3f6b37d922b327f3219",
+  "stage6d_config_hash": "ebd5effd5b32e68aeb61df044bfbdcbef998c01955673ae1c077531be3d2ac73",
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "platform": "macOS-10.16-x86_64-i386-64bit-Mach-O",
+  "uses_mcmc": false,
+  "runtime_seconds": 1947.594520249986,
+  "frozen_config": {
+    "stage": "6D",
+    "model_id": "recurrent-rfs-oracle-joint-latent-v1",
+    "stage6c_model_id": "recurrent-rfs-latent-product-order-v1",
+    "stage6c_config_hash": "c1545b0b24acad470aca96954963ef619e4ee55d7094bb597041b6e4e98a8dad",
+    "stage6b_config_hash": "9ad850f22065d85f6cfd855443395d06b8a566e8c8dcdd4f9d85b1f031e911cc",
+    "target": "p(U, rho, beta, omega, lambda_rep, lambda_back | x, S*, z*, epsilon) proportional to p_RFS(x | S*, z*, h(U), scalars, epsilon) p(U|rho) p(rho) p(beta) p(omega) p(lambda_rep) p(lambda_back)",
+    "inherits_from_stage6c": {
+      "likelihood_branch": {
+        "name": "utility-weighted frontier",
+        "feasibility": "F(x) = prod_{z precedes x} q(z), empty product 1",
+        "utility": "Q(x) = log(1 + S(x)),  S(x) = sum_z 1[x precedes z] (1 - q(z))",
+        "back_cost": "C_back(x) = sigmoid(omega) * sum_{z != x} 1[x precedes z] q(z)",
+        "weights": "W(x) = F(x) * exp(beta*Q(x) - lambda_rep*q(x) - lambda_back*C_back(x))",
+        "emission": "p(x) = (1 - epsilon) * W(x)/sum(W) + epsilon/m",
+        "state_update": "q(y)=1; q(x) *= (1 - sigmoid(omega)) for x downstream of y",
+        "not": "uniform-frontier (beta would not multiply a utility term)"
+      },
+      "dataset": {
+        "mode": "full",
+        "generator_seed": 0,
+        "n_train": 500,
+        "n_heldout": 200,
+        "T": 20
+      },
+      "epsilon": 0.02,
+      "boundaries": {
+        "segmentation": "none \u2014 boundaries are known and fixed",
+        "blocks": "every block is one independent trace of fixed length T",
+        "skills_per_block": 1,
+        "q_reset": "q_0 = 0 at the start of every block; q never crosses a block boundary",
+        "conditions_on_T": true,
+        "duration_model": null
+      },
+      "numerics": {
+        "exponent_stabilisation": "row-wise max subtraction before exp; cancels in the normalisation",
+        "mixture_floor": "p = (1 - epsilon) * structural + epsilon / m",
+        "initial_state": "q_0 = zeros(m)",
+        "feasibility_empty_product": 1.0,
+        "dtype": "float64"
+      },
+      "structural_model": {
+        "latent": "U in R^{m x d} continuous latent utility matrix",
+        "induced_order": "h(U): i > j iff U[i,r] > U[j,r] for every r; the intersection of the d column orderings",
+        "h_depends_on": "U only -- not on beta",
+        "legality": "every real U induces a legal strict partial order; no acyclicity check exists or is needed",
+        "representation": "precedence_from_u returns the TRANSITIVE CLOSURE",
+        "mcmc_state": "U itself (continuous); the poset is a derived label",
+        "prior": "rows iid Normal(0, Sigma_rho), Sigma_rho = (1-rho) I_d + rho 11^T",
+        "rho_is": "correlation between the d latent COLUMNS within a row; rows are iid. Not a row covariance -- that would need a matrix-normal prior",
+        "prior_normalised": true,
+        "rho_dependent_normaliser": "-(m/2) log|Sigma_rho|, present in log_u_prior; cancels in a U update at fixed rho, does NOT cancel in a rho update at fixed U",
+        "combinatorial_normaliser_needed": false,
+        "combinatorial_normaliser_reason": "the prior is a density on R^{m x d}, not a score over a set of partial orders, so no sum over legal posets arises",
+        "rho_enters_likelihood": false,
+        "tau_in_model": false
+      },
+      "rho_prior": {
+        "family": "beta",
+        "a": 1.0,
+        "b": 1.0,
+        "truncated_at": 0.995,
+        "tol": 0.005,
+        "support": "(0.0, 0.995)",
+        "renormalised": true,
+        "source": "vendored StatisticalUtils.dRprior with stage5.RHO_PRIOR"
+      },
+      "rho_transform": {
+        "name": "logit",
+        "jacobian": "log(rho (1 - rho))"
+      },
+      "u_proposal": {
+        "kernel": "sampler_u.propose_row (Stage 2A), reused unchanged",
+        "form": "U'[j,:] = U[j,:] + sigma_U * Normal(0, I_d)",
+        "sigma_u": 0.5,
+        "symmetric": true,
+        "log_hastings": 0.0
+      }
+    },
+    "dimensions": {
+      "m_rows": 5,
+      "d_latent_columns": 2,
+      "n_skills": 1,
+      "n_assessors": 0,
+      "note": "m, d and K are three different integers; the brief writes the latent column count as K, the repository writes it as d and reserves K for the skill count"
+    },
+    "active": [
+      "U",
+      "rho",
+      "beta",
+      "omega",
+      "lambda_rep",
+      "lambda_back"
+    ],
+    "sweep_order": [
+      "U",
+      "rho",
+      "beta",
+      "omega",
+      "lambda_rep",
+      "lambda_back"
+    ],
+    "scalar_order": [
+      "beta",
+      "omega",
+      "lambda_rep",
+      "lambda_back"
+    ],
+    "proposal_scales": {
+      "U": 0.5,
+      "rho": 0.5,
+      "beta": 0.05109,
+      "omega": 0.18213,
+      "lambda_rep": 0.04155,
+      "lambda_back": 0.09472
+    },
+    "scalar_priors": {
+      "beta": {
+        "family": "gamma",
+        "shape": 2.0,
+        "rate": 2.0,
+        "support": "(0, inf)"
+      },
+      "omega": {
+        "family": "normal",
+        "mean": 0.0,
+        "sd": 2.0,
+        "support": "(-inf, inf)"
+      },
+      "lambda_rep": {
+        "family": "gamma",
+        "shape": 2.0,
+        "rate": 2.0,
+        "support": "(0, inf)"
+      },
+      "lambda_back": {
+        "family": "gamma",
+        "shape": 2.0,
+        "rate": 2.0,
+        "support": "(0, inf)"
+      }
+    },
+    "truth": {
+      "beta": 1.5,
+      "omega": 1.7346010553881064,
+      "lambda_rep": 0.8,
+      "lambda_back": 0.25
+    },
+    "fixed_in_stage_6d": [
+      "segmentation_boundaries (oracle)",
+      "skill_labels (oracle)",
+      "epsilon",
+      "q_0 = zeros(m)"
+    ],
+    "tau_in_model": false,
+    "assessor_level_in_model": false,
+    "h_is_derived_not_state": true,
+    "second_prior_on_H": false,
+    "spec_divergences": [
+      {
+        "section": "2",
+        "brief_assumes": "U^(0)/U^(a) assessor hierarchy with a tau dependence",
+        "frozen_reality": "a single U in R^{5x2}; no assessor level, no tau",
+        "resolution": "use the frozen state, as the brief's own fallback clause directs; the assessor-residual density and the hierarchical QMC construction have no referent and are not built"
+      },
+      {
+        "section": "4",
+        "brief_assumes": "rho ~ Beta(1, 1/6)",
+        "frozen_reality": "rho ~ Beta(1, 1) truncated at 1 - 5e-3, i.e. Uniform(0, 0.995), from StatisticalUtils.dRprior with stage5.RHO_PRIOR = 1.0",
+        "resolution": "the brief defers to the final Stage 6C configuration, which establishes this prior"
+      },
+      {
+        "section": "4",
+        "brief_assumes": "rho scaling proposal delta ~ U(d_r, 1/d_r) with ratio -log(delta)",
+        "frozen_reality": "logit random walk carrying log(rho(1-rho))",
+        "resolution": "sections 6 and 7.2 require reusing the frozen Stage 6C rho update and proving numerical equality with it; adopting the scaling proposal would fail that gate. The scaling proposal's density ratio is implemented and tested as a non-production utility so the identity is still pinned"
+      }
+    ]
+  }
+}

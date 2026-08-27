@@ -1,0 +1,50 @@
+{
+  "registered_before_the_pilot_ran": true,
+  "coordinate_tuned": "omega only",
+  "coordinates_left_at_registered_scales": [
+    "U",
+    "rho",
+    "beta",
+    "lambda_rep",
+    "lambda_back"
+  ],
+  "why_omega_only": "The failed formal attempt showed omega acceptance at 0.969 with bulk ESS 650. No registered diagnostic has shown the other coordinates' efficiency to be unacceptable, so they are not retuned.",
+  "multipliers": [
+    2,
+    4,
+    8,
+    16,
+    32,
+    64
+  ],
+  "base_omega_scale": 0.18213,
+  "admissible_acceptance": [
+    0.25,
+    0.6
+  ],
+  "preferred_acceptance": [
+    0.4,
+    0.5
+  ],
+  "selection_rule": "Among multipliers whose median across-chain acceptance lies inside the admissible interval [0.25, 0.60], select the one with the largest median expected squared jumping distance across the pilot chains. Ties (within 1e-12) are broken towards the SMALLER multiplier. The preferred acceptance region [0.40, 0.50] is reported for context and is not itself a filter.",
+  "tie_rule": "choose the smaller multiplier",
+  "chains": 4,
+  "sweeps": 4000,
+  "discarded_warm_up": 1000,
+  "base_seed": 90000001,
+  "permitted_statistics": [
+    "acceptance rate",
+    "expected squared jumping distance",
+    "finite-target checks",
+    "rejection and cache diagnostics"
+  ],
+  "forbidden_and_not_computed": [
+    "reference means",
+    "reference KS distances",
+    "generating truth",
+    "posterior recovery",
+    "MCMC/reference energy distance",
+    "formal R-hat"
+  ],
+  "all_pilot_draws_discarded": true
+}

@@ -1,0 +1,38 @@
+{
+  "recovery": {
+    "beta": {
+      "true_value": 1.5,
+      "posterior_mean": 1.4920713407853412,
+      "posterior_median": 1.4919391259831964,
+      "posterior_sd": 0.03860856350505327,
+      "q025": 1.4167461154195102,
+      "q975": 1.5670497123473235,
+      "truth_in_95_interval": true,
+      "absolute_error": 0.007928659214658795,
+      "error_in_posterior_sd": 0.2053601194880264
+    },
+    "omega": {
+      "true_value": 1.7346010553881064,
+      "posterior_mean": 1.8542445122389268,
+      "posterior_median": 1.8517819221918388,
+      "posterior_sd": 0.12491551175489772,
+      "q025": 1.6179548332411124,
+      "q975": 2.1083930385249423,
+      "truth_in_95_interval": true,
+      "absolute_error": 0.11964345685082045,
+      "error_in_posterior_sd": 0.9577950341794076
+    },
+    "lambda_rep": {
+      "true_value": 0.8,
+      "posterior_mean": 0.8000855459297099,
+      "posterior_median": 0.7999598937066682,
+      "posterior_sd": 0.02810682274006901,
+      "q025": 0.7446247307571551,
+      "q975": 0.8558180042552181,
+      "truth_in_95_interval": true,
+      "absolute_error": 8.554592970988484e-05,
+      "error_in_posterior_sd": 0.003043600142962114
+    }
+  },
+  "note": "synthetic recovery on one finite dataset; distinct from sampler correctness, which is the reference comparison"
+}

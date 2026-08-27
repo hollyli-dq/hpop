@@ -1,0 +1,39 @@
+{
+  "note": "exact skill-indexed hashes are NOT comparable across chains (the target is invariant under joint skill relabelling); matches are therefore reported under the canonical multiset-of-orders hash, with exact matches shown for completeness. Absence of matches does not imply lack of connectivity.",
+  "current_hashes": {
+    "7b2_ffbs:0": {
+      "exact": "2f6454332ec1e3af",
+      "canonical": "78b96e483832cef8"
+    },
+    "7b2_ffbs:1": {
+      "exact": "085e3d8c1288fa71",
+      "canonical": "9a660e641b2e6153"
+    },
+    "7b2_ffbs:2": {
+      "exact": "988422dc6c3f9f86",
+      "canonical": "988422dc6c3f9f86"
+    },
+    "7b2_ffbs:3": {
+      "exact": "d1d3542bd16ef85a",
+      "canonical": "f08954e56c6be1d8"
+    },
+    "6e2_local:0": {
+      "exact": "9dfcea27f9f4a1cf",
+      "canonical": "cf4234451eb40dbd"
+    },
+    "6e2_local:1": {
+      "exact": "723ef45c48727fa2",
+      "canonical": "976d3e1e704077da"
+    },
+    "6e2_local:2": {
+      "exact": "b62b567a3a86121a",
+      "canonical": "b62b567a3a86121a"
+    },
+    "6e2_local:3": {
+      "exact": "41817b21110ffd91",
+      "canonical": "fdb0cc9baff8b2a9"
+    }
+  },
+  "matches": [],
+  "n_matches": 0
+}

@@ -1,0 +1,239 @@
+{
+  "arms": {
+    "FULL-COND": {
+      "hours_per_chain": [
+        9.573,
+        9.577,
+        9.469,
+        9.468
+      ],
+      "live_invariants": {
+        "C_max_abs_P_diagonal": 0.0,
+        "D_max_abs_P_rowsum_minus_one": 2.220446049250313e-16,
+        "E_max_abs_pi_sum_minus_one": 4.440892098500626e-16,
+        "I_marginal_attempts_equal_ffbs_refreshes": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "pi_P_all_finite": true
+      },
+      "matched_structural_opportunities": {
+        "attempts_equal_sweeps_over_cadence": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "cadence": 10
+      },
+      "midrun_invariant_diagnostics_common_prefix": {
+        "log_target": {
+          "bulk_ess": 4.7453,
+          "rhat": 2.6047
+        },
+        "mean_segment_length": {
+          "bulk_ess": 7.3582,
+          "rhat": 1.5032
+        },
+        "mean_segments_per_trace": {
+          "bulk_ess": 7.3553,
+          "rhat": 1.5036
+        },
+        "n_draws": 1200,
+        "total_relations": {
+          "bulk_ess": 5.387,
+          "rhat": 3.1007
+        },
+        "total_segments": {
+          "bulk_ess": 7.3553,
+          "rhat": 1.5036
+        }
+      },
+      "per_chain_mean_log_target_last200": [
+        -6675.93,
+        -6327.99,
+        -5853.29,
+        -6028.51
+      ],
+      "retained_draws_per_chain": [
+        1200,
+        1200,
+        1200,
+        1200
+      ],
+      "seconds_per_sweep": [
+        2.154,
+        2.1547,
+        2.1306,
+        2.1304
+      ],
+      "structural": [
+        {
+          "accepts": 512,
+          "attempts": 1600,
+          "ffbs_after_marginal": 0,
+          "h_accepts": 12,
+          "invalid": 0,
+          "marginal_attempts": 0
+        },
+        {
+          "accepts": 511,
+          "attempts": 1600,
+          "ffbs_after_marginal": 0,
+          "h_accepts": 12,
+          "invalid": 0,
+          "marginal_attempts": 0
+        },
+        {
+          "accepts": 533,
+          "attempts": 1600,
+          "ffbs_after_marginal": 0,
+          "h_accepts": 20,
+          "invalid": 0,
+          "marginal_attempts": 0
+        },
+        {
+          "accepts": 610,
+          "attempts": 1600,
+          "ffbs_after_marginal": 0,
+          "h_accepts": 20,
+          "invalid": 0,
+          "marginal_attempts": 0
+        }
+      ],
+      "sweeps_per_chain": [
+        16000,
+        16000,
+        16000,
+        16000
+      ]
+    },
+    "FULL-MARG": {
+      "hours_per_chain": [
+        9.739,
+        9.762,
+        9.856,
+        9.657
+      ],
+      "live_invariants": {
+        "C_max_abs_P_diagonal": 0.0,
+        "D_max_abs_P_rowsum_minus_one": 2.220446049250313e-16,
+        "E_max_abs_pi_sum_minus_one": 2.220446049250313e-16,
+        "I_marginal_attempts_equal_ffbs_refreshes": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "pi_P_all_finite": true
+      },
+      "matched_structural_opportunities": {
+        "attempts_equal_sweeps_over_cadence": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "cadence": 10
+      },
+      "midrun_invariant_diagnostics_common_prefix": {
+        "log_target": {
+          "bulk_ess": 8.6659,
+          "rhat": 1.382
+        },
+        "mean_segment_length": {
+          "bulk_ess": 3172.7263,
+          "rhat": 1.0022
+        },
+        "mean_segments_per_trace": {
+          "bulk_ess": 3170.5329,
+          "rhat": 1.0022
+        },
+        "n_draws": 800,
+        "total_relations": {
+          "bulk_ess": 4.5303,
+          "rhat": 3.0735
+        },
+        "total_segments": {
+          "bulk_ess": 3170.5329,
+          "rhat": 1.0022
+        }
+      },
+      "per_chain_mean_log_target_last200": [
+        -5640.74,
+        -5648.88,
+        -5643.28,
+        -5654.17
+      ],
+      "retained_draws_per_chain": [
+        800,
+        800,
+        800,
+        800
+      ],
+      "seconds_per_sweep": [
+        2.5042,
+        2.5101,
+        2.5343,
+        2.4832
+      ],
+      "structural": [
+        {
+          "accepts": 453,
+          "attempts": 1400,
+          "ffbs_after_marginal": 1400,
+          "h_accepts": 29,
+          "invalid": 0,
+          "marginal_attempts": 1400
+        },
+        {
+          "accepts": 496,
+          "attempts": 1400,
+          "ffbs_after_marginal": 1400,
+          "h_accepts": 33,
+          "invalid": 0,
+          "marginal_attempts": 1400
+        },
+        {
+          "accepts": 533,
+          "attempts": 1400,
+          "ffbs_after_marginal": 1400,
+          "h_accepts": 28,
+          "invalid": 0,
+          "marginal_attempts": 1400
+        },
+        {
+          "accepts": 535,
+          "attempts": 1400,
+          "ffbs_after_marginal": 1400,
+          "h_accepts": 36,
+          "invalid": 0,
+          "marginal_attempts": 1400
+        }
+      ],
+      "sweeps_per_chain": [
+        14000,
+        14000,
+        14000,
+        14000
+      ]
+    }
+  },
+  "audit_index": 1,
+  "condition": "FULL-LATENT",
+  "event": "read_only_midrun_audit",
+  "interpretation": [
+    "All live model invariants hold exactly in both arms: P_kk == 0 bitwise, row sums and pi sums to machine precision, all pi/P finite.",
+    "Prelaunch check I holds live in FULL-MARG: every path-marginal structural attempt is followed by exactly one exact FFBS refresh in all four chains.",
+    "Structural proposal opportunities are matched between arms: attempts == sweeps/10 in all eight chains.",
+    "Neither arm has reached the registered 30,000-sweep gate; no PASS/FAIL is claimed or implied by this audit.",
+    "Cross-chain dispersion of invariant summaries is reported for run health only; it is not a registered convergence result and must not be cited as one."
+  ],
+  "is_registered_gate": false,
+  "note": "Truth-free read-only audit taken between launch and the first registered 30,000-sweep gate. It writes no gate, evaluates no stopping rule, opens no recovery truth, and modifies no kernel, threshold, datum, or proposal scale.",
+  "recorded_at_utc": "2026-08-22T08:55:53.341376Z",
+  "source_drift": "none: all 44 launch-manifest source hashes match the working tree",
+  "truth_seal": "PASS"
+}

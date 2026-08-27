@@ -1,0 +1,26 @@
+\caption{%
+  \textbf{Computational scalability of exact segmental partial-order inference.} All
+  points are medians from the load-controlled benchmark pass; error bars are bootstrap
+  95\% intervals for the median. \textbf{(a)} With bounded segment width, a complete
+  plain sweep scales approximately linearly in trace length over $J = 24$--$1024$
+  (fitted exponent 0.99, 95\% CI [0.91, 1.07]; $R^2 = 0.988$). \textbf{(b)} Over the
+  tested range $K = 3$--$80$, batching and transition factorisation keep the measured
+  growth modest (empirical exponent 0.79, 95\% CI [0.73, 0.85]); this is a
+  finite-range fit, and dense skill-transition dynamics retain an asymptotic $K^2$
+  term. \textbf{(c)} Memory, not time, is the binding constraint on trace length: the
+  current dense $(J, J{+}1, K)$ candidate score table is quadratic in $J$. Storing
+  only the legal duration bands would reduce that table to $O(NJDK)$ (20.3$\times$
+  smaller at the target operating point), but this banded layout is \emph{not
+  implemented}: the dashed series is arithmetic on array shapes and not a measurement.
+  The open marker is a configuration refused by the memory preflight on a prediction;
+  it was never allocated. \textbf{(d)} At the anticipated real-data operating point
+  ($N = 100$, $J = 200$, $K = 20$, $A = 50$, ten-role support per skill, $D \in [3,
+  12]$) an ordinary sweep costs 654~ms and peaks at 3.63~GiB resident. Marginalising
+  the partial order is free on a sweep that performs no structural update and adds
+  4.4\% amortised at the registered structural cadence of one in ten. The structural
+  sweep is dominated by rebuilding the candidate-score table (33.8~s), which an
+  unchanged-table cache lookup avoids entirely (1.4~ms). The rebuild and the
+  structural sweep were timed separately and are not components of a single stacked
+  measurement. These are throughput measurements and carry no claim about posterior
+  convergence or the number of sweeps required.%
+}

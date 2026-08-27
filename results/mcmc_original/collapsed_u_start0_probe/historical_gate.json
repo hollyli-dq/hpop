@@ -1,0 +1,14 @@
+{
+  "observed": 0.003717941606246278,
+  "envelope": 0.004522256615497353,
+  "null_mean": 0.0035295761958754612,
+  "null_sd": 0.0005638823977916067,
+  "z": 0.3340508785316447,
+  "inside_envelope": true,
+  "n_x": 4000,
+  "n_y": 4000,
+  "label": "historical frozen gate (first-4000-row pooled window; dominated by chains 0-1 by construction)",
+  "frozen_envelope_expected": 0.004522256615497353,
+  "frozen_envelope_matches": true,
+  "pass_under_frozen_gate": true
+}

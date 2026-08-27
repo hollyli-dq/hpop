@@ -1,0 +1,171 @@
+{
+  "authorised_by": "principal investigator, explicit instruction in session",
+  "condition": "FULL-LATENT",
+  "event": "mid_run_truth_unseal",
+  "mid_run_library_recovery_posterior_mode_last400_draws": {
+    "FULL-COND": [
+      {
+        "chain": 0,
+        "closure_f1": 0.5,
+        "closure_hamming": 16,
+        "exact_unordered_library": false,
+        "mode_frequency_last400": 1.0,
+        "sigma": [
+          2,
+          1,
+          0
+        ]
+      },
+      {
+        "chain": 1,
+        "closure_f1": 0.6667,
+        "closure_hamming": 10,
+        "exact_unordered_library": false,
+        "mode_frequency_last400": 1.0,
+        "sigma": [
+          2,
+          1,
+          0
+        ]
+      },
+      {
+        "chain": 2,
+        "closure_f1": 0.9697,
+        "closure_hamming": 1,
+        "exact_unordered_library": false,
+        "mode_frequency_last400": 1.0,
+        "sigma": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "chain": 3,
+        "closure_f1": 0.8125,
+        "closure_hamming": 6,
+        "exact_unordered_library": false,
+        "mode_frequency_last400": 1.0,
+        "sigma": [
+          2,
+          1,
+          0
+        ]
+      }
+    ],
+    "FULL-MARG": [
+      {
+        "chain": 0,
+        "closure_f1": 1.0,
+        "closure_hamming": 0,
+        "exact_unordered_library": true,
+        "mode_frequency_last400": 1.0,
+        "sigma": [
+          0,
+          2,
+          1
+        ]
+      },
+      {
+        "chain": 1,
+        "closure_f1": 1.0,
+        "closure_hamming": 0,
+        "exact_unordered_library": true,
+        "mode_frequency_last400": 1.0,
+        "sigma": [
+          2,
+          1,
+          0
+        ]
+      },
+      {
+        "chain": 2,
+        "closure_f1": 1.0,
+        "closure_hamming": 0,
+        "exact_unordered_library": true,
+        "mode_frequency_last400": 1.0,
+        "sigma": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "chain": 3,
+        "closure_f1": 1.0,
+        "closure_hamming": 0,
+        "exact_unordered_library": true,
+        "mode_frequency_last400": 0.7575,
+        "sigma": [
+          0,
+          1,
+          2
+        ]
+      }
+    ]
+  },
+  "prior_inadvertent_exposure": {
+    "fields": [
+      "true_skill_frequencies",
+      "true_transition_frequencies",
+      "total_true_blocks",
+      "block_count_distribution",
+      "block_width_distribution",
+      "repeat_occurrence_frequency"
+    ],
+    "file": "results/mcmc_original/matched_synthetic_formal_corpus/corpus_summary.json",
+    "note": "Read while locating the observed example, BEFORE the unseal was authorised. The file is labelled descriptive-only and is not read by the sealed sampler, but it does carry truth-derived aggregates. Disclosed rather than omitted."
+  },
+  "recorded_at_utc": "2026-08-22T10:24:55.551620Z",
+  "registration_impact": [
+    "PREREG_FULL_LATENT section 10 (truth sealed until terminal) and section 17 (no truth inspection after launch) are broken on the record for this run, by the PI's decision.",
+    "The running sampler was NOT touched: no kernel, threshold, datum, proposal scale, start, seed, or checkpoint was modified, and no gate was written.",
+    "The registered TERMINAL recovery (scripts/run_matched_full_latent_recovery.py) has NOT been run. The numbers below are a mid-run read using the preregistered Hungarian closure-Hamming cost, and are NOT the registered terminal recovery result."
+  ],
+  "truth": {
+    "P_star": [
+      [
+        0.0,
+        0.65,
+        0.35
+      ],
+      [
+        0.3,
+        0.0,
+        0.7
+      ],
+      [
+        0.75,
+        0.25,
+        0.0
+      ]
+    ],
+    "h_hashes": [
+      "942b806efae10c261911835af577de14439386e2f7b3cef68255fea5e5861e06",
+      "aad4482089bcdf722d7f73f9cec87a517e9d0c7b9f18ac3428ca9d6ed85bffaf",
+      "de9ea2a22977c4ebe80b9196ce60a07994eabb535c042d5225bad917f8771c5a"
+    ],
+    "n_roles": 5,
+    "n_skills": 3,
+    "pi_star": [
+      0.5,
+      0.3,
+      0.2
+    ],
+    "relations_per_skill": [
+      6,
+      6,
+      5
+    ],
+    "sorted_relation_counts": [
+      5,
+      6,
+      6
+    ],
+    "total_relations": 17
+  },
+  "what_was_opened": [
+    "results/mcmc_original/matched_synthetic_formal_corpus/truth_manifest.json",
+    "t###_widths / t###_boundaries / t###_labels inside train_traces.npz (traces 0-2 only)"
+  ]
+}

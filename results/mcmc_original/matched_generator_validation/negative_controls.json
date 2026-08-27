@@ -1,0 +1,27 @@
+{
+  "old_block_count_mechanism": {
+    "J": 32,
+    "detected": true,
+    "note": "exact conditional distribution of the old L~Uniform{4,5,6} + iid widths mechanism given total length J, vs the exact matched prior p(L | J)",
+    "registered_gate": 0.01,
+    "tv_vs_model": 0.20380677223505697
+  },
+  "recurrent_state_leakage": {
+    "detected": true,
+    "max_abs_log_prob_discrepancy": 21.185931590946467,
+    "note": "q carried across block boundaries; the production q_0 = 0 replay disagrees with the leaky generator's accumulated log-probability",
+    "registered_gate": 1e-10
+  },
+  "self_transitions": {
+    "detected": true,
+    "note": "nonzero P[0, 0] injected; validate_truth must refuse it"
+  },
+  "terminal_block_delta_factor": {
+    "J": 10,
+    "abs_error_correct_vs_enumeration": 0.0,
+    "abs_error_faulty_vs_enumeration": 1.8971199848858813,
+    "detected": true,
+    "note": "charging the final block a delta_B factor shifts every state by the same constant, so the normalizer (and cross-side log-prob parity) detects it; the normalized state distribution alone cannot, and the registered checks therefore include both",
+    "registered_gate": 1e-12
+  }
+}

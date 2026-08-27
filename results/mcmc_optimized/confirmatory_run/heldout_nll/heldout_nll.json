@@ -1,0 +1,190 @@
+{
+  "arms": {
+    "FULL-COND": {
+      "bootstrap_over_traces": {
+        "ci_hi": 62.70463052411761,
+        "ci_lo": 53.71455445481562,
+        "mean": 58.193131426371565,
+        "total": 2618.6909141867204,
+        "total_ci_hi": 2821.7083735852925,
+        "total_ci_lo": 2417.1549504667028
+      },
+      "engine": "frozen hpop.mcmc_original.collapsed_u_likelihood (Section 10 names the frozen semi-Markov forward recursion)",
+      "log_z_mean_over_draws_and_traces": -59.24795279270021,
+      "n_draws_used": 4000,
+      "nll_per_cpa_occurrence": 1.6285391257380102,
+      "optimized_backend_cross_check": {
+        "PASS": true,
+        "draws_cross_checked": 100,
+        "tolerance": 1e-10,
+        "worst_abs_difference": 4.263256414560601e-14
+      },
+      "per_trace_mean_nll": 58.193131426371565,
+      "total_nll": 2618.6909141867204
+    },
+    "FULL-MARG": {
+      "bootstrap_over_traces": {
+        "ci_hi": 59.55753594693149,
+        "ci_lo": 50.779041666317305,
+        "mean": 55.146942256773954,
+        "total": 2481.612401554828,
+        "total_ci_hi": 2680.089117611917,
+        "total_ci_lo": 2285.0568749842787
+      },
+      "engine": "frozen hpop.mcmc_original.collapsed_u_likelihood (Section 10 names the frozen semi-Markov forward recursion)",
+      "log_z_mean_over_draws_and_traces": -55.16894068511814,
+      "n_draws_used": 4000,
+      "nll_per_cpa_occurrence": 1.5432912944992712,
+      "optimized_backend_cross_check": {
+        "PASS": true,
+        "draws_cross_checked": 100,
+        "tolerance": 1e-10,
+        "worst_abs_difference": 4.263256414560601e-14
+      },
+      "per_trace_mean_nll": 55.146942256773954,
+      "total_nll": 2481.612401554828
+    }
+  },
+  "bootstrap": {
+    "over": "the 45 held-out traces",
+    "resamples": 10000,
+    "seed": 6300010
+  },
+  "chain_provenance": {
+    "FULL-COND": [
+      {
+        "burn_in_discarded": 50000,
+        "chain": 0,
+        "n_subsampled": 1000,
+        "retained_draws": 20000,
+        "seed": 6306201,
+        "subsample_indices_first": 0,
+        "subsample_indices_last": 19980,
+        "subsample_stride": 20,
+        "thin": 5
+      },
+      {
+        "burn_in_discarded": 50000,
+        "chain": 1,
+        "n_subsampled": 1000,
+        "retained_draws": 20000,
+        "seed": 6306202,
+        "subsample_indices_first": 0,
+        "subsample_indices_last": 19980,
+        "subsample_stride": 20,
+        "thin": 5
+      },
+      {
+        "burn_in_discarded": 50000,
+        "chain": 2,
+        "n_subsampled": 1000,
+        "retained_draws": 20000,
+        "seed": 6306203,
+        "subsample_indices_first": 0,
+        "subsample_indices_last": 19980,
+        "subsample_stride": 20,
+        "thin": 5
+      },
+      {
+        "burn_in_discarded": 50000,
+        "chain": 3,
+        "n_subsampled": 1000,
+        "retained_draws": 20000,
+        "seed": 6306204,
+        "subsample_indices_first": 0,
+        "subsample_indices_last": 19980,
+        "subsample_stride": 20,
+        "thin": 5
+      }
+    ],
+    "FULL-MARG": [
+      {
+        "burn_in_discarded": 50000,
+        "chain": 0,
+        "n_subsampled": 1000,
+        "retained_draws": 20000,
+        "seed": 6306211,
+        "subsample_indices_first": 0,
+        "subsample_indices_last": 19980,
+        "subsample_stride": 20,
+        "thin": 5
+      },
+      {
+        "burn_in_discarded": 50000,
+        "chain": 1,
+        "n_subsampled": 1000,
+        "retained_draws": 20000,
+        "seed": 6306212,
+        "subsample_indices_first": 0,
+        "subsample_indices_last": 19980,
+        "subsample_stride": 20,
+        "thin": 5
+      },
+      {
+        "burn_in_discarded": 50000,
+        "chain": 2,
+        "n_subsampled": 1000,
+        "retained_draws": 20000,
+        "seed": 6306213,
+        "subsample_indices_first": 0,
+        "subsample_indices_last": 19980,
+        "subsample_stride": 20,
+        "thin": 5
+      },
+      {
+        "burn_in_discarded": 50000,
+        "chain": 3,
+        "n_subsampled": 1000,
+        "retained_draws": 20000,
+        "seed": 6306214,
+        "subsample_indices_first": 0,
+        "subsample_indices_last": 19980,
+        "subsample_stride": 20,
+        "thin": 5
+      }
+    ]
+  },
+  "contrast_FULL_COND_minus_FULL_MARG": {
+    "NOTE": "the contrast implied by computing both arms; the preregistration fixes the estimator and both arms, and does not separately register this difference. Lower NLL is better, so a positive difference favours FULL-MARG.",
+    "ci_hi": 3.572646483640629,
+    "ci_lo": 2.475109394490288,
+    "mean_difference_per_trace": 3.046189169597613,
+    "n_traces": 45,
+    "n_traces_favouring_second": 41,
+    "total_difference": 137.07851263189258
+  },
+  "created_at_utc": "2026-08-23T11:39:59Z",
+  "estimator": "NLL_n = -log( (1/M) sum_m Z_n(U^(m), pi^(m), P^(m)) ), computed in the log domain as -(logsumexp_m log Z_n^(m) - log M)",
+  "held_out": {
+    "cpa_occurrences": 1608,
+    "n_traces": 45,
+    "never_used_for_inference": true
+  },
+  "log_z_source": "exact all-segmentation marginal likelihood from the frozen semi-Markov forward recursion, over the candidate block tables of the held-out corpus",
+  "model": {
+    "delta_b": 0.15,
+    "epsilon": 0.02,
+    "max_width": 12,
+    "min_width": 3,
+    "n_roles": 5,
+    "n_skills": 3
+  },
+  "preregistration": "results/mcmc_optimized/confirmatory_prereg/PREREG_CONFIRMATORY.md, Section 10",
+  "seconds": 2289.6634318828583,
+  "subsample": {
+    "chains_per_arm": 4,
+    "draws_per_arm": 4000,
+    "draws_per_chain": 1000,
+    "production_sweeps": 100000,
+    "spacing": "systematic, stride 20 through the 20,000 retained production draws, offset 0",
+    "thin": 5,
+    "warm_up_discarded": 50000
+  },
+  "supplementary_truth_parameter_reference": {
+    "STATUS": "SUPPLEMENTARY, NOT PREREGISTERED, DESCRIPTIVE ONLY",
+    "nll_per_cpa_occurrence": 1.5397841279583706,
+    "per_trace_mean_nll": 55.021619505712444,
+    "total_nll": 2475.97287775706,
+    "what": "the same held-out marginal likelihood evaluated at the unsealed truth parameters -- a single point, not a posterior average, so it is a reference scale and not a competitor to either arm"
+  }
+}

@@ -1,0 +1,297 @@
+{
+  "budget_limited_operations": [],
+  "censored": false,
+  "config": {
+    "A": 50,
+    "D_max": 12,
+    "D_min": 3,
+    "J": 500,
+    "K": 20,
+    "N": 20,
+    "axis": "target_long",
+    "groups": [
+      "build",
+      "primitives"
+    ],
+    "label": "target_long_J500_N20",
+    "length_mix": [],
+    "max_reps": 15,
+    "min_reps": 5,
+    "note": "REDUCED CORPUS. The J=500 long-trace primitive point at the largest N the dense score table fits in the memory gate. It measures trace length at the target K and A; it is not the N=100 operating point and is never reported as one.",
+    "op_reps": [],
+    "regime": "sparse",
+    "seed": 20260822,
+    "timeout_s": 1800,
+    "warmups": 2
+  },
+  "config_id": "target_long/N20_J500_K20_A50_D12_sparse_s20260822",
+  "counters": {
+    "emission_cache_hits": 7,
+    "emission_rebuilds": 8,
+    "forward_batched_groups": 0,
+    "forward_batched_traces": 0,
+    "forward_factorised_calls": 0,
+    "forward_inline_calls": 0,
+    "forward_reference_calls": 0
+  },
+  "extras": {
+    "emission_table_alloc_seconds": 1.2021435829992697
+  },
+  "flags": {
+    "batched_forward": true,
+    "emission_hash_cache": true,
+    "factorised_forward": true,
+    "inline_logsumexp": true
+  },
+  "forward_work": {
+    "forward_duration_reductions": 1970000,
+    "forward_states": 200000,
+    "forward_total_reductions": 5970000,
+    "forward_transition_reductions": 4000000
+  },
+  "geometry": {
+    "legal_blocks_per_trace_mean": 4935.0,
+    "legal_blocks_times_skills": 1974000,
+    "legal_blocks_total": 98700,
+    "n_legal_widths": 10,
+    "trace_occurrences": 10000
+  },
+  "group": "build",
+  "group_build_seconds": 43.554997207997076,
+  "invariants": {
+    "emission_cache_hits": 0,
+    "emission_rebuilds": 1,
+    "expected_finite_block_entries": 1974000,
+    "finite_block_entries": 1974000,
+    "flags": {
+      "batched_forward": true,
+      "emission_hash_cache": true,
+      "factorised_forward": true,
+      "inline_logsumexp": true
+    },
+    "legal_block_count_matches_geometry": true,
+    "no_nan_in_block_tables": true,
+    "table_source": "batched"
+  },
+  "loadavg_after": [
+    10.17626953125,
+    9.92626953125,
+    9.771484375
+  ],
+  "loadavg_before": [
+    9.91943359375,
+    9.7138671875,
+    9.67333984375
+  ],
+  "operations": {
+    "emission_build": {
+      "cpu": {
+        "ci_hi": 41.70805099999998,
+        "ci_lo": 41.522110999999995,
+        "ci_relative_half_width": 0.002233186086854197,
+        "iqr": 0.14798599999997464,
+        "max": 41.70805099999998,
+        "mean": 41.611943399999994,
+        "median": 41.631102999999996,
+        "min": 41.522110999999995,
+        "n": 5,
+        "p90": 41.694118199999984,
+        "q25": 41.525233000000014,
+        "q75": 41.67321899999999
+      },
+      "cpu_raw": [
+        41.522110999999995,
+        41.67321899999999,
+        41.525233000000014,
+        41.70805099999998,
+        41.631102999999996
+      ],
+      "wall": {
+        "ci_hi": 42.52587175000008,
+        "ci_lo": 42.15268104200004,
+        "ci_relative_half_width": 0.004416930088848746,
+        "iqr": 0.16183595799884642,
+        "max": 42.52587175000008,
+        "mean": 42.29271309159958,
+        "median": 42.24548504199993,
+        "min": 42.15268104200004,
+        "n": 5,
+        "p90": 42.45579576639939,
+        "q25": 42.188845832999505,
+        "q75": 42.35068179099835
+      },
+      "wall_raw": [
+        42.188845832999505,
+        42.35068179099835,
+        42.15268104200004,
+        42.52587175000008,
+        42.24548504199993
+      ]
+    },
+    "emission_cache_hit": {
+      "cpu": {
+        "ci_hi": 0.0029619999999965785,
+        "ci_lo": 0.002744000000006963,
+        "ci_relative_half_width": 0.03884533143129069,
+        "iqr": 0.0001650000000097407,
+        "max": 0.0029619999999965785,
+        "mean": 0.0028458000000000537,
+        "median": 0.002805999999964115,
+        "min": 0.002744000000006963,
+        "n": 5,
+        "p90": 0.002953600000006418,
+        "q25": 0.002776000000011436,
+        "q75": 0.0029410000000211767
+      },
+      "cpu_raw": [
+        0.002776000000011436,
+        0.0029619999999965785,
+        0.002744000000006963,
+        0.0029410000000211767,
+        0.002805999999964115
+      ],
+      "wall": {
+        "ci_hi": 0.0029716669996560086,
+        "ci_lo": 0.0027421250015322585,
+        "ci_relative_half_width": 0.04078027944615107,
+        "iqr": 0.00015583400090690702,
+        "max": 0.0029716669996560086,
+        "mean": 0.0028504002009867692,
+        "median": 0.0028143750023446046,
+        "min": 0.0027421250015322585,
+        "n": 5,
+        "p90": 0.002958933800255181,
+        "q25": 0.0027840000002470333,
+        "q75": 0.0029398340011539403
+      },
+      "wall_raw": [
+        0.0027840000002470333,
+        0.0029716669996560086,
+        0.0027421250015322585,
+        0.0029398340011539403,
+        0.0028143750023446046
+      ]
+    }
+  },
+  "peak_rss_at_process_start_bytes": 112648192,
+  "peak_rss_bytes": 1472860160,
+  "predicted_memory": {
+    "alpha_chart_bytes": 1603200,
+    "batched_alpha_r_bytes": 3206400,
+    "batched_stack_bytes_worst_class": 801600000,
+    "dense_block_table_bytes": 801600000,
+    "dense_block_table_bytes_all_copies": 801600000,
+    "dense_copies_live_in_this_group": 1,
+    "fast_cumulative_bytes": 19123200,
+    "group": "build",
+    "predicted_arrays_total_bytes": 1627132800,
+    "predicted_process_rss_bytes": 1857819520,
+    "projected_banded_bytes_NOT_IMPLEMENTED": 15936000,
+    "projected_banded_saving_ratio_NOT_IMPLEMENTED": 50.30120481927711
+  },
+  "preflight": {
+    "allowed": true,
+    "available_bytes": 6390628352,
+    "cap_bytes": 6442450944,
+    "predicted_rss_bytes": 1857819520,
+    "reasons": []
+  },
+  "process_cpu_seconds_total": 336.88123199999995,
+  "reduced_repetitions": true,
+  "repetition_plan": {
+    "emission_build": {
+      "max_reps": 15,
+      "min_reps": 5,
+      "warmups": 2
+    },
+    "emission_cache_hit": {
+      "max_reps": 15,
+      "min_reps": 5,
+      "warmups": 2
+    }
+  },
+  "reps_completed": 5,
+  "reps_completed_per_operation": {
+    "emission_build": 5,
+    "emission_cache_hit": 5
+  },
+  "role_graph": {
+    "max_predecessors_per_role": 9,
+    "mean_predecessors_per_role": 0.4620000000000001,
+    "mean_relation_density": 0.009428571428571429,
+    "n_roles": 50,
+    "n_skills": 20,
+    "relation_density_per_skill": [
+      0.009795918367346938,
+      0.005714285714285714,
+      0.008979591836734694,
+      0.008571428571428572,
+      0.008571428571428572,
+      0.010612244897959184,
+      0.008979591836734694,
+      0.008979591836734694,
+      0.012244897959183673,
+      0.008571428571428572,
+      0.011020408163265306,
+      0.009795918367346938,
+      0.009795918367346938,
+      0.011020408163265306,
+      0.007755102040816327,
+      0.006530612244897959,
+      0.011020408163265306,
+      0.011020408163265306,
+      0.013469387755102041,
+      0.006122448979591836
+    ],
+    "relations_per_skill": [
+      24,
+      14,
+      22,
+      21,
+      21,
+      26,
+      22,
+      22,
+      30,
+      21,
+      27,
+      24,
+      24,
+      27,
+      19,
+      16,
+      27,
+      27,
+      33,
+      15
+    ]
+  },
+  "setup_seconds": 0.07204895899849362,
+  "status": "ok",
+  "swap": {
+    "available": true,
+    "available_bytes": 5688590336,
+    "raw": "total = 3072.00M  used = 1539.38M  free = 1532.62M  (encrypted)",
+    "swapins": 1783155.0,
+    "swapouts": 2238774.0,
+    "used_mb": 1539.38
+  },
+  "time_budget_share_seconds": {
+    "emission_build": 1644.4251144578514,
+    "emission_cache_hit": 0.1138057062569921
+  },
+  "time_spent_per_operation_seconds": {
+    "emission_build": 211.4635654579979,
+    "emission_cache_hit": 0.014252001004933845
+  },
+  "wall_seconds_total": 340.4727590084076,
+  "warmup_mean_seconds": {
+    "emission_build": 42.47282908300076,
+    "emission_cache_hit": 0.0029394164976110915
+  },
+  "warmups": 2,
+  "warmups_completed": {
+    "emission_build": 2,
+    "emission_cache_hit": 2
+  }
+}

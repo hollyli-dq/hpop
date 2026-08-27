@@ -1,0 +1,172 @@
+{
+  "registration_source": "results/mcmc_original/stage6d2_gate_registration.json",
+  "stage6d_config_hash": "ebd5effd5b32e68aeb61df044bfbdcbef998c01955673ae1c077531be3d2ac73",
+  "source_commit": "0905a16b5bfdf1b7e52dc9a99954bc23453b10e4",
+  "gates": {
+    "rho_rhat": {
+      "value": 1.0009071120612851,
+      "threshold": 1.01,
+      "comparison": "<=",
+      "pass": true
+    },
+    "beta_rhat": {
+      "value": 1.0006856379944682,
+      "threshold": 1.01,
+      "comparison": "<=",
+      "pass": true
+    },
+    "omega_rhat": {
+      "value": 1.000238335775771,
+      "threshold": 1.01,
+      "comparison": "<=",
+      "pass": true
+    },
+    "lambda_rep_rhat": {
+      "value": 1.0008968613478244,
+      "threshold": 1.01,
+      "comparison": "<=",
+      "pass": true
+    },
+    "lambda_back_rhat": {
+      "value": 1.0002317907370495,
+      "threshold": 1.01,
+      "comparison": "<=",
+      "pass": true
+    },
+    "log_posterior_rhat": {
+      "value": 1.0028952035187062,
+      "threshold": 1.01,
+      "comparison": "<=",
+      "pass": true
+    },
+    "relation_count_rhat": {
+      "value": null,
+      "threshold": 1.01,
+      "comparison": "<=",
+      "pass": true,
+      "note": "degenerate: the relation-count trace is constant at 6.0, which is the point mass Stage 6C established on this corpus. R-hat is undefined, not 1.0. The point mass itself is gated by structural recovery."
+    },
+    "uncertain_relation_rhat": {
+      "value": null,
+      "threshold": 1.01,
+      "comparison": "<=",
+      "pass": true,
+      "note": "no relation varies across the retained draws, so there is no per-relation R-hat to compute; not applicable rather than passing on a vacuous 1.0"
+    },
+    "min_bulk_ess": {
+      "value": 4873.97669265298,
+      "threshold": 1000,
+      "comparison": ">=",
+      "pass": true,
+      "note": "worst coordinate: rho"
+    },
+    "max_mcse_over_posterior_sd": {
+      "value": 0.014323800908479073,
+      "threshold": 0.05,
+      "comparison": "<=",
+      "pass": true,
+      "note": "worst coordinate: rho"
+    },
+    "post_burn_in_acceptance_band": {
+      "value": {
+        "U": 0.31816,
+        "rho": 0.3276125,
+        "beta": 0.4441,
+        "omega": 0.3856875,
+        "lambda_rep": 0.3892625,
+        "lambda_back": 0.5188999999999999
+      },
+      "threshold": [
+        0.2,
+        0.65
+      ],
+      "comparison": "inside",
+      "pass": true,
+      "outside": {}
+    },
+    "beta_matches_stage6b3": {
+      "value": 0.061271942201463946,
+      "threshold": 0.25,
+      "comparison": "<=",
+      "pass": true
+    },
+    "omega_matches_stage6b3": {
+      "value": 0.017055971675781625,
+      "threshold": 0.25,
+      "comparison": "<=",
+      "pass": true
+    },
+    "lambda_rep_matches_stage6b3": {
+      "value": 0.05616722718597986,
+      "threshold": 0.25,
+      "comparison": "<=",
+      "pass": true
+    },
+    "lambda_back_matches_stage6b3": {
+      "value": 0.010450193992180074,
+      "threshold": 0.25,
+      "comparison": "<=",
+      "pass": true
+    },
+    "rho_matches_stage6c2": {
+      "value": 0.01999222043545142,
+      "threshold": 0.25,
+      "comparison": "<=",
+      "pass": true,
+      "note": "rho enters only p(U | rho), so conditional on the same order posterior it cannot depend on the scalars Stage 6C2 held fixed"
+    },
+    "structure_matches_stage6c2": {
+      "value": 1.0,
+      "threshold": 0.99,
+      "comparison": ">=",
+      "pass": true,
+      "note": "freeing omega, lambda_rep and lambda_back must not move the induced order"
+    },
+    "structural_recovery_closure_f1": {
+      "value": 1.0,
+      "threshold": 1.0,
+      "comparison": "==",
+      "pass": true
+    },
+    "structural_recovery_hamming": {
+      "value": 0,
+      "threshold": 0,
+      "comparison": "==",
+      "pass": true
+    },
+    "probability_of_the_true_order": {
+      "value": 1.0,
+      "threshold": 0.99,
+      "comparison": ">=",
+      "pass": true
+    },
+    "beta_truth_in_95_interval": {
+      "value": true,
+      "threshold": true,
+      "comparison": "==",
+      "pass": true
+    },
+    "omega_truth_in_95_interval": {
+      "value": true,
+      "threshold": true,
+      "comparison": "==",
+      "pass": true
+    },
+    "lambda_rep_truth_in_95_interval": {
+      "value": true,
+      "threshold": true,
+      "comparison": "==",
+      "pass": true
+    },
+    "lambda_back_truth_in_95_interval": {
+      "value": true,
+      "threshold": true,
+      "comparison": "==",
+      "pass": true
+    }
+  },
+  "n_gates": 24,
+  "failed": [],
+  "all_passed": true,
+  "convergence_gates_failed": []
+}

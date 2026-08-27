@@ -1,0 +1,42 @@
+{
+  "resumed_at": "2026-08-15T14:35:17+0100",
+  "reason": "power loss; every chain checkpointed at sweep 16,000",
+  "resumed_from_sweep": {
+    "0": 16000,
+    "1": 16000,
+    "2": 16000,
+    "3": 16000
+  },
+  "block0_retained": {
+    "0": 200,
+    "1": 200,
+    "2": 200,
+    "3": 200
+  },
+  "bit_identical": "the checkpointed state carries the sweep-end RNG, so the resumed draw sequence is the one the uninterrupted run would have produced; retained draws are spliced with no gap and no overlap (block 0 retains sweeps 15,000-15,995, the resumed portion 16,000-49,995, both on the registered thin of 5)",
+  "resume_integrity_gate": {
+    "0": {
+      "recomputed_log_target": -5934.990275060922,
+      "matched_checkpoint": true
+    },
+    "1": {
+      "recomputed_log_target": -5603.341963346339,
+      "matched_checkpoint": true
+    },
+    "2": {
+      "recomputed_log_target": -5706.146633877771,
+      "matched_checkpoint": true
+    },
+    "3": {
+      "recomputed_log_target": -5500.573487400248,
+      "matched_checkpoint": true
+    }
+  },
+  "not_restored": {
+    "movement_series_and_summary": "cover sweeps 16,000-50,000 only; the tracker for sweeps 0-16,000 died with the interrupted process and was never on disk",
+    "acceptance_rates": "post-burn-in counters restart at 16,000, so rates omit sweeps 15,000-16,000 (1,000 of 35,000 post-burn-in sweeps); whole-run totals in proposed/accepted are intact from the checkpointed state",
+    "table_builds": "counts the resumed 34,000 sweeps only, so performance.json's builds_equal_sweeps reads false",
+    "runtime": "per-chain runtime_seconds and the wall clock cover the resumed portion; the pre-interruption portion ran 2026-08-14 10:40-16:22 BST"
+  },
+  "configuration_changes": "none; corpus, scales, schedule, seeds and sweep order are the freeze manifest's"
+}

@@ -1,0 +1,38 @@
+{
+  "stage": "6E2",
+  "source_commit": "1f5e8a093124dbded1a75013297498ad34094a49",
+  "stage6e_config_hash": "d98897a181b6809a17dd572ca175da7846a6924b8429b9c7337a939686a6da44",
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "corpus_hash": "02be246edf9bd4f4148efa3a3e269afa10b21df53173c7273b5a4deb9e30c941",
+  "corpus_seed": 6053000,
+  "model": {
+    "n_skills": 3,
+    "n_roles": 5,
+    "d_latent": 2,
+    "epsilon": 0.02,
+    "delta_B": 0.15,
+    "min_width": 3,
+    "max_width": 12,
+    "infer_pi_P": true
+  },
+  "selected_scales": {
+    "U": 0.5,
+    "rho": 0.5,
+    "beta": 0.40872,
+    "omega": 1.45704,
+    "lambda_rep": 0.6648,
+    "lambda_back": 1.51552
+  },
+  "selected_proposals_per_trace": 32,
+  "sweep_order": [
+    "(S,z)",
+    "(pi,P)",
+    "U",
+    "rho",
+    "beta",
+    "omega",
+    "lambda_rep",
+    "lambda_back"
+  ]
+}

@@ -1,0 +1,247 @@
+{
+  "gates": {
+    "segmentation_total_variation": {
+      "value": 0.009507626125975346,
+      "threshold": 0.01,
+      "pass": true,
+      "per_trace": [
+        0.009507626125975346,
+        0.00858895670318984
+      ]
+    },
+    "segmentation_total_variation_vs_sampled_estimator": {
+      "value": 0.009366890319311323,
+      "threshold": 0.01,
+      "pass": true,
+      "per_trace": [
+        0.009366890319311323,
+        0.008522460094757392
+      ],
+      "note": "section 9's literal sampled reference estimator; the conditional estimator above is primary"
+    },
+    "max_boundary_marginal_error": {
+      "value": 0.0026443400243751775,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "max_occurrence_label_marginal_error": {
+      "value": 0.005524303910458661,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "induced_h_total_variation": {
+      "value": 0.01043332293263333,
+      "threshold": 0.01,
+      "pass": false,
+      "per_skill": [
+        0.01043332293263333,
+        0.00927252639946405,
+        0.00671549200397575
+      ]
+    },
+    "max_relation_marginal_error": {
+      "value": 0.00819222468720604,
+      "threshold": 0.01,
+      "pass": true,
+      "per_skill": [
+        0.00819222468720604,
+        0.007584985501388031,
+        0.003461512421739199
+      ]
+    },
+    "segment_count_total_variation": {
+      "value": 0.006286234513721761,
+      "threshold": 0.01,
+      "pass": true
+    },
+    "mixed_multivariate_reference_statistic": {
+      "value": 0.0037982063217967266,
+      "threshold": 0.004522256615497353,
+      "pass": true,
+      "z_score": 0.4763938845641049
+    },
+    "log_posterior_rhat": {
+      "value": 1.0010719083458384,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "n_segments_rhat": {
+      "value": 1.000047375814809,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "relation_count_rhat": {
+      "value": 1.0006563046399333,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "selected_boundary_indicator_rhat": {
+      "value": 1.0001460397938429,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "selected_relation_indicator_rhat": {
+      "value": 1.0003859336079748,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "rho_rhat": {
+      "value": 1.0012677094447422,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "beta_rhat": {
+      "value": 1.006331485883769,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "omega_rhat": {
+      "value": 1.0019340827955856,
+      "threshold": 1.01,
+      "pass": true
+    },
+    "lambda_rep_rhat": {
+      "value": 1.0187668493274027,
+      "threshold": 1.01,
+      "pass": false
+    },
+    "lambda_back_rhat": {
+      "value": 1.0016815546976334,
+      "threshold": 1.01,
+      "pass": true
+    }
+  },
+  "all_pass": false,
+  "mixed_multivariate": {
+    "statistic": "energy distance on [closure indicators, segment counts, standardised scalars]",
+    "observed": 0.0037982063217967266,
+    "envelope": 0.004522256615497353,
+    "envelope_quantile": 0.99,
+    "null_mean": 0.0035295761958754612,
+    "null_sd": 0.0005638823977916067,
+    "n_reference": 4000,
+    "n_mcmc": 4000,
+    "n_coordinates": 25,
+    "dropped_constant_coordinates": 9,
+    "z_score": 0.4763938845641049,
+    "pass": true
+  },
+  "convergence": {
+    "log_posterior": {
+      "rhat_bulk": 1.0010719083458384,
+      "rhat_tail": 1.0002844938489914,
+      "rhat": 1.0010719083458384,
+      "degenerate": false,
+      "bulk_ess": 8526.636011526596,
+      "tail_ess": 11174.297606090198,
+      "mcse": 0.05235608913450674,
+      "n_draws": 60000,
+      "n_chains": 4
+    },
+    "n_segments": {
+      "rhat_bulk": 1.000047375814809,
+      "rhat_tail": 1.00004281130536,
+      "rhat": 1.000047375814809,
+      "degenerate": false,
+      "bulk_ess": 30085.758963349108,
+      "tail_ess": 31471.555450288008,
+      "mcse": 0.0038997103357600715,
+      "n_draws": 60000,
+      "n_chains": 4
+    },
+    "relation_count": {
+      "rhat_bulk": 1.0006563046399333,
+      "rhat_tail": 1.0002380558067117,
+      "rhat": 1.0006563046399333,
+      "degenerate": false,
+      "bulk_ess": 10445.374086970924,
+      "tail_ess": 22416.55743383961,
+      "mcse": 0.015989469342615355,
+      "n_draws": 60000,
+      "n_chains": 4
+    },
+    "selected_boundary_indicator": {
+      "rhat_bulk": 1.0001460397938429,
+      "rhat_tail": 1.0001460397938429,
+      "rhat": 1.0001460397938429,
+      "degenerate": false,
+      "bulk_ess": 20306.4794780516,
+      "tail_ess": 20306.479478051544,
+      "mcse": 0.003365928080046242,
+      "n_draws": 60000,
+      "n_chains": 4
+    },
+    "selected_relation_indicator": {
+      "rhat_bulk": 1.0003859336079748,
+      "rhat_tail": 1.0003859336079748,
+      "rhat": 1.0003859336079748,
+      "degenerate": false,
+      "bulk_ess": 15286.40014761858,
+      "tail_ess": 15286.400147618577,
+      "mcse": 0.003716273186688633,
+      "n_draws": 60000,
+      "n_chains": 4
+    },
+    "rho": {
+      "rhat": 1.0012677094447422,
+      "degenerate": false,
+      "bulk_ess": 6274.914082169576,
+      "tail_ess": 9785.59340028219,
+      "mcse": 0.0035084489702473486
+    },
+    "beta": {
+      "rhat": 1.006331485883769,
+      "degenerate": false,
+      "bulk_ess": 679.0797313238396,
+      "tail_ess": 770.8443484678818,
+      "mcse": 0.03608843148200361
+    },
+    "omega": {
+      "rhat": 1.0019340827955856,
+      "degenerate": false,
+      "bulk_ess": 1215.3687810387241,
+      "tail_ess": 2532.2799989934288,
+      "mcse": 0.05728737165008912
+    },
+    "lambda_rep": {
+      "rhat": 1.0187668493274027,
+      "degenerate": false,
+      "bulk_ess": 442.39583391155685,
+      "tail_ess": 580.1674816205466,
+      "mcse": 0.01737458845334033
+    },
+    "lambda_back": {
+      "rhat": 1.0016815546976334,
+      "degenerate": false,
+      "bulk_ess": 1908.9843470074002,
+      "tail_ess": 2868.412708775515,
+      "mcse": 0.014716987825886874
+    }
+  },
+  "acceptance_by_chain": [
+    {},
+    {},
+    {},
+    {}
+  ],
+  "movement": [
+    {},
+    {},
+    {},
+    {}
+  ],
+  "retained_per_chain": [
+    15000,
+    15000,
+    15000,
+    15000
+  ],
+  "retained_pooled": 60000,
+  "runtime_seconds": [
+    null,
+    null,
+    null,
+    null
+  ],
+  "worst_rhat": 1.0187668493274027
+}

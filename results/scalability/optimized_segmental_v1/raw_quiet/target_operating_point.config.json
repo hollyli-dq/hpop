@@ -1,0 +1,80 @@
+{
+  "A": 50,
+  "D_max": 12,
+  "D_min": 3,
+  "J": 200,
+  "K": 20,
+  "N": 100,
+  "axis": "target",
+  "groups": [
+    "build",
+    "primitives",
+    "cond",
+    "marg"
+  ],
+  "label": "target_operating_point",
+  "length_mix": [],
+  "max_reps": 200,
+  "min_reps": 5,
+  "note": "Section 16 primary target: 50 warm-up and 200 timed plain sweeps per arm, structural sweeps capped at 50 and allowed to stop at 5 under the 30-minute ceiling",
+  "op_reps": [
+    [
+      "cond_plain",
+      50,
+      200,
+      200
+    ],
+    [
+      "marg_plain",
+      50,
+      200,
+      200
+    ],
+    [
+      "cond_structural",
+      2,
+      5,
+      50
+    ],
+    [
+      "marg_structural",
+      2,
+      5,
+      50
+    ],
+    [
+      "emission_build",
+      2,
+      5,
+      15
+    ],
+    [
+      "emission_cache_hit",
+      3,
+      15,
+      50
+    ],
+    [
+      "forward_batched",
+      3,
+      15,
+      50
+    ],
+    [
+      "backward_sample",
+      3,
+      15,
+      50
+    ],
+    [
+      "ffbs_complete",
+      3,
+      15,
+      50
+    ]
+  ],
+  "regime": "sparse",
+  "seed": 20260822,
+  "timeout_s": 1800,
+  "warmups": 50
+}

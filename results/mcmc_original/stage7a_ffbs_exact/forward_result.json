@@ -1,0 +1,46 @@
+{
+  "log_z_ffbs": -7.939698706439893,
+  "log_z_enumerated": -7.939698706439894,
+  "log_z_absolute_error": 8.881784197001252e-16,
+  "log_z_stage6e1a_forward_recursion": -7.939698706439893,
+  "log_z_ffbs_minus_stage6e1a_forward": 0.0,
+  "n_exact_paths": 21,
+  "chart": {
+    "J": 8,
+    "K": 3,
+    "max_width": 12,
+    "min_width": 3,
+    "boundary_prob": 0.15,
+    "log_normalizer": -7.939698706439893,
+    "build_seconds": 0.002065541106276214,
+    "alpha_final_row": [
+      -8.805675306033462,
+      -10.197294842931422,
+      -8.68464917539482
+    ]
+  },
+  "dynamic_programming_marginals": {
+    "max_boundary_error_vs_enumeration": 4.85722573273506e-17,
+    "max_occurrence_label_error_vs_enumeration": 5.551115123125783e-16,
+    "max_labelled_segment_error_vs_enumeration": 4.440892098500626e-16,
+    "log_z_from_backward_pass_error": 0.0,
+    "boundary_marginals": [
+      0.0,
+      0.0,
+      0.023465722571144335,
+      0.03556281733036135,
+      0.01820106922581904,
+      0.0,
+      0.0
+    ],
+    "exact_boundary_marginals": [
+      0.0,
+      0.0,
+      0.02346572257114434,
+      0.0355628173303614,
+      0.018201069225819058,
+      0.0,
+      0.0
+    ]
+  }
+}

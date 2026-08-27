@@ -1,0 +1,116 @@
+{
+  "claim_discipline": "the J and K exponents are complete plain-sweep fits, not forward-pass fits; the K exponent is a finite-range empirical fit over K = 3 to 80 and dense skill transitions retain an asymptotic K^2 term",
+  "contaminated_first_pass_rows_used": 0,
+  "controlled_pass_filter": {
+    "column": "phase",
+    "rows_plotted": 41,
+    "timing_rows_verified": 19,
+    "value": "quiet"
+  },
+  "first_pass_note": "the first benchmark pass is contaminated by performance/efficiency-core migration and contributes no point to any figure here; it is retained in the benchmark artifacts and reported in SCALABILITY_REPORT.md",
+  "fits_used": {
+    "J::J::cond_plain": {
+      "bootstrap_ci_95": [
+        0.9074757757312311,
+        1.071243849007814
+      ],
+      "exponent": 0.9898940307572249,
+      "extrapolation_caveat": "fitted over x in [24, 1024]; no statement beyond x = 2048 is supported by this fit",
+      "n_points": 7,
+      "ols_ci_95": [
+        0.8935319332793558,
+        1.086256128235094
+      ],
+      "ols_stderr": 0.04916433544789242,
+      "prefactor_log10": -3.337933120367931,
+      "r_squared": 0.9878165790210148,
+      "x_max": 1024.0,
+      "x_min": 24.0,
+      "y_max_s": 0.5345476455040625,
+      "y_min_s": 0.012701500003458932
+    },
+    "K::K::cond_plain": {
+      "bootstrap_ci_95": [
+        0.7314783250615057,
+        0.8500480907863277
+      ],
+      "exponent": 0.7906286468514733,
+      "extrapolation_caveat": "fitted over x in [3, 80]; no statement beyond x = 160 is supported by this fit",
+      "n_points": 6,
+      "ols_ci_95": [
+        0.71998252034613,
+        0.8612747733568166
+      ],
+      "ols_stderr": 0.03604394209456293,
+      "prefactor_log10": -1.8402304860333454,
+      "r_squared": 0.9917551279469967,
+      "x_max": 80.0,
+      "x_min": 3.0,
+      "y_max_s": 0.5182580000036978,
+      "y_min_s": 0.03830808299971977
+    }
+  },
+  "generated_by": "scripts/paper/make_scalability_figures.py",
+  "optimized_backend_commit": "564995efd056d7d33984f0ca1532386e6140ea0c",
+  "outputs": {
+    "paper/figures/fig_scalability_appendix.pdf": "6c803a47d1f58622fd8a997f0345c5077a0a7bf85022904190e29cb4f4e6acc3",
+    "paper/figures/fig_scalability_appendix.png": "3d70a0affd373b0f56c4207c6750f67e2012487c84755dd2ddab0b1b50eee541",
+    "paper/figures/fig_scalability_main.pdf": "14ffd815e2a74568d54fad3cc4be736d3528241cb9ea982d964d90243a698ac0",
+    "paper/figures/fig_scalability_main.png": "086ae72ce5007416cef62aa456a8916c7c1b2626b5cad08735a9762a0872aa81",
+    "paper/figures/fig_scalability_main_caption.tex": "4e476d92bd3a96608af275db403fc5c1d16f0b776af5585d0163397f80b2cdc2",
+    "paper/figures/fig_scalability_main_data.csv": "a410a01c29a7e7cdb5d52b3ba581fce75ffea455bfbe8fea0db80f268a69910f",
+    "paper/figures/fig_scalability_main_include.tex": "ff29b573fd170f2146c763d12661f5f77170619d7a7e74f1879c0cb3cd6b3a1b"
+  },
+  "plotted_configuration_ids": [
+    "A_full/N16_J128_K10_A10_D12_full_s20260822",
+    "A_full/N16_J128_K10_A20_D12_full_s20260822",
+    "A_full/N16_J128_K10_A30_D12_full_s20260822",
+    "A_full/N16_J128_K10_A50_D12_full_s20260822",
+    "A_full/N16_J128_K10_A5_D12_full_s20260822",
+    "A_sparse/N16_J128_K10_A10_D12_sparse_s20260822",
+    "A_sparse/N16_J128_K10_A20_D12_sparse_s20260822",
+    "A_sparse/N16_J128_K10_A30_D12_sparse_s20260822",
+    "A_sparse/N16_J128_K10_A50_D12_sparse_s20260822",
+    "A_sparse/N16_J128_K10_A5_D12_sparse_s20260822",
+    "D/N16_J192_K10_A20_D12_full_s20260822",
+    "D/N16_J192_K10_A20_D24_full_s20260822",
+    "D/N16_J192_K10_A20_D48_full_s20260822",
+    "D/N16_J192_K10_A20_D6_full_s20260822",
+    "D/N16_J192_K10_A20_D96_full_s20260822",
+    "J/N16_J1024_K10_A20_D12_full_s20260822",
+    "J/N16_J192_K10_A20_D12_full_s20260822",
+    "J/N16_J24_K10_A20_D12_full_s20260822",
+    "J/N16_J384_K10_A20_D12_full_s20260822",
+    "J/N16_J48_K10_A20_D12_full_s20260822",
+    "J/N16_J768_K10_A20_D12_full_s20260822",
+    "J/N16_J96_K10_A20_D12_full_s20260822",
+    "K/N32_J128_K10_A20_D12_full_s20260822",
+    "K/N32_J128_K20_A20_D12_full_s20260822",
+    "K/N32_J128_K3_A20_D12_full_s20260822",
+    "K/N32_J128_K40_A20_D12_full_s20260822",
+    "K/N32_J128_K5_A20_D12_full_s20260822",
+    "K/N32_J128_K80_A20_D12_full_s20260822",
+    "N/N128_J128_K10_A20_D12_full_s20260822",
+    "N/N16_J128_K10_A20_D12_full_s20260822",
+    "N/N1_J128_K10_A20_D12_full_s20260822",
+    "N/N256_J128_K10_A20_D12_full_s20260822",
+    "N/N32_J128_K10_A20_D12_full_s20260822",
+    "N/N64_J128_K10_A20_D12_full_s20260822",
+    "N/N8_J128_K10_A20_D12_full_s20260822",
+    "target/N100_J200_K20_A50_D12_sparse_s20260822"
+  ],
+  "plotting_script_sha256": "97cb05b9336afcc25ea646033b77dccdb77f12eb20b23694f47bdcdb72c6aa8f",
+  "projected_banded_storage": "NOT IMPLEMENTED; ARITHMETIC COUNTERFACTUAL ONLY. Computed from exact array shapes and the legal-width count. No banded layout exists in this backend and no measurement in this study ran on one.",
+  "scalability_commit": "07b474fe8bb961b9664c83d4152a11f648d07930",
+  "source_artifacts": {
+    "SCALABILITY_REPORT.md": "8061ea0e4e33b00738a3887ea9f376380d2e0bd7dc8bbd6fee16ecb61437fbff",
+    "censored_points.csv": "eae883118428102814de5f73c38269182d376386dd9c16482d469ec961eaff12",
+    "complexity_fits.json": "77f6b21d83caa715e396b2e62f03d6e6c7b1734e8de93b5f928b9816a999973f",
+    "marginalisation_overhead.json": "db64e4c1a4d18f140ba6ff742233fdf4f0b46b89276dde647df213ec56d4b33f",
+    "memory_summary.csv": "fad0e7625efb04fa674c2a56bcd42ca8db65eabba601dad803d3b9136a7c651a",
+    "pass_comparison.json": "9109a83af47074471bea033b138859b8e910f0e8d4195c452c1b0623a29f2f65",
+    "raw_timings.csv": "be52b80683fbbb718963c5b9fad72ca5a7ba5d618997e5324e98e8fd5b5a1dc0",
+    "regime_comparison.json": "ba0b6eac3b7e9d8a284ae7a3ee4f85e6b12bf588864c3d5ecb0bb7ca2127df14",
+    "timing_summary.csv": "63f932782ab797da50fb139be4ed6b10ab0d59ab2e590cf38798b75e1fb71cfd"
+  }
+}

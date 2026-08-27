@@ -1,0 +1,154 @@
+% ---------------------------------------------------------------------------
+% paper/drafts/results_matched_synthetic_ab.tex
+% Matched-synthetic component identifiability: Conditions A and B ONLY.
+% Draft fragment. NOT included in the main paper. Do not \input this until the
+% author has reviewed paper/evidence/evidence_manifest.json.
+%
+% Evidence provenance:
+%   generator + smoke corpus  : commit 8ca8281
+%   formal corpus             : commit b199374,
+%                               corpus dd280a4a09896154..., truth fc41538fd44d170d...
+%   Condition A               : commit b199374
+%   Condition B               : commit 34873d8
+% Every number below is traceable in paper/evidence/result_ledger.csv.
+% Rounding convention: three decimals unless the quantity needs more.
+% ---------------------------------------------------------------------------
+
+\subsection{Component identifiability under the matched model}
+\label{sec:matched-synthetic-ab}
+
+We first ask whether each latent component of HPOP is recoverable at all, under
+a generator that implements the inference target exactly. The generator was
+validated before any recovery experiment: its segmentation prior is the
+normalised
+$p(S \mid J, \delta_B) = \delta_B^{L-1}(1-\delta_B)^{J-L} / C_J(\delta_B)$
+over contiguous segmentations with widths in $[3,12]$, sampled by an exact
+suffix-DP recursion, and all fifteen registered gates pass
+(Appendix~\ref{app:generator}). All experiments in this subsection use one
+frozen corpus: $100$ training traces ($25$ each at $J \in \{24,32,40,48\}$) and
+$45$ held-out traces, $785$ true skill-instance blocks, repeat-occurrence
+frequency $0.512$.
+
+The two conditions below are deliberately \emph{conditional}. Condition~A fixes
+the reusable structures $H$ and every global parameter to generating truth and
+asks whether the skill-instance path $(S, z)$ is recoverable. Condition~B fixes
+$(S,z)$ to generating truth and asks whether $H$ is recoverable. Neither is a
+joint-recovery result, and we are explicit about that in
+\S\ref{par:remains-for-joint}.
+
+\paragraph{Path identifiability with oracle structures.}
+Condition~A requires no MCMC. With $H$, $\pi$, $P$ and all scalars fixed to
+truth, the posterior $p(S, z \mid x, \cdot)$ factorises over traces and is
+computed \emph{exactly} by semi-Markov forward--backward; FFBS is used only to
+draw i.i.d.\ samples for non-linear summaries. Exactness is certified on a tiny
+enumerable corpus: the DP normaliser matches brute-force enumeration to
+$1.8\times10^{-15}$, exact path probabilities to $2.3\times10^{-15}$, boundary
+marginals to $1.7\times10^{-15}$, and $200{,}000$ FFBS draws per trace match the
+enumerated path distribution to a total variation of $0.002$. Across the full
+corpus, $725{,}000$ FFBS draws produced zero illegal segmentations.
+
+The posterior is sharply informative about boundaries. Boundary AUROC is
+$0.956$ overall and $0.966$ on held-out traces, against a prior AUROC of
+$0.579$; boundary Brier falls from $0.108$ to $0.052$ (a $52.4\%$ relative
+reduction) and boundary NLL from $0.363$ to $0.166$ ($54.2\%$). Calibration is
+good in absolute terms, with an expected calibration error of $0.008$ over ten
+bins at a fixed, never-tuned threshold; at that threshold precision is $0.782$,
+recall $0.609$ and $F_1$ $0.685$ ($0.713$ held out). Occurrence labels are
+recovered at $0.898$ modal accuracy with mean posterior mass $0.854$ on the true
+label, against prior values of $0.384$ and $0.339$; the mean per-trace
+adjusted Rand index is $0.747$ and NMI $0.766$, against a prior ARI of $0.131$.
+The posterior segment count is right at MAP on $70.3\%$ of traces ($77.8\%$
+held out) with a mean $|\mathbb{E}[L] - L^\ast|$ of $0.439$.
+
+Whole-path recovery is the honest weak point and we report it as such. The MAP
+labelled path equals truth exactly on $20.7\%$ of traces and the median
+posterior mass on the true path is $0.048$. This is not a contradiction: the
+exact posterior removes a mean of $10.54$ nats of path entropy (from $14.02$ to
+$3.48$), but on long traces that mass is spread over near-equivalent paths that
+differ in one boundary. The effect is monotone in trace length --- exact MAP
+recovery is $0.324$ at $J=24$, $0.250$ at $J=32$ and $0.083$ at $J=48$ --- while
+marginal accuracy is essentially flat (boundary AUROC $0.973$, $0.943$, $0.955$
+and $0.955$ across the four lengths). The preregistered strong-verdict rule
+required either MAP whole-path recovery $\geq 0.25$ \emph{or} median true-path
+posterior $\geq 0.02$; the second disjunct is met and the first is not. Every
+other strong gate is met with margin. The registered classification is therefore
+\textsc{path strongly identifiable}, and it should be read as a statement about
+marginals and calibration rather than about exact whole-path decoding.
+
+\paragraph{Structure identifiability with oracle paths.}
+Condition~B inverts the conditioning. With $(S,z)$ fixed to the oracle blocks
+($541$ training blocks), the target is
+$p(U \mid X, S^\ast, z^\ast, \vartheta^\ast, \rho_0)
+\propto \prod_k p(U_k \mid \rho_0)
+\prod_{n,l} e_{n, z^\ast_{nl}}(a^\ast_{nl}, b^\ast_{nl}; h(U), \vartheta^\ast)$,
+sampled by a symmetric Gaussian row walk with Metropolis--Hastings on the
+oracle-block likelihood. The step scale $\sigma_U = 0.5$ was chosen by an
+efficiency-only pilot (acceptance $0.314$, maximum ESJD in the registered
+$[0.2, 0.6]$ band); all pilot draws were discarded and recovery was never
+inspected during tuning.
+
+Three facts must be stated before the numbers. First, $\rho$ was \emph{fixed} at
+$\rho_0 = 0.5$ by registered correction, because the supplied-truth corpus
+records $\rho^\ast = \texttt{null}$; $\rho$ was not a recovery target and we make
+no $\rho$ claim. The value $0.5$ sits near the median of the registered
+$\mathrm{Uniform}(0, 0.995)$ prior and gives a positive-definite $\Sigma$ with
+moderate column coupling; it was frozen before any draw. Second, raw entrywise
+recovery of $U$ was \emph{not} evaluated and is not a meaningful target: the
+latent product-order coordinates are exchangeable and the likelihood reads $U$
+only through $H = h(U)$. Third, the held-out likelihood reported here is an
+\emph{oracle-conditional} quantity, scored with the held-out $S^\ast, z^\ast$.
+
+Four chains of $50{,}000$ sweeps were run from four dispersed starts
+(scales $0.5$, $1.0$, $2.0$, $3.0$), all mutually distinct and none equal to the
+truth. The run stopped at $50{,}000$ on two consecutive checkpoint passes, well
+inside its $100{,}000$ ceiling, with a maximum $\widehat{R}$ of $1.0009$, a
+log-posterior bulk ESS of $3675$ and tail ESS of $7635$, in $203$~s of wall time.
+Recovery is exact. For all three skills the posterior mass on the true $H$ is
+$1.000$ and the true $H$ is rank $1$; closure $F_1$, incomparable-pair $F_1$ and
+transitive-reduction $F_1$ are all $1.000$; the closure Hamming distance to
+truth is $0$; the minimum true-relation marginal is $1.000$ and the maximum
+false-relation marginal $0.000$. Held-out oracle-path NLL per occurrence is
+$1.0772$ under the posterior mean, indistinguishable from the generating truth
+at $1.0772$, against $1.7528$ for an antichain and $4.0398$ for a total order.
+
+The retained draws contain a constant $H$, and it is important to say why. This
+is posterior \emph{concentration}, not a stuck sampler. All four chains began at
+distinct, wrong $H$ tuples; every chain accepted its first structural change at
+sweep~1; and the chains accepted $25$, $30$, $31$ and $24$ structural changes
+respectively --- all of them inside the $10{,}000$-sweep burn-in, as each chain
+walked from its own wrong start into the same true $H$ cell. Zero retained
+structural changes is what a correctly mixing sampler looks like once every
+chain has found a posterior that puts unit mass on one cell. The classification
+is \textsc{structure strongly identifiable under oracle paths}.
+
+\paragraph{What remains for joint inference.}
+\label{par:remains-for-joint}
+Conditions~A and~B together establish that each component is identifiable
+\emph{given the other}. Condition~A identifies $(S, z)$ while $H$ and the global
+parameters are held at truth; Condition~B identifies $H$ while $(S, z)$ are held
+at truth. Neither result, and no combination of them, establishes that the two
+are jointly recoverable when both are latent, because the obstruction we have
+previously measured is a coupling between them rather than a deficiency in
+either. Earlier work on this model recorded exactly that obstruction: exact
+global FFBS refreshes of $(S,z)$ alone moved segmentation vigorously (over $500$
+boundary flips per sweep) while producing $0$, $0$, $0$ and $1$ accepted
+structural changes across four chains and $34{,}000$ retained sweeps each. The
+path-marginal (collapsed-$U$) kernel of \S\ref{sec:inference} was built for that
+coupling and reduces the median cross-structure log-likelihood barrier from
+$-225.8$ to $-69.3$ nats, raising cross-structure acceptance from
+$\mathcal{O}(10^{-14})$ to $\approx 7\times 10^{-2}$; in its validated form it
+visits over $3{,}500$ distinct induced structures per chain where the
+FFBS-only kernel visits one. Whether that translates into correct joint
+posterior recovery of $(S, z, H)$ is a separate empirical question, and it is
+the question Condition~C asks.
+
+\paragraph{Joint path--structure inference.}
+\textit{Condition C result pending.}
+
+% ---------------------------------------------------------------------------
+% NOTE TO AUTHOR (delete before submission):
+%  - Table 1 (paper/tables/table_matched_synthetic.tex) has \textit{pending}
+%    cells for Condition C-COND and C-MARG. Do not fill them from a running job.
+%  - Do not merge Condition B's oracle-path NLL with any marginal held-out NLL.
+%  - The 20.7% MAP figure must stay in the text; deleting it would overstate A.
+% ---------------------------------------------------------------------------

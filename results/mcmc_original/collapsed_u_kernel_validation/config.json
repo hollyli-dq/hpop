@@ -1,0 +1,166 @@
+{
+  "task": "collapsed-U kernel validation against the frozen Stage 6E1B mixed reference",
+  "source_commit": "24739d802a3fc78caa56590c0d74a29ac15f7317",
+  "stage6e_config_hash": "d98897a181b6809a17dd572ca175da7846a6924b8429b9c7337a939686a6da44",
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "kernel_under_test": {
+    "composition": "collapsed U MH -> exact FFBS refresh of all (S, z) -> Stage 6E parameter phase (unchanged, by call)",
+    "collapsed_u_every": 10,
+    "collapsed_u_every_note": "provisional default from the C1 audit; deliberately NOT tuned in this task",
+    "proposal": "sampler_u.propose_row, one uniformly chosen (skill, row), scale 0.5 \u2014 the registered production proposal",
+    "hastings": "zero (symmetric row proposal at fixed rho; test-verified)",
+    "acceptance": "Delta ell_coll + Delta log p(U | rho)",
+    "ordinary_u_moves": "UNCHANGED \u2014 the Stage 6C conditional row sweep still runs inside sweep_once on every sweep"
+  },
+  "what_is_identical_to_7b1": [
+    "corpus and trace generation",
+    "pi and P (FIXED, as the reference fixes them)",
+    "priors",
+    "proposal scales",
+    "dispersed starting states",
+    "sweeps / burn-in / thin",
+    "every gate and threshold",
+    "the comparison function itself (Stage 6E1B's `compare`, verbatim)"
+  ],
+  "chains": {
+    "n_chains": 4,
+    "sweeps": 600000,
+    "burn_in": 120000,
+    "thin": 10,
+    "seeds": [
+      8153001,
+      8153002,
+      8153003,
+      8153004
+    ],
+    "scales": {
+      "U": 0.5,
+      "rho": 0.5,
+      "beta": 0.05109,
+      "omega": 0.18213,
+      "lambda_rep": 0.04155,
+      "lambda_back": 0.09472
+    },
+    "table_source": "batched",
+    "registered_length_used": true
+  },
+  "frozen_reference": {
+    "directory": "results/mcmc_original/stage6e1b_mixed_reference",
+    "live_directory": "/Users/dongqing/Desktop/hpop-stage6e/results/mcmc_original/stage6e1b_mixed_reference",
+    "sha256": {
+      "chains.npz": "85980a6b142851cc8ae3cadadc108553faf75946efe2496c5d7dae8624f05c54",
+      "config.json": "53c27e36f44ea54549cc901595c04cfd9579b30683e37b2a7fe49b484f2b3376",
+      "joint_comparison.json": "53f12c4391351dd6b4873b73014135a999f58e2b90bc4097a9fb894c651d4327",
+      "qmc_summary.json": "b815549102a0e784235b0cc677f96590f5923d1933cb0a8f27c20b467b6f43ed",
+      "reference_draws.npz": "20392e5a6d50cc698d54813c60f22ca8ee7e1af7c8f409e6d44e1300ea6c152b",
+      "reference_registration.json": "177793ed395a8a79f9ac7c42ca60bcef952f983d97fbe765ec5f21622b69d3b4",
+      "report.md": "af376ddf66e18c77e22ae1d2782f21a67633ab7783f6c6fa67073be0bf2d5247",
+      "scalar_comparison.json": "b9cc8f5e13da8f2a9a7260d54d7a9fae59972620f45c7038d4dc61aee077c9d6",
+      "segmentation_comparison.json": "e654d1c9d6f9e3d7a7c665a274df432c9ffc24f587baeef5541f0dedf4bed9b6",
+      "structural_comparison.json": "8757fb8da741d9574817bd5eef019c9ae4a4a7a4a958168a615877e88fdbb94e"
+    },
+    "matches_live_stage6e_worktree": {
+      "chains.npz": true,
+      "config.json": true,
+      "joint_comparison.json": true,
+      "qmc_summary.json": true,
+      "reference_draws.npz": true,
+      "reference_registration.json": true,
+      "report.md": true,
+      "scalar_comparison.json": true,
+      "segmentation_comparison.json": true,
+      "structural_comparison.json": true
+    },
+    "all_copies_match_live": true,
+    "checks": {
+      "max_rqmc_standard_error": {
+        "value": 0.0005667929455901159,
+        "threshold": 0.001,
+        "primary": true,
+        "pass": true
+      },
+      "max_half_width_95": {
+        "value": 0.0012080905663045393,
+        "threshold": 0.0025,
+        "primary": true,
+        "pass": true
+      },
+      "min_relative_ess": {
+        "value": 0.04386141741129308,
+        "threshold": 0.02,
+        "primary": false,
+        "comparison": ">=",
+        "pass": true
+      },
+      "max_normalised_weight": {
+        "value": 0.0003295848775089024,
+        "threshold": 0.001,
+        "primary": false,
+        "pass": true
+      },
+      "log_evidence_sd": {
+        "value": 0.0033823943089510656,
+        "threshold": 0.05,
+        "primary": false,
+        "pass": true
+      }
+    },
+    "superseded_checks": {
+      "max_replicate_h_total_variation": {
+        "value": 0.007839579315318427,
+        "threshold": 0.003,
+        "pass": false,
+        "status": "SUPERSEDED DESCRIPTIVE DIAGNOSTIC \u2014 not a precision measure and not a primary gate"
+      },
+      "max_replicate_relation_departure": {
+        "value": 0.0038914035610426723,
+        "threshold": 0.003,
+        "pass": false,
+        "status": "SUPERSEDED DESCRIPTIVE DIAGNOSTIC \u2014 not a precision measure and not a primary gate"
+      }
+    },
+    "superseded_note": "these two maximum-over-replicate diagnostics were superseded in Stage 6D1 and still fail; they are reported as failing descriptive diagnostics and are NOT gates here either",
+    "nondegeneracy": {
+      "segmentation_max_probability": {
+        "value": 0.3377726041377495,
+        "threshold": 0.9,
+        "pass": true
+      },
+      "segmentation_states_above_0.01": {
+        "value": 14,
+        "threshold": 3,
+        "pass": true
+      },
+      "induced_h_states_above_0.01": {
+        "value": 13,
+        "per_skill": [
+          13,
+          17,
+          19
+        ],
+        "threshold": 3,
+        "pass": true
+      }
+    },
+    "primary_pass": true,
+    "all_active_pass": true,
+    "label_permutation_audit": "no nontrivial relabelling is a symmetry of this target, so per-skill summaries are well posed and raw per-skill R-hat is meaningful",
+    "max_drift_from_expected": 0.0,
+    "drift_by_statistic": {
+      "max_rqmc_standard_error": 0.0,
+      "max_half_width_95": 0.0,
+      "min_relative_ess": 0.0,
+      "max_normalised_weight": 0.0,
+      "log_evidence_sd": 0.0
+    },
+    "pass": true
+  },
+  "go_criteria_preregistered": [
+    "tiny exact correctness PASS (test suite + validation artifacts)",
+    "all Stage 6E1B / Step 7B1 gates PASS, thresholds unchanged",
+    "worst R-hat <= 1.01 on the registered summaries",
+    "resume determinism PASS",
+    "all project tests PASS"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "all_pilot_draws_discarded": true,
+  "cadence": 10,
+  "common_to_both_arms": "u_scale is shared; the scheduled proposal (scale + cadence 10) is registered once and applies to C-MARG (C-COND runs every = 0)",
+  "scheduled_acceptance": 0.23333333333333334,
+  "scheduled_collapsed_scale": 1.0,
+  "scheduled_rule": "collapsed acceptance in band, largest admissible scale",
+  "u_scale": 0.5,
+  "u_scale_acceptance": 0.33444444444444443,
+  "u_scale_esjd": 0.09303527983677243,
+  "u_scale_rule": "acceptance in band, max ESJD"
+}

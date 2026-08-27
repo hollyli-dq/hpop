@@ -1,0 +1,23 @@
+{
+  "pairs": {
+    "optional_target_seed2": {
+      "operations": {
+        "emission_build": {
+          "primary_s": 33.84494491700025,
+          "ratio_repeat_over_primary": 1.0163185848094367,
+          "relative_difference": 0.01631858480943679,
+          "repeat_s": 34.39724652099903
+        },
+        "emission_cache_hit": {
+          "primary_s": 0.0013550840012612753,
+          "ratio_repeat_over_primary": 0.9892065712139175,
+          "relative_difference": -0.01079342878608248,
+          "repeat_s": 0.001340457998594502
+        }
+      },
+      "primary_label": "target_operating_point",
+      "worst_relative_difference": 0.01631858480943679
+    }
+  },
+  "purpose": "Section 17 corroboration: a second deterministic data seed, a quieter machine, and a retry of the censored points. Consistency check only -- never a replacement for a primary measurement, and never averaged with one."
+}

@@ -1,0 +1,137 @@
+{
+  "sweeps": 100000,
+  "chains": [
+    {
+      "chain": 0,
+      "mean_log_posterior": -5837.230870391434,
+      "max_log_posterior_visited": -5735.689061478987,
+      "total_relation_count_mean": 8.0,
+      "total_relation_count_within_sd": 0.0,
+      "sorted_per_skill_relation_counts": [
+        2.0,
+        3.0,
+        3.0
+      ],
+      "total_segments_mean": 492.5453529411765,
+      "sorted_pi_mean": [
+        0.1001578474723392,
+        0.18392313101405608,
+        0.7159190216274822
+      ],
+      "P_eigenvalues_mean": [
+        -0.4665381332036691,
+        -0.5334618668027058,
+        1.0000000000063793
+      ],
+      "P_sorted_row_entropies_mean": [
+        0.3913749263835439,
+        0.5608001827002524,
+        0.6699200862130906
+      ],
+      "lambda_rep_mean": 0.05706735234393808,
+      "beta_mean": 1.3900243327942376,
+      "unique_induced_H_joint_states": 1,
+      "unique_segmentations_first20_traces_mean": 3702.5,
+      "RECOVERY_DIAGNOSTIC_ONLY_boundary_f1": 0.24277456647398843
+    },
+    {
+      "chain": 1,
+      "mean_log_posterior": -5716.273902340751,
+      "max_log_posterior_visited": -5619.921953739825,
+      "total_relation_count_mean": 8.999882352941176,
+      "total_relation_count_within_sd": 0.010845884841407806,
+      "sorted_per_skill_relation_counts": [
+        2.0,
+        2.0,
+        4.999882352941176
+      ],
+      "total_segments_mean": 499.9173529411765,
+      "sorted_pi_mean": [
+        0.10880759413918371,
+        0.29462004873331854,
+        0.5965723571514382
+      ],
+      "P_eigenvalues_mean": [
+        -0.4999989389155872,
+        -0.50000106119057,
+        1.0000000001061573
+      ],
+      "P_sorted_row_entropies_mean": [
+        0.49860538677385235,
+        0.5753268307350632,
+        0.640156091108518
+      ],
+      "lambda_rep_mean": 0.267384885130607,
+      "beta_mean": 1.517418088089499,
+      "unique_induced_H_joint_states": 2,
+      "unique_segmentations_first20_traces_mean": 3489.4,
+      "RECOVERY_DIAGNOSTIC_ONLY_boundary_f1": 0.3392857142857143
+    },
+    {
+      "chain": 2,
+      "mean_log_posterior": -5745.846523403735,
+      "max_log_posterior_visited": -5641.17619994695,
+      "total_relation_count_mean": 7.599352941176471,
+      "total_relation_count_within_sd": 0.4900295838820191,
+      "sorted_per_skill_relation_counts": [
+        2.0,
+        2.0,
+        3.5993529411764706
+      ],
+      "total_segments_mean": 499.1960588235294,
+      "sorted_pi_mean": [
+        0.1242517002933823,
+        0.3742875078092603,
+        0.5014607919051367
+      ],
+      "P_eigenvalues_mean": [
+        -0.49999999999067424,
+        -0.49999999999067424,
+        0.9999999999813485
+      ],
+      "P_sorted_row_entropies_mean": [
+        0.44557714429944506,
+        0.5590156910714368,
+        0.6247531214030809
+      ],
+      "lambda_rep_mean": 0.2437016495665402,
+      "beta_mean": 1.6594261090284859,
+      "unique_induced_H_joint_states": 2,
+      "unique_segmentations_first20_traces_mean": 4603.15,
+      "RECOVERY_DIAGNOSTIC_ONLY_boundary_f1": 0.25631067961165044
+    },
+    {
+      "chain": 3,
+      "mean_log_posterior": -5525.544386062834,
+      "max_log_posterior_visited": -5417.376637013239,
+      "total_relation_count_mean": 12.76829411764706,
+      "total_relation_count_within_sd": 0.421922109441999,
+      "sorted_per_skill_relation_counts": [
+        3.0,
+        4.0,
+        5.768294117647059
+      ],
+      "total_segments_mean": 498.53576470588234,
+      "sorted_pi_mean": [
+        0.09009917529324508,
+        0.36834053751125057,
+        0.541560287116205
+      ],
+      "P_eigenvalues_mean": [
+        -0.49998366131023164,
+        -0.5000163387642942,
+        1.0000000000745257
+      ],
+      "P_sorted_row_entropies_mean": [
+        0.5498646708514017,
+        0.6032975567531629,
+        0.6425901755023655
+      ],
+      "lambda_rep_mean": 0.3259950868634272,
+      "beta_mean": 1.4002729815954373,
+      "unique_induced_H_joint_states": 2,
+      "unique_segmentations_first20_traces_mean": 2234.15,
+      "RECOVERY_DIAGNOSTIC_ONLY_boundary_f1": 0.41052631578947363
+    }
+  ]
+}

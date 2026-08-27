@@ -1,0 +1,79 @@
+{
+  "stage": "7A",
+  "step": "7A \u2014 model-agnostic semi-Markov FFBS, fixed parameters",
+  "source_commit": "155dd5cc48828815d7e3b953e6a8d98e9644e89a",
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "target": {
+    "description": "the frozen Stage 6E fixed-parameter conditional over (S, z) for one trace; Step 7A changes the algorithm only",
+    "log_weight": "log pi[z_1] + sum_l log p_block(x[a_l:b_l] | z_l) + (J - L) log(1 - delta_B) + (L - 1) log delta_B + sum_{l>=2} log P[z_{l-1}, z_l]",
+    "self_transitions": "forbidden (P has a zero diagonal)",
+    "terminal_transition": "none",
+    "duration_model": "none beyond delta_B and the width bounds",
+    "q0": "every candidate block is scored from q_0 = 0"
+  },
+  "problem": {
+    "trace_matches_frozen": true,
+    "states_match_frozen": true,
+    "log_evidence_gap_to_frozen": 0.0,
+    "exact_probability_max_gap_to_frozen": 0.0,
+    "selected_seed": 0,
+    "frozen_selected_seed": 0,
+    "delta_B": 0.15,
+    "min_width": 3,
+    "max_width": 12,
+    "J": 8,
+    "K": 3,
+    "m_roles": 3,
+    "epsilon": 0.02,
+    "scalars_fixed": {
+      "beta": 1.5,
+      "omega": 1.7346,
+      "lambda_rep": 0.8,
+      "lambda_back": 0.25
+    }
+  },
+  "frozen_inputs": {
+    "chains.npz": {
+      "sha256": "366a3b0e82b81f3ed0723fff73db474256ba810de1464c98328a53b449fa2bd4",
+      "bytes": 2559
+    },
+    "comparison.json": {
+      "sha256": "644e06c4cede10aa46cda2f7ecefbccaf98ac124e4d54199447cfdd4ecc8bd59",
+      "bytes": 6457
+    },
+    "config.json": {
+      "sha256": "e9d6fe73730b6740873d0037ac074eb1d4b250ea2bc7ab9e891cb4d4919438dc",
+      "bytes": 3767
+    },
+    "exact_reference.npz": {
+      "sha256": "fb111088300b5f1b12a0e9919fde80e64edc02dd0b8f86abcb7c08e3da30af36",
+      "bytes": 3078
+    },
+    "report.md": {
+      "sha256": "6c8419d1c0ff2bf1d9db3a00fbb7df38f527dd724f33b7e9615c8c3c3ccecc3d",
+      "bytes": 4989
+    }
+  },
+  "frozen_inputs_directory": "results/mcmc_original/stage6e1a_exact_segmentation",
+  "registered_protocol": {
+    "ffbs_seed": 7071001,
+    "n_ffbs_draws": 100000,
+    "gates": {
+      "log_z_absolute_error": 1e-10,
+      "ffbs_full_path_total_variation": 0.01,
+      "ffbs_max_boundary_error": 0.01,
+      "ffbs_max_occurrence_label_error": 0.01,
+      "dp_marginal_absolute_error": 1e-10,
+      "recurrent_q0_reset": "bit-identical rescore",
+      "evaluation_order_invariance": "identical tables"
+    },
+    "draws_are_iid": "conditional on one fixed forward chart, backward draws are independent; they are not MCMC draws",
+    "local_move_kernel": "the Stage 6E1A chains, re-run from the recorded seeds to recover the draw sequence its summaries did not keep"
+  },
+  "independence": {
+    "stage6e1a_forward_recursion": "RETAINED as an independent implementation; semi_markov_ffbs never calls it",
+    "shared_code_between_ffbs_and_enumeration": "none beyond numpy/scipy",
+    "shared_code_between_ffbs_and_local_move_kernel": "the block scorer only"
+  }
+}

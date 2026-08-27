@@ -1,0 +1,49 @@
+{
+  "recovery": {
+    "beta": {
+      "true_value": 1.5,
+      "posterior_mean": 1.4809712045457613,
+      "posterior_median": 1.4809262733233974,
+      "posterior_sd": 0.03913136531881718,
+      "q025": 1.4052144659541705,
+      "q975": 1.5580887324905068,
+      "truth_in_95_interval": true,
+      "absolute_error": 0.019028795454238745,
+      "error_in_posterior_sd": 0.48627987547084967
+    },
+    "omega": {
+      "true_value": 1.7346010553881064,
+      "posterior_mean": 1.887305380323663,
+      "posterior_median": 1.8841060762513573,
+      "posterior_sd": 0.12951477881662946,
+      "q025": 1.6411559577670114,
+      "q975": 2.1478099572343683,
+      "truth_in_95_interval": true,
+      "absolute_error": 0.15270432493555663,
+      "error_in_posterior_sd": 1.1790494206978461
+    },
+    "lambda_rep": {
+      "true_value": 0.8,
+      "posterior_mean": 0.8058678554319068,
+      "posterior_median": 0.8058395298259179,
+      "posterior_sd": 0.02847042110946445,
+      "q025": 0.7498822455320253,
+      "q975": 0.8620499227641509,
+      "truth_in_95_interval": true,
+      "absolute_error": 0.00586785543190671,
+      "error_in_posterior_sd": 0.2061035700647242
+    },
+    "lambda_back": {
+      "true_value": 0.25,
+      "posterior_mean": 0.21881288362370088,
+      "posterior_median": 0.2186526116110115,
+      "posterior_sd": 0.024023270577332653,
+      "q025": 0.17242138114149141,
+      "q975": 0.26664697858153485,
+      "truth_in_95_interval": true,
+      "absolute_error": 0.031187116376299118,
+      "error_in_posterior_sd": 1.298204433734596
+    }
+  },
+  "note": "synthetic recovery on one finite dataset; distinct from sampler correctness, which is the reference comparison"
+}

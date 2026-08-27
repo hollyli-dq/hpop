@@ -1,0 +1,1419 @@
+{
+  "boundary": {
+    "threshold": 0.5,
+    "n_internal_positions": 3099,
+    "n_true_boundaries": 410,
+    "n_predicted_boundaries": 101,
+    "boundary_precision": 0.7326732673267327,
+    "boundary_recall": 0.18048780487804877,
+    "boundary_f1": 0.289628180039139,
+    "boundary_brier_score": 0.08439557396283306,
+    "calibration": {
+      "bins": [
+        {
+          "bin": [
+            0.0,
+            0.1
+          ],
+          "n": 1729,
+          "mean_probability": 0.03961970631707474,
+          "empirical_frequency": 0.017929438982070563
+        },
+        {
+          "bin": [
+            0.1,
+            0.2
+          ],
+          "n": 746,
+          "mean_probability": 0.14411252606493893,
+          "empirical_frequency": 0.14075067024128687
+        },
+        {
+          "bin": [
+            0.2,
+            0.30000000000000004
+          ],
+          "n": 278,
+          "mean_probability": 0.24201468824940045,
+          "empirical_frequency": 0.27697841726618705
+        },
+        {
+          "bin": [
+            0.30000000000000004,
+            0.4
+          ],
+          "n": 165,
+          "mean_probability": 0.3476182940516274,
+          "empirical_frequency": 0.44242424242424244
+        },
+        {
+          "bin": [
+            0.4,
+            0.5
+          ],
+          "n": 80,
+          "mean_probability": 0.442987962962963,
+          "empirical_frequency": 0.625
+        },
+        {
+          "bin": [
+            0.5,
+            0.6000000000000001
+          ],
+          "n": 57,
+          "mean_probability": 0.5415298895386615,
+          "empirical_frequency": 0.7192982456140351
+        },
+        {
+          "bin": [
+            0.6000000000000001,
+            0.7000000000000001
+          ],
+          "n": 27,
+          "mean_probability": 0.6416313443072702,
+          "empirical_frequency": 0.6666666666666666
+        },
+        {
+          "bin": [
+            0.7000000000000001,
+            0.8
+          ],
+          "n": 12,
+          "mean_probability": 0.7423942901234568,
+          "empirical_frequency": 0.8333333333333334
+        },
+        {
+          "bin": [
+            0.8,
+            0.9
+          ],
+          "n": 4,
+          "mean_probability": 0.8695925925925926,
+          "empirical_frequency": 1.0
+        },
+        {
+          "bin": [
+            0.9,
+            1.0
+          ],
+          "n": 1,
+          "mean_probability": 0.90125,
+          "empirical_frequency": 1.0
+        }
+      ],
+      "expected_calibration_error": 0.029833712786681482,
+      "max_calibration_gap": 0.182012037037037
+    },
+    "segment_count_error": {
+      "mean_absolute_error": 0.5492799074074075,
+      "mean_signed_error": -0.12433842592592591,
+      "true_total": 510,
+      "posterior_mean_total": 497.56615740740745,
+      "posterior_sd_total": 8.29872155153111
+    },
+    "segment_length_distribution": {
+      "widths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "posterior_probability": [
+        0.0,
+        0.0,
+        0.1752179056032843,
+        0.14535811308918625,
+        0.13137391277485994,
+        0.11160959518783516,
+        0.09328160251163324,
+        0.08603987055880992,
+        0.07972334592766325,
+        0.0671528976837158,
+        0.05755986850436509,
+        0.05268288815864706
+      ],
+      "true_probability": [
+        0.0,
+        0.0,
+        0.19411764705882353,
+        0.1411764705882353,
+        0.13529411764705881,
+        0.11960784313725491,
+        0.08823529411764706,
+        0.08823529411764706,
+        0.07254901960784314,
+        0.06274509803921569,
+        0.049019607843137254,
+        0.049019607843137254
+      ],
+      "total_variation": 0.033013617835995004,
+      "posterior_mean_width": 6.429295787857728,
+      "true_mean_width": 6.272549019607843
+    },
+    "mean_posterior_boundary_probability_at_true_cuts": 0.3167544489611563,
+    "mean_posterior_boundary_probability_elsewhere": 0.09955255981157803,
+    "per_trace_boundary_probability": [
+      [
+        0.0,
+        0.0,
+        0.545787037037037,
+        0.018185185185185186,
+        0.07624074074074073,
+        0.22116666666666668,
+        0.24733333333333332,
+        0.1869259259259259,
+        0.06644444444444444,
+        0.13739814814814816,
+        0.04515740740740741,
+        0.1103611111111111,
+        0.4074074074074074,
+        0.1874259259259259,
+        0.21138888888888888,
+        0.10373148148148148,
+        0.12040740740740741,
+        0.16,
+        0.1458611111111111,
+        0.06212962962962963,
+        0.07329629629629629,
+        0.03966666666666667,
+        0.05686111111111111,
+        0.0765,
+        0.3183611111111111,
+        0.2117777777777778,
+        0.14991666666666667,
+        0.07874074074074074,
+        0.06861111111111111,
+        0.04993518518518519,
+        0.11962962962962963,
+        0.1484351851851852,
+        0.3467314814814815,
+        0.011601851851851851,
+        0.23626851851851852,
+        0.11040740740740741,
+        0.07373148148148148,
+        0.24200925925925926,
+        0.3347685185185185,
+        0.114,
+        0.117,
+        0.04621296296296296,
+        0.024416666666666666,
+        0.03387037037037037,
+        0.11725925925925926,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0017222222222222222,
+        0.010527777777777778,
+        0.0033425925925925928,
+        0.004111111111111111,
+        0.006675925925925926,
+        0.20860185185185184,
+        0.10918518518518519,
+        0.2720185185185185,
+        0.21805555555555556,
+        0.2010648148148148,
+        0.03125,
+        0.05340740740740741,
+        0.12210185185185185,
+        0.21372222222222223,
+        0.04703703703703704,
+        0.012981481481481481,
+        0.27085185185185184,
+        0.5867685185185185,
+        0.07801851851851851,
+        0.040574074074074075,
+        0.18798148148148147,
+        0.059444444444444446,
+        0.0699537037037037,
+        0.19552777777777777,
+        0.12828703703703703,
+        0.31774074074074077,
+        0.21294444444444444,
+        0.07151851851851852,
+        0.1439351851851852,
+        0.33841666666666664,
+        0.05275925925925926,
+        0.18044444444444444,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.38966666666666666,
+        0.011064814814814816,
+        0.009935185185185186,
+        0.28019444444444447,
+        0.036925925925925925,
+        0.19239814814814815,
+        0.07038888888888889,
+        0.0835,
+        0.06778703703703703,
+        0.3557962962962963,
+        0.38334259259259257,
+        0.11381481481481481,
+        0.040268518518518516,
+        0.01487037037037037,
+        0.02325925925925926,
+        0.07235185185185185,
+        0.502962962962963,
+        0.06162962962962963,
+        0.2144074074074074,
+        0.3946574074074074,
+        0.061398148148148146,
+        0.1186574074074074,
+        0.3927407407407407,
+        0.08183333333333333,
+        0.07306481481481482,
+        0.07837962962962963,
+        0.07260185185185185,
+        0.08176851851851852,
+        0.17366666666666666,
+        0.20348148148148149,
+        0.2528425925925926,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0052592592592592595,
+        0.0025092592592592593,
+        0.019453703703703702,
+        0.042666666666666665,
+        0.05503703703703704,
+        0.07244444444444445,
+        0.3396574074074074,
+        0.18081481481481482,
+        0.20339814814814816,
+        0.11661111111111111,
+        0.00637962962962963,
+        0.004361111111111111,
+        0.004194444444444444,
+        0.004222222222222222,
+        0.021833333333333333,
+        0.3830925925925926,
+        0.039712962962962964,
+        0.35885185185185187,
+        0.12689814814814815,
+        0.08881481481481482,
+        0.01884259259259259,
+        0.028277777777777777,
+        0.0447962962962963,
+        0.02312962962962963,
+        0.018472222222222223,
+        0.08627777777777777,
+        0.6457407407407407,
+        0.17119444444444445,
+        0.03718518518518518,
+        0.023962962962962964,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.05628703703703704,
+        0.024972222222222222,
+        0.01597222222222222,
+        0.5011481481481481,
+        0.04836111111111111,
+        0.018166666666666668,
+        0.1608425925925926,
+        0.2367314814814815,
+        0.07329629629629629,
+        0.15660185185185185,
+        0.2628333333333333,
+        0.11408333333333333,
+        0.13025,
+        0.19419444444444445,
+        0.0715462962962963,
+        0.048712962962962965,
+        0.2525277777777778,
+        0.06571296296296296,
+        0.02137962962962963,
+        0.15613888888888888,
+        0.05934259259259259,
+        0.284962962962963,
+        0.12121296296296297,
+        0.14847222222222223,
+        0.05712962962962963,
+        0.31505555555555553,
+        0.18076851851851852,
+        0.1066388888888889,
+        0.3121574074074074,
+        0.028064814814814813,
+        0.02352777777777778,
+        0.32739814814814816,
+        0.11205555555555556,
+        0.1491851851851852,
+        0.07344444444444445,
+        0.07969444444444444,
+        0.10023148148148148,
+        0.25080555555555556,
+        0.14694444444444443,
+        0.13342592592592592,
+        0.12112037037037036,
+        0.18513888888888888,
+        0.007972222222222223,
+        0.0,
+        0.0
+      ]
+    ]
+  },
+  "skill": {
+    "occurrence_aligned_accuracy": {
+      "mean": 0.6687059497759716,
+      "sd": 0.05256271416788287,
+      "q025": 0.5773679274773367,
+      "q975": 0.7530478274460769
+    },
+    "adjusted_rand_index": {
+      "mean": 0.27975670961277965,
+      "sd": 0.07459788032550128,
+      "q025": 0.1721020413318038,
+      "q975": 0.42164596954391775
+    },
+    "normalised_mutual_information": {
+      "mean": 0.24364975486235213,
+      "sd": 0.06649812196207067
+    },
+    "segment_level_aligned_accuracy": 0.7410882171387073,
+    "repeated_invocation_aligned_accuracy": 0.7190254841997962,
+    "repeated_invocation_note": "restricted to true segments that are the second or later invocation of their skill within their trace",
+    "confusion_matrix_aligned": [
+      [
+        0.2593206644437498,
+        0.05691361015595151,
+        0.053925581489585865
+      ],
+      [
+        0.06234916872170702,
+        0.18770096557952137,
+        0.053555462934018735
+      ],
+      [
+        0.03500412744723467,
+        0.06954609947553055,
+        0.2216843197527005
+      ]
+    ],
+    "confusion_matrix_column_normalised": [
+      [
+        0.7270524150355437,
+        0.18116083471531233,
+        0.1638251996060638
+      ],
+      [
+        0.17480717856331351,
+        0.5974680486456606,
+        0.16270078435510535
+      ],
+      [
+        0.09814040640114259,
+        0.2213711166390271,
+        0.6734740160388308
+      ]
+    ],
+    "worst_confused_pair": {
+      "inferred": 2,
+      "true": 1,
+      "probability": 0.2213711166390271
+    },
+    "alignment_permutations": {
+      "[1, 2, 0]": 54000,
+      "[1, 0, 2]": 27000,
+      "[2, 1, 0]": 27000
+    },
+    "n_distinct_alignment_permutations": 3,
+    "label_permutation_mode_switches": 3,
+    "label_permutation_switch_rate": 2.7778034981805386e-05,
+    "alignment_rule": "deterministic Hungarian assignment per retained draw on the frozen cost -confusion[inferred, true]; used for RECOVERY REPORTING ONLY and never by the target, the proposals or any convergence statistic"
+  },
+  "structure": {
+    "per_skill": [
+      {
+        "true_skill": 0,
+        "n_draws_matched": 108000,
+        "true_closure": [
+          [
+            false,
+            false,
+            true,
+            true,
+            true
+          ],
+          [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            true,
+            true
+          ],
+          [
+            false,
+            false,
+            false,
+            false,
+            true
+          ],
+          [
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "map_closure": [
+          [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "probability_of_true_order": 0.2135277777777778,
+        "probability_of_map_order": 0.5,
+        "map_equals_truth": false,
+        "n_distinct_orders_visited": 4,
+        "relation_marginal": [
+          [
+            0.0,
+            0.0,
+            0.2135277777777778,
+            0.75,
+            0.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.25
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.75,
+            0.5
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.25
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "closure": {
+          "precision": 1.0,
+          "recall": 0.3333333333333333,
+          "f1": 0.5,
+          "true_positive": 2,
+          "false_positive": 0,
+          "false_negative": 4
+        },
+        "transitive_reduction": {
+          "precision": 0.5,
+          "recall": 0.3333333333333333,
+          "f1": 0.4,
+          "true_positive": 1,
+          "false_positive": 1,
+          "false_negative": 2
+        },
+        "structural_hamming_distance": 4,
+        "min_probability_over_true_relations": 0.2135277777777778,
+        "max_probability_over_false_relations": 0.25,
+        "true_relation_count": 6,
+        "posterior_mean_relation_count": 3.2135277777777778
+      },
+      {
+        "true_skill": 1,
+        "n_draws_matched": 108000,
+        "true_closure": [
+          [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          [
+            true,
+            false,
+            true,
+            false,
+            true
+          ],
+          [
+            true,
+            false,
+            false,
+            false,
+            true
+          ],
+          [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          [
+            true,
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "map_closure": [
+          [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          [
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "probability_of_true_order": 0.0,
+        "probability_of_map_order": 0.25,
+        "map_equals_truth": false,
+        "n_distinct_orders_visited": 4,
+        "relation_marginal": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.75,
+            0.0,
+            0.0,
+            0.0,
+            0.25
+          ],
+          [
+            0.5,
+            0.0,
+            0.0,
+            0.25,
+            0.25
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.25,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "closure": {
+          "precision": 0.5,
+          "recall": 0.16666666666666666,
+          "f1": 0.25,
+          "true_positive": 1,
+          "false_positive": 1,
+          "false_negative": 5
+        },
+        "transitive_reduction": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "true_positive": 0,
+          "false_positive": 2,
+          "false_negative": 3
+        },
+        "structural_hamming_distance": 6,
+        "min_probability_over_true_relations": 0.0,
+        "max_probability_over_false_relations": 0.25,
+        "true_relation_count": 6,
+        "posterior_mean_relation_count": 2.25
+      },
+      {
+        "true_skill": 2,
+        "n_draws_matched": 108000,
+        "true_closure": [
+          [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          [
+            true,
+            true,
+            true,
+            true,
+            false
+          ]
+        ],
+        "map_closure": [
+          [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          [
+            true,
+            true,
+            false,
+            true,
+            false
+          ]
+        ],
+        "probability_of_true_order": 0.24998148148148147,
+        "probability_of_map_order": 0.4369351851851852,
+        "map_equals_truth": false,
+        "n_distinct_orders_visited": 5,
+        "relation_marginal": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.7499814814814815,
+            0.25,
+            0.9369351851851851,
+            0.0
+          ]
+        ],
+        "closure": {
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.888888888888889,
+          "true_positive": 4,
+          "false_positive": 0,
+          "false_negative": 1
+        },
+        "transitive_reduction": {
+          "precision": 0.75,
+          "recall": 0.75,
+          "f1": 0.75,
+          "true_positive": 3,
+          "false_positive": 1,
+          "false_negative": 1
+        },
+        "structural_hamming_distance": 1,
+        "min_probability_over_true_relations": 0.25,
+        "max_probability_over_false_relations": 0.0,
+        "true_relation_count": 5,
+        "posterior_mean_relation_count": 3.936916666666667
+      }
+    ],
+    "closure_f1_min": 0.25,
+    "reduction_f1_min": 0.0,
+    "max_structural_hamming": 6,
+    "min_probability_of_true_order": 0.0,
+    "convention": "precedence_from_u returns the transitive CLOSURE; the reduction is the cover relation. Both are scored, never averaged together."
+  },
+  "transitions": {
+    "pi_posterior_mean_aligned": [
+      0.5848046929988044,
+      0.29098047512859887,
+      0.1242148319036717
+    ],
+    "pi_true": [
+      0.5,
+      0.3,
+      0.2
+    ],
+    "pi_max_absolute_error": 0.08480469299880444,
+    "P_posterior_mean_aligned": [
+      [
+        0.0,
+        0.6463437780388803,
+        0.35365622187267853
+      ],
+      [
+        0.25545348472544305,
+        0.0,
+        0.7445465153036294
+      ],
+      [
+        0.7423289252911452,
+        0.2576710747304993,
+        0.0
+      ]
+    ],
+    "P_true": [
+      [
+        0.0,
+        0.65,
+        0.35
+      ],
+      [
+        0.3,
+        0.0,
+        0.7
+      ],
+      [
+        0.75,
+        0.25,
+        0.0
+      ]
+    ],
+    "P_max_absolute_error": 0.04454651530362941,
+    "alignment": "each draw's pi and P permuted by that draw's Hungarian assignment, so they are comparable with the truth"
+  },
+  "oracle_boundary_control": {
+    "structure": {
+      "per_skill": [
+        {
+          "true_skill": 0,
+          "n_draws_matched": 28000,
+          "true_closure": [
+            [
+              false,
+              false,
+              true,
+              true,
+              true
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              true,
+              true
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              true
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          ],
+          "map_closure": [
+            [
+              false,
+              false,
+              true,
+              true,
+              true
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              true,
+              true
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              true
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          ],
+          "probability_of_true_order": 1.0,
+          "probability_of_map_order": 1.0,
+          "map_equals_truth": true,
+          "n_distinct_orders_visited": 1,
+          "relation_marginal": [
+            [
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "closure": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "true_positive": 6,
+            "false_positive": 0,
+            "false_negative": 0
+          },
+          "transitive_reduction": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "true_positive": 3,
+            "false_positive": 0,
+            "false_negative": 0
+          },
+          "structural_hamming_distance": 0,
+          "min_probability_over_true_relations": 1.0,
+          "max_probability_over_false_relations": 0.0,
+          "true_relation_count": 6,
+          "posterior_mean_relation_count": 6.0
+        },
+        {
+          "true_skill": 1,
+          "n_draws_matched": 28000,
+          "true_closure": [
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              true,
+              false,
+              true,
+              false,
+              true
+            ],
+            [
+              true,
+              false,
+              false,
+              false,
+              true
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              true,
+              false,
+              false,
+              false,
+              false
+            ]
+          ],
+          "map_closure": [
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              true,
+              false,
+              true,
+              false,
+              true
+            ],
+            [
+              true,
+              false,
+              false,
+              false,
+              true
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              true,
+              false,
+              false,
+              false,
+              false
+            ]
+          ],
+          "probability_of_true_order": 1.0,
+          "probability_of_map_order": 1.0,
+          "map_equals_truth": true,
+          "n_distinct_orders_visited": 1,
+          "relation_marginal": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              1.0,
+              0.0,
+              1.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "closure": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "true_positive": 6,
+            "false_positive": 0,
+            "false_negative": 0
+          },
+          "transitive_reduction": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "true_positive": 3,
+            "false_positive": 0,
+            "false_negative": 0
+          },
+          "structural_hamming_distance": 0,
+          "min_probability_over_true_relations": 1.0,
+          "max_probability_over_false_relations": 0.0,
+          "true_relation_count": 6,
+          "posterior_mean_relation_count": 6.0
+        },
+        {
+          "true_skill": 2,
+          "n_draws_matched": 28000,
+          "true_closure": [
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              true,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              true,
+              true,
+              true,
+              true,
+              false
+            ]
+          ],
+          "map_closure": [
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              true,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              true,
+              true,
+              true,
+              true,
+              false
+            ]
+          ],
+          "probability_of_true_order": 1.0,
+          "probability_of_map_order": 1.0,
+          "map_equals_truth": true,
+          "n_distinct_orders_visited": 1,
+          "relation_marginal": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "closure": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "true_positive": 5,
+            "false_positive": 0,
+            "false_negative": 0
+          },
+          "transitive_reduction": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "true_positive": 4,
+            "false_positive": 0,
+            "false_negative": 0
+          },
+          "structural_hamming_distance": 0,
+          "min_probability_over_true_relations": 1.0,
+          "max_probability_over_false_relations": 0.0,
+          "true_relation_count": 5,
+          "posterior_mean_relation_count": 5.0
+        }
+      ],
+      "closure_f1_min": 1.0,
+      "reduction_f1_min": 1.0,
+      "max_structural_hamming": 0,
+      "min_probability_of_true_order": 1.0,
+      "convention": "precedence_from_u returns the transitive CLOSURE; the reduction is the cover relation. Both are scored, never averaged together."
+    },
+    "scalars": {
+      "beta": {
+        "posterior_mean": 1.5123396542663743,
+        "posterior_sd": 0.05705288293874208,
+        "q025": 1.401122498536885,
+        "q975": 1.6237137849921737,
+        "true_value": 1.5
+      },
+      "omega": {
+        "posterior_mean": 1.9985689390498556,
+        "posterior_sd": 0.4061327508215858,
+        "q025": 1.3022840854385092,
+        "q975": 2.8881124385129207,
+        "true_value": 1.7346010553881064
+      },
+      "lambda_rep": {
+        "posterior_mean": 0.7875289879740007,
+        "posterior_sd": 0.0569039684765192,
+        "q025": 0.6773701317942831,
+        "q975": 0.9007030373837149,
+        "true_value": 0.8
+      },
+      "lambda_back": {
+        "posterior_mean": 0.24735902196406967,
+        "posterior_sd": 0.0528903586126327,
+        "q025": 0.14682245133956212,
+        "q975": 0.3535430380424389,
+        "true_value": 0.25
+      },
+      "rho": {
+        "posterior_mean": 0.2389615477923872,
+        "posterior_sd": 0.16758682976601139,
+        "q025": 0.007981185958810288,
+        "q975": 0.6101259537631208,
+        "true_value": null
+      }
+    },
+    "alignment_note": "the control's labels are the true labels by construction, so no Hungarian alignment is applied or needed"
+  },
+  "verdicts": {
+    "stage_6e_sampler_correctness": "see stage6e0/6e1a/6e1b \u2014 not restated here",
+    "stage_6e2_convergence": "FAIL",
+    "stage_6e2_boundary_recovery": "FAIL",
+    "stage_6e2_skill_label_recovery": "FAIL",
+    "stage_6e2_structural_recovery": "FAIL",
+    "stage_6e2_scalar_recovery": "PARTIAL",
+    "verdict_thresholds": {
+      "boundary_f1": {
+        "PASS": ">= 0.80",
+        "PARTIAL": ">= 0.50"
+      },
+      "skill_ari": {
+        "PASS": ">= 0.70",
+        "PARTIAL": ">= 0.30"
+      },
+      "closure_f1_min": {
+        "PASS": ">= 0.95",
+        "PARTIAL": ">= 0.60"
+      },
+      "scalars": {
+        "PASS": "truth inside every 95% interval",
+        "PARTIAL": "truth inside at least one"
+      },
+      "registered": "before the chains were analysed"
+    },
+    "stage_6e2_identifiability": "PARTIALLY IDENTIFIED"
+  }
+}

@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+# Raw chain arrays and checkpoints are large; hash them into a freeze manifest
+# rather than committing them (Section 23 of the prompt).
+results/**/chains/
+results/**/checkpoints/
+*.npz
+!tests/**/*.npz
+.pytest_cache/

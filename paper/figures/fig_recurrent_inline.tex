@@ -1,0 +1,152 @@
+% =============================================================================
+% Appendix figure --- recurrent execution within a skill instance.
+% Companion to \S\ref{sec:recurrent-execution}; same example as Figure 1
+% (instance 2: skill k=2 with B > C > E, emitting the block B C B C E).
+%
+% ---- main.tex preamble needs -------------------------------------------------
+%   \usepackage{tikz}
+%   \usetikzlibrary{arrows.meta}
+%   \usepackage{amsmath,amssymb}
+%
+% ---- main.tex body -----------------------------------------------------------
+%   \begin{figure}[t]
+%     \centering
+%     \input{figures/fig_recurrent_inline}
+%     \input{figures/fig_recurrent_caption}
+%   \end{figure}
+%
+% Every number below was checked against eqs. (2)-(5) at sigma(omega)=1:
+%   q_u(B)        = 0 1 1 1 1 1
+%   q_u(C)        = 0 0 1 0 1 1        <- C staled at u=3 by the re-run of B
+%   q_u(E)        = 0 0 0 0 0 1
+%   F_u(B)        =   1 1 1 1 1
+%   F_u(C)        =   0 1 1 1 1
+%   F_u(E)        =   0 0 1 0 1        <- legal at u=3, RE-BLOCKED at u=4
+%   Q_u(y_u)      =   log3 log2 log2 log2 0
+%   q_{u-1}(y_u)  =   0 0 1 0 0        <- repeat cost, only at u=3
+%   C^back_u(y_u) =   0 0 1 0 0        <- backward cost, only at u=3
+%   W_u(y_u)      =   3^b 2^b 2^b e^{-lrep-lback} 2^b 1
+% =============================================================================
+
+% ============================== TWEAK ZONE ===================================
+\def\figtwoyu{B,C,B,C,E}            % the emitted role sequence y_1..y_5
+\definecolor{fig2sk}{HTML}{2E8B6B}  % skill k=2 (matches Figure 1)
+\definecolor{fig2alert}{HTML}{B0413A}
+\definecolor{fig2ink}{HTML}{262626}
+\definecolor{fig2soft}{HTML}{8C8C8C}
+\ifdefined\figtwodim\else\newdimen\figtwodim\fi
+\ifdefined\figtwofixedwidth\else\figtwodim=\textwidth\fi
+\def\figtwocolx{4.67}               % where the right-hand column starts
+\def\figtwolabx{6.22}               % right edge of the row labels
+\def\figtwostep{1.25}               % spacing of the u columns
+% ============================ END TWEAK ZONE =================================
+
+\tikzset{
+  fig2t/.style={anchor=west,font=\small,text=fig2ink},
+  fig2g/.style={font=\scriptsize,text=fig2ink},
+  fig2s/.style={font=\scriptsize,text=fig2soft},
+  fig2r/.style={font=\small,text=fig2sk},
+  fig2a/.style={font=\scriptsize,text=fig2alert},
+  fig2e/.style={draw=fig2soft,line width=0.5pt,
+                -{Straight Barb[length=1.2mm,width=1.2mm]},
+                shorten >=1.2pt,shorten <=1.2pt},
+  fig2rule/.style={draw=fig2soft!35,line width=0.3pt},
+}
+\def\figtwovalid#1#2{\fill[fig2sk] ({#1},{#2}) circle (0.076);}
+\def\figtwostale#1#2{\draw[draw=fig2soft!75,line width=0.4pt] ({#1},{#2}) circle (0.076);}
+\def\figtworing#1#2{\draw[draw=fig2ink,line width=0.35pt] ({#1},{#2}) circle (0.142);}
+% a 0/1 legality entry: 1 in ink, 0 in grey
+\def\figtwobit#1#2#3{\ifnum#3=1
+  \node[fig2g] at ({#1},{#2}) {1};\else\node[fig2s] at ({#1},{#2}) {0};\fi}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\pgfmathsetmacro{\figtwow}{\the\figtwodim/28.45274}
+\path[use as bounding box] (0,0.28) rectangle ({\figtwow},-5.78);
+\pgfmathsetmacro{\cuz}{\figtwolabx+0.75}
+\def\cu#1{\cuz+#1*\figtwostep}
+
+% ============================ A. the skill ==================================
+\node[fig2t] at (0,0) {\textbf{A}\quad Skill $k=2$};
+
+\node[fig2r] (rb) at (0.45,-0.78) {B};
+\node[fig2r] (rc) at (0.45,-1.40) {C};
+\node[fig2r] (re) at (0.45,-2.02) {E};
+\draw[fig2e] (rb)--(rc); \draw[fig2e] (rc)--(re);
+
+\node[fig2g,anchor=west] at (1.15,-0.78) {$F_u(B)=1$};
+\node[fig2g,anchor=west] at (1.15,-1.40) {$F_u(C)=q_{u-1}(B)$};
+\node[fig2g,anchor=west] at (1.15,-2.02) {$F_u(E)=q_{u-1}(B)\,q_{u-1}(C)$};
+
+% key and caveat sit at the foot of the column, level with the table
+\node[fig2s,anchor=west] at (0,-5.02) {drawn at $\sigma(\omega)=1$};
+\figtwovalid{0.14}{-5.46}
+\node[fig2s,anchor=west] at (0.30,-5.46) {valid};
+\figtwostale{1.34}{-5.46}
+\node[fig2s,anchor=west] at (1.50,-5.46) {stale};
+\figtwovalid{2.54}{-5.46}\figtworing{2.54}{-5.46}
+\node[fig2s,anchor=west] at (2.76,-5.46) {emitted};
+
+% ====================== B. the invocation, step by step =====================
+\node[fig2t] at ({\figtwocolx},0)
+  {\textbf{B}\quad One invocation: the block $x^{(n)}_{a:b}$};
+
+\pgfmathsetmacro{\bandl}{\cu{1}-0.60}
+\pgfmathsetmacro{\bandr}{\cu{5}+0.60}
+\draw[rounded corners=1.4pt,draw=fig2sk!28,fill=fig2sk!8,line width=0.4pt]
+  ({\bandl},-0.83) rectangle ({\bandr},-0.41);
+\foreach \l [count=\u from 1] in \figtwoyu{\node[fig2g] at ({\cu{\u}},-0.62) {\l};}
+\node[fig2g,anchor=east] at ({\figtwolabx},-0.62) {$y_u$};
+
+\node[fig2s,anchor=east] at ({\figtwolabx},-1.12) {$u$};
+\foreach \u in {0,...,5}{\node[fig2s] at ({\cu{\u}},-1.12) {\u};}
+
+% ---- validity state q_u ----------------------------------------------------
+\node[fig2g,anchor=east] at ({\figtwolabx},-1.60) {$q_u(B)$};
+\node[fig2g,anchor=east] at ({\figtwolabx},-2.00) {$q_u(C)$};
+\node[fig2g,anchor=east] at ({\figtwolabx},-2.40) {$q_u(E)$};
+\figtwostale{\cu{0}}{-1.60}
+\foreach \u in {1,...,5}{\figtwovalid{\cu{\u}}{-1.60}}
+\figtwostale{\cu{0}}{-2.00} \figtwostale{\cu{1}}{-2.00}
+\figtwovalid{\cu{2}}{-2.00} \figtwostale{\cu{3}}{-2.00}
+\figtwovalid{\cu{4}}{-2.00} \figtwovalid{\cu{5}}{-2.00}
+\foreach \u in {0,...,4}{\figtwostale{\cu{\u}}{-2.40}}
+\figtwovalid{\cu{5}}{-2.40}
+\foreach \u/\y in {1/-1.60, 2/-2.00, 3/-1.60, 4/-2.00, 5/-2.40}{\figtworing{\cu{\u}}{\y}}
+\draw[draw=fig2alert,line width=0.5pt,-{Straight Barb[length=1.0mm,width=1.0mm]}]
+  ({\cu{3}+0.24},-1.73) -- ({\cu{3}+0.24},-1.89);
+
+\draw[fig2rule] ({\figtwolabx-1.45},-2.63) -- ({\bandr},-2.63);
+
+% ---- frontier legality F_u -------------------------------------------------
+\node[fig2g,anchor=east] at ({\figtwolabx},-2.88) {$F_u(B)$};
+\node[fig2g,anchor=east] at ({\figtwolabx},-3.28) {$F_u(C)$};
+\node[fig2g,anchor=east] at ({\figtwolabx},-3.68) {$F_u(E)$};
+\foreach \u/\v in {1/1,2/1,3/1,4/1,5/1}{\figtwobit{\cu{\u}}{-2.88}{\v}}
+\foreach \u/\v in {1/0,2/1,3/1,4/1,5/1}{\figtwobit{\cu{\u}}{-3.28}{\v}}
+\foreach \u/\v in {1/0,2/0,3/1,5/1}{\figtwobit{\cu{\u}}{-3.68}{\v}}
+\node[fig2a] at ({\cu{4}},-3.68) {0};
+\draw[draw=fig2alert!55,line width=0.4pt] ({\cu{4}},-3.68) circle (0.15);
+
+\draw[fig2rule] ({\figtwolabx-1.45},-3.91) -- ({\bandr},-3.91);
+
+% ---- what eq. (5) charges for the emitted role -----------------------------
+\node[fig2g,anchor=east] at ({\figtwolabx},-4.16) {$Q_u(y_u)$};
+\node[fig2g,anchor=east] at ({\figtwolabx},-4.56) {$q_{u-1}(y_u)$};
+\node[fig2g,anchor=east] at ({\figtwolabx},-4.96) {$C^{\mathrm{back}}_u(y_u)$};
+\node[fig2g,anchor=east] at ({\figtwolabx},-5.44) {$W_u(y_u)$};
+
+\foreach \u/\v in {1/{$\log 3$},2/{$\log 2$},3/{$\log 2$},4/{$\log 2$},5/{$0$}}{
+  \node[fig2g] at ({\cu{\u}},-4.16) {\v};}
+\foreach \u/\v in {1/0,2/0,4/0,5/0}{\figtwobit{\cu{\u}}{-4.56}{\v}}
+\foreach \u/\v in {1/0,2/0,4/0,5/0}{\figtwobit{\cu{\u}}{-4.96}{\v}}
+\node[fig2a] at ({\cu{3}},-4.56) {1};
+\node[fig2a] at ({\cu{3}},-4.96) {1};
+
+\node[fig2g] at ({\cu{1}},-5.44) {$3^{\beta}$};
+\node[fig2g] at ({\cu{2}},-5.44) {$2^{\beta}$};
+\node[fig2g] at ({\cu{3}},-5.44)
+  {$2^{\beta}e^{-\lambda_{\mathrm{rep}}-\lambda_{\mathrm{back}}}$};
+\node[fig2g] at ({\cu{4}},-5.44) {$2^{\beta}$};
+\node[fig2g] at ({\cu{5}},-5.44) {$1$};
+
+\end{tikzpicture}

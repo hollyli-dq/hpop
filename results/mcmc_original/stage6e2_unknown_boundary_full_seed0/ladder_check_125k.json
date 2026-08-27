@@ -1,0 +1,286 @@
+{
+  "sweeps": 125000,
+  "n_chains": 4,
+  "n_draws_per_chain": 22000,
+  "ladder": [
+    50000,
+    75000,
+    100000,
+    125000,
+    150000
+  ],
+  "at_registered_maximum": false,
+  "invariance_check": {
+    "worst_departure": 3.8191672047105385e-14,
+    "pass": true
+  },
+  "gates": {
+    "sorted_pi_0": {
+      "value": 1.0681440717752666,
+      "threshold": 1.01,
+      "pass": false,
+      "frozen_in_some_chains": false
+    },
+    "P_eigenvalue_0": {
+      "value": 1.033900481666884,
+      "threshold": 1.01,
+      "pass": false,
+      "frozen_in_some_chains": false
+    },
+    "P_singular_value_0": {
+      "value": 1.5882562968255676,
+      "threshold": 1.01,
+      "pass": false,
+      "frozen_in_some_chains": false
+    },
+    "P_row_entropy_0": {
+      "value": 1.2400857679026693,
+      "threshold": 1.01,
+      "pass": false,
+      "frozen_in_some_chains": false
+    },
+    "sorted_relation_count_0": {
+      "value": 5620461396027051.0,
+      "threshold": 1.01,
+      "pass": false,
+      "frozen_in_some_chains": true
+    },
+    "sorted_pi_1": {
+      "value": 1.7399505867721827,
+      "threshold": 1.01,
+      "pass": false,
+      "frozen_in_some_chains": false
+    },
+    "P_eigenvalue_1": {
+      "value": 1.0338748734266798,
+      "threshold": 1.01,
+      "pass": false,
+      "frozen_in_some_chains": false
+    },
+    "P_singular_value_1": {
+      "value": 1.2928994436518315,
+      "threshold": 1.01,
+      "pass": false,
+      "frozen_in_some_chains": false
+    },
+    "P_row_entropy_1": {
+      "value": 1.0664545338569158,
+      "threshold": 1.01,
+      "pass": false,
+      "frozen_in_some_chains": false
+    },
+    "sorted_relation_count_1": {
+      "value": 5620461396027051.0,
+      "threshold": 1.01,
+      "pass": false,
+      "frozen_in_some_chains": true
+    },
+    "sorted_pi_2": {
+      "value": 1.7590657692199392,
+      "threshold": 1.01,
+      "pass": false,
+      "frozen_in_some_chains": false
+    },
+    "P_eigenvalue_2": {
+      "value": 1.000398602080728,
+      "threshold": 1.01,
+      "pass": true,
+      "frozen_in_some_chains": false
+    },
+    "P_singular_value_2": {
+      "value": 1.5702164430687937,
+      "threshold": 1.01,
+      "pass": false,
+      "frozen_in_some_chains": false
+    },
+    "P_row_entropy_2": {
+      "value": 1.1718311966342827,
+      "threshold": 1.01,
+      "pass": false,
+      "frozen_in_some_chains": false
+    },
+    "sorted_relation_count_2": {
+      "value": 4.447928112005438,
+      "threshold": 1.01,
+      "pass": false,
+      "frozen_in_some_chains": true
+    },
+    "total_segments": {
+      "value": 1.0783486741612238,
+      "threshold": 1.01,
+      "pass": false,
+      "frozen_in_some_chains": false
+    },
+    "total_relation_count": {
+      "value": 4.347795094272279,
+      "threshold": 1.01,
+      "pass": false,
+      "frozen_in_some_chains": true
+    },
+    "log_posterior": {
+      "value": 2.4985456744664534,
+      "threshold": 1.01,
+      "pass": false,
+      "frozen_in_some_chains": false
+    },
+    "beta": {
+      "value": 1.5785685518995236,
+      "threshold": 1.01,
+      "pass": false,
+      "frozen_in_some_chains": false
+    },
+    "omega": {
+      "value": 1.0381404012776392,
+      "threshold": 1.01,
+      "pass": false,
+      "frozen_in_some_chains": false
+    },
+    "lambda_rep": {
+      "value": 1.719601320436832,
+      "threshold": 1.01,
+      "pass": false,
+      "frozen_in_some_chains": false
+    },
+    "lambda_back": {
+      "value": 1.1430183285807396,
+      "threshold": 1.01,
+      "pass": false,
+      "frozen_in_some_chains": false
+    },
+    "rho": {
+      "value": 1.0099011361820955,
+      "threshold": 1.01,
+      "pass": true,
+      "frozen_in_some_chains": false
+    }
+  },
+  "all_invariant_gates_pass": false,
+  "n_failed_gates": 21,
+  "failed_gates": [
+    "sorted_pi_0",
+    "P_eigenvalue_0",
+    "P_singular_value_0",
+    "P_row_entropy_0",
+    "sorted_relation_count_0",
+    "sorted_pi_1",
+    "P_eigenvalue_1",
+    "P_singular_value_1",
+    "P_row_entropy_1",
+    "sorted_relation_count_1",
+    "sorted_pi_2",
+    "P_singular_value_2",
+    "P_row_entropy_2",
+    "sorted_relation_count_2",
+    "total_segments",
+    "total_relation_count",
+    "log_posterior",
+    "beta",
+    "omega",
+    "lambda_rep",
+    "lambda_back"
+  ],
+  "frozen_coordinates": {
+    "sorted_relation_count_0": {
+      "n_chains_with_zero_within_chain_variance": 4,
+      "per_chain_mean": [
+        2.0,
+        2.0,
+        2.0,
+        3.0
+      ],
+      "per_chain_within_sd": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "interpretation": "4 of 4 chains never moved this coordinate at all, and the chains disagree about its value. This is an absorbing state, not slow mixing."
+    },
+    "sorted_relation_count_1": {
+      "n_chains_with_zero_within_chain_variance": 4,
+      "per_chain_mean": [
+        3.0,
+        2.0,
+        2.0,
+        4.0
+      ],
+      "per_chain_within_sd": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "interpretation": "4 of 4 chains never moved this coordinate at all, and the chains disagree about its value. This is an absorbing state, not slow mixing."
+    },
+    "sorted_relation_count_2": {
+      "n_chains_with_zero_within_chain_variance": 1,
+      "per_chain_mean": [
+        3.0,
+        4.999909090909091,
+        3.6904090909090908,
+        5.820954545454545
+      ],
+      "per_chain_within_sd": [
+        0.0,
+        0.009534192490519634,
+        0.462324970231085,
+        0.3833903751427077
+      ],
+      "interpretation": "1 of 4 chains never moved this coordinate at all, and the chains disagree about its value. This is an absorbing state, not slow mixing."
+    },
+    "total_relation_count": {
+      "n_chains_with_zero_within_chain_variance": 1,
+      "per_chain_mean": [
+        8.0,
+        8.99990909090909,
+        7.690409090909091,
+        12.820954545454546
+      ],
+      "per_chain_within_sd": [
+        0.0,
+        0.009534192490519634,
+        0.462324970231085,
+        0.3833903751427077
+      ],
+      "interpretation": "1 of 4 chains never moved this coordinate at all, and the chains disagree about its value. This is an absorbing state, not slow mixing."
+    }
+  },
+  "structural_locking": {
+    "A_frozen_structure": {
+      "criterion": "relation counts with within-chain sd < 0.01 in >= 2 chains",
+      "n_chains_frozen": 4,
+      "per_chain_min_within_sd": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "holds": true
+    },
+    "B_disagreeing_structure": {
+      "criterion": "spread of chain mean total relation count > 1.0",
+      "per_chain_mean_total_relations": [
+        8.0,
+        8.99990909090909,
+        7.690409090909091,
+        12.820954545454546
+      ],
+      "spread": 5.130545454545455,
+      "holds": true
+    },
+    "C_log_posterior_gap": {
+      "criterion": "spread of chain mean invariant log posterior > 20 nats",
+      "per_chain_mean_log_posterior": [
+        -5837.254764022773,
+        -5716.725187237074,
+        -5744.33176942861,
+        -5516.455597739068
+      ],
+      "spread_nats": 320.79916628370484,
+      "holds": true
+    },
+    "conjunction_holds": true
+  },
+  "required_next_action": "CONTINUE to 150,000 per section 14: scripts/stage6e2_formal_chains.py --run unknown --resume",
+  "recovery_status": "computed but NOT interpreted while the chains have not converged"
+}

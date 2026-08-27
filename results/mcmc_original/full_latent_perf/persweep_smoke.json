@@ -1,0 +1,79 @@
+{
+  "arms": {
+    "FULL-COND": {
+      "arm": "FULL-COND",
+      "config": {
+        "structural_cadence": 10,
+        "structural_scale": 0.5,
+        "table_source": "batched"
+      },
+      "counters_installed": true,
+      "rows": [
+        {
+          "backward_s": 0.04323270300074,
+          "cpu_s": 2.320639,
+          "emission_s": 0.2618301249999604,
+          "ffbs_forward_s": 2.1984847949997857,
+          "forward_total_s": 2.1984847949997857,
+          "h_changed": false,
+          "h_hash": "833fe7e40a9b3fa0",
+          "i": 0,
+          "iteration": 26002,
+          "legal_blocks": 88500,
+          "loadavg1": 19.00048828125,
+          "lse_calls": 10300,
+          "marg_forward_s": 0.0,
+          "offset_s": 8.666699977766257e-05,
+          "piP_s": 0.0008707920001143066,
+          "pt_calls": 11356,
+          "pt_options": 171031,
+          "segments": 556,
+          "structural": false,
+          "target_s": 0.02215562499986845,
+          "u_changed": false,
+          "wall_s": 2.5382640839998203
+        },
+        {
+          "backward_s": 0.044368829000632104,
+          "cpu_s": 2.424892,
+          "emission_s": 0.28187554100031775,
+          "ffbs_forward_s": 2.3669139579997136,
+          "forward_total_s": 2.3669139579997136,
+          "h_changed": false,
+          "h_hash": "833fe7e40a9b3fa0",
+          "i": 1,
+          "iteration": 26003,
+          "legal_blocks": 88500,
+          "loadavg1": 19.0,
+          "lse_calls": 10300,
+          "marg_forward_s": 0.0,
+          "offset_s": 2.54066366699999,
+          "piP_s": 0.0006185409997669922,
+          "pt_calls": 11354,
+          "pt_options": 170935,
+          "segments": 554,
+          "structural": false,
+          "target_s": 0.019311292001020774,
+          "u_changed": false,
+          "wall_s": 2.722551792000104
+        }
+      ],
+      "rss_mb": {
+        "after": 183.361536,
+        "before": 166.56384
+      },
+      "state_origin": "checkpoint:full_cond_0.npz@sweep26000"
+    }
+  },
+  "created_at_utc": "2026-08-22T16:04:21Z",
+  "label": "smoke",
+  "machine": {
+    "cpu_count": 10,
+    "loadavg_at_start": [
+      19.00048828125,
+      22.84326171875,
+      20.482421875
+    ]
+  },
+  "source_commit": "3f99926836fd07bcb303f3811ab5600df5a0554c"
+}

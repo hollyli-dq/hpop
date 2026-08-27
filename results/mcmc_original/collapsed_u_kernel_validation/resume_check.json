@@ -1,0 +1,21 @@
+{
+  "sweeps": 24,
+  "checkpoint_at": 12,
+  "cadence": 5,
+  "draws_bit_identical": true,
+  "final_state_identical_excluding_cache_version": true,
+  "rng_state_identical": true,
+  "collapsed_schedule_full": [
+    4,
+    9,
+    14,
+    19
+  ],
+  "collapsed_schedule_resumed": [
+    4,
+    9,
+    14,
+    19
+  ],
+  "pass": true
+}

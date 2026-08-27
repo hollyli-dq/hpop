@@ -1,0 +1,125 @@
+{
+  "status": "Stage 6D1 sampler correctness: PASS. All eleven registered gates pass simultaneously at the initial 50,000 sweeps; no continuation was needed and the 100,000 ceiling was not approached.",
+  "attempt_history": [
+    {
+      "attempt": "original",
+      "scales": "registered Stage 6B/6C throughout",
+      "artifacts": "stage6d1_joint_mcmc_FAILED_attempt0_50k (50k) and stage6d1_joint_mcmc_FAILED_attempt1 (100k)",
+      "outcome": "FAIL - beta 1.01184 and lambda_rep 1.01457 at 50k; extended to the ceiling, which fixed both but pushed omega to 1.01205"
+    },
+    {
+      "attempt": "omega-retuned",
+      "scales": "omega x32 = 5.8282, others registered",
+      "outcome": "FAIL - omega fixed decisively (1.01205 -> 1.00006, bulk ESS 650 -> 45,433) but beta failed at 1.03094 (50k) and 1.01334 (ceiling)"
+    },
+    {
+      "attempt": "beta/lambda-retuned (final)",
+      "scales": {
+        "U": 0.5,
+        "rho": 0.5,
+        "beta": 1.63488,
+        "omega": 5.82816,
+        "lambda_rep": 1.3296,
+        "lambda_back": 1.51552
+      },
+      "outcome": "PASS - every gate at 50,000 sweeps"
+    }
+  ],
+  "pilots": {
+    "omega": {
+      "selected": "x32",
+      "acceptance": 0.379,
+      "esjd_space": "identity"
+    },
+    "scalars": {
+      "beta": "x32",
+      "lambda_rep": "x32",
+      "lambda_back": "x16",
+      "esjd_space": "log",
+      "joint_confirmation_acceptance": {
+        "beta": 0.442,
+        "omega": 0.371,
+        "lambda_rep": 0.407,
+        "lambda_back": 0.483
+      },
+      "band": [
+        0.2,
+        0.65
+      ],
+      "pass": true
+    },
+    "all_pilot_draws_discarded": true,
+    "no_reference_truth_or_rhat_consulted": true
+  },
+  "efficiency_gain": {
+    "beta": {
+      "bulk_ess_before": 349,
+      "bulk_ess_after": 21217
+    },
+    "lambda_rep": {
+      "bulk_ess_before": 528,
+      "bulk_ess_after": 22331
+    },
+    "lambda_back": {
+      "bulk_ess_before": 1143,
+      "bulk_ess_after": 25302
+    },
+    "omega": {
+      "bulk_ess_before": 650,
+      "bulk_ess_after": 25840
+    },
+    "reading": "All four scalars were 16-32x under-scaled. The registered Stage 6B scales were tuned on the 500-block corpus, where the posterior is far tighter than on this deliberately small 3-block reference model."
+  },
+  "final_gates": {
+    "induced_h_total_variation": {
+      "value": 0.008733865640477873,
+      "pass": true
+    },
+    "max_relation_marginal_error": {
+      "value": 0.0032399432556867724,
+      "pass": true
+    },
+    "mixed_reference_envelope": {
+      "value": 0.005651965788552538,
+      "pass": true
+    },
+    "rho_rhat": {
+      "value": 1.0019319039957835,
+      "pass": true
+    },
+    "beta_rhat": {
+      "value": 0.999942247669976,
+      "pass": true
+    },
+    "omega_rhat": {
+      "value": 1.000014834077414,
+      "pass": true
+    },
+    "lambda_rep_rhat": {
+      "value": 1.0000304764055055,
+      "pass": true
+    },
+    "lambda_back_rhat": {
+      "value": 1.000038048824832,
+      "pass": true
+    },
+    "log_posterior_rhat": {
+      "value": 1.0016014629140273,
+      "pass": true
+    },
+    "relation_count_rhat": {
+      "value": 1.0004478435031288,
+      "pass": true
+    },
+    "uncertain_relation_rhat": {
+      "value": 1.0004992588906543,
+      "pass": true
+    }
+  },
+  "structural_mixing": {
+    "h_states_visited": 9,
+    "uncertain_relations": 4,
+    "max_relation_rhat": 1.0005,
+    "min_relation_bulk_ess": 7263
+  }
+}

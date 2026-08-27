@@ -1,0 +1,48 @@
+{
+  "D_max": 12,
+  "D_min": 3,
+  "delta_B": 0.15,
+  "normalizers": {
+    "10": {
+      "abs_error_dp_vs_enumeration": 0.0,
+      "abs_error_dp_vs_reference": 0.0,
+      "log_C_dp_suffix": -0.7817078439363961,
+      "log_C_enumeration": -0.7817078439363961,
+      "log_C_reference_combinatorial": -0.7817078439363961
+    },
+    "24": {
+      "abs_error_dp_vs_reference": 4.440892098500626e-16,
+      "log_C_dp_suffix": -2.032180497755533,
+      "log_C_reference_combinatorial": -2.0321804977555336
+    },
+    "32": {
+      "abs_error_dp_vs_reference": 4.440892098500626e-16,
+      "log_C_dp_suffix": -2.6945034737449785,
+      "log_C_reference_combinatorial": -2.694503473744978
+    },
+    "40": {
+      "abs_error_dp_vs_reference": 4.440892098500626e-16,
+      "log_C_dp_suffix": -3.361998105537705,
+      "log_C_reference_combinatorial": -3.3619981055377055
+    },
+    "48": {
+      "abs_error_dp_vs_reference": 8.881784197001252e-16,
+      "log_C_dp_suffix": -4.028934910808441,
+      "log_C_reference_combinatorial": -4.028934910808442
+    },
+    "6": {
+      "abs_error_dp_vs_enumeration": 0.0,
+      "abs_error_dp_vs_reference": 0.0,
+      "log_C_dp_suffix": -0.6500757179910996,
+      "log_C_enumeration": -0.6500757179910996,
+      "log_C_reference_combinatorial": -0.6500757179910996
+    },
+    "7": {
+      "abs_error_dp_vs_enumeration": 2.220446049250313e-16,
+      "abs_error_dp_vs_reference": 0.0,
+      "log_C_dp_suffix": -0.6728327051137157,
+      "log_C_enumeration": -0.672832705113716,
+      "log_C_reference_combinatorial": -0.6728327051137157
+    }
+  }
+}

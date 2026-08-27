@@ -1,0 +1,395 @@
+{
+  "registration": {
+    "registered_before_the_pilot_ran": true,
+    "coordinate_tuned": "omega only",
+    "coordinates_left_at_registered_scales": [
+      "U",
+      "rho",
+      "beta",
+      "lambda_rep",
+      "lambda_back"
+    ],
+    "why_omega_only": "The failed formal attempt showed omega acceptance at 0.969 with bulk ESS 650. No registered diagnostic has shown the other coordinates' efficiency to be unacceptable, so they are not retuned.",
+    "multipliers": [
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "base_omega_scale": 0.18213,
+    "admissible_acceptance": [
+      0.25,
+      0.6
+    ],
+    "preferred_acceptance": [
+      0.4,
+      0.5
+    ],
+    "selection_rule": "Among multipliers whose median across-chain acceptance lies inside the admissible interval [0.25, 0.60], select the one with the largest median expected squared jumping distance across the pilot chains. Ties (within 1e-12) are broken towards the SMALLER multiplier. The preferred acceptance region [0.40, 0.50] is reported for context and is not itself a filter.",
+    "tie_rule": "choose the smaller multiplier",
+    "chains": 4,
+    "sweeps": 4000,
+    "discarded_warm_up": 1000,
+    "base_seed": 90000001,
+    "permitted_statistics": [
+      "acceptance rate",
+      "expected squared jumping distance",
+      "finite-target checks",
+      "rejection and cache diagnostics"
+    ],
+    "forbidden_and_not_computed": [
+      "reference means",
+      "reference KS distances",
+      "generating truth",
+      "posterior recovery",
+      "MCMC/reference energy distance",
+      "formal R-hat"
+    ],
+    "all_pilot_draws_discarded": true
+  },
+  "per_multiplier": [
+    {
+      "multiplier": 2.0,
+      "omega_scale": 0.36426,
+      "median_acceptance": 0.9421666666666666,
+      "median_esjd": 0.11581376222839082,
+      "admissible": false,
+      "in_preferred_region": false,
+      "non_finite_targets": 0
+    },
+    {
+      "multiplier": 4.0,
+      "omega_scale": 0.72852,
+      "median_acceptance": 0.8766666666666667,
+      "median_esjd": 0.4044371239461938,
+      "admissible": false,
+      "in_preferred_region": false,
+      "non_finite_targets": 0
+    },
+    {
+      "multiplier": 8.0,
+      "omega_scale": 1.45704,
+      "median_acceptance": 0.7636666666666667,
+      "median_esjd": 1.1647708173909623,
+      "admissible": false,
+      "in_preferred_region": false,
+      "non_finite_targets": 0
+    },
+    {
+      "multiplier": 16.0,
+      "omega_scale": 2.91408,
+      "median_acceptance": 0.5811666666666666,
+      "median_esjd": 2.4152918507005676,
+      "admissible": true,
+      "in_preferred_region": false,
+      "non_finite_targets": 0
+    },
+    {
+      "multiplier": 32.0,
+      "omega_scale": 5.82816,
+      "median_acceptance": 0.379,
+      "median_esjd": 2.9427439406096747,
+      "admissible": true,
+      "in_preferred_region": false,
+      "non_finite_targets": 0
+    },
+    {
+      "multiplier": 64.0,
+      "omega_scale": 11.65632,
+      "median_acceptance": 0.2005,
+      "median_esjd": 1.8600055730656957,
+      "admissible": false,
+      "in_preferred_region": false,
+      "non_finite_targets": 0
+    }
+  ],
+  "per_chain": [
+    {
+      "multiplier": 2.0,
+      "chain": 0,
+      "omega_acceptance": 0.946,
+      "omega_esjd": 0.11656958260231504,
+      "non_finite_targets": 0,
+      "full_replay_calls": 16001,
+      "cached_calls": 12000,
+      "invalid_rho": 5,
+      "u_acceptance": 0.5131111111111111
+    },
+    {
+      "multiplier": 2.0,
+      "chain": 1,
+      "omega_acceptance": 0.9453333333333334,
+      "omega_esjd": 0.11505794185446662,
+      "non_finite_targets": 0,
+      "full_replay_calls": 16001,
+      "cached_calls": 12000,
+      "invalid_rho": 0,
+      "u_acceptance": 0.5496666666666666
+    },
+    {
+      "multiplier": 2.0,
+      "chain": 2,
+      "omega_acceptance": 0.939,
+      "omega_esjd": 0.11659516189571906,
+      "non_finite_targets": 0,
+      "full_replay_calls": 16001,
+      "cached_calls": 12000,
+      "invalid_rho": 1,
+      "u_acceptance": 0.5066666666666667
+    },
+    {
+      "multiplier": 2.0,
+      "chain": 3,
+      "omega_acceptance": 0.933,
+      "omega_esjd": 0.1145736651770882,
+      "non_finite_targets": 0,
+      "full_replay_calls": 16001,
+      "cached_calls": 12000,
+      "invalid_rho": 0,
+      "u_acceptance": 0.5188888888888888
+    },
+    {
+      "multiplier": 4.0,
+      "chain": 0,
+      "omega_acceptance": 0.8846666666666667,
+      "omega_esjd": 0.4144072994623748,
+      "non_finite_targets": 0,
+      "full_replay_calls": 16001,
+      "cached_calls": 12000,
+      "invalid_rho": 1,
+      "u_acceptance": 0.519
+    },
+    {
+      "multiplier": 4.0,
+      "chain": 1,
+      "omega_acceptance": 0.8773333333333333,
+      "omega_esjd": 0.40420857738786314,
+      "non_finite_targets": 0,
+      "full_replay_calls": 16001,
+      "cached_calls": 12000,
+      "invalid_rho": 0,
+      "u_acceptance": 0.5427777777777778
+    },
+    {
+      "multiplier": 4.0,
+      "chain": 2,
+      "omega_acceptance": 0.876,
+      "omega_esjd": 0.4046656705045244,
+      "non_finite_targets": 0,
+      "full_replay_calls": 16001,
+      "cached_calls": 12000,
+      "invalid_rho": 0,
+      "u_acceptance": 0.5036666666666667
+    },
+    {
+      "multiplier": 4.0,
+      "chain": 3,
+      "omega_acceptance": 0.8746666666666667,
+      "omega_esjd": 0.3958914925183523,
+      "non_finite_targets": 0,
+      "full_replay_calls": 16001,
+      "cached_calls": 12000,
+      "invalid_rho": 0,
+      "u_acceptance": 0.5302222222222223
+    },
+    {
+      "multiplier": 8.0,
+      "chain": 0,
+      "omega_acceptance": 0.763,
+      "omega_esjd": 1.1691757903849136,
+      "non_finite_targets": 0,
+      "full_replay_calls": 16001,
+      "cached_calls": 12000,
+      "invalid_rho": 5,
+      "u_acceptance": 0.5271111111111111
+    },
+    {
+      "multiplier": 8.0,
+      "chain": 1,
+      "omega_acceptance": 0.7633333333333333,
+      "omega_esjd": 1.1628137698030288,
+      "non_finite_targets": 0,
+      "full_replay_calls": 16001,
+      "cached_calls": 12000,
+      "invalid_rho": 0,
+      "u_acceptance": 0.5241111111111111
+    },
+    {
+      "multiplier": 8.0,
+      "chain": 2,
+      "omega_acceptance": 0.7716666666666666,
+      "omega_esjd": 1.1667278649788961,
+      "non_finite_targets": 0,
+      "full_replay_calls": 16001,
+      "cached_calls": 12000,
+      "invalid_rho": 5,
+      "u_acceptance": 0.5232222222222223
+    },
+    {
+      "multiplier": 8.0,
+      "chain": 3,
+      "omega_acceptance": 0.764,
+      "omega_esjd": 1.0915223852305826,
+      "non_finite_targets": 0,
+      "full_replay_calls": 16001,
+      "cached_calls": 12000,
+      "invalid_rho": 0,
+      "u_acceptance": 0.5244444444444445
+    },
+    {
+      "multiplier": 16.0,
+      "chain": 0,
+      "omega_acceptance": 0.6043333333333333,
+      "omega_esjd": 2.7667251707669824,
+      "non_finite_targets": 0,
+      "full_replay_calls": 16001,
+      "cached_calls": 12000,
+      "invalid_rho": 2,
+      "u_acceptance": 0.5162222222222222
+    },
+    {
+      "multiplier": 16.0,
+      "chain": 1,
+      "omega_acceptance": 0.5786666666666667,
+      "omega_esjd": 2.4708128571817918,
+      "non_finite_targets": 0,
+      "full_replay_calls": 16001,
+      "cached_calls": 12000,
+      "invalid_rho": 0,
+      "u_acceptance": 0.5487777777777778
+    },
+    {
+      "multiplier": 16.0,
+      "chain": 2,
+      "omega_acceptance": 0.579,
+      "omega_esjd": 2.359770844219343,
+      "non_finite_targets": 0,
+      "full_replay_calls": 16001,
+      "cached_calls": 12000,
+      "invalid_rho": 3,
+      "u_acceptance": 0.5234444444444445
+    },
+    {
+      "multiplier": 16.0,
+      "chain": 3,
+      "omega_acceptance": 0.5833333333333334,
+      "omega_esjd": 2.3419314183670865,
+      "non_finite_targets": 0,
+      "full_replay_calls": 16001,
+      "cached_calls": 12000,
+      "invalid_rho": 3,
+      "u_acceptance": 0.5287777777777778
+    },
+    {
+      "multiplier": 32.0,
+      "chain": 0,
+      "omega_acceptance": 0.37633333333333335,
+      "omega_esjd": 2.940719868851559,
+      "non_finite_targets": 0,
+      "full_replay_calls": 16001,
+      "cached_calls": 12000,
+      "invalid_rho": 0,
+      "u_acceptance": 0.5218888888888888
+    },
+    {
+      "multiplier": 32.0,
+      "chain": 1,
+      "omega_acceptance": 0.384,
+      "omega_esjd": 2.944768012367791,
+      "non_finite_targets": 0,
+      "full_replay_calls": 16001,
+      "cached_calls": 12000,
+      "invalid_rho": 3,
+      "u_acceptance": 0.515
+    },
+    {
+      "multiplier": 32.0,
+      "chain": 2,
+      "omega_acceptance": 0.38166666666666665,
+      "omega_esjd": 2.9613525295253913,
+      "non_finite_targets": 0,
+      "full_replay_calls": 16001,
+      "cached_calls": 12000,
+      "invalid_rho": 0,
+      "u_acceptance": 0.5194444444444445
+    },
+    {
+      "multiplier": 32.0,
+      "chain": 3,
+      "omega_acceptance": 0.37233333333333335,
+      "omega_esjd": 2.7748422409141784,
+      "non_finite_targets": 0,
+      "full_replay_calls": 16001,
+      "cached_calls": 12000,
+      "invalid_rho": 0,
+      "u_acceptance": 0.5114444444444445
+    },
+    {
+      "multiplier": 64.0,
+      "chain": 0,
+      "omega_acceptance": 0.20166666666666666,
+      "omega_esjd": 1.8596037653065662,
+      "non_finite_targets": 0,
+      "full_replay_calls": 16001,
+      "cached_calls": 12000,
+      "invalid_rho": 3,
+      "u_acceptance": 0.4925555555555556
+    },
+    {
+      "multiplier": 64.0,
+      "chain": 1,
+      "omega_acceptance": 0.189,
+      "omega_esjd": 1.7463373246545855,
+      "non_finite_targets": 0,
+      "full_replay_calls": 16001,
+      "cached_calls": 12000,
+      "invalid_rho": 0,
+      "u_acceptance": 0.5032222222222222
+    },
+    {
+      "multiplier": 64.0,
+      "chain": 2,
+      "omega_acceptance": 0.20833333333333334,
+      "omega_esjd": 2.150938188843715,
+      "non_finite_targets": 0,
+      "full_replay_calls": 16001,
+      "cached_calls": 12000,
+      "invalid_rho": 0,
+      "u_acceptance": 0.5407777777777778
+    },
+    {
+      "multiplier": 64.0,
+      "chain": 3,
+      "omega_acceptance": 0.19933333333333333,
+      "omega_esjd": 1.8604073808248252,
+      "non_finite_targets": 0,
+      "full_replay_calls": 16001,
+      "cached_calls": 12000,
+      "invalid_rho": 0,
+      "u_acceptance": 0.5372222222222223
+    }
+  ],
+  "decision": {
+    "selected_multiplier": 32.0,
+    "selected_omega_scale": 5.82816,
+    "selected_median_acceptance": 0.379,
+    "selected_median_esjd": 2.9427439406096747,
+    "in_preferred_region": false,
+    "admissible_candidates": [
+      16.0,
+      32.0
+    ],
+    "rule_applied": "Among multipliers whose median across-chain acceptance lies inside the admissible interval [0.25, 0.60], select the one with the largest median expected squared jumping distance across the pilot chains. Ties (within 1e-12) are broken towards the SMALLER multiplier. The preferred acceptance region [0.40, 0.50] is reported for context and is not itself a filter.",
+    "tie_broken": false,
+    "all_pilot_draws_discarded": true,
+    "no_reference_or_truth_consulted": true
+  },
+  "runtime_seconds": 181.8580385419773,
+  "source_commit": "0a268f7a2b2107d64d66f53e576ca6f2ca10e0c9",
+  "stage6d_config_hash": "ebd5effd5b32e68aeb61df044bfbdcbef998c01955673ae1c077531be3d2ac73",
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "platform": "macOS-10.16-x86_64-i386-64bit-Mach-O"
+}

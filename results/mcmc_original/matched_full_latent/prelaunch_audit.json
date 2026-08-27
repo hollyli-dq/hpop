@@ -1,0 +1,312 @@
+{
+  "condition": "FULL-LATENT",
+  "convergence": {
+    "burn_in": 10000,
+    "checkpoint_ladder": [
+      30000,
+      50000,
+      75000,
+      100000
+    ],
+    "ess": {
+      "log_target_bulk": 1000.0,
+      "log_target_tail": 500.0,
+      "remaining_invariant_bulk": 500.0,
+      "total_relations_bulk": 1000.0
+    },
+    "rhat": 1.01,
+    "summaries": [
+      "generic",
+      "boundary",
+      "co-skill",
+      "pi",
+      "P"
+    ],
+    "thin": 5,
+    "two_consecutive_passes": true
+  },
+  "corpus": {
+    "corpus_commit": "b199374baaf3f795ce5ee6dca16b7478bd07a3b9",
+    "corpus_hash": "dd280a4a09896154e167f388edd401a9119ba398167c09404aba5f7743e58ec2",
+    "generator_commit": "8ca828153e8e263bf4ea4823e45a53fa454037ad",
+    "heldout_hash": "4d586fc5e26ec356cdb00d496a64be9d1071ee8ef9d112ab89d1246c46bee23f",
+    "train_hash": "717b77a4cff740c7811c9becb6e43af68d286dcc1c6c6ba6feb475208fef6541",
+    "truth_hash": "fc41538fd44d170df8d0a6401f0c6e6b49d52418c487e22f9e4f45ee047f903e"
+  },
+  "fixed": {
+    "beta": 1.5,
+    "delta_b": 0.15,
+    "epsilon": 0.02,
+    "lambda_back": 0.25,
+    "lambda_rep": 0.8,
+    "omega": 1.7346010553881064,
+    "rho_0": 0.5
+  },
+  "git": {
+    "commit": "bed564b5ce7ee780d37360c3bb14cb8b6ccac724",
+    "status": "M README.md\n M \"docs/Report 3.pdf\"\n M docs/index.html\n M results/mcmc_original/matched_full_latent/prelaunch_audit.json\n M results/mcmc_original/matched_full_latent/prelaunch_validation.json\n M src/hpop/annotate/opencode.py\n M src/hpop/ingest/swe_rebench.py\n M tests/test_inference.py\n?? data/experiments/\n?? data/external/\n?? data/interim/swe_rebench/annot/\n?? data/interim/swe_rebench/chunks/\n?? data/interim/swe_rebench/heldout150.jsonl\n?? data/interim/swe_rebench/insample50.jsonl\n?? data/interim/swe_rebench/issue_clusters.json\n?? data/interim/swe_rebench/issues_3k.jsonl\n?? data/interim/swe_rebench/issues_embed_dc.jsonl\n?? data/interim/swe_rebench/issues_embed_tagged.jsonl\n?? data/interim/swe_rebench/issues_llm_tagged.jsonl\n?? data/interim/swe_rebench/issues_tagged.jsonl\n?? data/interim/swe_rebench/potion-8M/\n?? data/interim/swe_rebench/tokens_heldout150.jsonl\n?? docs/Untitled\n?? docs/cpa_dictionary_v2.md\n?? docs/cpa_sampling_strategy.md\n?? docs/experiments.html\n?? docs/experiments.md\n?? docs/notation_table.tex\n?? docs/test_0001.parquet\n?? docs/walkthrough.html\n?? notebooks/exp0_minimal_enumeration.ipynb\n?? paper/\n?? results/mcmc_original/matched_condition_c_prime/formal_chains/\n?? results/mcmc_original/matched_condition_c_prime/formal_gate_C-COND-SWAP_30000.json\n?? results/mcmc_original/matched_condition_c_prime/formal_gate_C-MARG-SWAP_30000.json\n?? results/mcmc_original/matched_full_latent/smoke/full_cond.npz\n?? results/mcmc_original/matched_full_latent/smoke/full_marg.npz\n?? scripts/cluster_issues.py\n?? scripts/embed_issue_intent.py\n?? scripts/exp_boundary_recall.py\n?? scripts/exp_order_invariance.py\n?? scripts/exp_real_pilot.py\n?? scripts/exp_real_pilot_v2.py\n?? scripts/exp_synthetic_ablate.py\n?? scripts/exp_synthetic_recovery.py\n?? scripts/llm_issue_intent.py\n?? scripts/mini_partial_order_test.py\n?? scripts/parquet_to_issues.py\n?? scripts/partial_order_proxy_eval.py\n?? scripts/pull_issue_text.py\n?? scripts/pull_problem_statements.py\n?? scripts/render_dags.py\n?? scripts/render_traces_for_annotation.py\n?? scripts/render_walkthrough.py\n?? scripts/tag_issue_intent.py\n?? scripts/validate_heldout.py\n?? scripts/validate_paper_evidence.py\n?? scripts/walkthrough.py\n?? src/hpop/eval/metrics.py\n?? src/hpop/inference/hpop.py\n?? src/hpop/inference/recurrent.py\n?? src/hpop/inference/semi_markov.py\n?? src/hpop/synth/\n?? tests/test_hpop.py\n?? tests/test_recurrent.py\n?? tests/test_semi_markov.py"
+  },
+  "inferred": [
+    "S",
+    "z",
+    "U",
+    "pi",
+    "P"
+  ],
+  "kernel": {
+    "FULL-COND": [
+      "conditional U MH",
+      "FFBS",
+      "P Gibbs",
+      "pi Gibbs"
+    ],
+    "FULL-MARG": [
+      "path-marginal U MH",
+      "FFBS",
+      "P Gibbs",
+      "pi Gibbs"
+    ],
+    "partially_collapsed_proof": "MARG U reads no stored path; FFBS is first path-dependent step after every attempt."
+  },
+  "no_C_prime_state_or_truth_initialization": true,
+  "priors": {
+    "P": "independent restricted-row Dirichlet(1,1), P_kk=0",
+    "pi": "Dirichlet(1,1,1)"
+  },
+  "proposal": {
+    "cadence": 10,
+    "opportunities": "one shared opportunity every 10 sweeps per chain",
+    "scale": 0.5,
+    "selection": "uniform skill and uniform row"
+  },
+  "recovery": {
+    "alignment": "closure-Hamming Hungarian; deterministic ties; same mapping for H,pi,P,z",
+    "heldout": "log Z - log C_J then log-mean-exp / occurrence"
+  },
+  "registration": {
+    "fixed": {
+      "beta": 1.5,
+      "delta_b": 0.15,
+      "epsilon": 0.02,
+      "lambda_back": 0.25,
+      "lambda_rep": 0.8,
+      "omega": 1.7346010553881064,
+      "rho_0": 0.5
+    },
+    "prereg_sha256": "3a4ac81d0ffb7203edd54ba169309e9894325a95b1073ab7c495ffbf09dbc3c1",
+    "structural_cadence": 10,
+    "structural_scale": 0.5
+  },
+  "runtime": {
+    "numpy": "2.4.6",
+    "python": "3.13.2 | packaged by Anaconda, Inc. | (main, Feb  6 2025, 12:54:57) [Clang 14.0.6 ]",
+    "scipy": "1.18.0"
+  },
+  "source_hashes": {
+    "PREREG_FULL_LATENT.json": "3a4ac81d0ffb7203edd54ba169309e9894325a95b1073ab7c495ffbf09dbc3c1",
+    "PREREG_FULL_LATENT.md": "cd2329144c8725656e9c7e9388a3b898378806eaf7ecb59dab0d64b08c293def",
+    "scripts/run_matched_full_latent_formal.py": "406afa12348c11c9aa22cd257c65115c1cbcd9225f8e214abd4b9e67612ca745",
+    "scripts/run_matched_full_latent_recovery.py": "7a584034adf4843af36bd1c1b4e9deadd8b5f7d603cec3cc7656be429bdc4dc4",
+    "src/hpop/__init__.py": "b13e194f51bce7f38ae01ba82d6a63ad25e9e71e534d0c2773795f3980fd0ba0",
+    "src/hpop/mcmc_original/__init__.py": "97ebfd44ad0d2f653dbe4c0ffed11a57d1ed462b7c78b9522c1d872295ba96c7",
+    "src/hpop/mcmc_original/block_score_adapters.py": "7dcdd4126bf7f2c193afe6b8a6535bf660e6fd43af116dd95900d80f96b09ca8",
+    "src/hpop/mcmc_original/collapsed_u_kernel.py": "430048ef84030fcfbc347def2a774c51fefdef14ee17409eea90ddefaf15e214",
+    "src/hpop/mcmc_original/collapsed_u_likelihood.py": "8efc9bee86ead719a625b3d9f5371cc2dabe4957e777b61f2cfddf4798e35199",
+    "src/hpop/mcmc_original/fast_block_tables.py": "7b91a074fe42a600fbe4ab37f18d012e10906f673d1ab9a83e019e77b65fdfcc",
+    "src/hpop/mcmc_original/fast_segmentation_kernel.py": "193e596adfab94fb48d44883062ed023172c9532c8076edae486aa9574b6ab59",
+    "src/hpop/mcmc_original/full_latent_constants.py": "163906ce06d106cf5c8c4579a667890cb1cfc9e2154317af914c275bf5ed6e45",
+    "src/hpop/mcmc_original/full_latent_recovery.py": "a81d3c8357e73b9a6c23c27ea9ee4e93d8b0bb352581300103afe8e4d9e893b9",
+    "src/hpop/mcmc_original/latent_poset.py": "00bb4d02f90699e9eedfce3a8d91d5f528b164845c9fce02d1e9b1c8db618569",
+    "src/hpop/mcmc_original/matched_condition_b.py": "91a74fee6c967e96d4678498bf482c169c0bfbb8b1fa243d4ced3e6908f53f87",
+    "src/hpop/mcmc_original/matched_full_latent.py": "91c108c8cb4d3903dae04b70fc849b90496ca052b45572c28990faad8c36d038",
+    "src/hpop/mcmc_original/proposals.py": "a0f66aad14d071995166801a5107612db013e6022c6477cda1c4cdeb8da5d3d6",
+    "src/hpop/mcmc_original/recurrent_joint_ffbs_mcmc.py": "6b5952414e85ebbc253bd22e0b4195efcfc7f474bf30e41cc5cb143687e8694a",
+    "src/hpop/mcmc_original/recurrent_joint_scalar_mcmc.py": "de709ebdba8d32b4f2a686b7d94e6353fa9df432c443c29c1961def5497b744a",
+    "src/hpop/mcmc_original/recurrent_rfs.py": "d39f7e519d39f6941356d6d6e8b2be64ac955ce64e1ad25059d5d431e1809643",
+    "src/hpop/mcmc_original/recurrent_scalar_mcmc.py": "32325ce79adb7a48520bb300b6bdc81e98a31a87b3d3a6cf4fbe80fd940fa8e2",
+    "src/hpop/mcmc_original/recurrent_scalar_posterior.py": "0de9230cd84f94d5f37b516331f0d7137165b29d3a56dbceb85031d8cf630504",
+    "src/hpop/mcmc_original/recurrent_segmentation.py": "0a1d1f53ac451ef4858236242abfa72696b58b131e45f10229bdf328847e2e3c",
+    "src/hpop/mcmc_original/recurrent_synthetic.py": "2395b713557167302238223046afb43913d19ef7f8b0182e1cec4ef7b80d3e52",
+    "src/hpop/mcmc_original/sampler_segmentation.py": "89ca61e1ed537e525a702c621c8e2f865555e525b0800eda219d38d334e7a9fc",
+    "src/hpop/mcmc_original/sampler_u.py": "7324f3c853c32ed048eeffbbf97e68ad7efa0f68ee72919068b958394f595999",
+    "src/hpop/mcmc_original/semi_markov_ffbs.py": "8150bb8235eb159d5e2f08ada7c698c383f4c7fd31f3b882e218b207dd135486",
+    "src/hpop/mcmc_original/stage6b_frozen.py": "ac4df9767640df178aabfbb9d3e4009cc1644edd7479b4119362fb1fa3fb20fa",
+    "src/hpop/mcmc_original/stage6b_mcmc_diagnostics.py": "2eb8de60118eee3316e0ab5493de88c235976e20b1be84de93078191a999f38b",
+    "src/hpop/mcmc_original/stage6c_frozen.py": "28a96f222389a22424fccafb68b0763bac0ddcb12ec18d1161de908f72b62ab2",
+    "src/hpop/mcmc_original/stage6d_frozen.py": "79e901913178330dfcd06f4782d7134dbb53c479a41acc93545d620de385bdb7",
+    "src/hpop/mcmc_original/stage6e_block_table.py": "7711b452152d27f4b20477a688b293761b49b61e2d00e830af72b678cf431015",
+    "src/hpop/mcmc_original/stage6e_frozen.py": "230f7dd4f2323daf5aa43d33fd8597a08e0a9b260675402a960af775153583f7",
+    "src/hpop/mcmc_original/stage6e_sampler.py": "2903ad58dff37bc0b0cb3cbdd4c4e76cefe1df73bc7330d852892deae72704f6",
+    "src/hpop/mcmc_original/stage6e_state.py": "c778a55b1209e9f7b2792c2fc5deb493c92208060e3eb533314350c80d79d1a8",
+    "src/hpop/mcmc_original/static_bpop.py": "1a644673f45de4b911bdfc66335ad04b9b9a654824da882f6c3dc333b5ad597c",
+    "src/hpop/mcmc_original/targets.py": "8526c30b7230dc28825c0fa48da50cc2ef839afca94465b0e5790a43040941f2",
+    "src/hpop/mcmc_original/toy.py": "7f0a3b228073ec61561f1243a8234aefa0358f28331b75af1664d57a89f14fa6",
+    "src/hpop/mcmc_original/transitions.py": "d36534cc4fd85cc084832e47daa8ce89eefd4d9f2f779dae8900def6546b689a",
+    "src/hpop/mcmc_original/types.py": "00d8e97fd9f9125703806168480fa102bfedece46ed227f09b64366c5114845d",
+    "tests/mcmc_original/test_full_latent_recovery.py": "346fad2e0d348733c1885e05dc88c6e29ddfbeb16fe301ad422ff7f045969e01",
+    "tests/mcmc_original/test_full_latent_recovery_driver.py": "c0652599c5057c9c985f5801a0ce0ad6f6ca10cf52bbbeb2aec7be3b1fd1fed7",
+    "tests/mcmc_original/test_full_latent_runner.py": "c724ce011ff65085c59b4d79242c58e4de56f333b3e0c933be799861c8b743c7",
+    "tests/mcmc_original/test_matched_full_latent.py": "c458e946f79be96c81accaaaa3fcc3fd45ce64d2e46e9a9fc16d036981808d30"
+  },
+  "starts": {
+    "construction": "Paired across arms; U/S/z/pi/P use no truth alignment or C/C' endpoint.",
+    "corpus_hash_sha256": "dd280a4a09896154e167f388edd401a9119ba398167c09404aba5f7743e58ec2",
+    "pairing": {
+      "0": {
+        "FULL-COND": "adfc0a97fbe77e055cf83a2ec4a2b1c4f56a1595a3026e1678ef9820297f3369",
+        "FULL-MARG": "adfc0a97fbe77e055cf83a2ec4a2b1c4f56a1595a3026e1678ef9820297f3369"
+      },
+      "1": {
+        "FULL-COND": "fd53508d40a15f5968f14595b6b6cd008b1961854bbdff995e6d91b513f657cb",
+        "FULL-MARG": "fd53508d40a15f5968f14595b6b6cd008b1961854bbdff995e6d91b513f657cb"
+      },
+      "2": {
+        "FULL-COND": "c4bd2fdb106a8aba3c269d69860f1e3c735f35a1fb9c376910ed730e4904d8c0",
+        "FULL-MARG": "c4bd2fdb106a8aba3c269d69860f1e3c735f35a1fb9c376910ed730e4904d8c0"
+      },
+      "3": {
+        "FULL-COND": "592a56b984cc6e864220441f62e628cdc2e4c0fcc19a7c7b8c7221ad086d6a06",
+        "FULL-MARG": "592a56b984cc6e864220441f62e628cdc2e4c0fcc19a7c7b8c7221ad086d6a06"
+      }
+    },
+    "start_rows": [
+      {
+        "P_sha256": "59a42b8e4bd9faf414d03b0a8df5a977b45d3ff71a1e2d3311712dd737a4514b",
+        "P_zero_diagonal": true,
+        "U_sha256": "2f7afc9789aaa63c2039d707ff080618287f2d3000991b86f20868e9f1ba7713",
+        "index": 0,
+        "n_initial_segments": 325,
+        "paths_sha256": "6438fba1379dfbe0af46a611965f9efb874ab3d5033503a205748517c4b70b70",
+        "pi_P_seed": 6206101,
+        "pi_sha256": "4871c048e310127c6480b7b03f74fddc2fe43db6b726e111aa257952d4993745",
+        "state_sha256": "adfc0a97fbe77e055cf83a2ec4a2b1c4f56a1595a3026e1678ef9820297f3369",
+        "u_scale": 0.5,
+        "u_seed": 6204101
+      },
+      {
+        "P_sha256": "49afa9e575f2171e1bfcf4495e00a66a51e1cbbb64c878e82257e0dfcef58b8b",
+        "P_zero_diagonal": true,
+        "U_sha256": "95ecbd982d6982b81e421754dbe839b620324e2b4c56e4e6ab4610f82e9cc5a9",
+        "index": 1,
+        "n_initial_segments": 325,
+        "paths_sha256": "6438fba1379dfbe0af46a611965f9efb874ab3d5033503a205748517c4b70b70",
+        "pi_P_seed": 6206102,
+        "pi_sha256": "715752165c4b2e69517497d22eb7aae4663fa0a0f40994a74fb9ba9f0c92c6e6",
+        "state_sha256": "fd53508d40a15f5968f14595b6b6cd008b1961854bbdff995e6d91b513f657cb",
+        "u_scale": 1.0,
+        "u_seed": 6204102
+      },
+      {
+        "P_sha256": "df1648c51d923bb76f3c148856a88edd4b4d9a4c0135ac66e638d1b4ae7e58e6",
+        "P_zero_diagonal": true,
+        "U_sha256": "2a8416132d4f153da52174b3dc4b27562ba846c2b02e53675584c355e4131424",
+        "index": 2,
+        "n_initial_segments": 325,
+        "paths_sha256": "6438fba1379dfbe0af46a611965f9efb874ab3d5033503a205748517c4b70b70",
+        "pi_P_seed": 6206103,
+        "pi_sha256": "e49647b5a99cebf53845e858c2c1e86250c99da872966a8855b6bea874bbb499",
+        "state_sha256": "c4bd2fdb106a8aba3c269d69860f1e3c735f35a1fb9c376910ed730e4904d8c0",
+        "u_scale": 2.0,
+        "u_seed": 6204103
+      },
+      {
+        "P_sha256": "a910a7f63cc493e0139fb095816bea289baa9a6d0e09e3b46f771823a3770d3c",
+        "P_zero_diagonal": true,
+        "U_sha256": "ab7938ed4d5e7e3c004af38228ccfc670609daf1d67bfa7e43071de890bcd4f4",
+        "index": 3,
+        "n_initial_segments": 325,
+        "paths_sha256": "6438fba1379dfbe0af46a611965f9efb874ab3d5033503a205748517c4b70b70",
+        "pi_P_seed": 6206104,
+        "pi_sha256": "13250927a8d79ba240d48aad03e34dcd5bf5c4a00d2e5693c2194e48e8db34a5",
+        "state_sha256": "592a56b984cc6e864220441f62e628cdc2e4c0fcc19a7c7b8c7221ad086d6a06",
+        "u_scale": 3.0,
+        "u_seed": 6204104
+      }
+    ]
+  },
+  "target": "p(S,z,U,pi,P | X, fixed nuisance coordinates)",
+  "truth_seal": {
+    "observations": "runner only loads named observed CPA arrays",
+    "runtime_import_probe": {
+      "checked_modules": [
+        "hpop.mcmc_original.generate_matched_formal_corpus",
+        "hpop.mcmc_original.matched_synthetic_generator",
+        "hpop.mcmc_original.recurrent_synthetic"
+      ],
+      "loaded_forbidden_modules": [],
+      "loaded_hpop_modules": [
+        "hpop.mcmc_original",
+        "hpop.mcmc_original.block_score_adapters",
+        "hpop.mcmc_original.collapsed_u_kernel",
+        "hpop.mcmc_original.collapsed_u_likelihood",
+        "hpop.mcmc_original.fast_block_tables",
+        "hpop.mcmc_original.fast_segmentation_kernel",
+        "hpop.mcmc_original.full_latent_constants",
+        "hpop.mcmc_original.latent_poset",
+        "hpop.mcmc_original.matched_condition_b",
+        "hpop.mcmc_original.matched_full_latent",
+        "hpop.mcmc_original.proposals",
+        "hpop.mcmc_original.recurrent_joint_ffbs_mcmc",
+        "hpop.mcmc_original.recurrent_joint_scalar_mcmc",
+        "hpop.mcmc_original.recurrent_rfs",
+        "hpop.mcmc_original.recurrent_scalar_mcmc",
+        "hpop.mcmc_original.recurrent_scalar_posterior",
+        "hpop.mcmc_original.recurrent_segmentation",
+        "hpop.mcmc_original.sampler_u",
+        "hpop.mcmc_original.semi_markov_ffbs",
+        "hpop.mcmc_original.stage6b_frozen",
+        "hpop.mcmc_original.stage6b_mcmc_diagnostics",
+        "hpop.mcmc_original.stage6c_frozen",
+        "hpop.mcmc_original.stage6d_frozen",
+        "hpop.mcmc_original.stage6e_block_table",
+        "hpop.mcmc_original.stage6e_frozen",
+        "hpop.mcmc_original.stage6e_sampler",
+        "hpop.mcmc_original.stage6e_state",
+        "hpop.mcmc_original.static_bpop",
+        "hpop.mcmc_original.targets",
+        "hpop.mcmc_original.toy",
+        "hpop.mcmc_original.transitions",
+        "hpop.mcmc_original.types"
+      ],
+      "status": "PASS"
+    },
+    "static_hpop_import_closure": [
+      "hpop",
+      "hpop.mcmc_original",
+      "hpop.mcmc_original.block_score_adapters",
+      "hpop.mcmc_original.collapsed_u_kernel",
+      "hpop.mcmc_original.collapsed_u_likelihood",
+      "hpop.mcmc_original.fast_block_tables",
+      "hpop.mcmc_original.fast_segmentation_kernel",
+      "hpop.mcmc_original.full_latent_constants",
+      "hpop.mcmc_original.latent_poset",
+      "hpop.mcmc_original.matched_condition_b",
+      "hpop.mcmc_original.matched_full_latent",
+      "hpop.mcmc_original.proposals",
+      "hpop.mcmc_original.recurrent_joint_ffbs_mcmc",
+      "hpop.mcmc_original.recurrent_joint_scalar_mcmc",
+      "hpop.mcmc_original.recurrent_rfs",
+      "hpop.mcmc_original.recurrent_scalar_mcmc",
+      "hpop.mcmc_original.recurrent_scalar_posterior",
+      "hpop.mcmc_original.recurrent_segmentation",
+      "hpop.mcmc_original.recurrent_synthetic",
+      "hpop.mcmc_original.sampler_segmentation",
+      "hpop.mcmc_original.sampler_u",
+      "hpop.mcmc_original.semi_markov_ffbs",
+      "hpop.mcmc_original.stage6b_frozen",
+      "hpop.mcmc_original.stage6b_mcmc_diagnostics",
+      "hpop.mcmc_original.stage6c_frozen",
+      "hpop.mcmc_original.stage6d_frozen",
+      "hpop.mcmc_original.stage6e_block_table",
+      "hpop.mcmc_original.stage6e_frozen",
+      "hpop.mcmc_original.stage6e_sampler",
+      "hpop.mcmc_original.stage6e_state",
+      "hpop.mcmc_original.static_bpop",
+      "hpop.mcmc_original.targets",
+      "hpop.mcmc_original.toy",
+      "hpop.mcmc_original.transitions",
+      "hpop.mcmc_original.types"
+    ],
+    "status": "PASS"
+  }
+}

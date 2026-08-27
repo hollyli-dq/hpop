@@ -1,0 +1,35 @@
+{
+  "early": {
+    "observed": 0.004067253613446731,
+    "envelope": 0.004522256615497353,
+    "null_mean": 0.0035295761958754612,
+    "null_sd": 0.0005638823977916067,
+    "z": 0.9535275789367312,
+    "inside_envelope": true,
+    "n_x": 4000,
+    "n_y": 4000,
+    "per_chain_contribution": 1000
+  },
+  "middle": {
+    "observed": 0.004942762228080433,
+    "envelope": 0.004522256615497353,
+    "null_mean": 0.0035295761958754612,
+    "null_sd": 0.0005638823977916067,
+    "z": 2.506171566517388,
+    "inside_envelope": false,
+    "n_x": 4000,
+    "n_y": 4000,
+    "per_chain_contribution": 1000
+  },
+  "late": {
+    "observed": 0.0035088390395232594,
+    "envelope": 0.004522256615497353,
+    "null_mean": 0.0035295761958754612,
+    "null_sd": 0.0005638823977916067,
+    "z": -0.03677567598034096,
+    "inside_envelope": true,
+    "n_x": 4000,
+    "n_y": 4000,
+    "per_chain_contribution": 1000
+  }
+}

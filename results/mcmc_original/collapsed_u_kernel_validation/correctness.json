@@ -1,0 +1,10 @@
+{
+  "audit_scorer_parity_max_abs": 0.0,
+  "enumeration_parity_max_abs": 0.0,
+  "incremental_vs_full_rebuild_abs": 0.0,
+  "same_h_collapsed_delta": 0.0,
+  "hastings_quadratic_form_asymmetry": 0.0,
+  "tolerance": 1e-10,
+  "all_pass": true,
+  "note": "q0 reset, cadence, cache invalidation, MH-ratio replay, stale-(S,z) independence, immediate-refresh ordering, every=0 bitwise parity and resume determinism are asserted by the four test modules; this file records the headline numeric values"
+}

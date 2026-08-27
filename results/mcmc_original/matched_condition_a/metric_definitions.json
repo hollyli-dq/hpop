@@ -1,0 +1,22 @@
+{
+  "boundary": {
+    "auprc": "average precision (sum of precision x recall increments)",
+    "auroc": "Mann-Whitney with average ranks for ties",
+    "b_hat": "exact Pr(B_nt = 1 | x_n, truth) from forward-backward block marginals",
+    "brier": "mean (b_hat - outcome)^2",
+    "ece": "10 equal-width bins, count-weighted |mean predicted - empirical|",
+    "nll": "mean -log(b_hat if outcome else 1 - b_hat), clipped at 1e-300",
+    "outcome": "hidden true internal cut positions",
+    "prf_at_0.5": "precision/recall/F1 at fixed threshold 0.5",
+    "prior_baseline": "p(B_t = 1 | J, delta_B) from the prior-only DP (NullScorer), no observations"
+  },
+  "ffbs_summaries": "per-draw boundary F1, occurrence accuracy, and segmentation variation of information vs truth; means with MCSE and quantiles",
+  "information_gain": "prior-to-posterior reduction in boundary Brier/NLL, occurrence NLL, and exact path-entropy reduction H_prior - H_posterior",
+  "joint_path": "exact p(S*, z* | x); exact p(S* | x) with z marginalized (label-chain DP); Viterbi MAP path; exact posterior path entropy log Z - E[log w] via the linear decomposition of log w; note: with a zero-diagonal P the occurrence-label vector determines (S, z) bijectively, so p(c* vector) = p(S*, z*)",
+  "occurrence_labels": {
+    "marginal": "exact Pr(c_t = k | x) by summing block marginals over blocks of skill k covering t",
+    "metrics": "mean p(c*), modal accuracy, log score, multiclass Brier, per-trace ARI and NMI (fixed identities), pooled 3x3 confusion (true vs modal)"
+  },
+  "segment_count": "exact p(L | x) from an L-augmented forward recursion; posterior mean/SD, p(L*), MAP L, |mean - L*|, MAP accuracy",
+  "stratification": "train / heldout / all, and by J in {24,32,40,48}"
+}

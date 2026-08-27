@@ -1,0 +1,35 @@
+{
+  "relation_count_vs_rho": {
+    "correlation": null,
+    "undefined_because_constant": [
+      "relation_count"
+    ],
+    "constant_values": {
+      "relation_count": 6.0
+    },
+    "note": "correlation is undefined, not zero: relation_count has zero variance across all draws"
+  },
+  "relation_count_vs_beta": {
+    "correlation": null,
+    "undefined_because_constant": [
+      "relation_count"
+    ],
+    "constant_values": {
+      "relation_count": 6.0
+    },
+    "note": "correlation is undefined, not zero: relation_count has zero variance across all draws"
+  },
+  "rho_vs_beta": {
+    "correlation": -0.01662817520284809
+  },
+  "log_likelihood_vs_relation_count": {
+    "correlation": null,
+    "undefined_because_constant": [
+      "relation_count"
+    ],
+    "constant_values": {
+      "relation_count": 6.0
+    },
+    "note": "correlation is undefined, not zero: relation_count has zero variance across all draws"
+  }
+}

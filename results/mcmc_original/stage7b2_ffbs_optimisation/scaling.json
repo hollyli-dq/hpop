@@ -1,0 +1,423 @@
+{
+  "baseline": [
+    {
+      "J": 8,
+      "K": 1,
+      "n_candidate_blocks": 21,
+      "block_table": {
+        "wall_seconds": 0.001730166026391089,
+        "cpu_seconds": 0.0017289999999992034,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.0009215829195454717,
+        "cpu_seconds": 0.0009220000000009776,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 3.8021011278033257e-05,
+        "cpu_seconds": 3.799999999998249e-05,
+        "repeats": 20
+      },
+      "log_normalizer": -24.620456282607844
+    },
+    {
+      "J": 8,
+      "K": 2,
+      "n_candidate_blocks": 42,
+      "block_table": {
+        "wall_seconds": 0.003934582928195596,
+        "cpu_seconds": 0.003743000000000052,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.0016482089413329959,
+        "cpu_seconds": 0.001648000000001204,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 6.010453216731548e-05,
+        "cpu_seconds": 5.9499999999879094e-05,
+        "repeats": 20
+      },
+      "log_normalizer": -12.429630963325936
+    },
+    {
+      "J": 24,
+      "K": 2,
+      "n_candidate_blocks": 350,
+      "block_table": {
+        "wall_seconds": 0.008234250009991229,
+        "cpu_seconds": 0.008214999999999861,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.005016500013880432,
+        "cpu_seconds": 0.005015999999999465,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 0.00015335448551923037,
+        "cpu_seconds": 0.00015400000000020952,
+        "repeats": 20
+      },
+      "log_normalizer": -42.38418683824783
+    },
+    {
+      "J": 48,
+      "K": 2,
+      "n_candidate_blocks": 830,
+      "block_table": {
+        "wall_seconds": 0.009829708957113326,
+        "cpu_seconds": 0.009786000000000072,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.014019749942235649,
+        "cpu_seconds": 0.013844000000000634,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 0.00020858354400843382,
+        "cpu_seconds": 0.00020899999999901553,
+        "repeats": 20
+      },
+      "log_normalizer": -88.01013145906846
+    },
+    {
+      "J": 96,
+      "K": 2,
+      "n_candidate_blocks": 1790,
+      "block_table": {
+        "wall_seconds": 0.012272499967366457,
+        "cpu_seconds": 0.012220000000001008,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.028324125101789832,
+        "cpu_seconds": 0.02814799999999984,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 0.0004343749606050551,
+        "cpu_seconds": 0.0004339999999993793,
+        "repeats": 20
+      },
+      "log_normalizer": -172.99662845176422
+    },
+    {
+      "J": 8,
+      "K": 3,
+      "n_candidate_blocks": 63,
+      "block_table": {
+        "wall_seconds": 0.005622041993774474,
+        "cpu_seconds": 0.005574999999998553,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.002278457977809012,
+        "cpu_seconds": 0.00227799999999867,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 6.700004450976849e-05,
+        "cpu_seconds": 6.749999999922096e-05,
+        "repeats": 20
+      },
+      "log_normalizer": -17.19298383222134
+    },
+    {
+      "J": 24,
+      "K": 3,
+      "n_candidate_blocks": 525,
+      "block_table": {
+        "wall_seconds": 0.013549749972298741,
+        "cpu_seconds": 0.013504999999998546,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.008457667077891529,
+        "cpu_seconds": 0.008424999999999017,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 0.0001349165104329586,
+        "cpu_seconds": 0.00013500000000021828,
+        "repeats": 20
+      },
+      "log_normalizer": -47.856918527834786
+    },
+    {
+      "J": 48,
+      "K": 3,
+      "n_candidate_blocks": 1245,
+      "block_table": {
+        "wall_seconds": 0.016777000040747225,
+        "cpu_seconds": 0.01671900000000015,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.019539708038792014,
+        "cpu_seconds": 0.019517999999999702,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 0.00025739596458151937,
+        "cpu_seconds": 0.0002574999999991334,
+        "repeats": 20
+      },
+      "log_normalizer": -88.66747563011162
+    },
+    {
+      "J": 96,
+      "K": 3,
+      "n_candidate_blocks": 2685,
+      "block_table": {
+        "wall_seconds": 0.021551124984398484,
+        "cpu_seconds": 0.021175000000001276,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.04074308299459517,
+        "cpu_seconds": 0.04019800000000018,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 0.0008153124945238233,
+        "cpu_seconds": 0.0007975000000008947,
+        "repeats": 20
+      },
+      "log_normalizer": -178.39397432493624
+    },
+    {
+      "skipped_combinations": [
+        {
+          "J": 24,
+          "K": 1,
+          "reason": "no legal path: K = 1 forbids self-transitions so only a single block is legal, and J > max_width = 12"
+        },
+        {
+          "J": 48,
+          "K": 1,
+          "reason": "no legal path: K = 1 forbids self-transitions so only a single block is legal, and J > max_width = 12"
+        },
+        {
+          "J": 96,
+          "K": 1,
+          "reason": "no legal path: K = 1 forbids self-transitions so only a single block is legal, and J > max_width = 12"
+        }
+      ]
+    }
+  ],
+  "optimised": [
+    {
+      "J": 8,
+      "K": 1,
+      "n_candidate_blocks": 21,
+      "block_table": {
+        "wall_seconds": 0.0004125830018892884,
+        "cpu_seconds": 0.00041199999999896875,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.0007299999706447124,
+        "cpu_seconds": 0.0007310000000000372,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 3.3374468330293894e-05,
+        "cpu_seconds": 3.399999999942338e-05,
+        "repeats": 20
+      },
+      "log_normalizer": -24.620456282607844
+    },
+    {
+      "J": 8,
+      "K": 2,
+      "n_candidate_blocks": 42,
+      "block_table": {
+        "wall_seconds": 0.0009402079740539193,
+        "cpu_seconds": 0.0009410000000009688,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.0020702079636976123,
+        "cpu_seconds": 0.002071000000000822,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 5.8291538152843714e-05,
+        "cpu_seconds": 5.799999999922534e-05,
+        "repeats": 20
+      },
+      "log_normalizer": -12.429630963325936
+    },
+    {
+      "J": 24,
+      "K": 2,
+      "n_candidate_blocks": 350,
+      "block_table": {
+        "wall_seconds": 0.0013872920535504818,
+        "cpu_seconds": 0.0013870000000011373,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.005200334009714425,
+        "cpu_seconds": 0.005171000000000703,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 0.0001506044645793736,
+        "cpu_seconds": 0.00015100000000067837,
+        "repeats": 20
+      },
+      "log_normalizer": -42.38418683824783
+    },
+    {
+      "J": 48,
+      "K": 2,
+      "n_candidate_blocks": 830,
+      "block_table": {
+        "wall_seconds": 0.0017129589105024934,
+        "cpu_seconds": 0.001682999999999879,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.012067666044458747,
+        "cpu_seconds": 0.012060999999999211,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 0.00020122947171330452,
+        "cpu_seconds": 0.00020099999999967366,
+        "repeats": 20
+      },
+      "log_normalizer": -88.01013145906846
+    },
+    {
+      "J": 96,
+      "K": 2,
+      "n_candidate_blocks": 1790,
+      "block_table": {
+        "wall_seconds": 0.0019539999775588512,
+        "cpu_seconds": 0.001953999999999567,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.026345457998104393,
+        "cpu_seconds": 0.02617400000000103,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 0.0006348334718495607,
+        "cpu_seconds": 0.0006215000000002746,
+        "repeats": 20
+      },
+      "log_normalizer": -172.99662845176422
+    },
+    {
+      "J": 8,
+      "K": 3,
+      "n_candidate_blocks": 63,
+      "block_table": {
+        "wall_seconds": 0.0035857500042766333,
+        "cpu_seconds": 0.0027870000000014272,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.0030278750928118825,
+        "cpu_seconds": 0.0029479999999999507,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 6.199994822964072e-05,
+        "cpu_seconds": 6.199999999978445e-05,
+        "repeats": 20
+      },
+      "log_normalizer": -17.19298383222134
+    },
+    {
+      "J": 24,
+      "K": 3,
+      "n_candidate_blocks": 525,
+      "block_table": {
+        "wall_seconds": 0.00239762500859797,
+        "cpu_seconds": 0.002359000000000222,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.009092041989788413,
+        "cpu_seconds": 0.00900800000000146,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 0.00011885457206517458,
+        "cpu_seconds": 0.00011999999999989797,
+        "repeats": 20
+      },
+      "log_normalizer": -47.856918527834786
+    },
+    {
+      "J": 48,
+      "K": 3,
+      "n_candidate_blocks": 1245,
+      "block_table": {
+        "wall_seconds": 0.0027981660095974803,
+        "cpu_seconds": 0.002753999999999479,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.01858858298510313,
+        "cpu_seconds": 0.018387000000000597,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 0.00024787505390122533,
+        "cpu_seconds": 0.000248000000000026,
+        "repeats": 20
+      },
+      "log_normalizer": -88.66747563011162
+    },
+    {
+      "J": 96,
+      "K": 3,
+      "n_candidate_blocks": 2685,
+      "block_table": {
+        "wall_seconds": 0.004201292060315609,
+        "cpu_seconds": 0.0041569999999993,
+        "repeats": 5
+      },
+      "forward_chart": {
+        "wall_seconds": 0.0404329999582842,
+        "cpu_seconds": 0.04027000000000136,
+        "repeats": 5
+      },
+      "backward_draw": {
+        "wall_seconds": 0.0006155834998935461,
+        "cpu_seconds": 0.0006160000000008381,
+        "repeats": 20
+      },
+      "log_normalizer": -178.39397432493624
+    },
+    {
+      "skipped_combinations": [
+        {
+          "J": 24,
+          "K": 1,
+          "reason": "no legal path: K = 1 forbids self-transitions so only a single block is legal, and J > max_width = 12"
+        },
+        {
+          "J": 48,
+          "K": 1,
+          "reason": "no legal path: K = 1 forbids self-transitions so only a single block is legal, and J > max_width = 12"
+        },
+        {
+          "J": 96,
+          "K": 1,
+          "reason": "no legal path: K = 1 forbids self-transitions so only a single block is legal, and J > max_width = 12"
+        }
+      ]
+    }
+  ],
+  "note": "the forward chart is frozen code and its scaling is unchanged by this work; it is reported so the block-table improvement is not mistaken for a chart improvement"
+}

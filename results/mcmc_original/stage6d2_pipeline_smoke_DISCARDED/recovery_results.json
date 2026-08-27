@@ -1,0 +1,133 @@
+{
+  "structural": {
+    "true_poset_index": 4002,
+    "map_poset_index": 4002,
+    "map_is_true": true,
+    "posterior_probability_of_true": 1.0,
+    "posterior_rank_of_true": 1,
+    "map_probability": 1.0,
+    "n_unique_states_visited": 1,
+    "closure": {
+      "true_positive": 6,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "structural_hamming": 0
+    },
+    "reduction": {
+      "true_positive": 3,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "structural_hamming": 0
+    },
+    "min_true_relation_probability": 1.0,
+    "max_false_relation_probability": 0.0,
+    "posterior_mean_relation_matrix": [
+      [
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "true_relation_count": 6
+  },
+  "modes": {
+    "major_modes": [
+      4002
+    ],
+    "major_mode_probability": [
+      1.0
+    ],
+    "visits_by_chain": {
+      "4002": [
+        100,
+        100,
+        100,
+        100
+      ]
+    },
+    "transitions_between_major_modes": 0,
+    "n_unique_states_visited": 1
+  },
+  "scalars": {
+    "beta": {
+      "posterior_mean": 1.478196992143765,
+      "posterior_sd": 0.053898917704896604,
+      "q025": 1.3911888922108757,
+      "q975": 1.562754867137047,
+      "true_value": 1.5,
+      "truth_in_95_interval": true,
+      "error_in_posterior_sd": -0.4045166171166783
+    },
+    "omega": {
+      "posterior_mean": 1.885658000074991,
+      "posterior_sd": 0.13562269521007297,
+      "q025": 1.6521075942147665,
+      "q975": 2.1933109099036,
+      "true_value": 1.7346010553881064,
+      "truth_in_95_interval": true,
+      "error_in_posterior_sd": 1.1138028517491463
+    },
+    "lambda_rep": {
+      "posterior_mean": 0.8021996904882949,
+      "posterior_sd": 0.03247407089090458,
+      "q025": 0.7406847023171277,
+      "q975": 0.8585567449199406,
+      "true_value": 0.8,
+      "truth_in_95_interval": true,
+      "error_in_posterior_sd": 0.06773682596446262
+    },
+    "lambda_back": {
+      "posterior_mean": 0.22013043473328892,
+      "posterior_sd": 0.02589767728690104,
+      "q025": 0.16986907388540315,
+      "q975": 0.27472928470807334,
+      "true_value": 0.25,
+      "truth_in_95_interval": true,
+      "error_in_posterior_sd": -1.1533685023490123
+    }
+  },
+  "rho": {
+    "posterior_mean": 0.3596557239703968,
+    "posterior_sd": 0.2478227454753707,
+    "q025": 0.005650160922432549,
+    "q975": 0.8667374950616985,
+    "recovery": "NOT APPLICABLE \u2014 no generating value exists",
+    "why": "U_TRUE is hand specified in recurrent_synthetic.py rather than drawn from p(U | rho); no RHO_TRUE exists and none may be manufactured by regenerating a more favourable dataset."
+  }
+}

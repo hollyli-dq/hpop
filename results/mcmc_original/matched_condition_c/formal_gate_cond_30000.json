@@ -1,0 +1,257 @@
+{
+  "checks": {
+    "accepted_h_changes_per_chain": [
+      24,
+      14,
+      22,
+      20
+    ],
+    "chains_with_zero_accepted_h_changes": 0,
+    "log_target_bulk_ess": 4.8999212194473785,
+    "log_target_tail_ess": 12.985825584455243,
+    "max_rhat": Infinity,
+    "n_uncertain_relations": 30,
+    "total_relations_bulk_ess": 4.025972138354359,
+    "uncertain_max_rhat": Infinity,
+    "uncertain_min_bulk_ess": 0.0
+  },
+  "pass": false,
+  "summaries": {
+    "log_prior": {
+      "bulk_ess": 1780.7797993516247,
+      "degenerate": null,
+      "rhat": 1.0005868628336487,
+      "tail_ess": 3643.536867893057
+    },
+    "log_target": {
+      "bulk_ess": 4.8999212194473785,
+      "degenerate": null,
+      "rhat": 2.3868391743682693,
+      "tail_ess": 12.985825584455243
+    },
+    "relations_skill0": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "relations_skill1": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "relations_skill2": {
+      "bulk_ess": 4.152292552460805,
+      "degenerate": null,
+      "rhat": 5.604479455286245,
+      "tail_ess": 4.1384653835597245
+    },
+    "sorted_relations_rank0": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "sorted_relations_rank1": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "sorted_relations_rank2": {
+      "bulk_ess": 4.308562033006524,
+      "degenerate": null,
+      "rhat": 3.918815074166338,
+      "tail_ess": 4.2844045638046335
+    },
+    "total_relations": {
+      "bulk_ess": 4.025972138354359,
+      "degenerate": null,
+      "rhat": 14.992938804982106,
+      "tail_ess": 4.008016032064128
+    }
+  },
+  "uncertain": {
+    "1": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "11": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "15": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "16": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "17": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "18": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "19": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "2": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "24": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "25": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "27": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "28": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "3": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "30": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "31": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "36": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "37": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "39": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "40": {
+      "bulk_ess": 4.7533889945228855,
+      "degenerate": null,
+      "rhat": 2.7728797983637987,
+      "tail_ess": 4.7533889945228855
+    },
+    "41": {
+      "bulk_ess": 4.682099466602446,
+      "degenerate": null,
+      "rhat": 2.7727890064387943,
+      "tail_ess": 4.682099466602445
+    },
+    "42": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "43": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "51": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "55": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "56": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "57": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "58": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "59": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "6": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    },
+    "7": {
+      "bulk_ess": 0.0,
+      "degenerate": "constant-but-unequal",
+      "rhat": Infinity,
+      "tail_ess": 0.0
+    }
+  }
+}

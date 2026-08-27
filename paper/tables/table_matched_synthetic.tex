@@ -1,0 +1,95 @@
+% ---------------------------------------------------------------------------
+% paper/tables/table_matched_synthetic.tex
+% Matched-synthetic headline table. Requires: booktabs, multirow (optional).
+% Draft fragment. NOT included in the main paper.
+%
+% Sources: Condition A commit b199374; Condition B commit 34873d8;
+%          formal corpus dd280a4a09896154..., truth fc41538fd44d170d...
+% Condition C rows are deliberately \textit{pending}: no frozen artifact exists.
+% ---------------------------------------------------------------------------
+
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4.5pt}
+\caption{%
+Component and joint recovery on the frozen matched-synthetic corpus
+($100$ training / $45$ held-out traces, $785$ true blocks; corpus
+\texttt{dd280a4a}, truth \texttt{fc41538f}).
+Conditions~A and~B are \emph{conditional} experiments: each holds the other
+component at generating truth, so together they establish component
+identifiability and not joint recoverability.
+``\,--\,'' marks a quantity that is not applicable to that condition, not a
+missing measurement.%
+}
+\label{tab:matched-synthetic}
+\begin{tabular}{@{}llccccccl@{}}
+\toprule
+Condition & Unknown & Boundary & Boundary & Occurrence & Closure & Incomp. & Held-out & Convergence \\
+          & variables & Brier $\downarrow$ & $F_1$ $\uparrow$ & ARI $\uparrow$ & $F_1$ $\uparrow$ & $F_1$ $\uparrow$ & NLL $\downarrow$ & \\
+\midrule
+A: path only
+  & $S, z$
+  & $0.052$ & $0.685$ & $0.747$
+  & -- & --
+  & --
+  & exact (no MCMC) \\
+B: structure only
+  & $U$ (i.e.\ $H$)
+  & -- & -- & --
+  & $1.000$ & $1.000$
+  & $1.077^{\dagger}$
+  & $\widehat{R}_{\max}\!=\!1.001$ \\
+C-\textsc{cond}: joint
+  & $S, z, U, \vartheta$
+  & \textit{pending} & \textit{pending} & \textit{pending}
+  & \textit{pending} & \textit{pending}
+  & \textit{pending}
+  & \textit{pending} \\
+C-\textsc{marg}: joint
+  & $S, z, U, \vartheta$
+  & \textit{pending} & \textit{pending} & \textit{pending}
+  & \textit{pending} & \textit{pending}
+  & \textit{pending}
+  & \textit{pending} \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\begin{minipage}{\linewidth}
+\footnotesize
+\textbf{Classifications.}
+A: \textsc{path strongly identifiable} (all preregistered strong gates met;
+the path-evidence gate was met by median true-path posterior $0.048 \geq 0.02$,
+not by MAP whole-path recovery, which is $0.207 < 0.25$).
+B: \textsc{structure strongly identifiable under oracle paths}.
+C: \textit{pending} --- no frozen artifact exists and no outcome is implied.
+
+\textbf{Which quantities are oracle-conditional.}
+Condition~A conditions on oracle $H, \pi, P, \rho, \beta, \omega,
+\lambda_{\mathrm{rep}}, \lambda_{\mathrm{back}}, \delta_B, \epsilon$; its
+boundary and label metrics are exact posterior summaries under that
+conditioning.
+Condition~B conditions on oracle $(S^\ast, z^\ast)$ and fixes $\rho$ at
+$\rho_0 = 0.5$ by registered correction; $\rho$ was not a recovery target and
+raw entrywise $U$ recovery was not evaluated, because the likelihood reads $U$
+only through $H = h(U)$.
+
+$^{\dagger}$\,\textbf{Held-out NLL is not one quantity across rows.}
+Condition~B's $1.077$ nats/occurrence is an \emph{oracle-path} predictive score,
+computed with the held-out $S^\ast, z^\ast$ supplied (generating truth
+$1.077$; antichain baseline $1.753$; total-order baseline $4.040$). Condition~C
+will report a \emph{marginal} held-out NLL with $(S,z)$ latent. The two are
+different quantities and must never be averaged, differenced or plotted on a
+shared axis.
+
+\textbf{Condition~A boundary $F_1$} is measured at a fixed, never-tuned
+threshold of $0.5$ (precision $0.782$, recall $0.609$); boundary AUROC is
+$0.956$ overall and $0.966$ held out.
+\textbf{Condition~B recovery} is exact on all three skills (closure Hamming
+distance $0$, posterior mass on the true structure $1.000$, transitive-reduction
+$F_1$ $1.000$); the constant retained structure reflects posterior
+concentration, since all four chains started from distinct wrong structures and
+accepted $24$--$31$ structural changes each during burn-in.
+\end{minipage}
+\end{table}

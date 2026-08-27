@@ -1,0 +1,187 @@
+{
+  "oracle_segmentation_parity_with_stage6d": {
+    "explicit_constant": -34.86772224810555,
+    "constant_definition": "sum_n [ boundary prior + path prior ], independent of U, rho and every recurrent scalar",
+    "rows": [
+      {
+        "trial": 0,
+        "log_target_6e": -351.7880597870449,
+        "log_target_6d": -316.9203375389393,
+        "difference": -34.86772224810562,
+        "residual_vs_constant": 7.105427357601002e-14
+      },
+      {
+        "trial": 1,
+        "log_target_6e": -389.75221672007274,
+        "log_target_6d": -354.8844944719672,
+        "difference": -34.867722248105565,
+        "residual_vs_constant": 1.4210854715202004e-14
+      },
+      {
+        "trial": 2,
+        "log_target_6e": -378.2165765642991,
+        "log_target_6d": -343.3488543161935,
+        "difference": -34.867722248105565,
+        "residual_vs_constant": 1.4210854715202004e-14
+      },
+      {
+        "trial": 3,
+        "log_target_6e": -391.40881796047944,
+        "log_target_6d": -356.5410957123739,
+        "difference": -34.867722248105565,
+        "residual_vs_constant": 1.4210854715202004e-14
+      },
+      {
+        "trial": 4,
+        "log_target_6e": -362.0559301274518,
+        "log_target_6d": -327.1882078793462,
+        "difference": -34.86772224810562,
+        "residual_vs_constant": 7.105427357601002e-14
+      },
+      {
+        "trial": 5,
+        "log_target_6e": -382.82100864889304,
+        "log_target_6d": -347.9532864007875,
+        "difference": -34.867722248105565,
+        "residual_vs_constant": 1.4210854715202004e-14
+      }
+    ],
+    "worst_residual": 7.105427357601002e-14,
+    "spread_of_differences": 5.684341886080802e-14,
+    "tolerance": 1e-09,
+    "pass": true
+  },
+  "segmentation_kernel_parity": {
+    "n_comparisons": 18,
+    "worst_discrepancy": 1.7763568394002505e-15,
+    "tolerance": 1e-12,
+    "n_with_nonzero_hastings": 18,
+    "hastings_is_not_assumed_zero": true,
+    "example_rows": [
+      {
+        "move": "relabel",
+        "forward_q": 0.125,
+        "reverse_q": 0.08333333333333333,
+        "log_ratio": 6.201061010025337,
+        "hastings_term": -0.4054651081081646
+      },
+      {
+        "move": "relabel",
+        "forward_q": 0.125,
+        "reverse_q": 0.08333333333333333,
+        "log_ratio": 11.46694929866415,
+        "hastings_term": -0.4054651081081646
+      },
+      {
+        "move": "split",
+        "forward_q": 0.022727272727272728,
+        "reverse_q": 0.05,
+        "log_ratio": 7.914120802021324,
+        "hastings_term": 0.7884573603642702
+      },
+      {
+        "move": "split",
+        "forward_q": 0.022727272727272728,
+        "reverse_q": 0.05,
+        "log_ratio": 1.4605024511559828,
+        "hastings_term": 0.7884573603642702
+      },
+      {
+        "move": "split",
+        "forward_q": 0.022727272727272728,
+        "reverse_q": 0.05,
+        "log_ratio": 10.47613465857092,
+        "hastings_term": 0.7884573603642702
+      },
+      {
+        "move": "split",
+        "forward_q": 0.022727272727272728,
+        "reverse_q": 0.041666666666666664,
+        "log_ratio": -4.238300621078561,
+        "hastings_term": 0.6061358035703153
+      },
+      {
+        "move": "split",
+        "forward_q": 0.022727272727272728,
+        "reverse_q": 0.05,
+        "log_ratio": -16.279640864010823,
+        "hastings_term": 0.7884573603642702
+      },
+      {
+        "move": "split",
+        "forward_q": 0.022727272727272728,
+        "reverse_q": 0.05,
+        "log_ratio": -7.018986900084122,
+        "hastings_term": 0.7884573603642702
+      }
+    ],
+    "pass": true
+  },
+  "transition_update_parity": {
+    "counts_match_stage3": true,
+    "transition_counts": [
+      [
+        0.0,
+        3.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        3.0
+      ],
+      [
+        2.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "initial_counts": [
+      2.0,
+      1.0,
+      1.0
+    ],
+    "initial_counts_sum_equals_n_traces": true,
+    "counts_sum_equals_adjacent_pairs": true,
+    "no_terminal_transition": true,
+    "no_terminal_transition_evidence": "8 counted transitions for 12 segments over 4 traces = sum(L_n - 1); a terminal transition would give sum(L_n)",
+    "self_transition_counts_are_zero": true,
+    "dirichlet_rows": {
+      "0": {
+        "allowed": [
+          1,
+          2
+        ],
+        "alpha": [
+          4.0,
+          1.0
+        ]
+      },
+      "1": {
+        "allowed": [
+          0,
+          2
+        ],
+        "alpha": [
+          1.0,
+          4.0
+        ]
+      },
+      "2": {
+        "allowed": [
+          0,
+          1
+        ],
+        "alpha": [
+          3.0,
+          1.0
+        ]
+      }
+    },
+    "alpha_is_eta_plus_count": true,
+    "sampled_diagonal_is_zero": true,
+    "sampled_rows_sum_to_one": true,
+    "pass": true
+  },
+  "all_passed": true
+}

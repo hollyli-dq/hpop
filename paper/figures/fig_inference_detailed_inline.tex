@@ -1,0 +1,211 @@
+% =============================================================================
+% APPENDIX: detailed inference overview --- editable, \input-able TikZ source.
+% Full version of the main-paper inference figure: numeric block scores, the
+% alpha_n(j,k) chart with transition semantics, backward FFBS with its sampling
+% distribution, and the complete MH flow with accept/reject branches and the
+% FFBS refresh.
+%
+% Usage:
+%   \begin{figure*}[t]
+%     \centering
+%     \input{figures/fig_inference_detailed_inline}
+%     \input{figures/fig_inference_detailed_caption}
+%   \end{figure*}
+% Preamble: tikz + arrows.meta + amsmath,amssymb (same as the other figures).
+% =============================================================================
+
+\definecolor{figthreeblue}{HTML}{2E6FA7}
+\definecolor{figthreegreen}{HTML}{2E8B6B}
+\definecolor{figthreeorange}{HTML}{C06B2C}
+\definecolor{figthreeteal}{HTML}{3A7E86}
+\definecolor{figthreeink}{HTML}{262626}
+\definecolor{figthreesoft}{HTML}{8C8C8C}
+\definecolor{figthreegraye}{HTML}{C9C9C9}
+\definecolor{figthreegrayf}{HTML}{F5F5F5}
+\definecolor{figthreebluet}{HTML}{EFF4F9}
+
+\tikzset{
+  f4t/.style={font=\scriptsize,text=figthreeink,inner sep=1.2pt},
+  f4s/.style={font=\scriptsize,text=figthreesoft,inner sep=1.2pt},
+  f4i/.style={font=\scriptsize\itshape,text=figthreesoft,inner sep=1.2pt},
+  f4y/.style={font=\tiny,text=figthreesoft,inner sep=1.0pt},
+  f4head/.style={font=\footnotesize\bfseries,inner sep=1.2pt},
+  f4box/.style={rounded corners=3pt,draw=figthreegraye,line width=0.5pt},
+  f4arrow/.style={line width=0.55pt,-{Straight Barb[length=1.3mm,width=1.3mm]}},
+  f4small/.style={line width=0.45pt,-{Straight Barb[length=1.0mm,width=1.0mm]}},
+  f4flow/.style={rounded corners=1.5pt,draw=figthreeteal,line width=0.5pt,fill=white},
+}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (0.08,1.18) rectangle (13.92,10.60);
+
+% ================== LEFT: observed trace and block scores ====================
+\draw[f4box] (0.15,3.05) rectangle (4.15,10.50);
+\node[f4head] at (2.15,10.18) {Observed trace and block scores};
+
+\foreach \i in {1,...,8}{
+  \pgfmathsetmacro{\cx}{0.35+(\i-0.5)*0.45}
+  \node[f4y] at (\cx,9.82) {\i};
+  \fill[rounded corners=1pt,figthreegrayf] ({0.35+(\i-1)*0.45+0.03},9.24) rectangle ({0.35+\i*0.45-0.03},9.66);
+  \draw[rounded corners=1pt,draw=figthreegraye,line width=0.4pt]
+    ({0.35+(\i-1)*0.45+0.03},9.24) rectangle ({0.35+\i*0.45-0.03},9.66);
+  \node[f4t] at (\cx,9.45) {$x_{\i}$};}
+
+\node[f4s,align=center] at (1.00,8.82) {candidate\\ blocks $(a{:}b)$};
+\node[f4t] at (3.20,8.90) {$e_{n,k}(a,b)$};
+\foreach \j/\xx in {1/2.55,2/3.20,3/3.85}{\node[f4s] at (\xx,8.42) {$k{=}\j$};}
+\draw[draw=figthreegraye,line width=0.4pt] (0.35,8.20) -- (3.95,8.20);
+% chips + rows: y = 7.88, 7.34, 6.80, 6.26
+\foreach \yy/\cc in {7.88/figthreegreen,7.34/figthreeblue,6.80/figthreegraye,6.26/figthreeorange}{
+  \draw[rounded corners=1.5pt,draw=\cc,line width=0.6pt] (0.60,{\yy-0.155}) rectangle (1.40,{\yy+0.155});}
+\node[f4t,text=figthreegreen]  at (1.00,7.88) {[1:2]};
+\node[f4t,text=figthreeblue]   at (1.00,7.34) {[3:5]};
+\node[f4s]                     at (1.00,6.80) {[5:6]};
+\node[f4t,text=figthreeorange] at (1.00,6.26) {[6:8]};
+% scores
+\node[f4s] at (2.55,7.88) {-1.20};
+\fill[rounded corners=1.5pt,figthreegreen] (2.90,7.71) rectangle (3.50,8.05);
+\node[f4t,text=white,font=\scriptsize\bfseries] at (3.20,7.88) {-0.30};
+\node[f4s] at (3.85,7.88) {-2.10};
+\fill[rounded corners=1.5pt,figthreeblue] (2.25,7.17) rectangle (2.85,7.51);
+\node[f4t,text=white,font=\scriptsize\bfseries] at (2.55,7.34) {-0.70};
+\node[f4s] at (3.20,7.34) {-1.10};
+\node[f4s] at (3.85,7.34) {-0.40};
+\node[f4s] at (2.55,6.80) {-1.50};
+\node[f4s] at (3.20,6.80) {-0.20};
+\node[f4s] at (3.85,6.80) {-1.00};
+\node[f4s] at (2.55,6.26) {-0.60};
+\node[f4s] at (3.20,6.26) {-0.80};
+\fill[rounded corners=1.5pt,figthreeorange] (3.55,6.09) rectangle (4.05,6.43);
+\node[f4t,text=white,font=\scriptsize\bfseries] at (3.80,6.26) {-0.10};
+\draw[draw=figthreegraye,line width=0.4pt] (0.35,5.98) -- (3.95,5.98);
+\node[f4i] at (2.15,3.35) {blocks scored independently, $\mathbf{q}_0=\mathbf{0}$};
+
+% =================== MIDDLE: semi-Markov forward DP ==========================
+\draw[f4box,draw=figthreeblue!55] (4.45,4.90) rectangle (9.55,10.50);
+\node[f4head,text=figthreeblue] at (7.00,10.18) {Semi-Markov forward dynamic program};
+\node[f4s] at (7.00,9.90) {(accumulate total path mass)};
+\node[f4s,align=center] at (7.00,9.52)
+  {$\alpha_n(j,k)$: total mass of segmentations\\ ending at position $j$ with skill $k$};
+
+% chart: rows start,k1..k3 at y 8.62,8.02,7.42,6.82
+\foreach \j in {0,...,8}{\node[f4y] at ({5.45+(\j+0.5)*0.428},9.02) {\j};}
+\foreach [count=\r from 0] \rl in {start,$k{=}1$,$k{=}2$,$k{=}3$}{
+  \pgfmathsetmacro{\ry}{8.62-\r*0.60}
+  \node[f4s,anchor=east] at (5.33,\ry) {\rl};
+  \foreach \j in {0,...,8}{
+    \draw[rounded corners=1pt,draw=figthreegraye,line width=0.35pt]
+      ({5.45+\j*0.428+0.025},{\ry-0.21}) rectangle ({5.45+(\j+1)*0.428-0.025},{\ry+0.21});}}
+\fill[rounded corners=1pt,figthreeblue]
+  ({5.45+0.025},{8.62-0.21}) rectangle ({5.45+0.428-0.025},{8.62+0.21});
+\node[f4t,text=white,font=\tiny] at ({5.45+0.5*0.428},8.62) {1.0};
+
+% dashed grey = generic transitions, kept in alpha at their end position
+\draw[f4small,draw=figthreesoft,dash pattern=on 1.6pt off 1.2pt]
+  ({5.45+0.65*0.428},8.50) to[bend left=14] ({5.45+3.38*0.428},8.06);
+\draw[f4small,draw=figthreesoft,dash pattern=on 1.6pt off 1.2pt]
+  ({5.45+3.62*0.428},7.94) to[bend left=16] ({5.45+7.38*0.428},7.46);
+
+% coloured worked-example path
+\draw[f4arrow,draw=figthreegreen,line width=0.8pt]
+  ({5.45+0.65*0.428},8.46) to[bend left=14]
+  node[pos=0.42,right=1.5pt,font=\tiny\bfseries,text=figthreegreen,inner sep=1pt]{[1:2]}
+  ({5.45+2.35*0.428},7.54);
+\draw[f4arrow,draw=figthreeblue,line width=0.8pt]
+  ({5.45+2.65*0.428},7.50) to[bend left=20]
+  node[pos=0.5,above=1pt,font=\tiny\bfseries,text=figthreeblue,inner sep=1pt]{[3:5]}
+  ({5.45+5.35*0.428},7.82);
+\draw[f4arrow,draw=figthreeorange,line width=0.8pt]
+  ({5.45+5.65*0.428},7.80) to[bend left=20]
+  node[pos=0.45,above right=0pt,font=\tiny\bfseries,text=figthreeorange,inner sep=1pt]{[6:8]}
+  ({5.45+8.35*0.428},6.90);
+
+% legend
+\draw[f4small,draw=figthreeblue,line width=0.7pt] (4.72,6.12) -- (5.10,6.12);
+\node[f4y,anchor=west] at (5.18,6.12)
+  {solid: append block $(a{:}b)$ with weight $e_{n,k}(a,b)$};
+\draw[line width=0.5pt,draw=figthreesoft,dash pattern=on 1.6pt off 1.2pt] (4.72,5.78) -- (5.10,5.78);
+\node[f4y,anchor=west] at (5.18,5.78)
+  {dashed: only arcs ending at $j$ enter $\alpha_n(j,k)$};
+\draw[line width=1.0pt,draw=figthreegreen] (4.72,5.44) -- (5.10,5.44);
+\node[f4y,anchor=west] at (5.18,5.44)
+  {coloured: the worked example of the main figure};
+
+% ============= FOOTER BAND: the partition function (shared) ==================
+\draw[f4arrow,draw=figthreeblue] (7.00,4.86) -- (7.00,2.96);
+\fill[rounded corners=2pt,figthreebluet] (0.35,2.20) rectangle (9.35,2.90);
+\node[f4t,text=figthreeblue,anchor=west] at (0.55,2.55)
+  {$\log Z_n(U)=\log\!\sum_{S_n,z_n}p(S_n,z_n)\prod_{\ell}e_{n,z_\ell}(a_\ell,b_\ell)$};
+\node[f4i,anchor=east] at (9.18,2.55) {all legal labelled segmentations of trace $n$};
+
+% ================== RIGHT TOP: exact path inference ==========================
+\draw[f4box,draw=figthreegreen!60] (9.85,8.00) rectangle (13.85,10.50);
+\node[f4head,text=figthreegreen] at (11.85,10.18) {Exact path inference};
+\node[f4y,align=center] at (11.85,9.84)
+  {backward FFBS sampling of one complete\\ labelled segmentation $(S_n,z_n)$};
+
+\node[font=\tiny\bfseries,text=figthreegreen,inner sep=1pt]  at (10.51,9.34) {$z_{n,1}{=}2$};
+\node[font=\tiny\bfseries,text=figthreeblue,inner sep=1pt]   at (11.63,9.34) {$z_{n,2}{=}1$};
+\node[font=\tiny\bfseries,text=figthreeorange,inner sep=1pt] at (12.98,9.34) {$z_{n,3}{=}3$};
+\foreach [count=\i from 1] \cc in {figthreegreen,figthreegreen,figthreeblue,figthreeblue,figthreeblue,figthreeorange,figthreeorange,figthreeorange}{
+  \fill[rounded corners=1pt,\cc]
+    ({10.06+(\i-1)*0.449+0.025},8.70) rectangle ({10.06+\i*0.449-0.025},9.12);
+  \node[f4t,text=white,font=\tiny] at ({10.06+(\i-0.5)*0.449},8.91) {$x_{\i}$};}
+\node[f4t] at (11.85,8.32)
+  {$(S_n,z_n)\sim p(S_n,z_n\mid \mathbf{x}^{(n)},U,\vartheta)$};
+
+% ============ RIGHT BOTTOM: path-marginal structure update ===================
+\draw[f4box,draw=figthreeteal!60] (9.85,1.95) rectangle (13.85,7.70);
+\node[f4head,text=figthreeteal] at (11.85,7.44) {Path-marginal structure update};
+
+\draw[f4flow] (10.35,6.84) rectangle (13.35,7.20);
+\node[f4t,text=figthreeteal] at (11.85,7.02) {current $U$,\; $H=h(U)$};
+\foreach \xx/\lb in {10.60/{$\log Z_1(U)$},11.85/{$\log Z_2(U)$},13.10/{$\log Z_N(U)$}}{
+  \draw[f4small,draw=figthreegraye] ({11.85+(\xx-11.85)*0.35},6.80) -- (\xx,6.60);
+  \draw[rounded corners=1.5pt,draw=figthreegraye,line width=0.5pt]
+    ({\xx-0.52},6.20) rectangle ({\xx+0.52},6.56);
+  \node[f4y] at (\xx,6.38) {\lb};}
+\node[f4s] at (12.48,6.38) {$\cdots$};
+\draw[f4small,draw=figthreegraye] (10.60,6.16) -- (11.55,5.94);
+\draw[f4small,draw=figthreegraye] (11.85,6.16) -- (11.85,5.94);
+\draw[f4small,draw=figthreegraye] (13.10,6.16) -- (12.15,5.94);
+\draw[f4flow] (11.05,5.54) rectangle (12.65,5.92);
+\node[f4t,text=figthreeteal] at (11.85,5.73) {$\sum_{n}\log Z_n(U)$};
+
+\draw[f4small,draw=figthreeteal] (11.85,5.50) -- (11.85,5.32);
+\draw[f4flow] (10.35,4.94) rectangle (13.35,5.32);
+\node[f4t,text=figthreeteal] at (11.85,5.13) {propose $U'$,\; $H'=h(U')$};
+\draw[f4small,draw=figthreeteal] (11.85,4.90) -- (11.85,4.72);
+\draw[f4flow] (10.35,4.16) rectangle (13.35,4.72);
+\node[f4t,text=figthreeteal,align=center] at (11.85,4.44)
+  {compute $\sum_n\log Z_n(U')$\\ by the forward DP};
+\draw[f4small,draw=figthreeteal] (11.85,4.12) -- (11.85,3.94);
+\fill[rounded corners=1.5pt,figthreeteal] (10.55,3.52) rectangle (13.15,3.94);
+\node[f4t,text=white] at (11.85,3.73) {accept with MH probability};
+
+\draw[f4small,draw=figthreeteal] (11.10,3.50) -- (10.75,3.18);
+\node[f4y,text=figthreeteal] at (10.68,3.44) {yes};
+\draw[f4small,draw=figthreeteal] (12.60,3.50) -- (12.95,3.18);
+\node[f4y,text=figthreeteal] at (13.04,3.44) {no};
+\draw[f4flow] (9.98,2.36) rectangle (11.73,3.14);
+\node[f4y,text=figthreeteal,align=center] at (10.855,2.75)
+  {set $U\leftarrow U'$;\\ refresh $(S_n,z_n)$ for\\ all $n$ by FFBS};
+\draw[f4flow] (11.97,2.36) rectangle (13.72,3.14);
+\node[f4y,text=figthreeteal,align=center] at (12.845,2.75)
+  {keep $U$;\\ current $(S_n,z_n)$\\ remain valid};
+
+\node[f4y,align=center,font=\tiny\itshape] at (11.85,2.12)
+  {$U'$ is scored against all segmentations, not only the current sample};
+
+% ======================== inter-panel arrows =================================
+\draw[f4arrow,draw=figthreesoft,line width=0.7pt] (4.17,7.60) -- (4.43,7.60);
+\draw[f4arrow,draw=figthreegreen,line width=0.8pt] (9.57,9.00) to[bend left=10] (9.83,9.14);
+\draw[f4arrow,draw=figthreeteal,line width=0.8pt] (9.37,2.62) to[bend right=18] (9.83,4.44);
+
+% ============================ bottom band ====================================
+\fill[rounded corners=2pt,figthreegrayf] (0.15,1.30) rectangle (13.85,1.70);
+\node[f4y] at (7.00,1.50)
+  {one forward DP, two uses:\; (1) backward-sample latent paths $(S_n,z_n)$ via FFBS;\;
+   (2) path-marginal scores $\log Z_n(U)$ for structure updates};
+
+\end{tikzpicture}

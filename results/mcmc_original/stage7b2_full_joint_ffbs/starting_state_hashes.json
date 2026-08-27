@@ -1,0 +1,96 @@
+{
+  "construction": "the Stage 6E2 dispersed-start constructor, reused",
+  "start_seeds": [
+    6053301,
+    6053302,
+    6053303,
+    6053304
+  ],
+  "n_chains": 4,
+  "hashes": [
+    "2af82dbf8bfc0faf172410e9ca33f9b5be742447913acfd985b127fad19182c1",
+    "bb3e512ff69aceb9e598f380fdb0f907a37553110f55c4eafb565584a39e42d3",
+    "9b2c3ad5d5dc713076a6d780818b618fb8fbeba6a97043889f8c4873fd81fe32",
+    "7bc9c2344d6a445caeaf0f04eb55e98b75516d70754bb76db81abf14f77f6fc1"
+  ],
+  "summaries": [
+    {
+      "chain": 0,
+      "rho": 0.1,
+      "beta": 0.6,
+      "omega": -1.0,
+      "lambda_rep": 0.3,
+      "lambda_back": 0.8,
+      "segment_counts": [
+        16,
+        12,
+        12,
+        11,
+        16
+      ],
+      "total_segments": 1036
+    },
+    {
+      "chain": 1,
+      "rho": 0.35,
+      "beta": 1.1,
+      "omega": 0.6,
+      "lambda_rep": 0.9,
+      "lambda_back": 0.2,
+      "segment_counts": [
+        4,
+        4,
+        3,
+        3,
+        4
+      ],
+      "total_segments": 314
+    },
+    {
+      "chain": 2,
+      "rho": 0.6,
+      "beta": 2.2,
+      "omega": 2.4,
+      "lambda_rep": 1.6,
+      "lambda_back": 1.2,
+      "segment_counts": [
+        7,
+        6,
+        5,
+        6,
+        8
+      ],
+      "total_segments": 491
+    },
+    {
+      "chain": 3,
+      "rho": 0.85,
+      "beta": 3.0,
+      "omega": 3.8,
+      "lambda_rep": 2.4,
+      "lambda_back": 0.06,
+      "segment_counts": [
+        7,
+        6,
+        6,
+        6,
+        7
+      ],
+      "total_segments": 494
+    }
+  ],
+  "baseline_chain_seeds": [
+    6053201,
+    6053202,
+    6053203,
+    6053204
+  ],
+  "step7b2_chain_seeds": [
+    7063201,
+    7063202,
+    7063203,
+    7063204
+  ],
+  "seeds_are_new": true,
+  "not_initialised_from_a_baseline_endpoint": true
+}

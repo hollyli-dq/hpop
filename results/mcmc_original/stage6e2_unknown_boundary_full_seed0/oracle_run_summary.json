@@ -1,0 +1,439 @@
+{
+  "stage": "6E2",
+  "run": "oracle",
+  "source_commit": "3635cc43fa3be4b43dab3ee28bbcc8834e15c6c9",
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "n_chains": 4,
+  "sweeps": 50000,
+  "burn_in": 15000,
+  "thin": 5,
+  "chain_seeds": [
+    6053201,
+    6053202,
+    6053203,
+    6053204
+  ],
+  "start_seeds": [
+    6053301,
+    6053302,
+    6053303,
+    6053304
+  ],
+  "scales": {
+    "U": 0.5,
+    "rho": 0.5,
+    "beta": 0.40872,
+    "omega": 1.45704,
+    "lambda_rep": 0.6648,
+    "lambda_back": 1.51552
+  },
+  "n_proposals_per_trace": 0,
+  "start_shapes": [
+    "ORACLE true segmentation (pinned)",
+    "ORACLE true segmentation (pinned)",
+    "ORACLE true segmentation (pinned)",
+    "ORACLE true segmentation (pinned)"
+  ],
+  "rho_starts": [
+    0.1,
+    0.35,
+    0.6,
+    0.85
+  ],
+  "scalar_starts": [
+    {
+      "beta": 0.6,
+      "omega": -1.0,
+      "lambda_rep": 0.3,
+      "lambda_back": 0.8
+    },
+    {
+      "beta": 1.1,
+      "omega": 0.6,
+      "lambda_rep": 0.9,
+      "lambda_back": 0.2
+    },
+    {
+      "beta": 2.2,
+      "omega": 2.4,
+      "lambda_rep": 1.6,
+      "lambda_back": 1.2
+    },
+    {
+      "beta": 3.0,
+      "omega": 3.8,
+      "lambda_rep": 2.4,
+      "lambda_back": 0.06
+    }
+  ],
+  "wall_seconds": 7742.859417375061,
+  "retained_per_chain": [
+    7000,
+    7000,
+    7000,
+    7000
+  ],
+  "retained_pooled": 28000,
+  "oracle_control_note": "segmentation pinned at the hidden truth and zero segmentation proposals, so the remaining updates are literally the frozen Stage 6D kernels; Stage 6E0 7.1 established that with (S,z) fixed the Stage 6E target differs from the Stage 6D target by an additive constant independent of every inferred coordinate. The (pi,P) Gibbs step is retained so that this control and the unknown-boundary run differ in exactly one thing.",
+  "per_chain": [
+    {
+      "chain": 0,
+      "seed": 6053201,
+      "n_retained": 7000,
+      "runtime_seconds": 7734.524951959029,
+      "movement": {
+        "boundary_hamming": 0,
+        "label_changes": 0
+      },
+      "proposed": {
+        "relabel": 0,
+        "split": 0,
+        "merge": 0,
+        "shift": 0,
+        "U": 750000,
+        "rho": 50000,
+        "pi_P": 50000,
+        "beta": 50000,
+        "omega": 50000,
+        "lambda_rep": 50000,
+        "lambda_back": 50000
+      },
+      "accepted": {
+        "relabel": 0,
+        "split": 0,
+        "merge": 0,
+        "shift": 0,
+        "U": 252246,
+        "rho": 41724,
+        "pi_P": 50000,
+        "beta": 4236,
+        "omega": 15340,
+        "lambda_rep": 5162,
+        "lambda_back": 7981
+      },
+      "invalid": {
+        "relabel": 0,
+        "split": 0,
+        "merge": 0,
+        "shift": 0,
+        "U": 0,
+        "rho": 0,
+        "pi_P": 0,
+        "beta": 0,
+        "omega": 0,
+        "lambda_rep": 0,
+        "lambda_back": 0
+      },
+      "proposed_after_burn_in": {
+        "relabel": 0,
+        "split": 0,
+        "merge": 0,
+        "shift": 0,
+        "U": 525000,
+        "rho": 35000,
+        "pi_P": 35000,
+        "beta": 35000,
+        "omega": 35000,
+        "lambda_rep": 35000,
+        "lambda_back": 35000
+      },
+      "accepted_after_burn_in": {
+        "relabel": 0,
+        "split": 0,
+        "merge": 0,
+        "shift": 0,
+        "U": 176239,
+        "rho": 29178,
+        "pi_P": 35000,
+        "beta": 2968,
+        "omega": 10791,
+        "lambda_rep": 3597,
+        "lambda_back": 5496
+      },
+      "start_log_target": -8652.884029458533
+    },
+    {
+      "chain": 1,
+      "seed": 6053202,
+      "n_retained": 7000,
+      "runtime_seconds": 7657.691835541977,
+      "movement": {
+        "boundary_hamming": 0,
+        "label_changes": 0
+      },
+      "proposed": {
+        "relabel": 0,
+        "split": 0,
+        "merge": 0,
+        "shift": 0,
+        "U": 750000,
+        "rho": 50000,
+        "pi_P": 50000,
+        "beta": 50000,
+        "omega": 50000,
+        "lambda_rep": 50000,
+        "lambda_back": 50000
+      },
+      "accepted": {
+        "relabel": 0,
+        "split": 0,
+        "merge": 0,
+        "shift": 0,
+        "U": 250787,
+        "rho": 41500,
+        "pi_P": 50000,
+        "beta": 4341,
+        "omega": 15325,
+        "lambda_rep": 4904,
+        "lambda_back": 8060
+      },
+      "invalid": {
+        "relabel": 0,
+        "split": 0,
+        "merge": 0,
+        "shift": 0,
+        "U": 0,
+        "rho": 0,
+        "pi_P": 0,
+        "beta": 0,
+        "omega": 0,
+        "lambda_rep": 0,
+        "lambda_back": 0
+      },
+      "proposed_after_burn_in": {
+        "relabel": 0,
+        "split": 0,
+        "merge": 0,
+        "shift": 0,
+        "U": 525000,
+        "rho": 35000,
+        "pi_P": 35000,
+        "beta": 35000,
+        "omega": 35000,
+        "lambda_rep": 35000,
+        "lambda_back": 35000
+      },
+      "accepted_after_burn_in": {
+        "relabel": 0,
+        "split": 0,
+        "merge": 0,
+        "shift": 0,
+        "U": 175568,
+        "rho": 29077,
+        "pi_P": 35000,
+        "beta": 3007,
+        "omega": 10625,
+        "lambda_rep": 3412,
+        "lambda_back": 5629
+      },
+      "start_log_target": -8726.63933936314
+    },
+    {
+      "chain": 2,
+      "seed": 6053203,
+      "n_retained": 7000,
+      "runtime_seconds": 7736.877753291978,
+      "movement": {
+        "boundary_hamming": 0,
+        "label_changes": 0
+      },
+      "proposed": {
+        "relabel": 0,
+        "split": 0,
+        "merge": 0,
+        "shift": 0,
+        "U": 750000,
+        "rho": 50000,
+        "pi_P": 50000,
+        "beta": 50000,
+        "omega": 50000,
+        "lambda_rep": 50000,
+        "lambda_back": 50000
+      },
+      "accepted": {
+        "relabel": 0,
+        "split": 0,
+        "merge": 0,
+        "shift": 0,
+        "U": 250649,
+        "rho": 41492,
+        "pi_P": 50000,
+        "beta": 4255,
+        "omega": 15281,
+        "lambda_rep": 5083,
+        "lambda_back": 8116
+      },
+      "invalid": {
+        "relabel": 0,
+        "split": 0,
+        "merge": 0,
+        "shift": 0,
+        "U": 0,
+        "rho": 0,
+        "pi_P": 0,
+        "beta": 0,
+        "omega": 0,
+        "lambda_rep": 0,
+        "lambda_back": 0
+      },
+      "proposed_after_burn_in": {
+        "relabel": 0,
+        "split": 0,
+        "merge": 0,
+        "shift": 0,
+        "U": 525000,
+        "rho": 35000,
+        "pi_P": 35000,
+        "beta": 35000,
+        "omega": 35000,
+        "lambda_rep": 35000,
+        "lambda_back": 35000
+      },
+      "accepted_after_burn_in": {
+        "relabel": 0,
+        "split": 0,
+        "merge": 0,
+        "shift": 0,
+        "U": 175590,
+        "rho": 29156,
+        "pi_P": 35000,
+        "beta": 2982,
+        "omega": 10748,
+        "lambda_rep": 3579,
+        "lambda_back": 5631
+      },
+      "start_log_target": -8465.202802085283
+    },
+    {
+      "chain": 3,
+      "seed": 6053204,
+      "n_retained": 7000,
+      "runtime_seconds": 7686.419966042042,
+      "movement": {
+        "boundary_hamming": 0,
+        "label_changes": 0
+      },
+      "proposed": {
+        "relabel": 0,
+        "split": 0,
+        "merge": 0,
+        "shift": 0,
+        "U": 750000,
+        "rho": 50000,
+        "pi_P": 50000,
+        "beta": 50000,
+        "omega": 50000,
+        "lambda_rep": 50000,
+        "lambda_back": 50000
+      },
+      "accepted": {
+        "relabel": 0,
+        "split": 0,
+        "merge": 0,
+        "shift": 0,
+        "U": 252517,
+        "rho": 41614,
+        "pi_P": 50000,
+        "beta": 4428,
+        "omega": 15270,
+        "lambda_rep": 5109,
+        "lambda_back": 7889
+      },
+      "invalid": {
+        "relabel": 0,
+        "split": 0,
+        "merge": 0,
+        "shift": 0,
+        "U": 0,
+        "rho": 0,
+        "pi_P": 0,
+        "beta": 0,
+        "omega": 0,
+        "lambda_rep": 0,
+        "lambda_back": 0
+      },
+      "proposed_after_burn_in": {
+        "relabel": 0,
+        "split": 0,
+        "merge": 0,
+        "shift": 0,
+        "U": 525000,
+        "rho": 35000,
+        "pi_P": 35000,
+        "beta": 35000,
+        "omega": 35000,
+        "lambda_rep": 35000,
+        "lambda_back": 35000
+      },
+      "accepted_after_burn_in": {
+        "relabel": 0,
+        "split": 0,
+        "merge": 0,
+        "shift": 0,
+        "U": 175998,
+        "rho": 29237,
+        "pi_P": 35000,
+        "beta": 3080,
+        "omega": 10665,
+        "lambda_rep": 3574,
+        "lambda_back": 5564
+      },
+      "start_log_target": -11980.76465630554
+    }
+  ],
+  "acceptance_post_burn_in": [
+    {
+      "relabel": null,
+      "split": null,
+      "merge": null,
+      "shift": null,
+      "U": 0.33569333333333334,
+      "rho": 0.8336571428571429,
+      "pi_P": 1.0,
+      "beta": 0.0848,
+      "omega": 0.3083142857142857,
+      "lambda_rep": 0.10277142857142857,
+      "lambda_back": 0.15702857142857143
+    },
+    {
+      "relabel": null,
+      "split": null,
+      "merge": null,
+      "shift": null,
+      "U": 0.3344152380952381,
+      "rho": 0.8307714285714286,
+      "pi_P": 1.0,
+      "beta": 0.08591428571428572,
+      "omega": 0.30357142857142855,
+      "lambda_rep": 0.09748571428571429,
+      "lambda_back": 0.16082857142857143
+    },
+    {
+      "relabel": null,
+      "split": null,
+      "merge": null,
+      "shift": null,
+      "U": 0.33445714285714284,
+      "rho": 0.8330285714285715,
+      "pi_P": 1.0,
+      "beta": 0.0852,
+      "omega": 0.3070857142857143,
+      "lambda_rep": 0.10225714285714285,
+      "lambda_back": 0.1608857142857143
+    },
+    {
+      "relabel": null,
+      "split": null,
+      "merge": null,
+      "shift": null,
+      "U": 0.3352342857142857,
+      "rho": 0.8353428571428572,
+      "pi_P": 1.0,
+      "beta": 0.088,
+      "omega": 0.3047142857142857,
+      "lambda_rep": 0.10211428571428571,
+      "lambda_back": 0.15897142857142857
+    }
+  ]
+}

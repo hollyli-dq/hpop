@@ -1,0 +1,16 @@
+{
+  "branch": "condition-c-integration",
+  "collapsed_u_reimplemented": false,
+  "collapsed_u_validation_commit": "58f005e (Step 8: partially-collapsed U kernel \u2014 implemented, diagnosed, VALIDATED)",
+  "condition_b_parent": "34873d8c1aa157978d4292f01b45642976b61ff3",
+  "conflict_resolutions": {
+    "scripts/stage6e2_formal_chains.py": "taken from 34873d8 \u2014 the Stage 6E2 TERMINAL ladder version with continuation support; not imported by any collapsed-U module",
+    "src/hpop/mcmc_original/stage6e_sampler.py": "taken from 58f005e \u2014 the byte version the collapsed-U kernel was validated against; the two sides differ only in one comment paragraph",
+    "tests/mcmc_original/test_stage6e_pipeline.py": "taken from 34873d8 \u2014 a strict superset (adds the zero-proposal no-op test); dropping a test would weaken the suite"
+  },
+  "merge_commit": "2f146bbce52ca482546a92af2b15b1338fdceed4",
+  "parents": [
+    "34873d8c1aa157978d4292f01b45642976b61ff3",
+    "58f005e5ef3a545d4749f01e81832ff6c47621cb"
+  ]
+}

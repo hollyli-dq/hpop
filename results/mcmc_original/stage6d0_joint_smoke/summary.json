@@ -1,0 +1,81 @@
+{
+  "stage": "6D0",
+  "n_sweeps": 400,
+  "checks": {
+    "U_moves": true,
+    "rho_moves": true,
+    "beta_moves": true,
+    "omega_moves": true,
+    "lambda_rep_moves": true,
+    "lambda_back_moves": true,
+    "U_accepts_and_rejects": true,
+    "rho_accepts_and_rejects": true,
+    "beta_accepts_and_rejects": true,
+    "omega_accepts_and_rejects": true,
+    "lambda_rep_accepts_and_rejects": true,
+    "lambda_back_accepts_and_rejects": true,
+    "invalid_rho_recorded": true,
+    "q_zero_reset": true,
+    "no_nans": true,
+    "direct_and_cached_targets_agree": true,
+    "rejection_safe": true,
+    "save_load": true,
+    "deterministic_resume": true,
+    "diagnostics_ran": true
+  },
+  "failed_checks": [],
+  "all_passed": true,
+  "proposed": {
+    "U": 2000,
+    "rho": 400,
+    "beta": 400,
+    "omega": 400,
+    "lambda_rep": 400,
+    "lambda_back": 400
+  },
+  "accepted": {
+    "U": 618,
+    "rho": 332,
+    "beta": 301,
+    "omega": 347,
+    "lambda_rep": 342,
+    "lambda_back": 342
+  },
+  "invalid": {
+    "rho": 0
+  },
+  "acceptance": {
+    "U": 0.309,
+    "rho": 0.83,
+    "beta": 0.7525,
+    "omega": 0.8675,
+    "lambda_rep": 0.855,
+    "lambda_back": 0.855
+  },
+  "ranges": {
+    "rho": [
+      0.05919122244450609,
+      0.900588629756966
+    ],
+    "beta": [
+      1.0206782939821542,
+      1.9223970800277708
+    ],
+    "omega": [
+      1.1108594870715447,
+      3.128648644532681
+    ],
+    "lambda_rep": [
+      0.17000430100317346,
+      1.1794728189488008
+    ],
+    "lambda_back": [
+      0.1603499003126712,
+      0.6382305992703623
+    ]
+  },
+  "replay_calls": 2411,
+  "cached_calls": 1201,
+  "expected_replays_per_sweep": "m U rows + 1 omega = 6",
+  "final_relation_count": 6
+}

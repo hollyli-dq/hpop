@@ -1,0 +1,88 @@
+{
+  "all_chain_seeds": [
+    6205001,
+    6205002,
+    6205003,
+    6205004,
+    6205011,
+    6205012,
+    6205013,
+    6205014
+  ],
+  "checkpoint_audit_was_diagnostic_only": true,
+  "init_ffbs_seed_note": "there is no separate init-FFBS seed: the initial (S, z) is the deterministic legal tiling, and the first sweep's exact FFBS refresh \u2014 driven by the chain seed \u2014 replaces it from the full conditional",
+  "initialized_from_condition_c_checkpoint": false,
+  "master_seed": null,
+  "master_seed_note": "the frozen protocol registers per-chain seeds explicitly rather than deriving them from a master; all eight are listed below",
+  "rows": [
+    {
+      "initial_H_tuple": [
+        "2547688c23ea8649",
+        "0928eac4f6d9e682",
+        "1b96a33aada30f82"
+      ],
+      "initial_Sz_sha256": "c9328f0019b86e93b18ac10573aa301bfe92ec724997ac84049b41458561a13a",
+      "initial_segment_total": 325,
+      "initial_u_sha256": "2f7afc9789aaa63c2039d707ff080618287f2d3000991b86f20868e9f1ba7713",
+      "per_arm_chain_seed": {
+        "C-COND-SWAP": 6205001,
+        "C-MARG-SWAP": 6205011
+      },
+      "start_index": 0,
+      "start_scale": 0.5,
+      "start_seed": 6204101
+    },
+    {
+      "initial_H_tuple": [
+        "78b6e13f7f0095f2",
+        "7c49e2dd918a8f62",
+        "296e62df4373edb5"
+      ],
+      "initial_Sz_sha256": "c9328f0019b86e93b18ac10573aa301bfe92ec724997ac84049b41458561a13a",
+      "initial_segment_total": 325,
+      "initial_u_sha256": "95ecbd982d6982b81e421754dbe839b620324e2b4c56e4e6ab4610f82e9cc5a9",
+      "per_arm_chain_seed": {
+        "C-COND-SWAP": 6205002,
+        "C-MARG-SWAP": 6205012
+      },
+      "start_index": 1,
+      "start_scale": 1.0,
+      "start_seed": 6204102
+    },
+    {
+      "initial_H_tuple": [
+        "3fa2f8d57931cdc8",
+        "a923b0b0530157d3",
+        "93cc01ca119a8c67"
+      ],
+      "initial_Sz_sha256": "c9328f0019b86e93b18ac10573aa301bfe92ec724997ac84049b41458561a13a",
+      "initial_segment_total": 325,
+      "initial_u_sha256": "2a8416132d4f153da52174b3dc4b27562ba846c2b02e53675584c355e4131424",
+      "per_arm_chain_seed": {
+        "C-COND-SWAP": 6205003,
+        "C-MARG-SWAP": 6205013
+      },
+      "start_index": 2,
+      "start_scale": 2.0,
+      "start_seed": 6204103
+    },
+    {
+      "initial_H_tuple": [
+        "7ddf6b55a26648a5",
+        "58ee187f69dd2a05",
+        "4a0aa858099d19c7"
+      ],
+      "initial_Sz_sha256": "c9328f0019b86e93b18ac10573aa301bfe92ec724997ac84049b41458561a13a",
+      "initial_segment_total": 325,
+      "initial_u_sha256": "ab7938ed4d5e7e3c004af38228ccfc670609daf1d67bfa7e43071de890bcd4f4",
+      "per_arm_chain_seed": {
+        "C-COND-SWAP": 6205004,
+        "C-MARG-SWAP": 6205014
+      },
+      "start_index": 3,
+      "start_scale": 3.0,
+      "start_seed": 6204104
+    }
+  ],
+  "starts_are_preregistered_dispersed": true
+}

@@ -1,0 +1,378 @@
+{
+  "arms": {
+    "cond": {
+      "anchored_assignment_changes_after_burn_in_total": 7,
+      "path_marginal_accepts_that_changed_h_total": 0,
+      "path_marginal_accepts_total": 0,
+      "per_chain": {
+        "cond0": {
+          "anchored": {
+            "distinct_values": 4,
+            "last_change_sweep": 25370,
+            "n_changes_after_burn_in": 3
+          },
+          "anchored_tuple": [
+            "9b988e6b3353de06",
+            "22153042d7130612",
+            "19904293250fd25b"
+          ],
+          "library": {
+            "distinct_values": 4,
+            "last_change_sweep": 25370,
+            "n_changes_after_burn_in": 3
+          },
+          "log_target_mean": -6134.779660025522,
+          "ordinary_u_accepted": 346491,
+          "ordinary_u_accepted_h_changes": 24,
+          "ordinary_u_proposed": 1170000,
+          "path_marginal_accepted": 0,
+          "path_marginal_accepted_that_changed_h": 0,
+          "path_marginal_proposed": 0,
+          "unordered_library": [
+            "19904293250fd25b",
+            "22153042d7130612",
+            "9b988e6b3353de06"
+          ]
+        },
+        "cond1": {
+          "anchored": {
+            "distinct_values": 5,
+            "last_change_sweep": 51185,
+            "n_changes_after_burn_in": 4
+          },
+          "anchored_tuple": [
+            "2959d0db1011ccc1",
+            "0340aaa796edc90b",
+            "19904293250fd25b"
+          ],
+          "library": {
+            "distinct_values": 5,
+            "last_change_sweep": 51185,
+            "n_changes_after_burn_in": 4
+          },
+          "log_target_mean": -5969.12559324293,
+          "ordinary_u_accepted": 359900,
+          "ordinary_u_accepted_h_changes": 18,
+          "ordinary_u_proposed": 1170000,
+          "path_marginal_accepted": 0,
+          "path_marginal_accepted_that_changed_h": 0,
+          "path_marginal_proposed": 0,
+          "unordered_library": [
+            "0340aaa796edc90b",
+            "19904293250fd25b",
+            "2959d0db1011ccc1"
+          ]
+        },
+        "cond2": {
+          "anchored": {
+            "distinct_values": 1,
+            "last_change_sweep": null,
+            "n_changes_after_burn_in": 0
+          },
+          "anchored_tuple": [
+            "19904293250fd25b",
+            "0340aaa796edc90b",
+            "2959d0db1011ccc1"
+          ],
+          "library": {
+            "distinct_values": 1,
+            "last_change_sweep": null,
+            "n_changes_after_burn_in": 0
+          },
+          "log_target_mean": -5652.23759129222,
+          "ordinary_u_accepted": 360158,
+          "ordinary_u_accepted_h_changes": 22,
+          "ordinary_u_proposed": 1170000,
+          "path_marginal_accepted": 0,
+          "path_marginal_accepted_that_changed_h": 0,
+          "path_marginal_proposed": 0,
+          "unordered_library": [
+            "0340aaa796edc90b",
+            "19904293250fd25b",
+            "2959d0db1011ccc1"
+          ]
+        },
+        "cond3": {
+          "anchored": {
+            "distinct_values": 1,
+            "last_change_sweep": null,
+            "n_changes_after_burn_in": 0
+          },
+          "anchored_tuple": [
+            "2959d0db1011ccc1",
+            "4c4174b7ca3af480",
+            "19904293250fd25b"
+          ],
+          "library": {
+            "distinct_values": 1,
+            "last_change_sweep": null,
+            "n_changes_after_burn_in": 0
+          },
+          "log_target_mean": -6119.698736352127,
+          "ordinary_u_accepted": 350748,
+          "ordinary_u_accepted_h_changes": 20,
+          "ordinary_u_proposed": 1170000,
+          "path_marginal_accepted": 0,
+          "path_marginal_accepted_that_changed_h": 0,
+          "path_marginal_proposed": 0,
+          "unordered_library": [
+            "19904293250fd25b",
+            "2959d0db1011ccc1",
+            "4c4174b7ca3af480"
+          ]
+        }
+      },
+      "structure": {
+        "assignment_gap_nats": 316.88800195071053,
+        "assignment_split": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "distinct_anchored_assignments": 4,
+        "distinct_unordered_libraries": 3,
+        "library_split": [
+          2,
+          1,
+          1
+        ],
+        "modes": [
+          {
+            "anchored_tuple": [
+              "19904293250fd25b",
+              "0340aaa796edc90b",
+              "2959d0db1011ccc1"
+            ],
+            "chains": [
+              "cond2"
+            ],
+            "log_target_mean": -5652.23759129222,
+            "log_target_sd": 17.0478314446493
+          },
+          {
+            "anchored_tuple": [
+              "2959d0db1011ccc1",
+              "0340aaa796edc90b",
+              "19904293250fd25b"
+            ],
+            "chains": [
+              "cond1"
+            ],
+            "log_target_mean": -5969.12559324293,
+            "log_target_sd": 175.87184176804183
+          },
+          {
+            "anchored_tuple": [
+              "2959d0db1011ccc1",
+              "4c4174b7ca3af480",
+              "19904293250fd25b"
+            ],
+            "chains": [
+              "cond3"
+            ],
+            "log_target_mean": -6119.698736352127,
+            "log_target_sd": 19.83761829875213
+          },
+          {
+            "anchored_tuple": [
+              "9b988e6b3353de06",
+              "22153042d7130612",
+              "19904293250fd25b"
+            ],
+            "chains": [
+              "cond0"
+            ],
+            "log_target_mean": -6134.779660025522,
+            "log_target_sd": 67.14138346814536
+          }
+        ],
+        "statement": "separated at the structural-library level"
+      }
+    },
+    "marg": {
+      "anchored_assignment_changes_after_burn_in_total": 0,
+      "path_marginal_accepts_that_changed_h_total": 32,
+      "path_marginal_accepts_total": 3949,
+      "per_chain": {
+        "marg0": {
+          "anchored": {
+            "distinct_values": 1,
+            "last_change_sweep": null,
+            "n_changes_after_burn_in": 0
+          },
+          "anchored_tuple": [
+            "2959d0db1011ccc1",
+            "0340aaa796edc90b",
+            "19904293250fd25b"
+          ],
+          "library": {
+            "distinct_values": 1,
+            "last_change_sweep": null,
+            "n_changes_after_burn_in": 0
+          },
+          "log_target_mean": -5776.089307795388,
+          "ordinary_u_accepted": 349605,
+          "ordinary_u_accepted_h_changes": 17,
+          "ordinary_u_proposed": 1140000,
+          "path_marginal_accepted": 953,
+          "path_marginal_accepted_that_changed_h": 7,
+          "path_marginal_proposed": 7600,
+          "unordered_library": [
+            "0340aaa796edc90b",
+            "19904293250fd25b",
+            "2959d0db1011ccc1"
+          ]
+        },
+        "marg1": {
+          "anchored": {
+            "distinct_values": 1,
+            "last_change_sweep": null,
+            "n_changes_after_burn_in": 0
+          },
+          "anchored_tuple": [
+            "2959d0db1011ccc1",
+            "0340aaa796edc90b",
+            "19904293250fd25b"
+          ],
+          "library": {
+            "distinct_values": 1,
+            "last_change_sweep": null,
+            "n_changes_after_burn_in": 0
+          },
+          "log_target_mean": -5776.31533115032,
+          "ordinary_u_accepted": 351284,
+          "ordinary_u_accepted_h_changes": 16,
+          "ordinary_u_proposed": 1140000,
+          "path_marginal_accepted": 985,
+          "path_marginal_accepted_that_changed_h": 6,
+          "path_marginal_proposed": 7600,
+          "unordered_library": [
+            "0340aaa796edc90b",
+            "19904293250fd25b",
+            "2959d0db1011ccc1"
+          ]
+        },
+        "marg2": {
+          "anchored": {
+            "distinct_values": 1,
+            "last_change_sweep": null,
+            "n_changes_after_burn_in": 0
+          },
+          "anchored_tuple": [
+            "19904293250fd25b",
+            "0340aaa796edc90b",
+            "2959d0db1011ccc1"
+          ],
+          "library": {
+            "distinct_values": 1,
+            "last_change_sweep": null,
+            "n_changes_after_burn_in": 0
+          },
+          "log_target_mean": -5651.995990836164,
+          "ordinary_u_accepted": 352008,
+          "ordinary_u_accepted_h_changes": 18,
+          "ordinary_u_proposed": 1140000,
+          "path_marginal_accepted": 1003,
+          "path_marginal_accepted_that_changed_h": 5,
+          "path_marginal_proposed": 7600,
+          "unordered_library": [
+            "0340aaa796edc90b",
+            "19904293250fd25b",
+            "2959d0db1011ccc1"
+          ]
+        },
+        "marg3": {
+          "anchored": {
+            "distinct_values": 1,
+            "last_change_sweep": null,
+            "n_changes_after_burn_in": 0
+          },
+          "anchored_tuple": [
+            "2959d0db1011ccc1",
+            "0340aaa796edc90b",
+            "19904293250fd25b"
+          ],
+          "library": {
+            "distinct_values": 1,
+            "last_change_sweep": null,
+            "n_changes_after_burn_in": 0
+          },
+          "log_target_mean": -5776.47838326943,
+          "ordinary_u_accepted": 353395,
+          "ordinary_u_accepted_h_changes": 21,
+          "ordinary_u_proposed": 1140000,
+          "path_marginal_accepted": 1008,
+          "path_marginal_accepted_that_changed_h": 14,
+          "path_marginal_proposed": 7600,
+          "unordered_library": [
+            "0340aaa796edc90b",
+            "19904293250fd25b",
+            "2959d0db1011ccc1"
+          ]
+        }
+      },
+      "structure": {
+        "assignment_gap_nats": 124.2983499022157,
+        "assignment_split": [
+          3,
+          1
+        ],
+        "distinct_anchored_assignments": 2,
+        "distinct_unordered_libraries": 1,
+        "library_split": [
+          4
+        ],
+        "modes": [
+          {
+            "anchored_tuple": [
+              "19904293250fd25b",
+              "0340aaa796edc90b",
+              "2959d0db1011ccc1"
+            ],
+            "chains": [
+              "marg2"
+            ],
+            "log_target_mean": -5651.995990836164,
+            "log_target_sd": 17.004031930850328
+          },
+          {
+            "anchored_tuple": [
+              "2959d0db1011ccc1",
+              "0340aaa796edc90b",
+              "19904293250fd25b"
+            ],
+            "chains": [
+              "marg0",
+              "marg1",
+              "marg3"
+            ],
+            "log_target_mean": -5776.29434073838,
+            "log_target_sd": 17.427994951673856
+          }
+        ],
+        "statement": "shares one unordered structural library; separated in the assignment of that library to anchored skill identities"
+      }
+    }
+  },
+  "assignment_gap_trajectory": [
+    {
+      "arm": "marg",
+      "assignment_gap_nats": 124.39,
+      "rung": 30000
+    },
+    {
+      "arm": "marg",
+      "assignment_gap_nats": 124.44,
+      "rung": 50000
+    },
+    {
+      "arm": "marg",
+      "assignment_gap_nats": 124.3,
+      "rung": 75000
+    }
+  ],
+  "distinction": "accepted path-marginal proposals are NOT anchored-assignment crossings: the counts above separate within-cell accepts from accepts that changed the anchored H tuple",
+  "language_note": "no claim of mathematical impossibility is made; the observation is that no retained C-MARG chain traversed the anchored-assignment barrier within the observed run through 75,000 sweeps",
+  "terminal_sweep": 75000
+}

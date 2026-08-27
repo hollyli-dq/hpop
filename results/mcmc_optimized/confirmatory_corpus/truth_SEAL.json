@@ -1,0 +1,44 @@
+{
+  "acceptance_detail_SEALED": {
+    "nondegenerate": true,
+    "pairwise_distinct": true,
+    "relations_per_skill": [
+      6,
+      5,
+      8
+    ]
+  },
+  "acceptance_rule": "validate_truth passes AND the three induced partial orders are pairwise distinct AND each has at least one relation and is not a total order",
+  "admissibility_criteria": [
+    "validate_truth: K >= 2",
+    "validate_truth: each induced relation is a strict partial order (irreflexive, transitively closed)",
+    "validate_truth: pi is a length-K probability vector",
+    "validate_truth: P nonnegative, exactly zero diagonal, rows sum to 1",
+    "validate_truth: all scalars inside their registered support",
+    "validate_truth: 0 < delta_b < 1",
+    "validate_truth: 1 <= min_width <= max_width",
+    "validate_truth: rho strictly inside (RHO_LOWER, RHO_UPPER)",
+    "validate_truth: every role map injective over m roles",
+    "structural: the three induced closures are pairwise distinct",
+    "structural: each closure has >= 1 relation (not empty)",
+    "structural: each closure has < m(m-1) relations (not a total order)"
+  ],
+  "attempt_log": [
+    {
+      "accepted": true,
+      "attempt": 1,
+      "rejection_reason": null,
+      "truth_seed": 6300002
+    }
+  ],
+  "criteria_use_no_data": "Every criterion above is a function of the truth parameters alone. None evaluates a likelihood, a recovery metric, a convergence diagnostic, a held-out prediction, or any comparison between FULL-COND and FULL-MARG. No corpus is drawn until a truth is admitted, so no criterion can depend on realised data.",
+  "mode": "prior_draw_pinned_rho",
+  "outcome": "the first prior draw satisfied the preregistered admissibility conditions",
+  "rejections": [],
+  "rho_pinned": 0.5,
+  "seal_rule": "opened only at formal termination of the confirmatory run",
+  "sealed": true,
+  "truth_attempts_used": 1,
+  "truth_seed_base": 6300002,
+  "truth_sha256": "effccc91114d9647f87859aaa7ee219e3bc664bb41d2c6389844ea64346a5e8e"
+}

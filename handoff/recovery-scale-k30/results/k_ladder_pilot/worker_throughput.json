@@ -1,0 +1,66 @@
+{
+  "schema": "k-ladder-worker-throughput/1.0.0",
+  "namespace": "PILOT",
+  "settings": {
+    "workers": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "K": 10,
+    "sweeps": 25,
+    "total_chain_hours": 660.0,
+    "longest_chain_hours": 55.7,
+    "ceiling_hours": 132.0,
+    "slowdowns": [
+      1.0,
+      1.5,
+      2.0
+    ],
+    "out": "/Users/dongqing/hpop-handoff/hpop-recovery-scale-k30/results/k_ladder_pilot/worker_throughput.json"
+  },
+  "logical_cpus": 10,
+  "measurements": [
+    {
+      "workers": 1,
+      "aggregate_sweeps_per_second": 18.684503803066686,
+      "speedup": 1.0,
+      "efficiency": 1.0,
+      "aggregate_rss_gib": 0.19128799438476562,
+      "peak_rss_per_worker_gib": 0.19128799438476562
+    },
+    {
+      "workers": 2,
+      "aggregate_sweeps_per_second": 36.590620162610314,
+      "speedup": 1.9583404808751035,
+      "efficiency": 0.9791702404375517,
+      "aggregate_rss_gib": 0.38196563720703125,
+      "peak_rss_per_worker_gib": 0.19099044799804688
+    },
+    {
+      "workers": 4,
+      "aggregate_sweeps_per_second": 65.8296558525676,
+      "speedup": 3.5232220532269625,
+      "efficiency": 0.8808055133067406,
+      "aggregate_rss_gib": 0.7647438049316406,
+      "peak_rss_per_worker_gib": 0.19134140014648438
+    },
+    {
+      "workers": 8,
+      "aggregate_sweeps_per_second": 78.90941241642082,
+      "speedup": 4.223254374219422,
+      "efficiency": 0.5279067967774278,
+      "aggregate_rss_gib": 1.3802719116210938,
+      "peak_rss_per_worker_gib": 0.19283676147460938
+    }
+  ],
+  "best_effective_workers": 4.223254374219422,
+  "min_effective_workers_by_slowdown": {
+    "1.0": 5,
+    "1.5": 8,
+    "2.0": 10
+  },
+  "formula": "wall >= max(longest_chain_time, total_chain_hours/effective_workers)",
+  "note": "effective_workers is measured by running concurrent workers, never inferred from core count or from the number of independent chains"
+}

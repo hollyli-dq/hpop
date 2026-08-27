@@ -1,0 +1,106 @@
+% ---------------------------------------------------------------------------
+% paper/drafts/tau3_retail_setup.tex
+% SETUP ONLY. No fit, no result, no predictive claim.
+% Draft fragment. NOT included in the main paper.
+%
+% Evidence provenance: commit 8100fc2,
+%   corpus SHA-256 bf5ac594027a738a..., vocabulary SHA-256 7f70b285217d44e1...
+%   official benchmark sierra-research/tau2-bench @ 3b005ddbdb4127c6
+%   trajectory release debdootmiitd/tau3-bench-qwen3.6-35b-a3b-v0 @ 157415de
+% The sealed test trajectory file was NOT opened when this fragment was written.
+% ---------------------------------------------------------------------------
+
+\subsection{A full-hierarchy external pilot: $\tau^3$-Retail}
+\label{sec:tau3-setup}
+
+TaskBench validates the static partial-order component but cannot exercise the
+rest of HPOP, because it has no trajectories. For a full-hierarchy external
+pilot we need observed agent behaviour with repeated tool use, variable
+ordering, and both successful and failed runs. We construct such a corpus from
+$\tau^3$-Retail.
+
+\paragraph{Provenance, and a caveat we state up front.}
+The task definitions, tool schemas and evaluation metadata come from the
+official \texttt{sierra-research/tau2-bench} repository (branded $\tau^3$-bench)
+pinned at commit \texttt{3b005ddb}, MIT licensed. The trajectories themselves do
+\emph{not} come from an official maintainer release: they are a third-party
+public leaderboard-submission release
+(\texttt{debdootmiitd/tau3-bench-qwen3.6-35b-a3b-v0}, revision
+\texttt{157415de}, Apache-2.0), produced by Qwen3.6-35B-A3B in thinking mode
+against a \texttt{gpt-4.1-2025-04-14} user simulator, four trials per task. We
+verified version alignment against the pinned official benchmark before using
+them: the $114$ task identifiers embedded in the release are exactly the $114$
+official identifiers, the release's reported benchmark commit matches the pinned
+commit, and no semantic evaluation-action mismatches were found. Any result on
+this corpus is conditioned on that particular agent's behaviour, and we report
+it as such rather than as a property of $\tau^3$-Retail in general.
+
+\paragraph{Extraction and subset selection.}
+Parsing the release yields $456$ trajectories covering all $114$ official tasks
+at four trials each, with $3{,}444$ tool-call occurrences extracted --- exactly
+the raw tool-call count, with zero malformed records, zero duplicate call-id
+anomalies, zero missing results and byte-identical reparse. User messages,
+assistant natural-language turns, system and policy text, and hidden reasoning
+are excluded from the observed sequence; \emph{failed} tool calls are retained,
+since repair behaviour is precisely what the recurrent part of the model is
+for. A candidate subset was then chosen by a score rule frozen before any
+candidate was evaluated, using only surface statistics (usable task count,
+repeated-CPA fraction, median length, presence of both successes and failures,
+cross-task diversity, vocabulary size) and never any HPOP likelihood or
+recovery quantity. The winning subset is
+\texttt{return\_exchange\_cancel}.
+
+\paragraph{The frozen corpus.}
+The pilot corpus is $30$ task identifiers and $119$ trajectories, $103$
+successful and $16$ failed, with $337$ rows excluded ($232$ outside the selected
+subset's tasks, $96$ usable but from unselected tasks, and $9$ containing
+out-of-vocabulary tools). The observed HPOP input is the tool-call sequence
+alone; instructions, official expected actions, reward and family labels are
+metadata and evaluation fields, never model input. A composite $CPA$ is the
+exact official tool name --- no semantic clustering, no LLM annotation --- which
+freezes an eight-symbol vocabulary
+(\texttt{cancel\_pending\_order}, \texttt{exchange\_delivered\_order\_items},
+\texttt{find\_user\_id\_by\_email}, \texttt{find\_user\_id\_by\_name\_zip},
+\texttt{get\_order\_details}, \texttt{get\_product\_details},
+\texttt{get\_user\_details}, \texttt{return\_delivered\_order\_items}),
+SHA-256 \texttt{7f70b285217d44e1}. Every future skill type uses
+$M_k = \mathcal{A}_{\text{pilot}}$ with the identity role map
+$\ell_k(x) = x$, injective by construction. Median trace length is $7$
+occurrences and the repeated-CPA fraction is $0.924$ --- the corpus is dominated
+by traces that invoke the same tool more than once, which is what makes it a
+test of reusable skill instances rather than of one-shot planning. The split is
+by task identifier only, so all trials of a task share a split: $20$ tasks /
+$79$ trajectories train, $5$ / $20$ development, $5$ / $20$ sealed test. The
+corpus is fixed at SHA-256 \texttt{bf5ac594027a738a}; all $24$ construction
+gates pass, including clean-rebuild byte identity, split-seed sensitivity, and
+trajectory hashes that are invariant to the split. A $20$-trajectory manual
+audit pack (\texttt{manual\_audit\_template.jsonl}, strata-balanced, annotation
+fields deliberately empty) accompanies the corpus for human labelling.
+
+\paragraph{What this corpus does and does not provide.}
+$\tau^3$-Retail has no gold HPOP segmentation and no gold reusable partial
+order. Official expected actions are evaluation targets for the benchmark's own
+task-success metric and are never treated as gold $S$, $z$ or $H$. Consequently
+the pilot is evaluated by held-out predictive likelihood and posterior
+predictive checks rather than by structural recovery against a ground truth, and
+the manual audit pack --- not the official metadata --- is the only route to
+boundary-level agreement figures. The observed input is a fixed trace: we do not
+execute the environment and we make no claim about online performance.
+
+The model-fitting protocol, including the number of skill types $K$, is not
+fixed by this data package and will be preregistered separately before any
+inference is run. The sealed test split is not touched until a development
+result is frozen.
+
+\paragraph{Development smoke fit.}
+\textit{Development smoke-fit result pending.}
+
+% ---------------------------------------------------------------------------
+% NOTE TO AUTHOR (delete before submission):
+%  - As of this evidence pack NO smoke-fit preregistration is committed. Do NOT
+%    write "we preregistered inference of S, z, U, pi, P with fixed recurrent
+%    scalars" until that registration exists in a commit; tool_vocabulary.json
+%    explicitly defers K to the fitting task.
+%  - Do not open or summarise test_trajectories.jsonl in any draft.
+%  - This section licenses no predictive claim of any kind.
+% ---------------------------------------------------------------------------

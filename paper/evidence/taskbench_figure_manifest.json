@@ -1,0 +1,152 @@
+{
+  "manifest_version": "1.0.0",
+  "experiment": "TaskBench static partial-order experiment",
+  "commit": "10d4bf40700ca6f3a6706187c4c3ec5239ff5610",
+  "branch": "taskbench-static-poset-fit",
+  "worktree": "/Users/dongqing/Desktop/hpop-taskbench",
+  "benchmark_sha256": "4b4c23b454ada1bedcc7e906854c1959b2990e0338242701374d4c5bd04fd91a",
+  "numerical_data_altered": false,
+  "figures_regenerated": false,
+  "note": "All three figures are committed at 10d4bf4 alongside their exact source data. No figure was regenerated and no numerical value was altered by this evidence pack.",
+  "figures": [
+    {
+      "figure_id": "A",
+      "name": "condition_curves",
+      "source_data_path": "results/external/taskbench_static_poset/figure_data/figure_a_condition_curves.json",
+      "rendered_figure_path": "results/external/taskbench_static_poset/figure_data/figure_a_condition_curves.png",
+      "rendered_format": "PNG",
+      "vector_version_exists": false,
+      "data_structure": "models.<model>.<metric>.means.{ONE,TWO,FOUR} plus paired deltas TWO_minus_ONE / FOUR_minus_TWO / FOUR_minus_ONE, each with mean_delta and ci95; top-level n_paired_graphs. NOTE: the JSON carries six metrics (closure_f1, incomparable_f1, brier, legal_nll_per_node, auroc, pairwise_acc) and five models, but the rendered PNG plots only THREE metrics and FOUR models - no NLL panel, no AUROC panel, no gold-oracle series, and no plotted intervals.",
+      "n_paired_graphs": 26,
+      "models_plotted": [
+        "antichain",
+        "bayes",
+        "first_total_order",
+        "intersection"
+      ],
+      "metrics_plotted": [
+        "closure_f1",
+        "incomparable_f1",
+        "brier"
+      ],
+      "deterministic_selection_rule": "No selection. All 26 test graphs present in ALL THREE conditions are used; the ONE/TWO/FOUR means are paired over exactly that set, and the intervals are the frozen paired bootstrap CIs. Nothing is sampled, filtered or hand-picked.",
+      "caption_draft": "Figure A. More observed linearizations, better recovered partial orders. Three panels - closure F1, incomparable-pair F1 and relation Brier - as the number of observed legal training orderings rises from one to two to four, over the 26 TaskBench test graphs present in all three conditions. The Bayesian product-order model (green) improves monotonically on every panel: closure F1 0.452 to 0.677 to 0.902, incomparable-pair F1 0.566 to 0.647 to 0.892, relation Brier 0.130 to 0.088 to 0.041; every FOUR-minus-ONE paired interval excludes zero (intervals are tabulated, not drawn). The two degenerate baselines are flat by construction: the first observed total order (red) asserts every relation and so recovers no incomparable pairs, and the antichain (grey) asserts none. The deterministic order-intersection (blue) is the real competitor: it leads on closure F1 at ONE and TWO and converges to the Bayesian model at FOUR, but it starts at zero incomparable F1 because a single observed ordering forces it to a total order, and its relation Brier is worse than the Bayesian model's at ONE and TWO. Held-out predictive NLL and AUROC are not panels here; see Table 2. Static partial-order component only.",
+      "recommendation": "main text",
+      "recommendation_rationale": "This is the single figure that carries the TaskBench claim: monotone improvement with more observations, with honest intervals and the intersection baseline visible alongside. Everything else can go to the appendix.",
+      "caveats_that_must_appear_in_the_caption_or_nearby_text": [
+        "26 paired graphs, not 37 - the FOUR condition requires four distinct legal orderings.",
+        "Static component only; not full HPOP.",
+        "The intersection baseline is drawn and leads on closure F1 at ONE and TWO - do not describe the figure as showing the Bayesian model winning.",
+        "No confidence intervals are drawn in the current PNG; do not write 'with 95% intervals' unless the figure is re-rendered with them.",
+        "No gold-oracle series is drawn; do not reference one."
+      ],
+      "rendered_panels": [
+        "Closure F1",
+        "Incomparable F1",
+        "Relation Brier"
+      ],
+      "rendered_series": [
+        "Antichain",
+        "Bayesian product-order",
+        "First total order",
+        "Intersection"
+      ],
+      "rendered_shows_confidence_intervals": false,
+      "rendered_shows_gold_oracle": false,
+      "gap_against_the_papers_claim": {
+        "issue": "results_taskbench.tex and the frozen verdict both rest partly on held-out legal NLL and AUROC, which this figure does not plot.",
+        "options": [
+          "Keep as-is and carry NLL/AUROC in Table 2 only (no re-render; zero risk).",
+          "Re-render from the SAME frozen figure_a_condition_curves.json as a 5-panel figure adding legal_nll_per_node and auroc, and draw the ci95 values the JSON already contains. This is a plotting change over unaltered data, not a recomputation."
+        ],
+        "recommendation": "Option 2 if a main-text slot allows five panels, because it would let one figure carry the whole ONE/TWO/FOUR claim; otherwise Option 1."
+      }
+    },
+    {
+      "figure_id": "B",
+      "name": "legal_versus_illegal_score_margins",
+      "source_data_path": "results/external/taskbench_static_poset/figure_data/figure_b_margins.json",
+      "rendered_figure_path": "results/external/taskbench_static_poset/figure_data/figure_b_margins.png",
+      "rendered_format": "PNG",
+      "vector_version_exists": false,
+      "data_structure": "Flat map keyed '<CONDITION>:<model>' -> array of per-graph score margins, one entry per test graph in that condition (37 at ONE and TWO, 26 at FOUR). 15 series total (3 conditions x 5 models). The PNG renders each series as a box plot; the sign convention is log p(legal) - log p(illegal), so larger is better separation and zero is chance.",
+      "deterministic_selection_rule": "No selection. Every test graph in the condition contributes exactly one margin per model; series are keyed by condition and model with no subsampling.",
+      "caption_draft": "Figure B. Legal-versus-illegal score margins by model and condition. Box plots of the per-graph margin log p(legal) - log p(illegal) across test graphs, one panel per condition; the dashed red line is zero, i.e. no discrimination. The antichain collapses onto that line by construction, which is why its AUROC is exactly 0.500. The first observed total order separates on average but is brittle, with graphs at or below zero in the ONE and FOUR panels. The Bayesian product-order model's whiskers sit entirely above zero in all three conditions - it never fails to separate - while the deterministic intersection achieves a wider raw margin because its harder structure assigns illegal orderings lower probability. Discrimination nevertheless ties (all Bayes-versus-intersection AUROC intervals cover zero), because the Bayesian model scores unseen legal orderings correspondingly higher. The gold oracle bounds the achievable margin.",
+      "recommendation": "appendix",
+      "recommendation_rationale": "It explains why a wider intersection margin does not translate into an AUROC advantage - a subtlety worth documenting but not worth a main-text slot.",
+      "caveats_that_must_appear_in_the_caption_or_nearby_text": [
+        "A wider margin is NOT a discrimination win; the paired AUROC intervals cover zero in every condition.",
+        "The antichain's flat-at-zero series is a construction artifact, not a measurement.",
+        "These are box plots over graphs, not per-ordering points."
+      ],
+      "rendered_plot_type": "box plots (median, IQR, whiskers, outliers) - not a scatter of points",
+      "rendered_y_axis": "log p(legal) - log p(illegal)",
+      "rendered_panels": [
+        "ONE (test graphs)",
+        "TWO (test graphs)",
+        "FOUR (test graphs)"
+      ],
+      "rendered_series": [
+        "First total order",
+        "Antichain",
+        "Intersection",
+        "Bayesian product-order",
+        "Gold oracle"
+      ]
+    },
+    {
+      "figure_id": "C",
+      "name": "representative_graphs",
+      "source_data_path": "results/external/taskbench_static_poset/figure_data/figure_c_manifest.json",
+      "rendered_figure_path": "results/external/taskbench_static_poset/figure_data/figure_c_representative_graphs.png",
+      "rendered_format": "PNG",
+      "vector_version_exists": false,
+      "data_structure": "Array of four records, one per node count m in {4,5,6,7}: sample_id, m, closure_f1, training_orders_TWO (the two observed linearizations shown).",
+      "selected_graphs": [
+        {
+          "sample_id": "25026302",
+          "m": 4,
+          "closure_f1": 0.6666666666666666
+        },
+        {
+          "sample_id": "65316510",
+          "m": 5,
+          "closure_f1": 0.7692307692307692
+        },
+        {
+          "sample_id": "17529566",
+          "m": 6,
+          "closure_f1": 0.761904761904762
+        },
+        {
+          "sample_id": "24635315",
+          "m": 7,
+          "closure_f1": 0.7142857142857143
+        }
+      ],
+      "deterministic_selection_rule": "Preregistered median rule: one graph per node count m in {4,5,6,7}, chosen as the median-closure-F1 graph within that node count under the TWO condition. The rule was frozen in the experiment's preregistration before results were inspected; no graph was chosen for how it looked. The four selected closure F1 values (0.667, 0.769, 0.762, 0.714) sit near the TWO-condition Bayesian mean of 0.706, as a median rule should produce - these are typical cases, not showcases.",
+      "caption_draft": "Figure C. Representative recovered partial orders. One TaskBench test graph per node count (m = 4, 5, 6, 7), selected by a preregistered median-closure-F1 rule within each node count under the TWO condition, so these are typical rather than favourable cases (closure F1 0.667, 0.769, 0.762, 0.714 against a TWO-condition mean of 0.706). Each row shows, left to right, the gold transitive closure as a binary relation matrix, the posterior relation probability P(a < b), and the closure predicted by thresholding that posterior at 0.5. Reading the middle column is the point: relations implied by both observed orderings saturate near 1, relations the two orderings disagree about sit in the middle of the range rather than being asserted either way, and pairs the data cannot speak to stay near 0. That graded middle column is the calibration advantage Figure A quantifies as a lower relation Brier, and it is exactly what a deterministic intersection cannot express.",
+      "recommendation": "appendix",
+      "recommendation_rationale": "Qualitatively illuminating and it makes the calibration claim concrete, but it costs a lot of space for evidence already carried numerically by Figure A and Table 2.",
+      "caveats_that_must_appear_in_the_caption_or_nearby_text": [
+        "State the preregistered median selection rule in the caption - a reader must not suspect cherry-picking.",
+        "Node counts are 4-7; the benchmark contains no larger graphs.",
+        "These are relation-matrix heatmaps, not node-link diagrams, and the observed training orderings are not drawn."
+      ],
+      "rendered_plot_type": "4 x 3 grid of matrix heatmaps: one row per representative graph, columns = gold closure (binary), posterior P(a < b) (continuous, viridis, shared 0-1 colourbar), predicted closure (binary at threshold 0.5). Node-link diagrams are NOT drawn.",
+      "rendered_does_not_show": "The two observed training linearizations are recorded in figure_c_manifest.json but are NOT drawn in the PNG."
+    }
+  ],
+  "vector_regeneration_todo": {
+    "status": "OPEN",
+    "severity": "non-blocking",
+    "finding": "All three rendered figures are PNG only (98 KB, 77 KB and 233 KB respectively). No PDF, SVG or TikZ version exists in any commit.",
+    "why_it_matters": "ICLR camera-ready and reviewer zoom both favour vector output; a 233 KB PNG of a node-link diagram (Figure C) will visibly pixelate.",
+    "recommended_action": "Re-render Figures A and B to PDF from the SAME frozen JSON (matplotlib savefig with a .pdf extension is sufficient and changes no data). Figure C is a heatmap grid, so a PDF re-render is enough - TikZ is unnecessary; if it is redrawn, keep the shared 0-1 colourbar and the gold / posterior / predicted column order. Under no circumstances re-run any fit or recompute any metric to produce a figure. If Figure A is re-rendered anyway, consider adding the legal_nll_per_node and auroc panels and the ci95 error bars that its JSON already contains.",
+    "constraint": "Numerical data must not be altered. Regeneration is a rendering change only, and the regenerated figure must be diffed against the PNG before it replaces it.",
+    "blocking_for_submission": false,
+    "blocking_for_camera_ready": true
+  },
+  "captions_verified_against_rendered_images": true,
+  "caption_verification_note": "Caption drafts were initially written from the figure_data JSON and misdescribed all three rendered PNGs. They were corrected on 2026-08-17 after opening the images. The JSON files contain MORE metrics than the PNGs plot; a caption must describe the rendered panels, not the available data."
+}

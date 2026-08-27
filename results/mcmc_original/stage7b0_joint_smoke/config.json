@@ -1,0 +1,70 @@
+{
+  "stage": "7B0",
+  "source_commit": "77093cb5845a9a2dc3472203657fa62fc6222164",
+  "stage6e_config_hash": "d98897a181b6809a17dd572ca175da7846a6924b8429b9c7337a939686a6da44",
+  "python": "3.13.2",
+  "numpy": "2.4.6",
+  "model": {
+    "traces": [
+      [
+        2,
+        0,
+        2,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0
+      ]
+    ],
+    "J": 8,
+    "n_skills": 3,
+    "m_roles": 3,
+    "epsilon": 0.02,
+    "delta_B": 0.15,
+    "min_width": 3,
+    "max_width": 12,
+    "pi_P_fixed_model": true,
+    "pi_P_inferred_model_also_tested": true
+  },
+  "sweep_order": [
+    "FFBS draw of (S, z)",
+    "pi/P",
+    "U",
+    "rho",
+    "beta",
+    "omega",
+    "lambda_rep",
+    "lambda_back"
+  ],
+  "segmentation_update": {
+    "kind": "Gibbs \u2014 exact draw from p(S_n, z_n | x_n, Theta)",
+    "acceptance_probability": 1.0,
+    "hastings_correction": "none, by construction",
+    "rng": "one draw per trace per sweep, taken sequentially from the single chain generator in trace order"
+  },
+  "table_lifecycle": {
+    "built": "once per segmentation sweep, for every candidate block",
+    "invalidated": "immediately after the FFBS draw, before any parameter moves",
+    "read_when_stale": "raises AssertionError",
+    "parameter_phase": "evaluates only the selected blocks, through the frozen Stage 6E SkillBlockLikelihood"
+  },
+  "scales": {
+    "U": 0.5,
+    "rho": 0.5,
+    "beta": 0.05109,
+    "omega": 0.18213,
+    "lambda_rep": 0.04155,
+    "lambda_back": 0.09472
+  }
+}

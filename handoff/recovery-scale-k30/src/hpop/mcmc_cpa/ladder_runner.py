@@ -56,6 +56,7 @@ from hpop.mcmc_optimized.segmentation import ffbs_segmentation_draw
 from .block_tables import CPABlockScoreTable
 from .collapsed_u import CPACollapsedULikelihood, collapsed_u_mh_step_cpa
 from .crn import CommonRandomNumbers
+from .u_quota import attempts_per_role_summary, quota_schedule
 from .seeds import LadderSeeds
 from .support_baseline import SupportOnlyBlockScoreTable
 
@@ -209,7 +210,8 @@ def run_ladder_chain(arm: str, model, role_maps, u_by_skill, chain: int, sweeps:
                      fixed=None, thin: int = 5, record_every: int = 1,
                      u_every: int = 1, u_moves: int = 1, u_scale: float = 0.5,
                      u_start=None, rho: float | None = None, crn=None,
-                     replicate: int = 0) -> dict:
+                     replicate: int = 0,
+                     target_u_attempts_per_role: float | None = None) -> dict:
     """One chain. `arm` is the ONLY thing that differs between the conditions.
 
     `support-only` and `oracle-order` both hold `u_by_skill` fixed -- the first ignores it
@@ -217,10 +219,16 @@ def run_ladder_chain(arm: str, model, role_maps, u_by_skill, chain: int, sweeps:
     contributes to segmentation and skill labelling, with no `U` inference in either.
 
     `learned-order` starts from `u_start` (a dispersed draw when not supplied, never the
-    truth) and moves `U` with the sealed collapsed row kernel, `u_moves` proposals every
-    `u_every` sweeps. `u_by_skill` is then the truth only for scoring recovery, never for
-    initialisation -- passing the truth as the start would make the arm an oracle wearing
-    a different name.
+    truth) and moves `U` with the sealed collapsed row kernel. `u_by_skill` is then the
+    truth only for scoring recovery, never for initialisation -- passing the truth as the
+    start would make the arm an oracle wearing a different name.
+
+    The `U` budget is set one of two ways. `target_u_attempts_per_role` is the registered
+    proportional-effort rule: the chain's total quota is `round(target * K * m)`, spread
+    over the update events by a cumulative quota, so attempted updates per role vector are
+    constant across `K`. `u_moves` is the older fixed-per-event count, kept for pilots and
+    for the fixed-`U` arms that make no proposals at all; it leaves effort falling as
+    `1/K` and must not be used for a production ladder.
     """
     from hpop.mcmc_original.full_latent_constants import (FIXED_BETA, FIXED_LAMBDA_BACK,
                                                           FIXED_LAMBDA_REP, FIXED_OMEGA,
@@ -246,6 +254,7 @@ def run_ladder_chain(arm: str, model, role_maps, u_by_skill, chain: int, sweeps:
         lambda_rep=float(FIXED_LAMBDA_REP), lambda_back=float(FIXED_LAMBDA_BACK),
         pi=pi, transition=transition)
 
+    schedule, moves_at = None, None
     if arm == LEARNED_ORDER:
         if u_start is None:
             u_start = _dispersed_u_start(rng, np.asarray(u_by_skill, dtype=float))
@@ -255,6 +264,13 @@ def run_ladder_chain(arm: str, model, role_maps, u_by_skill, chain: int, sweeps:
         likelihood = CPACollapsedULikelihood(model, role_maps, epsilon)
         likelihood.refresh_to(state)
         tables = _LikelihoodTables(likelihood)
+        if target_u_attempts_per_role is not None:
+            schedule = quota_schedule(target_u_attempts_per_role, n_skills,
+                                      int(model.n_roles), int(sweeps), int(warmup),
+                                      int(u_every))
+            moves_at = dict(zip(schedule["events"].tolist(),
+                                schedule["moves_per_event"].tolist()))
+
     else:
         likelihood = None
         tables = ArmTables(arm, model, role_maps, epsilon)
@@ -263,17 +279,29 @@ def run_ladder_chain(arm: str, model, role_maps, u_by_skill, chain: int, sweeps:
     kept = {"labels": [], "n_segments": [], "boundaries": [], "u": []}
     moved = 0
     u_proposed = u_accepted = u_invalid = 0
+    u_proposed_burnin = u_accepted_burnin = 0
+    u_proposed_retained = u_accepted_retained = 0
+    role_attempts = np.zeros((n_skills, int(model.n_roles)), dtype=np.int64)
 
     for sweep in range(int(sweeps)):
         validate_pi_p(state, model)
         if arm == LEARNED_ORDER and int(u_every) > 0 and sweep % int(u_every) == 0:
-            for proposal in range(int(u_moves)):
+            n_here = (moves_at.get(sweep, 0) if moves_at is not None else int(u_moves))
+            in_burnin = sweep < int(warmup)
+            for proposal in range(int(n_here)):
                 record = collapsed_u_mh_step_cpa(state, likelihood,
                                                  crn.rng("u", sweep, proposal),
                                                  float(u_scale))
                 u_proposed += 1
                 u_accepted += int(record["accepted"])
                 u_invalid += int(record["invalid"])
+                role_attempts[int(record["skill"]), int(record["row"])] += 1
+                if in_burnin:
+                    u_proposed_burnin += 1
+                    u_accepted_burnin += int(record["accepted"])
+                else:
+                    u_proposed_retained += 1
+                    u_accepted_retained += int(record["accepted"])
         tables.refresh(state)
         draw = ffbs_segmentation_draw(model, state, tables,
                                       crn.rng("ffbs", sweep))
@@ -310,6 +338,38 @@ def run_ladder_chain(arm: str, model, role_maps, u_by_skill, chain: int, sweeps:
         "u_accepted": u_accepted,
         "u_invalid": u_invalid,
         "u_acceptance_rate": (u_accepted / u_proposed) if u_proposed else None,
+        "u_proposed_burnin": u_proposed_burnin,
+        "u_accepted_burnin": u_accepted_burnin,
+        "u_proposed_retained": u_proposed_retained,
+        "u_accepted_retained": u_accepted_retained,
+        "u_acceptance_rate_burnin": ((u_accepted_burnin / u_proposed_burnin)
+                                     if u_proposed_burnin else None),
+        "u_acceptance_rate_retained": ((u_accepted_retained / u_proposed_retained)
+                                       if u_proposed_retained else None),
+        "u_attempts_per_role_burnin": (u_proposed_burnin / role_attempts.size
+                                       if role_attempts.size else 0.0),
+        "u_attempts_per_role_retained": (u_proposed_retained / role_attempts.size
+                                         if role_attempts.size else 0.0),
+        "u_role_attempts": role_attempts.tolist(),
+        "u_role_attempt_summary": attempts_per_role_summary(role_attempts),
+        "u_quota_schedule": (None if schedule is None else
+                             {k: (v.tolist() if isinstance(v, np.ndarray) else v)
+                              for k, v in schedule.items()
+                              if k not in ("events", "moves_per_event")}),
+        "u_kernel": ("enabled" if arm == LEARNED_ORDER else "disabled"),
+        "N_U": u_proposed,
+        "N_U_expected": (None if schedule is None else schedule["total_quota_M_K"]),
+        "arm_provenance": {
+            SUPPORT_ONLY: "U-kernel disabled, N_U = 0; score does not read U at all",
+            ORACLE_ORDER: "U-kernel disabled, N_U = 0; score reads U, held at the truth",
+            LEARNED_ORDER: "U-kernel enabled, N_U = M_K from the registered quota",
+        }[arm],
+        "u_budget_rule": (
+            "no U proposals: U is held fixed in this arm" if arm != LEARNED_ORDER else
+            "proportional effort: round(target*K*m) spread by cumulative quota"
+            if schedule is not None else
+            f"fixed {u_moves} per event -- effort per role falls as 1/K; NOT for a "
+            f"production ladder"),
         "draws": kept,
         "final_pi": state.pi.tolist(),
         "final_transition": state.transition.tolist(),

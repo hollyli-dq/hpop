@@ -46,24 +46,56 @@ from hpop.mcmc_original.latent_poset import precedence_from_u            # noqa:
 from hpop.mcmc_original.stage6e_state import Stage6EModel                # noqa: E402
 
 
+_PROVENANCE_CACHE: dict | None = None
+
+
 def runtime_code_provenance() -> dict:
     """What THIS process is actually running, read from git at run time.
 
     Copying the manifest's `code_commit` into the output would make the cross-machine
-    consistency check vacuous: an operator who checked out the wrong commit would still
-    emit outputs claiming the manifest's value, and all four machines would "agree". The
-    only useful record is the one taken from the working tree that produced the numbers.
+    consistency check vacuous, so the commit is read from the working tree. The v2 fleet
+    then taught the second lesson: under 32 concurrent workers on shared NFS, git fails
+    transiently, and the old `except Exception: return None` swallowed the stderr and
+    wrote records with a null commit -- which correctly BLOCKED the collector but left
+    the cause undiagnosable. So now: captured ONCE per process (it cannot change
+    mid-process), retried with backoff, stderr recorded on every failure, and if git
+    still cannot answer, the worker REFUSES TO START rather than manufacturing outputs
+    that will block the whole fleet's aggregation four hours later.
     """
-    def git(*args):
-        try:
-            return subprocess.run(["git", "-C", str(ROOT), *args],
-                                  capture_output=True, text=True,
-                                  timeout=10).stdout.strip() or None
-        except Exception:
-            return None
-    return {"runtime_commit": git("rev-parse", "HEAD"),
-            "runtime_describe": git("describe", "--tags", "--always", "--dirty"),
-            "runtime_tree_dirty": bool(git("status", "--porcelain"))}
+    global _PROVENANCE_CACHE
+    if _PROVENANCE_CACHE is not None:
+        return _PROVENANCE_CACHE
+
+    def git(*args, attempts: int = 5) -> tuple:
+        errors = []
+        for attempt in range(attempts):
+            try:
+                proc = subprocess.run(["git", "-C", str(ROOT), *args],
+                                      capture_output=True, text=True, timeout=30)
+                if proc.returncode == 0:
+                    return proc.stdout.strip(), errors
+                errors.append(f"attempt {attempt}: exit {proc.returncode}: "
+                              f"{proc.stderr.strip()[:300]}")
+            except Exception as exc:                     # timeout, OSError, ...
+                errors.append(f"attempt {attempt}: {type(exc).__name__}: {exc}")
+            time.sleep(0.5 * (2 ** attempt))
+        return None, errors
+
+    commit, commit_errors = git("rev-parse", "HEAD")
+    describe, describe_errors = git("describe", "--tags", "--always", "--dirty")
+    dirty, dirty_errors = git("status", "--porcelain")
+    if commit is None:
+        raise SystemExit(
+            "cannot establish the runtime git commit after retries; refusing to run "
+            "jobs whose provenance would be null and block the collector. Git said:\n"
+            + "\n".join(commit_errors))
+    _PROVENANCE_CACHE = {
+        "runtime_commit": commit,
+        "runtime_describe": describe,
+        "runtime_tree_dirty": bool(dirty),
+        "provenance_git_errors": commit_errors + describe_errors + dirty_errors,
+    }
+    return _PROVENANCE_CACHE
 
 
 def peak_rss_gib() -> float:

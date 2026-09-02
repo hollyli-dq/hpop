@@ -276,7 +276,8 @@ def run_ladder_chain(arm: str, model, role_maps, u_by_skill, chain: int, sweeps:
         tables = ArmTables(arm, model, role_maps, epsilon)
 
     began = time.perf_counter()
-    kept = {"labels": [], "n_segments": [], "boundaries": [], "u": []}
+    kept = {"labels": [], "n_segments": [], "boundaries": [], "u": [],
+            "u_event_sweep": []}
     moved = 0
     u_proposed = u_accepted = u_invalid = 0
     u_proposed_burnin = u_accepted_burnin = 0
@@ -285,9 +286,11 @@ def run_ladder_chain(arm: str, model, role_maps, u_by_skill, chain: int, sweeps:
 
     for sweep in range(int(sweeps)):
         validate_pi_p(state, model)
+        is_u_event = False
         if arm == LEARNED_ORDER and int(u_every) > 0 and sweep % int(u_every) == 0:
             n_here = (moves_at.get(sweep, 0) if moves_at is not None else int(u_moves))
             in_burnin = sweep < int(warmup)
+            is_u_event = True
             for proposal in range(int(n_here)):
                 record = collapsed_u_mh_step_cpa(state, likelihood,
                                                  crn.rng("u", sweep, proposal),
@@ -302,6 +305,15 @@ def run_ladder_chain(arm: str, model, role_maps, u_by_skill, chain: int, sweeps:
                 else:
                     u_proposed_retained += 1
                     u_accepted_retained += int(record["accepted"])
+        if (arm == LEARNED_ORDER and is_u_event and sweep >= int(warmup)):
+            # One entry per retained U-UPDATE EVENT, recorded whether or not any proposal
+            # was accepted (a rejected event is still one step of the U chain). Recording
+            # on the thin grid instead -- as an earlier version did -- interleaves
+            # duplicate states between events and computes R-hat/ESS on an axis where U
+            # cannot move, which the frozen v2 spec forbade and the deployed code
+            # nonetheless did. The axis is now what the spec says it is.
+            kept["u"].append(np.asarray(state.u_by_skill, dtype=float).tolist())
+            kept["u_event_sweep"].append(int(sweep))
         tables.refresh(state)
         draw = ffbs_segmentation_draw(model, state, tables,
                                       crn.rng("ffbs", sweep))
@@ -318,8 +330,7 @@ def run_ladder_chain(arm: str, model, role_maps, u_by_skill, chain: int, sweeps:
                                        for seg in state.segmentations])
             kept["boundaries"].append([[int(s.end) for s in seg.segments[:-1]]
                                        for seg in state.segmentations])
-            if arm == LEARNED_ORDER:
-                kept["u"].append(np.asarray(state.u_by_skill, dtype=float).tolist())
+
         state.iteration += 1
 
     return {
@@ -364,6 +375,8 @@ def run_ladder_chain(arm: str, model, role_maps, u_by_skill, chain: int, sweeps:
             ORACLE_ORDER: "U-kernel disabled, N_U = 0; score reads U, held at the truth",
             LEARNED_ORDER: "U-kernel enabled, N_U = M_K from the registered quota",
         }[arm],
+        "u_axis": ("U-update event: one entry per retained U event, independent of "
+                   "thin" if arm == LEARNED_ORDER else "not applicable"),
         "u_budget_rule": (
             "no U proposals: U is held fixed in this arm" if arm != LEARNED_ORDER else
             "proportional effort: round(target*K*m) spread by cumulative quota"

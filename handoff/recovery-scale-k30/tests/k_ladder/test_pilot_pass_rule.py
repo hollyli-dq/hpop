@@ -64,16 +64,42 @@ def test_the_two_cases_are_distinguished_when_both_are_present():
     assert out["edges_chain_disagreeing_frozen"] == 1
 
 
-def test_a_partially_frozen_edge_is_kept_in_the_pool():
-    """Constant in some chains, moving in others: within-chain variance exists, so R-hat
-    is defined and the indicator must not be quietly dropped."""
+def test_a_partially_frozen_edge_is_counted_but_not_pooled():
+    """Constant in some chains, moving in others. The v2 run showed why pooling these is
+    wrong: split-chain within-variance is zero for the frozen chains, so rank-normalised
+    split R-hat degenerates to ~1e16 and ESS to a ~4.3 floor -- numbers that carried no
+    information and drowned every real edge. Counted as their own category, never pooled,
+    and not a failure by themselves."""
     rng = np.random.default_rng(0)
     e = np.concatenate([np.zeros((2, 40, 1)),
                         rng.integers(0, 2, size=(2, 40, 1)).astype(float)])
     out = pilot.pooled_diagnostics(chains_from(e))
     assert out["edges_partially_frozen"] == 1
+    assert out["edges_diagnosed"] == 0
+    assert out["rhat_edge_max"] is None
+    verdict = pilot.evaluate_pass_rule({**out, "u_acceptance_retained": 0.3,
+                                        "closure_changing_fraction": 0.5})
+    # The cell may still fail other gates (here, relation-count R-hat -- two chains
+    # genuinely disagree with the other two, and that gate is right to say so). What the
+    # fix guarantees is that no EDGE-level failure is manufactured from the frozen edge.
+    assert not any("rhat_edge" in f or "ess" in f.lower()
+                   for f in verdict["failures"]), verdict["failures"]
+
+
+def test_the_v2_degeneracy_cannot_recur():
+    """Regression built from the v2 run's structure: one partially-frozen edge next to
+    one genuinely moving edge. In v2 the frozen one produced R-hat 2.3e16 and an ESS
+    floor of 4.3 that masked the moving edge entirely. Now the pooled numbers must be
+    the MOVING edge's numbers -- finite, and far below 1e15."""
+    rng = np.random.default_rng(7)
+    moving = rng.integers(0, 2, size=(4, 40, 1)).astype(float)
+    partial = np.concatenate([np.zeros((3, 40, 1)),
+                              rng.integers(0, 2, size=(1, 40, 1)).astype(float)])
+    out = pilot.pooled_diagnostics(chains_from(np.concatenate([moving, partial], axis=2)))
+    assert out["edges_partially_frozen"] == 1
     assert out["edges_diagnosed"] == 1
-    assert out["rhat_edge_max"] is not None
+    assert out["rhat_edge_max"] is not None and out["rhat_edge_max"] < 1e3
+    assert out["relation_level_ess_min"] is not None and out["relation_level_ess_min"] > 10
 
 
 def test_no_finite_rhat_is_reported_for_an_all_frozen_set():

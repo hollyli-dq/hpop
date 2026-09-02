@@ -1,0 +1,1 @@
+{"forward": [[48, 21, 24, 33, 16, 40, 42, 0, 5, 22], [21, 36, 26, 47, 4, 11, 12, 39, 10, 44], [1, 5, 36, 11, 24, 31, 48, 17, 35, 38]], "n_cpa": 50, "note": "typed supports are part of the OBSERVATION model, not of the sealed order truth; workers may read this"}

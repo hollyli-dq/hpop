@@ -136,7 +136,14 @@ def pooled_diagnostics(per_chain: list) -> dict:
     consensus_fixed = all_constant & same_everywhere
     chain_disagreeing = all_constant & ~same_everywhere
     partially_frozen = constant_in_chain.any(axis=0) & ~all_constant
-    eligible = np.flatnonzero(~all_constant)
+    # Only indicators that move WITHIN EVERY chain enter the R-hat/ESS pool. The v2 run
+    # proved why the earlier pool (everything not fully constant) was wrong: cells
+    # existed in which NO edge moved within all chains, so the pool held only
+    # partially-frozen edges, whose split-chain within-variance is zero -- producing
+    # R-hat around 2.3e16 and an ESS floor of 4.3 that carried no information. A
+    # partially-frozen edge is its own reported category, neither pooled nor a failure
+    # by itself; the chain-disagreeing FROZEN category remains the automatic failure.
+    eligible = np.flatnonzero(~constant_in_chain.any(axis=0))
 
     out.update(
         edges_total=int(edges.shape[2]),
@@ -144,18 +151,19 @@ def pooled_diagnostics(per_chain: list) -> dict:
         edges_chain_disagreeing_frozen=int(chain_disagreeing.sum()),
         edges_partially_frozen=int(partially_frozen.sum()),
         edges_diagnosed=int(eligible.size),
-        edge_selection=("exhaustive over all role-pair indicators; consensus-fixed "
-                        "indicators are exempt (agreement, not failure), "
-                        "chain-disagreeing frozen indicators are an automatic failure"))
+        edge_selection=("exhaustive over role-pair indicators that move within EVERY "
+                        "chain; consensus-fixed exempt (agreement), partially-frozen "
+                        "reported separately and NOT pooled (their split-chain R-hat is "
+                        "degenerate), chain-disagreeing frozen an automatic failure"))
     if chain_disagreeing.any():
         out["chain_disagreeing_warning"] = (
             f"{int(chain_disagreeing.sum())} indicator(s) frozen within every chain at "
             f"DIFFERENT values -- chains stuck in different orders")
     if eligible.size == 0:
         out.update(rhat_edge_max=None, relation_level_ess_min=None,
-                   note=("every indicator was constant within all chains; no R-hat is "
-                         "defined. This is a failure only if any of them disagree "
-                         "between chains."))
+                   note=("no indicator moved within every chain; edge R-hat/ESS are "
+                         "undefined for this cell. Not a failure by itself -- but "
+                         "chain-disagreeing frozen edges, if any, still are."))
         return out
     variable = eligible
     rhats, esss = [], []

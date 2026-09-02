@@ -184,3 +184,95 @@ def draw_master_library(replicate: int, k_max: int = 30, n_roles: int = 10,
     raise RuntimeError(
         f"no admissible master library for replicate {replicate} in {max_attempts} "
         f"attempts; do not relax the criteria -- report and stop")
+
+
+def draw_master_library_v2(replicate: int, k_max: int = 30, n_roles: int = 10,
+                           n_cpa: int = 50, rho: float = 0.5,
+                           max_candidates: int = 3000) -> tuple:
+    """Evidence-admissible master library: skills collected ONE AT A TIME.
+
+    v1 rejected whole 30-skill draws, which is fine for structural criteria that almost
+    always hold but infeasible once per-skill evidence admissibility is added (a 40%
+    per-skill pass rate makes a whole-library accept a once-in-10^12 event). Here each
+    candidate skill is drawn from the same latent prior, kept iff it passes BOTH the
+    structural checks and the pair-evidence admissibility of `exposure.evidence_admissible`
+    (floors derived from the registered corpus size), and rejected otherwise -- with every
+    rejection recorded. Cross-skill distinctness is enforced as candidates are admitted.
+
+    Nesting across the ladder is preserved: rung K is the first K admitted skills, in
+    admission order, before the registered permutation.
+    """
+    from hpop.mcmc_original.stage6c_frozen import sigma_rho_matrix
+
+    from .exposure import evidence_admissible
+    from .recovery_regime import REGIME, generation_params
+
+    replicate = int(replicate)
+    seeds = {
+        "master_structural_truth": 6_900_001 + replicate,
+        "master_role_support_library": 6_900_051 + replicate,
+        "master_skill_permutation": 6_900_101 + replicate,
+    }
+    chol = np.linalg.cholesky(sigma_rho_matrix(2, float(rho)))
+    maps = sample_role_maps(k_max, n_roles, n_cpa,
+                            seed=seeds["master_role_support_library"])
+
+    mean_width = (REGIME.MIN_WIDTH + REGIME.MAX_WIDTH) / 2.0
+    expected_instances = REGIME.TRAIN_PER_SKILL * REGIME.TRACE_LENGTH / mean_width
+    params = generation_params()
+
+    admitted, closures, attempts = [], set(), []
+    candidate = 0
+    while len(admitted) < int(k_max):
+        if candidate >= int(max_candidates):
+            raise RuntimeError(
+                f"only {len(admitted)} of {k_max} skills admissible after "
+                f"{max_candidates} candidates; report and stop -- do not relax floors")
+        rng = np.random.default_rng(seeds["master_structural_truth"]
+                                    + 1000 * candidate)
+        u_skill = np.stack([chol @ rng.standard_normal(2) for _ in range(n_roles)])
+        reasons = []
+
+        closure = np.asarray(precedence_from_u(u_skill))
+        relations = int(closure.sum())
+        pairs = n_roles * (n_roles - 1)
+        if relations < 1:
+            reasons.append("closure has no relation")
+        if relations >= pairs:
+            reasons.append("closure is a total order")
+        digest = closure.tobytes()
+        if digest in closures:
+            reasons.append("duplicate closure")
+
+        if not reasons:
+            ok, ev_reasons, profile = evidence_admissible(
+                u_skill[None], params, REGIME.DELTA_B, REGIME.MIN_WIDTH,
+                REGIME.MAX_WIDTH, REGIME.TRACE_LENGTH, REGIME.EXPOSURE_PROBES,
+                seeds["master_structural_truth"] + 500_000 + candidate,
+                expected_instances=expected_instances,
+                edge_min_expected=5.0, incomp_min_expected_each_way=2.0)
+            if not ok:
+                reasons.extend(ev_reasons)
+
+        attempts.append({"candidate": candidate, "accepted": not reasons,
+                         "rejection_reasons": reasons[:3]})
+        if not reasons:
+            admitted.append(u_skill)
+            closures.add(digest)
+        candidate += 1
+
+    u = np.stack(admitted)
+    permutation = np.random.default_rng(
+        seeds["master_skill_permutation"]).permutation(int(k_max))
+    library = MasterLibrary(u[permutation],
+                           RoleMaps(maps.forward[permutation], n_cpa),
+                           permutation, n_cpa, replicate, seeds)
+    accepted = sum(1 for a in attempts if a["accepted"])
+    meta = {"scheme": "v2 per-skill evidence admissibility",
+            "candidates": candidate, "accepted": accepted,
+            "per_skill_acceptance": accepted / candidate,
+            "floors": {"edge_min_expected": 5.0,
+                       "incomp_min_expected_each_way": 2.0,
+                       "expected_instances": expected_instances},
+            "attempts": attempts}
+    return library, meta

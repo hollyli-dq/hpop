@@ -398,7 +398,8 @@ def generate_ladder_corpus(library, k: int, replicate: int, trace_length: int = 
                            params: RecurrentRFSParameters | None = None,
                            delta_b: float = 0.15, min_width: int = 3, max_width: int = 12,
                            bands: CoverageBands | None = None,
-                           master_transitions=None) -> LadderCorpus:
+                           master_transitions=None,
+                           train_per_skill: int = 5, test_per_skill: int = 2) -> LadderCorpus:
     """One rung's corpus: `N_train = 5 x K`, `N_test = 2 x K`, **generated exactly once**.
 
     ## There is no acceptance loop, and there must not be one
@@ -450,7 +451,7 @@ def generate_ladder_corpus(library, k: int, replicate: int, trace_length: int = 
         master_transitions = draw_master_transitions(
             replicate, library.permutation, k_max=library.k_max)
     pi, transition = master_transitions.pi_p(k)
-    n_train, n_test = 5 * k, 2 * k
+    n_train, n_test = int(train_per_skill) * k, int(test_per_skill) * k
     tables = width_sampling_tables(trace_length, delta_b, min_width, max_width)
 
     train = [_emit_trace(seeds["train_corpus"], "train", i, trace_length, u_by_skill,

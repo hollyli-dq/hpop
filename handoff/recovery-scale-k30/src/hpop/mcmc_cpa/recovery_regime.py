@@ -46,7 +46,13 @@ class REGIME:
 
     # ---- inference (same engine at every K; scores at the SAME beta as generation)
     U_EVERY = 10                     # path-marginal collapsed-U cadence
-    U_RATE_PER_ROLE_PER_SWEEP = 0.02  # effort pacing: proposals/(role*sweep), flat in K
+    # Effort pacing: proposals/(role*sweep), flat in K. PRICED on the frozen dataset
+    # (2026-09-03, M4, single thread): at K=30 one U move costs ~9.7 s and one FFBS
+    # sweep ~4.5 s, so 0.002 balances U work against FFBS work at the top rung
+    # (~10 s/sweep total; ~62 s at the 0.02 an earlier draft shipped unpriced). The cap
+    # then implies at most 0.002 * 100,000 = 200 proposals per role -- the structural-
+    # epoch bound arrives as a DERIVED consequence of (rate, cap), not as an input.
+    U_RATE_PER_ROLE_PER_SWEEP = 0.002
     SEGMENT_SWEEPS = 2_000           # one resumable work unit
     THIN = 5                         # segmentation draw thinning (U is on the event axis)
     CHECK_EVERY_SEGMENTS = 1         # coordinator evaluates gates after every segment

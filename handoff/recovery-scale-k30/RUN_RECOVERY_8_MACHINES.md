@@ -90,3 +90,20 @@ hostname, seconds, peak RSS, U proposals/acceptances (burn-in irrelevant — the
 windows the last half), per-skill H-changing accepted moves, per-role attempt counts.
 The coordinator's audit log records every verdict and every continue decision with its
 failing diagnostics, so the run's history is replayable from the archive alone.
+
+## How long will it take?
+
+Measured on the frozen dataset (M4 single thread; your Xeons ≈ 2× slower):
+
+| K | s/sweep (rate 0.002) | one 2,000-sweep segment (Xeon) |
+| --- | --- | --- |
+| 3 | ~0.1 | minutes |
+| 10 | ~1.9 | ~2 h |
+| 30 | ~10 | **~11 h** |
+
+All phase-B chains advance in parallel, so **one round ≈ 11 h wall-clock** (K=30
+dominates). Phase A ≈ 0.5–1 day. Phase B: unknowable by design — segments-to-convergence
+IS the measurement — but bounded: if K=30 converges in 5–10 segments, **~2–5 days
+total**; the cap (50 segments) bounds the worst case at **~3 weeks**, at which point the
+result is "inference FAIL at K=30", which is a reportable outcome, not a wasted run. The
+small rungs freeze their verdicts within the first day.
